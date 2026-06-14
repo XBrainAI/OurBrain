@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>提示词（Prompt）优化最佳实践指南</title>
+<style>
+:root {
+  --primary: #1a365d;
+  --secondary: #2c5282;
+  --accent: #3182ce;
+  --text: #2d3748;
+  --text-light: #4a5568;
+  --text-muted: #718096;
+  --bg: #ffffff;
+  --bg-warm: #faf9f7;
+  --bg-code: #f7fafc;
+  --border: #e2e8f0;
+  --border-light: #edf2f7;
+  --success: #276749;
+  --warning: #c05621;
+  --radius: 6px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+}
+
+body {
+  font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 48px 32px 64px;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding-bottom: 28px;
+  margin-bottom: 36px;
+}
+
+.header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+  display: inline-block;
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 8px;
+}
+
+.meta {
+  display: flex;
+  justify-content: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.meta-item {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.meta-label {
+  font-weight: 600;
+  color: var(--text-light);
+  white-space: nowrap;
+}
+
+/* TOC */
+.toc {
+  background: var(--bg-warm);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin-bottom: 40px;
+}
+
+.toc h2 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.toc ol {
+  padding-left: 0;
+  list-style: none;
+  counter-reset: toc;
+}
+
+.toc > ol > li {
+  counter-increment: toc;
+  margin-bottom: 6px;
+}
+
+.toc > ol > li::before {
+  content: counter(toc) ". ";
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.toc a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.toc a:hover {
+  color: var(--accent);
+}
+
+.toc ol ol {
+  padding-left: 28px;
+  margin-top: 4px;
+}
+
+.toc ol ol li {
+  margin-bottom: 3px;
+}
+
+.toc ol ol li::before {
+  content: "— ";
+  color: var(--text-muted);
+}
+
+/* Sections */
+section {
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+}
+
+h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--secondary);
+  margin: 28px 0 14px;
+}
+
+h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 20px 0 10px;
+}
+
+p {
+  margin-bottom: 14px;
+  text-align: justify;
+}
+
+/* Links */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+a:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* Lists */
+ul, ol {
+  padding-left: 24px;
+  margin-bottom: 14px;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+/* Blockquote / Info Box */
+.info-box {
+  background: var(--bg-warm);
+  border-left: 3px solid var(--accent);
+  padding: 16px 20px;
+  margin: 20px 0;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 14px;
+}
+
+.info-box p:last-child {
+  margin-bottom: 0;
+}
+
+.info-box strong {
+  color: var(--primary);
+}
+
+.tip-box {
+  background: #f0fff4;
+  border-left-color: var(--success);
+}
+
+.tip-box strong {
+  color: var(--success);
+}
+
+/* Code blocks */
+pre {
+  background: var(--bg-code);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  overflow-x: auto;
+  font-family: "SF Mono", "Fira Code", "JetBrains Mono", Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 16px 0;
+}
+
+code {
+  font-family: "SF Mono", "Fira Code", "JetBrains Mono", Consolas, monospace;
+  font-size: 13px;
+  background: var(--bg-code);
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: var(--secondary);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  color: var(--text);
+}
+
+/* Tables */
+.table-wrap {
+  overflow-x: auto;
+  margin: 20px 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  min-width: 500px;
+}
+
+th {
+  background: var(--bg-warm);
+  font-weight: 600;
+  color: var(--primary);
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 2px solid var(--border);
+  white-space: nowrap;
+}
+
+td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background: var(--bg-warm);
+}
+
+/* Consensus table special */
+.consensus-table th:first-child,
+.consensus-table td:first-child {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.consensus-table td {
+  text-align: center;
+}
+
+.consensus-table td:first-child {
+  text-align: left;
+}
+
+/* Divider */
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 36px 0;
+}
+
+/* Footer note */
+.footer-note {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Highlight text */
+.highlight {
+  background: #fffbeb;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-weight: 600;
+  color: var(--warning);
+}
+
+/* Section intro text */
+.section-intro {
+  font-size: 14.5px;
+  color: var(--text-light);
+  margin-bottom: 20px;
+}
+
+/* Sub-section separator */
+.sub-section {
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px dashed var(--border);
+}
+
+.sub-section:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+/* Reference links block */
+.ref-block {
+  margin-bottom: 20px;
+}
+
+.ref-block h4 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+/* Print styles */
+@media print {
+  body { font-size: 11pt; }
+  .toc { page-break-inside: avoid; }
+  h2 { page-break-after: avoid; }
+  .table-wrap { page-break-inside: avoid; }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .container { padding: 24px 20px; }
+  .header h1 { font-size: 22px; }
+  h2 { font-size: 18px; }
+  h3 { font-size: 15px; }
+  table { font-size: 12px; }
+  th, td { padding: 8px 10px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<header class="header">
+  <h1>提示词（Prompt）优化最佳实践指南</h1>
+  <div class="meta">
+    <div class="meta-item">广州奥凯信息咨询有限公司 &nbsp; 2026年6月8日</div>
+  </div>
+</header>
+
+<!-- TOC -->
+<nav class="toc">
+  <h2>目 录</h2>
+  <ol>
+    <li><a href="#s1">什么是提示词优化</a></li>
+    <li><a href="#s2">业界权威标准与参考</a>
+      <ol>
+        <li><a href="#s21">OpenAI 官方指南（六大策略）</a></li>
+        <li><a href="#s22">Anthropic Claude 最佳实践（五大原则）</a></li>
+        <li><a href="#s23">Google Gemini 白皮书（十四项最佳实践）</a></li>
+        <li><a href="#s24">三巨头核心共识速查表</a></li>
+        <li><a href="#s25">国内主流 AI 平台提示词规范</a></li>
+      </ol>
+    </li>
+    <li><a href="#s3">提示词优化工具全景</a></li>
+    <li><a href="#s4">黄金法则</a></li>
+    <li><a href="#s5">延伸学习资源</a></li>
+  </ol>
+</nav>
+
+<!-- Section 1 -->
+<section id="s1">
+  <h2>1. 什么是提示词优化</h2>
+  <p><strong>定义</strong>：提示词优化是指通过调整对 AI 输入的指令表述方式，使其更加清晰、具体、结构化，从而获得更准确、更有用的输出结果。</p>
+  <p><strong>类比说明</strong>：向 AI 下达指令与向新同事交代任务具有高度相似性。模糊的表述（如"帮我做个表"）会导致理解偏差；而明确的指令（如"将上月销售数据按地区分列整理为 Excel 表格，并添加合计行"）则能够直接产生有效成果。指令的精确度与输出质量呈正相关。</p>
+  <div class="info-box">
+    <p><strong>核心认知</strong>：提示词优化并非编程技能的延伸，而是<strong>日常表达能力的迁移应用</strong>。表达越清晰，与 AI 的协作效率越高。</p>
+  </div>
+</section>
+
+<hr>
+
+<!-- Section 2 -->
+<section id="s2">
+  <h2>2. 业界权威标准与参考</h2>
+  <p class="section-intro">全球三大 AI 研究机构（OpenAI、Anthropic、Google）均发布了系统性的提示词工程指南。与此同时，国内主要 AI 平台（百度、阿里、字节跳动、月之暗面、深度求索）亦推出了各自的提示词规范与优化工具。以下分述各平台的核心标准。</p>
+
+  <div class="sub-section" id="s21">
+    <h3>2.1 OpenAI 官方指南（六大策略）</h3>
+
+    <div class="ref-block">
+      <h4>中文解读资源</h4>
+      <ul>
+        <li>知乎：<a href="https://zhuanlan.zhihu.com/p/672723789">OpenAI 官方提示工程指南（中文翻译）</a></li>
+        <li>掘金：<a href="https://juejin.cn/post/7586482851097346088">OpenAI 官方 Prompt 工程六大原则深度解读</a></li>
+        <li>北京智源研究院：<a href="https://hub.baai.ac.cn/view/33671">写好 Prompt 的六个策略</a></li>
+        <li>CSDN：<a href="https://blog.csdn.net/WANGJUNAIJIAO/article/details/149441364">OpenAI 官方 Prompt 指南详解</a></li>
+      </ul>
+      <p style="font-size:13px;color:var(--text-muted)">官方原版需国际网络访问：<a href="https://platform.openai.com/docs/guides/prompt-engineering">OpenAI Prompt Engineering Guide</a></p>
+    </div>
+
+    <p>OpenAI 将提示词优化归纳为<strong>六大核心策略</strong>，涵盖 17 条具体技巧：</p>
+
+    <h4>策略一：写出清晰的指令</h4>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>序号</th><th>技巧</th><th>说明</th><th>适用场景</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td><strong>把话说详细</strong></td><td>提供足够多的细节和上下文，避免笼统表述</td><td>所有场景</td></tr>
+          <tr><td>2</td><td><strong>让模型扮演角色</strong></td><td>指定 AI 的身份定位（如"你是一名专利代理人"），提升输出专业性</td><td>专业写作、咨询</td></tr>
+          <tr><td>3</td><td><strong>使用分隔符</strong></td><td>用 <code>"""</code>、<code>---</code> 或 XML 标签分隔不同内容块</td><td>多段内容输入</td></tr>
+          <tr><td>4</td><td><strong>指定完成步骤</strong></td><td>将任务拆解为步骤 1、步骤 2……逐一列出</td><td>复杂任务</td></tr>
+          <tr><td>5</td><td><strong>提供示例（少样本提示）</strong></td><td>先向 AI 展示期望的输出样例</td><td>格式控制、风格模仿</td></tr>
+          <tr><td>6</td><td><strong>指定输出长度</strong></td><td>明确要求输出规模（如"用 3 个段落"或"不超过 200 字"）</td><td>控制篇幅</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-box tip-box">
+      <p><strong>实战示例</strong></p>
+      <p>差的提示词：<code>总结会议记录</code></p>
+      <p>好的提示词：<code>请用一个段落总结以下会议记录的核心结论。然后以 Markdown 列表列出每位发言人的姓名及其主要观点。最后，列出所有被提及的后续行动项及其负责人。</code></p>
+    </div>
+
+    <h4>策略二：提供参考文本</h4>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>序号</th><th>技巧</th><th>说明</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>7</td><td><strong>让模型使用参考文本作答</strong></td><td>提供文档并要求 AI 仅基于文档回答，无法回答时明确说明</td></tr>
+          <tr><td>8</td><td><strong>要求引用出处</strong></td><td>回答问题的同时引用文档中的具体段落作为依据</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>策略三：将复杂任务拆分为简单子任务</h4>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>序号</th><th>技巧</th><th>说明</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>9</td><td><strong>意图分类</strong></td><td>先让 AI 判断问题类别，再针对性回答</td></tr>
+          <tr><td>10</td><td><strong>对话摘要/过滤</strong></td><td>长对话中定期总结历史，防止超出 AI 记忆上限</td></tr>
+          <tr><td>11</td><td><strong>分段总结长文档</strong></td><td>将长文档拆分为章节分别总结，再合并</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>策略四：给模型时间"思考"</h4>
+    <p>此策略源于著名的<strong>链式思维（Chain-of-Thought / CoT）</strong>方法。</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>序号</th><th>技巧</th><th>说明</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>12</td><td><strong>让模型先自己解一遍</strong></td><td>判断对错前，先让 AI 独立完成计算，再进行对比</td></tr>
+          <tr><td>13</td><td><strong>追问遗漏内容</strong></td><td>AI 输出后追问"还有更多相关内容吗？"以避免遗漏</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>策略五：使用外部工具</h4>
+    <p>让 AI 调用搜索、计算器、数据库等外部工具，弥补模型自身短板。</p>
+
+    <h4>策略六：系统地测试变更</h4>
+    <p>建立评估体系，科学判断提示词修改后的效果变化方向（改善或退化）。</p>
+  </div>
+
+  <div class="sub-section" id="s22">
+    <h3>2.2 Anthropic Claude 最佳实践（五大原则）</h3>
+
+    <div class="ref-block">
+      <h4>中文解读资源</h4>
+      <ul>
+        <li>CSDN：<a href="https://blog.csdn.net/shimmer_m/article/details/151157859">Anthropic 官方 Claude 提示词工程最佳实践详解</a></li>
+        <li>CSDN：<a href="https://blog.csdn.net/weixin_43954818/article/details/155225739">Claude 提示工程实战手册</a></li>
+        <li>腾讯新闻：<a href="https://new.qq.com/rain/a/20260107A01VD900">Claude 4.x 提示工程最佳实践</a></li>
+      </ul>
+      <p style="font-size:13px;color:var(--text-muted)">官方原版需国际网络访问：<a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview">Anthropic Prompting Best Practices</a></p>
+    </div>
+
+    <p>Anthropic 将提示词工程定位为<strong>系统性工程实践</strong>，而非一次性操作。核心原则如下：</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>编号</th><th>原则</th><th>阐释</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td><strong>把模型当作缺上下文的新同事</strong></td><td>若提示词让不了解背景的同事感到困惑，AI 同样会困惑。应将所有隐性完成标准转化为显性指令。</td></tr>
+          <tr><td>2</td><td><strong>为"为什么"提供理由</strong></td><td>不仅下达命令，还需解释原因。AI 理解原因后会主动规避同类问题。</td></tr>
+          <tr><td>3</td><td><strong>善用 Few-shot 示例（3-5 个最佳）</strong></td><td>示例是性价比最高的优化杠杆。需贴近真实场景、覆盖多样情况、用标签清晰包裹。3-5 个效果最佳，过多反而过拟合。</td></tr>
+          <tr><td>4</td><td><strong>用 XML 标签构建"文档树"</strong></td><td>使用 <code>&lt;instructions&gt;</code>、<code>&lt;context&gt;</code> 等语义标签对复杂提示词进行结构分层，使 AI 能明确区分指令、数据和示例的边界。</td></tr>
+          <tr><td>5</td><td><strong>给 Claude 一个具体角色</strong></td><td>角色越贴近真实岗位，回答越稳定。避免过度戏剧化表述，以防语气漂移。</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-box">
+      <p><strong>关键场景补充</strong></p>
+      <ul>
+        <li><strong>长文档处理</strong>：文档置于提示词顶部，指令置于末尾，质量可提升约 30%</li>
+        <li><strong>输出控制</strong>：以正面引导（"请提供简洁回答"）替代负面指令（"别啰嗦"），效果更佳</li>
+        <li><strong>结构化输出</strong>：优先使用 Structured Outputs 功能保证格式稳定性</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sub-section" id="s23">
+    <h3>2.3 Google Gemini 白皮书（十四项最佳实践）</h3>
+
+    <div class="ref-block">
+      <h4>中文解读资源</h4>
+      <ul>
+        <li>掘金：<a href="https://juejin.cn/post/7577294037717008418">万人收藏！Google 68 页提示词工程白皮书中文版</a></li>
+        <li>知乎：<a href="https://zhuanlan.zhihu.com/p/1979585572096979991">Gemini 3.0 Pro 官方提示词工程完全指南</a></li>
+        <li>CSDN：<a href="https://blog.csdn.net/LXZZKJ/article/details/155533553">Gemini 3.0 Pro 中英双语提示词模板</a></li>
+      </ul>
+      <p style="font-size:13px;color:var(--text-muted)">官方原版需国际网络访问：<a href="https://ai.google.dev/gemini-api/docs/prompting-strategies">Google Prompt Design Strategies</a></p>
+    </div>
+
+    <p>Google 于 2025 年发布系统性白皮书，整理了<strong>14 项最佳实践</strong>，覆盖从提示设计到迭代优化的全流程：</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>编号</th><th>最佳实践</th><th>要点</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td><strong>提供示例</strong></td><td>单样本或多样本示例是最重要的技巧，具有"教学工具"属性</td></tr>
+          <tr><td>2</td><td><strong>简洁设计</strong></td><td>提示词需简洁清晰，优先使用动词（扮演、分析、分类、生成、总结）</td></tr>
+          <tr><td>3</td><td><strong>明确输出要求</strong></td><td>指定段落数、风格、内容要素等</td></tr>
+          <tr><td>4</td><td><strong>优先使用指令而非约束</strong></td><td>告知 AI"应该做什么"优于"不要做什么"</td></tr>
+          <tr><td>5</td><td><strong>控制最大令牌长度</strong></td><td>通过设置限制或明确要求控制输出长度</td></tr>
+          <tr><td>6</td><td><strong>在提示中使用变量</strong></td><td>使用 <code>{城市}</code> 等占位符实现提示词模板复用</td></tr>
+          <tr><td>7</td><td><strong>尝试不同输入格式</strong></td><td>同一任务尝试疑问式、陈述式、指令式三种写法</td></tr>
+          <tr><td>8</td><td><strong>分类任务中混合类别顺序</strong></td><td>打乱示例顺序，避免 AI 仅记住排序而非特征</td></tr>
+          <tr><td>9</td><td><strong>适应模型更新</strong></td><td>模型升级后重新测试和调整提示词</td></tr>
+          <tr><td>10</td><td><strong>尝试结构化输出格式</strong></td><td>数据提取等任务建议输出 JSON/XML，降低幻觉</td></tr>
+          <tr><td>11</td><td><strong>使用 JSON 模式</strong></td><td>通过 Schema 规范输入和输出结构</td></tr>
+          <tr><td>12</td><td><strong>与同行协作试验</strong></td><td>多人对比不同提示方案的效果</td></tr>
+          <tr><td>13</td><td><strong>CoT 最佳实践</strong></td><td>推理过程置于答案之前，温度参数设为 0</td></tr>
+          <tr><td>14</td><td><strong>记录不同提示尝试</strong></td><td>用表格记录名称、目标、模型、参数、提示内容、输出结果、评价</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sub-section" id="s24">
+    <h3>2.4 三巨头核心共识速查表</h3>
+    <p>将三家公司的官方指南进行交叉比对，以下要点为所有公司共同强调的核心内容：</p>
+
+    <div class="table-wrap">
+      <table class="consensus-table">
+        <thead>
+          <tr><th>共识要点</th><th>OpenAI</th><th>Anthropic</th><th>Google</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>写清晰具体的指令</td><td>策略一</td><td>原则一</td><td>#2 #3</td></tr>
+          <tr><td>提供示例（Few-shot）</td><td>技巧 5</td><td>原则三</td><td>#1 #8</td></tr>
+          <tr><td>给模型分配角色</td><td>技巧 2</td><td>原则五</td><td>—</td></tr>
+          <tr><td>提供参考文本/上下文</td><td>策略二</td><td>原则一</td><td>—</td></tr>
+          <tr><td>拆分复杂任务</td><td>策略三</td><td>原则四</td><td>—</td></tr>
+          <tr><td>让模型逐步推理（CoT）</td><td>策略四</td><td>—</td><td>#13</td></tr>
+          <tr><td>用正面指令代替负面约束</td><td>—</td><td>—</td><td>#4</td></tr>
+          <tr><td>控制输出长度/格式</td><td>技巧 6</td><td>—</td><td>#5 #10</td></tr>
+          <tr><td>迭代测试和记录</td><td>策略六</td><td>—</td><td>#9 #14</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-box tip-box">
+      <p><strong>关键结论</strong>：三大公司的官方指南高度一致。掌握以上 9 条共识，即可覆盖 90% 的提示词优化场景。</p>
+    </div>
+  </div>
+
+  <div class="sub-section" id="s25">
+    <h3>2.5 国内主流 AI 平台提示词规范</h3>
+    <p>国内 AI 平台同样提供了各自的提示词标准与优化支持：</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>平台</th><th>所属公司</th><th>提示词规范/工具</th><th>核心特点</th><th>参考链接</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>文心一言</strong></td>
+            <td>百度</td>
+            <td>百度千帆 Prompt 优化平台</td>
+            <td>内置 Prompt 优化功能，支持自动检测语料问题、生成优化建议</td>
+            <td><a href="https://ai.baidu.com/ai-doc/WENXINWORKSHOP/Clommng91">百度 AI 开放平台</a></td>
+          </tr>
+          <tr>
+            <td><strong>通义千问</strong></td>
+            <td>阿里云</td>
+            <td>通义千问提示词工程</td>
+            <td>官方 Prompt 模板库，支持固定结构与动态变量分离，可复用模板</td>
+            <td><a href="https://help.aliyun.com/zh/model-studio/prompt-template">阿里云百炼</a></td>
+          </tr>
+          <tr>
+            <td><strong>豆包 / 火山引擎</strong></td>
+            <td>字节跳动</td>
+            <td>PromptPilot 提示词优化平台</td>
+            <td><strong>国产最完整的提示词全链路优化平台</strong>，涵盖生成、调试、优化、部署、迭代</td>
+            <td><a href="https://promptpilot.volcengine.com/">PromptPilot</a></td>
+          </tr>
+          <tr>
+            <td><strong>Kimi</strong></td>
+            <td>月之暗面</td>
+            <td>Kimi+ 提示词专家</td>
+            <td>零门槛生成结构化提示词，说需求即可自动生成高质量 Prompt</td>
+            <td><a href="https://www.kimi.com/kimiplus/conpg00t7lagbbsfqkq0">Kimi+</a></td>
+          </tr>
+          <tr>
+            <td><strong>DeepSeek</strong></td>
+            <td>深度求索</td>
+            <td>DeepSeek 提示词库</td>
+            <td>官方 Prompt Library，提供 13+ 场景模板（代码生成、角色扮演、文案创作等）</td>
+            <td><a href="https://api-docs.deepseek.com/prompt-library/">DeepSeek</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-box tip-box">
+      <p><strong>国内用户特别提示</strong>：若日常主要使用国内 AI（如豆包、Kimi、文心一言等），建议优先使用对应平台的内置提示词工具（PromptPilot、Kimi+ 提示词专家、百度 Prompt 优化等），其在中文语境下的优化效果通常优于海外工具。</p>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- Section 3 -->
+<section id="s3">
+  <h2>3. 提示词优化工具全景</h2>
+  <p class="section-intro">以下为面向中文用户、免费或提供免费额度的国产提示词优化工具。</p>
+
+  <h3>国产优化工具一览</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>工具名称</th><th>所属公司</th><th>类型</th><th>核心功能</th><th>价格</th><th>平台链接</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>PromptPilot</strong></td>
+          <td>字节跳动</td>
+          <td>Web 平台</td>
+          <td><strong>国内最全链路</strong>：提示词生成、自动优化、调试对比、版本管理、效果评估、一键部署</td>
+          <td>免费基础版</td>
+          <td><a href="https://promptpilot.volcengine.com/">访问</a></td>
+        </tr>
+        <tr>
+          <td><strong>Kimi+ 提示词专家</strong></td>
+          <td>月之暗面</td>
+          <td>Kimi 内置</td>
+          <td>零门槛：说出需求 → 自动生成结构化提示词，支持中文长文本场景</td>
+          <td>免费</td>
+          <td><a href="https://www.kimi.com/kimiplus/conpg00t7lagbbsfqkq0">访问</a></td>
+        </tr>
+        <tr>
+          <td><strong>百度千帆 Prompt 优化</strong></td>
+          <td>百度</td>
+          <td>Web 平台</td>
+          <td>自动检测提示词语料问题，提供优化建议，支持文心一言全系列模型，含在线优化和批量优化两种模式</td>
+          <td>免费测试中</td>
+          <td><a href="https://ai.baidu.com/ai-doc/WENXINWORKSHOP/Clommng91">访问</a></td>
+        </tr>
+        <tr>
+          <td><strong>通义千问 Prompt 工作台</strong></td>
+          <td>阿里云</td>
+          <td>Web 控制台</td>
+          <td>官方 Prompt 模板库，支持固定结构与动态变量分离，可复用模板</td>
+          <td>免费额度</td>
+          <td><a href="https://help.aliyun.com/zh/model-studio/prompt-template">访问</a></td>
+        </tr>
+        <tr>
+          <td><strong>DeepSeek 提示词库</strong></td>
+          <td>深度求索</td>
+          <td>开放平台</td>
+          <td>官方 Prompt Library，提供 13+ 场景模板（代码生成、角色扮演、文案创作等）</td>
+          <td>免费</td>
+          <td><a href="https://api-docs.deepseek.com/prompt-library/">访问</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>使用建议</h3>
+  <ul>
+    <li><strong>零基础、想最省事</strong> → <strong>Kimi+ 提示词专家</strong>（输入需求即可，完全免费）</li>
+    <li><strong>需要完整优化链路（生成→调试→评估→部署）</strong> → <strong>PromptPilot</strong>（字节跳动出品，功能最全）</li>
+    <li><strong>用文心一言</strong> → <strong>百度千帆 Prompt 优化</strong>（模型自带，效果最好）</li>
+    <li><strong>用通义千问</strong> → <strong>通义千问 Prompt 工作台</strong>（阿里云官方，模板丰富）</li>
+    <li><strong>用 DeepSeek</strong> → <strong>DeepSeek 提示词库</strong>（官方文档 + API 调优指南）</li>
+  </ul>
+</section>
+
+<hr>
+
+<!-- Section 4 -->
+<section id="s4">
+  <h2>4. 黄金法则</h2>
+  <p>若仅需掌握核心要点，以下五条法则足矣：</p>
+
+  <div class="sub-section">
+    <h3>法则一：把 AI 当作聪明但什么都不懂的新人</h3>
+    <div class="info-box">
+      <p>每次写提示词前自问："如果我让一个刚入职的聪明同事做这件事，他需要知道什么？"</p>
+    </div>
+    <p>将所有背景信息、具体要求、输出格式写清楚。<strong>假设 AI 对您的行业、上下文一无所知。</strong></p>
+  </div>
+
+  <div class="sub-section">
+    <h3>法则二：用"角色 + 任务 + 格式"三段式结构</h3>
+    <pre>角色：你是一名[具体的专业角色]
+任务：[要完成的具体事情]
+格式：[输出的格式要求]</pre>
+    <p><strong>实战示例：</strong></p>
+    <pre>你是一名资深专利代理人。
+请分析以下技术方案的专利三性（新颖性、创造性、实用性）。
+以表格形式输出，包含：审查要素 | 分析结论 | 依据说明。</pre>
+  </div>
+
+  <div class="sub-section">
+    <h3>法则三：给例子比讲道理更有用</h3>
+    <p>若希望 AI 以特定风格写作，<strong>直接提供样例</strong>的效果远胜于长篇描述。</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th style="width:50%">差的提示词</th><th style="width:50%">好的提示词</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>请用专业但不过于学术化的风格写一段产品介绍</code></td>
+            <td><code>请参考以下样例的风格，写一段产品介绍：[粘贴一段你喜欢的文案样例]</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sub-section">
+    <h3>法则四：复杂任务，拆开做</h3>
+    <p>不要指望一次对话完成一篇万言报告。建议拆分为以下步骤：</p>
+    <ol>
+      <li>先生成大纲</li>
+      <li>逐节展开</li>
+      <li>合并润色</li>
+    </ol>
+    <p>每步均可单独检查、调整、重来，整体质量将大幅提升。</p>
+  </div>
+
+  <div class="sub-section">
+    <h3>法则五：不满意就追问，把迭代当作常态</h3>
+    <p>提示词优化<strong>不是一次性的</strong>。第一次输出不够好 → "再精简一点" → "换个角度" → "增加数据支撑"……不断追问直到满意。<strong>好的结果是一轮轮对话磨出来的，不是一次性写出来的。</strong></p>
+  </div>
+</section>
+
+<hr>
+
+<!-- Section 5 -->
+<section id="s5">
+  <h2>5. 延伸学习资源</h2>
+
+  <div class="sub-section">
+    <h3>国际官方指南 · 中文解读</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>名称</th><th>平台</th><th>链接</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>OpenAI 官方提示工程指南（中文翻译）</td><td>知乎</td><td><a href="https://zhuanlan.zhihu.com/p/672723789">访问</a></td></tr>
+          <tr><td>OpenAI 官方 Prompt 工程六大原则深度解读</td><td>掘金</td><td><a href="https://juejin.cn/post/7586482851097346088">访问</a></td></tr>
+          <tr><td>写好 Prompt 的六个策略</td><td>北京智源研究院</td><td><a href="https://hub.baai.ac.cn/view/33671">访问</a></td></tr>
+          <tr><td>OpenAI 官方 Prompt 指南详解</td><td>CSDN</td><td><a href="https://blog.csdn.net/WANGJUNAIJIAO/article/details/149441364">访问</a></td></tr>
+          <tr><td>Anthropic Claude 提示词工程最佳实践详解</td><td>CSDN</td><td><a href="https://blog.csdn.net/shimmer_m/article/details/151157859">访问</a></td></tr>
+          <tr><td>Claude 提示工程实战手册</td><td>CSDN</td><td><a href="https://blog.csdn.net/weixin_43954818/article/details/155225739">访问</a></td></tr>
+          <tr><td>Claude 4.x 提示工程最佳实践</td><td>腾讯新闻</td><td><a href="https://new.qq.com/rain/a/20260107A01VD900">访问</a></td></tr>
+          <tr><td>Google 68 页提示词工程白皮书中文版</td><td>掘金</td><td><a href="https://juejin.cn/post/7577294037717008418">访问</a></td></tr>
+          <tr><td>Gemini 3.0 Pro 提示词工程完全指南</td><td>知乎</td><td><a href="https://zhuanlan.zhihu.com/p/1979585572096979991">访问</a></td></tr>
+          <tr><td>Gemini 3.0 Pro 中英双语提示词模板</td><td>CSDN</td><td><a href="https://blog.csdn.net/LXZZKJ/article/details/155533553">访问</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sub-section">
+    <h3>国内平台官方指南与工具</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>名称</th><th>所属</th><th>链接</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>百度千帆 Prompt 优化平台</td><td>百度</td><td><a href="https://ai.baidu.com/ai-doc/WENXINWORKSHOP/Clommng91">访问</a></td></tr>
+          <tr><td>通义千问 Prompt 模板</td><td>阿里云</td><td><a href="https://help.aliyun.com/zh/model-studio/prompt-template">访问</a></td></tr>
+          <tr><td>PromptPilot（提示词全链路优化）</td><td>字节跳动</td><td><a href="https://promptpilot.volcengine.com/">访问</a></td></tr>
+          <tr><td>Kimi+ 提示词专家</td><td>月之暗面</td><td><a href="https://www.kimi.com/kimiplus/conpg00t7lagbbsfqkq0">访问</a></td></tr>
+          <tr><td>DeepSeek Prompt Library</td><td>深度求索</td><td><a href="https://api-docs.deepseek.com/prompt-library/">访问</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sub-section">
+    <h3>优化工具直达</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>工具名称</th><th>类型</th><th>链接</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>PromptPilot</td><td>字节跳动 / 免费</td><td><a href="https://promptpilot.volcengine.com/">访问</a></td></tr>
+          <tr><td>Kimi+ 提示词专家</td><td>月之暗面 / 免费</td><td><a href="https://www.kimi.com/kimiplus/conpg00t7lagbbsfqkq0">访问</a></td></tr>
+          <tr><td>百度千帆 Prompt 优化</td><td>百度 / 免费测试中</td><td><a href="https://ai.baidu.com/ai-doc/WENXINWORKSHOP/Clommng91">访问</a></td></tr>
+          <tr><td>通义千问 Prompt 工作台</td><td>阿里云 / 免费额度</td><td><a href="https://help.aliyun.com/zh/model-studio/prompt-template">访问</a></td></tr>
+          <tr><td>DeepSeek 提示词库</td><td>深度求索 / 免费</td><td><a href="https://api-docs.deepseek.com/prompt-library/">访问</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+</div>
+</body>
+</html>
