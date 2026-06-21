@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>订单管理系统 — HP 版</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/element-plus/dist/index.css">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div id="app">
+    <el-container style="height: 100vh;">
+      <!-- HP 侧边栏 -->
+      <el-aside width="220px" class="sidebar-hp">
+        <div class="logo-hp">
+          <span class="logo-text">奥凯·钽宝</span>
+          <span class="logo-caption">订单管理系统</span>
+        </div>
+        <el-menu
+          :default-active="currentRoute"
+          :router="true"
+          class="menu-hp"
+        >
+          <el-menu-item index="/dashboard">
+            <template #title><span class="nav-label">首页概览</span></template>
+          </el-menu-item>
+          <el-sub-menu index="order-mgmt">
+            <template #title><span class="nav-label">订单管理</span></template>
+            <el-menu-item index="/order-list"><span class="nav-label">订单列表</span></el-menu-item>
+            <el-menu-item index="/order-create"><span class="nav-label">新建订单</span></el-menu-item>
+          </el-sub-menu>
+          <el-menu-item index="/customer-list">
+            <template #title><span class="nav-label">客户管理</span></template>
+          </el-menu-item>
+          <el-menu-item index="/product-list">
+            <template #title><span class="nav-label">产品管理</span></template>
+          </el-menu-item>
+        </el-menu>
+      </el-aside>
+
+      <el-container direction="vertical">
+        <!-- HP 顶栏 -->
+        <el-header class="header-hp" height="48px">
+          <el-breadcrumb separator="/" class="bread-hp">
+            <el-breadcrumb-item v-for="(item, idx) in breadcrumbItems" :key="idx">{{ item.title }}</el-breadcrumb-item>
+          </el-breadcrumb>
+          <div class="toggle-hp">
+            <span class="toggle-label">标注</span>
+            <el-switch v-model="showAnnotation" @change="toggleAnnotation" size="small" class="switch-hp"></el-switch>
+          </div>
+        </el-header>
+
+        <div class="content-wrap">
+          <el-main class="main-hp">
+            <router-view></router-view>
+          </el-main>
+          <annotation-panel
+            v-if="showAnnotation"
+            :current-page="currentPageId"
+            :annotation-data="annotationData"
+            :highlight-item-id="highlightItemId"
+            @item-click="onAnnotationItemClick"
+          ></annotation-panel>
+        </div>
+      </el-container>
+    </el-container>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="https://unpkg.com/vue-router@4/dist/vue-router.global.prod.js"></script>
+  <script src="https://unpkg.com/element-plus"></script>
+  <script src="assets/components.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
