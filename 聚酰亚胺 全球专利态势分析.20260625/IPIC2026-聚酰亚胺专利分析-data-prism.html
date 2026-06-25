@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聚酰亚胺全球专利态势分析 — IPIC 2026 · Data Prism</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Chivo+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ===========================================
+           DATA PRISM DESIGN SYSTEM
+           =========================================== */
+        :root {
+            --bg-deep: #060B18;
+            --bg-slide: #0A1029;
+            --bg-card: rgba(14, 23, 56, 0.6);
+            --accent-teal: #00D4C8;
+            --accent-teal-dim: rgba(0,212,200,0.15);
+            --accent-amber: #F5A623;
+            --accent-amber-dim: rgba(245,166,35,0.12);
+            --text-primary: #E8ECF4;
+            --text-secondary: #9AABCA;
+            --text-muted: #5B6E95;
+            --text-hint: #3E4D6C;
+            --border-dim: rgba(90, 110, 150, 0.25);
+            --border-bright: rgba(0,212,200,0.35);
+
+            --font-display: 'Sora', 'Noto Sans SC', sans-serif;
+            --font-body: 'Noto Sans SC', sans-serif;
+            --font-mono: 'Chivo Mono', 'Noto Sans SC', monospace;
+
+            --size-display: 130px;
+            --size-h1: 80px;
+            --size-h2: 52px;
+            --size-h3: 34px;
+            --size-lead: 28px;
+            --size-body: 24px;
+            --size-caption: 17px;
+            --size-label: 13px;
+            --size-stat: 96px;
+            --size-stat-sm: 72px;
+
+            --pad-x: 130px;
+            --pad-y: 56px;
+            --gap-lg: 44px;
+            --gap-md: 24px;
+            --gap-sm: 12px;
+
+            --stage-bg: #020812;
+
+            --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+            --dur: 0.7s;
+        }
+
+        /* ===========================================
+           VIEWPORT BASE
+           =========================================== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { width: 100%; height: 100%; overflow: hidden; background: var(--stage-bg); }
+        .deck-viewport { position: fixed; inset: 0; overflow: hidden; background: var(--stage-bg); }
+        .deck-stage {
+            position: absolute; left: 0; top: 0;
+            width: 1920px; height: 1080px; overflow: hidden;
+            transform-origin: 0 0;
+            background: var(--bg-slide);
+        }
+        .slide {
+            position: absolute; inset: 0;
+            width: 1920px; height: 1080px; overflow: hidden;
+            visibility: hidden; opacity: 0; pointer-events: none;
+            background: var(--bg-slide);
+        }
+        .slide.active, .slide.visible {
+            visibility: visible; opacity: 1; pointer-events: auto; z-index: 1;
+        }
+        img, video, canvas, svg { max-width: 100%; max-height: 100%; }
+        .deck-controls {
+            position: fixed; left: 50%; bottom: 22px;
+            transform: translateX(-50%); z-index: 1000;
+            display: flex; gap: 8px; align-items: center;
+        }
+        .deck-controls button {
+            background: var(--bg-card); border: 1px solid var(--border-bright);
+            color: var(--accent-teal); font-family: var(--font-mono); font-size: 11px;
+            padding: 7px 14px; cursor: pointer; letter-spacing: 0.12em;
+            transition: all 0.25s;
+        }
+        .deck-controls button:hover { background: var(--accent-teal-dim); }
+        .deck-controls .counter {
+            font-family: var(--font-mono); font-size: 11px;
+            color: var(--text-muted); letter-spacing: 0.12em;
+            min-width: 72px; text-align: center;
+        }
+        @media print {
+            html, body { width: 1920px; height: auto; overflow: visible; background: #fff; }
+            .deck-viewport { position: static; overflow: visible; background: #fff; }
+            .deck-stage { position: static; width: auto; height: auto; transform: none !important; background: none; }
+            .slide { position: relative; display: block !important; visibility: visible !important;
+                opacity: 1 !important; pointer-events: auto !important; break-after: page; }
+            .slide:last-child { break-after: auto; }
+            .deck-controls { display: none !important; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; }
+        }
+
+        /* ===========================================
+           ATMOSPHERE: BG EFFECTS
+           =========================================== */
+        .bg-atmos {
+            position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+        }
+        .bg-atmos .orb-1 {
+            position: absolute; top: -280px; right: -180px;
+            width: 860px; height: 860px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,212,200,0.07) 0%, transparent 65%);
+        }
+        .bg-atmos .orb-2 {
+            position: absolute; bottom: -200px; left: -120px;
+            width: 640px; height: 640px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(245,166,35,0.05) 0%, transparent 65%);
+        }
+        .bg-atmos .grid {
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(90,110,150,0.07) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(90,110,150,0.07) 1px, transparent 1px);
+            background-size: 64px 64px;
+            background-position: 32px 32px;
+        }
+        .bg-atmos .scanline {
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg,
+                transparent 0%, rgba(0,212,200,0.02) 45%, transparent 55%);
+        }
+
+        .accent-line-teal {
+            position: absolute; z-index: 0; pointer-events: none;
+            top: 0; left: 0; height: 4px;
+            background: linear-gradient(90deg, var(--accent-teal), transparent);
+        }
+        .accent-line-amber {
+            position: absolute; z-index: 0; pointer-events: none;
+            bottom: 0; right: 0; height: 4px;
+            background: linear-gradient(270deg, var(--accent-amber), transparent);
+        }
+
+        /* ===========================================
+           TOP BAR
+           =========================================== */
+        .top-bar {
+            position: relative; z-index: 2;
+            display: flex; justify-content: space-between; align-items: baseline;
+            padding: 32px var(--pad-x) 0;
+        }
+        .top-bar .tag {
+            font-family: var(--font-mono); font-size: 14px; font-weight: 600;
+            letter-spacing: 0.18em; color: var(--accent-teal);
+            padding: 5px 14px;
+            border: 1px solid var(--border-bright);
+        }
+        .top-bar .conf-info {
+            font-family: var(--font-display);
+            font-size: 16px; font-weight: 500; letter-spacing: 0.03em;
+            color: var(--text-secondary);
+        }
+        .top-bar .page-num {
+            font-family: var(--font-mono); font-size: 14px;
+            letter-spacing: 0.14em; color: var(--text-muted);
+        }
+
+        /* ===========================================
+           CONTENT CONTAINER
+           =========================================== */
+        .content-main {
+            position: relative; z-index: 1;
+            padding: 0 var(--pad-x);
+        }
+
+        /* ===========================================
+           TYPOGRAPHY
+           =========================================== */
+        .display {
+            font-family: var(--font-display);
+            font-size: var(--size-display); font-weight: 800;
+            line-height: 1.08; letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+        .display em { color: var(--accent-teal); font-style: normal; }
+
+        .h1-title {
+            font-family: var(--font-display);
+            font-size: var(--size-h1); font-weight: 700;
+            line-height: 1.15; letter-spacing: -0.01em;
+            color: var(--text-primary);
+        }
+        .h1-title em { color: var(--accent-teal); font-style: normal; }
+
+        .h2-title {
+            font-family: var(--font-display);
+            font-size: var(--size-h2); font-weight: 600;
+            line-height: 1.22; color: var(--text-primary);
+        }
+        .h2-title em { color: var(--accent-teal); font-style: normal; }
+
+        .h3-title {
+            font-family: var(--font-display);
+            font-size: var(--size-h3); font-weight: 500;
+            line-height: 1.3; color: var(--text-primary);
+        }
+        .h3-title em { color: var(--accent-teal); font-style: normal; }
+
+        .lead {
+            font-family: var(--font-body);
+            font-size: var(--size-lead); font-weight: 400;
+            line-height: 1.75; color: var(--text-secondary);
+        }
+        .lead em { color: var(--accent-teal); font-weight: 500; }
+
+        .body-text {
+            font-family: var(--font-body);
+            font-size: var(--size-body); font-weight: 400;
+            line-height: 1.8; color: var(--text-secondary);
+        }
+
+        .caption {
+            font-family: var(--font-body);
+            font-size: var(--size-caption); font-weight: 400;
+            line-height: 1.55; color: var(--text-muted);
+        }
+
+        .label-teal {
+            font-family: var(--font-mono);
+            font-size: var(--size-label); font-weight: 500;
+            letter-spacing: 0.16em; color: var(--accent-teal);
+        }
+
+        .label-muted {
+            font-family: var(--font-mono);
+            font-size: var(--size-label); font-weight: 500;
+            letter-spacing: 0.1em; color: var(--text-muted);
+        }
+
+        /* ===========================================
+           DIVIDER
+           =========================================== */
+        .divider {
+            width: 80px; height: 3px;
+            background: linear-gradient(90deg, var(--accent-teal), var(--accent-amber));
+        }
+        .divider-full {
+            width: 100%; height: 1px;
+            background: linear-gradient(90deg, var(--border-dim), var(--border-bright), var(--border-dim));
+        }
+
+        /* ===========================================
+           STAT COMPONENTS
+           =========================================== */
+        .stat-value {
+            font-family: var(--font-display);
+            font-size: var(--size-stat); font-weight: 800;
+            line-height: 1; letter-spacing: -0.03em;
+            color: var(--text-primary);
+        }
+        .stat-value.teal { color: var(--accent-teal); }
+        .stat-value-sm {
+            font-family: var(--font-display);
+            font-size: var(--size-stat-sm); font-weight: 700;
+            line-height: 1; letter-spacing: -0.02em;
+            color: var(--accent-teal);
+        }
+        .stat-unit {
+            font-family: var(--font-display);
+            font-size: var(--size-h3); font-weight: 500;
+            color: var(--text-muted);
+        }
+        .stat-label {
+            font-family: var(--font-body);
+            font-size: var(--size-caption); font-weight: 400;
+            color: var(--text-secondary);
+        }
+        .stat-row {
+            display: flex; gap: var(--gap-lg); margin-top: var(--gap-lg);
+        }
+        .stat-row .stat-item { flex: 1; }
+        .stat-item {
+            padding: 28px 0 0;
+            border-top: 2px solid var(--accent-teal-dim);
+        }
+        .stat-item .st-num { margin-bottom: 4px; }
+        .stat-item .st-label { font-size: var(--size-caption); color: var(--text-secondary); }
+        .stat-item .st-note { font-size: var(--size-label); color: var(--text-muted); margin-top: 4px; }
+
+        /* ===========================================
+           CARD GRID
+           =========================================== */
+        .card-grid { display: flex; gap: var(--gap-md); margin-top: var(--gap-lg); }
+        .card-grid .card { flex: 1; }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dim);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-teal), var(--accent-amber));
+            opacity: 0.6;
+        }
+        .card .card-num {
+            font-family: var(--font-mono);
+            font-size: var(--size-label); font-weight: 600;
+            letter-spacing: 0.14em; color: var(--accent-teal);
+            margin-bottom: 10px;
+        }
+        .card .card-title {
+            font-family: var(--font-display);
+            font-size: var(--size-h3); font-weight: 600;
+            line-height: 1.3; color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+        .card .card-desc {
+            font-family: var(--font-body);
+            font-size: var(--size-body); font-weight: 400;
+            line-height: 1.7; color: var(--text-secondary);
+        }
+        .card .card-stat {
+            font-family: var(--font-display);
+            font-size: 56px; font-weight: 700;
+            color: var(--accent-teal); margin: 12px 0 8px;
+        }
+
+        /* ===========================================
+           TWO COLUMN
+           =========================================== */
+        .two-col {
+            display: flex; gap: 80px; margin-top: var(--gap-lg);
+        }
+        .two-col .col { flex: 1; }
+
+        /* ===========================================
+           BULLET LIST
+           =========================================== */
+        .bullet-list { list-style: none; padding: 0; }
+        .bullet-list li {
+            position: relative; padding-left: 32px; margin-bottom: 18px;
+            font-family: var(--font-body);
+            font-size: var(--size-lead); font-weight: 400;
+            line-height: 1.65; color: var(--text-primary);
+        }
+        .bullet-list li::before {
+            content: '▸';
+            position: absolute; left: 0; top: 0;
+            font-size: 16px; color: var(--accent-teal);
+        }
+        .bullet-list li em { color: var(--accent-teal); font-style: normal; font-weight: 500; }
+        .bullet-list .sub {
+            font-size: var(--size-body); color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* ===========================================
+           TIMELINE
+           =========================================== */
+        .timeline {
+            position: relative; padding-left: 60px; margin-top: 40px;
+        }
+        .timeline::before {
+            content: ''; position: absolute; left: 8px; top: 4px; bottom: 4px;
+            width: 2px; background: var(--border-dim);
+        }
+        .timeline .t-entry {
+            position: relative; margin-bottom: 40px; padding-bottom: 40px;
+        }
+        .timeline .t-entry::before {
+            content: ''; position: absolute; left: -56px; top: 8px;
+            width: 14px; height: 14px; border-radius: 50%;
+            background: var(--accent-teal);
+        }
+        .timeline .t-year {
+            font-family: var(--font-mono);
+            font-size: var(--size-label); font-weight: 600;
+            letter-spacing: 0.14em; color: var(--accent-teal);
+            margin-bottom: 6px;
+        }
+        .timeline .t-title {
+            font-family: var(--font-display);
+            font-size: var(--size-h3); font-weight: 600;
+            line-height: 1.25; color: var(--text-primary);
+        }
+        .timeline .t-desc {
+            font-family: var(--font-body);
+            font-size: var(--size-body); line-height: 1.6;
+            color: var(--text-secondary); margin-top: 6px;
+        }
+
+        /* ===========================================
+           DATA BADGE (corner decor)
+           =========================================== */
+        .data-badge {
+            position: absolute; z-index: 3;
+            font-family: var(--font-mono);
+            font-size: 10px; font-weight: 500; letter-spacing: 0.1em;
+            color: var(--text-muted);
+            padding: 10px 18px;
+            border: 1px solid var(--border-dim);
+            background: var(--bg-card);
+        }
+        .data-badge em { color: var(--accent-teal); font-style: normal; }
+
+        /* ===========================================
+           PILL TAGS
+           =========================================== */
+        .pill-tag {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: var(--size-label); font-weight: 500;
+            letter-spacing: 0.1em; color: var(--accent-teal);
+            border: 1px solid var(--border-bright);
+            padding: 5px 16px;
+            margin: 0 10px 10px 0;
+        }
+
+        /* ===========================================
+           META ROW
+           =========================================== */
+        .meta-row {
+            display: flex; align-items: center; gap: 16px; margin-top: var(--gap-lg);
+        }
+        .meta-row .meta-sep {
+            width: 20px; height: 1px; background: var(--accent-teal); opacity: 0.5;
+        }
+        .meta-row span {
+            font-family: var(--font-body);
+            font-size: var(--size-caption); color: var(--text-muted);
+        }
+        .meta-row .speaker {
+            font-family: var(--font-display);
+            font-size: var(--size-h3); font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* ===========================================
+           INLINE CHARTS
+           =========================================== */
+        .chart-donut { display: block; }
+        .chart-donut text { font-family: var(--font-mono); fill: var(--text-secondary); font-size: 15px; }
+        .chart-donut .center-text { font-family: var(--font-display); fill: var(--text-primary); font-size: 40px; font-weight: 700; }
+        .chart-donut .center-sub { font-family: var(--font-mono); fill: var(--text-muted); font-size: 14px; letter-spacing: 0.1em; }
+
+        /* P3 Donut hover segments */
+        .chart-donut path { cursor: pointer; transition: opacity 0.25s, transform 0.25s; }
+        .chart-donut path:hover { opacity: 1 !important; transform: scale(1.04); transform-origin: center; }
+        .chart-donut path { transform-origin: 220px 220px; }
+        .chart-donut .hover-label {
+            font-family: var(--font-mono); font-size: 14px;
+            fill: var(--text-primary); font-weight: 600;
+            opacity: 0; transition: opacity 0.3s;
+        }
+
+        .bar-chart { display: flex; flex-direction: column; gap: 16px; width: 100%; }
+        .bar-row { display: flex; align-items: center; gap: 16px; }
+        .bar-label { font-family: var(--font-body); font-size: 22px; color: var(--text-primary); min-width: 90px; text-align: right; font-weight: 500; }
+        .bar-track { flex: 1; height: 36px; background: rgba(90,110,150,0.15); position: relative; border-radius: 4px; }
+        .bar-fill { height: 100%; display: flex; align-items: center; padding-left: 12px; border-radius: 4px; }
+        .bar-fill.teal { background: var(--accent-teal); }
+        .bar-fill.teal-light { background: rgba(0,212,200,0.6); }
+        .bar-fill.teal-dim { background: rgba(0,212,200,0.35); }
+        .bar-fill.amber { background: var(--accent-amber); }
+        .bar-fill.amber-light { background: rgba(245,166,35,0.6); }
+        .bar-val { font-family: var(--font-mono); font-size: 16px; color: #0A1029; font-weight: 600; white-space: nowrap; }
+        .bar-val.light { color: var(--text-primary); }
+
+        .area-chart { position: relative; width: 100%; }
+        .area-chart svg { width: 100%; height: auto; }
+
+        .legend-inline { display: flex; flex-wrap: wrap; gap: 16px 28px; margin-top: 20px; }
+        .legend-item { display: flex; align-items: center; gap: 8px; font-family: var(--font-body); font-size: 18px; color: var(--text-secondary); }
+        .legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+
+        /* ===========================================
+           V-DIVIDER
+           =========================================== */
+        .v-divider {
+            width: 1px; align-self: stretch;
+            background: var(--border-dim);
+        }
+
+        /* Flex helpers */
+        .center-y { display: flex; flex-direction: column; justify-content: center; }
+        .align-center { text-align: center; }
+        .mt-lg { margin-top: var(--gap-lg); }
+        .mt-md { margin-top: var(--gap-md); }
+
+        /* ===========================================
+           ANIMATIONS
+           =========================================== */
+        .reveal {
+            opacity: 0; transform: translateY(24px);
+            transition: opacity var(--dur) var(--ease-out),
+                        transform var(--dur) var(--ease-out);
+        }
+        .slide.visible .reveal { opacity: 1; transform: translateY(0); }
+        .reveal:nth-child(1) { transition-delay: 0.06s; }
+        .reveal:nth-child(2) { transition-delay: 0.13s; }
+        .reveal:nth-child(3) { transition-delay: 0.20s; }
+        .reveal:nth-child(4) { transition-delay: 0.27s; }
+        .reveal:nth-child(5) { transition-delay: 0.34s; }
+        .reveal:nth-child(6) { transition-delay: 0.41s; }
+        .reveal:nth-child(7) { transition-delay: 0.48s; }
+        .reveal:nth-child(8) { transition-delay: 0.55s; }
+
+        .reveal-stat {
+            opacity: 0; transform: scale(0.9);
+            transition: opacity 0.8s var(--ease-out),
+                        transform 0.8s var(--ease-out);
+        }
+        .slide.visible .reveal-stat { opacity: 1; transform: scale(1); }
+
+        /* ===========================================
+           INLINE EDITING
+           =========================================== */
+        .edit-hotzone {
+            position: fixed; top: 0; left: 0;
+            width: 80px; height: 80px; z-index: 10000; cursor: pointer;
+        }
+        .edit-toggle {
+            position: fixed; top: 16px; left: 16px; z-index: 10001;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.3s ease;
+            background: var(--bg-card); border: 1px solid var(--border-bright);
+            color: var(--accent-teal); font-family: var(--font-mono);
+            font-size: 11px; padding: 5px 12px; cursor: pointer;
+            letter-spacing: 0.12em;
+        }
+        .edit-toggle.show, .edit-toggle.active { opacity: 1; pointer-events: auto; }
+        [contenteditable="true"] { outline: 1px dashed var(--accent-teal); outline-offset: 4px; }
+    </style>
+</head>
+<body>
+    <div class="deck-viewport">
+        <main class="deck-stage" id="deckStage">
+
+            <!-- ================================================================
+                 SLIDE 01 — TITLE
+                 ================================================================ -->
+            <section class="slide active">
+                <div class="bg-atmos"><div class="orb-1"></div><div class="orb-2"></div><div class="grid"></div><div class="scanline"></div></div>
+                <div class="accent-line-teal" style="width:360px;"></div>
+                <div class="accent-line-amber" style="width:280px;"></div>
+
+                <div class="top-bar">
+                    <span class="tag">IPIC 2026</span>
+                    <span class="conf-info">2026国际聚酰亚胺会议 · 中国广州 · 7月8-12日</span>
+                </div>
+
+                <div class="content-main" style="display:flex; flex-direction:column; justify-content:center; height:calc(1080px - 120px);">
+
+                    <h1 class="display reveal">
+                        聚酰亚胺<br><em>全球专利</em>态势分析
+                    </h1>
+                    <p class="lead reveal" style="margin-top:32px; max-width:800px;">
+                        基于<em>壹专利 Patyee</em> 全球检索分析系统<br>
+                        技术格局 · 竞争态势 · 发展趋势
+                    </p>
+                    <div class="divider reveal" style="margin-top:40px;"></div>
+                    <div class="meta-row reveal">
+                        <span class="speaker" style="font-size:22px; color:var(--text-primary); font-weight:600;">王峻岭</span>
+                        <span class="meta-sep"></span>
+                        <span style="font-size:24px; color:var(--accent-teal); font-weight:600; letter-spacing:0.05em;">广州奥凯信息咨询有限公司</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================================================================
+                 SLIDE 02 — 核心发现三大数字
+                 ================================================================ -->
+            <section class="slide">
+                <div class="bg-atmos"><div class="orb-1"></div><div class="grid"></div></div>
+                <div class="top-bar">
+                    <span class="label-teal">核心发现 / KEY FINDINGS</span>
+                    <span class="page-num">02 / 17</span>
+                </div>
+                <div class="content-main center-y" style="height:calc(1080px - 100px); padding-bottom:60px;">
+                    <div class="stat-row reveal-stat" style="gap:80px;">
+                        <div class="stat-item" style="border-top:2px solid var(--accent-teal);">
+                            <div class="st-num"><span class="stat-value-sm">51,832</span><span class="stat-unit"> 件</span></div>
+                            <div class="st-label" style="font-size:20px; color:var(--text-primary); font-weight:500;">全球聚酰亚胺专利总量</div>
+                            <div class="st-note" style="font-size:15px; color:var(--text-secondary);">近20年持续增长，2022年峰值3,050件</div>
+                        </div>
+                        <div class="v-divider"></div>
+                        <div class="stat-item" style="border-top:2px solid var(--accent-amber);">
+                            <div class="st-num"><span class="stat-value-sm" style="color:var(--accent-amber);">38.6%</span></div>
+                            <div class="st-label" style="font-size:20px; color:var(--text-primary); font-weight:500;">膜材为最大技术分支</div>
+                            <div class="st-note" style="font-size:15px; color:var(--text-secondary);">20,007件，线路板基膜+光学膜为核心</div>
+                        </div>
+                        <div class="v-divider"></div>
+                        <div class="stat-item" style="border-top:2px solid var(--accent-teal);">
+                            <div class="st-num"><span class="stat-value-sm">61.4%</span></div>
+                            <div class="st-label" style="font-size:20px; color:var(--text-primary); font-weight:500;">日本技术主导地位</div>
+                            <div class="st-note" style="font-size:15px; color:var(--text-secondary);">中国23.1%快速追赶，增长最快市场</div>
+                        </div>
+                    </div>
+                    <div class="divider-full reveal" style="margin-top:44px;"></div>
+                    <p class="lead reveal" style="text-align:center;">
+                        聚酰亚胺—"黄金薄膜" — 5G、柔性显示、新能源领域拥有广阔应用前景
+                    </p>
+                </div>
+            </section>
+
+            <!-- ================================================================
+                 SLIDE 03 — 六大技术分支
+                 ================================================================ -->
+            <section class="slide">
+                <div class="bg-atmos"><div class="orb-1" style="opacity:0.5;"></div><div class="grid"></div></div>
+                <div class="top-bar">
+                    <span class="label-teal">技术体系 / TECH LANDSCAPE</span>
+                    <span class="page-num">03 / 17</span>
+                </div>
+                <div class="content-main">
+                    <h2 class="h2-title reveal">聚酰亚胺六大技术分支</h2>
+                    <div class="two-col reveal" style="margin-top:32px;">
+                        <div>
+                            <ul class="bullet-list">
+                                <li>聚酰亚胺<em>膜</em> — 38.6%
+                                    <div class="sub">线路板基膜 · 光学膜 · 液晶取向膜 · 分离膜 · 电池底板膜</div>
+                                </li>
+                                <li>聚酰亚胺<em>纤维</em> — 18.2%
+                                    <div class="sub">高温过滤 · 防护服装 · 复合材料增强</div>
+                                </li>
+                                <li>聚酰亚胺<em>模塑品</em> — 15.8%
+                                    <div class="sub">电子封装 · 机械零件 · 航空航天部件</div>
+                                </li>
+                                <li>聚酰亚胺<em>浆料/涂料</em> — 12.5%
+                                    <div class="sub">绝缘保护 · 耐磨涂层 · 防腐蚀</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="center-y" style="align-items:center; gap:16px; padding-top:20px;">
+                            <!-- Donut Chart: 6 tech branches -- enlarged -->
+                            <svg class="chart-donut" viewBox="0 0 440 440" width="520" height="520">
+                                <defs>
+                                    <filter id="glow-teal"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                                </defs>
+                                <!-- 膜 38.6%  teal -->
+                                <path d="M220,50 A170,170 0 0,1 331.6,348.2 L282.4,291.6 A95,95 0 0,0 220,125 Z" fill="#00D4C8" opacity="0.9"/>
+                                <!-- 纤维 18.2%  amber -->
+                                <path d="M331.6,348.2 A170,170 0 0,1 149.5,374.7 L180.6,306.4 A95,95 0 0,0 282.4,291.6 Z" fill="#F5A623" opacity="0.85"/>
+                                <!-- 模塑品 15.8%  teal-light -->
+                                <path d="M149.5,374.7 A170,170 0 0,1 51.9,245.4 L126.1,234.2 A95,95 0 0,0 180.6,306.4 Z" fill="#00D4C8" opacity="0.6"/>
+                                <!-- 浆料/涂料 12.5%  amber-light -->
+                                <path d="M51.9,245.4 A170,170 0 0,1 83.0,119.3 L143.5,163.7 A95,95 0 0,0 126.1,234.2 Z" fill="#F5A623" opacity="0.55"/>
+                                <!-- 泡沫/粉末 8.3%  teal-dim -->
+                                <path d="M83.0,119.3 A170,170 0 0,1 151.4,64.5 L181.7,133.1 A95,95 0 0,0 143.5,163.7 Z" fill="#00D4C8" opacity="0.35"/>
+                                <!-- 胶粘剂 6.6%  amber-dim -->
+                                <path d="M151.4,64.5 A170,170 0 0,1 220,50 L220,125 A95,95 0 0,0 181.7,133.1 Z" fill="#F5A623" opacity="0.3"/>
+                                <!-- Center text -->
+                                <text class="center-text" x="220" y="215" text-anchor="middle">6</text>
+                                <text class="center-sub" x="220" y="245" text-anchor="middle">技术分支</text>
+                            </svg>
+                            <div class="legend-inline" style="justify-content:center; max-width:520px; margin-top:8px;">
+                                <span class="legend-item"><span class="legend-dot" style="background:#00D4C8;"></span>膜 38.6%</span>
+                                <span class="legend-item"><span class="legend-dot" style="background:#F5A623;"></span>纤维 18.2%</span>
+                                <span class="legend-item"><span class="legend-dot" style="background:rgba(0,212,200,0.6);"></span>模塑品 15.8%</span>
+                                <span class="legend-item"><span class="legend-dot" style="background:rgba(245,166,35,0.55);"></span>浆料/涂料 12.5%</span>
+                                <span class="legend-item"><span class="legend-dot" style="background:rgba(0,212,200,0.35);"></span>泡沫/粉末 8.3%</span>
+                                <span class="legend-item"><span class="legend-dot" style="background:rgba(245,166,35,0.3);"></span>胶粘剂 6.6%</span>
+                            </div>
+                            <p class="caption" style="margin-top:8px; text-align:center; font-size:16px;">
+                                ⸺ 数据来源：壹专利 Patyee
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================================================================
+                 SLIDE 04 — 膜材主导
+                 ================================================================ -->
+            <section class="slide">
+                <div class="bg-atmos"><div class="orb-2" style="opacity:0.6;"></div><div class="grid"></div><div class="scanline"></div></div>
+                <div class="top-bar">
+                    <span class="label-teal">技术聚焦 / FOCUS</span>
+                    <span class="page-num">04 / 17</span>
+                </div>
+                <div class="content-main center-y" style="height:calc(1080px - 100px); padding-bottom:60px;">
+                    <div class="reveal-stat" style="text-align:center;">
+                        <span class="stat-value">20,007</span>
+                        <span class="stat-unit" style="padding-left:10px;">件</span>
+                        <div class="stat-num-label" style="font-family:var(--font-body); font-size:20px; color:var(--text-secondary); margin-top:6px; letter-spacing:0.08em;">全球聚酰亚胺膜材专利总量</div>
+                    </div>
+                    <h2 class="h2-title reveal" style="margin-top:16px; text-align:center;">
+                        聚酰亚胺<em>膜材</em> — 最大技术分支
+                    </h2>
+                    <p class="lead reveal" style="margin-top:14px; text-align:center; max-width:800px; margin-left:auto; margin-right:auto;">
+                        占全球聚酰亚胺专利总量的 38.6%，是技术创新最活跃、市场价值最高的领域
+                    </p>
+                    <div class="divider-full reveal" style="margin-top:36px;"></div>
+                    <div class="stat-row reveal">
+                        <div class="stat-item">
+                            <span class="stat-value-sm">7,762</span><span class="stat-unit" style="font-size:18px;"> 件</span>
+                            <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">线路板基膜</div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value-sm">6,500</span><span class="stat-unit" style="font-size:18px;"> 件</span>
+                            <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">光学膜 / 透光膜</div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value-sm">4,350</span><span class="stat-unit" style="font-size:18px;"> 件</span>
+                            <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">液晶取向膜</div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value-sm">1,080</span><span class="stat-unit" style="font-size:18px;"> 件</span>
+                            <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">分离膜 + 电池膜</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================================================================
+                 SLIDE 05 — 膜材细分
+                 ================================================================ -->
+            <section class="slide">
+                <div class="bg-atmos"><div class="orb-1" style="opacity:0.4;"></div><div class="grid"></div></div>
+                <div class="top-bar">
+                    <span class="label-teal">膜材细分 / MEMBRANE DETAIL</span>
+                    <span class="page-num">05 / 17</span>
+                </div>
+                <div class="content-main">
+                    <h2 class="h2-title reveal">五大膜材应用方向</h2>
+                    <div class="card-grid reveal" style="margin-top:28px;">
+                        <div class="card">
+                            <span class="card-num">01</span>
+                            <h3 class="card-title">线路板基膜</h3>
+                            <div class="card-stat">7,762</div>
+                            <p class="card-desc">宇部兴产、钟化领先 · 5G/6G驱动低介电需求 · 超薄化趋势</p>
+                        </div>
+                        <div class="card">
+                            <span class="card-num">02</span>
+                            <h3 class="card-title">光学膜 / 透光膜</h3>
+                            <div class="card-stat">6,500</div>
+                            <p class="card-desc">住友化学、钟化领先 · 折叠屏驱动 · 透光率>90% · 20万次折叠</p>
+                        </div>
+                        <div class="card">
+                            <span class="card-num">03</span>
+                            <h3 class="card-title">液晶取向膜</h3>
+                            <div class="card-stat">4,350</div>
+                            <p class="card-desc">JSR、日产化学双寡头 · 光取向技术替代摩擦取向 · OLED新增长</p>
+                        </div>
+                    </div>
+                    <div class="card-grid reveal" style="margin-top:10px;">
+                        <div class="card">
+                            <span class="card-num">04</span>
+                            <h3 class="card-title">分离膜 / 滤膜</h3>
+                            <div class="card-stat">560</div>
+                            <p class="card-desc">CO₂捕集、溶剂分离 · 碳中和推动需求 · 中科院积极布局</p>
+                        </div>
+                        <div class="card">
+                            <span class="card-num">05</span>
+                            <h3 class="card-title">电池底板膜</h3>
+                            <div class="card-stat">520</div>
+                            <p class="card-desc">新能源新兴应用 · 宁德时代、比亚迪向上游延伸</p>
+                        </div>
+                        <div class="card" style="border-color:var(--border-dim); background:transparent;">
+                            <span class="card-num" style="color:var(--accent-amber);">→</span>
+                            <h3 class="card-title">趋势洞察</h3>
+                            <p class="card-desc">高性能化 · 功能化 · 绿色化<br>高频高速 · 折叠屏 · 新能源三驱动力</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================================================================
+                 SLIDE 06 — 全球地域格局
+                 ================================================================ -->
+            <section class="slide">
+                <div class="bg-atmos"><div class="orb-2" style="opacity:0.5;"></div><div class="grid"></div><div class="scanline"></div></div>
+                <div class="top-bar">
+                    <span class="label-teal">地域格局 / GEOGRAPHY</span>
+                    <span class="page-num">06 / 17</span>
+                </div>
+                <div class="content-main center-y" style="height:calc(1080px - 100px); padding-bottom:60px;">
+                    <div style="display:flex; gap:60px; align-items:center;">
+                        <div class="reveal-stat" style="flex-shrink:0;">
+                            <span class="stat-value">61.4%</span>
+                            <div class="stat-label" style="font-size:20px; margin-top:8px; color:var(--text-primary); font-weight:500;">日本技术主导</div>
+                            <div class="stat-label" style="margin-top:12px; font-size:16px; color:var(--text-muted);">31,828件</div>
+                        </div>
+                        <div style="flex:1;" class="reveal">
+                            <div class="bar-chart">
+                                <div class="bar-row">
+                                    <span class="bar-label">日本</span>
+                                    <div class="bar-track"><div class="bar-fill teal" style="width:100%"><span class="bar-val">31,828件 · 61.4%</span></div></div>
+                                </div>
+                                <div class="bar-row">
+                                    <span class="bar-label">中国</span>
+                                    <div class="bar-track"><div class="bar-fill amber" style="width:37.6%"><span class="bar-val">11,980件 · 23.1%</span></div></div>
+                                </div>
+                                <div class="bar-row">
+                                    <span class="bar-label">韩国</span>
+                                    <div class="bar-track"><div class="bar-fill teal-light" style="width:17.5%"><span class="bar-val">5,555件 · 10.7%</span></div></div>
+                                </div>
+                                <div class="bar-row">
+                                    <span class="bar-label">美国</span>
+                                    <div class="bar-track"><div class="bar-fill amber-light" style="width:16.6%"><span class="bar-val">5,280件 · 10.2%</span></div></div>
+                                </div>
+                                <div class="bar-row">
+                                    <span class="bar-label">欧洲</span>
+                                    <div class="bar-track"><div class="bar-fill teal-dim" style="width:5.8%"><span class="bar-val light" style="color:var(--text-secondary);">1,850件 · 3.6%</span></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divider-full reveal" style="margin-top:30px;"></div>
+                    <p class="lead reveal" style="text-align:center;">
+                        日本+中国+韩国合计占比 <em>95.2%</em> — 东亚是全球聚酰亚胺技术绝对中心
+                    </p>
+                </div>
+            </section>
+
+            <!-- ================================================================
+                 SLIDE 07 — 中国地域
+                 ================================================================ -->
+            <section class="slide">
+                <div class="bg-atmos"><div class="orb-1" style="opacity:0.4;"></div><div class="grid"></div></div>
+                <div class="top-bar">
+                    <span class="label-teal">中国布局 / CHINA LANDSCAPE</span>
+                    <span class="page-num">07 / 17</span>
+                </div>
+                <div class="content-main center-y" style="height:calc(1080px - 100px); padding-bottom:60px;">
+                    <h2 class="h2-title reveal">中国：专利申请量快速增长</h2>
+                    <div class="stat-row reveal" style="gap:80px; margin-top:20px;">
+                        <div class="stat-item" style="border-top:2px solid var(--accent-teal);">
+                            <div class="st-num"><span class="stat-value-sm" style="font-size:80px;">41.3%</span></div>
+                            <div class="st-label" style="font-size:22px; color:var(--text-primary); font-weight:600;">长三角</div>
+                            <div class="st-note" style="font-size:17px; color:var(--text-secondary);">江苏+上海+浙江+安徽 · 4,928件</div>
+                        </div>
+                        <div class="v-divider"></div>
+                        <div class="stat-item" style="border-top:2px solid var(--accent-amber);">
+                            <div class="st-num"><span class="stat-value-sm" style="font-size:80px; color:var(--accent-amber);">11.5%</span></div>
+                            <div class="st-label" style="font-size:22px; color:var(--text-primary); font-weight:600;">珠三角</div>
+                            <div class="st-note" style="font-size:17px; color:var(--text-secondary);">广东 · 1,382件 · 电子信息产业链</div>
+                        </div>
+                        <div class="v-divider"></div>
+                        <div class="stat-item" style="border-top:2px solid var(--accent-teal);">
+                            <div class="st-num"><span class="stat-value-sm" style="font-size:80px;">10.3%</span></div>
+                            <div class="st-label" style="font-size:22px; color:var(--text-primary); font-weight:600;">京津冀</div>
+                            <div class="st-note" style="font-size:17px; color:var(--text-secondary);">北京+天津 · 1,232件 · 高校研发</div>
+                        </div>
+                    </div>
+                    <div class="divider-full reveal" style="margin-top:16px;"></div>
+                    <div class="stat-row reveal" style="gap:20px;">
+                        <span class="pill-tag" style="font-size:18px; padding:10px 24px;">江苏省 2,595件</span>
+                        <span class="pill-tag" style="font-size:18px; padding:10px 24px;">广东省 1,382件</span>
+                        <span class="pill-tag" style="font-size:18px; padding:10px 24px;">上海市 859件</span>
+                        <span class="pill-tag" style="font-size:18px; padding:10px 24px;">北京市 828件</span>
+                        <span class="pill-tag" style="font-size:18px; padding:10px 24px;">安徽省 788件</span>
+                        <span class="pill-tag" style="font-size:18px; padding:10px 24px;">浙江省 786件</span>
+                    </div>
+                    <p class="caption reveal" style="margin-top:12px; text-align:center; font-size:17px;">
+                        ⸺ 中国聚酰亚胺专利TOP6省份 · 壹专利 Patyee 申请人省份排名分析
+                    </p>
+                </div>
+            </section>
+
+            <!-- ================================================================
+                 SLIDE 08 — 全球竞争格局
+                 ================================================================ -->
+            <section class="slide">
+                <div class="bg-atmos"><div class="orb-1" style="opacity:0.3;"></div><div class="orb-2" style="opacity:0.3;"></div><div class="grid"></div></div>
+                <div class="top-bar">
+                    <span class="label-teal">竞争格局 / COMPETITION</span>
+                    <span class="page-num">08 / 17</span>
+                </div>
+                <div class="content-main">
+                    <h2 class="h2-title reveal">全球TOP10申请人 — <em>7家日企</em></h2>
+                    <div class="card-grid reveal" style="margin-top:20px;">
+                        <div class="card">
+                            <span class="card-num">🥇 日立集团</span>
+                            <div class="card-stat" style="font-size:44px;">2,496</div>
+                            <p class="card-desc">膜材·涂料·胶粘剂 · 全产业链 · 年申请150+</p>
+                        </div>
+                        <div class="card">
+                            <span class="card-num">🥈 宇部兴产</span>
+                            <div class="card-stat" style="font-size:44px;">1,843</div>
+                            <p class="card-desc">膜材·分离膜 · 线路板基膜全球第一</p>
+                        </div>
+                        <div class="card">
+                            <span class="card-num">🥉 钟化</span>
+                            <div class="card-stat" style="font-size:44px;">1,737</div>
+                            <p class="card-desc">膜材·模塑品 · 折叠屏CPI核心供应商</p>
+                        </div>
+                    </div>
+                    <div class="card-grid reveal" style="margin-top:10px;">
+                        <div class="card">
+                            <span class="card-num">04 三菱集团</span>
+                            <div class="card-stat" style="font-size:36px; color:var(--accent-amber);">1,552</div>
+                            <p class="card-desc">电子材料·航空航天</p>
+                        </div>
+                        <div class="card">
+                            <span class="card-num">05 东丽集团</span>
+                            <div class="card-stat" style="font-size:36px; color:var(--accent-amber);">1,543</div>
+                            <p class="card-desc">碳纤维·高性能薄膜</p>
+                        </div>
+                        <div class="card">
+                            <span class="card-num">06 住友集团</span>
+                            <div class="card-stat" style="font-size:36px; color:var(--accent-amber);">1,505</div>
+                            <p class="card-desc">电子零件·化学材料</p>
+                        </div>
+                    </div>
+                    <div class="card-grid reveal" style="margin-top:10px;">
+                        <div class="card">
+                            <span class="card-num">07 陶氏杜邦</span>
+                            <div class="card-stat" style="font-size:28px; color:var(--accent-teal);">1,440</div>
+                            <p class="card-desc">Kapton品牌标杆 · 美国唯一入榜</p>
+                        </div>
+                        <div class="card">
+                            <span class="card-num">08 三井化学</span>
+                            <div class="card-stat" style="font-size:28px; color:var(--accent-teal);">1,428</div>
+                            <p class="card-desc">电子材料·高性能化学品</p>
+                        </div>
+                        <div class="card" style="border-color:var(--border-dim); background:transparent;">
+                            <span class="card-num" style="color:var(--accent-amber);">10 中科院</span>
+                            <div class="card-stat" style="font-size:28px; color:var(--accent-teal);">1,050</div>
+                            <p class="card-desc">中国唯一入榜 · 产学研代表</p>
+                        </div>
+                    </div>
+                    <p class="lead reveal" style="margin-top:12px; text-align:center;">
+                        TOP3集中度 <em>11.7%</em> · 技术追赶窗口仍在
+                    </p>
+                </div>
+            </section>
+
+            <!-- ================================================================
+                 SLIDE 09 — 日企深度
+                 ================================================================ -->
+            <section class="slide">
+                <div class="bg-atmos"><div class="orb-2" style="opacity:0.5;"></div><div class="grid"></div></div>
+                <div class="top-bar">
+                    <span class="label-teal">日企深度 / JAPAN DEEP DIVE</span>
+                    <span class="page-num">09 / 17</span>
+                </div>
+                <div class="content-main center-y" style="height:calc(1080px - 100px); padding-bottom:60px;">
+                    <h2 class="h2-title reveal">第一梯队：日本三大巨头</h2>
+                    <div class="card-grid reveal" style="margin-top:28px;">
+                        <div class="card">
+                            <span class="card-num">日立集团</span>
+                            <div class="card-stat">2,496</div>
+                            <p class="card-desc">膜材45% · 涂料25% · 胶粘剂20%<br>全产业链布局 · 年申请量150件+ · 在华专利布局积极</p>
+                        </div>
+                        <div class="card">
+                            <span class="card-num">宇部兴产</span>
+                            <div class="card-stat">1,843</div>
+                            <p class="card-desc">膜材60% · 分离膜15% · 纤维10%<br>线路板基膜全球市占率第一<br>积极拓展新能源、环保领域</p>
+                        </div>
+                        <div class="card">
+                            <span class="card-num">株式会社钟化</span>
+                            <div class="card-stat">1,737</div>
+                            <p class="card-desc">膜材 · 模塑品双轮驱动<br>光学膜硬化涂层技术领先<br>折叠屏CPI膜核心供应商</p>
+                        </div>
+                    </div>
+                    <div class="divider-full reveal" style="margin-top:24px;"></div>
+                    <div class="stat-row reveal" style="gap:60px; margin-top:8px;">
+                        <div class="stat-item">
+                            <span class="stat-value-sm">6,086</span><span class="stat-unit" style="font-size:18px;"> 件</span>
+                            <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">三巨头合计专利</div>
+                            <div class="st-note" style="font-size:15px; color:var(--text-secondary);">占TOP10总量的51.2%</div>
+                        </div>
+                        <div class="v-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-value-sm">150+</span><span class="stat-unit" style="font-size:18px;"> 件/年</span>
+                            <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">日立年均申请量</div>
+                            <div class="st-note" style="font-size:15px; color:var(--text-secondary);">持续领先 · 技术壁垒持续加固</div>
+                        </div>
+                        <div class="v-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-value-sm">全产业链</span>
+                            <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">从单体合成到终端应用</div>
+                            <div class="st-note" style="font-size:15px; color:var(--text-secondary);">日企一体化竞争优势显著</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================================================================
+                 SLIDE 10 — 中国力量
+                 ================================================================ -->
+            <section class="slide">
+                <div class="bg-atmos"><div class="orb-1" style="opacity:0.4;"></div><div class="grid"></div><div class="scanline"></div></div>
+                <div class="top-bar">
+                    <span class="label-teal">中国力量 / CHINA RISING</span>
+                    <span class="page-num">10 / 17</span>
+                </div>
+                <div class="content-main center-y" style="height:calc(1080px - 100px); padding-bottom:60px;">
+                    <h2 class="h2-title reveal">中国：从"跟跑"到"并跑"</h2>
+                    <div style="display:flex; gap:50px; margin-top:36px; align-items:flex-start;">
+                        <div style="flex:1.1;">
+                            <div class="stat-row reveal" style="margin-top:0; flex-direction:column; gap:24px;">
+                                <div class="stat-item">
+                                    <div class="st-num"><span class="stat-value-sm">1,050</span><span class="stat-unit" style="font-size:18px;"> 件</span></div>
+                                    <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">中国科学院 · 全球TOP10唯一中国机构</div>
+                                    <div class="st-note" style="font-size:15px; color:var(--text-secondary);">纤维35% · 膜材30% · 涂料20%</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="st-num"><span class="stat-value-sm">2,728</span><span class="stat-unit" style="font-size:18px;"> 件</span></div>
+                                    <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">2026年中国专利申请量</div>
+                                    <div class="st-note" style="font-size:15px; color:var(--text-secondary);">2015年以来增长超200%</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="st-num"><span class="stat-value-sm">12.1%</span></div>
+                                    <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">中部地区崛起</div>
+                                    <div class="st-note" style="font-size:15px; color:var(--text-secondary);">安徽+湖北 承接产业转移</div>
+                                </div>
+                            </div>
+                            <div class="divider-full reveal" style="margin-top:28px;"></div>
+                            <ul class="bullet-list reveal" style="font-size:22px; margin-top:16px;">
+                                <li>瑞华泰 · 时代新材 · 金发科技 — 线路板基膜、光学膜领域突破</li>
+                                <li>北京化工大学 · 中科院化学所 · 天津大学 — 基础研究与应用开发并进</li>
+                                <li>产学研结合 — 技术转化率持续提升</li>
+                            </ul>
+                        </div>
+                        <div class="v-divider" style="align-self:stretch;"></div>
+                        <div style="flex:1;" class="reveal">
+                            <p class="label-teal" style="margin-bottom:16px; text-align:center; font-size:15px;">中国专利申请量增长趋势</p>
+                            <svg viewBox="0 0 500 400" width="560" height="450" class="area-chart">
+                                <defs>
+                                    <linearGradient id="grad-area" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#00D4C8" stop-opacity="0.3"/>
+                                        <stop offset="100%" stop-color="#00D4C8" stop-opacity="0.02"/>
+                                    </linearGradient>
+                                </defs>
+                                <!-- Grid lines -->
+                                <line x1="65" y1="50" x2="470" y2="50" stroke="rgba(90,110,150,0.2)" stroke-width="0.5"/>
+                                <line x1="65" y1="125" x2="470" y2="125" stroke="rgba(90,110,150,0.2)" stroke-width="0.5"/>
+                                <line x1="65" y1="200" x2="470" y2="200" stroke="rgba(90,110,150,0.2)" stroke-width="0.5"/>
+                                <line x1="65" y1="275" x2="470" y2="275" stroke="rgba(90,110,150,0.2)" stroke-width="0.5"/>
+                                <!-- Y labels -->
+                                <text x="55" y="55" text-anchor="end" fill="#5B6E95" font-size="14" font-family="Chivo Mono">3000</text>
+                                <text x="55" y="130" text-anchor="end" fill="#5B6E95" font-size="14" font-family="Chivo Mono">2000</text>
+                                <text x="55" y="205" text-anchor="end" fill="#5B6E95" font-size="14" font-family="Chivo Mono">1500</text>
+                                <text x="55" y="280" text-anchor="end" fill="#5B6E95" font-size="14" font-family="Chivo Mono">1000</text>
+                                <!-- Area fill -->
+                                <path d="M95,255 L165,205 L235,155 L305,120 L375,75 L445,55 L470,48
+                                         L470,340 L95,340 Z" fill="url(#grad-area)"/>
+                                <!-- Line -->
+                                <path d="M95,255 L165,205 L235,155 L305,120 L375,75 L445,55 L470,48"
+                                    fill="none" stroke="#00D4C8" stroke-width="3"/>
+                                <!-- Data points -->
+                                <circle cx="95" cy="255" r="6" fill="#0A1029" stroke="#00D4C8" stroke-width="2.5"/>
+                                <circle cx="165" cy="205" r="6" fill="#0A1029" stroke="#00D4C8" stroke-width="2.5"/>
+                                <circle cx="235" cy="155" r="6" fill="#0A1029" stroke="#00D4C8" stroke-width="2.5"/>
+                                <circle cx="305" cy="120" r="6" fill="#0A1029" stroke="#00D4C8" stroke-width="2.5"/>
+                                <circle cx="375" cy="75" r="6" fill="#0A1029" stroke="#00D4C8" stroke-width="2.5"/>
+                                <circle cx="445" cy="55" r="6" fill="#0A1029" stroke="#F5A623" stroke-width="2.5"/>
+                                <circle cx="470" cy="48" r="7" fill="#F5A623" stroke="#F5A623" stroke-width="2.5"/>
+                                <!-- X labels -->
+                                <text x="95" y="360" text-anchor="middle" fill="#5B6E95" font-size="14" font-family="Chivo Mono">2015</text>
+                                <text x="165" y="360" text-anchor="middle" fill="#5B6E95" font-size="14" font-family="Chivo Mono">2017</text>
+                                <text x="235" y="360" text-anchor="middle" fill="#5B6E95" font-size="14" font-family="Chivo Mono">2019</text>
+                                <text x="305" y="360" text-anchor="middle" fill="#5B6E95" font-size="14" font-family="Chivo Mono">2021</text>
+                                <text x="375" y="360" text-anchor="middle" fill="#5B6E95" font-size="14" font-family="Chivo Mono">2023</text>
+                                <text x="445" y="360" text-anchor="middle" fill="#5B6E95" font-size="14" font-family="Chivo Mono">2025</text>
+                                <text x="470" y="360" text-anchor="middle" fill="#F5A623" font-size="14" font-family="Chivo Mono" font-weight="600">2026</text>
+                                <!-- Value labels -->
+                                <text x="95" y="240" text-anchor="middle" fill="#9AABCA" font-size="13">~900</text>
+                                <text x="165" y="190" text-anchor="middle" fill="#9AABCA" font-size="13">~1,200</text>
+                                <text x="235" y="140" text-anchor="middle" fill="#9AABCA" font-size="13">~1,500</text>
+                                <text x="305" y="105" text-anchor="middle" fill="#9AABCA" font-size="13">~2,100</text>
+                                <text x="375" y="60" text-anchor="middle" fill="#9AABCA" font-size="13">~2,500</text>
+                                <text x="445" y="40" text-anchor="middle" fill="#F5A623" font-size="14" font-weight="600">2,728</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================================================================
+                 SLIDE 11 — 技术演进
+                 ================================================================ -->
+            <section class="slide">
+                <div class="bg-atmos"><div class="orb-1" style="opacity:0.3;"></div><div class="orb-2" style="opacity:0.3;"></div><div class="grid"></div></div>
+                <div class="top-bar">
+                    <span class="label-teal">技术演进 / TECH EVOLUTION</span>
+                    <span class="page-num">11 / 17</span>
+                </div>
+                <div class="content-main center-y" style="height:calc(1080px - 100px); padding:36px var(--pad-x) 60px;">
+                    <h2 class="h2-title reveal">四个阶段：从航空航天到折叠屏</h2>
+                    <div class="timeline reveal" style="margin-top:0;">
+                        <div class="t-entry">
+                            <div class="t-year">2007 – 2012</div>
+                            <div class="t-title">高性能PI合成 · 纤维制备</div>
+                            <div class="t-desc">驱动因素：航空航天需求 · 年均申请量约1,350件</div>
+                        </div>
+                        <div class="t-entry">
+                            <div class="t-year">2013 – 2017</div>
+                            <div class="t-title">柔性PI膜 · 液晶取向膜</div>
+                            <div class="t-desc">驱动因素：柔性AMOLED商用化 · 申请量突破1,400件</div>
+                        </div>
+                        <div class="t-entry">
+                            <div class="t-year">2018 – 2022</div>
+                            <div class="t-title">5G用PI膜 · 折叠屏CPI</div>
+                            <div class="t-desc">驱动因素：5G商用 · 折叠屏手机普及 · 2022年峰值3,050件</div>
+                        </div>
+                        <div class="t-entry" style="margin-bottom:0; padding-bottom:0;">
+                            <div class="t-year">2023 – 2026</div>
+                            <div class="t-title">高导热PI · 环保型PI · 增材制造</div>
+                            <div class="t-desc">驱动因素：新能源 · 碳中和 · 2026年2,728件技术升级转型期</div>
+                        </div>
+                    </div>
+                    <div class="divider-full reveal" style="margin-top:20px;"></div>
+                    <div class="stat-row reveal" style="gap:60px;">
+                        <div class="stat-item">
+                            <span class="stat-value-sm">3,050</span><span class="stat-unit" style="font-size:18px;"> 件</span>
+                            <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">2022年申请量峰值</div>
+                            <div class="st-note" style="font-size:15px; color:var(--text-secondary);">历史最高 · 5G+折叠屏双重驱动</div>
+                        </div>
+                        <div class="v-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-value-sm">20</span><span class="stat-unit" style="font-size:18px;"> 年</span>
+                            <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">技术演进跨度</div>
+                            <div class="st-note" style="font-size:15px; color:var(--text-secondary);">2007→2026持续创新</div>
+                        </div>
+                        <div class="v-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-value-sm">2,728</span><span class="stat-unit" style="font-size:18px;"> 件</span>
+                            <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">2026年最新申请量</div>
+                            <div class="st-note" style="font-size:15px; color:var(--text-secondary);">技术升级转型期</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================================================================
+                 SLIDE 12 — 三大驱动力
+                 ================================================================ -->
+            <section class="slide">
+                <div class="bg-atmos"><div class="orb-1" style="opacity:0.5;"></div><div class="grid"></div></div>
+                <div class="top-bar">
+                    <span class="label-teal">技术驱动力 / DRIVERS</span>
+                    <span class="page-num">12 / 17</span>
+                </div>
+                <div class="content-main center-y" style="height:calc(1080px - 100px); padding-bottom:60px;">
+                    <h2 class="h2-title reveal">三大技术驱动力</h2>
+                    <div class="card-grid reveal" style="margin-top:20px;">
+                        <div class="card">
+                            <span class="card-num">01</span>
+                            <h3 class="card-title">5G / 6G 通信</h3>
+                            <p class="card-desc">低介电常数（<2.5）PI膜需求激增<br>高频高速线路板基膜<br>5G天线用PI材料</p>
+                        </div>
+                        <div class="card">
+                            <span class="card-num">02</span>
+                            <h3 class="card-title">折叠屏显示</h3>
+                            <p class="card-desc">超薄CPI膜（<30μm）· 20万次折叠<br>高透光率>90% · 低黄度指数<br>抗指纹 · 自修复功能集成</p>
+                        </div>
+                        <div class="card">
+                            <span class="card-num">03</span>
+                            <h3 class="card-title">新能源 & 碳中和</h3>
+                            <p class="card-desc">电池底板膜 · 高导热PI（>50W/m·K）<br>CO₂捕集分离膜<br>无卤素 · 水性PI环保化</p>
+                        </div>
+                    </div>
+                    <div class="divider-full reveal" style="margin-top:20px;"></div>
+                    <div class="stat-row reveal" style="gap:60px;">
+                        <div class="stat-item">
+                            <span class="stat-value-sm" style="color:var(--accent-teal);">8–10%</span>
+                            <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">年均市场增长率</div>
+                            <div class="st-note" style="font-size:15px; color:var(--text-secondary);">未来5-10年全球市场</div>
+                        </div>
+                        <div class="v-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-value-sm" style="color:var(--accent-teal);">2,728</span><span class="stat-unit" style="font-size:18px;"> 件</span>
+                            <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">2026年中国PI专利申请</div>
+                            <div class="st-note" style="font-size:15px; color:var(--text-secondary);">中国为最大增量市场</div>
+                        </div>
+                        <div class="v-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-value-sm" style="color:var(--accent-amber);">三大领域</span>
+                            <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">通信 · 显示 · 新能源</div>
+                            <div class="st-note" style="font-size:15px; color:var(--text-secondary);">驱动聚酰亚胺高速增长</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================================================================
+                 SLIDE 13 — 专利价值
+                 ================================================================ -->
+            <section class="slide">
+                <div class="bg-atmos"><div class="orb-2" style="opacity:0.5;"></div><div class="grid"></div><div class="scanline"></div></div>
+                <div class="top-bar">
+                    <span class="label-teal">专利价值 / VALUE ANALYSIS</span>
+                    <span class="page-num">13 / 17</span>
+                </div>
+                <div class="content-main center-y" style="height:calc(1080px - 100px); padding-bottom:60px;">
+                    <h2 class="h2-title reveal">专利价值分布：整体质量较高</h2>
+                    <div style="display:flex; gap:80px; align-items:center; margin-top:36px;">
+                        <div class="reveal-stat" style="flex-shrink:0; text-align:center;">
+                            <span class="stat-value">82.4%</span>
+                            <div class="stat-label" style="font-size:20px; margin-top:8px; color:var(--text-primary); font-weight:500;">中高价值专利<br>（31分以上）</div>
+                        </div>
+                        <div style="flex:1;" class="reveal">
+                            <!-- Pie Chart -->
+                            <div style="display:flex; align-items:center; gap:50px;">
+                                <svg viewBox="0 0 280 280" width="360" height="360">
+                                    <!-- 高价值 17% : 0°→61.2°, 青蓝 -->
+                                    <path d="M140,140 L140,40 A100,100 0 0,1 227.6,91.8 Z" fill="#00D4C8" opacity="0.95"/>
+                                    <!-- 中等价值 65% : 61.2°→295.2°, 琥珀 (大弧) -->
+                                    <path d="M140,140 L227.6,91.8 A100,100 0 1,1 49.4,97.7 Z" fill="#F5A623" opacity="0.85"/>
+                                    <!-- 低价值 18% : 295.2°→360°, 青蓝淡 -->
+                                    <path d="M140,140 L49.4,97.7 A100,100 0 0,1 140,40 Z" fill="rgba(0,212,200,0.35)"/>
+                                    <!-- Center 82.4% label -->
+                                    <circle cx="140" cy="140" r="50" fill="#0A1029"/>
+                                    <text x="140" y="135" text-anchor="middle" font-family="Sora,Noto Sans SC,sans-serif" font-size="28" font-weight="700" fill="#E8ECF4">82.4%</text>
+                                    <text x="140" y="156" text-anchor="middle" font-family="Chivo Mono,Noto Sans SC,monospace" font-size="12" fill="#5B6E95" letter-spacing="0.1em">中高价值</text>
+                                </svg>
+                                <div style="flex:1;">
+                                    <div style="display:flex; flex-direction:column; gap:16px;">
+                                        <div style="display:flex; align-items:center; gap:12px;">
+                                            <span style="width:18px; height:18px; border-radius:50%; background:#00D4C8; flex-shrink:0;"></span>
+                                            <span style="font-family:Noto Sans SC,sans-serif; font-size:22px; color:var(--text-secondary);">高价值（61-100分）：8,804件（17.0%）</span>
+                                        </div>
+                                        <div style="display:flex; align-items:center; gap:12px;">
+                                            <span style="width:18px; height:18px; border-radius:50%; background:#F5A623; flex-shrink:0;"></span>
+                                            <span style="font-family:Noto Sans SC,sans-serif; font-size:22px; color:var(--text-secondary);">中等价值（31-60分）：33,875件（65.4%）</span>
+                                        </div>
+                                        <div style="display:flex; align-items:center; gap:12px;">
+                                            <span style="width:18px; height:18px; border-radius:50%; background:rgba(0,212,200,0.35); flex-shrink:0;"></span>
+                                            <span style="font-family:Noto Sans SC,sans-serif; font-size:22px; color:var(--text-secondary);">低价值（0-30分）：9,909件（19.1%）</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="lead reveal" style="margin-top:28px; text-align:center;">
+                        高价值专利主要集中在日企，<em>核心技术壁垒</em>明显 — 中国企业需加强高价值专利布局
+                    </p>
+                    <p class="caption reveal" style="margin-top:12px; text-align:center; font-size:17px;">
+                        ⸺ 基于壹专利 Patyee「专利价值度」评估模型 · 综合法律、技术、经济三维度
+                    </p>
+                </div>
+            </section>
+
+            <!-- ================================================================
+                 SLIDE 14 — 壹专利优势（KEY SLIDE）
+                 ================================================================ -->
+            <section class="slide">
+                <div class="bg-atmos"><div class="orb-1" style="opacity:0.6;"></div><div class="orb-2" style="opacity:0.3;"></div><div class="grid"></div><div class="scanline"></div></div>
+                <div class="accent-line-teal" style="width:200px;"></div>
+                <div class="top-bar">
+                    <span class="label-teal">壹专利系统 / PATTYEE</span>
+                    <span class="page-num">14 / 17</span>
+                </div>
+                <div class="content-main center-y" style="height:calc(1080px - 100px); padding-bottom:60px;">
+                    <h2 class="h2-title reveal">壹专利<em>全球检索分析系统</em></h2>
+                    <p class="lead reveal" style="margin-top:10px; max-width:1000px;">
+                        广州奥凯自主研发的新一代专利大数据智能平台，为本次分析提供全链条技术支撑
+                    </p>
+                    <div class="card-grid reveal" style="margin-top:20px;">
+                        <div class="card">
+                            <span class="card-num">全球数据</span>
+                            <h3 class="card-title">海量覆盖</h3>
+                            <p class="card-desc">覆盖172个国家/地区，超2亿专利数据<br>多语言智能翻译<br>打破语言壁垒 · 一站式全球检索</p>
+                        </div>
+                        <div class="card">
+                            <span class="card-num">智能分析</span>
+                            <h3 class="card-title">深度洞察</h3>
+                            <p class="card-desc">技术趋势 · 竞争格局 · 价值评估<br>申请人画像 · 地域分布 · IPC分析<br>一键生成专业分析报告</p>
+                        </div>
+                        <div class="card">
+                            <span class="card-num">可视化</span>
+                            <h3 class="card-title">直观呈现</h3>
+                            <p class="card-desc">专利地图 · 趋势曲线 · 关系图谱<br>3D专利沙盘 · 技术生命周期<br>支持多人协作与灵活导出</p>
+                        </div>
+                    </div>
+                    <div class="divider-full reveal" style="margin-top:20px;"></div>
+                    <div class="stat-row reveal" style="gap:60px;">
+                        <div class="stat-item">
+                            <span class="stat-value-sm" style="color:var(--accent-teal);">172</span><span class="stat-unit" style="font-size:18px;"> 国家/地区</span>
+                            <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">全球专利全覆盖</div>
+                            <div class="st-note" style="font-size:15px; color:var(--text-secondary);">持续更新 · 零盲区</div>
+                        </div>
+                        <div class="v-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-value-sm" style="color:var(--accent-amber);">2</span><span class="stat-unit" style="font-size:18px;"> 亿+</span>
+                            <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">专利基础数据</div>
+                            <div class="st-note" style="font-size:15px; color:var(--text-secondary);">深度加工 · 高价值分析</div>
+                        </div>
+                        <div class="v-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-value-sm" style="color:var(--accent-teal);">多维</span>
+                            <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">分析维度</div>
+                            <div class="st-note" style="font-size:15px; color:var(--text-secondary);">检索 · 分析 · 可视化 · 决策</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================================================================
+                 SLIDE 15 — 核心结论
+                 ================================================================ -->
+            <section class="slide">
+                <div class="bg-atmos"><div class="orb-1" style="opacity:0.4;"></div><div class="grid"></div></div>
+                <div class="top-bar">
+                    <span class="label-teal">结论与建议 / CONCLUSION</span>
+                    <span class="page-num">15 / 17</span>
+                </div>
+                <div class="content-main center-y" style="height:calc(1080px - 100px); padding-bottom:60px;">
+                    <h2 class="h2-title reveal">三大核心洞察</h2>
+                    <div class="two-col reveal" style="margin-top:24px; gap:40px;">
+                        <div>
+                            <ul class="bullet-list">
+                                <li><em>格局</em>：日本主导，中国追赶
+                                    <div class="sub">日本61.4% · 中国23.1%快速增长<br>膜材38.6%为最大技术分支</div>
+                                </li>
+                                <li><em>竞争</em>：日企壁垒高，窗口期仍在
+                                    <div class="sub">日立2,496件领跑 · 中科院进入TOP10<br>TOP3集中度仅11.7%</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="bullet-list">
+                                <li><em>趋势</em>：三大驱动力明确
+                                    <div class="sub">5G/6G · 折叠屏 · 新能源+碳中和<br>高性能化 · 功能化 · 绿色化</div>
+                                </li>
+                                <li><em>机遇</em>：中国企业大有可为
+                                    <div class="sub">线路板基膜突破 · 光学膜发力<br>产学研深度融合 · 专利布局升级</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="divider-full reveal" style="margin-top:16px;"></div>
+                    <div class="stat-row reveal" style="gap:60px;">
+                        <div class="stat-item">
+                            <span class="stat-value-sm" style="color:var(--accent-teal);">61.4%</span>
+                            <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">日本技术份额</div>
+                            <div class="st-note" style="font-size:15px; color:var(--text-secondary);">日立/宇部/钟化三巨头</div>
+                        </div>
+                        <div class="v-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-value-sm" style="color:var(--accent-amber);">23.1%</span>
+                            <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">中国技术份额</div>
+                            <div class="st-note" style="font-size:15px; color:var(--text-secondary);">增长最快 · 追赶势头强劲</div>
+                        </div>
+                        <div class="v-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-value-sm" style="color:var(--accent-teal);">8–10%</span>
+                            <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">市场年增长率</div>
+                            <div class="st-note" style="font-size:15px; color:var(--text-secondary);">未来5-10年持续增长</div>
+                        </div>
+                    </div>
+                    <p class="lead reveal" style="margin-top:12px; text-align:center;">
+                        "从'跟跑'到'并跑'再到'领跑' — 聚酰亚胺，中国可以"
+                    </p>
+                </div>
+            </section>
+
+            <!-- ================================================================
+                 SLIDE 16 — 奥凯
+                 ================================================================ -->
+            <section class="slide">
+                <div class="bg-atmos"><div class="orb-2" style="opacity:0.5;"></div><div class="grid"></div><div class="scanline"></div></div>
+                <div class="accent-line-amber" style="width:200px;"></div>
+                <div class="top-bar">
+                    <span class="label-teal">关于奥凯 / ABOUT AOKAI</span>
+                    <span class="page-num">16 / 17</span>
+                </div>
+                <div class="content-main center-y" style="height:calc(1080px - 100px); padding-bottom:60px;">
+                    <h2 class="h2-title reveal">广州奥凯信息咨询有限公司</h2>
+                    <p class="lead reveal" style="margin-top:16px; max-width:1000px;">
+                        中国知识产权信息服务领军企业，专注专利大数据分析与情报服务
+                    </p>
+                    <div class="stat-row reveal" style="margin-top:32px;">
+                        <div class="stat-item">
+                            <div class="st-num"><span class="stat-value-sm">20+</span><span class="stat-unit" style="font-size:18px;"> 年</span></div>
+                            <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">行业深耕</div>
+                        </div>
+                        <div class="v-divider"></div>
+                        <div class="stat-item">
+                            <div class="st-num"><span class="stat-value-sm" style="font-size:48px;">壹专利</span></div>
+                            <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">全球专利检索分析系统</div>
+                        </div>
+                        <div class="v-divider"></div>
+                        <div class="stat-item">
+                            <div class="st-num"><span class="stat-value-sm" style="font-size:48px;">全链条</span></div>
+                            <div class="st-label" style="font-size:18px; color:var(--text-primary); font-weight:500;">检索 · 分析 · 咨询 · 培训</div>
+                        </div>
+                    </div>
+                    <div class="divider-full reveal" style="margin-top:28px;"></div>
+                    <ul class="bullet-list reveal">
+                        <li>专利检索分析 · 专利导航 · 高价值专利培育</li>
+                        <li>知识产权战略咨询 · 竞争对手监测 · 技术路线规划</li>
+                        <li>产学研对接 · 创新大数据平台建设</li>
+                    </ul>
+                    <p class="lead reveal" style="margin-top:20px; text-align:center;">
+                        <em>数据驱动创新 · 情报赋能决策</em> — 让每一件专利发挥最大价值
+                    </p>
+                </div>
+            </section>
+
+            <!-- ================================================================
+                 SLIDE 17 — 感谢
+                 ================================================================ -->
+            <section class="slide">
+                <div class="bg-atmos"><div class="orb-1"></div><div class="orb-2"></div><div class="grid"></div><div class="scanline"></div></div>
+                <div class="accent-line-teal" style="width:400px; left:50%; transform:translateX(-50%);"></div>
+                <div class="accent-line-amber" style="width:300px; right:auto; left:50%; transform:translateX(-50%);"></div>
+                <div class="content-main center-y" style="align-items:center; text-align:center; height:1080px; padding-top:0; padding-bottom:80px;">
+                    <p class="label-teal reveal">IPIC 2026 · 国际聚酰亚胺会议</p>
+                    <div class="divider reveal" style="margin-top:28px;"></div>
+                    <h1 class="display reveal" style="font-size:180px; margin-top:20px;">
+                        谢谢
+                    </h1>
+                    <p class="lead reveal" style="margin-top:28px;">
+                        Thank You
+                    </p>
+                    <div class="divider-full reveal" style="width:240px; margin:40px auto;"></div>
+                    <div class="reveal">
+                        <p class="body-text" style="text-align:center; line-height:2.4; font-size:26px;">
+                            王峻岭<br>
+                            广州奥凯信息咨询有限公司<br>
+                            <span class="label-muted">数据来源：壹专利全球检索分析系统 Patyee</span>
+                        </p>
+                    </div>
+                    <p class="caption reveal" style="margin-top:36px;">
+                        2026年7月8-12日 · 中国广州
+                    </p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Controls -->
+    <div class="deck-controls">
+        <button id="btnPrev">←</button>
+        <span class="counter" id="counter">01 / 17</span>
+        <button id="btnNext">→</button>
+    </div>
+
+    <!-- Edit UI -->
+    <div class="edit-hotzone"></div>
+    <button class="edit-toggle" id="editToggle">✎</button>
+
+    <script>
+        class SlidePresentation {
+            constructor() {
+                this.slides = document.querySelectorAll('.slide');
+                this.totalSlides = this.slides.length;
+                this.currentSlide = 0;
+                this.stage = document.getElementById('deckStage');
+                this.counterEl = document.getElementById('counter');
+                this.setupScale();
+                this.setupKeyboard();
+                this.setupClicks();
+                this.showSlide(0);
+            }
+            setupScale() {
+                const fn = () => {
+                    const f = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+                    const x = (window.innerWidth - 1920 * f) / 2;
+                    const y = (window.innerHeight - 1080 * f) / 2;
+                    this.stage.style.transform = `translate(${x}px, ${y}px) scale(${f})`;
+                };
+                fn(); window.addEventListener('resize', fn);
+            }
+            setupKeyboard() {
+                document.addEventListener('keydown', (e) => {
+                    if (e.target.getAttribute('contenteditable') === 'true') return;
+                    switch(e.key) {
+                        case 'ArrowRight': case 'ArrowDown': case ' ':
+                            e.preventDefault(); this.next(); break;
+                        case 'ArrowLeft': case 'ArrowUp':
+                            e.preventDefault(); this.prev(); break;
+                        case 'Home': e.preventDefault(); this.showSlide(0); break;
+                        case 'End': e.preventDefault(); this.showSlide(this.totalSlides - 1); break;
+                    }
+                });
+            }
+            setupClicks() {
+                document.getElementById('btnPrev').addEventListener('click', () => this.prev());
+                document.getElementById('btnNext').addEventListener('click', () => this.next());
+                this.stage.addEventListener('click', (e) => {
+                    if (e.target.closest('.deck-controls') || e.target.closest('.edit-toggle') || e.target.closest('.edit-hotzone')) return;
+                    const r = this.stage.getBoundingClientRect();
+                    const rx = (e.clientX - r.left) / r.width;
+                    if (rx < 0.25) this.prev(); else if (rx > 0.75) this.next();
+                });
+            }
+            showSlide(i) {
+                this.currentSlide = Math.max(0, Math.min(i, this.totalSlides - 1));
+                this.slides.forEach((s, j) => {
+                    s.classList.toggle('active', j === this.currentSlide);
+                    s.classList.toggle('visible', j === this.currentSlide);
+                });
+                this.counterEl.textContent =
+                    String(this.currentSlide + 1).padStart(2, '0') + ' / ' +
+                    String(this.totalSlides).padStart(2, '0');
+            }
+            next() { if (this.currentSlide < this.totalSlides - 1) this.showSlide(this.currentSlide + 1); }
+            prev() { if (this.currentSlide > 0) this.showSlide(this.currentSlide - 1); }
+        }
+        new SlidePresentation();
+
+        /* Editing */
+        const edit = { isActive: false,
+            toggle() {
+                this.isActive = !this.isActive;
+                const slides = document.querySelectorAll('.slide');
+                slides.forEach(s => {
+                    if (this.isActive) {
+                        s.querySelectorAll('h1, h2, h3, p, li').forEach(el => {
+                            if (!el.closest('.deck-controls') && !el.classList.contains('stat-value') &&
+                                !el.classList.contains('stat-value-sm') && !el.classList.contains('label-teal') &&
+                                !el.classList.contains('label-muted') && !el.classList.contains('pill-tag')) {
+                                el.setAttribute('contenteditable', 'true');
+                            }
+                        });
+                        document.getElementById('editToggle').textContent = '✓';
+                        document.getElementById('editToggle').classList.add('active');
+                    } else {
+                        slides.forEach(s => {
+                            s.querySelectorAll('[contenteditable="true"]').forEach(el => el.removeAttribute('contenteditable'));
+                        });
+                        document.getElementById('editToggle').textContent = '✎';
+                        document.getElementById('editToggle').classList.remove('active');
+                        try { localStorage.setItem('ipic2026-dataprism-backup', document.documentElement.outerHTML); } catch(e) {}
+                    }
+                });
+            }
+        };
+
+        document.getElementById('editToggle').addEventListener('click', () => edit.toggle());
+        const hz = document.querySelector('.edit-hotzone');
+        const et = document.getElementById('editToggle');
+        let ht = null;
+        hz.addEventListener('mouseenter', () => { clearTimeout(ht); et.classList.add('show'); });
+        hz.addEventListener('mouseleave', () => { ht = setTimeout(() => { if (!edit.isActive) et.classList.remove('show'); }, 400); });
+        et.addEventListener('mouseenter', () => clearTimeout(ht));
+        et.addEventListener('mouseleave', () => { ht = setTimeout(() => { if (!edit.isActive) et.classList.remove('show'); }, 400); });
+        hz.addEventListener('click', () => edit.toggle());
+        document.addEventListener('keydown', (e) => {
+            if ((e.key === 'e' || e.key === 'E') && e.target === document.body) edit.toggle();
+            if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+                e.preventDefault();
+                if (edit.isActive) {
+                    const b = new Blob(['<!DOCTYPE html>\n' + document.documentElement.outerHTML], {type: 'text/html'});
+                    const a = document.createElement('a');
+                    a.href = URL.createObjectURL(b);
+                    a.download = 'IPIC2026-聚酰亚胺专利分析-DataPrism.html';
+                    a.click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
