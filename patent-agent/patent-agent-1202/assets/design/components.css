@@ -1,0 +1,154 @@
+/* ═══════════════════════════════════════════════════════════════
+   components.css — Design System Component Definitions
+   Auto-extracted from preview/component-*.html
+   DO NOT EDIT MANUALLY — regenerate via extract-components-css.mjs
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Chat Composer ─────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">单行空闲态</span>
+*/
+/* Component definitions — extracted to components.css by deterministic script */
+.composer { display: flex; flex-direction: column; gap: var(--space-2); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-background); padding: var(--space-3); width: 100%; transition: outline-color .15s; }
+.composer:focus-within { outline: 2px solid var(--color-ring); outline-offset: 1px; }
+.composer-input { border: none; outline: none; resize: none; font-family: var(--font-sans); font-size: var(--type-body-md); color: var(--color-foreground); line-height: 1.5; width: 100%; min-height: var(--size-chat-input-min); overflow-y: auto; }
+.composer-input::placeholder { color: var(--color-muted-foreground); }
+.composer-bottom { display: flex; align-items: center; justify-content: space-between; }
+.composer-tool-row { display: flex; gap: var(--space-2); align-items: center; }
+.composer-tool-btn { display: inline-flex; align-items: center; gap: var(--space-1); font-size: var(--type-body-sm); color: var(--color-muted-foreground); cursor: pointer; padding: var(--space-1) var(--space-1-5); border-radius: var(--radius-sm); transition: background .15s; white-space: nowrap; flex-shrink: 0; }
+.composer-tool-btn:hover { background: var(--color-secondary); }
+.composer-submit { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-1); background: var(--color-primary); color: var(--color-primary-foreground); font-family: var(--font-sans); font-size: var(--type-body-sm); font-weight: 500; border: none; border-radius: var(--radius-full); padding: var(--space-1-5) var(--space-4); cursor: pointer; transition: filter .15s; white-space: nowrap; min-width: 56px; height: 32px; flex-shrink: 0; }
+.composer-submit:hover { filter: brightness(1.08); }
+.composer-focus-ring { outline: 2px solid var(--color-ring); outline-offset: 1px; }
+.composer-expanded .composer-input { min-height: 80px; }
+.composer-attachment-row { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+.composer-chip { display: inline-flex; align-items: center; gap: var(--space-1); background: var(--color-accent); color: var(--color-accent-foreground); font-size: var(--type-body-sm); padding: var(--space-1) var(--space-2); border-radius: var(--radius-full); white-space: nowrap; }
+.composer-chip-remove { width: 14px; height: 14px; cursor: pointer; opacity: 0.6; transition: opacity .15s; flex-shrink: 0; }
+.composer-chip-remove:hover { opacity: 1; }
+.composer-icon { width: 16px; height: 16px; flex-shrink: 0; }
+
+/* ── Context Banner ────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">Follow-up</span> <div class="context-banner followup" data-evidence-sample="followup"> <svg class="cb-icon" width="14" height="14"><use href="#icon-info"/></svg> <span class="cb-text">基于上一轮结果筛选</span>
+*/
+.context-banner { display: inline-flex; align-items: center; gap: var(--space-1-5); height: var(--size-context-banner); padding: var(--space-2) var(--space-3); border-radius: var(--radius-sm); flex: 1; min-width: 0; }
+.context-banner .cb-icon { flex-shrink: 0; width: 14px; height: 14px; opacity: 0.6; }
+.context-banner .cb-text { font-size: var(--font-size-context-tip); font-weight: var(--font-weight-context-tip); line-height: var(--line-height-context-tip); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.context-banner.followup { background: var(--color-context-followup); color: var(--color-context-followup-text); }
+.context-banner.deep-followup { background: var(--color-context-deep); color: var(--color-context-deep-text); }
+.context-banner.topic-extend { background: var(--color-context-extend); color: var(--color-context-extend-text); }
+.context-banner.new-dimension { background: var(--color-context-newdim); color: var(--color-context-newdim-text); }
+
+/* ── Patent Table ──────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">专利列表</span> <div class="density-toggle" id="densityToggle"> <button class="active" data-density="comfortable">舒适</button> <button data-density="compact">紧凑</button>
+*/
+/* Component definitions — extracted to components.css */
+  .density-toggle { display: inline-flex; border-radius: var(--radius-sm-alias); overflow: hidden; border: 1px solid var(--color-border); flex-shrink: 0; }
+  .density-toggle button { padding: var(--space-1) var(--space-3); font-size: var(--type-body-sm); font-family: var(--font-sans); font-weight: 500; border: none; cursor: pointer; background: var(--color-surface); color: var(--color-muted-foreground); white-space: nowrap; transition: background .15s, color .15s; min-width: auto; }
+  .density-toggle button:hover { background: var(--color-accent); }
+  .density-toggle button.active { background: var(--color-primary); color: var(--color-primary-foreground); }
+  .patent-table { width: 100%; border-collapse: collapse; font-family: var(--font-sans); font-size: var(--type-body-md); }
+  .patent-table th { text-align: left; font-weight: var(--font-weight-patent-title); font-size: var(--type-body-sm); color: var(--color-muted-foreground); padding: var(--space-1-5) var(--space-3); border-bottom: 1px solid var(--color-border); white-space: nowrap; }
+  .patent-table td { padding: var(--space-1-5) var(--space-3); border-bottom: 1px solid var(--color-border); height: var(--size-table-row); white-space: nowrap; }
+  .patent-table tbody tr { transition: filter .15s; }
+  .patent-table tbody tr:hover { filter: brightness(0.97); }
+  .patent-table .id-cell { font-family: var(--font-mono); font-size: var(--type-mono); font-weight: var(--font-weight-patent-id); color: var(--color-primary); text-decoration: none; cursor: pointer; }
+  .patent-table .id-cell:hover { text-decoration: underline; }
+  .patent-table .name-cell { overflow: hidden; text-overflow: ellipsis; max-width: 280px; }
+  .patent-table .date-cell { color: var(--color-muted-foreground); font-variant-numeric: tabular-nums; }
+  .status-tag { display: inline-flex; align-items: center; padding: var(--space-0-5) var(--space-2); border-radius: var(--radius-full-alias); font-size: var(--type-body-sm); font-weight: var(--font-weight-badge); line-height: var(--line-height-badge); white-space: nowrap; min-width: var(--size-badge-height); justify-content: center; }
+  .status-tag.granted { background: var(--color-status-granted-bg); color: var(--color-status-granted); }
+  .status-tag.pending { background: var(--color-status-pending-bg); color: var(--color-status-pending); }
+  .status-tag.withdrawn { background: var(--color-status-withdrawn-bg); color: var(--color-status-withdrawn); }
+  .status-tag.expired { background: var(--color-status-expired-bg); color: var(--color-status-expired); }
+  .patent-table.compact td { padding: var(--space-1) var(--space-3); height: 32px; font-size: var(--type-body-sm); }
+  .patent-table.compact th { padding: var(--space-1) var(--space-3); }
+
+/* ── Route Badge ───────────────────────────────────────────── */
+/* @anatomy
+   <span class="label">SOP 路由</span> <span class="route-badge route-badge--sop"><svg><use href="#icon-sop"/></svg>固定工作流 · 专利检索</span>
+*/
+/* Route Badge */
+.route-badge { display: inline-flex; align-items: center; gap: var(--space-1); height: var(--size-badge-height); min-width: var(--size-badge-height); padding: 0 var(--space-3); border-radius: var(--radius-full); font-family: var(--font-sans); font-size: var(--type-body-sm); font-weight: var(--font-weight-badge); line-height: var(--line-height-badge); letter-spacing: 0.02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: filter .15s; }
+.route-badge svg { flex-shrink: 0; width: 14px; height: 14px; }
+.route-badge:hover { filter: brightness(0.95); }
+.route-badge--sop { background: var(--color-route-sop-bg); color: var(--color-route-sop-text); }
+.route-badge--sop svg { color: var(--color-route-sop); }
+.route-badge--rag { background: var(--color-route-rag-bg); color: var(--color-route-rag-text); }
+.route-badge--rag svg { color: var(--color-route-rag); }
+.route-badge--agent { background: var(--color-route-agent-bg); color: var(--color-route-agent-text); }
+.route-badge--agent svg { color: var(--color-route-agent); }
+/* Output Badge */
+.output-badge { display: inline-flex; align-items: center; gap: var(--space-1); height: var(--size-badge-height); min-width: var(--size-badge-height); padding: 0 var(--space-3); border-radius: var(--radius-full); font-family: var(--font-sans); font-size: var(--type-body-sm); font-weight: var(--font-weight-badge); line-height: var(--line-height-badge); letter-spacing: 0.02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; background: var(--color-muted); color: var(--color-muted-foreground); transition: background .15s; }
+.output-badge:hover { background: var(--color-border); }
+
+/* ── Sidebar Nav ───────────────────────────────────────────── */
+/* @anatomy
+   <div class="sidebar"> <!-- Top actions --> <div class="sidebar-top"> <button class="sidebar-btn-primary"> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> 新对话 </button> <div class="sidebar-mode-switch"> <button class=...
+*/
+/* Sidebar container */
+.sidebar { width: var(--size-sidebar-width); background: var(--sidebar); color: var(--sidebar-foreground); border-radius: var(--radius-lg); display: flex; flex-direction: column; padding: var(--space-3); gap: var(--space-3); font-family: var(--font-sans); font-size: var(--type-body-md); }
+.sidebar-top { display: flex; flex-direction: column; gap: var(--space-3); }
+.sidebar-body { display: flex; flex-direction: column; gap: var(--space-2); flex: 1; overflow-y: auto; }
+.sidebar-bottom { display: flex; flex-direction: column; gap: var(--space-2); padding-top: var(--space-2); border-top: 1px solid var(--sidebar-border); }
+
+/* New chat button */
+.sidebar-btn-primary { display: flex; align-items: center; justify-content: center; gap: var(--space-1-5); width: 100%; height: 44px; background: var(--sidebar-primary); color: var(--sidebar-primary-foreground); border: none; border-radius: var(--radius-md); font-size: var(--type-body-md); font-weight: 600; text-transform: uppercase; letter-spacing: 0.7px; cursor: pointer; white-space: nowrap; transition: filter .15s; }
+.sidebar-btn-primary:hover { filter: brightness(1.08); }
+
+/* Mode switch */
+.sidebar-mode-switch { display: flex; background: var(--secondary); border-radius: var(--radius-sm); padding: var(--space-0-5); gap: 0; }
+.sidebar-mode-option { flex: 1; display: flex; align-items: center; justify-content: center; height: 30px; font-size: var(--type-body-sm); color: var(--color-muted-foreground); background: none; border: none; border-radius: var(--radius-sm); cursor: pointer; transition: background .15s; white-space: nowrap; }
+.sidebar-mode-option:hover { background: var(--sidebar-accent); color: var(--sidebar-accent-foreground); }
+.sidebar-mode-option.active { background: var(--sidebar-accent); color: var(--sidebar-accent-foreground); font-weight: 500; }
+
+/* Utility link */
+.sidebar-link { display: flex; align-items: center; gap: var(--space-1-5); padding: var(--space-1-5) var(--space-2); font-size: var(--type-body-sm); color: var(--color-muted-foreground); text-decoration: none; border-radius: var(--radius-sm); transition: background .15s; white-space: nowrap; }
+.sidebar-link:hover { background: var(--sidebar-accent); color: var(--sidebar-accent-foreground); }
+
+/* Scene shortcuts */
+.sidebar-shortcuts { display: flex; flex-direction: column; gap: var(--space-0-5); }
+.sidebar-shortcut { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-1-5) var(--space-2); font-size: var(--type-body-md); color: var(--sidebar-foreground); border-radius: var(--radius-sm); cursor: pointer; transition: background .15s; white-space: nowrap; }
+.sidebar-shortcut:hover { background: var(--sidebar-accent); color: var(--sidebar-accent-foreground); }
+.sidebar-shortcut-icon { width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+
+/* History section */
+.sidebar-section-header { font-size: var(--type-body-sm); font-weight: 600; color: var(--color-muted-foreground); padding: var(--space-1) var(--space-2); white-space: nowrap; }
+.sidebar-history-list { display: flex; flex-direction: column; gap: var(--space-0-5); }
+.sidebar-history-item { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2); border-radius: var(--radius-sm); cursor: pointer; transition: background .15s; white-space: nowrap; }
+.sidebar-history-item:hover { background: var(--sidebar-accent); color: var(--sidebar-accent-foreground); }
+.sidebar-history-item.active { background: var(--sidebar-accent); color: var(--sidebar-accent-foreground); }
+.sidebar-history-item-inner { display: flex; flex-direction: column; gap: var(--space-0-5); flex: 1; min-width: 0; }
+.sidebar-history-title { font-size: var(--type-body-md); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sidebar-history-meta { display: flex; align-items: center; gap: var(--space-1-5); font-size: var(--type-body-sm); color: var(--color-muted-foreground); }
+.sidebar-badge { display: inline-flex; align-items: center; height: var(--size-badge-height); padding: 0 var(--space-1-5); background: var(--sidebar-primary); color: var(--sidebar-primary-foreground); border-radius: var(--radius-full); font-size: var(--type-body-sm); font-weight: 500; line-height: 1; white-space: nowrap; flex-shrink: 0; }
+.sidebar-badge.muted { background: var(--muted); color: var(--color-muted-foreground); }
+
+/* Bottom settings */
+.sidebar-bottom-row { display: flex; align-items: center; justify-content: space-between; font-size: var(--type-body-sm); color: var(--color-muted-foreground); white-space: nowrap; }
+
+/* ── Thinking Process ──────────────────────────────────────── */
+/* @anatomy
+   <span class="label">SOP 思考过程（收起）</span> <div class="thinking-box"> <div class="thinking-toggle"> <svg class="thinking-chevron" width="16" height="16"><use href="#icon-chevron"/></svg> <span>查看思考过程</span>
+*/
+.thinking-box { width: 100%; max-width: 400px; background: var(--color-thinking-bg); border: 1px solid var(--color-thinking-border); border-radius: var(--radius-md); overflow: hidden; }
+  .thinking-toggle { display: flex; align-items: center; gap: var(--space-1-5); padding: var(--space-2) var(--space-3); cursor: pointer; font-size: var(--type-body-sm); color: var(--color-muted-foreground); user-select: none; transition: color .15s; }
+  .thinking-toggle:hover { color: var(--color-foreground); }
+  .thinking-toggle svg { flex-shrink: 0; }
+  .thinking-chevron { transition: transform .2s; }
+  .thinking-chevron.open { transform: rotate(90deg); }
+  .thinking-brief { padding: 0 var(--space-3) var(--space-2); font-size: var(--type-body-sm); color: var(--color-muted-foreground); }
+  .thinking-body { padding: 0 var(--space-3) var(--space-3); }
+  .thinking-upgrade { display: inline-flex; align-items: center; gap: var(--space-1); font-size: var(--type-body-sm); font-weight: 500; color: var(--color-route-agent-text); background: var(--color-route-agent-bg); padding: var(--space-0-5) var(--space-2); border-radius: var(--radius-sm); margin-bottom: var(--space-2); }
+  .thinking-plan-label { font-size: var(--font-size-patent-title); font-weight: var(--font-weight-patent-title); color: var(--color-foreground); margin-bottom: var(--space-2); }
+  .thinking-steps { display: flex; flex-direction: column; gap: var(--space-2); }
+  .thinking-step { display: flex; align-items: center; gap: var(--space-2); font-size: var(--type-body-md); }
+  .step-indicator { width: 18px; height: 18px; flex-shrink: 0; border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; }
+  .step-done { background: var(--color-thinking-step-done); }
+  .step-active { border: 2px solid var(--color-thinking-step-active); background: transparent; }
+  .step-pending { background: var(--color-thinking-step-pending); opacity: .4; }
+  .step-label { color: var(--color-foreground); }
+  .step-label-pending { color: var(--color-muted-foreground); }
+  .spinner { width: 10px; height: 10px; border: 2px solid var(--color-thinking-step-active); border-top-color: transparent; border-radius: var(--radius-full); animation: spin .8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }

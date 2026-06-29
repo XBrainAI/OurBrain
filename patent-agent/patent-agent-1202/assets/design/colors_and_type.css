@@ -1,0 +1,499 @@
+/* ============================================================
+   壹专利智能助手 — Design Library Token Sheet
+   Brand: 壹专利智能助手 (Patent AI Assistant)
+   Product Type: ai-patent-assistant
+   Personality: professional, trustworthy, precise, clean
+   Visual Tone: Professional clean with subtle blue accent, data-dense but readable
+   Kit Type: dashboard
+   Theme Mode: light-dark
+   Color Naming Prefix: patent
+
+   Extended from: Doubao Design Library (dl_builtin_doubao)
+   Provenance: structured-spec
+
+   /* @group-priority: accent, chart, route */
+   ============================================================ */
+
+/* --- Web Font Imports --- */
+/* 注：Google Fonts 通过 index.html <link> 异步加载，避免 @import 阻塞 CSS 解析 */
+/* @import url('https://fonts.googleapis.com/css2?family=Stack+Sans+Text:ital,wght@0,100..900;1,100..900&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap'); */
+
+/* ============================================================
+   1. :root — Light Theme
+   ============================================================ */
+/* Source: structured-spec */
+:root {
+  /* ----------------------------------------------------------
+     Core surface tokens (from Doubao)
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Core surface tokens */
+  --background: #ffffff;
+  --foreground: #0e1115;
+  --card: #ffffff;
+  --card-foreground: #0e1115;
+  --popover: #f9f9fa;
+  --popover-foreground: #0e1115;
+
+  /* ----------------------------------------------------------
+     Semantic brand tokens (from Doubao)
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Semantic brand tokens */
+  --primary: #0065fd;
+  --primary-foreground: #ffffff;
+  --secondary: #eff1f4;
+  --secondary-foreground: #333942;
+  --muted: #eff1f4;
+  --muted-foreground: #7f8d9f;
+  --accent: #e5e9ff;
+  --accent-foreground: #00266b;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e7eaef;
+  --input: #e7eaef;
+  --ring: #557fff;
+
+  /* ----------------------------------------------------------
+     Route colors — Three routing badge colors
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Route colors */
+  --patent-sop: #0065fd;
+  --patent-sop-bg: #eff6ff;
+  --patent-sop-text: #1e40af;
+  --patent-rag: #10b981;
+  --patent-rag-bg: #ecfdf5;
+  --patent-rag-text: #065f46;
+  --patent-agent: #f97316;
+  --patent-agent-bg: #fff7ed;
+  --patent-agent-text: #9a3412;
+
+  /* ----------------------------------------------------------
+     Context banner — Multi-turn conversation context indicators
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Context banner */
+  --patent-context-followup: #f3f4f6;
+  --patent-context-followup-text: #4b5563;
+  --patent-context-deep: #dbeafe;
+  --patent-context-deep-text: #1d4ed8;
+  --patent-context-extend: #dcfce7;
+  --patent-context-extend-text: #15803d;
+  --patent-context-newdim: #ffedd5;
+  --patent-context-newdim-text: #c2410c;
+
+  /* ----------------------------------------------------------
+     Patent status — Legal status tag colors
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Patent status */
+  --patent-status-granted: #059669;
+  --patent-status-granted-bg: #ecfdf5;
+  --patent-status-pending: #2563eb;
+  --patent-status-pending-bg: #eff6ff;
+  --patent-status-withdrawn: #d97706;
+  --patent-status-withdrawn-bg: #fffbeb;
+  --patent-status-expired: #6b7280;
+  --patent-status-expired-bg: #f9fafb;
+
+  /* ----------------------------------------------------------
+     Value assessment — Patent value tiers
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Value assessment */
+  --patent-value-high: #059669;
+  --patent-value-medium: #2563eb;
+  --patent-value-low: #d97706;
+
+  /* ----------------------------------------------------------
+     Thinking process — AI thinking panel
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Thinking process */
+  --patent-thinking-bg: #f9fafb;
+  --patent-thinking-border: #e5e7eb;
+  --patent-thinking-step-done: #10b981;
+  --patent-thinking-step-active: #0065fd;
+  --patent-thinking-step-pending: #9ca3af;
+
+  /* ----------------------------------------------------------
+     Data visualization and sidebar tokens (from Doubao)
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Data visualization and sidebar tokens */
+  --chart-1: #557fff;
+  --chart-2: #0065fd;
+  --chart-3: #0057da;
+  --chart-4: #0043ad;
+  --chart-5: #002e7d;
+  --sidebar: #eff1f4;
+  --sidebar-foreground: #0e1115;
+  --sidebar-primary: #0065fd;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #d4daff;
+  --sidebar-accent-foreground: #00266b;
+  --sidebar-border: #e7eaef;
+  --sidebar-ring: #0065fd;
+
+  /* ----------------------------------------------------------
+     Typography tokens
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Typography tokens */
+  --font-sans: Stack Sans Text, ui-sans-serif, sans-serif, system-ui;
+  --font-serif: Source Serif 4, serif;
+  --font-mono: JetBrains Mono, monospace;
+
+  /* Source: structured-spec | Patent-specific type scale */
+  --font-size-patent-title: 18px;
+  --font-size-patent-id: 14px;
+  --font-size-badge: 12px;
+  --font-size-context-tip: 13px;
+  --font-weight-patent-title: 600;
+  --font-weight-patent-id: 500;
+  --font-weight-badge: 500;
+  --font-weight-context-tip: 400;
+  --line-height-patent-title: 1.4;
+  --line-height-patent-id: 1.5;
+  --line-height-badge: 1;
+  --line-height-context-tip: 1.4;
+
+  /* ----------------------------------------------------------
+     Spacing scale — Compact spacing for data-dense tables
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Spacing */
+  --space-0: 0px;
+  --space-0-5: 2px;
+  --space-1: 4px;
+  --space-1-5: 6px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ----------------------------------------------------------
+     Sizing — Component dimensions for patent UI
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Sizing */
+  --size-sidebar-width: 280px;
+  --size-detail-panel: 420px;
+  --size-chat-input-min: 56px;
+  --size-badge-height: 24px;
+  --size-table-row: 40px;
+  --size-context-banner: 36px;
+
+  /* ----------------------------------------------------------
+     Border radius — Consistent with Doubao's 1.2rem base
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Radius token */
+  --radius: 1.2rem;
+  /* Source: structured-spec | Radius extensions */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* ----------------------------------------------------------
+     Shadows — Subtle elevation (from Doubao + extensions)
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Shadow construction tokens (Doubao) */
+  --shadow-x: 0;
+  --shadow-y: 1px;
+  --shadow-blur: 0px;
+  --shadow-spread: 0px;
+  --shadow-opacity: 0;
+  --shadow-color: #0e1115;
+  --shadow-2xs: 0 1px 0px 0px rgb(14 17 21 / 0);
+  --shadow-xs: 0 1px 0px 0px rgb(14 17 21 / 0);
+  --shadow-sm: 0 1px 0px 0px rgb(14 17 21 / 0), 0 1px 2px -1px rgb(14 17 21 / 0);
+  --shadow: 0 1px 0px 0px rgb(14 17 21 / 0), 0 1px 2px -1px rgb(14 17 21 / 0);
+  --shadow-md: 0 1px 0px 0px rgb(14 17 21 / 0), 0 2px 4px -1px rgb(14 17 21 / 0);
+  --shadow-lg: 0 1px 0px 0px rgb(14 17 21 / 0), 0 4px 6px -1px rgb(14 17 21 / 0);
+  --shadow-xl: 0 1px 0px 0px rgb(14 17 21 / 0), 0 8px 10px -1px rgb(14 17 21 / 0);
+  --shadow-2xl: 0 1px 0px 0px rgb(14 17 21 / 0);
+
+  /* Source: structured-spec | Patent shadow extensions */
+  --patent-shadow-1: 0 1px 2px rgba(14,17,21,0.05);
+  --patent-shadow-2: 0 2px 8px rgba(14,17,21,0.08);
+  --patent-shadow-3: 0 4px 16px rgba(14,17,21,0.12);
+  --patent-shadow-4: 0 8px 32px rgba(14,17,21,0.16);
+
+  /* ----------------------------------------------------------
+     Rhythm tokens (from Doubao)
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Rhythm tokens */
+  --tracking-normal: 0em;
+  --spacing: 0.24rem;
+
+  /* ----------------------------------------------------------
+     Semantic Alias Layer
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Semantic aliases — Core */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--card);
+  --color-surface-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Source: structured-spec | Semantic aliases — Route */
+  --color-route-sop: var(--patent-sop);
+  --color-route-sop-bg: var(--patent-sop-bg);
+  --color-route-sop-text: var(--patent-sop-text);
+  --color-route-rag: var(--patent-rag);
+  --color-route-rag-bg: var(--patent-rag-bg);
+  --color-route-rag-text: var(--patent-rag-text);
+  --color-route-agent: var(--patent-agent);
+  --color-route-agent-bg: var(--patent-agent-bg);
+  --color-route-agent-text: var(--patent-agent-text);
+
+  /* Source: structured-spec | Semantic aliases — Status */
+  --color-status-granted: var(--patent-status-granted);
+  --color-status-granted-bg: var(--patent-status-granted-bg);
+  --color-status-pending: var(--patent-status-pending);
+  --color-status-pending-bg: var(--patent-status-pending-bg);
+  --color-status-withdrawn: var(--patent-status-withdrawn);
+  --color-status-withdrawn-bg: var(--patent-status-withdrawn-bg);
+  --color-status-expired: var(--patent-status-expired);
+  --color-status-expired-bg: var(--patent-status-expired-bg);
+
+  /* Source: structured-spec | Semantic aliases — Value */
+  --color-value-high: var(--patent-value-high);
+  --color-value-medium: var(--patent-value-medium);
+  --color-value-low: var(--patent-value-low);
+
+  /* Source: structured-spec | Semantic aliases — Thinking */
+  --color-thinking-bg: var(--patent-thinking-bg);
+  --color-thinking-border: var(--patent-thinking-border);
+  --color-thinking-step-done: var(--patent-thinking-step-done);
+  --color-thinking-step-active: var(--patent-thinking-step-active);
+  --color-thinking-step-pending: var(--patent-thinking-step-pending);
+
+  /* Source: structured-spec | Semantic aliases — Context */
+  --color-context-followup: var(--patent-context-followup);
+  --color-context-followup-text: var(--patent-context-followup-text);
+  --color-context-deep: var(--patent-context-deep);
+  --color-context-deep-text: var(--patent-context-deep-text);
+  --color-context-extend: var(--patent-context-extend);
+  --color-context-extend-text: var(--patent-context-extend-text);
+  --color-context-newdim: var(--patent-context-newdim);
+  --color-context-newdim-text: var(--patent-context-newdim-text);
+
+  /* Source: structured-spec | Semantic aliases — Radius */
+  --radius-sm-alias: var(--radius-sm);
+  --radius-md-alias: var(--radius-md);
+  --radius-lg-alias: var(--radius-lg);
+  --radius-xl-alias: var(--radius-xl);
+  --radius-full-alias: var(--radius-full);
+
+  /* Source: structured-spec | Semantic aliases — Typography */
+  --type-body-md: var(--font-size-patent-id);
+  --type-body-sm: var(--font-size-badge);
+  --type-title: var(--font-size-patent-title);
+  --type-mono: var(--font-size-patent-id);
+}
+
+/* ============================================================
+   2. .dark — Dark Theme
+   ============================================================ */
+/* Source: structured-spec */
+.dark {
+  /* ----------------------------------------------------------
+     Core surface tokens (from Doubao)
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Core surface tokens */
+  --background: #0e1115;
+  --foreground: #eff1f4;
+  --card: #0e1115;
+  --card-foreground: #eff1f4;
+  --popover: #22252a;
+  --popover-foreground: #e5e5e5;
+
+  /* ----------------------------------------------------------
+     Semantic brand tokens (from Doubao)
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Semantic brand tokens */
+  --primary: #0065fd;
+  --primary-foreground: #ffffff;
+  --secondary: #22252a;
+  --secondary-foreground: #e5e5e5;
+  --muted: #161a20;
+  --muted-foreground: #afbbcb;
+  --accent: #00266b;
+  --accent-foreground: #bfdbfe;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #333942;
+  --input: #333942;
+  --ring: #00266b;
+
+  /* ----------------------------------------------------------
+     Route colors — Dark variants
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Route colors */
+  --patent-sop: #3b82f6;
+  --patent-sop-bg: #172554;
+  --patent-sop-text: #93c5fd;
+  --patent-rag: #34d399;
+  --patent-rag-bg: #064e3b;
+  --patent-rag-text: #6ee7b7;
+  --patent-agent: #fb923c;
+  --patent-agent-bg: #431407;
+  --patent-agent-text: #fdba74;
+
+  /* ----------------------------------------------------------
+     Context banner — Dark variants
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Context banner */
+  --patent-context-followup: #1f2937;
+  --patent-context-followup-text: #9ca3af;
+  --patent-context-deep: #1e3a5f;
+  --patent-context-deep-text: #60a5fa;
+  --patent-context-extend: #14532d;
+  --patent-context-extend-text: #4ade80;
+  --patent-context-newdim: #431407;
+  --patent-context-newdim-text: #fdba74;
+
+  /* ----------------------------------------------------------
+     Patent status — Dark variants
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Patent status */
+  --patent-status-granted: #34d399;
+  --patent-status-granted-bg: #064e3b;
+  --patent-status-pending: #60a5fa;
+  --patent-status-pending-bg: #172554;
+  --patent-status-withdrawn: #fbbf24;
+  --patent-status-withdrawn-bg: #451a03;
+  --patent-status-expired: #9ca3af;
+  --patent-status-expired-bg: #1f2937;
+
+  /* ----------------------------------------------------------
+     Value assessment — Dark-adjusted for contrast
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Value assessment */
+  --patent-value-high: #34d399;
+  --patent-value-medium: #60a5fa;
+  --patent-value-low: #fbbf24;
+
+  /* ----------------------------------------------------------
+     Thinking process — Dark variants
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Thinking process */
+  --patent-thinking-bg: #161a20;
+  --patent-thinking-border: #333942;
+  --patent-thinking-step-done: #34d399;
+  --patent-thinking-step-active: #3b82f6;
+  --patent-thinking-step-pending: #6b7280;
+
+  /* ----------------------------------------------------------
+     Data visualization and sidebar tokens (from Doubao)
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Data visualization and sidebar tokens */
+  --chart-1: #60a5fa;
+  --chart-2: #3b82f6;
+  --chart-3: #2563eb;
+  --chart-4: #1d4ed8;
+  --chart-5: #1e40af;
+  --sidebar: #171717;
+  --sidebar-foreground: #e5e5e5;
+  --sidebar-primary: #0065fd;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #00266b;
+  --sidebar-accent-foreground: #bfdbfe;
+  --sidebar-border: #404040;
+  --sidebar-ring: #00266b;
+
+  /* ----------------------------------------------------------
+     Typography tokens
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Typography tokens */
+  --font-sans: Stack Sans Text, ui-sans-serif, sans-serif, system-ui;
+  --font-serif: Source Serif 4, serif;
+  --font-mono: JetBrains Mono, monospace;
+
+  /* Source: structured-spec | Radius token */
+  --radius: 1.2rem;
+
+  /* ----------------------------------------------------------
+     Shadow construction tokens (from Doubao)
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Shadow construction tokens */
+  --shadow-x: 0;
+  --shadow-y: 1px;
+  --shadow-blur: 0px;
+  --shadow-spread: 0px;
+  --shadow-opacity: 0;
+  --shadow-color: #000000;
+  --shadow-2xs: 0 1px 0px 0px rgb(0 0 0 / 0);
+  --shadow-xs: 0 1px 0px 0px rgb(0 0 0 / 0);
+  --shadow-sm: 0 1px 0px 0px rgb(0 0 0 / 0), 0 1px 2px -1px rgb(0 0 0 / 0);
+  --shadow: 0 1px 0px 0px rgb(0 0 0 / 0), 0 1px 2px -1px rgb(0 0 0 / 0);
+  --shadow-md: 0 1px 0px 0px rgb(0 0 0 / 0), 0 2px 4px -1px rgb(0 0 0 / 0);
+  --shadow-lg: 0 1px 0px 0px rgb(0 0 0 / 0), 0 4px 6px -1px rgb(0 0 0 / 0);
+  --shadow-xl: 0 1px 0px 0px rgb(0 0 0 / 0), 0 8px 10px -1px rgb(0 0 0 / 0);
+  --shadow-2xl: 0 1px 0px 0px rgb(0 0 0 / 0);
+
+  /* Source: structured-spec | Patent shadow extensions (dark) */
+  --patent-shadow-1: 0 1px 2px rgba(0,0,0,0.2);
+  --patent-shadow-2: 0 2px 8px rgba(0,0,0,0.3);
+  --patent-shadow-3: 0 4px 16px rgba(0,0,0,0.4);
+  --patent-shadow-4: 0 8px 32px rgba(0,0,0,0.5);
+
+  /* ----------------------------------------------------------
+     Rhythm tokens (from Doubao)
+     ---------------------------------------------------------- */
+  /* Source: structured-spec | Rhythm tokens */
+  --tracking-normal: 0em;
+  --spacing: 0.24rem;
+}
+
+/* ============================================================
+   3. Typography Classes — Patent-prefixed
+   ============================================================ */
+/* Source: structured-spec | Typography classes */
+.patent-title {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-patent-title);
+  font-weight: var(--font-weight-patent-title);
+  line-height: var(--line-height-patent-title);
+  letter-spacing: var(--tracking-normal);
+  color: var(--foreground);
+}
+
+.patent-id {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-patent-id);
+  font-weight: var(--font-weight-patent-id);
+  line-height: var(--line-height-patent-id);
+  letter-spacing: var(--tracking-normal);
+  color: var(--foreground);
+}
+
+.patent-badge {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-badge);
+  font-weight: var(--font-weight-badge);
+  line-height: var(--line-height-badge);
+  letter-spacing: 0.02em;
+  color: var(--foreground);
+}
+
+.patent-context-tip {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-context-tip);
+  font-weight: var(--font-weight-context-tip);
+  line-height: var(--line-height-context-tip);
+  letter-spacing: var(--tracking-normal);
+  color: var(--muted-foreground);
+}
