@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>帮助文档 — Demora「迪莫拉」</title>
+  <style>
+    /* ===== CSS Variables ===== */
+    :root {
+      --color-bg: #070708;
+      --color-surface: #0A0A0A;
+      --color-text: #F5F5F7;
+      --color-text-muted: #A1A1AA;
+      --color-border: #1A1A1F;
+      --color-accent: #14B8A6;
+      --font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", sans-serif;
+      --radius-card: 20px;
+      --radius-btn: 99px;
+    }
+
+    /* ===== Reset ===== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ===== Header ===== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      padding: 0 clamp(20px, 8vw, 120px);
+      background: rgba(7, 7, 8, 0.85);
+      border-bottom: 1px solid var(--color-border);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .header-logo svg {
+      display: block;
+    }
+
+    .header-logo-text {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-text);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .header-nav a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .header-nav a:hover,
+    .header-nav a.active {
+      color: var(--color-text);
+    }
+
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 36px;
+      padding: 0 20px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-bg);
+      background: var(--color-accent);
+      border: none;
+      border-radius: var(--radius-btn);
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .header-cta:hover {
+      opacity: 0.85;
+    }
+
+    /* ===== Hero ===== */
+    .docs-hero {
+      padding: 80px clamp(20px, 8vw, 120px) 60px;
+      max-width: 1440px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .docs-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 32px;
+      padding: 0 16px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-accent);
+      background: rgba(20, 184, 166, 0.15);
+      border-radius: var(--radius-btn);
+      margin-bottom: 20px;
+    }
+
+    .docs-hero-title {
+      font-size: clamp(32px, 4.5vw, 52px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--color-text);
+      margin-bottom: 16px;
+    }
+
+    .docs-hero-desc {
+      font-size: clamp(15px, 1.8vw, 18px);
+      line-height: 1.7;
+      color: var(--color-text-muted);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* ===== Content Layout ===== */
+    .docs-content {
+      display: flex;
+      gap: 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 8vw, 120px) 80px;
+    }
+
+    /* Sidebar */
+    .docs-sidebar {
+      flex: 0 0 220px;
+      position: sticky;
+      top: 100px;
+      height: fit-content;
+      display: none;
+    }
+
+    .docs-sidebar-title {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .docs-sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .docs-sidebar-nav a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: all 0.2s;
+      border-left: 2px solid transparent;
+    }
+
+    .docs-sidebar-nav a:hover,
+    .docs-sidebar-nav a.active {
+      color: var(--color-text);
+      background: rgba(20, 184, 166, 0.08);
+      border-left-color: var(--color-accent);
+    }
+
+    /* Main */
+    .docs-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .docs-section {
+      margin-bottom: 64px;
+    }
+
+    .docs-section-title {
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .docs-section p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--color-text-muted);
+      margin-bottom: 16px;
+    }
+
+    .docs-section strong {
+      color: var(--color-text);
+      font-weight: 600;
+    }
+
+    /* ===== Phase Cards ===== */
+    .phase-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 32px 0;
+    }
+
+    .phase-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 32px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .phase-card:hover {
+      border-color: rgba(20, 184, 166, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .phase-card-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .phase-card-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 28px;
+      padding: 0 14px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-bg);
+      background: var(--color-accent);
+      border-radius: var(--radius-btn);
+      letter-spacing: 1px;
+      flex-shrink: 0;
+    }
+
+    .phase-card-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-text);
+    }
+
+    .phase-card-desc {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--color-text-muted);
+      margin-left: 0;
+    }
+
+    .phase-card-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 8px;
+      padding-left: 44px;
+    }
+
+    .phase-card-step {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .phase-card-step::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+      font-size: 12px;
+    }
+
+    /* ===== Tip Box ===== */
+    .tip-box {
+      display: flex;
+      gap: 12px;
+      padding: 20px 24px;
+      background: rgba(20, 184, 166, 0.08);
+      border: 1px solid rgba(20, 184, 166, 0.25);
+      border-radius: 12px;
+      margin: 24px 0;
+    }
+
+    .tip-box-icon {
+      font-size: 18px;
+      color: var(--color-accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .tip-box-content {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--color-text-muted);
+    }
+
+    .tip-box-content strong {
+      color: var(--color-text);
+    }
+
+    /* ===== Command List ===== */
+    .command-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .command-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 20px 24px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+    }
+
+    .command-item-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .command-item-code {
+      font-family: "SF Mono", Monaco, "Cascadia Code", "Fira Code", monospace;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-accent);
+      background: rgba(20, 184, 166, 0.12);
+      padding: 4px 12px;
+      border-radius: 6px;
+    }
+
+    .command-item-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--color-text-muted);
+      padding-left: 0;
+    }
+
+    /* ===== FAQ ===== */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .faq-item {
+      padding: 24px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+    }
+
+    .faq-item-q {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 10px;
+    }
+
+    .faq-item-a {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--color-text-muted);
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding: clamp(40px, 6vw, 60px) clamp(20px, 8vw, 120px);
+      max-width: 1440px;
+      margin: 0 auto;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-brand svg {
+      display: block;
+    }
+
+    .footer-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-text);
+    }
+
+    .footer-tagline {
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-text);
+    }
+
+    .footer-copyright {
+      font-size: 13px;
+      color: #52525B;
+    }
+
+    /* ===== Responsive ===== */
+    @media (min-width: 901px) {
+      .docs-sidebar {
+        display: block;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .header-nav {
+        display: none;
+      }
+
+      .docs-hero {
+        padding: 60px 24px 40px;
+      }
+
+      .docs-content {
+        padding: 0 24px 60px;
+      }
+
+      .phase-card {
+        padding: 24px;
+      }
+
+      .phase-card-steps {
+        padding-left: 0;
+      }
+
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-logo-text {
+        font-size: 18px;
+      }
+
+      .command-item {
+        padding: 16px 20px;
+      }
+
+      .faq-item {
+        padding: 20px;
+      }
+
+      .footer-links {
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="header">
+    <a href="index.html" class="header-logo">
+      <svg width="36" height="28" viewBox="0 0 36 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="0" width="12" height="6" rx="3" fill="#14B8A6" opacity="0.4" />
+        <rect x="6" y="11" width="20" height="6" rx="3" fill="#14B8A6" opacity="0.7" />
+        <rect x="0" y="22" width="36" height="6" rx="3" fill="#14B8A6" />
+      </svg>
+      <span class="header-logo-text">Demora</span>
+    </a>
+
+    <nav class="header-nav">
+      <a href="index.html">About</a>
+      <a href="docs.html" class="active">Docs</a>
+      <a href="#github">GitHub</a>
+    </nav>
+
+    <a href="index.html#get-started" class="header-cta">Get Started</a>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="docs-hero">
+    <div class="docs-hero-badge">使用指南</div>
+    <h1 class="docs-hero-title">Demora 帮助文档</h1>
+    <p class="docs-hero-desc">
+      面向产品经理的简明指南。了解 Demora 的三阶段工作法，掌握从模糊需求到共识交付的完整路径。
+    </p>
+  </section>
+
+  <!-- ===== Content ===== -->
+  <div class="docs-content">
+
+    <!-- Sidebar -->
+    <aside class="docs-sidebar">
+      <div class="docs-sidebar-title">目录</div>
+      <nav class="docs-sidebar-nav">
+        <a href="#what">什么是 Demora</a>
+        <a href="#phases">三阶段工作流</a>
+        <a href="#start">如何开始使用</a>
+        <a href="#commands">常用指令</a>
+        <a href="#faq">常见问题</a>
+      </nav>
+    </aside>
+
+    <!-- Main -->
+    <main class="docs-main">
+
+      <!-- Section: What is Demora -->
+      <section class="docs-section" id="what">
+        <h2 class="docs-section-title">什么是 Demora</h2>
+        <p>
+          <strong>Demora（迪莫拉）</strong>是一款面向产品经理的 AI 辅助工具，核心理念很简单：
+          <strong>把模糊需求变成可点击的 Demo，让所有人围着同一个东西讨论。</strong>
+        </p>
+        <p>
+          传统的工作方式是：PM 先写 PRD 文档，再画原型图，再评审，再修改。Demora 把这个流程反过来——
+          <strong>先出 Demo，再补文档。</strong>因为可点击的界面比静态文档更容易理解，也更不容易产生误解。
+        </p>
+        <p>
+          Demora 为产品经理设计了<strong>渐进式三阶段</strong>工作法：从想清楚需求，到做精致 Demo，再到改到位交付。每个阶段都有明确的输入和输出，AI 作为助手全程陪伴，帮 PM
+          发现遗漏、补全细节、把控质量。
+        </p>
+
+        <div class="tip-box">
+          <span class="tip-box-icon">ℹ</span>
+          <div class="tip-box-content">
+            <strong>Demora 的定位：</strong>PM 是系统的第一用户，不是开发、不是测试。AI 助手从 PM 的视角理解需求，生成 Demo 和文档，帮助 PM 与用户、开发、测试在同一页面上达成共识。
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Three Phases -->
+      <section class="docs-section" id="phases">
+        <h2 class="docs-section-title">三阶段工作流</h2>
+        <p>
+          Demora 的渐进式工作流分为三个阶段。每个阶段有明确的目标和产出物，阶段之间有严格的保护机制，确保需求不会在没有意识到的情况下被篡改。
+        </p>
+
+        <div class="phase-cards">
+          <div class="phase-card">
+            <div class="phase-card-header">
+              <span class="phase-card-badge">PHASE 1</span>
+              <span class="phase-card-name">想清楚 — 需求对话与功能验证</span>
+            </div>
+            <p class="phase-card-desc">
+              这是需求的"探索期"。你（PM）把用户口述的需求、会议纪要、表格截图等任何资料告诉 AI 助手，AI 帮你结构化理解，主动发现遗漏和矛盾，并追问澄清。
+            </p>
+            <div class="phase-card-steps">
+              <div class="phase-card-step">输入需求资料（口述、截图、文档片段均可）</div>
+              <div class="phase-card-step">AI 结构化理解，提取页面、实体、字段、流程</div>
+              <div class="phase-card-step">AI 主动追问，补全遗漏信息</div>
+              <div class="phase-card-step">生成可交互 Demo（功能完整，实现朴素）</div>
+              <div class="phase-card-step">AI 输出需求完成度与缺失项清单</div>
+              <div class="phase-card-step">你拿着 Demo 给用户确认，收集反馈，循环迭代</div>
+              <div class="phase-card-step">用户确认"功能对了" → 说<strong>"锁定需求"</strong>进入 Phase 2</div>
+            </div>
+          </div>
+
+          <div class="phase-card">
+            <div class="phase-card-header">
+              <span class="phase-card-badge">PHASE 2</span>
+              <span class="phase-card-name">做精致 — 完善与文档生成</span>
+            </div>
+            <p class="phase-card-card-desc">
+              需求锁定后，AI 在 Phase 1 Demo 的基础上<strong>注入式增强</strong>，不丢弃重写。补全 Mock 数据、表单校验、权限控制、错误处理，同时生成完整的配套文档。
+            </p>
+            <div class="phase-card-steps">
+              <div class="phase-card-step">需求模型自动锁定（只读），Demo 进入可修改状态</div>
+              <div class="phase-card-step">补全 Mock 数据（覆盖正常态、边界态、异常态）</div>
+              <div class="phase-card-step">补全表单校验、状态流转、权限控制、错误处理</div>
+              <div class="phase-card-step">完善三层标注（页面级 / 区域级 / 元件级）</div>
+              <div class="phase-card-step">自动生成 PRD + Spec + Test 配套文档</div>
+              <div class="phase-card-step">质量校验（Demo 与需求模型一致性检查）</div>
+              <div class="phase-card-step">说<strong>"打包交付"</strong>生成最终交付包</div>
+            </div>
+          </div>
+
+          <div class="phase-card">
+            <div class="phase-card-header">
+              <span class="phase-card-badge">PHASE 3</span>
+              <span class="phase-card-name">改到位 — 评审修订</span>
+            </div>
+            <p class="phase-card-desc">
+              你拿着 Demo 和文档给开发、测试评审，收集修改意见。AI 会判断每个修改是"实现级微调"还是"需求级变更"，走不同的处理路径。
+            </p>
+            <div class="phase-card-steps">
+              <div class="phase-card-step">PM/开发/测试评审，收集修改意见</div>
+              <div class="phase-card-step">AI 判断修改类型并给出判定依据</div>
+              <div class="phase-card-step">实现级微调 → 直接修改 Demo，同步更新文档</div>
+              <div class="phase-card-step">需求级变更 → 解锁模型，回到 Phase 1 重新确认</div>
+              <div class="phase-card-step">修改最小化：精准改动、影响范围声明、diff 展示</div>
+              <div class="phase-card-step">确认无误后说<strong>"确认定稿"</strong>进入终态</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <span class="tip-box-icon">⚠</span>
+          <div class="tip-box-content">
+            <strong>关键设计：</strong>Demo 只有一份，从 Phase 1 持续演进。不存在"预览版"和"完整版"两套代码。Phase 1 的 Demo 就是最终 Demo
+            的起点，后续阶段在其基础上层层完善。
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: How to Start -->
+      <section class="docs-section" id="start">
+        <h2 class="docs-section-title">如何开始使用</h2>
+        <p>
+          Demora 的 AI 助手以 <strong>Skill（技能包）</strong>的形式集成在 AI 工具中。你不需要安装任何软件，也不需要懂编程——只需要像跟同事聊天一样，用自然语言与 AI 助手对话。
+        </p>
+
+        <p><strong>第一步：描述你的需求</strong></p>
+        <p>
+          用任何你喜欢的方式告诉 AI 助手你在做什么产品。可以是一段口述记录、一份会议纪要、一张表格截图，甚至是手绘的草图照片。越详细越好，但不用追求完美——AI 会主动追问补全。
+        </p>
+
+        <p><strong>第二步：跟着 AI 的节奏走</strong></p>
+        <p>
+          AI 助手会在每轮对话结尾告诉你当前处于哪个阶段、需求完成度是多少、下一步建议做什么。你只需要按它的提示回答追问、确认信息、预览 Demo。
+        </p>
+
+        <p><strong>第三步：拿 Demo 去确认</strong></p>
+        <p>
+          Phase 1 生成的 Demo 是可点击的网页原型。双击本地启动文件即可在浏览器中打开。把它展示给用户、开发、测试，收集反馈，然后回来告诉 AI 助手需要修改什么。
+        </p>
+
+        <p><strong>第四步：锁定 → 完善 → 交付</strong></p>
+        <p>
+          当用户确认"功能对了"，你说"锁定需求"，AI 进入 Phase 2 自动补全细节并生成文档。最后说"打包交付"即可获得完整的交付包（Demo + 文档 + 追溯矩阵）。
+        </p>
+
+        <div class="tip-box">
+          <span class="tip-box-icon">ℹ</span>
+          <div class="tip-box-content">
+            <strong>Skill 会持续升级：</strong>Demora 的 AI 助手 Skill 会不断迭代优化。每次升级后，你只需使用最新版本的 Skill，即可享受改进的追问策略、更完善的 Demo
+            生成和更丰富的文档模板。你无需关心技术细节，只需像使用新版本的办公软件一样使用最新 Skill 即可。
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Common Commands -->
+      <section class="docs-section" id="commands">
+        <h2 class="docs-section-title">常用指令</h2>
+        <p>
+          以下是你与 AI 助手对话时常用的关键词。用自然语言即可，不需要记忆精确格式。AI 助手会理解你的意图并给出对应的结构化回应。
+        </p>
+
+        <div class="command-list">
+          <div class="command-item">
+            <div class="command-item-label">
+              <span class="command-item-code">"锁定需求"</span>
+            </div>
+            <div class="command-item-desc">
+              Phase 1 中，当你确认需求已经足够清晰、用户也认可功能时，说"锁定需求"。AI 会展示锁定清单，确认后需求模型变为只读，进入 Phase 2。
+            </div>
+          </div>
+
+          <div class="command-item">
+            <div class="command-item-label">
+              <span class="command-item-code">"解锁"</span>
+            </div>
+            <div class="command-item-desc">
+              Phase 2 或 Phase 3 中，如果发现需要修改需求模型（比如新增实体、新增页面、修改字段），说"解锁"。AI 会要求你提供解锁原因，确认后需求模型恢复可编辑，回到 Phase 1。
+            </div>
+          </div>
+
+          <div class="command-item">
+            <div class="command-item-label">
+              <span class="command-item-code">"打包交付"</span>
+            </div>
+            <div class="command-item-desc">
+              Phase 2 完成后，说"打包交付"。AI 会展示交付物清单（Demo + 文档 + 追溯矩阵），确认后打包为最终交付包，可直接交给开发团队。
+            </div>
+          </div>
+
+          <div class="command-item">
+            <div class="command-item-label">
+              <span class="command-item-code">"生成文档"</span>
+            </div>
+            <div class="command-item-desc">
+              Phase 2 中，如果你想单独触发文档生成，可以说"生成文档"。AI 会基于锁定的需求模型，自动生成 PRD、Spec、Test 三层文档。
+            </div>
+          </div>
+
+          <div class="command-item">
+            <div class="command-item-label">
+              <span class="command-item-code">"完善 Demo"</span>
+            </div>
+            <div class="command-item-desc">
+              Phase 2 中，如果你想单独触发 Demo 完善，可以说"完善 Demo"。AI 会补全 Mock 数据、校验规则、权限控制、错误处理等细节。
+            </div>
+          </div>
+
+          <div class="command-item">
+            <div class="command-item-label">
+              <span class="command-item-code">"确认定稿"</span>
+            </div>
+            <div class="command-item-desc">
+              Phase 3 末尾，当所有评审意见都处理完毕后，说"确认定稿"。AI 会做最终检查，确认后 Demo 和文档进入终态，不可再修改。
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <span class="tip-box-icon">✌</span>
+          <div class="tip-box-content">
+            <strong>提示：</strong>你不需要背诵这些指令。用自然语言表达同样的意思即可，比如"我觉得可以了，锁定吧""帮我生成文档""这些改完了，可以定稿了"——AI 助手都能理解。
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: FAQ -->
+      <section class="docs-section" id="faq">
+        <h2 class="docs-section-title">常见问题</h2>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-item-q">Q: 我需要会编程才能使用 Demora 吗？</div>
+            <div class="faq-item-a">
+              完全不需要。Demora 面向产品经理设计，所有交互都是自然语言对话。你不需要懂代码、不需要配置环境、不需要管理文件——像跟同事聊天一样使用即可。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-item-q">Q: Demora 生成的 Demo 可以直接上线吗？</div>
+            <div class="faq-item-a">
+              不能。Demo 是<strong>可交互原型</strong>，用于需求确认和沟通对齐，不是生产代码。它使用模拟数据，界面是真实可点的，但后台逻辑是简化的。开发团队需要基于 Demo 和配套文档重新开发。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-item-q">Q: 如果用户看了 Demo 后说"这个不对"，怎么办？</div>
+            <div class="faq-item-a">
+              这正是 Demora 设计的工作流。你带着用户的反馈回来，告诉 AI 助手需要修改什么。如果在 Phase 1，直接修改即可；如果在 Phase 2/3，AI
+              会判断修改类型——实现级微调直接改，需求级变更需要解锁后回到 Phase 1。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-item-q">Q: Demora 适用于什么类型的产品？</div>
+            <div class="faq-item-a">
+              Demora 是<strong>系统无关</strong>的，适用于任何管理后台类产品：CRM、ERP、OA、SaaS
+              后台、运营管理系统等。它不绑定特定技术栈或业务领域，实体、字段、页面都从你的需求输入中动态提取。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-item-q">Q: 生成的文档包含哪些内容？</div>
+            <div class="faq-item-a">
+              配套文档分为三层：PRD 产品需求文档（14 份，覆盖总览、背景、用户、流程、页面、字段、权限等）、Spec 技术规格文档（7 份，覆盖技术栈、架构、交互、状态、路由、接口、异常）、Test 测试建议文档（3
+              份，覆盖验收标准、测试用例、权限矩阵）。所有文档从锁定的需求模型自动生成，确保与 Demo 一致。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-item-q">Q: 为什么 AI 有时会问我"这个字段必填吗？"</div>
+            <div class="faq-item-a">
+              这是 Demora 的<strong>主动追问</strong>机制。当 AI 从你的输入中无法确认某个信息时，它会标记为"待确认"并直接问你，而不是自己猜测。这是为了保证生成的 Demo
+              和文档准确反映你的真实需求，避免"AI 瞎猜"导致的偏差。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-item-q">Q: 多个项目可以用同一个 Skill 吗？</div>
+            <div class="faq-item-a">
+              可以。Skill 是通用的需求澄清助手，不绑定特定项目。每次使用时，只需向 AI 描述新的项目需求即可。AI 会为每个项目独立维护需求模型、对话历史和交付物，项目之间互不干扰。
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="footer-left">
+      <div class="footer-brand">
+        <svg width="24" height="18" viewBox="0 0 36 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="0" width="12" height="6" rx="3" fill="#14B8A6" opacity="0.4" />
+          <rect x="6" y="11" width="20" height="6" rx="3" fill="#14B8A6" opacity="0.7" />
+          <rect x="0" y="22" width="36" height="6" rx="3" fill="#14B8A6" />
+        </svg>
+        <span class="footer-name">Demora</span>
+      </div>
+      <span class="footer-tagline">AI 驱动的产品研发加速工具</span>
+    </div>
+
+    <nav class="footer-links">
+      <a href="index.html">About</a>
+      <a href="docs.html">Docs</a>
+      <a href="#github">GitHub</a>
+      <a href="#privacy">Privacy</a>
+    </nav>
+
+    <span class="footer-copyright">&copy; 2026 Demora. All rights reserved.</span>
+  </footer>
+
+</body>
+
+</html>

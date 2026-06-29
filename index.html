@@ -2,13 +2,630 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello OurBrain</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demora「迪莫拉」 — AI 驱动的产品研发加速工具</title>
+  <style>
+    /* ===== CSS Variables ===== */
+    :root {
+      --color-bg: #070708;
+      --color-surface: #0A0A0A;
+      --color-text: #F5F5F7;
+      --color-text-muted: #A1A1AA;
+      --color-border: #1A1A1F;
+      --color-accent: #14B8A6;
+      --font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", sans-serif;
+      --radius-card: 20px;
+      --radius-btn: 99px;
+    }
+
+    /* ===== Reset ===== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ===== Header ===== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      padding: 0 clamp(20px, 8vw, 120px);
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-logo svg {
+      display: block;
+    }
+
+    .header-logo-text {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-text);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .header-nav a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .header-nav a:hover {
+      color: var(--color-text);
+    }
+
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 36px;
+      padding: 0 20px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-bg);
+      background: var(--color-accent);
+      border: none;
+      border-radius: var(--radius-btn);
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .header-cta:hover {
+      opacity: 0.85;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      display: flex;
+      align-items: center;
+      min-height: min(720px, 80vh);
+      padding: clamp(80px, 12vw, 160px) clamp(20px, 8vw, 120px);
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: clamp(40px, 6vw, 80px);
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      max-width: 560px;
+      flex: 0 1 560px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 32px;
+      padding: 0 16px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-accent);
+      background: rgba(20, 184, 166, 0.15);
+      border-radius: var(--radius-btn);
+      align-self: flex-start;
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 700;
+      line-height: 1.125;
+      color: var(--color-text);
+      white-space: pre-line;
+    }
+
+    .hero-brand {
+      font-size: clamp(22px, 2.5vw, 28px);
+      font-weight: 600;
+      color: var(--color-accent);
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      line-height: 1.625;
+      color: var(--color-text-muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      padding: 0 28px;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--color-bg);
+      background: var(--color-accent);
+      border: none;
+      border-radius: var(--radius-btn);
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.85;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      padding: 0 28px;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--color-text);
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      border-radius: var(--radius-btn);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .hero-visual {
+      flex: 0 1 400px;
+      max-width: 400px;
+      min-width: 280px;
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(20, 184, 166, 0.12);
+      padding: 40px;
+    }
+
+    .hero-visual-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      letter-spacing: 2px;
+    }
+
+    /* ===== Three Phase Visual ===== */
+    .phase-visual {
+      display: grid;
+      grid-template-columns: 40px 40px 40px;
+      grid-template-rows: 40px 40px 40px;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .phase-dot {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      opacity: 0.25;
+    }
+
+    .phase-rect {
+      height: 40px;
+      border-radius: 20px;
+      background: var(--color-accent);
+      opacity: 0.5;
+    }
+
+    .phase-rect.small {
+      width: 60px;
+      grid-column: span 1;
+    }
+
+    .phase-rect.medium {
+      width: 60px;
+      grid-column: span 1;
+    }
+
+    .phase-full {
+      height: 40px;
+      border-radius: 20px;
+      background: var(--color-accent);
+      grid-column: 1 / -1;
+    }
+
+    /* ===== Philosophy ===== */
+    .philosophy {
+      padding: 100px clamp(20px, 8vw, 120px) 80px;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    .philosophy-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .philosophy-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--color-accent);
+      letter-spacing: 3px;
+      margin-bottom: 12px;
+    }
+
+    .philosophy-title {
+      font-size: clamp(26px, 3.5vw, 36px);
+      font-weight: 700;
+      color: var(--color-text);
+    }
+
+    .philosophy-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .phil-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .phil-card {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 40px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+    }
+
+    .phil-card-number {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-accent);
+      letter-spacing: 2px;
+    }
+
+    .phil-card-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--color-text);
+    }
+
+    .phil-card-desc {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--color-text-muted);
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding: clamp(40px, 6vw, 60px) clamp(20px, 8vw, 120px);
+      max-width: 1440px;
+      margin: 0 auto;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-brand svg {
+      display: block;
+    }
+
+    .footer-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-text);
+    }
+
+    .footer-tagline {
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-text);
+    }
+
+    .footer-copyright {
+      font-size: 13px;
+      color: #52525B;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 900px) {
+      .header-nav {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 80px 24px 60px;
+      }
+
+      .hero-inner {
+        flex-direction: column;
+        gap: 48px;
+      }
+
+      .hero-text {
+        max-width: 100%;
+        flex: 0 1 auto;
+      }
+
+      .hero-visual {
+        flex: 0 1 auto;
+        max-width: 320px;
+        min-width: 0;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+      }
+
+      .phil-row {
+        grid-template-columns: 1fr;
+      }
+
+      .phil-card {
+        padding: 28px;
+      }
+
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-logo-text {
+        font-size: 18px;
+      }
+
+      .hero-visual {
+        max-width: 260px;
+        padding: 28px;
+      }
+
+      .phase-visual {
+        gap: 12px;
+      }
+
+      .phase-dot {
+        width: 28px;
+        height: 28px;
+      }
+
+      .phase-rect {
+        height: 28px;
+      }
+
+      .phase-rect.small,
+      .phase-rect.medium {
+        width: 42px;
+      }
+
+      .phase-full {
+        height: 28px;
+      }
+
+      .footer-links {
+        gap: 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <h1>Hello OurBrain!</h1>
+
+  <!-- ===== Header ===== -->
+  <header class="header">
+    <div class="header-logo">
+      <!-- Logo Mark -->
+      <svg width="36" height="28" viewBox="0 0 36 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="0" width="12" height="6" rx="3" fill="#14B8A6" opacity="0.4" />
+        <rect x="6" y="11" width="20" height="6" rx="3" fill="#14B8A6" opacity="0.7" />
+        <rect x="0" y="22" width="36" height="6" rx="3" fill="#14B8A6" />
+      </svg>
+      <span class="header-logo-text">Demora</span>
+    </div>
+
+    <nav class="header-nav">
+      <a href="#about">About</a>
+      <a href="docs.html">Docs</a>
+      <a href="#github">GitHub</a>
+    </nav>
+
+    <a href="#get-started" class="header-cta">Get Started</a>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge">PM &middot; AI 需求澄清助手</div>
+        <h1 class="hero-title">从模糊需求
+          到共识交付</h1>
+        <p class="hero-brand">Demora「迪莫拉」</p>
+        <p class="hero-desc">
+          一款 AI 驱动的产品研发加速工具。以 PM 为第一用户，将模糊需求渐进式转化为可交互 MVP Demo，让产品、开发、测试在同一页面上达成共识。
+        </p>
+        <div class="hero-actions">
+          <a href="#start" class="btn-primary">开始使用</a>
+          <a href="docs.html" class="btn-secondary">查看文档</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <!-- Phase Progression Visual -->
+        <div class="phase-visual">
+          <div class="phase-dot"></div>
+          <div class="phase-dot"></div>
+          <div class="phase-dot"></div>
+          <div class="phase-rect small" style="grid-column: 1;"></div>
+          <div class="phase-rect medium" style="grid-column: 2;"></div>
+          <div class="phase-dot"></div>
+          <div class="phase-full"></div>
+        </div>
+        <span class="hero-visual-label">Phase 1 &rarr; Phase 2 &rarr; Phase 3</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Philosophy ===== -->
+  <section class="philosophy">
+    <div class="philosophy-header">
+      <span class="philosophy-label">DESIGN PHILOSOPHY</span>
+      <h2 class="philosophy-title">为 PM 而生的设计哲学</h2>
+    </div>
+
+    <div class="philosophy-grid">
+      <div class="phil-row">
+        <div class="phil-card">
+          <span class="phil-card-number">01</span>
+          <h3 class="phil-card-title">PM 是系统的第一用户</h3>
+          <p class="phil-card-desc">不是开发，不是测试。Demora 为 PM 的工作流深度优化，从需求输入的第一秒就以 PM 的视角理解问题。</p>
+        </div>
+        <div class="phil-card">
+          <span class="phil-card-number">02</span>
+          <h3 class="phil-card-title">Demo 是沟通的桥梁</h3>
+          <p class="phil-card-desc">可交互 MVP Demo 取代静态文档成为沟通核心，文档退位为配套说明材料。让所有角色在同一页面上对齐认知。</p>
+        </div>
+      </div>
+      <div class="phil-row">
+        <div class="phil-card">
+          <span class="phil-card-number">03</span>
+          <h3 class="phil-card-title">渐进式需求澄清</h3>
+          <p class="phil-card-desc">三阶段渐进架构：想清楚 &rarr; 做精致 &rarr; 改到位。从模糊需求逐步收敛为可交付的产品模型，全程可追溯。</p>
+        </div>
+        <div class="phil-card">
+          <span class="phil-card-number">04</span>
+          <h3 class="phil-card-title">系统无关，随处可用</h3>
+          <p class="phil-card-desc">不绑定任何特定技术栈或平台。产出的需求模型和 Demo 是纯粹的设计表达，可适配任何开发环境。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="footer-left">
+      <div class="footer-brand">
+        <svg width="24" height="18" viewBox="0 0 36 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="0" width="12" height="6" rx="3" fill="#14B8A6" opacity="0.4" />
+          <rect x="6" y="11" width="20" height="6" rx="3" fill="#14B8A6" opacity="0.7" />
+          <rect x="0" y="22" width="36" height="6" rx="3" fill="#14B8A6" />
+        </svg>
+        <span class="footer-name">Demora</span>
+      </div>
+      <span class="footer-tagline">AI 驱动的产品研发加速工具</span>
+    </div>
+
+    <nav class="footer-links">
+      <a href="#about">About</a>
+      <a href="docs.html">Docs</a>
+      <a href="#github">GitHub</a>
+      <a href="#privacy">Privacy</a>
+    </nav>
+
+    <span class="footer-copyright">&copy; 2026 Demora. All rights reserved.</span>
+  </footer>
+
 </body>
 
 </html>
