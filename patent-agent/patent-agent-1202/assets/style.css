@@ -378,6 +378,7 @@ body {
   height: 100%;
   padding: var(--space-8);
   background: var(--color-muted);
+  overflow-y: auto;
 }
 .welcome-state .assistant-avatar {
   width: 64px; height: 64px;
