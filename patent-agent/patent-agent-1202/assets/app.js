@@ -407,12 +407,18 @@
     scrollRightPanelToCard: function (selector) {
       Vue.nextTick(function () {
         setTimeout(function () {
-          var panelBody = document.querySelector('.annotation-panel-body');
+          var panelBody = document.querySelector('.annotation-panel .panel-body');
           var card = document.querySelector(selector);
           if (panelBody && card) {
-            card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            // 检查卡片是否已在可视区域内，避免不必要的滚动
+            var panelRect = panelBody.getBoundingClientRect();
+            var cardRect = card.getBoundingClientRect();
+            var isVisible = cardRect.top >= panelRect.top && cardRect.bottom <= panelRect.bottom;
+            if (!isVisible) {
+              card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
           }
-        }, 50);
+        }, 150);
       });
     },
 
@@ -420,70 +426,109 @@
       annotationState.highlightedZone = zoneId;
       annotationState.highlightedElement = null;
       annotationState.activeTab = 'L2';
+      // 根据 zone 类型切换左侧页面状态，确保对应元素存在于 DOM 中
+      if (zoneId === 'R-005' && AppState.messages.length > 0) {
+        AppState.newConversation();
+      } else if ((zoneId === 'R-002' || zoneId === 'R-003') && AppState.messages.length === 0) {
+        AppState.switchConversation('c1');
+      }
       // R-004 专利详情区域需要先打开抽屉
       if (zoneId === 'R-004') {
         AppState.openPatentDrawer();
       }
-      // 滚动左侧页面到对应区域
-      setTimeout(function () {
-        var el = document.querySelector('.anno-zone.zone-active');
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        } else if (zoneId === 'R-004') {
-          // 抽屉可能还在动画中，再次尝试
-          setTimeout(function () {
-            var drawerEl = document.querySelector('.patent-detail-drawer .anno-zone.zone-active');
-            if (drawerEl) drawerEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }, 300);
-        }
-      }, 100);
+      // 滚动左侧页面到对应区域（状态切换后需等待 DOM 更新）
+      Vue.nextTick(function () {
+        setTimeout(function () {
+          var el = document.querySelector('.anno-zone.zone-active');
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else if (zoneId === 'R-004') {
+            setTimeout(function () {
+              var drawerEl = document.querySelector('.patent-detail-drawer .anno-zone.zone-active');
+              if (drawerEl) drawerEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
+          }
+        }, 100);
+      });
       // 滚动右侧面板到对应的L2卡片
       annotationState.scrollRightPanelToCard('.l2-card[data-card-zone="' + zoneId + '"]');
     },
 
     focusElementCard: function (elementId) {
       annotationState.highlightedElement = elementId;
+      annotationState.highlightedZone = null; // 清除 zone 过滤，确保右侧 L3 卡片全部可见
       annotationState.activeTab = 'L3';
       // [约束#8] 点击 L3 只高亮 L3 元素本身，不联动设置 highlightedZone
+      // 根据元素类型切换左侧页面状态，确保对应元素存在于 DOM 中
+      if (['C-016', 'C-017'].indexOf(elementId) !== -1 && AppState.messages.length > 0) {
+        AppState.newConversation();
+      } else if (['C-005','C-006','C-007','C-008','C-009','C-010','C-011','C-012','C-013','C-014','C-018','C-019','C-020','C-021','C-022'].indexOf(elementId) !== -1 && AppState.messages.length === 0) {
+        if (elementId === 'C-021') {
+          AppState.switchConversation('c2');
+        } else if (elementId === 'C-022') {
+          AppState.switchConversation('c5');
+        } else {
+          AppState.switchConversation('c1');
+        }
+      }
       // C-015 在专利详情抽屉内，需要先打开抽屉
       if (elementId === 'C-015') {
         AppState.openPatentDrawer();
       }
-      // 滚动左侧页面到对应元素
-      setTimeout(function () {
-        var el = document.querySelector('.l3-dot.l3-dot-active');
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        } else if (elementId === 'C-015') {
-          setTimeout(function () {
-            var dotEl = document.querySelector('.patent-detail-drawer .l3-dot.l3-dot-active');
-            if (dotEl) dotEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }, 300);
-        }
-      }, 100);
+      // C-020 反馈弹窗
+      if (elementId === 'C-020') {
+        AppState.feedbackDialogVisible = true;
+      }
+      // 滚动左侧页面到对应元素（状态切换后需等待 DOM 更新）
+      Vue.nextTick(function () {
+        setTimeout(function () {
+          var el = document.querySelector('.l3-dot.l3-dot-active');
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else if (elementId === 'C-015') {
+            setTimeout(function () {
+              var dotEl = document.querySelector('.patent-detail-drawer .l3-dot.l3-dot-active');
+              if (dotEl) dotEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
+          }
+        }, 100);
+      });
       // 滚动右侧面板到对应的L3卡片
       annotationState.scrollRightPanelToCard('.l3-card[data-card-element="' + elementId + '"]');
     },
 
     highlightZone: function (zoneId) {
       annotationState.highlightedZone = annotationState.highlightedZone === zoneId ? null : zoneId;
-      // [约束#9] 点击右侧面板 L2 卡片保持在当前 L2 标签，不自动跳到 L3
+      // 点击右侧面板 L2 卡片时切换到 L2 标签页，确保用户能看到被激活的卡片
+      if (annotationState.highlightedZone) {
+        annotationState.activeTab = 'L2';
+      }
+      // 清除 L3 高亮，避免左侧同时显示两种高亮（激活或取消时都清除）
+      annotationState.highlightedElement = null;
+      // 根据 zone 类型切换左侧页面状态，确保对应元素存在于 DOM 中
+      if (annotationState.highlightedZone === 'R-005' && AppState.messages.length > 0) {
+        AppState.newConversation();
+      } else if ((annotationState.highlightedZone === 'R-002' || annotationState.highlightedZone === 'R-003') && AppState.messages.length === 0) {
+        AppState.switchConversation('c1');
+      }
       // R-004 专利详情区域需要先打开抽屉
       if (annotationState.highlightedZone === 'R-004') {
         AppState.openPatentDrawer();
       }
-      // 滚动左侧页面到对应区域
-      setTimeout(function () {
-        var el = document.querySelector('.anno-zone.zone-active');
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        } else if (annotationState.highlightedZone === 'R-004') {
-          setTimeout(function () {
-            var drawerEl = document.querySelector('.patent-detail-drawer .anno-zone.zone-active');
-            if (drawerEl) drawerEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }, 300);
-        }
-      }, 100);
+      // 滚动左侧页面到对应区域（状态切换后需等待 DOM 更新）
+      Vue.nextTick(function () {
+        setTimeout(function () {
+          var el = document.querySelector('.anno-zone.zone-active');
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else if (annotationState.highlightedZone === 'R-004') {
+            setTimeout(function () {
+              var drawerEl = document.querySelector('.patent-detail-drawer .anno-zone.zone-active');
+              if (drawerEl) drawerEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
+          }
+        }, 100);
+      });
       // 滚动右侧面板到对应的L2卡片
       if (annotationState.highlightedZone) {
         annotationState.scrollRightPanelToCard('.l2-card[data-card-zone="' + annotationState.highlightedZone + '"]');
@@ -492,23 +537,46 @@
 
     highlightElement: function (elementId) {
       annotationState.highlightedElement = annotationState.highlightedElement === elementId ? null : elementId;
-      annotationState.activeTab = 'L3';
+      if (annotationState.highlightedElement) {
+        annotationState.activeTab = 'L3';
+      }
+      // 清除 L2 高亮，避免左侧同时显示两种高亮（激活或取消时都清除）
+      annotationState.highlightedZone = null;
+      // 根据元素类型切换左侧页面状态，确保对应元素存在于 DOM 中
+      if (annotationState.highlightedElement && ['C-016', 'C-017'].indexOf(annotationState.highlightedElement) !== -1 && AppState.messages.length > 0) {
+        AppState.newConversation();
+      } else if (annotationState.highlightedElement && ['C-005','C-006','C-007','C-008','C-009','C-010','C-011','C-012','C-013','C-014','C-018','C-019','C-020','C-021','C-022'].indexOf(annotationState.highlightedElement) !== -1 && AppState.messages.length === 0) {
+        // 图表元素切到含图表的对话，对比元素切到含对比的对话
+        if (annotationState.highlightedElement === 'C-021') {
+          AppState.switchConversation('c2');
+        } else if (annotationState.highlightedElement === 'C-022') {
+          AppState.switchConversation('c5');
+        } else {
+          AppState.switchConversation('c1');
+        }
+      }
       // C-015 在专利详情抽屉内，需要先打开抽屉
       if (annotationState.highlightedElement === 'C-015') {
         AppState.openPatentDrawer();
       }
-      // 滚动左侧页面到对应元素
-      setTimeout(function () {
-        var el = document.querySelector('.l3-dot.l3-dot-active');
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        } else if (annotationState.highlightedElement === 'C-015') {
-          setTimeout(function () {
-            var dotEl = document.querySelector('.patent-detail-drawer .l3-dot.l3-dot-active');
-            if (dotEl) dotEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }, 300);
-        }
-      }, 100);
+      // C-020 反馈弹窗
+      if (annotationState.highlightedElement === 'C-020') {
+        AppState.feedbackDialogVisible = true;
+      }
+      // 滚动左侧页面到对应元素（状态切换后需等待 DOM 更新）
+      Vue.nextTick(function () {
+        setTimeout(function () {
+          var el = document.querySelector('.l3-dot.l3-dot-active');
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else if (annotationState.highlightedElement === 'C-015') {
+            setTimeout(function () {
+              var dotEl = document.querySelector('.patent-detail-drawer .l3-dot.l3-dot-active');
+              if (dotEl) dotEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
+          }
+        }, 100);
+      });
       // 滚动右侧面板到对应的L3卡片
       if (annotationState.highlightedElement) {
         annotationState.scrollRightPanelToCard('.l3-card[data-card-element="' + annotationState.highlightedElement + '"]');
@@ -1225,6 +1293,16 @@
     AppState.lockedPatent = null;
     AppState.inputContent = '';
     if (AppState.isMobile) AppState.sidebarVisible = false;
+    // 切换到欢迎页，清除对话页相关高亮
+    if (annotationState.highlightedZone === 'R-002' || annotationState.highlightedZone === 'R-003') {
+      annotationState.highlightedZone = null;
+    }
+    if (annotationState.highlightedElement) {
+      var chatElems = ['C-005','C-006','C-007','C-008','C-009','C-010','C-011','C-012','C-013','C-014','C-018','C-019','C-020','C-021','C-022'];
+      if (chatElems.indexOf(annotationState.highlightedElement) !== -1) {
+        annotationState.highlightedElement = null;
+      }
+    }
   };
 
   AppState.switchConversation = function (convId) {
@@ -1271,6 +1349,13 @@
     // 切换对话后：先快照原始数据，再应用输出密度和模型设置
     AppState.snapshotMessages();
     AppState.applyDisplaySettings();
+    // 切换到对话页，清除欢迎页相关高亮
+    if (annotationState.highlightedZone === 'R-005') {
+      annotationState.highlightedZone = null;
+    }
+    if (annotationState.highlightedElement && ['C-016', 'C-017'].indexOf(annotationState.highlightedElement) !== -1) {
+      annotationState.highlightedElement = null;
+    }
   };
 
   // --- 输出密度/模型切换联动：更新所有历史消息的显示 ---
@@ -1427,6 +1512,13 @@
   // 专利抽屉关闭时清理body偏移class
   AppState.onPatentDrawerClose = function () {
     document.body.classList.remove('patent-drawer-offset');
+    // 关闭抽屉，清除专利详情相关高亮
+    if (annotationState.highlightedZone === 'R-004') {
+      annotationState.highlightedZone = null;
+    }
+    if (annotationState.highlightedElement === 'C-015') {
+      annotationState.highlightedElement = null;
+    }
   };
 
   AppState.endTopic = function () {
@@ -1534,7 +1626,7 @@
     '      </div>',
     '      <!-- L2 内容 -->',
     '      <div v-if="activeTab === \'L2\'">',
-    '        <div v-for="zone in currentAnnotation.L2" :key="zone.id" class="l2-card"',
+    '        <div v-for="zone in visibleL2Zones" :key="zone.id" class="l2-card"',
     '             :data-card-zone="zone.id"',
     '             :class="{ \'is-active\': highlightedZone === zone.id }"',
     '             @click="highlightZone(zone.id)">',
@@ -1575,13 +1667,39 @@
         return data || { L1: { title: '', purpose: '', userFlow: '' }, L2: [], L3: [] };
       });
 
+      // 根据左侧当前页面状态，计算当前可见的 L2 区域列表
+      var currentVisibleZones = Vue.computed(function () {
+        var zones = ['R-001']; // 侧边栏始终可见
+        if (AppState.patentDrawerVisible) {
+          zones.push('R-004');
+        }
+        if (AppState.messages.length === 0) {
+          zones.push('R-005');
+        } else {
+          zones.push('R-002', 'R-003');
+        }
+        return zones;
+      });
+
+      // 右侧 L2 标签页只显示当前可见的区域
+      var visibleL2Zones = Vue.computed(function () {
+        var data = annotationState.annotationData[annotationState.activePageId];
+        if (!data || !data.L2) return [];
+        var visible = currentVisibleZones.value;
+        return data.L2.filter(function (z) { return visible.indexOf(z.id) !== -1; });
+      });
+
+      // 右侧 L3 标签页只显示当前可见区域下的元素
       var visibleAnnotations = Vue.computed(function () {
         var data = annotationState.annotationData[annotationState.activePageId];
         if (!data || !data.L3) return [];
-        if (annotationState.highlightedZone) {
-          return data.L3.filter(function (e) { return e.zone === annotationState.highlightedZone; });
+        var visible = currentVisibleZones.value;
+        var list = data.L3.filter(function (e) { return visible.indexOf(e.zone) !== -1; });
+        // 在 L2 标签页下且高亮了某个 zone 时，再按 zone 过滤
+        if (annotationState.highlightedZone && annotationState.activeTab !== 'L3') {
+          list = list.filter(function (e) { return e.zone === annotationState.highlightedZone; });
         }
-        return data.L3;
+        return list;
       });
 
       // 将标注状态的方法与计算属性一起暴露给根模板
@@ -1589,6 +1707,8 @@
       return Object.assign(annotationState, {
         AppState: AppState,
         currentAnnotation: currentAnnotation,
+        currentVisibleZones: currentVisibleZones,
+        visibleL2Zones: visibleL2Zones,
         visibleAnnotations: visibleAnnotations
       });
     }
