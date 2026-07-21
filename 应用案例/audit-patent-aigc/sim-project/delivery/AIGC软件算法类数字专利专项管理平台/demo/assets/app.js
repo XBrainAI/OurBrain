@@ -806,18 +806,10 @@ PatentApp.showToast = function (type, title, msg) {
 };
 
 // === 标注开关 ===
-PatentApp.handleAnnotationToggle = function () {
-  var btn = document.getElementById('annotationToggle');
-  if (!btn) return;
-  // 委托给标注引擎（如有）
-  if (window.__ANNOTATION_ENGINE__ && typeof window.__ANNOTATION_ENGINE__.togglePanel === 'function') {
-    window.__ANNOTATION_ENGINE__.togglePanel();
-    btn.classList.toggle('active');
-  } else {
-    btn.classList.toggle('active');
-    PatentApp.showToast('info', '标注模式', '标注引擎加载中...');
-  }
-};
+// v5.13.1 修复：删除 PatentApp.handleAnnotationToggle 函数
+// 原因：annotation-engine.js 已在 bindEvents() 中绑定 click → togglePanel()，
+//       app.js 重复绑定会导致 togglePanel 被调用两次（状态相互抵消），面板无法显示。
+// 修复方案：完全交由 annotation-engine.js 处理，app.js 不再绑定 click 事件。
 
 // === 角色切换 ===
 PatentApp.handleRoleSwitch = function (e) {
@@ -960,9 +952,7 @@ PatentApp.init = function () {
     }
   });
 
-  // 标注开关
-  var annoToggle = document.getElementById('annotationToggle');
-  if (annoToggle) annoToggle.addEventListener('click', PatentApp.handleAnnotationToggle);
+  // 标注开关（v5.13.1 修复：删除 click 绑定，由 annotation-engine.js 统一处理）
 
   // 角色切换
   var roleSwitch = document.querySelector('.role-switch');

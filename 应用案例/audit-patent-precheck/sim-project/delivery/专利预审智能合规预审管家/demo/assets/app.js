@@ -795,15 +795,9 @@
     var roleSelect = document.getElementById('roleSelect');
     if (roleSelect) roleSelect.addEventListener('change', handleRoleChange);
 
-    // 标注开关
-    var annotToggle = document.querySelector('[data-annotation-toggle]');
-    if (annotToggle) {
-      annotToggle.addEventListener('click', function () {
-        if (global.__ANNOTATION_ENGINE__ && typeof global.__ANNOTATION_ENGINE__.togglePanel === 'function') {
-          global.__ANNOTATION_ENGINE__.togglePanel();
-        }
-      });
-    }
+    // 标注开关（v5.13.1 修复：删除 click 绑定，由 annotation-engine.js 统一处理）
+    // 原因：annotation-engine.js 已在 bindEvents() 中绑定 click → togglePanel()，
+    //       app.js 重复绑定会导致 togglePanel 被调用两次（状态相互抵消），面板无法显示。
 
     // 路由
     global.addEventListener('hashchange', handleRoute);

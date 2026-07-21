@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-21T12:19:45.176Z",
+  "generatedAt": "2026-07-21T15:52:49.655Z",
   "count": 10,
   "cases": [
     {
@@ -14,7 +14,8 @@
       "entryPath": "audit-patent-aigc/sim-project/demo/index.html",
       "scenarioName": "patent-aigc",
       "auditGrade": "B",
-      "createdAt": "2026-07-21"
+      "createdAt": "2026-07-21",
+      "deliveryEntryPath": "audit-patent-aigc/sim-project/delivery/AIGC软件算法类数字专利专项管理平台/index.html"
     },
     {
       "caseId": "patent-asset",
@@ -28,7 +29,8 @@
       "entryPath": "audit-patent-asset/sim-project/demo/index.html",
       "scenarioName": "patent-asset",
       "auditGrade": "B",
-      "createdAt": "2026-07-21"
+      "createdAt": "2026-07-21",
+      "deliveryEntryPath": "audit-patent-asset/sim-project/delivery/专利资产全生命周期数字化价值运营管理平台/index.html"
     },
     {
       "caseId": "patent-college",
@@ -42,7 +44,8 @@
       "entryPath": "audit-patent-college/sim-project/demo/index.html",
       "scenarioName": "patent-college",
       "auditGrade": "B",
-      "createdAt": "2026-07-21"
+      "createdAt": "2026-07-21",
+      "deliveryEntryPath": "audit-patent-college/sim-project/delivery/高校存量专利AI盘活转化匹配平台/index.html"
     },
     {
       "caseId": "patent-cultivation",
@@ -56,7 +59,8 @@
       "entryPath": "audit-patent-cultivation/sim-project/demo/index.html",
       "scenarioName": "patent-cultivation",
       "auditGrade": "B",
-      "createdAt": "2026-07-21"
+      "createdAt": "2026-07-21",
+      "deliveryEntryPath": "audit-patent-cultivation/sim-project/delivery/垂直行业AI高价值专利智能培育平台/index.html"
     },
     {
       "caseId": "patent-finance",
@@ -70,7 +74,8 @@
       "entryPath": "audit-patent-finance/sim-project/demo/index.html",
       "scenarioName": "patent-finance",
       "auditGrade": "B",
-      "createdAt": "2026-07-21"
+      "createdAt": "2026-07-21",
+      "deliveryEntryPath": "audit-patent-finance/sim-project/delivery/知识产权金融一体化智能评估质押系统/index.html"
     },
     {
       "caseId": "patent-fto",
@@ -84,7 +89,8 @@
       "entryPath": "audit-patent-fto/sim-project/demo/index.html",
       "scenarioName": "patent-fto",
       "auditGrade": "B",
-      "createdAt": "2026-07-21"
+      "createdAt": "2026-07-21",
+      "deliveryEntryPath": "audit-patent-fto/sim-project/delivery/全球多区域FTO智能合规风控系统/index.html"
     },
     {
       "caseId": "patent-green",
@@ -98,7 +104,8 @@
       "entryPath": "audit-patent-green/sim-project/demo/index.html",
       "scenarioName": "patent-green",
       "auditGrade": "B",
-      "createdAt": "2026-07-21"
+      "createdAt": "2026-07-21",
+      "deliveryEntryPath": "audit-patent-green/sim-project/delivery/绿色低碳新质产业专项专利布局分析平台/index.html"
     },
     {
       "caseId": "patent-infringement",
@@ -112,7 +119,8 @@
       "entryPath": "audit-patent-infringement/sim-project/demo/index.html",
       "scenarioName": "patent-infringement",
       "auditGrade": "B",
-      "createdAt": "2026-07-21"
+      "createdAt": "2026-07-21",
+      "deliveryEntryPath": "audit-patent-infringement/sim-project/delivery/线上AI智能侵权监测与快速维权取证系统/index.html"
     },
     {
       "caseId": "patent-oa",
@@ -126,7 +134,8 @@
       "entryPath": "audit-patent-oa/sim-project/demo/index.html",
       "scenarioName": "patent-oa",
       "auditGrade": "B",
-      "createdAt": "2026-07-21"
+      "createdAt": "2026-07-21",
+      "deliveryEntryPath": "audit-patent-oa/sim-project/delivery/AI专利审查意见OA智能答复辅助专家系统/index.html"
     },
     {
       "caseId": "patent-precheck",
@@ -140,7 +149,8 @@
       "entryPath": "audit-patent-precheck/sim-project/demo/index.html",
       "scenarioName": "patent-precheck",
       "auditGrade": "B",
-      "createdAt": "2026-07-21"
+      "createdAt": "2026-07-21",
+      "deliveryEntryPath": "audit-patent-precheck/sim-project/delivery/专利预审智能合规预审管家/index.html"
     }
   ]
 }

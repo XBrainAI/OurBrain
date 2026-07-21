@@ -650,6 +650,61 @@
       gap: 6px;
     }
 
+    /* v5.13.2: 案例卡片双按钮（面向客户 Demo / 面向产研交付） */
+    .case-card-actions {
+      margin-top: auto;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .case-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      height: 36px;
+      padding: 0 16px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: var(--radius-btn);
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.2s, background 0.2s, border-color 0.2s;
+      flex: 1 1 auto;
+      min-width: 140px;
+    }
+
+    /* 绿色按钮：面向客户 Demo（主入口） */
+    .case-btn-demo {
+      background: var(--color-accent);
+      color: var(--color-bg);
+      border: 1px solid var(--color-accent);
+    }
+
+    .case-btn-demo:hover {
+      opacity: 0.85;
+    }
+
+    /* 灰色按钮：面向产研交付（次要入口） */
+    .case-btn-delivery {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--color-text);
+      border: 1px solid var(--color-border-hi);
+    }
+
+    .case-btn-delivery:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--color-text-muted);
+    }
+
+    /* 禁用状态：delivery 不存在时 */
+    .case-btn-disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
     /* ===== Tip Box ===== */
     .tip-box {
       display: flex;
@@ -1252,7 +1307,7 @@
       <!-- v5.13.1: 内联案例数据，支持 file:// 协议双击离线打开（不依赖 httpserver / fetch） -->
       <!-- 数据源：应用案例/cases-index.json，由 scripts/generate-cases-index.mjs 自动同步 -->
       <script type="application/json" id="cases-data">
-{"count":10,"cases":[{"caseId":"patent-aigc","title":"AIGC软件算法类数字专利专项管理平台","description":"算法专利解析、权属判定与 FTO 比对平台","domain":"知识产权-专利","industry":"分析","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-aigc/sim-project/demo/index.html","scenarioName":"patent-aigc","auditGrade":"B","createdAt":"2026-07-21"},{"caseId":"patent-asset","title":"专利资产全生命周期数字化价值运营管理平台","description":"专利资产台账、估值、质押与转化运营平台","domain":"知识产权-专利","industry":"管理","pages":4,"entities":1,"roles":3,"entryPath":"audit-patent-asset/sim-project/demo/index.html","scenarioName":"patent-asset","auditGrade":"B","createdAt":"2026-07-21"},{"caseId":"patent-college","title":"高校存量专利AI盘活转化匹配平台","description":"高校存量专利清洗、匹配、转化全流程平台","domain":"知识产权-专利","industry":"管理","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-college/sim-project/demo/index.html","scenarioName":"patent-college","auditGrade":"B","createdAt":"2026-07-21"},{"caseId":"patent-cultivation","title":"垂直行业AI高价值专利智能培育平台","description":"面向垂直行业的专利创意培育与高价值布局平台","domain":"知识产权-专利","industry":"培育","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-cultivation/sim-project/demo/index.html","scenarioName":"patent-cultivation","auditGrade":"B","createdAt":"2026-07-21"},{"caseId":"patent-finance","title":"知识产权金融一体化智能评估质押系统","description":"专利估值、质押、放款与风险监控一体化平台","domain":"知识产权-专利","industry":"金融","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-finance/sim-project/demo/index.html","scenarioName":"patent-finance","auditGrade":"B","createdAt":"2026-07-21"},{"caseId":"patent-fto","title":"全球多区域FTO智能合规风控系统","description":"面向跨境出口企业的多区域 FTO 分析与风险预警平台","domain":"知识产权-专利","industry":"分析","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-fto/sim-project/demo/index.html","scenarioName":"patent-fto","auditGrade":"B","createdAt":"2026-07-21"},{"caseId":"patent-green","title":"绿色低碳新质产业专项专利布局分析平台","description":"双碳赛道专利布局分析与情报监测平台","domain":"知识产权-专利","industry":"分析","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-green/sim-project/demo/index.html","scenarioName":"patent-green","auditGrade":"B","createdAt":"2026-07-21"},{"caseId":"patent-infringement","title":"线上AI智能侵权监测与快速维权取证系统","description":"多渠道侵权监测、区块链存证与维权处置平台","domain":"知识产权-专利","industry":"管理","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-infringement/sim-project/demo/index.html","scenarioName":"patent-infringement","auditGrade":"B","createdAt":"2026-07-21"},{"caseId":"patent-oa","title":"AI专利审查意见OA智能答复辅助专家系统","description":"OA 答复拆解、案例匹配、修改推演与标准化输出平台","domain":"知识产权-专利","industry":"管理","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-oa/sim-project/demo/index.html","scenarioName":"patent-oa","auditGrade":"B","createdAt":"2026-07-21"},{"caseId":"patent-precheck","title":"专利预审智能合规预审管家","description":"专利预审案件全流程管理与智能预检平台","domain":"知识产权-专利","industry":"分析","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-precheck/sim-project/demo/index.html","scenarioName":"patent-precheck","auditGrade":"B","createdAt":"2026-07-21"}]}
+{"count":10,"cases":[{"caseId":"patent-aigc","title":"AIGC软件算法类数字专利专项管理平台","description":"算法专利解析、权属判定与 FTO 比对平台","domain":"知识产权-专利","industry":"分析","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-aigc/sim-project/demo/index.html","scenarioName":"patent-aigc","auditGrade":"B","createdAt":"2026-07-21","deliveryEntryPath":"audit-patent-aigc/sim-project/delivery/AIGC软件算法类数字专利专项管理平台/index.html"},{"caseId":"patent-asset","title":"专利资产全生命周期数字化价值运营管理平台","description":"专利资产台账、估值、质押与转化运营平台","domain":"知识产权-专利","industry":"管理","pages":4,"entities":1,"roles":3,"entryPath":"audit-patent-asset/sim-project/demo/index.html","scenarioName":"patent-asset","auditGrade":"B","createdAt":"2026-07-21","deliveryEntryPath":"audit-patent-asset/sim-project/delivery/专利资产全生命周期数字化价值运营管理平台/index.html"},{"caseId":"patent-college","title":"高校存量专利AI盘活转化匹配平台","description":"高校存量专利清洗、匹配、转化全流程平台","domain":"知识产权-专利","industry":"管理","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-college/sim-project/demo/index.html","scenarioName":"patent-college","auditGrade":"B","createdAt":"2026-07-21","deliveryEntryPath":"audit-patent-college/sim-project/delivery/高校存量专利AI盘活转化匹配平台/index.html"},{"caseId":"patent-cultivation","title":"垂直行业AI高价值专利智能培育平台","description":"面向垂直行业的专利创意培育与高价值布局平台","domain":"知识产权-专利","industry":"培育","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-cultivation/sim-project/demo/index.html","scenarioName":"patent-cultivation","auditGrade":"B","createdAt":"2026-07-21","deliveryEntryPath":"audit-patent-cultivation/sim-project/delivery/垂直行业AI高价值专利智能培育平台/index.html"},{"caseId":"patent-finance","title":"知识产权金融一体化智能评估质押系统","description":"专利估值、质押、放款与风险监控一体化平台","domain":"知识产权-专利","industry":"金融","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-finance/sim-project/demo/index.html","scenarioName":"patent-finance","auditGrade":"B","createdAt":"2026-07-21","deliveryEntryPath":"audit-patent-finance/sim-project/delivery/知识产权金融一体化智能评估质押系统/index.html"},{"caseId":"patent-fto","title":"全球多区域FTO智能合规风控系统","description":"面向跨境出口企业的多区域 FTO 分析与风险预警平台","domain":"知识产权-专利","industry":"分析","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-fto/sim-project/demo/index.html","scenarioName":"patent-fto","auditGrade":"B","createdAt":"2026-07-21","deliveryEntryPath":"audit-patent-fto/sim-project/delivery/全球多区域FTO智能合规风控系统/index.html"},{"caseId":"patent-green","title":"绿色低碳新质产业专项专利布局分析平台","description":"双碳赛道专利布局分析与情报监测平台","domain":"知识产权-专利","industry":"分析","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-green/sim-project/demo/index.html","scenarioName":"patent-green","auditGrade":"B","createdAt":"2026-07-21","deliveryEntryPath":"audit-patent-green/sim-project/delivery/绿色低碳新质产业专项专利布局分析平台/index.html"},{"caseId":"patent-infringement","title":"线上AI智能侵权监测与快速维权取证系统","description":"多渠道侵权监测、区块链存证与维权处置平台","domain":"知识产权-专利","industry":"管理","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-infringement/sim-project/demo/index.html","scenarioName":"patent-infringement","auditGrade":"B","createdAt":"2026-07-21","deliveryEntryPath":"audit-patent-infringement/sim-project/delivery/线上AI智能侵权监测与快速维权取证系统/index.html"},{"caseId":"patent-oa","title":"AI专利审查意见OA智能答复辅助专家系统","description":"OA 答复拆解、案例匹配、修改推演与标准化输出平台","domain":"知识产权-专利","industry":"管理","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-oa/sim-project/demo/index.html","scenarioName":"patent-oa","auditGrade":"B","createdAt":"2026-07-21","deliveryEntryPath":"audit-patent-oa/sim-project/delivery/AI专利审查意见OA智能答复辅助专家系统/index.html"},{"caseId":"patent-precheck","title":"专利预审智能合规预审管家","description":"专利预审案件全流程管理与智能预检平台","domain":"知识产权-专利","industry":"分析","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-precheck/sim-project/demo/index.html","scenarioName":"patent-precheck","auditGrade":"B","createdAt":"2026-07-21","deliveryEntryPath":"audit-patent-precheck/sim-project/delivery/专利预审智能合规预审管家/index.html"}]}
       </script>
 
       <script>
@@ -1277,16 +1332,24 @@
           var industry = c.industry || '其他';
           // v5.13.1: entryPath 前缀 CASES_ROOT（应用案例/）以正确解析相对路径
           var fullEntryPath = CASES_ROOT + c.entryPath;
+          // v5.13.2: deliveryEntryPath 由 generate-cases-index.mjs 自动探测
+          // 缺失时按钮渲染为禁用态（灰且不可点击）
+          var hasDelivery = !!c.deliveryEntryPath;
+          var fullDeliveryPath = hasDelivery ? CASES_ROOT + c.deliveryEntryPath : '#';
+          var deliveryBtnClass = 'case-btn case-btn-delivery' + (hasDelivery ? '' : ' case-btn-disabled');
           return [
-            '<a href="', escapeAttr(fullEntryPath), '" class="case-card" data-industry="', escapeAttr(industry), '">',
+            '<div class="case-card" data-industry="', escapeAttr(industry), '">',
               '<div class="case-card-header">',
                 '<span class="case-card-badge">', c.caseId, '</span>',
                 '<span class="case-card-title">', escapeHtml(c.title), '</span>',
               '</div>',
               '<p class="case-card-desc">', escapeHtml(c.description), '</p>',
               '<div class="case-card-meta">', metaHtml, '</div>',
-              '<span class="case-card-arrow">查看案例交付网站 →</span>',
-            '</a>'
+              '<div class="case-card-actions">',
+                '<a href="', escapeAttr(fullEntryPath), '" class="case-btn case-btn-demo">面向客户 Demo</a>',
+                '<a href="', escapeAttr(fullDeliveryPath), '" class="', deliveryBtnClass, '"', hasDelivery ? '' : ' aria-disabled="true"', '>面向产研交付</a>',
+              '</div>',
+            '</div>'
           ].join('');
         }
 
