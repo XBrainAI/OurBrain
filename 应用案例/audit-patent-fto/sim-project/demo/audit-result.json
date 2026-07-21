@@ -1,0 +1,105 @@
+{
+  "label": "patent-fto",
+  "timestamp": "2026-07-21T10:09:27.652Z",
+  "dimensions": {
+    "D0_load": "pass",
+    "D0_console": "pass",
+    "D0_contracts": "pass",
+    "D2_nav_click": "pass",
+    "D3_modal_close": "warn: modal not openable",
+    "D4_l2_flicker": "pass: 1 unique transforms",
+    "D6_button_responsiveness": "pass: 2/2"
+  },
+  "detectedPages": [
+    {
+      "id": "P01"
+    },
+    {
+      "id": "P02"
+    },
+    {
+      "id": "P03"
+    }
+  ],
+  "navLinks": [
+    {
+      "href": "#/fto-analyses",
+      "text": "分析列表"
+    },
+    {
+      "href": "#/fto-analyses/form",
+      "text": "新建分析"
+    },
+    {
+      "href": "#/fto-analyses/FTO-2026-001",
+      "text": "分析详情"
+    },
+    {
+      "href": "#/fto-analyses",
+      "text": "L\n            分析列表\n "
+    },
+    {
+      "href": "#/fto-analyses/form",
+      "text": "N\n            新建分析"
+    },
+    {
+      "href": "#/fto-analyses/FTO-2026-001",
+      "text": "D\n            分析详情"
+    },
+    {
+      "href": "#/fto-analyses",
+      "text": "P\n            专利检索"
+    },
+    {
+      "href": "#/fto-analyses",
+      "text": "W\n            竞品预警"
+    },
+    {
+      "href": "#/fto-analyses",
+      "text": "R\n            报告中心"
+    },
+    {
+      "href": "#/fto-analyses",
+      "text": "S\n            规则设置"
+    },
+    {
+      "href": "#/fto-analyses/FTO-2026-001",
+      "text": "查看"
+    },
+    {
+      "href": "#/fto-analyses/FTO-2026-002",
+      "text": "查看"
+    },
+    {
+      "href": "#/fto-analyses/FTO-2026-003",
+      "text": "查看"
+    },
+    {
+      "href": "#/fto-analyses/FTO-2026-004",
+      "text": "查看"
+    },
+    {
+      "href": "#/fto-analyses/FTO-2026-005",
+      "text": "查看"
+    },
+    {
+      "href": "#/fto-analyses/FTO-2026-006",
+      "text": "查看"
+    },
+    {
+      "href": "#/fto-analyses/FTO-2026-007",
+      "text": "查看"
+    },
+    {
+      "href": "#/fto-analyses/FTO-2026-008",
+      "text": "查看"
+    }
+  ],
+  "summary": {
+    "pass": 8,
+    "fail": 0,
+    "warn": 1,
+    "total": 9
+  },
+  "overall": "B"
+}

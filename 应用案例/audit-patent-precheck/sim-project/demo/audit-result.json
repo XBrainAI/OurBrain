@@ -1,0 +1,41 @@
+{
+  "label": "patent-precheck",
+  "timestamp": "2026-07-21T10:16:05.335Z",
+  "dimensions": {
+    "D0_load": "pass",
+    "D0_console": "pass",
+    "D0_contracts": "pass",
+    "D2_nav_click": "pass",
+    "D3_modal_close": "warn: modal not openable",
+    "D4_l2_flicker": "pass: 1 unique transforms",
+    "D6_button_responsiveness": "pass: 3/3"
+  },
+  "detectedPages": [
+    {
+      "id": "P01"
+    },
+    {
+      "id": "P02"
+    },
+    {
+      "id": "P03"
+    }
+  ],
+  "navLinks": [
+    {
+      "href": "#/precheck-cases",
+      "text": "P01\n                "
+    },
+    {
+      "href": "#/precheck-cases/new",
+      "text": "P03\n                "
+    }
+  ],
+  "summary": {
+    "pass": 8,
+    "fail": 0,
+    "warn": 1,
+    "total": 9
+  },
+  "overall": "B"
+}

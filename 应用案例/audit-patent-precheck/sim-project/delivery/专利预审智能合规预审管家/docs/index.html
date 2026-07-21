@@ -1,0 +1,1819 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>产品需求文档（PRD） - 专利预审智能合规预审管家 产品文档</title>
+<style>
+  :root {
+    --color-bg: #070708;
+    --color-surface: #0A0A0A;
+    --color-surface-hover: #111114;
+    --color-text: #F5F5F7;
+    --color-text-muted: #A1A1AA;
+    --color-text-dim: #71717A;
+    --color-border: #1A1A1F;
+    --color-border-light: #27272A;
+    --color-accent: #14B8A6;
+    --color-accent-dim: rgba(20, 184, 166, 0.15);
+    --font-body: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", sans-serif;
+    --font-mono: "JetBrains Mono", "SF Mono", Consolas, monospace;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.7;
+    min-height: 100vh;
+    padding: 0;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px 80px; }
+  .header { text-align: center; margin-bottom: 48px; padding: 40px 0 24px; border-bottom: 1px solid var(--color-border); }
+  .header h1 { font-size: 36px; font-weight: 700; color: var(--color-text); margin-bottom: 12px; }
+  .header .subtitle { font-size: 16px; color: var(--color-text-muted); max-width: 720px; margin: 0 auto 12px; }
+  .header .badge { display: inline-block; padding: 4px 12px; background: var(--color-accent-dim); color: var(--color-accent); border-radius: 99px; font-size: 13px; font-weight: 500; }
+  /* 锚点导航栏（sticky） */
+  .anchor-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(7, 7, 8, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+    padding: 12px 20px;
+    margin: 0 -20px 40px;
+  }
+  .anchor-nav-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .anchor-nav a {
+    display: inline-block;
+    padding: 6px 14px;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 99px;
+    border: 1px solid var(--color-border);
+    transition: all 0.2s;
+  }
+  .anchor-nav a:hover { color: var(--color-accent); border-color: var(--color-accent); background: var(--color-accent-dim); }
+  /* 章节 */
+  section { margin-bottom: 56px; scroll-margin-top: 80px; }
+  section h2 {
+    font-size: 24px; font-weight: 700; color: var(--color-accent);
+    margin-bottom: 20px; padding-bottom: 10px;
+    border-bottom: 1px solid var(--color-border);
+    display: flex; align-items: center; gap: 12px;
+  }
+  section h2 .section-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--color-accent-dim); color: var(--color-accent);
+    font-size: 14px; font-weight: 700;
+  }
+  section h3 { font-size: 18px; font-weight: 600; color: var(--color-text); margin: 28px 0 12px; }
+  section h4 { font-size: 15px; font-weight: 600; color: var(--color-text); margin: 20px 0 8px; }
+  section p { color: var(--color-text-muted); margin-bottom: 12px; }
+  section ul, section ol { padding-left: 24px; margin-bottom: 16px; color: var(--color-text-muted); }
+  section li { margin-bottom: 6px; }
+  section strong { color: var(--color-text); }
+  section blockquote {
+    border-left: 3px solid var(--color-accent);
+    padding: 12px 20px;
+    margin: 16px 0;
+    background: var(--color-surface);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    color: var(--color-text-muted);
+  }
+  section hr { border: none; border-top: 1px solid var(--color-border); margin: 24px 0; }
+  section pre {
+    background: var(--color-surface); border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm); padding: 16px;
+    overflow-x: auto; margin: 16px 0;
+  }
+  section pre code { background: none; padding: 0; color: var(--color-text); font-size: 13px; }
+  section table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+  section th, section td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--color-border); font-size: 14px; }
+  section th { color: var(--color-accent); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+  section td { color: var(--color-text-muted); }
+  section tr:hover td { color: var(--color-text); }
+  code { background: var(--color-surface); padding: 2px 6px; border-radius: 4px; font-family: var(--font-mono); font-size: 13px; color: var(--color-accent); }
+  a { color: var(--color-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 24px; margin-bottom: 16px; }
+  .card:hover { background: var(--color-surface-hover); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+  .tag { display: inline-block; padding: 2px 8px; background: var(--color-accent-dim); color: var(--color-accent); border-radius: 99px; font-size: 12px; font-weight: 500; margin-right: 4px; }
+  .field-list { list-style: none; padding: 0; }
+  .field-list li { padding: 8px 0; border-bottom: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center; }
+  .field-list li:last-child { border-bottom: none; }
+  .field-name { font-family: var(--font-mono); color: var(--color-accent); font-size: 14px; }
+  .field-type { color: var(--color-text-dim); font-size: 13px; }
+  .field-desc { color: var(--color-text-muted); font-size: 14px; }
+  /* 叙事段落（业务背景/痛点/解决方案等） */
+  .narrative { background: var(--color-surface); border-left: 3px solid var(--color-accent); padding: 16px 20px; margin: 16px 0; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+  .narrative h4 { color: var(--color-accent); font-size: 14px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+  .narrative p, .narrative ul, .narrative ol { color: var(--color-text-muted); font-size: 14px; }
+  /* 折叠面板（PM 原始需求等） */
+  details {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 0;
+    margin: 16px 0;
+    overflow: hidden;
+  }
+  details summary {
+    padding: 16px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-text);
+    background: var(--color-surface-hover);
+    list-style: none;
+    display: flex; align-items: center; justify-content: space-between;
+    user-select: none;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::after { content: '+'; font-size: 20px; color: var(--color-accent); font-weight: 700; }
+  details[open] summary::after { content: '-'; }
+  details .details-content { padding: 20px; border-top: 1px solid var(--color-border); }
+  details .details-content h1, details .details-content h2, details .details-content h3 { color: var(--color-text); margin: 16px 0 8px; }
+  details .details-content h1 { font-size: 20px; }
+  details .details-content h2 { font-size: 17px; color: var(--color-accent); }
+  details .details-content h3 { font-size: 15px; }
+  /* 元数据网格 */
+  .meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+  .meta-item { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 16px; }
+  .meta-label { font-size: 11px; font-weight: 600; color: var(--color-text-dim); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+  .meta-value { font-size: 15px; font-weight: 500; color: var(--color-text); }
+  /* 下载链接卡片 */
+  .download-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 16px; }
+  .download-link { display: block; padding: 16px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-sm); text-decoration: none; color: var(--color-text); transition: all 0.2s; }
+  .download-link:hover { border-color: var(--color-accent); background: var(--color-surface-hover); }
+  .download-link-title { font-size: 14px; font-weight: 600; color: var(--color-accent); margin-bottom: 4px; }
+  .download-link-desc { font-size: 12px; color: var(--color-text-muted); }
+  /* 页面规格折叠面板（每页一个） */
+  .page-spec { margin-bottom: 16px; }
+  .page-spec summary { padding: 14px 20px; }
+  .page-spec .details-content { padding: 16px 20px; }
+  .annotation-block { background: var(--color-bg); border-left: 3px solid var(--color-accent); padding: 12px 16px; margin: 10px 0; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+  .annotation-block h4 { color: var(--color-accent); font-size: 13px; margin-bottom: 6px; }
+  .annotation-block p { color: var(--color-text-muted); font-size: 13px; margin: 0; }
+  /* 提示框 */
+  .tip-box {
+    display: flex; gap: 12px; padding: 16px 20px;
+    background: var(--color-accent-dim); border: 1px solid rgba(20, 184, 166, 0.25);
+    border-radius: var(--radius-sm); margin-top: 24px;
+  }
+  .tip-box-icon { font-size: 16px; color: var(--color-accent); font-weight: 700; flex-shrink: 0; }
+  .tip-box-content { font-size: 13px; line-height: 1.7; color: var(--color-text-muted); }
+  .tip-box-content strong { color: var(--color-text); }
+  /* 页脚（v5.9: Ourchem × Demora 联合版权） */
+  .footer {
+    text-align: center;
+    padding: 40px 20px 32px;
+    border-top: 1px solid var(--color-border);
+    margin-top: 56px;
+    color: var(--color-text-dim);
+    font-size: 13px;
+  }
+  .footer-coop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 16px;
+  }
+  .footer-brand-logo {
+    display: flex;
+    align-items: center;
+    height: 28px;
+  }
+  .footer-brand-ourchem svg {
+    height: 28px;
+    width: auto;
+    /* v5.10: 改用奥凯logo-长-白.svg 纯白版本，无需 filter 转色 */
+    opacity: 0.95;
+  }
+  .footer-brand-demora svg {
+    height: 24px;
+    width: auto;
+  }
+  .footer-coop-x {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--color-text-dim);
+    user-select: none;
+  }
+  .footer-copyright {
+    font-size: 12px;
+    color: var(--color-text-dim);
+    line-height: 1.7;
+    margin: 0;
+  }
+  .footer-copyright .footer-meta {
+    display: inline-block;
+    margin-top: 4px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    opacity: 0.75;
+  }
+  @media (max-width: 768px) {
+    .footer { padding: 32px 20px 24px; }
+    .footer-coop { gap: 12px; }
+    .footer-brand-ourchem svg, .footer-brand-demora svg { height: 22px; }
+    .footer-coop-x { font-size: 16px; }
+  }
+  /* v5.7: Mermaid 流程图样式 */
+  .mermaid {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 24px;
+    margin: 16px 0;
+    text-align: center;
+    overflow-x: auto;
+  }
+  .mermaid svg { max-width: 100%; height: auto; }
+  /* v5.7: Mermaid 加载失败时的兜底样式 */
+  .mermaid-fallback {
+    background: var(--color-surface);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    margin: 16px 0;
+    font-family: var(--font-mono, 'Cascadia Code', Consolas, monospace);
+    font-size: 13px;
+    color: var(--color-text-muted);
+    white-space: pre;
+    overflow-x: auto;
+  }
+  /* v5.7: ASCII 流程图样式 */
+  .ascii-flow {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    margin: 16px 0;
+    font-family: var(--font-mono, 'Cascadia Code', Consolas, monospace);
+    font-size: 13px;
+    color: var(--color-accent);
+    white-space: pre;
+    overflow-x: auto;
+    line-height: 1.4;
+  }
+  /* v5.7: 受众视图 Tab */
+  .audience-tabs {
+    display: flex; gap: 4px; padding: 8px 24px;
+    background: var(--color-surface); border-bottom: 1px solid var(--color-border);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .tab-btn {
+    padding: 6px 16px; background: transparent;
+    border: 1px solid var(--color-border); border-radius: var(--radius-sm);
+    color: var(--color-text-muted); font-size: 13px; cursor: pointer;
+    transition: all 0.2s;
+  }
+  .tab-btn:hover { color: var(--color-text); border-color: var(--color-accent); }
+  .tab-btn.active {
+    background: var(--color-accent); color: white; border-color: var(--color-accent);
+  }
+  /* v5.7: 受众视图切换 CSS（默认全部显示，Tab 切换时隐藏非目标受众） */
+  section[data-audience] { display: block; }
+  body.audience-dev section[data-audience]:not([data-audience*="dev"]) { display: none; }
+  body.audience-pm section[data-audience]:not([data-audience*="pm"]) { display: none; }
+  /* v5.7: 打印时显示所有受众内容 */
+  @media print {
+    section[data-audience] { display: block !important; }
+    .audience-tabs { display: none; }
+  }
+  /* v5.7: TL;DR / Non-Goals 样式 */
+  .tldr-box {
+    background: var(--color-accent-dim); border: 1px solid rgba(20, 184, 166, 0.3);
+    border-radius: var(--radius-sm); padding: 20px 24px; margin: 24px 0;
+  }
+  .tldr-box h3 { color: var(--color-accent); margin-bottom: 12px; }
+  .tldr-box ul { margin: 0; padding-left: 20px; }
+  .tldr-box li { margin: 6px 0; color: var(--color-text); font-size: 14px; line-height: 1.7; }
+  .non-goals-box {
+    background: var(--color-surface); border-left: 3px solid #F59E0B;
+    padding: 16px 20px; margin: 16px 0; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
+  .non-goals-box h3 { color: #F59E0B; margin-bottom: 8px; }
+  .non-goals-box ul { margin: 0; padding-left: 20px; }
+  .non-goals-box li { color: var(--color-text-muted); font-size: 13px; line-height: 1.7; }
+  /* v5.7: 版本信息 */
+  .version-info {
+    display: flex; gap: 16px; padding: 8px 24px;
+    background: var(--color-bg); border-bottom: 1px solid var(--color-border);
+    font-size: 12px; color: var(--color-text-dim);
+  }
+  /* 响应式 */
+  @media (max-width: 768px) {
+    .container { padding: 24px 16px 60px; }
+    .header h1 { font-size: 26px; }
+    .anchor-nav { margin: 0 -16px 32px; padding: 10px 16px; }
+    .anchor-nav a { font-size: 12px; padding: 4px 10px; }
+    .grid { grid-template-columns: 1fr; }
+    .meta-grid { grid-template-columns: 1fr 1fr; }
+    .download-links { grid-template-columns: 1fr; }
+  }
+  </style>
+<!-- v5.7: Mermaid 流程图渲染（离线打包，无外部依赖） -->
+<script src="assets/mermaid/mermaid.min.js"></script>
+<script src="assets/mermaid/mermaid-init.js"></script>
+</head>
+<body>
+<div class="container">
+
+<header class="header">
+  <h1>专利预审智能合规预审管家 产品需求文档</h1>
+  <p class="subtitle">专利预审案件全流程管理与智能预检平台</p>
+  <span class="badge">Demora v5.7 单页 PRD</span>
+</header>
+
+<nav class="audience-tabs" id="audienceTabs">
+  <button class="tab-btn active" data-audience="all">全部</button>
+  <button class="tab-btn" data-audience="pm">PM 视图</button>
+  <button class="tab-btn" data-audience="dev">研发视图</button>
+</nav>
+
+<div class="version-info" data-audience="pm dev test">
+  <span><strong>文档版本：</strong>v1.0</span>
+  <span><strong>生成时间：</strong>2026-07-21</span>
+  <span><strong>模板版本：</strong>v5.7</span>
+  <span><strong>对标：</strong>Lenny's 1-Pager + Notion Ultimate PRD</span>
+</div>
+
+<nav class="anchor-nav">
+  <div class="anchor-nav-inner">
+    <a href="#tldr">摘要</a>
+    <a href="#problem">业务背景</a>
+    <a href="#users">目标用户</a>
+    <a href="#business-flow">业务流程</a>
+    <a href="#metrics">指标时间线</a>
+    <a href="#scope">范围风险</a>
+  </div>
+</nav>
+
+<section id="tldr" data-audience="pm dev test">
+  <h2><span class="section-num">0</span> 摘要</h2>
+  <p class="section-hint">让 PM/研发在 30 秒内理解项目本质。</p>
+  <div class="tldr-box">
+    <h3>项目摘要</h3>
+<ul>
+<li><strong>项目定位</strong>：专利预审案件全流程管理与智能预检平台</li>
+<li><strong>核心差异点</strong>：整合 1 大业务实体（预审案件），提供全流程数字化管理</li>
+<li><strong>关键功能</strong>：浏览precheck-case、查看precheck-case详情、新增/编辑precheck-case</li>
+<li><strong>一句话状态</strong>：规划中，计划 2026-Q4 上线</li>
+<li><strong>关键数字</strong>：1 实体 / 3 角色 / 3 页面</li>
+</ul>
+<hr>
+  </div>
+</section>
+
+<section id="problem" data-audience="pm dev test">
+  <h2><span class="section-num">1</span> 业务背景</h2>
+  <p>本章节阐述项目的业务背景、核心痛点与解决方案，对标业界 PRD "Problem before solution" 原则。</p>
+
+  <div class="narrative">
+    <h4>业务背景</h4>
+    <p>本系统面向 PATENT 领域的核心业务场景。当前专利预审智能合规预审管家旨在通过数字化手段整合预审案件等业务模块，实现数据集中管理、流程标准化与跨角色协作提效。项目定位为：专利预审案件全流程管理与智能预检平台。</p>
+<hr>
+  </div>
+  <div class="narrative">
+    <h4>核心痛点</h4>
+    <ol>
+<li><strong>痛点一</strong>：预审案件管理缺乏统一系统支撑，数据分散、流程不规范、跨角色协作效率低</li>
+</ol>
+<hr>
+  </div>
+  <div class="narrative">
+    <h4>解决方案</h4>
+    <p>专利预审案件全流程管理与智能预检平台。通过构建PATENT一体化管理平台，实现以下能力：</p>
+<ul>
+<li><strong>数据集中化</strong>：将预审案件数据统一存储与管理，消除数据孤岛</li>
+<li><strong>流程标准化</strong>：将核心业务流程（录入、审批、状态流转）固化到系统，减少人为差错</li>
+<li><strong>权限精细化</strong>：基于 RBAC 模型实现角色-实体-操作三级权限控制，保障数据安全</li>
+<li><strong>协作在线化</strong>：多角色在线协同，审批流自动流转，提升跨部门协作效率</li>
+<li><strong>决策数据化</strong>：提供实时数据看板与报表，支撑管理决策</li>
+</ul>
+<hr>
+  </div>
+  <div class="narrative">
+    <h4>业务目标</h4>
+    <table><thead><tr>
+<th>业务指标</th>
+<th>当前值</th>
+<th>目标值</th>
+<th>关联战略</th>
+</tr></thead><tbody>
+<tr>
+<td>预审案件数据准确率</td>
+<td>80%</td>
+<td>98%</td>
+<td>数字化转型提效</td>
+</tr>
+</tbody></table>
+<hr>
+  </div>
+  <div class="narrative">
+    <h4>产品目标 (OKR)</h4>
+    <p><strong>Objective</strong>: 构建PATENT一体化平台，实现预审案件全流程数字化管理</p>
+<table><thead><tr>
+<th>Key Result</th>
+<th>当前基准</th>
+<th>目标值</th>
+<th>衡量方式</th>
+</tr></thead><tbody>
+<tr>
+<td>KR1: 预审案件数据准确率提升至 98%</td>
+<td>80%</td>
+<td>98%</td>
+<td>数据校验通过率</td>
+</tr>
+<tr>
+<td>KR2: 系统覆盖 1 个核心业务实体</td>
+<td>0</td>
+<td>1</td>
+<td>实体上线数</td>
+</tr>
+</tbody></table>
+<hr>
+  </div></section>
+<section id="non-goals" data-audience="pm dev test">
+  <h2><span class="section-num">1.5</span> Non-Goals 明确不做的事</h2>
+  <p class="section-hint">显式声明不在本期范围内的事项，避免范围蔓延。</p>
+  <div class="non-goals-box">
+    <h3>本期不实现</h3>
+<ul>
+<li>移动端 App（本期仅做 Web 响应式适配）</li>
+<li>第三方系统集成（如钉钉/企业微信同步，预留接口本期不实现）</li>
+<li>数据分析与 BI 报表（本期提供基础看板，高级分析后续迭代）</li>
+</ul>
+  </div>
+</section>
+
+<section id="pm-requirement" data-audience="pm">
+  <h2><span class="section-num">2</span> PM 原始需求</h2>
+  <p>本章节按时间顺序展示 PM 在阶段 0（场景简报）与阶段 1（完整需求）输入的原始资料，体现需求从模糊到清晰的迭代过程。</p>
+
+  <details>
+    <summary>阶段 0 · 场景简报（requirement-scenario-brief.md · 407 字符）</summary>
+    <div class="details-content">
+      <h1>专利预审智能合规预审管家需求</h1>
+<h2>背景</h2>
+<p>全国 77 家知识产权保护中心全覆盖广州产业园区，预审通道可将发明专利授权周期压缩至 3 个月；国知局严控预审准入，自动筛查非正常、低质量申请成为企业与代理机构刚需。</p>
+<h2>核心功能</h2>
+<ul>
+<li>预审准入智能预检引擎（主体备案/技术领域/同日重复校验）</li>
+<li>非正常专利全维度筛查（研发证明/技术逻辑/权利要求/附图/发明人）</li>
+<li>预审文本智能修正与标准化模板适配</li>
+<li>预审案件全流程台账与时限提醒</li>
+<li>工具预检 + 人工复核一体化</li>
+</ul>
+<h2>用户角色</h2>
+<ul>
+<li>代理师：提交预审案件，跟进整改</li>
+<li>预审员：审核案件，输出整改清单或通过</li>
+<li>企业IPR：查看本企业预审进度</li>
+</ul>
+<h2>业务规则</h2>
+<ul>
+<li>未通过准入预检的案件不可提交预审</li>
+<li>非正常筛查问题数超过 5 项自动驳回</li>
+<li>整改清单需在 7 日内反馈，超时自动置为已驳回</li>
+<li>同一申请人同一技术领域 30 日内不可重复提交</li>
+</ul>
+    </div>
+  </details>
+  <details>
+    <summary>阶段 1 · 完整需求文档（requirement-input.md · 4548 字符）</summary>
+    <div class="details-content">
+      <h1>PM 需求详版 — 专利预审智能合规预审管家</h1>
+<blockquote>本文档由 AI 基于 <code>requirement-scenario-brief.md</code> 与需求模型扩展生成，作为 Demora Phase 1 的 PM 详细需求归档。</blockquote>
+<h2>1. 业务背景</h2>
+<h3>1.1 行业现状</h3>
+<ul>
+<li>国家知识产权局在全国布局 77 家知识产权保护中心，覆盖广州等产业园区重点产业</li>
+<li>通过预审通道的发明专利授权周期可由常规 22 个月压缩至 3 个月以内</li>
+<li>国知局近年严控预审准入，对非正常、低质量申请执行严格筛查</li>
+<li>企业与代理机构在提交预审前缺乏统一的智能预检工具，导致大量案件被驳回或反复整改</li>
+</ul>
+<h3>1.2 痛点</h3>
+<ul>
+<li><strong>预审准入复杂</strong>：主体备案 / 技术领域匹配 / 同日重复校验等规则手工核对，效率低</li>
+<li><strong>非正常筛查专业门槛高</strong>：研发证明 / 技术逻辑 / 权利要求 / 附图 / 发明人 5 维度判断需专利代理经验</li>
+<li><strong>整改时限易失控</strong>：整改清单 7 日内反馈，超时自动驳回，案件流程难跟踪</li>
+<li><strong>数据无统一台账</strong>：代理机构多客户多案件并行，缺乏全流程可视化看板</li>
+</ul>
+<h3>1.3 价值主张</h3>
+<p>构建一站式专利预审智能合规预审管家，提供「准入预检引擎 + 非正常筛查 + 整改闭环 + 全流程台账」四合一能力，让代理师与预审员协同工作，企业 IPR 实时跟踪进度，最终将预审通过率从行业平均 60% 提升至 85% 以上。</p>
+<h2>2. 用户角色</h2>
+<h3>2.1 代理师（agent）</h3>
+<ul>
+<li><strong>职责</strong>：提交预审案件，跟进预审员反馈的整改清单，按时完成整改回填</li>
+<li><strong>权限范围</strong>：全部预审案件的 create / read / update / delete（all scope）</li>
+<li><strong>页面可见性</strong>：P01 案件列表、P02 案件详情、P03 案件提交表单</li>
+</ul>
+<h3>2.2 预审员（precheck-reviewer）</h3>
+<ul>
+<li><strong>职责</strong>：审核代理师提交的预审案件，输出整改清单或通过 / 驳回决定</li>
+<li><strong>权限范围</strong>：全部预审案件的 read / update（all scope），不可创建 / 删除</li>
+<li><strong>页面可见性</strong>：P01 案件列表、P02 案件详情</li>
+</ul>
+<h3>2.3 企业 IPR（ipr）</h3>
+<ul>
+<li><strong>职责</strong>：查看本企业案件的预审进度，了解整改反馈</li>
+<li><strong>权限范围</strong>：仅本人所属企业案件 read（own scope）</li>
+<li><strong>页面可见性</strong>：P01 案件列表、P02 案件详情</li>
+</ul>
+<h2>3. 核心功能</h2>
+<h3>3.1 预审案件全流程台账（P01）</h3>
+<ul>
+<li>分页展示代理机构全部预审案件</li>
+<li>支持按案件编号、申请人、技术领域、预审员、状态多维度搜索</li>
+<li>支持「新增案件」「批量预检」操作</li>
+<li>企业 IPR 仅查看本企业案件，代理师与预审员可见全部</li>
+</ul>
+<h3>3.2 案件详情与流程闭环（P02）</h3>
+<ul>
+<li>展示案件基础信息（案件编号 / 申请人 / 技术领域 / 代理机构 / 状态）</li>
+<li>展示预审员姓名与预审开始时间</li>
+<li>展示非正常筛查问题清单与整改建议</li>
+<li>支持预审员「开始预审」「通过」「驳回」三步状态流转</li>
+</ul>
+<h3>3.3 案件提交表单（P03）</h3>
+<ul>
+<li>表单字段：案件编号、申请人、技术领域、代理机构（均为必填）</li>
+<li>支持「准入预检」预检引擎调用（含 30 日重复提交校验）</li>
+<li>支持「提交」「取消」操作</li>
+</ul>
+<h3>3.4 准入预检引擎</h3>
+<ul>
+<li>主体备案校验：申请人是否已完成预审主体备案</li>
+<li>技术领域校验：申请技术领域是否在保护中心支持范围</li>
+<li>同日重复校验：同一申请人同一技术领域 30 日内不可重复提交</li>
+</ul>
+<h3>3.5 非正常专利全维度筛查</h3>
+<ul>
+<li>研发证明合理性</li>
+<li>技术逻辑自洽性</li>
+<li>权利要求清晰度</li>
+<li>附图与说明一致性</li>
+<li>发明人真实性</li>
+</ul>
+<h2>4. 页面列表</h2>
+<table><thead><tr>
+<th>页面 ID</th>
+<th>名称</th>
+<th>类型</th>
+<th>路由</th>
+<th>优先级</th>
+<th>主要功能</th>
+</tr></thead><tbody>
+<tr>
+<td>P01</td>
+<td>precheck-case-list</td>
+<td>crud_list</td>
+<td>/precheck-cases</td>
+<td>P0</td>
+<td>预审案件列表 + 搜索 + 操作栏 + 分页</td>
+</tr>
+<tr>
+<td>P02</td>
+<td>precheck-case-detail</td>
+<td>detail_view</td>
+<td>/precheck-cases/:id</td>
+<td>P0</td>
+<td>案件详情 + 整改清单 + 流程操作按钮</td>
+</tr>
+<tr>
+<td>P03</td>
+<td>precheck-case-submit</td>
+<td>form_page</td>
+<td>/precheck-cases/form</td>
+<td>P0</td>
+<td>案件提交表单 + 准入预检 + 提交/取消</td>
+</tr>
+</tbody></table>
+<h3>4.1 P01 案件列表页</h3>
+<ul>
+<li><strong>入口</strong>：侧边栏「预审案件」菜单</li>
+<li><strong>L2 区域</strong>：搜索区（4 字段 + 状态）、操作栏（新增 + 批量预检）、数据表格、分页区</li>
+<li><strong>L3 元件</strong>：搜索按钮、新增案件按钮、批量预检按钮、查看按钮</li>
+<li><strong>状态标签颜色</strong>：已提交（warning 橙）/预审中（info 蓝）/预审通过（success 绿）/预审驳回（danger 红）/已整改（info 蓝）</li>
+</ul>
+<h3>4.2 P02 案件详情页</h3>
+<ul>
+<li><strong>入口</strong>：列表页点击「查看」</li>
+<li><strong>L2 区域</strong>：详情头部（描述列表）、预审员区、整改清单区、操作按钮区</li>
+<li><strong>L3 元件</strong>：开始预审按钮、通过按钮、驳回按钮（驳回弹出整改清单输入弹窗）</li>
+<li><strong>状态流转</strong>：已提交 → 预审中 → 通过 / 驳回；已驳回 → 已整改</li>
+</ul>
+<h3>4.3 P03 案件提交表单页</h3>
+<ul>
+<li><strong>入口</strong>：列表页点击「新增案件」</li>
+<li><strong>L2 区域</strong>：表单区、操作按钮区</li>
+<li><strong>L3 元件</strong>：提交按钮、准入预检按钮、取消按钮</li>
+<li><strong>业务规则</strong>：提交前必须通过准入预检；30 日内重复提交时提示错误</li>
+</ul>
+<h2>5. 业务规则</h2>
+<h3>5.1 状态机</h3>
+<pre><code>已提交 (submitted) 
+   ↓ 预审员点击「开始预审」
+预审中 (checking)
+   ↓ 预审员点击「通过」
+预审通过 (passed)
+   ↓ 预审员点击「驳回」（弹出整改清单输入弹窗）
+预审驳回 (rejected)
+   ↓ 代理师完成整改回填
+已整改 (rectified) → 可再次进入预审中</code></pre>
+<h3>5.2 权限矩阵</h3>
+<table><thead><tr>
+<th>角色</th>
+<th>创建</th>
+<th>查看</th>
+<th>更新</th>
+<th>删除</th>
+<th>查看范围</th>
+</tr></thead><tbody>
+<tr>
+<td>代理师</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>all</td>
+</tr>
+<tr>
+<td>预审员</td>
+<td>✗</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>all</td>
+</tr>
+<tr>
+<td>企业 IPR</td>
+<td>✗</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>own</td>
+</tr>
+</tbody></table>
+<h3>5.3 业务约束</h3>
+<ul>
+<li>案件编号、申请人、技术领域、代理机构为必填</li>
+<li>技术领域枚举：新一代信息技术 / 高端装备制造 / 新材料 / 生物医药 / 新能源 / 节能环保</li>
+<li>同一申请人同一技术领域 30 日内不可重复提交</li>
+<li>未通过准入预检的案件不可提交预审</li>
+<li>非正常筛查问题数超过 5 项自动驳回</li>
+<li>整改清单需在 7 日内反馈，超时自动置为已驳回</li>
+</ul>
+<h2>6. 验收标准</h2>
+<h3>6.1 结构契约（check-structure.mjs 10/10）</h3>
+<ul>
+<li>HTML 含 <code>data-annotation-root</code> 根元素</li>
+<li>三个 <code>[data-page-id]</code> 页面 section（P01/P02/P03）</li>
+<li>顶部工具栏含 <code>[data-annotation-toggle]</code> 标注开关</li>
+<li>每个页面至少 1 个 <code>data-zone-id</code> L2 区域 + 1 个 <code>data-element-id</code> L3 元件</li>
+<li>每个页面至少 1 个 <code>.l2-marker</code> 序号 + 1 个 <code>.l3-dot</code> 指示器</li>
+<li><code>&amp;lt;script&amp;gt;</code> 中定义 <code>window.__ANNOTATION_DATA__</code> 对象，含 P01/P02/P03 完整 L1/L2/L3 数据</li>
+</ul>
+<h3>6.2 路由契约（D2 PASS）</h3>
+<ul>
+<li>默认路由指向 P01（<code>#/precheck-cases</code>）</li>
+<li>监听 <code>hashchange</code> 事件</li>
+<li>页面 section 切换通过 <code>hidden</code> 属性控制</li>
+<li>导航点击后 URL hash 变化且页面内容同步切换</li>
+</ul>
+<h3>6.3 弹窗契约（D3 PASS）</h3>
+<ul>
+<li>P02 驳回弹窗有可点击的关闭按钮（×）</li>
+<li>点击遮罩层关闭弹窗</li>
+<li>ESC 键关闭弹窗</li>
+</ul>
+<h3>6.4 标注契约（D4/D5 PASS）</h3>
+<ul>
+<li>L2 marker 闪烁动画正常（5 次 transform 切换）</li>
+<li>L3 dot 可点击（pointer-events 不被覆盖）</li>
+<li><code>.l2-marker</code> / <code>.l3-dot</code> / <code>.anno-zone</code> 等保留类名不在 style.css 重复定义</li>
+</ul>
+<h3>6.5 业务功能（D6 PASS）</h3>
+<ul>
+<li>P01 搜索：输入案件编号 / 申请人 / 选择技术领域 / 选择状态后点击搜索，表格刷新</li>
+<li>P01 新增：点击「新增案件」跳转 P03</li>
+<li>P01 批量预检：选中行后点击，提示「批量预检任务已启动」</li>
+<li>P02 流程：状态为已提交时显示「开始预审」；状态为预审中时显示「通过」「驳回」；点击「驳回」弹出整改清单输入弹窗</li>
+<li>P03 准入预检：点击后显示「准入预检通过」或「30 日内重复提交，不允许」</li>
+<li>P03 提交：校验通过后跳转 P01</li>
+<li>按钮响应率 ≥ 80%</li>
+</ul>
+<h3>6.6 数据契约</h3>
+<ul>
+<li>Mock 数据 ≥ 10 条 precheck-case，覆盖 6 种技术领域 + 5 种状态</li>
+<li>边界态：30 日内重复提交案件、问题数 = 5 / 6 的案件、整改超时案件</li>
+<li>异常态：空表格、搜索无结果、未选中行点击批量预检</li>
+</ul>
+<h3>6.7 文档与交付</h3>
+<ul>
+<li>docs/prd/ 13 个 PRD + 6 个 page-details + 7 个 Spec + 3 个 Test + 1 个 Handoff 全部实质性内容</li>
+<li>docs/ 5 个 HTML 产品文档（index / product-overview / page-spec / data-model / role-permission）齐全</li>
+<li>.demora/traceability.yaml 追溯矩阵生成</li>
+<li>delivery/&lt;项目名&gt;/ 含 index.html + demo-only.zip + full-delivery.zip（均 ≥ 10 KB）</li>
+<li>verify-delivery.mjs V-1 至 V-8 全部 PASS</li>
+</ul>
+    </div>
+  </details></section>
+<section id="users" data-audience="pm dev test">
+  <h2><span class="section-num">3</span> 目标用户</h2>
+  <p>目标用户分群、画像与角色定义。</p>
+
+  <h3>用户分群</h3>
+  <div class="narrative">
+    <table><thead><tr>
+<th>用户类型</th>
+<th>定位</th>
+<th>占比</th>
+<th>核心诉求</th>
+</tr></thead><tbody>
+<tr>
+<td>代理师</td>
+<td>PATENT系统核心管理用户</td>
+<td>40%</td>
+<td>高效完成代理师相关业务操作</td>
+</tr>
+<tr>
+<td>预审员</td>
+<td>PATENT系统协同管理用户</td>
+<td>35%</td>
+<td>高效完成预审员相关业务操作</td>
+</tr>
+<tr>
+<td>企业IPR</td>
+<td>PATENT系统终端使用用户</td>
+<td>20%</td>
+<td>高效完成企业IPR相关业务操作</td>
+</tr>
+</tbody></table>
+<hr>
+  </div>
+  <h3>用户画像</h3>
+  <div class="narrative">
+    <h3>画像 A：代理师</h3>
+<table><thead><tr>
+<th>维度</th>
+<th>描述</th>
+</tr></thead><tbody>
+<tr>
+<td>职业</td>
+<td>代理师</td>
+</tr>
+<tr>
+<td>核心职责</td>
+<td>负责代理师相关业务的管理与执行</td>
+</tr>
+<tr>
+<td>痛点</td>
+<td>预审案件管理缺乏统一系统支撑，数据分散、流程不规范、跨角色协作效率低</td>
+</tr>
+<tr>
+<td>使用场景</td>
+<td>通过预审案件列表页(precheck-case-list)进行日常业务操作</td>
+</tr>
+<tr>
+<td>期望体验</td>
+<td>操作简洁高效，数据实时准确，权限清晰无越权风险</td>
+</tr>
+<tr>
+<td>当前替代方案</td>
+<td>Excel 表格 + 纸质流程 + 邮件/即时通讯沟通</td>
+</tr>
+</tbody></table>
+<h3>画像 B：预审员</h3>
+<table><thead><tr>
+<th>维度</th>
+<th>描述</th>
+</tr></thead><tbody>
+<tr>
+<td>职业</td>
+<td>预审员</td>
+</tr>
+<tr>
+<td>核心职责</td>
+<td>负责预审员相关业务的管理与执行</td>
+</tr>
+<tr>
+<td>痛点</td>
+<td>手工操作效率低，数据查询不便</td>
+</tr>
+<tr>
+<td>使用场景</td>
+<td>通过预审案件详情页(precheck-case-detail)进行日常业务操作</td>
+</tr>
+<tr>
+<td>期望体验</td>
+<td>操作简洁高效，数据实时准确，权限清晰无越权风险</td>
+</tr>
+<tr>
+<td>当前替代方案</td>
+<td>Excel 表格 + 纸质流程 + 邮件/即时通讯沟通</td>
+</tr>
+</tbody></table>
+<h3>画像 C：企业IPR</h3>
+<table><thead><tr>
+<th>维度</th>
+<th>描述</th>
+</tr></thead><tbody>
+<tr>
+<td>职业</td>
+<td>企业IPR</td>
+</tr>
+<tr>
+<td>核心职责</td>
+<td>负责企业IPR相关业务的管理与执行</td>
+</tr>
+<tr>
+<td>痛点</td>
+<td>手工操作效率低，数据查询不便</td>
+</tr>
+<tr>
+<td>使用场景</td>
+<td>通过预审案件表单页(precheck-case-submit)进行日常业务操作</td>
+</tr>
+<tr>
+<td>期望体验</td>
+<td>操作简洁高效，数据实时准确，权限清晰无越权风险</td>
+</tr>
+<tr>
+<td>当前替代方案</td>
+<td>Excel 表格 + 纸质流程 + 邮件/即时通讯沟通</td>
+</tr>
+</tbody></table>
+<hr>
+  </div>
+  <h3>使用场景</h3>
+  <div class="narrative">
+    <table><thead><tr>
+<th>场景编号</th>
+<th>用户类型</th>
+<th>触发情境</th>
+<th>任务</th>
+<th>设备</th>
+</tr></thead><tbody>
+<tr>
+<td>S01</td>
+<td>代理师</td>
+<td>需要查看/管理预审案件数据</td>
+<td>在预审案件列表页(precheck-case-list)进行操作</td>
+<td>桌面端 PC</td>
+</tr>
+<tr>
+<td>S02</td>
+<td>代理师</td>
+<td>需要查看/管理预审案件数据</td>
+<td>在预审案件详情页(precheck-case-detail)进行操作</td>
+<td>桌面端 PC</td>
+</tr>
+<tr>
+<td>S03</td>
+<td>预审员</td>
+<td>需要查看/管理预审案件数据</td>
+<td>在预审案件列表页(precheck-case-list)进行操作</td>
+<td>桌面端 PC</td>
+</tr>
+<tr>
+<td>S04</td>
+<td>预审员</td>
+<td>需要查看/管理预审案件数据</td>
+<td>在预审案件详情页(precheck-case-detail)进行操作</td>
+<td>桌面端 PC</td>
+</tr>
+<tr>
+<td>S05</td>
+<td>企业IPR</td>
+<td>需要查看/管理预审案件数据</td>
+<td>在预审案件列表页(precheck-case-list)进行操作</td>
+<td>桌面端 PC</td>
+</tr>
+<tr>
+<td>S06</td>
+<td>企业IPR</td>
+<td>需要查看/管理预审案件数据</td>
+<td>在预审案件详情页(precheck-case-detail)进行操作</td>
+<td>桌面端 PC</td>
+</tr>
+</tbody></table>
+<hr>
+  </div></section>
+<section id="business-flow" data-audience="pm dev test">
+  <h2><span class="section-num">4</span> 业务流程</h2>
+  <p>包含任务流、数据流、页面流、主流程、分支流程、异常流程与状态流转。</p>
+
+  <h3>Task Flow（任务流）</h3>
+  <p class="section-hint">用户完成业务任务的操作步骤序列，按角色分泳道。PM 与培训关注。</p>
+  <div class="narrative">
+    <blockquote><strong>关注点</strong>：用户完成业务任务的操作步骤序列，按角色分 Pool/Lane。 <strong>图例</strong>：<code>(( ))</code> 事件 / <code>( )</code> 任务 / <code>{ }</code> 网关 / 实线=Sequence Flow / 虚线=Message Flow</blockquote>
+<h3>BPMN 任务流图</h3>
+<div class="mermaid">flowchart TD
+    Start((用户登录))
+    subgraph Pool1["代理师"]
+        Pool1_T1("浏览预审案件")
+        Pool1_T2("查看预审案件详情")
+        Pool1_T1 --> Pool1_G1{"通过?"}
+        Pool1_G1 -->|是| Pool1_T2
+        Pool1_G1 -->|否| Pool1_End((结束))
+        Pool1_T3("新增/编辑预审案件")
+        Pool1_T2 --> Pool1_G2{"通过?"}
+        Pool1_G2 -->|是| Pool1_T3
+        Pool1_G2 -->|否| Pool1_End((结束))
+        Pool1_T3 --> Pool1_Done((任务完成))
+    end
+    subgraph Pool2["预审员"]
+        Pool2_T1("执行业务操作")
+    end
+    subgraph Pool3["企业IPR"]
+        Pool3_T1("执行业务操作")
+    end
+    Start --> Pool1_T1
+    Pool1_Done -.->|交付预审案件| Pool2_T1
+    Pool2_Done -.->|交付| Pool3_T1
+    Pool3_Done --> End((业务完成))</div>
+<h3>角色任务清单（BPMN Pool/Lane 视角）</h3>
+<table><thead><tr>
+<th>角色 (Pool)</th>
+<th>任务 (Task)</th>
+<th>触发条件</th>
+<th>关联页面</th>
+<th>关联实体</th>
+<th>交付物</th>
+</tr></thead><tbody>
+<tr>
+<td>代理师</td>
+<td>浏览预审案件</td>
+<td>登录后进入工作台</td>
+<td>预审案件列表页(precheck-case-list)</td>
+<td>预审案件</td>
+<td>业务数据</td>
+</tr>
+<tr>
+<td>预审员</td>
+<td>执行业务操作</td>
+<td>登录后进入工作台</td>
+<td>-</td>
+<td>预审案件</td>
+<td>业务数据</td>
+</tr>
+<tr>
+<td>企业IPR</td>
+<td>执行业务操作</td>
+<td>登录后进入工作台</td>
+<td>-</td>
+<td>-</td>
+<td>业务数据</td>
+</tr>
+</tbody></table>
+<h3>BPMN 元素说明</h3>
+<table><thead><tr>
+<th>元素类型</th>
+<th>图例</th>
+<th>含义</th>
+</tr></thead><tbody>
+<tr>
+<td>Start Event</td>
+<td><code>(( ))</code> 圆形</td>
+<td>流程起始点（如用户登录）</td>
+</tr>
+<tr>
+<td>End Event</td>
+<td><code>(( ))</code> 双圆</td>
+<td>流程结束点（如任务完成）</td>
+</tr>
+<tr>
+<td>Task</td>
+<td><code>( )</code> 圆角矩形</td>
+<td>用户执行的具体业务任务</td>
+</tr>
+<tr>
+<td>Gateway (XOR)</td>
+<td><code>{ }</code> 菱形</td>
+<td>排他网关，二选一决策点</td>
+</tr>
+<tr>
+<td>Intermediate Event</td>
+<td><code>{{ }}</code> 六边形</td>
+<td>中间事件，如状态流转</td>
+</tr>
+<tr>
+<td>Sequence Flow</td>
+<td><code>--&amp;gt;</code> 实线箭头</td>
+<td>同 Pool 内的任务流转</td>
+</tr>
+<tr>
+<td>Message Flow</td>
+<td><code>-.-&amp;gt;</code> 虚线箭头</td>
+<td>跨 Pool 的消息/数据交付</td>
+</tr>
+<tr>
+<td>Pool/Lane</td>
+<td><code>subgraph</code></td>
+<td>角色泳道，划分职责边界</td>
+</tr>
+</tbody></table>
+<hr>
+  </div>
+  <details>
+    <summary>Data Flow（数据流）</summary>
+    <p class="section-hint">数据在系统各模块/角色间的流动路径。研发与架构关注。</p>
+    <div class="narrative">
+      <blockquote><strong>关注点</strong>：数据在系统各模块/角色间的流动路径，含数据归属与操作权限。 <strong>图例</strong>：<code>[ ]</code> 外部实体 / <code>( )</code> 处理过程 / <code>[[ ]]</code> 数据存储 / 箭头标签=数据流内容</blockquote>
+<h3>Level 0 - 上下文图（Context Diagram）</h3>
+<div class="mermaid">flowchart LR
+    System((本系统<br/>专利预审智能合规预审管家))
+    Ext1["代理师"]
+    Ext2["预审员"]
+    Ext3["企业IPR"]
+    Ext1 -->|预审案件数据| System
+    System -.->|查询结果/反馈| Ext1
+    Ext2 -->|预审案件数据| System
+    System -.->|查询结果/反馈| Ext2
+    Ext3 -->|业务请求| System
+    System -.->|查询结果/反馈| Ext3</div>
+<h3>Level 1 - 数据流分解图</h3>
+<div class="mermaid">flowchart LR
+    DS1[["预审案件<br/>字段: case_no, applicant, tech_field, reviewer..."]]
+    P1("新增案件<br/>(预审案件)")
+    P2("查看案件<br/>(预审案件)")
+    P3("开始预审<br/>(预审案件)")
+    P4("通过<br/>(预审案件)")
+    P5("提交案件<br/>(预审案件)")
+    P6("准入预检<br/>(预审案件)")
+    Ext1["代理师"]
+    Ext2["预审员"]
+    Ext3["企业IPR"]
+    Ext1 -->|create 预审案件| P1
+    Ext2 -->|create 预审案件| P1
+    P1 -->|写入| DS1
+    P1 -.->|查询结果| Ext1
+    P1 -.->|查询结果| Ext2
+    P1 -.->|查询结果| Ext3
+    Ext1 -->|view 预审案件| P2
+    Ext2 -->|view 预审案件| P2
+    DS1 -->|读取| P2
+    P2 -.->|查询结果| Ext1
+    P2 -.->|查询结果| Ext2
+    P2 -.->|查询结果| Ext3
+    Ext1 -->|update 预审案件| P3
+    Ext2 -->|update 预审案件| P3
+    P3 -->|写入| DS1
+    P3 -.->|查询结果| Ext1
+    P3 -.->|查询结果| Ext2
+    P3 -.->|查询结果| Ext3
+    Ext1 -->|confirm 预审案件| P4
+    Ext2 -->|confirm 预审案件| P4
+    P4 -.->|CRUD| DS1
+    P4 -.->|查询结果| Ext1
+    P4 -.->|查询结果| Ext2
+    P4 -.->|查询结果| Ext3
+    Ext1 -->|save 预审案件| P5
+    Ext2 -->|save 预审案件| P5
+    P5 -->|写入| DS1
+    P5 -.->|查询结果| Ext1
+    P5 -.->|查询结果| Ext2
+    P5 -.->|查询结果| Ext3
+    Ext1 -->|update 预审案件| P6
+    Ext2 -->|update 预审案件| P6
+    P6 -->|写入| DS1
+    P6 -.->|查询结果| Ext1
+    P6 -.->|查询结果| Ext2
+    P6 -.->|查询结果| Ext3</div>
+<h3>实体数据归属矩阵</h3>
+<table><thead><tr>
+<th>实体</th>
+<th>所有者角色</th>
+<th>可读角色</th>
+<th>可写角色</th>
+<th>数据流向</th>
+<th>主键字段</th>
+<th>关键字段</th>
+</tr></thead><tbody>
+<tr>
+<td>预审案件</td>
+<td>代理师</td>
+<td>代理师/预审员/企业IPR</td>
+<td>代理师/预审员</td>
+<td>代理师 → [预审案件] → 代理师</td>
+<td>id</td>
+<td>case<em>no, applicant, tech</em>field</td>
+</tr>
+</tbody></table>
+<h3>DFD 元素说明</h3>
+<table><thead><tr>
+<th>元素类型</th>
+<th>图例</th>
+<th>含义</th>
+</tr></thead><tbody>
+<tr>
+<td>External Entity</td>
+<td><code>[ ]</code> 矩形</td>
+<td>系统外部数据来源/去向（角色）</td>
+</tr>
+<tr>
+<td>Process</td>
+<td><code>( )</code> 圆角矩形</td>
+<td>系统内的处理过程（页面操作）</td>
+</tr>
+<tr>
+<td>Data Store</td>
+<td><code>[[ ]]</code> 双线</td>
+<td>数据存储（实体表）</td>
+</tr>
+<tr>
+<td>Data Flow</td>
+<td>`--&gt;\</td>
+<td>label\</td>
+<td>` 带标签箭头</td>
+<td>数据流向，标签为数据内容</td>
+</tr>
+<tr>
+<td>Read Flow</td>
+<td><code>-.-&amp;gt;</code> 虚线</td>
+<td>读取/反馈数据流</td>
+</tr>
+<tr>
+<td>Write Flow</td>
+<td><code>--&amp;gt;</code> 实线</td>
+<td>写入/提交数据流</td>
+</tr>
+</tbody></table>
+<h3>数据流层级说明</h3>
+<ul>
+<li><strong>Level 0 - Context Diagram</strong>：将整个系统视为单一 Process，展示外部实体与系统的交互边界</li>
+<li><strong>Level 1 - 数据流分解图</strong>：将系统分解为多个 Process（页面操作），展示 Process 与 Data Store（实体）的数据交互</li>
+<li><strong>建议进一步分解</strong>：复杂 Process 可继续分解为 Level 2 / Level 3 DFD</li>
+</ul>
+<hr>
+    </div>
+  </details>
+  <h3>Page Flow（页面流）</h3>
+  <p class="section-hint">页面间的跳转关系。前端与交互设计关注。</p>
+  <div class="narrative">
+    <blockquote><strong>关注点</strong>：页面间的跳转关系，含路由、跳转条件与决策分支。 <strong>图例</strong>：<code>(( ))</code> 起止节点 / <code>[ ]</code> 页面 / <code>{ }</code> 决策点 / 实线=跳转 / 虚线=返回</blockquote>
+<h3>UI Flow 页面跳转图</h3>
+<div class="mermaid">flowchart TD
+    Start((用户登录))
+    P01["预审案件列表页(precheck-case-list)<br/>/precheck-cases"]
+    P02["预审案件详情页(precheck-case-detail)<br/>/precheck-cases/:id"]
+    P03["预审案件表单页(precheck-case-submit)<br/>/precheck-cases/form"]
+    Start --> P01
+    P01 --> P01_D{"用户操作?"}
+    P01_D -->|查看详情| P02
+    P01_D -->|新建| P03
+    P02 -->|"开始预审"按钮| P03
+    P03 -.->|返回主页| P01
+    P02 -.->|返回列表| P01
+    P01 -->|退出登录| Exit((退出系统))</div>
+<h3>路由表与跳转条件</h3>
+<table><thead><tr>
+<th>源页面</th>
+<th>目标页面</th>
+<th>触发条件</th>
+<th>传参</th>
+<th>权限要求</th>
+<th>跳转类型</th>
+</tr></thead><tbody>
+<tr>
+<td>登录页</td>
+<td>预审案件列表页(precheck-case-list)</td>
+<td>用户登录成功</td>
+<td>userId</td>
+<td>已认证</td>
+<td>路由跳转</td>
+</tr>
+<tr>
+<td>预审案件列表页(precheck-case-list)</td>
+<td>预审案件详情页(precheck-case-detail)</td>
+<td>点击新增按钮</td>
+<td>precheck-case</td>
+<td>已认证</td>
+<td>路由跳转</td>
+</tr>
+<tr>
+<td>预审案件详情页(precheck-case-detail)</td>
+<td>预审案件表单页(precheck-case-submit)</td>
+<td>点击&quot;开始预审&quot;按钮</td>
+<td>precheck-case</td>
+<td>已认证</td>
+<td>路由跳转</td>
+</tr>
+<tr>
+<td>预审案件表单页(precheck-case-submit)</td>
+<td>预审案件列表页(precheck-case-list)</td>
+<td>点击返回/面包屑</td>
+<td>-</td>
+<td>已认证</td>
+<td>返回</td>
+</tr>
+</tbody></table>
+<h3>UI Flow 元素说明</h3>
+<table><thead><tr>
+<th>元素类型</th>
+<th>图例</th>
+<th>含义</th>
+</tr></thead><tbody>
+<tr>
+<td>Terminator</td>
+<td><code>(( ))</code> 圆形</td>
+<td>流程起始/终止点（如登录、退出）</td>
+</tr>
+<tr>
+<td>Screen</td>
+<td><code>[ ]</code> 矩形</td>
+<td>系统页面，含路由信息</td>
+</tr>
+<tr>
+<td>Decision</td>
+<td><code>{ }</code> 菱形</td>
+<td>用户操作决策点（如查看 vs 新建）</td>
+</tr>
+<tr>
+<td>Action</td>
+<td>`--&gt;\</td>
+<td>label\</td>
+<td>` 实线箭头</td>
+<td>用户操作触发的页面跳转</td>
+</tr>
+<tr>
+<td>Back Navigation</td>
+<td>`-.-&gt;\</td>
+<td>label\</td>
+<td>` 虚线箭头</td>
+<td>返回上一页或主页</td>
+</tr>
+<tr>
+<td>Modal/Drawer</td>
+<td><code>subgraph</code></td>
+<td>弹窗/抽屉式叠加层</td>
+</tr>
+</tbody></table>
+<h3>跳转模式说明</h3>
+<ul>
+<li><strong>列表 → 详情</strong>：用户在列表页点击行项目，跳转到详情页查看完整信息</li>
+<li><strong>列表 → 表单</strong>：用户在列表页点击&quot;新建&quot;按钮，跳转到表单页录入数据</li>
+<li><strong>详情 → 列表</strong>：用户在详情页点击&quot;返回&quot;，回到列表页</li>
+<li><strong>任意页 → 主页</strong>：用户点击面包屑或 Logo，返回主页</li>
+<li><strong>退出登录</strong>：用户点击退出按钮，终止会话</li>
+</ul>
+<hr>
+  </div>
+  <details>
+    <summary>主流程（业务流程）</summary>
+    <div class="narrative">
+      <h3>ASCII 流程图</h3>
+<pre class="ascii-flow"><code>[登录] --&gt; [浏览预审案件]
+  |
+  v
+[查看预审案件详情]
+  |
+  v
+[新增/编辑预审案件]
+  |
+  v
+[完成]</code></pre>
+<h3>Mermaid 流程图</h3>
+<div class="mermaid">graph TD
+    N1[用户登录] --> N2[浏览预审案件]
+    N2 --> D1{需要查看预审案件详情?}
+    D1 -->|是| N3[查看预审案件详情]
+    D1 -->|否| END[完成]
+    N3 --> D2{需要新增/编辑预审案件?}
+    D2 -->|是| N4[新增/编辑预审案件]
+    D2 -->|否| END[完成]
+    N4 --> END[完成]</div>
+<h3>主流程步骤说明</h3>
+<p><strong>步骤 1：浏览预审案件</strong></p>
+<ul>
+<li>页面 ID：P01</li>
+<li>页面类型：CRUD 列表页</li>
+<li>关联实体：预审案件</li>
+<li>路由：/precheck-cases</li>
+</ul>
+<p><strong>步骤 2：查看预审案件详情</strong></p>
+<ul>
+<li>页面 ID：P02</li>
+<li>页面类型：详情页</li>
+<li>关联实体：预审案件</li>
+<li>路由：/precheck-cases/:id</li>
+</ul>
+<p><strong>步骤 3：新增/编辑预审案件</strong></p>
+<ul>
+<li>页面 ID：P03</li>
+<li>页面类型：表单页</li>
+<li>关联实体：预审案件</li>
+<li>路由：/precheck-cases/form</li>
+</ul>
+<hr>
+    </div>
+  </details>
+  <details>
+    <summary>分支流程</summary>
+    <div class="narrative">
+      <h3>分支一：数据查询分支</h3>
+<div class="mermaid">graph TD
+    N1[列表页] --> D1{是否找到数据?}
+    D1 -->|是| N2[展示详情]
+    D1 -->|否| N3[显示空状态]</div>
+<hr>
+    </div>
+  </details>
+  <details>
+    <summary>异常流程</summary>
+    <p class="section-hint">测试关注：覆盖所有异常场景的测试用例。</p>
+    <div class="narrative">
+      <table><thead><tr>
+<th>异常场景</th>
+<th>触发条件</th>
+<th>处理方式</th>
+<th>提示信息</th>
+</tr></thead><tbody>
+<tr>
+<td>数据加载失败</td>
+<td>网络异常或接口超时</td>
+<td>显示错误状态页，提供重试按钮</td>
+<td>数据加载失败，请重试</td>
+</tr>
+<tr>
+<td>权限不足</td>
+<td>用户访问无权限页面或操作</td>
+<td>路由守卫拦截，跳转 403 页面</td>
+<td>您无权访问该页面</td>
+</tr>
+<tr>
+<td>数据校验失败</td>
+<td>表单提交字段不合规</td>
+<td>表单内联显示校验错误</td>
+<td>请检查输入内容</td>
+</tr>
+<tr>
+<td>数据不存在</td>
+<td>访问已删除/不存在的记录</td>
+<td>显示 404 空状态页</td>
+<td>该记录不存在或已删除</td>
+</tr>
+<tr>
+<td>并发冲突</td>
+<td>多人同时编辑同一记录</td>
+<td>提交时检测版本冲突，提示刷新</td>
+<td>数据已被他人修改，请刷新后重试</td>
+</tr>
+</tbody></table>
+<hr>
+    </div>
+  </details>
+  <details>
+    <summary>状态流转</summary>
+    <p class="section-hint">测试关注：状态机覆盖测试。</p>
+    <div class="narrative">
+      <table><thead><tr>
+<th>实体</th>
+<th>当前状态</th>
+<th>允许转换到</th>
+<th>触发操作</th>
+<th>触发条件</th>
+</tr></thead><tbody>
+</tbody></table>
+<h3>各实体状态枚举</h3>
+<ul>
+<li><strong>预审案件</strong>：已提交 / 预审中 / 预审通过 / 预审驳回 / 已整改</li>
+</ul>
+<blockquote>状态字典定义请参见 <code>status-dictionary.yaml</code>（由实体状态枚举自动推导）。</blockquote>
+<hr>
+<blockquote>本文档由 generate-prd.mjs (v5.2.2) 基于 requirement-model.yaml 自动生成（2026-07-21T09:57:00.854Z）</blockquote>
+    </div>
+  </details></section>
+<section id="pages" data-audience="dev test">
+  <h2><span class="section-num">5</span> 页面规格</h2>
+  <p>页面清单与三层标注体系（L1 摘要 / L2 区域 / L3 元件）。共 3 个页面。</p>
+
+  <h3>页面清单</h3>
+  <table>
+    <thead><tr><th>ID</th><th>页面名称</th><th>类型</th><th>路由</th><th>实体</th><th>优先级</th></tr></thead>
+    <tbody>
+      <tr><td>P01</td><td>precheck-case-list</td><td><span class="tag">crud_list</span></td><td><code>/precheck-cases</code></td><td>precheck-case</td><td>P0</td></tr>
+      <tr><td>P02</td><td>precheck-case-detail</td><td><span class="tag">detail_view</span></td><td><code>/precheck-cases/:id</code></td><td>precheck-case</td><td>P0</td></tr>
+      <tr><td>P03</td><td>precheck-case-submit</td><td><span class="tag">form_page</span></td><td><code>/precheck-cases/form</code></td><td>precheck-case</td><td>P0</td></tr>
+    </tbody>
+  </table>
+  <h3>页面详情</h3>
+  <details class="page-spec">
+    <summary>P01 · precheck-case-list <span style="font-size:12px;color:var(--color-text-dim);margin-left:8px;">[crud_list]</span></summary>
+    <div class="details-content">
+      <table>
+        <tr><th>页面 ID</th><td>P01</td></tr>
+        <tr><th>页面名称</th><td>precheck-case-list</td></tr>
+        <tr><th>页面类型</th><td><span class="tag">crud_list</span></td></tr>
+        <tr><th>路由</th><td><code>/precheck-cases</code></td></tr>
+        <tr><th>关联实体</th><td>precheck-case</td></tr>
+      </table>
+
+      <h4>L1 页面说明</h4>
+      <div class="annotation-block">        <h4>摘要</h4><p>预审案件列表页，分页展示代理机构全部预审案件</p>        <h4>入口</h4><p>侧边栏&quot;预审案件&quot;菜单</p>        <h4>前置条件</h4><p>已登录且拥有 precheck-case:read 权限</p>        <h4>数据实体</h4><p>precheck-case</p>        <h4>测试数据</h4><p>6 条案件 Mock 数据，覆盖各技术领域与状态</p>        <h4>业务规则</h4><ul style="padding-left: 20px; color: var(--color-text-muted); font-size: 13px;"><li>企业 IPR 仅查看本企业案件</li><li>代理师与预审员可见全部</li><li>支持按案件编号、申请人、技术领域、状态搜索</li></ul>      </div>
+
+      <h4>L2 区域标注（4）</h4>      <table><thead><tr><th>区域 ID</th><th>区域名称</th><th>说明</th></tr></thead><tbody><tr><td>-</td><td>搜索区</td><td>顶部搜索表单，含案件编号、申请人、技术领域、预审员、状态下拉与搜索按钮</td></tr><tr><td>-</td><td>操作栏</td><td>含新增案件、批量预检按钮</td></tr><tr><td>-</td><td>数据表格</td><td>数据表格 展示案件列表，技术领域与状态使用 状态标签</td></tr><tr><td>-</td><td>分页区</td><td>底部 分页组件</td></tr></tbody></table>      <h4>L3 元件标注（3）</h4>      <table><thead><tr><th>元件 ID</th><th>元件名称</th><th>功能</th><th>触发</th><th>响应</th></tr></thead><tbody><tr><td>-</td><td>搜索按钮</td><td>触发搜索</td><td>click</td><td>表格刷新为搜索结果</td></tr><tr><td>-</td><td>新增案件按钮</td><td>打开新增表单</td><td>click</td><td>跳转到 /precheck-cases/form</td></tr><tr><td>-</td><td>批量预检按钮</td><td>批量执行准入预检</td><td>click</td><td>异步任务启动，行状态更新</td></tr></tbody></table>    </div>
+  </details>
+  <details class="page-spec">
+    <summary>P02 · precheck-case-detail <span style="font-size:12px;color:var(--color-text-dim);margin-left:8px;">[detail_view]</span></summary>
+    <div class="details-content">
+      <table>
+        <tr><th>页面 ID</th><td>P02</td></tr>
+        <tr><th>页面名称</th><td>precheck-case-detail</td></tr>
+        <tr><th>页面类型</th><td><span class="tag">detail_view</span></td></tr>
+        <tr><th>路由</th><td><code>/precheck-cases/:id</code></td></tr>
+        <tr><th>关联实体</th><td>precheck-case</td></tr>
+      </table>
+
+      <h4>L1 页面说明</h4>
+      <div class="annotation-block">        <h4>摘要</h4><p>案件详情页，展示案件信息与整改清单</p>        <h4>入口</h4><p>案件列表点击&quot;查看&quot;</p>        <h4>前置条件</h4><p>已登录且拥有 precheck-case:read 权限</p>        <h4>数据实体</h4><p>precheck-case</p>        <h4>测试数据</h4><p>1 条案件详情 Mock 数据，含整改清单文本</p>        <h4>业务规则</h4><ul style="padding-left: 20px; color: var(--color-text-muted); font-size: 13px;"><li>仅预审员可执行开始预审/通过/驳回</li><li>状态流转：已提交 → 预审中 → 通过/驳回；已驳回 → 已整改</li><li>整改清单需在 7 日内反馈</li></ul>      </div>
+
+      <h4>L2 区域标注（4）</h4>      <table><thead><tr><th>区域 ID</th><th>区域名称</th><th>说明</th></tr></thead><tbody><tr><td>-</td><td>详情头部</td><td>描述列表 展示案件编号、申请人、技术领域、代理机构、状态</td></tr><tr><td>-</td><td>预审员区</td><td>展示预审员姓名与预审开始时间</td></tr><tr><td>-</td><td>整改清单区</td><td>展示非正常筛查问题清单与整改建议</td></tr><tr><td>-</td><td>操作按钮区</td><td>含开始预审、通过、驳回按钮（按状态显示）</td></tr></tbody></table>      <h4>L3 元件标注（3）</h4>      <table><thead><tr><th>元件 ID</th><th>元件名称</th><th>功能</th><th>触发</th><th>响应</th></tr></thead><tbody><tr><td>-</td><td>开始预审按钮</td><td>推进预审流程</td><td>click</td><td>状态更新为预审中</td></tr><tr><td>-</td><td>通过按钮</td><td>通过预审</td><td>click</td><td>状态更新为预审通过</td></tr><tr><td>-</td><td>驳回按钮</td><td>驳回案件</td><td>click</td><td>弹出整改清单输入弹窗</td></tr></tbody></table>    </div>
+  </details>
+  <details class="page-spec">
+    <summary>P03 · precheck-case-submit <span style="font-size:12px;color:var(--color-text-dim);margin-left:8px;">[form_page]</span></summary>
+    <div class="details-content">
+      <table>
+        <tr><th>页面 ID</th><td>P03</td></tr>
+        <tr><th>页面名称</th><td>precheck-case-submit</td></tr>
+        <tr><th>页面类型</th><td><span class="tag">form_page</span></td></tr>
+        <tr><th>路由</th><td><code>/precheck-cases/form</code></td></tr>
+        <tr><th>关联实体</th><td>precheck-case</td></tr>
+      </table>
+
+      <h4>L1 页面说明</h4>
+      <div class="annotation-block">        <h4>摘要</h4><p>案件提交表单页，代理师提交预审案件</p>        <h4>入口</h4><p>案件列表点击&quot;新增案件&quot;</p>        <h4>前置条件</h4><p>已登录且拥有 precheck-case:create 权限</p>        <h4>数据实体</h4><p>precheck-case</p>        <h4>测试数据</h4><p>空表单或回填的案件数据</p>        <h4>业务规则</h4><ul style="padding-left: 20px; color: var(--color-text-muted); font-size: 13px;"><li>案件编号、申请人、技术领域、代理机构为必填</li><li>提交前需通过准入预检</li><li>同一申请人同一技术领域 30 日内不可重复提交</li></ul>      </div>
+
+      <h4>L2 区域标注（2）</h4>      <table><thead><tr><th>区域 ID</th><th>区域名称</th><th>说明</th></tr></thead><tbody><tr><td>-</td><td>表单区</td><td>表单 含案件编号、申请人、技术领域、代理机构字段</td></tr><tr><td>-</td><td>操作按钮区</td><td>含准入预检、提交、取消按钮</td></tr></tbody></table>      <h4>L3 元件标注（3）</h4>      <table><thead><tr><th>元件 ID</th><th>元件名称</th><th>功能</th><th>触发</th><th>响应</th></tr></thead><tbody><tr><td>-</td><td>提交按钮</td><td>提交预审案件</td><td>click</td><td>保存数据并跳转 /precheck-cases</td></tr><tr><td>-</td><td>准入预检按钮</td><td>调用准入预检引擎</td><td>click</td><td>显示预检结果（通过/不通过原因）</td></tr><tr><td>-</td><td>取消按钮</td><td>取消编辑</td><td>click</td><td>返回上一页</td></tr></tbody></table>    </div>
+  </details></section>
+<section id="data" data-audience="dev test">
+  <h2><span class="section-num">6</span> 数据模型</h2>
+  <p>实体定义、字段清单、状态字典与关联关系。共 1 个实体。</p>
+
+  <h3>实体清单</h3>
+  <div class="grid">
+    <div class="card">
+      <h4>预审案件</h4>
+      <p style="color: var(--color-text-muted); font-size: 14px; margin-bottom: 8px;">-</p>
+      <p style="font-size: 13px;"><code>precheck-case</code> · 7 字段</p>
+    </div>
+  </div>
+  <h3>预审案件</h3>
+  <div class="card">
+    <table>
+      <tr><th>实体名称</th><td><code>precheck-case</code></td></tr>
+      <tr><th>显示名称</th><td>预审案件</td></tr>
+      <tr><th>描述</th><td>-</td></tr>
+    </table>
+  </div>
+
+  <h4>字段清单</h4>  <table><thead><tr><th>字段名</th><th>类型</th><th>显示名称</th><th>必填</th><th>说明</th></tr></thead><tbody><tr><td><code>case_no</code></td><td>string</td><td>案件编号</td><td>是</td><td>-</td></tr><tr><td><code>applicant</code></td><td>string</td><td>申请人</td><td>是</td><td>-</td></tr><tr><td><code>tech_field</code></td><td>enum</td><td>技术领域</td><td>是</td><td>-</td></tr><tr><td><code>reviewer</code></td><td>string</td><td>预审员</td><td>否</td><td>-</td></tr><tr><td><code>issues</code></td><td>text</td><td>整改问题清单</td><td>否</td><td>-</td></tr><tr><td><code>owner</code></td><td>string</td><td>代理机构</td><td>是</td><td>-</td></tr><tr><td><code>operator</code></td><td>string</td><td>操作人</td><td>否</td><td>-</td></tr></tbody></table>  <h4>状态字典</h4>
+  <table><thead><tr><th>状态值</th><th>显示名称</th><th>标签颜色</th></tr></thead><tbody><tr><td><code>submitted</code></td><td>已提交</td><td><span class="tag">warning</span></td></tr><tr><td><code>checking</code></td><td>预审中</td><td><span class="tag">info</span></td></tr><tr><td><code>passed</code></td><td>预审通过</td><td><span class="tag">success</span></td></tr><tr><td><code>rejected</code></td><td>预审驳回</td><td><span class="tag">danger</span></td></tr><tr><td><code>rectified</code></td><td>已整改</td><td><span class="tag">info</span></td></tr></tbody></table></section>
+<section id="roles" data-audience="dev test">
+  <h2><span class="section-num">7</span> 角色权限</h2>
+  <p>角色清单、权限矩阵与页面可见性。共 3 个角色。</p>
+
+  <h3>角色清单</h3>
+  <div class="grid">
+    <div class="card">
+      <h4>代理师</h4>
+      <p style="font-size: 13px; margin-bottom: 8px;"><code>agent</code></p>
+      <p style="color: var(--color-text-muted); font-size: 14px;">对 预审案件 全部创建、查看、编辑、删除；可见 3 个页面</p>
+    </div>
+    <div class="card">
+      <h4>预审员</h4>
+      <p style="font-size: 13px; margin-bottom: 8px;"><code>precheck-reviewer</code></p>
+      <p style="color: var(--color-text-muted); font-size: 14px;">对 预审案件 全部查看、编辑；可见 2 个页面</p>
+    </div>
+    <div class="card">
+      <h4>企业IPR</h4>
+      <p style="font-size: 13px; margin-bottom: 8px;"><code>ipr</code></p>
+      <p style="color: var(--color-text-muted); font-size: 14px;">对 预审案件 自有查看；可见 2 个页面</p>
+    </div>
+  </div>
+  <h3>权限矩阵</h3>  <table><thead><tr><th>角色</th><th>预审案件</th></tr></thead><tbody><tr><td>代理师</td><td><span class="tag">all</span> create, read, update, delete</td></tr><tr><td>预审员</td><td><span class="tag">all</span> read, update</td></tr><tr><td>企业IPR</td><td><span class="tag">own</span> read</td></tr></tbody></table>
+  <h3>页面可见性</h3>
+  <table><thead><tr><th>角色</th><th>可见页面</th></tr></thead><tbody><tr><td>代理师</td><td><span class="tag">P01</span> <span class="tag">P02</span> <span class="tag">P03</span></td></tr><tr><td>预审员</td><td><span class="tag">P01</span> <span class="tag">P02</span></td></tr><tr><td>企业IPR</td><td><span class="tag">P01</span> <span class="tag">P02</span></td></tr></tbody></table></section>
+<section id="metrics" data-audience="pm dev test">
+  <h2><span class="section-num">8</span> 成功指标与时间线</h2>
+  <p>产品成功指标定义、测量计划与发布时间线。</p>
+
+  <h3>指标定义</h3>
+  <div class="narrative">
+    <table><thead><tr>
+<th>指标名称</th>
+<th>类型</th>
+<th>当前基准</th>
+<th>目标值</th>
+<th>测量方法</th>
+<th>数据源</th>
+<th>负责人</th>
+</tr></thead><tbody>
+<tr>
+<td>预审案件数据准确率</td>
+<td>质量指标</td>
+<td>80%</td>
+<td>98%</td>
+<td>数据校验通过率</td>
+<td>预审案件表</td>
+<td>产品经理</td>
+</tr>
+<tr>
+<td>系统使用率</td>
+<td>采纳指标</td>
+<td>0%</td>
+<td>80%</td>
+<td>月活用户/目标用户数</td>
+<td>系统日志</td>
+<td>产品经理</td>
+</tr>
+<tr>
+<td>用户满意度</td>
+<td>满意度指标</td>
+<td>-</td>
+<td>&gt;=4.0/5</td>
+<td>季度满意度问卷</td>
+<td>问卷系统</td>
+<td>产品经理</td>
+</tr>
+<tr>
+<td>操作效率提升</td>
+<td>效率指标</td>
+<td>基准值</td>
+<td>提升 50%</td>
+<td>单次操作耗时对比</td>
+<td>时间戳日志</td>
+<td>产品经理</td>
+</tr>
+</tbody></table>
+<hr>
+  </div>
+  <h3>测量计划</h3>
+  <div class="narrative">
+    <table><thead><tr>
+<th>指标名称</th>
+<th>测量频率</th>
+<th>测量工具</th>
+<th>数据采集方式</th>
+<th>报告周期</th>
+<th>负责人</th>
+</tr></thead><tbody>
+<tr>
+<td>预审案件数据准确率</td>
+<td>每周</td>
+<td>数据库统计脚本</td>
+<td>自动采集</td>
+<td>月报</td>
+<td>产品经理</td>
+</tr>
+<tr>
+<td>系统使用率</td>
+<td>每日</td>
+<td>系统日志分析</td>
+<td>自动采集</td>
+<td>周报</td>
+<td>产品经理</td>
+</tr>
+<tr>
+<td>用户满意度</td>
+<td>每季度</td>
+<td>问卷系统</td>
+<td>人工发放</td>
+<td>季报</td>
+<td>产品经理</td>
+</tr>
+</tbody></table>
+<hr>
+  </div>
+  <h3>关键里程碑</h3>
+  <div class="narrative">
+    <table><thead><tr>
+<th>阶段</th>
+<th>名称</th>
+<th>开始</th>
+<th>结束</th>
+<th>负责人</th>
+<th>交付物</th>
+</tr></thead><tbody>
+<tr>
+<td>阶段一</td>
+<td>需求确认与设计</td>
+<td>2026-07</td>
+<td>2026-08</td>
+<td>产品经理</td>
+<td>PRD 文档、原型设计、需求模型锁定</td>
+</tr>
+<tr>
+<td>阶段二</td>
+<td>核心功能开发</td>
+<td>2026-08</td>
+<td>2026-10</td>
+<td>研发团队</td>
+<td>预审案件管理功能、权限系统</td>
+</tr>
+<tr>
+<td>阶段三</td>
+<td>测试与上线</td>
+<td>2026-10</td>
+<td>2026-12</td>
+<td>QA + 研发</td>
+<td>测试报告、上线部署、验收交付</td>
+</tr>
+</tbody></table>
+<hr>
+  </div>
+  <h3>路线图</h3>
+  <div class="narrative">
+    <pre><code>2026 Q3                      2026 Q4
+|--7月--|--8月--|--9月--|  |--10月-|--11月-|--12月-|
+                                                   
+需求设计 ████████░░░░░░░░  ░░░░░░░░░░░░░░░░  ░░░░░░░░░░░░░░░░
+核心开发 ░░░░░░░░████████  ████████░░░░░░░░  ░░░░░░░░░░░░░░░░
+测试上线 ░░░░░░░░░░░░░░░░  ░░░░░░░░████████  ████████░░░░░░░░</code></pre>
+<hr>
+  </div></section>
+<section id="scope" data-audience="pm dev test">
+  <h2><span class="section-num">9</span> 范围与风险</h2>
+  <p>项目范围、假设清单、风险矩阵与待确认问题。</p>
+
+  <h3>假设清单</h3>
+  <div class="narrative">
+    <table><thead><tr>
+<th>编号</th>
+<th>假设内容</th>
+<th>类型</th>
+<th>验证状态</th>
+<th>验证方式</th>
+</tr></thead><tbody>
+<tr>
+<td>A01</td>
+<td>用户具备基本的电脑操作能力，能熟练使用 Web 浏览器</td>
+<td>用户行为假设</td>
+<td>未验证</td>
+<td>用户调研</td>
+</tr>
+<tr>
+<td>A02</td>
+<td>PATENT相关业务规则在项目周期内保持稳定</td>
+<td>业务假设</td>
+<td>未验证</td>
+<td>与业务方确认</td>
+</tr>
+<tr>
+<td>A03</td>
+<td>后端 API 能在 2026-09 前完成契约定义并进入联调</td>
+<td>技术假设</td>
+<td>未验证</td>
+<td>项目进度跟踪</td>
+</tr>
+<tr>
+<td>A04</td>
+<td>预审案件数据可从现有系统迁移或人工录入</td>
+<td>业务假设</td>
+<td>未验证</td>
+<td>数据迁移评估</td>
+</tr>
+<tr>
+<td>A05</td>
+<td>目标用户规模在万级以内，单体架构可满足性能需求</td>
+<td>技术假设</td>
+<td>未验证</td>
+<td>性能压测</td>
+</tr>
+</tbody></table>
+<hr>
+  </div>
+  <h3>风险矩阵</h3>
+  <div class="narrative">
+    <table><thead><tr>
+<th>编号</th>
+<th>描述</th>
+<th>概率</th>
+<th>影响</th>
+<th>等级</th>
+<th>缓解策略</th>
+<th>负责人</th>
+</tr></thead><tbody>
+<tr>
+<td>RISK-01</td>
+<td>预审案件状态流转异常（非法状态跳转、状态停滞）导致业务数据不一致</td>
+<td>中</td>
+<td>高</td>
+<td>中风险</td>
+<td>增加数据校验与状态机控制</td>
+<td>产品经理</td>
+</tr>
+<tr>
+<td>RISK-02</td>
+<td>权限设计不完整导致越权访问</td>
+<td>低</td>
+<td>高</td>
+<td>高风险</td>
+<td>完善权限矩阵评审，上线前安全测试</td>
+<td>研发负责人</td>
+</tr>
+<tr>
+<td>RISK-03</td>
+<td>需求变更频繁导致开发延期</td>
+<td>中</td>
+<td>中</td>
+<td>中风险</td>
+<td>需求模型锁定机制，变更需走流程</td>
+<td>产品经理</td>
+</tr>
+<tr>
+<td>RISK-04</td>
+<td>前后端联调效率低</td>
+<td>中</td>
+<td>中</td>
+<td>中风险</td>
+<td>提前约定 API 契约，Mock 数据先行</td>
+<td>研发负责人</td>
+</tr>
+</tbody></table>
+<blockquote>概率参考：高 / 中 / 低 影响参考：高 / 中 / 低 等级参考：高风险 / 中风险 / 低风险</blockquote>
+<hr>
+  </div></section>
+<div class="footer">
+  <div class="footer-coop">
+    <div class="footer-brand-logo footer-brand-ourchem" aria-label="Ourchem">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 133.24 25.6">
+<defs><style>.cls-1{fill:#fff;}</style></defs><polygon class="cls-1" points="28.83 4.2 27.95 4.46 27.95 5.2 28.83 4.94 28.83 4.2"/><polygon class="cls-1" points="29.77 4.05 29.22 4.21 29.22 4.67 29.77 4.51 29.77 4.05"/><polygon class="cls-1" points="29.59 4.92 29.05 5.07 29.05 5.53 29.59 5.37 29.59 4.92"/><polygon class="cls-1" points="28.83 5.86 28.83 5.41 28.29 5.57 28.29 6.02 28.83 5.86"/><polygon class="cls-1" points="27.85 6.89 28.39 6.73 28.39 6.28 27.85 6.44 27.85 6.89"/><polygon class="cls-1" points="29.32 6.2 28.77 6.36 28.77 6.82 29.32 6.66 29.32 6.2"/><polygon class="cls-1" points="28.69 3.93 29.69 3.64 29.69 2.77 28.69 3.06 28.69 3.93"/><path class="cls-1" d="M11.69,21.54c-3.11,1.15-5.69,1.26-6.92,0-1-1-1-2.59-.13-4.55a3,3,0,0,1-.9-2.11v-3C.31,16.18-1,20.42.81,22.81c1.61,2.15,5.35,2.3,9.77.8v-1l1.11-.35Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M11.93,8.21c6.49-5.31,13.62-7.59,15.73-5a2.77,2.77,0,0,1,.42.75l.26-.09v-1l.91-.27a4.42,4.42,0,0,0-.44-.76C26.15-1.74,17.73.08,10,5.93a35.79,35.79,0,0,0-5.44,5H9A36.4,36.4,0,0,1,11.93,8.21Z" transform="translate(0 -0.01)"/><polygon class="cls-1" points="29.01 7.11 28.39 7.29 28.39 7.82 29.01 7.63 29.01 7.11"/><polygon class="cls-1" points="27.58 8.38 28.12 8.22 28.12 7.76 27.58 7.92 27.58 8.38"/><polygon class="cls-1" points="28.46 8.43 28.03 8.56 28.03 8.92 28.46 8.79 28.46 8.43"/><polygon class="cls-1" points="27.22 9.09 27.64 8.97 27.64 8.61 27.22 8.73 27.22 9.09"/><polygon class="cls-1" points="27.13 9.96 27.67 9.8 27.67 9.35 27.13 9.5 27.13 9.96"/><polygon class="cls-1" points="26.81 10.43 26.81 10.09 26.4 10.21 26.4 10.55 26.81 10.43"/><polygon class="cls-1" points="27.84 7.55 28.21 7.44 28.21 7.13 27.84 7.24 27.84 7.55"/><polygon class="cls-1" points="19.08 18.49 19.5 18.36 19.5 18 19.08 18.13 19.08 18.49"/><polygon class="cls-1" points="17.71 19.86 18.16 19.73 18.16 19.35 17.71 19.49 17.71 19.86"/><polygon class="cls-1" points="16.89 19.52 17.44 19.36 17.44 18.89 16.89 19.06 16.89 19.52"/><polygon class="cls-1" points="15.16 20.3 14.75 20.42 14.75 20.76 15.16 20.64 15.16 20.3"/><polygon class="cls-1" points="16.99 20.38 17.39 20.26 17.39 19.91 16.99 20.03 16.99 20.38"/><polygon class="cls-1" points="14.98 21.58 15.61 21.39 15.61 20.87 14.98 21.05 14.98 21.58"/><polygon class="cls-1" points="13.69 22.24 14.54 21.99 14.54 21.27 13.69 21.52 13.69 22.24"/><polygon class="cls-1" points="14.4 21.03 14.4 20.49 13.75 20.68 13.75 21.22 14.4 21.03"/><polygon class="cls-1" points="12.67 22.87 13.31 22.68 13.31 22.14 12.67 22.33 12.67 22.87"/><polygon class="cls-1" points="15.66 20.72 16.61 20.44 16.61 19.64 15.66 19.92 15.66 20.72"/><polygon class="cls-1" points="18.03 19.12 18.57 18.96 18.57 18.51 18.03 18.66 18.03 19.12"/><polygon class="cls-1" points="13.23 21.66 13.23 20.76 12.16 21.08 12.16 21.97 13.23 21.66"/><polygon class="cls-1" points="11.01 23.83 12.19 23.48 12.19 22.48 11.01 22.83 11.01 23.83"/><path class="cls-1" d="M18.82,12.61a1.69,1.69,0,0,1,1.51,1l1-.54a2.87,2.87,0,0,0-2.54-1.6,3,3,0,0,0,0,5.89,2.87,2.87,0,0,0,2.54-1.6l-1-.54a1.69,1.69,0,0,1-1.51,1,1.79,1.79,0,0,1,0-3.57Z" transform="translate(0 -0.01)"/><polygon class="cls-1" points="25.91 17.33 27.07 17.33 27.07 11.43 25.91 11.43 25.91 13.82 23.44 13.82 23.44 11.43 22.28 11.43 22.28 17.33 23.44 17.33 23.44 14.93 25.91 14.93 25.91 17.33"/><polygon class="cls-1" points="38.23 11.43 36.68 15.48 35.13 11.43 33.84 11.43 33.84 17.33 34.97 17.33 34.97 14.04 36.25 17.33 37.11 17.33 38.39 14.04 38.39 17.33 39.55 17.33 39.55 11.43 38.23 11.43"/><path class="cls-1" d="M6.67,17.34a2.42,2.42,0,0,0,2.42-2.42V11.44H7.93v3.48a1.26,1.26,0,0,1-2.52,0V11.44H4.24v3.48A2.43,2.43,0,0,0,6.67,17.34Z" transform="translate(0 -0.01)"/><polygon class="cls-1" points="28.29 17.33 32.87 17.33 32.87 16.27 29.45 16.27 29.45 14.93 32.34 14.93 32.34 13.83 29.45 13.83 29.45 13.75 29.45 12.54 32.87 12.54 32.87 11.43 28.29 11.43 28.29 17.33"/><polygon class="cls-1" points="11.71 13.9 11.71 13.9 11.71 13.9 11.71 13.9"/><path class="cls-1" d="M15.94,17.34l-2-2.39a1.81,1.81,0,0,0-.64-3.51h-3v5.9h1.16V12.6h1.89a.66.66,0,1,1,.16,1.31H12.35a.31.31,0,0,0-.29.3.32.32,0,0,0,.08.21h0l2.38,2.92Z" transform="translate(0 -0.01)"/><polygon class="cls-1" points="35.84 20.37 35.84 20.26 35.84 19.09 35.19 19.09 35.19 20.26 34.9 20.26 34.9 18.73 34.11 18.73 34.11 20.26 33.82 20.26 33.82 19.09 33.17 19.09 33.17 20.26 33.17 20.37 33.17 20.69 35.84 20.69 35.84 20.37"/><path class="cls-1" d="M38.71,23.26V19.08H36.24v4.16c0,.88-.65,1-.8,1H34.16v-1.5h1.68V21.08H33.17v.43h1.69v.78H33.17v2.36h2.77c.9,0,1.26-.43,1.26-1.43V19.53h.52v3.68c0,1,.34,1.4,1.17,1.43h.66v-.43h0C39.36,24.21,38.71,24.14,38.71,23.26Z" transform="translate(0 -0.01)"/><polygon class="cls-1" points="26.17 19.71 25.77 19.71 26.11 20.47 26.51 20.47 26.17 19.71"/><polygon class="cls-1" points="27.97 19.71 27.63 20.47 28.02 20.47 28.37 19.71 27.97 19.71"/><polygon class="cls-1" points="27.97 22.04 28.37 22.04 28.02 21.27 27.63 21.27 27.97 22.04"/><polygon class="cls-1" points="26.17 22.04 26.51 21.27 26.11 21.27 25.77 22.04 26.17 22.04"/><polygon class="cls-1" points="28.37 21.06 28.37 20.68 28.37 20.66 27.46 20.66 27.46 19.64 26.68 19.64 26.68 20.66 25.77 20.66 25.77 20.68 25.77 21.06 25.77 21.09 26.68 21.09 26.68 22.1 27.46 22.1 27.46 21.09 28.37 21.09 28.37 21.06"/><polygon class="cls-1" points="29.56 22.5 29.56 19.52 29.56 19.09 28.58 19.09 25.9 19.09 26.14 18.73 24.82 18.73 24.58 19.09 24.58 19.12 24.58 19.52 24.58 22.53 25.56 22.53 25.56 19.52 28.58 19.52 28.58 22.5 29.56 22.5"/><path class="cls-1" d="M27.48,22.29H26.24l-.36.54h-2v.43h1.74c-.19.29-.36.54-.4.62a.94.94,0,0,1-.75.33v.43c.86,0,1.46,0,1.73-.4l.64-1h.46l.64,1c.27.41.88.4,1.72.4v-.43a.92.92,0,0,1-.74-.33l-.4-.62h1.72v-.43H27.12Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M49.63,13.14H44.51v1.44a5.9,5.9,0,0,1-1,3.72,4.27,4.27,0,0,0-.74-.67,4.68,4.68,0,0,0,.78-3.06V12.26h2.69a8.68,8.68,0,0,0-.27-1l1-.17a7.65,7.65,0,0,1,.27,1.17h2.4Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M51.58,13.19A7.74,7.74,0,0,1,51,15.4l-.77-.32A6.39,6.39,0,0,0,50.82,13Zm1.67,0a9.12,9.12,0,0,1,.6,1.9l-.76.36a9.28,9.28,0,0,0-.42-1.65c0,1.55-.19,3.26-1.61,4.44a3.32,3.32,0,0,0-.65-.7,4.58,4.58,0,0,0,1.37-3.82V11.29h.89v2.09Zm3.67-1.88v6.77H56V15l-.67.37a8.14,8.14,0,0,0-.61-1.67v4h-.88v-6.2h.88v1.9l.55-.28A11,11,0,0,1,56,14.73V11.26Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M62.24,16.38a3.58,3.58,0,0,0,2.69,1,2.87,2.87,0,0,0-.55.86,3.54,3.54,0,0,1-3-1.6c-.39.82-1.22,1.33-3.14,1.61a3,3,0,0,0-.43-.79c1.63-.18,2.32-.52,2.65-1.06H58v-.76h2.74a.82.82,0,0,1,.06-.37h.94v.37h3v.76Zm-2.74-1h-.83V11.73h2q.12-.3.21-.6l1,.14c-.08.16-.15.32-.21.46h2.38v3.62h-.87V12.46H59.49Zm3.08-.16a8.71,8.71,0,0,0-.83-.64l.41-.4h-.42v.9H61V14.5a4.64,4.64,0,0,1-.93.78,2.52,2.52,0,0,0-.47-.51,4.16,4.16,0,0,0,.87-.62H59.7v-.59h.54a4.6,4.6,0,0,0-.39-.68l.56-.26a6.2,6.2,0,0,1,.44.69l-.5.25H61v-1h.76v1h.57l-.46-.23a4.88,4.88,0,0,0,.42-.74l.66.29-.55.68H63v.59h-.76c.27.18.65.43.83.58Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M68.34,16.63a5.72,5.72,0,0,0,.08.76,13.87,13.87,0,0,0-2.61.66,2.34,2.34,0,0,0-.28-.72c.12-.06.21-.17.21-.44V15.33h2.14v-.6H65.59v-.79h3.09v2.14h-2.2V17Zm.46-3.13H65.62V11.57h.72v1.24h.49V11.17h.76v1.64h.47V11.57h.74Zm2.92,3.84c.08,0,.1-.2.12-1a2.3,2.3,0,0,0,.67.32c-.06,1-.24,1.29-.72,1.29h-.37c-.56,0-.7-.24-.7-1V12.27h-.64V13.9a7.67,7.67,0,0,1-1,4.32,2.83,2.83,0,0,0-.65-.55,6.57,6.57,0,0,0,.83-3.78V11.52h2.26V17c0,.3,0,.35.09.35Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M75.24,11.43a13,13,0,0,1-.55,1.34v5.46h-.82V14.18c-.18.25-.37.5-.55.71a4.91,4.91,0,0,0-.46-.88,7.72,7.72,0,0,0,1.58-2.82Zm4.63.9v.75H75v-.73h2.16a9.59,9.59,0,0,0-.47-.9l.76-.28a6.49,6.49,0,0,1,.55,1l-.43.19Zm-4.42,3.34h4v2.5h-.79V18H76.24v.23h-.76Zm3.88-1.51H75.56v-.7h3.77Zm-3.77.39h3.77v.7H75.56Zm.65,1.84v.85h2.43v-.85Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M80.44,17.44a8.3,8.3,0,0,0,.71-1.58l.8.33a14.69,14.69,0,0,1-.68,1.65Zm3.29-1.92H81.57V11.83H83.3a6.17,6.17,0,0,0,.19-.74l1.09.13c-.11.23-.23.43-.32.61h2.06v3.69H84.15a4.77,4.77,0,0,1,.79,1L84.2,17a5.21,5.21,0,0,0-.89-1.19Zm1.06,1.74c.36,0,.42-.1.47-.82a2.18,2.18,0,0,0,.81.32c-.11,1-.37,1.31-1.21,1.31H83.43c-1.06,0-1.34-.25-1.34-1v-1H83v1c0,.22.07.25.5.25Zm-2.36-4.4h3v-.35h-3Zm0,1h3v-.34h-3Zm0,1h3v-.35h-3Zm4.13.87a6.18,6.18,0,0,1,.84,1.61l-.86.37a6.71,6.71,0,0,0-.77-1.65Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M90.41,14.08l-2.08.9L88,14.1c.57-.16,1.45-.46,2.3-.74Zm-.72-1.3a6.58,6.58,0,0,0-1.39-.73l.44-.64a6.79,6.79,0,0,1,1.42.66Zm-.63,2.62h5v2.84h-1V18H89.94v.3H89Zm3.87-2.72a1.78,1.78,0,0,1-.09.47,2.28,2.28,0,0,0,2.09,1.41,3,3,0,0,0-.51.77,2.78,2.78,0,0,1-1.94-1.28,3.32,3.32,0,0,1-2,1.33,2.54,2.54,0,0,0-.49-.76c1.54-.37,1.92-1,2.06-1.94h-.7a5,5,0,0,1-.64.93,4.37,4.37,0,0,0-.78-.47,4.31,4.31,0,0,0,1.11-2l.87.18a1.77,1.77,0,0,1-.19.56h2.53l.62.16a9.43,9.43,0,0,1-.62,1.63l-.73-.21c.1-.25.19-.5.27-.76ZM90,16.2v1h3.12v-1Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M97.92,15.84a5.4,5.4,0,0,0,.29.76,13.61,13.61,0,0,0-1.74,1.48,3.17,3.17,0,0,0-.43-.76.93.93,0,0,0,.38-.72V14.33h-.9v-.86h1.77v2.85Zm-1-2.78a11.39,11.39,0,0,0-1-1.25l.61-.52a9.44,9.44,0,0,1,1.09,1.19Zm5.43-.83v.42c-.09,3.45-.18,4.66-.47,5a.92.92,0,0,1-.64.38,6.73,6.73,0,0,1-1.1,0,1.93,1.93,0,0,0-.27-.87h1a.35.35,0,0,0,.31-.15c.2-.23.29-1.36.37-4.13H99.11q-.18.29-.36.54h2.17v3.1H99.14v.51h-.82v-3l-.09.1a4.88,4.88,0,0,0-.75-.61,6,6,0,0,0,1.44-2.37l.91.24c-.1.28-.22.55-.34.83ZM99.11,14.3v.5H100v-.5ZM100,16v-.49h-.93V16Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M105.87,12.91q-.14.3-.3.6h3.49v3.72c0,.44-.09.68-.4.82a3.33,3.33,0,0,1-1.33.15,4.39,4.39,0,0,0-.27-.87h1c.18,0,.17,0,.17-.15v-.45h-2.72v1.44h-.89V14.91a5,5,0,0,1-1,.89,4.3,4.3,0,0,0-.59-.69,5.8,5.8,0,0,0,1.88-2.2h-1.67v-.83h2c.11-.3.21-.6.29-.91l.93.21c-.08.23-.16.46-.25.7h3.68v.84Zm2.31,1.38h-2.72v.48h2.72Zm0,1.72v-.49h-2.72V16Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M113.41,11.76c-.2.63-.45,1.39-.65,2a2.42,2.42,0,0,1,.54,1.57,1.13,1.13,0,0,1-.34,1,.82.82,0,0,1-.42.17,4,4,0,0,1-.49,0,1.86,1.86,0,0,0-.19-.77h.32a.29.29,0,0,0,.2-.07c.1-.06.14-.23.14-.44a2.12,2.12,0,0,0-.53-1.38c.15-.46.31-1.07.43-1.56h-.73v5.9h-.78V11.46h1.91Zm4.06,3.87c-.33.26-.72.54-1.06.76a3.29,3.29,0,0,0,1.22,1,3.48,3.48,0,0,0-.59.78A4.68,4.68,0,0,1,115,14.91h-.45v2.17l1-.24a5.61,5.61,0,0,0,0,.82,8.15,8.15,0,0,0-1.93.6,2.64,2.64,0,0,0-.38-.7.73.73,0,0,0,.35-.66V11.47H117v3.45h-1.3a4,4,0,0,0,.3.82,6.72,6.72,0,0,0,.86-.74Zm-3-3.4v.59h1.66v-.59Zm0,1.92h1.66v-.61h-1.66Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M121.07,11.61A9.13,9.13,0,0,1,119,14.73a10.34,10.34,0,0,0-.84-.64,6.47,6.47,0,0,0,1.94-2.76Zm2.11,3.47a21.11,21.11,0,0,1,1.7,2.6l-.9.48c-.11-.25-.28-.54-.46-.86a30,30,0,0,0-4.53.47,8.19,8.19,0,0,0-.35-.94,1.52,1.52,0,0,0,.71-.59,13,13,0,0,0,1.79-2.89l1,.43a16.14,16.14,0,0,1-2,2.86l2.81-.18-.67-1ZM123,11.24a10,10,0,0,0,2.1,2.69,4.49,4.49,0,0,0-.75.76,13.94,13.94,0,0,1-2.24-3.09Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M132.17,17.08c0,.51-.09.78-.42.94a3.46,3.46,0,0,1-1.46.18,3.83,3.83,0,0,0-.29-1,9.37,9.37,0,0,0,1.06,0c.14,0,.19,0,.19-.17V12.47H126v-.85h6.18ZM130.5,13.8h-4.43V13h4.43Zm-3.17,3.11v.54h-.88V14.34h3.66v2.55Zm0-1.78v1h1.91v-1Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M42.92,22.86a1.88,1.88,0,0,1,.47-1.36,1.59,1.59,0,0,1,1.2-.49,1.74,1.74,0,0,1,.87.23,1.58,1.58,0,0,1,.59.64,2.18,2.18,0,0,1,.2.94,2.14,2.14,0,0,1-.21,1,1.43,1.43,0,0,1-.61.63,1.77,1.77,0,0,1-.84.21,1.81,1.81,0,0,1-.88-.23,1.61,1.61,0,0,1-.59-.65A2,2,0,0,1,42.92,22.86Zm.48,0a1.39,1.39,0,0,0,.34,1,1.17,1.17,0,0,0,1.7,0,1.42,1.42,0,0,0,.34-1,1.77,1.77,0,0,0-.15-.75,1.06,1.06,0,0,0-.39-.52,1.23,1.23,0,0,0-.62-.17,1.2,1.2,0,0,0-.84.33,1.56,1.56,0,0,0-.38,1.13Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M48.51,24.55v-.37a.9.9,0,0,1-.8.43,1.15,1.15,0,0,1-.41-.08.67.67,0,0,1-.42-.54,2.54,2.54,0,0,1,0-.39V22.08h.36v1.4a3.38,3.38,0,0,0,0,.45.55.55,0,0,0,.17.27.63.63,0,0,0,.33.09.74.74,0,0,0,.36-.09.57.57,0,0,0,.24-.27,1.68,1.68,0,0,0,.07-.5V22.08h.42V24.6Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M49.63,24.55V22.08H50v.39a1.18,1.18,0,0,1,.23-.39.46.46,0,0,1,.28-.08.84.84,0,0,1,.44.13l-.15.4a.56.56,0,0,0-.31-.09.44.44,0,0,0-.25.08.45.45,0,0,0-.16.24,1.62,1.62,0,0,0-.08.49v1.32Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M53,23.63l.42.06a1.14,1.14,0,0,1-.36.68,1,1,0,0,1-.69.24,1.07,1.07,0,0,1-.84-.34,1.39,1.39,0,0,1-.31-1,1.72,1.72,0,0,1,.13-.71.9.9,0,0,1,.42-.46,1.24,1.24,0,0,1,.6-.15,1.08,1.08,0,0,1,.67.2,1,1,0,0,1,.34.59l-.42.07a.68.68,0,0,0-.21-.38.5.5,0,0,0-.37-.13.65.65,0,0,0-.52.23,1.11,1.11,0,0,0-.2.73,1.15,1.15,0,0,0,.19.74.66.66,0,0,0,.51.23.6.6,0,0,0,.42-.15A.83.83,0,0,0,53,23.63Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M53.82,24.55V21.08h.42v1.25A1,1,0,0,1,55,22a.93.93,0,0,1,.49.11.6.6,0,0,1,.29.3,1.39,1.39,0,0,1,.09.57v1.59h-.42V23a.71.71,0,0,0-.14-.47.54.54,0,0,0-.4-.15.74.74,0,0,0-.35.1.57.57,0,0,0-.24.27,1.25,1.25,0,0,0-.07.47v1.37Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M58.32,23.74l.44.06a1.06,1.06,0,0,1-.39.6,1.32,1.32,0,0,1-1.6-.13,1.7,1.7,0,0,1,0-2,1.1,1.1,0,0,1,.85-.35,1.06,1.06,0,0,1,.82.34,1.36,1.36,0,0,1,.32,1v.11H56.89a1,1,0,0,0,.24.64.64.64,0,0,0,.52.22.65.65,0,0,0,.4-.12A.83.83,0,0,0,58.32,23.74Zm-1.41-.66h1.41a.92.92,0,0,0-.16-.48.72.72,0,0,0-1-.05A.8.8,0,0,0,56.91,23.08Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M59.36,24.55V22.08h.39v.36a.75.75,0,0,1,.31-.3.79.79,0,0,1,.45-.11.83.83,0,0,1,.46.11.63.63,0,0,1,.25.33A.89.89,0,0,1,62,22a.82.82,0,0,1,.58.2.93.93,0,0,1,.2.64V24.6h-.42V23a.92.92,0,0,0,0-.37.27.27,0,0,0-.15-.18.43.43,0,0,0-.25-.07.61.61,0,0,0-.44.17.78.78,0,0,0-.18.57v1.46h-.43V22.92a.72.72,0,0,0-.1-.43.4.4,0,0,0-.34-.14.67.67,0,0,0-.34.09.6.6,0,0,0-.22.28,1.36,1.36,0,0,0-.07.53v1.3Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M65,24.55V21.08h.46v3.48Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M66.32,24.55V22.08h.39v.36a.89.89,0,0,1,.8-.41,1,1,0,0,1,.42.08.58.58,0,0,1,.28.21.77.77,0,0,1,.14.32,2.81,2.81,0,0,1,0,.41V24.6h-.43V23a.86.86,0,0,0,0-.39.39.39,0,0,0-.17-.21.63.63,0,0,0-.3-.07.64.64,0,0,0-.47.17.87.87,0,0,0-.2.66v1.37Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M69.24,24.55V22.37h-.38v-.29h.38v-.27a1.15,1.15,0,0,1,0-.37.58.58,0,0,1,.22-.27.76.76,0,0,1,.44-.11h.39l-.06.37H70a.4.4,0,0,0-.28.08.48.48,0,0,0-.08.31v.26h.49v.34h-.49V24.6Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M70.35,23.29a1.3,1.3,0,0,1,.39-1,1.17,1.17,0,0,1,.8-.28,1.12,1.12,0,0,1,.85.34,1.29,1.29,0,0,1,.33.94,1.67,1.67,0,0,1-.15.76,1.11,1.11,0,0,1-.42.44,1.31,1.31,0,0,1-.61.15,1.11,1.11,0,0,1-.86-.34A1.3,1.3,0,0,1,70.35,23.29Zm.44,0A1,1,0,0,0,71,24a.65.65,0,0,0,.53.24.68.68,0,0,0,.53-.24,1.09,1.09,0,0,0,.21-.74,1.06,1.06,0,0,0-.21-.71.71.71,0,0,0-.53-.24.65.65,0,0,0-.53.24A1,1,0,0,0,70.79,23.29Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M73.24,24.55V22.08h.39v.39a1,1,0,0,1,.27-.36.43.43,0,0,1,.27-.08.84.84,0,0,1,.44.13l-.15.4a.56.56,0,0,0-.31-.09.44.44,0,0,0-.25.08.49.49,0,0,0-.16.24,1.61,1.61,0,0,0-.07.49V24.6Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M75,24.55V22.08h.39v.36a.75.75,0,0,1,.31-.3.79.79,0,0,1,.45-.11.83.83,0,0,1,.46.11.63.63,0,0,1,.25.33.89.89,0,0,1,.78-.44.82.82,0,0,1,.58.2.93.93,0,0,1,.2.64V24.6H78V23a1.15,1.15,0,0,0,0-.37.27.27,0,0,0-.15-.18.43.43,0,0,0-.25-.07.61.61,0,0,0-.44.17.78.78,0,0,0-.18.57v1.46h-.43V22.92a.72.72,0,0,0-.1-.43.4.4,0,0,0-.34-.14.67.67,0,0,0-.34.09.6.6,0,0,0-.22.28,1.36,1.36,0,0,0-.07.53v1.3Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M80.74,24.24a1.7,1.7,0,0,1-.46.29,1.5,1.5,0,0,1-.47.08,1,1,0,0,1-.64-.2.64.64,0,0,1-.22-.52.81.81,0,0,1,.08-.34.64.64,0,0,1,.22-.24.87.87,0,0,1,.31-.14,1.59,1.59,0,0,1,.38-.07A3.3,3.3,0,0,0,80.7,23v-.11a.46.46,0,0,0-.13-.37.75.75,0,0,0-.48-.14.71.71,0,0,0-.45.11.69.69,0,0,0-.21.37L79,22.75a1,1,0,0,1,.19-.43.84.84,0,0,1,.38-.26,1.83,1.83,0,0,1,.57-.08,1.52,1.52,0,0,1,.52.07.58.58,0,0,1,.43.48,2.67,2.67,0,0,1,0,.4v.57a4.7,4.7,0,0,0,0,.75,1,1,0,0,0,.11.3h-.45A1.08,1.08,0,0,1,80.74,24.24Zm0-1a2.84,2.84,0,0,1-.7.16,1.18,1.18,0,0,0-.37.09.37.37,0,0,0-.17.13.39.39,0,0,0-.06.21.37.37,0,0,0,.13.28.53.53,0,0,0,.38.12,1,1,0,0,0,.44-.11.68.68,0,0,0,.28-.3.87.87,0,0,0,.07-.42Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M82.8,24.17l.06.38h-.32a.64.64,0,0,1-.36-.08.34.34,0,0,1-.18-.19,1.4,1.4,0,0,1-.06-.5V22.37h-.31v-.29h.31v-.62l.43-.26v.88h.43v.34h-.43v1.47a1,1,0,0,0,0,.24.3.3,0,0,0,.08.08h.14Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M83.29,21.57v-.49h.42v.5Zm0,3V22.08h.42V24.6Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M84.24,23.29a1.3,1.3,0,0,1,.39-1,1.17,1.17,0,0,1,.8-.28,1.12,1.12,0,0,1,.85.34,1.29,1.29,0,0,1,.33.94,1.67,1.67,0,0,1-.15.76,1.11,1.11,0,0,1-.42.44,1.31,1.31,0,0,1-.61.15,1.11,1.11,0,0,1-.86-.34A1.3,1.3,0,0,1,84.24,23.29Zm.44,0a1,1,0,0,0,.22.73.65.65,0,0,0,.53.24A.68.68,0,0,0,86,24a1.09,1.09,0,0,0,.21-.74,1.06,1.06,0,0,0-.21-.71.71.71,0,0,0-.53-.24.65.65,0,0,0-.53.24,1,1,0,0,0-.19.72Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M87.24,24.55V22.08h.38v.36a.89.89,0,0,1,.8-.41.88.88,0,0,1,.42.08.56.56,0,0,1,.29.21.8.8,0,0,1,.13.32,2.81,2.81,0,0,1,0,.41V24.6h-.43V23a1.27,1.27,0,0,0,0-.39.46.46,0,0,0-.18-.21.53.53,0,0,0-.3-.07.64.64,0,0,0-.47.17.87.87,0,0,0-.2.66v1.37Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M93.94,23.33l.46.12a1.6,1.6,0,0,1-.52.87,1.46,1.46,0,0,1-.92.29,1.65,1.65,0,0,1-.92-.22,1.54,1.54,0,0,1-.54-.67,2.48,2.48,0,0,1-.18-.93,1.94,1.94,0,0,1,.21-.95,1.41,1.41,0,0,1,.59-.62A1.77,1.77,0,0,1,93,21a1.36,1.36,0,0,1,1.38,1l-.46.11a.89.89,0,0,0-.93-.73,1.14,1.14,0,0,0-.67.19,1,1,0,0,0-.38.52,2.19,2.19,0,0,0-.11.67,2.27,2.27,0,0,0,.13.77,1,1,0,0,0,.41.5,1.11,1.11,0,0,0,.59.16,1,1,0,0,0,.65-.22A1.19,1.19,0,0,0,93.94,23.33Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M94.82,23.29a1.3,1.3,0,0,1,.39-1A1.14,1.14,0,0,1,96,22a1.12,1.12,0,0,1,.85.34,1.29,1.29,0,0,1,.33.94,1.8,1.8,0,0,1-.14.76,1.07,1.07,0,0,1-.43.44,1.31,1.31,0,0,1-.61.15,1.09,1.09,0,0,1-.85-.34A1.3,1.3,0,0,1,94.82,23.29Zm.44,0a1.06,1.06,0,0,0,.21.73.71.71,0,0,0,1,.06l.06-.06a1.09,1.09,0,0,0,.21-.74,1.06,1.06,0,0,0-.21-.71.71.71,0,0,0-1-.06l-.06.06a1.09,1.09,0,0,0-.23.72Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M97.75,24.55V22.08h.39v.36a.89.89,0,0,1,.8-.41,1,1,0,0,1,.42.08.58.58,0,0,1,.28.21.77.77,0,0,1,.14.32,2.81,2.81,0,0,1,0,.41V24.6h-.43V23a.86.86,0,0,0,0-.39.39.39,0,0,0-.17-.21.63.63,0,0,0-.3-.07.64.64,0,0,0-.47.17.83.83,0,0,0-.2.66v1.37Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M100.35,23.8l.43-.06a.56.56,0,0,0,.19.38.85.85,0,0,0,.9,0,.35.35,0,0,0,.14-.28.28.28,0,0,0-.13-.23,1.41,1.41,0,0,0-.44-.14,3.79,3.79,0,0,1-.65-.21.69.69,0,0,1-.27-.24.63.63,0,0,1,0-.65.61.61,0,0,1,.21-.24A.66.66,0,0,1,101,22a1.15,1.15,0,0,1,.37,0,1.32,1.32,0,0,1,.52.08.86.86,0,0,1,.33.23.93.93,0,0,1,.15.39l-.42.06a.43.43,0,0,0-.16-.3.6.6,0,0,0-.39-.11.76.76,0,0,0-.42.09.31.31,0,0,0-.12.23.21.21,0,0,0,0,.15.31.31,0,0,0,.16.12l.38.11c.21.05.42.12.63.19a.7.7,0,0,1,.28.23.68.68,0,0,1,0,.77.79.79,0,0,1-.36.29,1.22,1.22,0,0,1-.53.1,1.17,1.17,0,0,1-.75-.2A1,1,0,0,1,100.35,23.8Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M104.68,24.55v-.37a.93.93,0,0,1-.8.43,1.2,1.2,0,0,1-.42-.08.7.7,0,0,1-.29-.22A1,1,0,0,1,103,24a2.54,2.54,0,0,1,0-.39V22.08h.43v1.4a1.7,1.7,0,0,0,0,.45.41.41,0,0,0,.17.27.59.59,0,0,0,.32.09.74.74,0,0,0,.36-.09.57.57,0,0,0,.24-.27,1.21,1.21,0,0,0,.07-.5V22.08h.43V24.6Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M105.79,24.55V21.08h.45v3.48Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M107.88,24.17l.06.38h-.32a.64.64,0,0,1-.36-.08.44.44,0,0,1-.19-.19,1.67,1.67,0,0,1,0-.5V22.37h-.31v-.29H107v-.62l.43-.26v.88h.43v.34h-.43v1.47a1,1,0,0,0,0,.24.27.27,0,0,0,.07.08h.15Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M108.37,21.57v-.49h.42v.5Zm0,3V22.08h.42V24.6Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M109.51,24.55V22.08h.39v.36a.89.89,0,0,1,.8-.41,1,1,0,0,1,.42.08.58.58,0,0,1,.28.21.77.77,0,0,1,.14.32,2.81,2.81,0,0,1,0,.41V24.6h-.43V23a.86.86,0,0,0,0-.39.39.39,0,0,0-.17-.21.63.63,0,0,0-.3-.07.64.64,0,0,0-.47.17.87.87,0,0,0-.2.66v1.37Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M112.24,24.76l.41.07a.43.43,0,0,0,.15.28.73.73,0,0,0,.43.11.83.83,0,0,0,.46-.11.57.57,0,0,0,.22-.34,2.53,2.53,0,0,0,0-.55.9.9,0,0,1-.7.33.93.93,0,0,1-.8-.37,1.47,1.47,0,0,1-.29-.9,1.7,1.7,0,0,1,.13-.67,1,1,0,0,1,.38-.47,1,1,0,0,1,.58-.16.89.89,0,0,1,.74.36v-.26h.39v2.18a2.06,2.06,0,0,1-.1.82.89.89,0,0,1-.38.39,1.3,1.3,0,0,1-.64.14,1.26,1.26,0,0,1-.73-.2A.7.7,0,0,1,112.24,24.76Zm.35-1.51a1.08,1.08,0,0,0,.2.72.65.65,0,0,0,.92.08l.08-.08a1.06,1.06,0,0,0,.19-.71,1,1,0,0,0-.2-.7.66.66,0,0,0-.5-.23.63.63,0,0,0-.48.23,1,1,0,0,0-.24.69Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M119,23.33l.47.12a1.53,1.53,0,0,1-.53.87,1.46,1.46,0,0,1-.92.29,1.62,1.62,0,0,1-.91-.22,1.48,1.48,0,0,1-.54-.67,2.48,2.48,0,0,1-.18-.93,1.94,1.94,0,0,1,.21-.95,1.36,1.36,0,0,1,.59-.62A1.77,1.77,0,0,1,118,21a1.36,1.36,0,0,1,1.38,1l-.46.11a1.14,1.14,0,0,0-.35-.56,1,1,0,0,0-.58-.17,1.14,1.14,0,0,0-.67.19,1,1,0,0,0-.38.52,2.19,2.19,0,0,0-.11.67,2.27,2.27,0,0,0,.13.77,1,1,0,0,0,.41.5,1.11,1.11,0,0,0,.59.16,1,1,0,0,0,.65-.22A1.11,1.11,0,0,0,119,23.33Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M119.9,23.29a1.3,1.3,0,0,1,.39-1,1.14,1.14,0,0,1,.79-.28,1.12,1.12,0,0,1,.85.34,1.29,1.29,0,0,1,.33.94,1.67,1.67,0,0,1-.15.76,1,1,0,0,1-.42.44,1.31,1.31,0,0,1-.61.15,1.16,1.16,0,0,1-.86-.34A1.37,1.37,0,0,1,119.9,23.29Zm.44,0a1.06,1.06,0,0,0,.21.73.71.71,0,0,0,1,.06l.06-.06a1.09,1.09,0,0,0,.21-.74,1.06,1.06,0,0,0-.21-.71.71.71,0,0,0-1-.06l-.06.06A1.09,1.09,0,0,0,120.34,23.29Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M123,24.55v-.47h.49v.48Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M124.36,24.55v-.47h.49v.48a.84.84,0,0,1-.1.44.57.57,0,0,1-.3.25l-.12-.18a.41.41,0,0,0,.2-.17.8.8,0,0,0,.07-.34Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M125.7,24.55V21.08h.46v3.07h1.72v.41Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M129.37,24.17l.07.38h-.33a.76.76,0,0,1-.36-.08.41.41,0,0,1-.18-.19,1.67,1.67,0,0,1,0-.5V22.37h-.28v-.29h.31v-.62l.42-.26v.88h.43v.34H129v1.47a.49.49,0,0,0,0,.24.18.18,0,0,0,.07.08h.15Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M131.5,24.55v-.31a.8.8,0,0,1-.71.37,1,1,0,0,1-.55-.16,1.21,1.21,0,0,1-.4-.47,1.59,1.59,0,0,1-.13-.68,2,2,0,0,1,.12-.69,1,1,0,0,1,.94-.63,1,1,0,0,1,.41.09,1,1,0,0,1,.29.25V21.08h.42v3.48Zm-1.36-1.25a1.09,1.09,0,0,0,.21.72.61.61,0,0,0,.85.15.54.54,0,0,0,.15-.15,1,1,0,0,0,.19-.7,1.2,1.2,0,0,0-.2-.76.63.63,0,0,0-.49-.24.58.58,0,0,0-.47.23A1.13,1.13,0,0,0,130.14,23.3Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M132.75,24.55v-.47h.49v.48Z" transform="translate(0 -0.01)"/>
+      </svg>
+    </div>
+    <span class="footer-coop-x" aria-hidden="true">×</span>
+    <div class="footer-brand-logo footer-brand-demora" aria-label="Demora">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 32" fill="none">
+        <g transform="translate(0, 2)">
+          <rect x="4" y="0" width="12" height="6" rx="3" fill="#14B8A6" opacity="0.4"/>
+          <rect x="6" y="11" width="20" height="6" rx="3" fill="#14B8A6" opacity="0.7"/>
+          <rect x="0" y="22" width="36" height="6" rx="3" fill="#14B8A6"/>
+        </g>
+        <text x="48" y="23" font-family="Inter, -apple-system, sans-serif" font-weight="700" font-size="20" fill="#F5F5F7">Demora</text>
+      </svg>
+    </div>
+  </div>
+  <p class="footer-copyright">
+    © 2026 Ourchem × Demora · 保留所有权利<br>
+    <span class="footer-meta">本单页 PRD 由 Demora 自动生成 · 生成时间 2026-07-21</span>
+  </p>
+</div>
+
+<script>
+(function() {
+  // 受众 Tab 切换：通过 body.className 控制 section[data-audience] 显示
+  var tabs = document.querySelectorAll('.tab-btn');
+  var STORAGE_KEY = 'demora-audience-preference';
+
+  function applyAudience(audience) {
+    // 移除所有 audience-* class
+    document.body.className = document.body.className.replace(/\baudience-\w+\b/g, '').trim();
+    if (audience !== 'all') {
+      document.body.classList.add('audience-' + audience);
+    }
+    // 更新 Tab active 状态
+    tabs.forEach(function(tab) {
+      if (tab.dataset.audience === audience) {
+        tab.classList.add('active');
+      } else {
+        tab.classList.remove('active');
+      }
+    });
+    // 记忆用户偏好
+    try { localStorage.setItem(STORAGE_KEY, audience); } catch (e) {}
+  }
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      applyAudience(tab.dataset.audience);
+    });
+  });
+
+  // 恢复上次偏好
+  try {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    // v5.9：移除 'test' 受众（仅保留 全部/PM/研发）
+    if (saved && ['all', 'pm', 'dev'].indexOf(saved) >= 0) {
+      applyAudience(saved);
+    }
+  } catch (e) {}
+})();
+</script>
+
+</div>
+</body>
+</html>

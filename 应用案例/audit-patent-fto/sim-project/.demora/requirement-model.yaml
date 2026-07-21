@@ -1,0 +1,317 @@
+# 需求模型（Phase 1 写入，Phase 2 读取，Phase 3 判断变更）
+# Schema 见 SKILL.md 内联定义
+project:
+  name: 全球多区域FTO智能合规风控系统
+  description: 面向跨境出口企业的多区域 FTO 分析与风险预警平台
+  domain: Patent
+  slug: patent-fto
+
+entities:
+  - name: fto-analysis
+    displayName: FTO分析
+    fields:
+      - name: product_name
+        displayName: 产品名称
+        type: string
+        required: true
+      - name: target_market
+        displayName: 目标市场
+        type: enum
+        options: [美国, 欧盟, 日本, 东南亚, 中东]
+        required: true
+      - name: risk_level
+        displayName: 风险等级
+        type: enum
+        options: [low, medium, high]
+        required: true
+      - name: analyst
+        displayName: 分析师
+        type: string
+        required: true
+      - name: report_url
+        displayName: 报告链接
+        type: string
+        required: false
+      - name: patent_count
+        displayName: 比对专利数
+        type: number
+        required: false
+      - name: owner
+        displayName: 申请人
+        type: string
+        required: true
+      - name: operator
+        displayName: 操作人
+        type: string
+        required: false
+    statuses:
+      - value: pending
+        label: 待分析
+        color: warning
+      - value: analyzing
+        label: 分析中
+        color: info
+      - value: low_risk
+        label: 低风险
+        color: success
+      - value: high_risk
+        label: 高风险
+        color: danger
+      - value: delivered
+        label: 已交付
+        color: info
+    transitions: []
+    relations: []
+
+pages:
+  - id: P01
+    name: fto-analysis-list
+    type: crud_list
+    entity: fto-analysis
+    route: /fto-analyses
+    priority: P0
+    fields:
+      - field: product_name
+        in_search: true
+        in_table: true
+      - field: target_market
+        in_search: true
+        in_table: true
+      - field: risk_level
+        in_search: true
+        in_table: true
+      - field: analyst
+        in_search: true
+        in_table: true
+      - field: owner
+        in_search: true
+        in_table: true
+      - field: status
+        in_search: true
+        in_table: true
+    operations:
+      - name: 新建FTO分析
+        type: create
+        trigger: 点击新建按钮
+        condition: 用户拥有 fto-analysis:create 权限
+        feedback: 跳转到新建 FTO 分析表单
+      - name: 查看分析
+        type: view
+        trigger: 点击表格行查看按钮
+        condition: 用户拥有 fto-analysis:read 权限
+        feedback: 跳转到分析详情
+      - name: 导出报告
+        type: export
+        trigger: 点击导出按钮
+        condition: 用户拥有 fto-analysis:export 权限且状态为已交付
+        feedback: 下载 FTO 报告
+    annotations:
+      L1:
+        summary: FTO 分析列表页，分页展示企业全部 FTO 分析任务
+        entry: 侧边栏"FTO 管理"菜单
+        precondition: 已登录且拥有 fto-analysis:read 权限
+        data_entity: fto-analysis
+        business_rules:
+          - 外贸经理仅查看本部门产品
+          - IPR 与分析师可见全部
+          - 支持按产品、市场、风险等级、状态搜索
+        test_data: 6 条 FTO 分析 Mock 数据，覆盖各市场与风险等级
+      L2:
+        - zone: 搜索区
+          description: 顶部搜索表单，含产品、市场、风险等级、状态、申请人下拉与搜索按钮
+        - zone: 操作栏
+          description: 含"新建 FTO 分析"按钮
+        - zone: 数据表格
+          description: 数据表格 展示分析列表，风险等级与状态使用 状态标签
+        - zone: 分页区
+          description: 底部 分页组件
+      L3:
+        - element: 搜索按钮
+          function: 触发搜索
+          trigger: click
+          condition: 无
+          response: 表格刷新为搜索结果
+          state: 搜索条件已应用
+          exception: 搜索条件为空时展示全部
+        - element: 新建按钮
+          function: 打开新建表单
+          trigger: click
+          condition: 用户拥有 fto-analysis:create 权限
+          response: 跳转到 /fto-analyses/form
+          state: 表单页面加载
+          exception: 无权限时按钮隐藏
+        - element: 导出按钮
+          function: 导出 FTO 报告
+          trigger: click
+          condition: 状态为已交付
+          response: 下载 PDF 报告
+          state: 无状态变更
+          exception: 非已交付状态按钮禁用
+  - id: P02
+    name: fto-analysis-detail
+    type: detail_view
+    entity: fto-analysis
+    route: /fto-analyses/:id
+    priority: P0
+    fields:
+      - field: product_name
+        in_detail: true
+      - field: target_market
+        in_detail: true
+      - field: risk_level
+        in_detail: true
+      - field: analyst
+        in_detail: true
+      - field: patent_count
+        in_detail: true
+      - field: report_url
+        in_detail: true
+      - field: owner
+        in_detail: true
+      - field: status
+        in_detail: true
+    operations:
+      - name: 开始分析
+        type: update
+        trigger: 点击"开始分析"按钮
+        condition: 用户拥有 fto-analysis:update 权限且状态为待分析
+        feedback: 状态置为分析中
+      - name: 提交报告
+        type: finish
+        trigger: 点击"提交报告"按钮
+        condition: 用户拥有 fto-analysis:update 权限且状态为分析中
+        feedback: 根据风险等级置为低/高风险，并生成报告链接
+      - name: 交付
+        type: confirm
+        trigger: 点击"交付"按钮
+        condition: 用户拥有 fto-analysis:update 权限且状态为低/高风险
+        feedback: 状态置为已交付
+    annotations:
+      L1:
+        summary: FTO 分析详情页，展示产品比对结果与风险等级
+        entry: FTO 列表点击"查看"
+        precondition: 已登录且拥有 fto-analysis:read 权限
+        data_entity: fto-analysis
+        business_rules:
+          - 仅分析师可执行开始分析/提交报告
+          - 状态流转：待分析 → 分析中 → 低/高风险 → 已交付
+          - 高风险必须先输出规避设计建议方可交付
+        test_data: 1 条 FTO 分析详情 Mock 数据，含比对专利清单
+      L2:
+        - zone: 详情头部
+          description: 描述列表 展示产品、市场、风险等级、分析师、状态
+        - zone: 比对结果区
+          description: 展示比对专利数、技术特征逐要素对比表
+        - zone: 报告区
+          description: 展示报告链接（已交付时显示下载按钮）
+        - zone: 操作按钮区
+          description: 含开始分析、提交报告、交付按钮（按状态显示）
+      L3:
+        - element: 开始分析按钮
+          function: 推进分析流程
+          trigger: click
+          condition: 状态为待分析
+          response: 状态更新为分析中
+          state: 按钮组刷新
+          exception: 非待分析状态按钮隐藏
+        - element: 提交报告按钮
+          function: 提交分析结果
+          trigger: click
+          condition: 状态为分析中
+          response: 弹出风险等级选择弹窗
+          state: 风险等级弹窗显示
+          exception: 非分析中状态按钮隐藏
+        - element: 交付按钮
+          function: 交付报告
+          trigger: click
+          condition: 状态为低风险或高风险
+          response: 状态置为已交付
+          state: 按钮组刷新
+          exception: 高风险未输出规避设计时按钮禁用
+  - id: P03
+    name: fto-analysis-form
+    type: form_page
+    entity: fto-analysis
+    route: /fto-analyses/form
+    priority: P0
+    fields:
+      - field: product_name
+        in_form: true
+      - field: target_market
+        in_form: true
+      - field: analyst
+        in_form: true
+      - field: owner
+        in_form: true
+    operations:
+      - name: 提交
+        type: save
+        trigger: 点击提交按钮
+        condition: 表单校验通过
+        feedback: 提交后返回 FTO 列表，状态为待分析
+      - name: 取消
+        type: cancel
+        trigger: 点击取消按钮
+        condition: 无
+        feedback: 返回上一页
+    annotations:
+      L1:
+        summary: FTO 分析表单页，IPR 发起新的 FTO 分析任务
+        entry: FTO 列表点击"新建 FTO 分析"
+        precondition: 已登录且拥有 fto-analysis:create 权限
+        data_entity: fto-analysis
+        business_rules:
+          - 产品名称、目标市场、分析师、申请人为必填
+          - 同一产品同一市场 90 天内不可重复发起
+          - 提交后状态置为待分析
+        test_data: 空表单或回填的 FTO 数据
+      L2:
+        - zone: 表单区
+          description: 表单 含产品名称、目标市场、分析师、申请人字段
+        - zone: 操作按钮区
+          description: 含提交、取消按钮
+      L3:
+        - element: 提交按钮
+          function: 提交 FTO 分析
+          trigger: click
+          condition: 表单校验通过
+          response: 保存数据并跳转 /fto-analyses
+          state: 列表页刷新
+          exception: 90 天内重复发起时提示错误
+        - element: 目标市场下拉
+          function: 选择目标市场
+          trigger: change
+          condition: 无
+          response: 联动显示该市场已有 FTO 数量
+          state: 市场已选择
+          exception: 无
+        - element: 取消按钮
+          function: 取消编辑
+          trigger: click
+          condition: 无
+          response: 返回上一页
+          state: 不保存任何修改
+          exception: 无
+
+roles:
+  - name: ipr
+    displayName: 企业IPR
+    permissions:
+      - entity: fto-analysis
+        actions: [create, read, update, delete, export]
+        scope: all
+    page_visibility: [P01, P02, P03]
+  - name: fto-analyst
+    displayName: FTO分析师
+    permissions:
+      - entity: fto-analysis
+        actions: [read, update, export]
+        scope: all
+    page_visibility: [P01, P02]
+  - name: export-manager
+    displayName: 外贸经理
+    permissions:
+      - entity: fto-analysis
+        actions: [read]
+        scope: own
+    page_visibility: [P01, P02]

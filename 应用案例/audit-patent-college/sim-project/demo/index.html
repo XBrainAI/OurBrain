@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>盘知 Patent Pulse - 高校存量专利 AI 盘活转化匹配平台</title>
+  <link rel="stylesheet" href="assets/style.css">
+
+<!-- [demora-annotation-css] start -->
+<style>
+/* [demora-injected-css] start */
+/* ---------- 标注面板宽度变量（响应式自适应）---------- */
+:root {
+  --annotation-panel-width: 320px;
+}
+@media (max-width: 1280px) {
+  :root { --annotation-panel-width: 280px; }
+}
+@media (max-width: 1024px) {
+  :root { --annotation-panel-width: 240px; }
+}
+/* ---------- L2 区域标记 + 区域框 ---------- */
+.anno-zone {
+  position: relative;
+  border: 1px dashed transparent;
+  border-radius: 4px;
+  transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+/* 开关开启时非激活区域显示蓝色虚线框 */
+[data-annotation-active] .anno-zone {
+  border-color: var(--primary, #3b82f6);
+}
+
+/* L2 区域激活态：静态橙色高亮 */
+.anno-zone.is-highlighted {
+  border-color: var(--warning, #f59e0b);
+  border-width: 2px;
+  background: rgba(245, 158, 11, 0.08);
+}
+
+.l2-marker {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--success, #22c55e);
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(34, 197, 94, 0.5);
+  z-index: 2000;
+  cursor: pointer;
+  /* v5.2.6：强制启用 pointer-events，防御 demo CSS 重复定义 .l2-marker 覆盖交互
+   * 同 .l3-dot 修复策略，确保 L2 marker 点击事件始终生效
+   */
+  pointer-events: auto !important;
+  /* v5.2.7：移除 transform 过渡，避免 MutationObserver 重渲染时 transform 抖动产生闪烁
+   * 原因：transform 0.2s 过渡 + 频繁重渲染 → transform 在 scale(1) / scale(1.3) 间反复过渡 → 视觉闪烁
+   * 修复：仅保留 box-shadow 过渡（颜色变化不刺眼），transform 即时生效
+   */
+  transition: box-shadow 0.2s;
+}
+
+/* 开关开启时显示 L2 标注图标 */
+[data-annotation-active] .l2-marker {
+  display: flex;
+}
+
+.l2-marker:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 10px rgba(34, 197, 94, 0.7);
+}
+
+.anno-zone.is-highlighted .l2-marker {
+  background: var(--warning, #f59e0b);
+  box-shadow: 0 4px 10px rgba(245, 158, 11, 0.7);
+  transform: scale(1.3);
+}
+
+/* v5.2.7：L2 marker 激活态 ::before 改为 INFINITE 脉冲，与 L3 完全一致
+ * v5.2.6 修复（仅一次 0.6s）遗留问题：MutationObserver 自反馈循环导致 ::before 反复重启，
+ *   每次 ::before 重新创建都会重新触发 0.6s 动画，视觉上呈现"闪烁过快"。
+ * 修复策略：与 L3 完全一致——INFINITE 脉冲（0.8s ease-out infinite），不会因重启而闪烁。
+ *   即使 MutationObserver 触发重渲染，::before 元素重新创建后继续 INFINITE 动画，无视觉中断。
+ */
+[data-annotation-active] .anno-zone.is-highlighted .l2-marker::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--warning, #f59e0b);
+  animation: l2-pulse 0.8s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes l2-pulse {
+  0% { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* ---------- L3 元素蓝点标记 ---------- */
+[data-element-id] {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-width: 1em;
+  min-height: 1em;
+}
+
+.l3-dot {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary, #3b82f6);
+  border: 1.5px solid #fff;
+  box-shadow: 0 0 0 1px var(--primary, #3b82f6), 0 1px 3px rgba(0,0,0,0.3);
+  display: none;
+  opacity: 0.9;
+  z-index: 2000;
+  cursor: pointer;
+  /* v5.2.6：强制启用 pointer-events，防御 demo CSS 重复定义 .l3-dot { pointer-events: none } 覆盖
+   * 根因：audit-trainer-v5.2 在 demo/assets/style.css 中重复定义 .l3-dot { pointer-events: none }，
+   * 导致标注 dot 无法接收 click 事件，左侧 L3 dot 无法点击（但右侧标注面板可点）。
+   * 通过 !important 确保标注系统的点击交互优先级，AI demo CSS 中的 .l3-dot 视觉样式仍可覆盖。
+   */
+  pointer-events: auto !important;
+  transition: transform 0.2s, background-color 0.2s, opacity 0.2s;
+}
+
+[data-annotation-active] [data-element-id] > .l3-dot {
+  display: block;
+}
+
+.l3-dot:not(.is-active)::before {
+  content: none;
+}
+
+.l3-dot:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.l3-dot.is-active {
+  background: var(--warning, #f59e0b);
+  transform: scale(1.4);
+  opacity: 1;
+}
+
+[data-annotation-active] .l3-dot.is-active::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--warning, #f59e0b);
+  animation: l3-pulse 0.8s ease-out infinite;
+}
+
+@keyframes l3-pulse {
+  0% { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.l3-dot.is-active:hover {
+  transform: scale(1.6);
+}
+
+/* 内容区在标注激活时预留空间（作用于主页面内容根，属主页面样式）*/
+[data-annotation-active] {
+  padding-right: var(--annotation-panel-width);
+  transition: padding-right 0.2s ease;
+}
+
+/*
+/* [demora-injected-css] end */
+</style>
+<!-- [demora-annotation-css] end -->
+</head>
+<body data-annotation-root>
+  <!-- 顶部品牌栏 -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="28" height="28">
+          <circle cx="16" cy="16" r="14" fill="none" stroke="#1B3A5B" stroke-width="2"/>
+          <path d="M10 22 L10 10 L16 18 L22 10 L22 22" fill="none" stroke="#D9633B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <div class="brand-name">盘知 <span class="brand-en">Patent Pulse</span></div>
+        <div class="brand-tag">高校存量专利 AI 盘活转化匹配平台 · 广州试点</div>
+      </div>
+    </div>
+    <nav class="topnav">
+      <a href="#/college-patents" class="nav-link" data-nav="college-patents">专利库</a>
+      <a href="#/college-patents/match" class="nav-link" data-nav="match">需求匹配</a>
+      <button class="anno-toggle" data-annotation-toggle type="button" aria-label="标注开关">
+        <span class="anno-toggle-dot"></span>
+        <span class="anno-toggle-label">标注</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- 主体内容区 -->
+  <main class="main">
+
+    <!-- ============ P01 高校专利库列表 ============ -->
+    <section class="page page-list" data-page-id="P01">
+      <div class="page-hero">
+        <div class="hero-eyebrow">P01 · 专利库列表</div>
+        <h1 class="hero-title">把沉睡的<span class="ink-accent">专利文本</span>，重新接入产业的呼吸节奏。</h1>
+        <p class="hero-sub">6 所广东高校 · 1,247 件已盘活存量专利 · 当前匹配中 312 件 · 已转化 89 件</p>
+      </div>
+
+      <!-- 搜索区 (R-001) -->
+      <div class="search-card anno-zone" data-zone-id="R-001">
+        <div class="search-grid">
+          <label class="field">
+            <span class="field-label">专利号</span>
+            <input type="text" id="searchPatentNo" placeholder="如 CN202310001234A">
+          </label>
+          <label class="field">
+            <span class="field-label">专利名称</span>
+            <input type="text" id="searchTitle" placeholder="关键词">
+          </label>
+          <label class="field">
+            <span class="field-label">所属高校</span>
+            <select id="searchCollege">
+              <option value="">全部高校</option>
+              <option>中山大学</option>
+              <option>华南理工</option>
+              <option>暨南大学</option>
+              <option>华南师范</option>
+              <option>广东工业</option>
+            </select>
+          </label>
+          <label class="field">
+            <span class="field-label">产业方向</span>
+            <select id="searchIndustry">
+              <option value="">全部产业</option>
+              <option>智能制造</option>
+              <option>生物医药</option>
+              <option>新材料</option>
+              <option>信息技术</option>
+              <option>新能源</option>
+            </select>
+          </label>
+          <label class="field">
+            <span class="field-label">成熟度</span>
+            <select id="searchMaturity">
+              <option value="">全部</option>
+              <option>实验室</option>
+              <option>中试</option>
+              <option>产业化</option>
+            </select>
+          </label>
+          <label class="field">
+            <span class="field-label">状态</span>
+            <select id="searchStatus">
+              <option value="">全部状态</option>
+              <option value="dormant">沉睡</option>
+              <option value="cleaning">清洗中</option>
+              <option value="matching">匹配中</option>
+              <option value="negotiating">洽谈中</option>
+              <option value="transferred">已转化</option>
+            </select>
+          </label>
+        </div>
+        <div class="search-actions">
+          <span data-element-id="P01-C-001">
+            <button type="button" class="btn btn-primary" id="btnSearch">搜索专利</button>
+            <span class="l3-dot"></span>
+          </span>
+          <span data-element-id="P01-C-002">
+            <button type="button" class="btn btn-ghost" id="btnReset">重置筛选</button>
+            <span class="l3-dot"></span>
+          </span>
+          <span data-element-id="P01-C-003">
+            <button type="button" class="btn btn-accent" id="btnBatchClean">批量清洗</button>
+            <span class="l3-dot"></span>
+          </span>
+          <span data-element-id="P01-C-004">
+            <button type="button" class="btn btn-link-arrow" id="btnGoMatch">需求匹配 →</button>
+            <span class="l3-dot"></span>
+          </span>
+        </div>
+        <span class="l2-marker">1</span>
+      </div>
+
+      <!-- 数据表格区 (R-002) -->
+      <div class="table-card anno-zone" data-zone-id="R-002">
+        <div class="table-head">
+          <h2 class="table-title">专利盘活库 · <span id="patentCount">8</span> 件</h2>
+          <div class="table-legend">
+            <span class="legend-item"><i class="dot dot-danger"></i>沉睡</span>
+            <span class="legend-item"><i class="dot dot-warning"></i>清洗中</span>
+            <span class="legend-item"><i class="dot dot-info"></i>匹配中</span>
+            <span class="legend-item"><i class="dot dot-info2"></i>洽谈中</span>
+            <span class="legend-item"><i class="dot dot-success"></i>已转化</span>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="patent-table" id="patentTable">
+            <thead>
+              <tr>
+                <th class="col-check"><input type="checkbox" id="checkAll"></th>
+                <th>专利号</th>
+                <th>专利名称</th>
+                <th>所属高校</th>
+                <th>产业方向</th>
+                <th>成熟度</th>
+                <th>匹配度</th>
+                <th>状态</th>
+                <th class="col-actions">操作</th>
+              </tr>
+            </thead>
+            <tbody id="patentTbody"></tbody>
+          </table>
+        </div>
+        <span class="l2-marker">2</span>
+      </div>
+
+      <!-- 分页区 (R-003) -->
+      <div class="pagination anno-zone" data-zone-id="R-003">
+        <span class="page-info">第 <strong>1</strong> 页 / 共 <strong>1</strong> 页 · 8 条</span>
+        <span data-element-id="P01-C-005">
+          <button type="button" class="btn btn-page" id="btnPrev" disabled>上一页</button>
+          <span class="l3-dot"></span>
+        </span>
+        <span class="page-num active">1</span>
+        <span data-element-id="P01-C-006">
+          <button type="button" class="btn btn-page" id="btnNext" disabled>下一页</button>
+          <span class="l3-dot"></span>
+        </span>
+        <span class="l2-marker">3</span>
+      </div>
+    </section>
+
+    <!-- ============ P02 专利详情 ============ -->
+    <section class="page page-detail" data-page-id="P02" hidden>
+      <div class="page-hero">
+        <div class="hero-eyebrow">P02 · 专利详情</div>
+        <h1 class="hero-title">从匹配到转化，每一阶段都被<span class="ink-accent">时间戳记录</span>。</h1>
+        <button type="button" class="btn btn-back" id="btnBackToList">← 返回专利库</button>
+      </div>
+
+      <!-- 详情头部 (R-001) -->
+      <div class="detail-card anno-zone" data-zone-id="R-001">
+        <div class="detail-head">
+          <div class="detail-patent-no" id="detailPatentNo">CN202310001234A</div>
+          <h2 class="detail-title" id="detailTitle">一种基于多模态传感的工业机器人柔性抓取装置</h2>
+          <div class="detail-meta">
+            <span class="meta-chip" id="detailCollege">中山大学</span>
+            <span class="meta-chip" id="detailIndustry">智能制造</span>
+            <span class="meta-chip" id="detailMaturity">中试</span>
+            <span class="meta-chip meta-status" id="detailStatus">匹配中</span>
+          </div>
+        </div>
+        <div class="detail-stats">
+          <div class="stat-item">
+            <div class="stat-label">匹配度</div>
+            <div class="stat-value" id="detailMatchScore">87%</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">洽谈企业</div>
+            <div class="stat-value" id="detailNegotiatingCount">2 / 3</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">剩余洽谈配额</div>
+            <div class="stat-value" id="detailQuota">1 家</div>
+          </div>
+        </div>
+        <span class="l2-marker">1</span>
+      </div>
+
+      <!-- 匹配区 (R-002) -->
+      <div class="match-card anno-zone" data-zone-id="R-002">
+        <div class="card-head">
+          <h3 class="card-title">匹配企业清单</h3>
+          <span class="card-sub">匹配度 ≥ 60% 推送企业 · 当前 3 家</span>
+        </div>
+        <div class="match-list" id="matchList"></div>
+        <span class="l2-marker">2</span>
+      </div>
+
+      <!-- 转化信息区 (R-003) -->
+      <div class="contract-card anno-zone" data-zone-id="R-003">
+        <div class="card-head">
+          <h3 class="card-title">转化合同信息</h3>
+          <span class="card-sub" id="contractSub">尚未转化 · 等待进入洽谈</span>
+        </div>
+        <div class="contract-body" id="contractBody">
+          <div class="contract-empty">当前专利状态为「匹配中」，需先进入洽谈并完成签约后，此处将展示权属与收益分配模板。</div>
+        </div>
+        <span class="l2-marker">3</span>
+      </div>
+
+      <!-- 操作按钮区 (R-004) -->
+      <div class="action-card anno-zone" data-zone-id="R-004">
+        <span data-element-id="P02-C-001">
+          <button type="button" class="btn btn-primary" id="btnEnterNegotiation">进入洽谈</button>
+          <span class="l3-dot"></span>
+        </span>
+        <span data-element-id="P02-C-002">
+          <button type="button" class="btn btn-accent" id="btnMarkTransferred">标记转化</button>
+          <span class="l3-dot"></span>
+        </span>
+        <span data-element-id="P02-C-003">
+          <button type="button" class="btn btn-ghost" id="btnApplySubsidy">申报补贴</button>
+          <span class="l3-dot"></span>
+        </span>
+        <span class="l2-marker">4</span>
+      </div>
+    </section>
+
+    <!-- ============ P03 需求匹配表单 ============ -->
+    <section class="page page-form" data-page-id="P03" hidden>
+      <div class="page-hero">
+        <div class="hero-eyebrow">P03 · 需求匹配表单</div>
+        <h1 class="hero-title">描述你的<span class="ink-accent">工艺痛点</span>，让 AI 在 1,247 件专利里找出三件最适配的。</h1>
+        <p class="hero-sub">匹配维度：工艺语义 · 参数区间 · 产业链位 · 预算协同 · 地域政策</p>
+      </div>
+
+      <!-- 表单区 (R-001) -->
+      <div class="form-card anno-zone" data-zone-id="R-001">
+        <div class="form-grid">
+          <label class="form-field">
+            <span class="form-label"><i class="req">*</i>产业方向</span>
+            <select id="formIndustry">
+              <option value="">请选择产业方向</option>
+              <option>智能制造</option>
+              <option>生物医药</option>
+              <option>新材料</option>
+              <option>信息技术</option>
+              <option>新能源</option>
+            </select>
+          </label>
+          <label class="form-field">
+            <span class="form-label"><i class="req">*</i>期望成熟度</span>
+            <select id="formMaturity">
+              <option value="">请选择成熟度</option>
+              <option>实验室</option>
+              <option>中试</option>
+              <option>产业化</option>
+            </select>
+          </label>
+          <label class="form-field">
+            <span class="form-label"><i class="req">*</i>目标高校</span>
+            <select id="formCollege">
+              <option value="">请选择目标高校</option>
+              <option>中山大学</option>
+              <option>华南理工</option>
+              <option>暨南大学</option>
+              <option>华南师范</option>
+              <option>广东工业</option>
+              <option>不限高校</option>
+            </select>
+          </label>
+          <label class="form-field form-field-wide">
+            <span class="form-label">技术参数描述</span>
+            <textarea id="formParams" rows="3" placeholder="如：耐温 200℃±10 · 抗拉强度 ≥ 80MPa · 表面粗糙度 Ra ≤ 0.8"></textarea>
+          </label>
+          <label class="form-field">
+            <span class="form-label">预算区间（万元）</span>
+            <input type="text" id="formBudget" placeholder="如 50-200">
+          </label>
+          <label class="form-field">
+            <span class="form-label">企业所在城市</span>
+            <select id="formCity">
+              <option>广州</option>
+              <option>深圳</option>
+              <option>佛山</option>
+              <option>东莞</option>
+              <option>中山</option>
+            </select>
+          </label>
+        </div>
+        <span class="l2-marker">1</span>
+      </div>
+
+      <!-- 操作按钮区 (R-002) -->
+      <div class="form-actions anno-zone" data-zone-id="R-002">
+        <span data-element-id="P03-C-001">
+          <button type="button" class="btn btn-accent" id="btnAiMatch">AI 匹配</button>
+          <span class="l3-dot"></span>
+        </span>
+        <span data-element-id="P03-C-002">
+          <button type="button" class="btn btn-primary" id="btnSubmit">提交需求</button>
+          <span class="l3-dot"></span>
+        </span>
+        <span data-element-id="P03-C-003">
+          <button type="button" class="btn btn-ghost" id="btnCancel">取消</button>
+          <span class="l3-dot"></span>
+        </span>
+        <span class="l2-marker">2</span>
+      </div>
+
+      <!-- 匹配结果预览 (R-003) -->
+      <div class="result-card anno-zone" data-zone-id="R-003" id="resultCard" hidden>
+        <div class="card-head">
+          <h3 class="card-title">AI 匹配结果预览</h3>
+          <span class="card-sub" id="resultSub">3 件专利满足匹配度 ≥ 60% 阈值</span>
+        </div>
+        <div class="result-list" id="resultList"></div>
+        <span class="l2-marker">3</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 全局弹窗（合同信息录入） -->
+  <div class="modal-mask" id="modalMask" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <h3 class="modal-title" id="modalTitle">录入转化合同信息</h3>
+        <button type="button" class="modal-close" id="modalClose" aria-label="关闭弹窗">×</button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <div class="form-grid">
+          <label class="form-field">
+            <span class="form-label"><i class="req">*</i>合同编号</span>
+            <input type="text" id="contractNo" placeholder="如 GD-2026-0001">
+          </label>
+          <label class="form-field">
+            <span class="form-label"><i class="req">*</i>签约企业</span>
+            <input type="text" id="contractCompany" placeholder="企业名称">
+          </label>
+          <label class="form-field">
+            <span class="form-label"><i class="req">*</i>成交金额（万元）</span>
+            <input type="number" id="contractAmount" placeholder="如 120">
+          </label>
+          <label class="form-field">
+            <span class="form-label">权属分配模板</span>
+            <select id="contractTemplate">
+              <option>高校 60% / 企业 30% / 中介 10%</option>
+              <option>高校 50% / 企业 40% / 中介 10%</option>
+              <option>高校 70% / 企业 20% / 中介 10%</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-ghost" id="modalCancel">取消</button>
+        <button type="button" class="btn btn-primary" id="modalConfirm">确认转化</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" hidden></div>
+
+  <!-- 标注数据（与 L1/L2/L3 三层结构对齐） -->
+  <script src="assets/app.js"></script>
+  <script>
+    window.__ANNOTATION_DATA__ = {
+      P01: {
+        L1: {
+          summary: '高校专利库列表页，分页展示各高校存量专利，支持多维度搜索与批量清洗',
+          entry: '顶部导航"专利库"菜单',
+          precondition: '已登录且拥有 college-patent:read 权限',
+          data_entity: 'college-patent',
+          business_rules: [
+            '企业技术经理仅可查看匹配中/洽谈中专利',
+            '高校科研处与转化中介可见全部',
+            '失效专利自动过滤不展示',
+            '匹配度低于 60% 不推送企业'
+          ],
+          test_data: '8 条专利 Mock 数据，覆盖 5 所高校 × 5 种状态 × 3 种成熟度'
+        },
+        L2: [
+          { id: 'R-001', zone: '搜索区', description: '顶部搜索表单，含专利号/名称/高校/产业/成熟度/状态 6 字段 + 搜索/重置/批量清洗/需求匹配 4 按钮' },
+          { id: 'R-002', zone: '数据表格区', description: '专利列表表格，含复选框/专利号/名称/高校/产业/成熟度/匹配度/状态/操作 9 列' },
+          { id: 'R-003', zone: '分页区', description: '底部翻页组件，含上一页/下一页按钮与当前页号' }
+        ],
+        L3: [
+          { id: 'P01-C-001', element: '搜索按钮', zone: 'R-001', function: '触发搜索', trigger: 'click', condition: '无', response: '表格刷新为搜索结果', state: '搜索条件已应用', exception: '搜索条件为空时展示全部' },
+          { id: 'P01-C-002', element: '重置筛选按钮', zone: 'R-001', function: '清空搜索条件', trigger: 'click', condition: '无', response: '所有字段恢复默认', state: '搜索条件清空', exception: '无' },
+          { id: 'P01-C-003', element: '批量清洗按钮', zone: 'R-001', function: '批量执行清洗分级', trigger: 'click', condition: '角色为高校科研处', response: '异步任务启动', state: '选中行高亮', exception: '非高校角色按钮可见但点击提示无权限' },
+          { id: 'P01-C-004', element: '需求匹配按钮', zone: 'R-001', function: '跳转至 P03 需求匹配表单', trigger: 'click', condition: '无', response: '路由切换至 #/college-patents/match', state: 'P03 加载', exception: '无' },
+          { id: 'P01-C-005', element: '上一页按钮', zone: 'R-003', function: '翻到上一页', trigger: 'click', condition: '当前页 > 1', response: '表格刷新为上一页数据', state: '页号 -1', exception: '已在第 1 页时禁用' },
+          { id: 'P01-C-006', element: '下一页按钮', zone: 'R-003', function: '翻到下一页', trigger: 'click', condition: '当前页 < 总页数', response: '表格刷新为下一页数据', state: '页号 +1', exception: '已在最后一页时禁用' }
+        ]
+      },
+      P02: {
+        L1: {
+          summary: '专利详情页，展示专利信息、匹配企业清单、转化合同信息与操作按钮组',
+          entry: '专利列表点击"查看"按钮',
+          precondition: '已登录且拥有 college-patent:read 权限',
+          data_entity: 'college-patent',
+          business_rules: [
+            '状态流转：沉睡 → 清洗中 → 匹配中 → 洽谈中 → 已转化',
+            '同一专利同时仅可与 3 家企业洽谈',
+            '洽谈超过 90 天未签约自动回退至匹配中',
+            '匹配度低于 60% 不推送企业'
+          ],
+          test_data: '1 条专利详情 Mock 数据，含 3 家匹配企业清单（其中 2 家洽谈中）'
+        },
+        L2: [
+          { id: 'R-001', zone: '详情头部', description: '展示专利号、名称、高校/产业/成熟度/状态标签 + 匹配度/洽谈配额统计' },
+          { id: 'R-002', zone: '匹配区', description: '匹配企业清单列表，展示企业名称、匹配度、状态、洽谈剩余天数' },
+          { id: 'R-003', zone: '转化信息区', description: '转化合同信息卡片，未转化时显示空状态提示' },
+          { id: 'R-004', zone: '操作按钮区', description: '进入洽谈 / 标记转化 / 申报补贴 3 个按钮（按状态显隐）' }
+        ],
+        L3: [
+          { id: 'P02-C-001', element: '进入洽谈按钮', zone: 'R-004', function: '推进转化流程', trigger: 'click', condition: '状态为匹配中且洽谈企业 < 3', response: '状态更新为洽谈中', state: '按钮组刷新', exception: '已有 3 家洽谈中时按钮禁用' },
+          { id: 'P02-C-002', element: '标记转化按钮', zone: 'R-004', function: '完成转化', trigger: 'click', condition: '状态为洽谈中', response: '弹出合同信息录入弹窗', state: '弹窗显示', exception: '非洽谈中状态按钮隐藏' },
+          { id: 'P02-C-003', element: '申报补贴按钮', zone: 'R-004', function: '申报地方补贴', trigger: 'click', condition: '状态为已转化', response: '生成补贴申报材料并下载', state: '无状态变更', exception: '非已转化状态按钮隐藏' }
+        ]
+      },
+      P03: {
+        L1: {
+          summary: '需求匹配表单页，企业技术经理发布技术需求并触发 AI 匹配',
+          entry: '专利列表点击"需求匹配"按钮',
+          precondition: '已登录且拥有 college-patent:read 权限',
+          data_entity: 'college-patent',
+          business_rules: [
+            '产业方向、成熟度、高校为必填',
+            '匹配度低于 60% 不推送',
+            '提交后调用匹配大模型输出结果',
+            '匹配维度：工艺语义/参数区间/产业链位/预算协同/地域政策'
+          ],
+          test_data: '空表单或回填的需求，AI 匹配结果 3 件满足阈值'
+        },
+        L2: [
+          { id: 'R-001', zone: '表单区', description: '表单含产业方向/成熟度/高校/技术参数/预算/城市 6 字段' },
+          { id: 'R-002', zone: '操作按钮区', description: '含 AI 匹配 / 提交 / 取消 3 按钮' },
+          { id: 'R-003', zone: '匹配结果预览区', description: 'AI 匹配后的专利清单（含匹配度评分）' }
+        ],
+        L3: [
+          { id: 'P03-C-001', element: 'AI 匹配按钮', zone: 'R-002', function: '调用匹配大模型', trigger: 'click', condition: '关键字段已填', response: '弹出匹配结果预览', state: '匹配结果展示', exception: '无匹配专利时提示空状态' },
+          { id: 'P03-C-002', element: '提交按钮', zone: 'R-002', function: '提交技术需求', trigger: 'click', condition: '表单校验通过', response: '保存需求并跳转匹配结果列表', state: '列表页加载', exception: '校验失败时高亮错误字段' },
+          { id: 'P03-C-003', element: '取消按钮', zone: 'R-002', function: '取消编辑', trigger: 'click', condition: '无', response: '返回上一页', state: '不保存任何修改', exception: '无' }
+        ]
+      }
+    };
+  </script>
+
+<!-- [demora-annotation-panel] start -->
+<template id="demora-annotation-panel-tpl"><style>
+/* [demora-injected-panel-css] start */
+/* ---------- 右侧标注面板 ---------- */
+.annotation-panel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: var(--annotation-panel-width);
+  min-width: var(--annotation-panel-width);
+  background: var(--card, #f8fafc);
+  border-left: 1px solid var(--border, #e2e8f0);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-size: 13px;
+  z-index: 3000;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.08);
+}
+
+.annotation-panel .panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #fff;
+  border-bottom: 1px solid var(--border, #e2e8f0);
+  flex-shrink: 0;
+}
+
+.annotation-panel .panel-header h3 {
+  margin: 0;
+  font-size: 15px;
+  color: var(--foreground, #0f172a);
+}
+
+/* ---------- Tab 切换 ---------- */
+.annotation-panel .panel-tabs {
+  display: flex;
+  flex: none;
+  border-bottom: 2px solid var(--border, #e2e8f0);
+  background: #fff;
+}
+
+.annotation-panel .panel-tabs .tab-btn {
+  flex: 1;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted-foreground, #64748b);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+}
+
+.annotation-panel .panel-tabs .tab-btn.active {
+  color: var(--primary, #3b82f6);
+  border-bottom-color: var(--primary, #3b82f6);
+}
+
+/* ---------- 标注条目卡片 ---------- */
+.annotation-panel .panel-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 16px;
+}
+
+.anno-card {
+  background: #fff;
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 4px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.anno-card:hover {
+  border-color: var(--primary, #3b82f6);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+}
+
+.anno-card.is-active {
+  border-color: var(--warning, #f59e0b);
+  background: rgba(245, 158, 11, 0.08);
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.3);
+}
+
+.anno-card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.anno-card-title {
+  font-weight: 600;
+  color: var(--foreground, #0f172a);
+}
+
+.anno-card-desc {
+  color: var(--muted-foreground, #64748b);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.anno-card-grid {
+  display: grid;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--muted-foreground, #64748b);
+}
+
+.l2-tag, .l3-tag, .l1-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.l1-tag { background: var(--info, #6b7280); }
+.l2-tag { background: var(--success, #22c55e); }
+.l3-tag { background: var(--primary, #3b82f6); }
+
+.page-id-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted-foreground, #64748b);
+  background: rgba(107, 114, 128, 0.1);
+  border: 1px solid rgba(107, 114, 128, 0.2);
+}
+
+/* ---------- L1 卡片结构化布局 ---------- */
+.anno-card-l1 .l1-detail { margin-top: 8px; }
+
+.anno-card-l1 .l1-meta {
+  margin: 0 0 8px 0;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 4px 8px;
+  font-size: 12px;
+}
+
+.anno-card-l1 .l1-meta dt { color: var(--muted-foreground, #64748b); font-weight: 500; }
+.anno-card-l1 .l1-meta dd { margin: 0; color: var(--foreground, #0f172a); line-height: 1.5; }
+
+.anno-card-l1 .l1-rules {
+  margin: 8px 0;
+  padding: 8px;
+  background: rgba(99, 102, 241, 0.05);
+  border-left: 3px solid var(--primary, #3b82f6);
+  border-radius: 0 4px 4px 0;
+}
+
+.anno-card-l1 .l1-rules-title { font-size: 11px; font-weight: 600; color: var(--primary, #3b82f6); margin-bottom: 4px; }
+.anno-card-l1 .l1-rules-list { margin: 0; padding-left: 20px; color: var(--foreground, #0f172a); font-size: 12px; line-height: 1.6; }
+.anno-card-l1 .l1-rules-list li { margin-bottom: 2px; }
+.anno-card-l1 .l1-rules-text { margin: 0; color: var(--foreground, #0f172a); font-size: 12px; line-height: 1.5; }
+
+.anno-card-l1 .l1-test-data {
+  margin: 8px 0 0 0;
+  padding: 8px;
+  background: rgba(245, 158, 11, 0.05);
+  border-left: 3px solid var(--warning, #f59e0b);
+  border-radius: 0 4px 4px 0;
+}
+
+.anno-card-l1 .l1-test-data-title { font-size: 11px; font-weight: 600; color: var(--warning, #f59e0b); margin-bottom: 4px; }
+.anno-card-l1 .l1-test-data p { margin: 0; color: var(--foreground, #0f172a); font-size: 12px; line-height: 1.5; font-style: italic; }
+
+/* ---------- 面板关闭按钮 ---------- */
+.panel-close-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--muted-foreground, #64748b);
+  padding: 0 4px;
+  line-height: 1;
+}
+
+.panel-close-btn:hover {
+  color: var(--foreground, #0f172a);
+}
+
+/* ---------- v5.2.2：移除 is-hidden 和 anno-card-hidden-hint 样式 ----------
+ * 原因：v5.2.2 改为过滤不可见标注（不渲染卡片），不再需要灰色显示样式
+ * 保留空注释占位，避免已有注入的 Demo HTML 中残留 class 引起样式错误
+ * ------------------------------------------------------------------- */
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 768px) {
+  .annotation-panel { display: none; }
+}
+
+/*
+/* [demora-injected-panel-css] end */
+</style>
+<!-- ============================================================
+  annotation-panel.html — 标注面板 HTML 模板（v5.0 纯 HTML）
+
+  用途：右侧标注面板的 HTML 结构。
+  移植方式：enhance-prototype.mjs 将本文件注入 <body> 末尾。
+
+  无框架依赖：
+    - 不使用 Vue/React 模板语法
+    - 面板内容由 annotation-engine.js 动态渲染
+    - Tab 切换通过 data-tab 属性绑定
+    - 面板显隐通过 annotation-engine.js 控制
+
+  版本：5.0.0
+  ============================================================ -->
+
+<aside class="annotation-panel">
+  <div class="panel-header">
+    <h3>需求标注</h3>
+    <span class="page-id-tag"></span>
+    <button class="panel-close-btn" data-annotation-close title="关闭标注面板">&times;</button>
+  </div>
+
+  <div class="panel-tabs">
+    <div class="tab-btn" data-tab="L1">L1 页面</div>
+    <div class="tab-btn" data-tab="L2">L2 区域</div>
+    <div class="tab-btn" data-tab="L3">L3 元件</div>
+  </div>
+
+  <div class="panel-body">
+    <!-- 内容由 annotation-engine.js 动态渲染 -->
+  </div>
+</aside>
+</template>
+<div id="demora-annotation-host"></div>
+<script>(function(){var h=document.getElementById('demora-annotation-host');var t=document.getElementById('demora-annotation-panel-tpl');if(!h||!t){return;}var s=h.attachShadow({mode:'open'});s.appendChild(t.content.cloneNode(true));})();</script>
+<!-- [demora-annotation-panel] end -->
+
+<!-- [demora-annotation-js] start -->
+<script>
+/* ============================================================
+ * annotation-engine.js — 自包含标注引擎（v5.2.2）
+ *
+ * v5.2.2 变更（标注一致性修正）：
+ *   - 新增 getAnnotationPages()：兼容 {P01:{...}} 与 {version,pages:{P01:{...}}} 两种数据结构
+ *     修复 audit-hr-v5.2 等"标注面板没有内容"问题
+ *   - renderL2List/renderL3List 改为过滤不可见标注（不再显示灰色"当前不可见"卡片）
+ *     严格保持标注面板与页面可视区域一致
+ *   - 过滤后为空时显示"当前可视区域内无 L2/L3 标注"
+ *   - scheduleVisibilityRefresh 延迟从 300ms 降至 100ms，提升响应速度
+ *   - detectCurrentPage 从 pages 结构推断页面 ID
+ *
+ * v5.2.0 变更（标注一致性修复）：
+ *   - 新增 isElementVisible()：检查元素及其祖先的 display/visibility/opacity/hidden
+ *   - detectCurrentPage() 优先选择可见的 [data-page-id] 元素（SPA 多页面场景）
+ *   - highlightZone/highlightElement 先 renderPanel() 确保卡片渲染再高亮
+ *   - focusZoneCard/focusElementCard 先 renderPanel() 确保卡片存在再滚动
+ *   - 全局 click 监听：tab/页面切换后延迟刷新面板可见性
+ *   - refresh() API 增强：重新检测页面 + 重新渲染
+ *
+ * 设计理念：
+ *   标注系统作为"独立叠加层"，通过 data-* 属性约定与 AI 生成的 HTML 对接。
+ *   AI 不需要在 JS 中引入任何标注相关代码，不需要 mixin/插件/全局状态。
+ *
+ * 工作方式：
+ *   1. AI 在 HTML 元素上添加 data-zone-id="R-001" / data-element-id="C-001" 属性
+ *   2. AI 在页面中放置标注数据：window.__ANNOTATION_DATA__ = { ... }
+ *   3. 本引擎在 DOMContentLoaded 后自动扫描 data-* 属性，构建标注 UI 并绑定交互
+ *
+ * 注入方式（enhance-prototype.mjs 执行）：
+ *   - 注入 annotation-styles.css 到 <head>
+ *   - 注入 annotation-panel.html 到 <body> 末尾
+ *   - 注入本文件 annotation-engine.js 到 <body> 末尾
+ *
+ * AI 代码零侵入：
+ *   - 不需要全局状态对象 / mixin / 框架响应式
+ *   - 不需要在 setup() 中引入标注变量
+ *   - 只需在 HTML 元素上加 data-* 属性 + 定义标注数据对象
+ *
+ * 依赖：无（纯 vanilla JS，不依赖 Vue/React 等框架）
+ * 版本：5.2.2
+ * ============================================================ */
+
+(function () {
+  'use strict';
+
+  // ==========================================
+  // 1. 状态管理
+  // ==========================================
+
+  var state = {
+    showPanel: false,
+    activeTab: 'L1',
+    activePageId: null,
+    highlightedZone: null,
+    highlightedElement: null,
+    annotationData: {},
+    currentPageZones: [],
+    currentPageElements: [],
+    suppressRefresh: 0  // v5.2.5：用户主动高亮后抑制 refresh 的时间戳
+  };
+
+  // DOM 引用缓存
+  var dom = {
+    panel: null,
+    panelHeader: null,
+    panelTabs: null,
+    panelBody: null,
+    toggleBtn: null,
+    contentRoot: null,
+    shadowRoot: null  // v5.1：Shadow DOM 根（面板在 Shadow DOM 内）
+  };
+
+  // v5.2：可见性刷新 debounce 定时器
+  var visibilityRefreshTimer = null;
+
+  // ==========================================
+  // 1.1 数据结构兼容（v5.2.2 新增）
+  // ==========================================
+
+  /**
+   * v5.2.2：从 __ANNOTATION_DATA__ 中提取页面映射对象
+   * 兼容两种数据结构：
+   *   结构 A（扁平）：{ P01: {...}, P02: {...} }
+   *   结构 B（包装）：{ version: "5.2.0", pages: { P01: {...}, P02: {...} } }
+   * @returns {Object} 页面 ID 到页面标注数据的映射
+   */
+  function getAnnotationPages() {
+    var data = state.annotationData;
+    if (!data || typeof data !== 'object') return {};
+    // 结构 B：存在 data.pages 且是对象
+    if (data.pages && typeof data.pages === 'object' && !Array.isArray(data.pages)) {
+      return data.pages;
+    }
+    // 结构 A：过滤掉非页面字段（如 version），只保留以 P 开头或全大写的 key
+    var result = {};
+    var keys = Object.keys(data);
+    for (var i = 0; i < keys.length; i++) {
+      var k = keys[i];
+      // 页面 ID 通常以 P 开头（如 P01, P02），或至少不含 version/pages/metadata 等保留字
+      if (k === 'version' || k === 'pages' || k === 'metadata' || k === 'config') continue;
+      if (data[k] && typeof data[k] === 'object') {
+        result[k] = data[k];
+      }
+    }
+    return result;
+  }
+
+  // ==========================================
+  // 2. 初始化
+  // ==========================================
+
+  function init() {
+    // 读取标注数据
+    if (window.__ANNOTATION_DATA__) {
+      state.annotationData = window.__ANNOTATION_DATA__;
+    }
+
+    // v5.1：通过 Shadow DOM 宿主查找面板
+    var host = document.getElementById('demora-annotation-host');
+    if (host && host.shadowRoot) {
+      dom.shadowRoot = host.shadowRoot;
+      dom.panel = dom.shadowRoot.querySelector('.annotation-panel');
+    } else {
+      // 向后兼容：无 Shadow DOM 宿主时回退到 document 查找
+      dom.panel = document.querySelector('.annotation-panel');
+    }
+
+    dom.contentRoot = document.querySelector('[data-annotation-root]') || document.body;
+
+    if (!dom.panel) {
+      console.warn('[annotation-engine] 未找到 .annotation-panel，标注系统未初始化');
+      return;
+    }
+
+    // 面板内元素通过 dom.panel 查找
+    dom.panelHeader = dom.panel.querySelector('.panel-header');
+    dom.panelTabs = dom.panel.querySelector('.panel-tabs');
+    dom.panelBody = dom.panel.querySelector('.panel-body');
+
+    // 主页面元素：标注开关按钮
+    dom.toggleBtn = document.querySelector('[data-annotation-toggle]');
+
+    // 检测当前页面 ID
+    detectCurrentPage();
+
+    // 绑定事件
+    bindEvents();
+
+    // v5.1.1：数据校验兜底
+    validateAnnotationData(state.annotationData);
+
+    // 初始渲染
+    renderPanel();
+
+    // 默认隐藏面板
+    setPanelVisible(false);
+
+    // v5.1.1：MutationObserver 监听 SPA 异步渲染
+    setupMutationObserver();
+
+    console.log('[annotation-engine] 标注引擎已初始化 v5.2.2，页面:', state.activePageId, dom.shadowRoot ? '(Shadow DOM)' : '(document)');
+  }
+
+  // ==========================================
+  // 2.1 元素可见性检查（v5.2 新增）
+  // ==========================================
+
+  /**
+   * 检查元素是否在页面中实际可见
+   * 遍历元素及其所有祖先，检查 display/visibility/opacity/hidden 属性
+   * @param {Element} el 目标元素
+   * @returns {boolean} 是否可见
+   */
+  function isElementVisible(el) {
+    if (!el) return false;
+    var current = el;
+    while (current && current !== document.body) {
+      // HTML hidden 属性
+      if (current.hasAttribute && current.hasAttribute('hidden')) return false;
+      // CSS 计算样式
+      var style = window.getComputedStyle(current);
+      if (style.display === 'none') return false;
+      if (style.visibility === 'hidden') return false;
+      if (parseFloat(style.opacity) === 0) return false;
+      current = current.parentElement;
+    }
+    return true;
+  }
+
+  /**
+   * v5.2.5 新增：在所有匹配选择器的元素中找到第一个可见的
+   * 修复多页面场景下 L2/L3 id 重复问题（如每个页面都有 R-001）
+   * 旧逻辑 querySelector 只返回第一个匹配，当第一个匹配在隐藏页面时导致标注面板缺内容
+   * @param {string} selector CSS 选择器
+   * @returns {Element|null} 第一个可见的匹配元素
+   */
+  function findVisibleElement(selector) {
+    var matches = document.querySelectorAll(selector);
+    for (var i = 0; i < matches.length; i++) {
+      if (isElementVisible(matches[i])) return matches[i];
+    }
+    return null;
+  }
+
+  /**
+   * v5.2.2：调度可见性刷新（debounce 100ms，从 300ms 降低以提升响应速度）
+   * 在 tab/页面切换后延迟检测页面变化和元素可见性变化，刷新面板
+   * v5.2.2 变更：不可见标注直接过滤（不渲染），面板与可视区域严格一致
+   * v5.2.5 变更：用户主动点击高亮后 500ms 内抑制 refresh，避免 scrollToElement 触发的闪缩
+   */
+  function scheduleVisibilityRefresh() {
+    // v5.2.5：用户主动高亮后短时间内抑制 refresh，避免滚动触发闪缩
+    if (state.suppressRefresh && Date.now() - state.suppressRefresh < 500) {
+      return;
+    }
+    if (visibilityRefreshTimer) clearTimeout(visibilityRefreshTimer);
+    visibilityRefreshTimer = setTimeout(function () {
+      visibilityRefreshTimer = null;
+      var oldPageId = state.activePageId;
+      detectCurrentPage();
+      if (oldPageId !== state.activePageId) {
+        // 页面切换：清除高亮，回到 L1
+        clearHighlights();
+        state.activeTab = 'L1';
+        renderPanel();
+      } else if (state.showPanel) {
+        // 同一页面内 tab 切换：重新渲染面板（过滤可见性变化后的标注）
+        renderPanel();
+      }
+    }, 100);
+  }
+
+  // ==========================================
+  // 2.2 MutationObserver + 数据校验（v5.1.1 P3-4）
+  // ==========================================
+
+  function setupMutationObserver() {
+    if (typeof MutationObserver === 'undefined') {
+      console.warn('[annotation-engine] MutationObserver 不可用，跳过 SPA 异步渲染监听');
+      return;
+    }
+
+    var debounceTimer = null;
+    var observer = new MutationObserver(function (mutations) {
+      var shouldRefresh = false;
+      for (var i = 0; i < mutations.length; i++) {
+        var mutation = mutations[i];
+        // v5.2.7：过滤标注系统自身触发的 class 变化（is-highlighted/is-active 等）
+        // 原因：highlightZone/focusZoneCard 添加 is-highlighted → MutationObserver 监听 class 变化
+        //       → 触发 renderPanel → renderPanel 重置 is-active 卡片 → MutationObserver 再次触发
+        //       → 自反馈循环，导致右侧面板 L2 卡片"点击激活后不停闪烁"
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class' && mutation.target) {
+          var oldVal = mutation.oldValue || '';
+          var newVal = mutation.target.className || '';
+          // 提取差异 class（仅在 old/new 间变化的 class）
+          var oldSet = new Set(oldVal.split(/\s+/).filter(Boolean));
+          var newSet = new Set(newVal.split(/\s+/).filter(Boolean));
+          var diffClasses = [];
+          newSet.forEach(function (c) { if (!oldSet.has(c)) diffClasses.push(c); });
+          oldSet.forEach(function (c) { if (!newSet.has(c)) diffClasses.push(c); });
+          // v5.2.8：修复 diff 为空时 filter 失效的 bug（customer-management L2 闪烁根因）
+          // 原因：MutationObserver 批量处理时，mutation.target.className 读取的是最终值（不是 mutation 发生时的值）。
+          //   applyHighlights 先 remove('is-highlighted') 再 add('is-highlighted') 产生 2 个 mutation：
+          //   - mutation 1（remove）：oldValue="...is-highlighted"，但 className 已是 add 后的"...is-highlighted" → diff=[]
+          //   - mutation 2（add）：oldValue="...no"，className="...is-highlighted" → diff=["is-highlighted"]
+          //   原 filter 的 `diffClasses.length > 0 && diffClasses.every(...)` 在 diff=[] 时返回 false，
+          //   导致 annotOnlyChange=false，不 continue，走到第二个 if 块 shouldRefresh=true，触发循环。
+          //   customer-management 独有：R-001 zone 在 switchTab 时已带 is-highlighted，产生 remove+add 对；
+          //   其他场景 state.highlightedZone=null，只 add 不 remove，单个 mutation diff=["is-highlighted"]，filter 成功。
+          // 修复：diff 为空时直接 continue（无实际变化）；否则检查是否全是标注 class。
+          if (diffClasses.length === 0) continue;
+          // 仅标注系统自身 class 变化 → 跳过（避免自反馈循环）
+          var annotOnlyChange = diffClasses.every(function (c) {
+            return c === 'is-highlighted' || c === 'is-active' || c === 'is-expanded' ||
+              c === 'is-collapsed' || c === 'annotation-active';
+          });
+          if (annotOnlyChange) continue;
+        }
+        if (mutation.type === 'attributes' && mutation.target) {
+          var t = mutation.target;
+          if (t.matches && (t.matches('[data-zone-id]') || t.matches('[data-element-id]') ||
+              t.querySelector('[data-zone-id], [data-element-id]'))) {
+            shouldRefresh = true;
+            break;
+          }
+        }
+        for (var j = 0; j < mutation.addedNodes.length; j++) {
+          var node = mutation.addedNodes[j];
+          if (node.nodeType !== 1) continue;
+          if (node.matches && node.matches('[data-zone-id], [data-element-id]')) {
+            shouldRefresh = true;
+            break;
+          }
+          if (node.querySelector && node.querySelector('[data-zone-id], [data-element-id]')) {
+            shouldRefresh = true;
+            break;
+          }
+        }
+        if (shouldRefresh) break;
+      }
+      if (shouldRefresh) {
+        if (debounceTimer) clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(function () {
+          debounceTimer = null;
+          console.log('[annotation-engine] 检测到 DOM 变化，刷新面板');
+          detectCurrentPage();
+          renderPanel();
+        }, 200);
+      }
+    });
+    // v5.2.7：attributeOldValue 启用，用于区分标注系统自身 class 变化 vs demo 触发的 class 变化
+    observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeOldValue: true, attributeFilter: ['style', 'class', 'hidden'] });
+  }
+
+  function validateAnnotationData(data) {
+    if (!data || typeof data !== 'object') {
+      console.warn('[annotation-engine] __ANNOTATION_DATA__ 不是有效对象');
+      return false;
+    }
+    // v5.2.2：使用 getAnnotationPages 兼容 {P01:{...}} 与 {version,pages:{P01:{...}}} 结构
+    // 临时设置 state.annotationData 以便 getAnnotationPages 能读取
+    var origData = state.annotationData;
+    state.annotationData = data;
+    var pages = getAnnotationPages();
+    state.annotationData = origData;
+
+    var keys = Object.keys(pages);
+    if (keys.length === 0) {
+      console.log('[annotation-engine] __ANNOTATION_DATA__ 无页面标注数据');
+      return true;
+    }
+    for (var i = 0; i < keys.length; i++) {
+      var pageId = keys[i];
+      var pageData = pages[pageId];
+      if (!pageData || typeof pageData !== 'object') {
+        console.warn('[annotation-engine] 页面 ' + pageId + ' 数据不是有效对象');
+        continue;
+      }
+      if (Array.isArray(pageData.L2)) {
+        for (var k = 0; k < pageData.L2.length; k++) {
+          var item = pageData.L2[k];
+          if (!item.id || !item.zone) {
+            console.warn('[annotation-engine] 页面 ' + pageId + ' L2 项缺少 id 或 zone 字段', item);
+          }
+        }
+      }
+    }
+    return true;
+  }
+
+  // ==========================================
+  // 3. 页面检测（v5.2：优先可见页面，v5.2.2：兼容 pages 包装结构）
+  // ==========================================
+
+  /**
+   * 检测当前页面 ID：
+   * v5.2：优先从可见的 [data-page-id] 元素读取（SPA 多页面场景）
+   * 其次从第一个 [data-page-id] 读取
+   * 最后从 annotationData 的页面 key 推断（v5.2.2：使用 getAnnotationPages 兼容 pages 包装）
+   */
+  function detectCurrentPage() {
+    var pageEls = document.querySelectorAll('[data-page-id]');
+    if (pageEls.length > 0) {
+      // v5.2：优先选择可见的页面
+      for (var i = 0; i < pageEls.length; i++) {
+        if (isElementVisible(pageEls[i])) {
+          state.activePageId = pageEls[i].getAttribute('data-page-id');
+          return;
+        }
+      }
+      // 回退到第一个
+      state.activePageId = pageEls[0].getAttribute('data-page-id');
+      return;
+    }
+
+    // v5.2.2：从 getAnnotationPages() 推断（兼容 pages 包装结构）
+    var pages = getAnnotationPages();
+    var keys = Object.keys(pages);
+    if (keys.length > 0) {
+      state.activePageId = keys[0];
+    }
+  }
+
+  // ==========================================
+  // 4. 事件绑定
+  // ==========================================
+
+  function bindEvents() {
+    // 标注开关
+    if (dom.toggleBtn) {
+      dom.toggleBtn.addEventListener('click', function () {
+        togglePanel();
+      });
+    }
+
+    // 面板关闭按钮
+    var closeBtn = dom.panel ? dom.panel.querySelector('[data-annotation-close]') : null;
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        setPanelVisible(false);
+      });
+    }
+
+    // Tab 切换
+    if (dom.panelTabs) {
+      var tabBtns = dom.panelTabs.querySelectorAll('[data-tab]');
+      tabBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          switchTab(btn.getAttribute('data-tab'));
+        });
+      });
+    }
+
+    // 左侧标注标记点击 + v5.2 可见性刷新（事件委托）
+    document.addEventListener('click', function (e) {
+      var zoneMarker = e.target.closest('.l2-marker');
+      if (zoneMarker) {
+        e.stopPropagation();
+        var zoneId = zoneMarker.closest('[data-zone-id]');
+        if (zoneId) focusZoneCard(zoneId.getAttribute('data-zone-id'));
+        return;
+      }
+
+      var elementDot = e.target.closest('.l3-dot');
+      if (elementDot) {
+        e.stopPropagation();
+        var wrap = elementDot.closest('[data-element-id]');
+        if (wrap) focusElementCard(wrap.getAttribute('data-element-id'));
+        return;
+      }
+
+      // v5.2：检测 tab/页面切换（延迟刷新面板可见性）
+      // 排除标注面板内部（Shadow DOM）的点击
+      if (dom.shadowRoot && dom.shadowRoot.contains(e.target)) return;
+      // 排除标注开关按钮的点击（上面已处理）
+      if (dom.toggleBtn && (e.target === dom.toggleBtn || dom.toggleBtn.contains(e.target))) return;
+      // 面板打开时才需要刷新可见性
+      if (state.showPanel) {
+        scheduleVisibilityRefresh();
+      }
+    });
+
+    // 路由变化监听（SPA 场景）
+    window.addEventListener('hashchange', function () {
+      onRouteChange();
+    });
+
+    // 监听 popstate（History API 场景）
+    window.addEventListener('popstate', function () {
+      onRouteChange();
+    });
+  }
+
+  // ==========================================
+  // 5. 面板控制
+  // ==========================================
+
+  function togglePanel() {
+    setPanelVisible(!state.showPanel);
+  }
+
+  function setPanelVisible(visible) {
+    state.showPanel = visible;
+
+    if (dom.panel) {
+      dom.panel.style.display = visible ? 'flex' : 'none';
+    }
+
+    if (dom.contentRoot) {
+      if (visible) {
+        dom.contentRoot.setAttribute('data-annotation-active', '');
+      } else {
+        dom.contentRoot.removeAttribute('data-annotation-active');
+        // 关闭时清空高亮
+        clearHighlights();
+      }
+    }
+
+    if (visible && dom.toggleBtn) {
+      dom.toggleBtn.setAttribute('data-annotation-on', '');
+    } else if (dom.toggleBtn) {
+      dom.toggleBtn.removeAttribute('data-annotation-on');
+    }
+
+    // v5.2：面板打开时刷新可见性
+    if (visible) {
+      detectCurrentPage();
+      renderPanel();
+    }
+  }
+
+  function switchTab(tab) {
+    state.activeTab = tab;
+    renderPanel();
+  }
+
+  function clearHighlights() {
+    state.highlightedZone = null;
+    state.highlightedElement = null;
+    document.querySelectorAll('.anno-zone.is-highlighted').forEach(function (el) {
+      el.classList.remove('is-highlighted');
+    });
+    document.querySelectorAll('.l3-dot.is-active').forEach(function (el) {
+      el.classList.remove('is-active');
+    });
+    if (dom.panelBody) {
+      dom.panelBody.querySelectorAll('.anno-card.is-active').forEach(function (el) {
+        el.classList.remove('is-active');
+      });
+    }
+  }
+
+  // ==========================================
+  // 6. 交互方法（v5.2：确保双向激活一致性）
+  // ==========================================
+
+  /**
+   * 点击右侧 L2 卡片：高亮左侧对应区域
+   * v5.2：先 renderPanel() 确保卡片渲染，再高亮 + 滚动
+   */
+  function highlightZone(zoneId) {
+    if (state.highlightedZone === zoneId) {
+      state.highlightedZone = null;
+      state.highlightedElement = null;
+    } else {
+      state.highlightedZone = zoneId;
+      state.highlightedElement = null;
+    }
+    state.activeTab = 'L2';
+    // v5.2.5：设置 suppressRefresh，阻止 scrollToElement 触发的 refresh 导致闪缩
+    state.suppressRefresh = Date.now();
+    renderPanel();  // v5.2：先渲染确保卡片存在
+    scrollToElement('[data-zone-id="' + zoneId + '"]');
+  }
+
+  /**
+   * 点击右侧 L3 卡片：高亮左侧对应元素
+   * v5.2：先 renderPanel() 确保卡片渲染，再高亮 + 滚动
+   */
+  function highlightElement(elemId) {
+    if (state.highlightedElement === elemId) {
+      state.highlightedElement = null;
+      state.highlightedZone = null;
+    } else {
+      state.highlightedElement = elemId;
+      state.highlightedZone = null;
+    }
+    state.activeTab = 'L3';
+    // v5.2.5：设置 suppressRefresh，阻止 scrollToElement 触发的 refresh 导致闪缩
+    state.suppressRefresh = Date.now();
+    renderPanel();  // v5.2：先渲染确保卡片存在
+    scrollToElement('[data-element-id="' + elemId + '"]');
+  }
+
+  /**
+   * 点击左侧 L2 marker：打开面板 + 切换到 L2 Tab
+   * v5.2：先 renderPanel() 确保卡片渲染，再滚动到面板卡片
+   */
+  function focusZoneCard(zoneId) {
+    if (state.highlightedZone === zoneId) {
+      state.highlightedZone = null;
+      state.highlightedElement = null;
+      applyHighlights();
+      return;
+    }
+    setPanelVisible(true);
+    state.activeTab = 'L2';
+    state.highlightedZone = zoneId;
+    state.highlightedElement = null;
+    // v5.2.5：设置 suppressRefresh 避免闪缩
+    state.suppressRefresh = Date.now();
+    renderPanel();  // v5.2：先渲染面板，确保卡片存在
+    scrollToPanelCard('[data-card-zone="' + zoneId + '"]');
+  }
+
+  /**
+   * 点击左侧 L3 dot：打开面板 + 切换到 L3 Tab
+   * v5.2：先 renderPanel() 确保卡片渲染，再滚动到面板卡片
+   */
+  function focusElementCard(elemId) {
+    if (state.highlightedElement === elemId) {
+      state.highlightedElement = null;
+      state.highlightedZone = null;
+      applyHighlights();
+      return;
+    }
+    setPanelVisible(true);
+    state.activeTab = 'L3';
+    state.highlightedElement = elemId;
+    state.highlightedZone = null;
+    // v5.2.5：设置 suppressRefresh 避免闪缩
+    state.suppressRefresh = Date.now();
+    renderPanel();  // v5.2：先渲染面板，确保卡片存在
+    scrollToPanelCard('[data-card-element="' + elemId + '"]');
+  }
+
+  // ==========================================
+  // 7. DOM 操作
+  // ==========================================
+
+  function scrollToElement(selector) {
+    setTimeout(function () {
+      // v5.2.5：使用 findVisibleElement 找到可见的目标元素
+      var el = findVisibleElement(selector);
+      if (el) {
+        // v5.2：如果元素不可见，尝试展开其祖先
+        if (!isElementVisible(el)) {
+          console.warn('[annotation-engine] 目标元素不可见，scrollIntoView 可能无效:', selector);
+        }
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 50);
+  }
+
+  function scrollToPanelCard(selector) {
+    setTimeout(function () {
+      var panelBody = dom.panelBody;
+      var card = panelBody ? panelBody.querySelector(selector) : null;
+      if (panelBody && card) {
+        var panelRect = panelBody.getBoundingClientRect();
+        var cardRect = card.getBoundingClientRect();
+        var isVisible = cardRect.top >= panelRect.top && cardRect.bottom <= panelRect.bottom;
+        if (!isVisible) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }
+    }, 150);
+  }
+
+  /**
+   * 应用高亮状态到 DOM
+   */
+  function applyHighlights() {
+    // 清除所有高亮
+    document.querySelectorAll('.anno-zone.is-highlighted').forEach(function (el) {
+      el.classList.remove('is-highlighted');
+    });
+    document.querySelectorAll('.l3-dot.is-active').forEach(function (el) {
+      el.classList.remove('is-active');
+    });
+    if (dom.panelBody) {
+      dom.panelBody.querySelectorAll('.anno-card.is-active').forEach(function (el) {
+        el.classList.remove('is-active');
+      });
+    }
+
+    // 应用 L2 高亮
+    if (state.highlightedZone) {
+      // v5.2.5：使用 findVisibleElement 避免高亮到隐藏页面的元素
+      var zoneEl = findVisibleElement('[data-zone-id="' + state.highlightedZone + '"]');
+      if (zoneEl) zoneEl.classList.add('is-highlighted');
+      var cardEl = dom.panelBody ? dom.panelBody.querySelector('[data-card-zone="' + state.highlightedZone + '"]') : null;
+      if (cardEl) cardEl.classList.add('is-active');
+    }
+
+    // 应用 L3 高亮
+    if (state.highlightedElement) {
+      // v5.2.5：使用 findVisibleElement 避免高亮到隐藏页面的元素
+      var elemWrap = findVisibleElement('[data-element-id="' + state.highlightedElement + '"]');
+      if (elemWrap) {
+        var dot = elemWrap.querySelector('.l3-dot');
+        if (dot) dot.classList.add('is-active');
+      }
+      var elemCard = dom.panelBody ? dom.panelBody.querySelector('[data-card-element="' + state.highlightedElement + '"]') : null;
+      if (elemCard) elemCard.classList.add('is-active');
+    }
+
+    // 更新 Tab 激活状态
+    renderTabState();
+  }
+
+  /**
+   * 路由变化处理
+   */
+  function onRouteChange() {
+    detectCurrentPage();
+    clearHighlights();
+    state.activeTab = 'L1';
+    renderPanel();
+  }
+
+  // ==========================================
+  // 8. 面板渲染（v5.2.2：可见性过滤，不渲染不可见标注）
+  // ==========================================
+
+  function renderPanel() {
+    if (!dom.panelBody) return;
+
+    renderTabState();
+
+    // v5.2.2：使用 getAnnotationPages() 兼容 {P01:{...}} 与 {version,pages:{P01:{...}}} 两种结构
+    var pages = getAnnotationPages();
+    var ann = pages[state.activePageId];
+    if (!ann) {
+      dom.panelBody.innerHTML = '<div style="color:#909399;text-align:center;padding:40px 0">当前页面暂无标注</div>';
+      return;
+    }
+
+    var html = '';
+
+    if (state.activeTab === 'L1' && ann.L1) {
+      html = renderL1(ann.L1);
+    } else if (state.activeTab === 'L2' && ann.L2) {
+      html = renderL2List(ann.L2);
+    } else if (state.activeTab === 'L3' && ann.L3) {
+      html = renderL3List(ann.L3);
+    }
+
+    if (!html) {
+      // v5.2.2：区分"页面无此层级标注"和"可视区域内无此层级标注"
+      var hasLevel = (state.activeTab === 'L1' && ann.L1) ||
+                     (state.activeTab === 'L2' && ann.L2 && ann.L2.length > 0) ||
+                     (state.activeTab === 'L3' && ann.L3 && ann.L3.length > 0);
+      if (hasLevel) {
+        // 有此层级标注但都被过滤（当前可视区域内无可见标注）
+        html = '<div style="color:#909399;text-align:center;padding:40px 0;line-height:1.8;">当前可视区域内无 ' + state.activeTab + ' 标注<br><span style="font-size:12px;color:#c0c4cc;">切换 tab 或展开折叠区后自动刷新</span></div>';
+      } else {
+        html = '<div style="color:#909399;text-align:center;padding:40px 0">当前页面暂无 ' + state.activeTab + ' 标注</div>';
+      }
+    }
+
+    dom.panelBody.innerHTML = html;
+
+    // 绑定卡片点击事件
+    dom.panelBody.querySelectorAll('[data-card-zone]').forEach(function (card) {
+      card.addEventListener('click', function () {
+        highlightZone(card.getAttribute('data-card-zone'));
+      });
+    });
+
+    dom.panelBody.querySelectorAll('[data-card-element]').forEach(function (card) {
+      card.addEventListener('click', function () {
+        highlightElement(card.getAttribute('data-card-element'));
+      });
+    });
+
+    // 更新页面 ID 标签
+    var pageTag = dom.panelHeader ? dom.panelHeader.querySelector('.page-id-tag') : null;
+    if (pageTag) {
+      pageTag.textContent = state.activePageId || '';
+    }
+
+    // 应用当前高亮
+    applyHighlights();
+  }
+
+  function renderTabState() {
+    if (!dom.panelTabs) return;
+    dom.panelTabs.querySelectorAll('[data-tab]').forEach(function (btn) {
+      if (btn.getAttribute('data-tab') === state.activeTab) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+  }
+
+  function renderL1(l1) {
+    var rules = '';
+    if (l1.business_rules) {
+      if (Array.isArray(l1.business_rules)) {
+        rules = '<div class="l1-rules"><div class="l1-rules-title">业务规则</div><ul class="l1-rules-list">';
+        l1.business_rules.forEach(function (r) { rules += '<li>' + escapeHtml(r) + '</li>'; });
+        rules += '</ul></div>';
+      } else {
+        rules = '<div class="l1-rules"><div class="l1-rules-title">业务规则</div><p class="l1-rules-text">' + escapeHtml(l1.business_rules) + '</p></div>';
+      }
+    }
+
+    var testData = '';
+    if (l1.test_data) {
+      testData = '<blockquote class="l1-test-data"><div class="l1-test-data-title">测试数据</div><p>' + escapeHtml(l1.test_data) + '</p></blockquote>';
+    }
+
+    return '<div class="anno-card anno-card-l1">' +
+      '<div class="anno-card-head"><span class="l1-tag">L1</span><span class="anno-card-title">' + escapeHtml(l1.summary || '') + '</span></div>' +
+      '<div class="anno-card-desc l1-detail"><dl class="l1-meta">' +
+      '<dt>入口</dt><dd>' + escapeHtml(l1.entry || '') + '</dd>' +
+      '<dt>前置条件</dt><dd>' + escapeHtml(l1.precondition || '') + '</dd>' +
+      '<dt>数据实体</dt><dd>' + escapeHtml(l1.data_entity || '') + '</dd>' +
+      '</dl>' + rules + testData + '</div></div>';
+  }
+
+  /**
+   * v5.2.2：渲染 L2 卡片列表，过滤不可见标注（不再显示灰色"当前不可见"卡片）
+   * 标注面板与页面可视区域严格一致：不可见的 L2 区域不渲染卡片
+   * @param {Array} zones L2 区域数组
+   * @returns {string} HTML 字符串（可能为空字符串）
+   */
+  function renderL2List(zones) {
+    var html = '';
+    zones.forEach(function (z) {
+      // v5.2.5：使用 findVisibleElement 替代 querySelector
+      // 修复多页面场景下 L2 id 重复（每个页面都有 R-001）导致 querySelector 返回隐藏页面元素的问题
+      var zoneEl = findVisibleElement('[data-zone-id="' + z.id + '"]');
+      // v5.2.2：过滤不可见元素，保持面板与可视区域一致
+      if (!zoneEl) return;
+      var activeClass = state.highlightedZone === z.id ? ' is-active' : '';
+      html += '<div class="anno-card l2-card' + activeClass + '" data-card-zone="' + escapeHtml(z.id) + '">' +
+        '<div class="anno-card-head"><span class="l2-tag">' + escapeHtml(z.id) + '</span><span class="anno-card-title">' + escapeHtml(z.zone || '') + '</span></div>' +
+        '<div class="anno-card-desc">' + escapeHtml(z.description || '') + '</div>' +
+        '</div>';
+    });
+    return html;
+  }
+
+  /**
+   * v5.2.2：渲染 L3 卡片列表，过滤不可见标注（不再显示灰色"当前不可见"卡片）
+   * 标注面板与页面可视区域严格一致：不可见的 L3 元素不渲染卡片
+   * @param {Array} elements L3 元素数组
+   * @returns {string} HTML 字符串（可能为空字符串）
+   */
+  function renderL3List(elements) {
+    var html = '';
+    elements.forEach(function (e) {
+      // v5.2.5：使用 findVisibleElement 替代 querySelector
+      var elemEl = findVisibleElement('[data-element-id="' + e.id + '"]');
+      // v5.2.2：过滤不可见元素，保持面板与可视区域一致
+      if (!elemEl) return;
+      var activeClass = state.highlightedElement === e.id ? ' is-active' : '';
+      html += '<div class="anno-card l3-card' + activeClass + '" data-card-element="' + escapeHtml(e.id) + '">' +
+        '<div class="anno-card-head"><span class="l3-tag">' + escapeHtml(e.id) + '</span><span class="anno-card-title">' + escapeHtml(e.element || '') + '</span></div>' +
+        '<div class="anno-card-grid">' +
+        '<div><b>功能：</b>' + escapeHtml(e.function || '') + '</div>' +
+        '<div><b>触发：</b>' + escapeHtml(e.trigger || '') + '</div>' +
+        '<div><b>条件：</b>' + escapeHtml(e.condition || '') + '</div>' +
+        '<div><b>响应：</b>' + escapeHtml(e.response || '') + '</div>' +
+        '<div><b>状态：</b>' + escapeHtml(e.state || '') + '</div>' +
+        '<div><b>异常：</b>' + escapeHtml(e.exception || '') + '</div>' +
+        '</div>' +
+        '</div>';
+    });
+    return html;
+  }
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  // ==========================================
+  // 9. 自动初始化
+  // ==========================================
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  // 暴露 API 供外部调用
+  window.__ANNOTATION_ENGINE__ = {
+    togglePanel: togglePanel,
+    setPanelVisible: setPanelVisible,
+    highlightZone: highlightZone,
+    highlightElement: highlightElement,
+    focusZoneCard: focusZoneCard,
+    focusElementCard: focusElementCard,
+    switchTab: switchTab,
+    getState: function () { return Object.assign({}, state); },
+    // v5.2：refresh 增强 — 重新检测页面 + 重新渲染
+    refresh: function () {
+      detectCurrentPage();
+      renderPanel();
+    },
+    // v5.2：新增 — 手动触发可见性刷新
+    refreshVisibility: scheduleVisibilityRefresh
+  };
+
+})();
+
+</script>
+<!-- [demora-annotation-js] end -->
+
+<!-- [demora-copyright-footer] start -->
+<style>
+  /* v5.10: Ourchem × Demora 联合版权 Footer（项目级统一标识） */
+  .demora-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 24px 20px;
+    margin-top: 40px;
+    background: #0a0e14;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.6);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .demora-footer-coop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+  .demora-footer-brand-logo {
+    display: flex;
+    align-items: center;
+    height: 28px;
+  }
+  .demora-footer-brand-ourchem svg {
+    height: 28px;
+    width: auto;
+    opacity: 0.95;
+  }
+  .demora-footer-brand-demora svg {
+    height: 24px;
+    width: auto;
+  }
+  .demora-footer-coop-x {
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.4);
+  }
+  .demora-footer-copyright {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.7;
+    text-align: center;
+    margin: 0;
+  }
+  .demora-footer-meta {
+    display: inline-block;
+    margin-top: 4px;
+    font-family: "SF Mono", Monaco, Consolas, monospace;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.35);
+  }
+  @media (max-width: 640px) {
+    .demora-footer { padding: 20px 16px; }
+    .demora-footer-coop { gap: 12px; }
+    .demora-footer-brand-ourchem svg, .demora-footer-brand-demora svg { height: 22px; }
+    .demora-footer-coop-x { font-size: 16px; }
+  }
+</style>
+<footer class="demora-footer">
+  <div class="demora-footer-coop">
+    <div class="demora-footer-brand-logo demora-footer-brand-ourchem" aria-label="Ourchem">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 133.24 25.6">
+<defs><style>.cls-1{fill:#fff;}</style></defs><title>奥凯logo-长-白</title><polygon class="cls-1" points="28.83 4.2 27.95 4.46 27.95 5.2 28.83 4.94 28.83 4.2"/><polygon class="cls-1" points="29.77 4.05 29.22 4.21 29.22 4.67 29.77 4.51 29.77 4.05"/><polygon class="cls-1" points="29.59 4.92 29.05 5.07 29.05 5.53 29.59 5.37 29.59 4.92"/><polygon class="cls-1" points="28.83 5.86 28.83 5.41 28.29 5.57 28.29 6.02 28.83 5.86"/><polygon class="cls-1" points="27.85 6.89 28.39 6.73 28.39 6.28 27.85 6.44 27.85 6.89"/><polygon class="cls-1" points="29.32 6.2 28.77 6.36 28.77 6.82 29.32 6.66 29.32 6.2"/><polygon class="cls-1" points="28.69 3.93 29.69 3.64 29.69 2.77 28.69 3.06 28.69 3.93"/><path class="cls-1" d="M11.69,21.54c-3.11,1.15-5.69,1.26-6.92,0-1-1-1-2.59-.13-4.55a3,3,0,0,1-.9-2.11v-3C.31,16.18-1,20.42.81,22.81c1.61,2.15,5.35,2.3,9.77.8v-1l1.11-.35Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M11.93,8.21c6.49-5.31,13.62-7.59,15.73-5a2.77,2.77,0,0,1,.42.75l.26-.09v-1l.91-.27a4.42,4.42,0,0,0-.44-.76C26.15-1.74,17.73.08,10,5.93a35.79,35.79,0,0,0-5.44,5H9A36.4,36.4,0,0,1,11.93,8.21Z" transform="translate(0 -0.01)"/><polygon class="cls-1" points="29.01 7.11 28.39 7.29 28.39 7.82 29.01 7.63 29.01 7.11"/><polygon class="cls-1" points="27.58 8.38 28.12 8.22 28.12 7.76 27.58 7.92 27.58 8.38"/><polygon class="cls-1" points="28.46 8.43 28.03 8.56 28.03 8.92 28.46 8.79 28.46 8.43"/><polygon class="cls-1" points="27.22 9.09 27.64 8.97 27.64 8.61 27.22 8.73 27.22 9.09"/><polygon class="cls-1" points="27.13 9.96 27.67 9.8 27.67 9.35 27.13 9.5 27.13 9.96"/><polygon class="cls-1" points="26.81 10.43 26.81 10.09 26.4 10.21 26.4 10.55 26.81 10.43"/><polygon class="cls-1" points="27.84 7.55 28.21 7.44 28.21 7.13 27.84 7.24 27.84 7.55"/><polygon class="cls-1" points="19.08 18.49 19.5 18.36 19.5 18 19.08 18.13 19.08 18.49"/><polygon class="cls-1" points="17.71 19.86 18.16 19.73 18.16 19.35 17.71 19.49 17.71 19.86"/><polygon class="cls-1" points="16.89 19.52 17.44 19.36 17.44 18.89 16.89 19.06 16.89 19.52"/><polygon class="cls-1" points="15.16 20.3 14.75 20.42 14.75 20.76 15.16 20.64 15.16 20.3"/><polygon class="cls-1" points="16.99 20.38 17.39 20.26 17.39 19.91 16.99 20.03 16.99 20.38"/><polygon class="cls-1" points="14.98 21.58 15.61 21.39 15.61 20.87 14.98 21.05 14.98 21.58"/><polygon class="cls-1" points="13.69 22.24 14.54 21.99 14.54 21.27 13.69 21.52 13.69 22.24"/><polygon class="cls-1" points="14.4 21.03 14.4 20.49 13.75 20.68 13.75 21.22 14.4 21.03"/><polygon class="cls-1" points="12.67 22.87 13.31 22.68 13.31 22.14 12.67 22.33 12.67 22.87"/><polygon class="cls-1" points="15.66 20.72 16.61 20.44 16.61 19.64 15.66 19.92 15.66 20.72"/><polygon class="cls-1" points="18.03 19.12 18.57 18.96 18.57 18.51 18.03 18.66 18.03 19.12"/><polygon class="cls-1" points="13.23 21.66 13.23 20.76 12.16 21.08 12.16 21.97 13.23 21.66"/><polygon class="cls-1" points="11.01 23.83 12.19 23.48 12.19 22.48 11.01 22.83 11.01 23.83"/><path class="cls-1" d="M18.82,12.61a1.69,1.69,0,0,1,1.51,1l1-.54a2.87,2.87,0,0,0-2.54-1.6,3,3,0,0,0,0,5.89,2.87,2.87,0,0,0,2.54-1.6l-1-.54a1.69,1.69,0,0,1-1.51,1,1.79,1.79,0,0,1,0-3.57Z" transform="translate(0 -0.01)"/><polygon class="cls-1" points="25.91 17.33 27.07 17.33 27.07 11.43 25.91 11.43 25.91 13.82 23.44 13.82 23.44 11.43 22.28 11.43 22.28 17.33 23.44 17.33 23.44 14.93 25.91 14.93 25.91 17.33"/><polygon class="cls-1" points="38.23 11.43 36.68 15.48 35.13 11.43 33.84 11.43 33.84 17.33 34.97 17.33 34.97 14.04 36.25 17.33 37.11 17.33 38.39 14.04 38.39 17.33 39.55 17.33 39.55 11.43 38.23 11.43"/><path class="cls-1" d="M6.67,17.34a2.42,2.42,0,0,0,2.42-2.42V11.44H7.93v3.48a1.26,1.26,0,0,1-2.52,0V11.44H4.24v3.48A2.43,2.43,0,0,0,6.67,17.34Z" transform="translate(0 -0.01)"/><polygon class="cls-1" points="28.29 17.33 32.87 17.33 32.87 16.27 29.45 16.27 29.45 14.93 32.34 14.93 32.34 13.83 29.45 13.83 29.45 13.75 29.45 12.54 32.87 12.54 32.87 11.43 28.29 11.43 28.29 17.33"/><polygon class="cls-1" points="11.71 13.9 11.71 13.9 11.71 13.9 11.71 13.9"/><path class="cls-1" d="M15.94,17.34l-2-2.39a1.81,1.81,0,0,0-.64-3.51h-3v5.9h1.16V12.6h1.89a.66.66,0,1,1,.16,1.31H12.35a.31.31,0,0,0-.29.3.32.32,0,0,0,.08.21h0l2.38,2.92Z" transform="translate(0 -0.01)"/><polygon class="cls-1" points="35.84 20.37 35.84 20.26 35.84 19.09 35.19 19.09 35.19 20.26 34.9 20.26 34.9 18.73 34.11 18.73 34.11 20.26 33.82 20.26 33.82 19.09 33.17 19.09 33.17 20.26 33.17 20.37 33.17 20.69 35.84 20.69 35.84 20.37"/><path class="cls-1" d="M38.71,23.26V19.08H36.24v4.16c0,.88-.65,1-.8,1H34.16v-1.5h1.68V21.08H33.17v.43h1.69v.78H33.17v2.36h2.77c.9,0,1.26-.43,1.26-1.43V19.53h.52v3.68c0,1,.34,1.4,1.17,1.43h.66v-.43h0C39.36,24.21,38.71,24.14,38.71,23.26Z" transform="translate(0 -0.01)"/><polygon class="cls-1" points="26.17 19.71 25.77 19.71 26.11 20.47 26.51 20.47 26.17 19.71"/><polygon class="cls-1" points="27.97 19.71 27.63 20.47 28.02 20.47 28.37 19.71 27.97 19.71"/><polygon class="cls-1" points="27.97 22.04 28.37 22.04 28.02 21.27 27.63 21.27 27.97 22.04"/><polygon class="cls-1" points="26.17 22.04 26.51 21.27 26.11 21.27 25.77 22.04 26.17 22.04"/><polygon class="cls-1" points="28.37 21.06 28.37 20.68 28.37 20.66 27.46 20.66 27.46 19.64 26.68 19.64 26.68 20.66 25.77 20.66 25.77 20.68 25.77 21.06 25.77 21.09 26.68 21.09 26.68 22.1 27.46 22.1 27.46 21.09 28.37 21.09 28.37 21.06"/><polygon class="cls-1" points="29.56 22.5 29.56 19.52 29.56 19.09 28.58 19.09 25.9 19.09 26.14 18.73 24.82 18.73 24.58 19.09 24.58 19.12 24.58 19.52 24.58 22.53 25.56 22.53 25.56 19.52 28.58 19.52 28.58 22.5 29.56 22.5"/><path class="cls-1" d="M27.48,22.29H26.24l-.36.54h-2v.43h1.74c-.19.29-.36.54-.4.62a.94.94,0,0,1-.75.33v.43c.86,0,1.46,0,1.73-.4l.64-1h.46l.64,1c.27.41.88.4,1.72.4v-.43a.92.92,0,0,1-.74-.33l-.4-.62h1.72v-.43H27.12Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M49.63,13.14H44.51v1.44a5.9,5.9,0,0,1-1,3.72,4.27,4.27,0,0,0-.74-.67,4.68,4.68,0,0,0,.78-3.06V12.26h2.69a8.68,8.68,0,0,0-.27-1l1-.17a7.65,7.65,0,0,1,.27,1.17h2.4Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M51.58,13.19A7.74,7.74,0,0,1,51,15.4l-.77-.32A6.39,6.39,0,0,0,50.82,13Zm1.67,0a9.12,9.12,0,0,1,.6,1.9l-.76.36a9.28,9.28,0,0,0-.42-1.65c0,1.55-.19,3.26-1.61,4.44a3.32,3.32,0,0,0-.65-.7,4.58,4.58,0,0,0,1.37-3.82V11.29h.89v2.09Zm3.67-1.88v6.77H56V15l-.67.37a8.14,8.14,0,0,0-.61-1.67v4h-.88v-6.2h.88v1.9l.55-.28A11,11,0,0,1,56,14.73V11.26Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M62.24,16.38a3.58,3.58,0,0,0,2.69,1,2.87,2.87,0,0,0-.55.86,3.54,3.54,0,0,1-3-1.6c-.39.82-1.22,1.33-3.14,1.61a3,3,0,0,0-.43-.79c1.63-.18,2.32-.52,2.65-1.06H58v-.76h2.74a.82.82,0,0,1,.06-.37h.94v.37h3v.76Zm-2.74-1h-.83V11.73h2q.12-.3.21-.6l1,.14c-.08.16-.15.32-.21.46h2.38v3.62h-.87V12.46H59.49Zm3.08-.16a8.71,8.71,0,0,0-.83-.64l.41-.4h-.42v.9H61V14.5a4.64,4.64,0,0,1-.93.78,2.52,2.52,0,0,0-.47-.51,4.16,4.16,0,0,0,.87-.62H59.7v-.59h.54a4.6,4.6,0,0,0-.39-.68l.56-.26a6.2,6.2,0,0,1,.44.69l-.5.25H61v-1h.76v1h.57l-.46-.23a4.88,4.88,0,0,0,.42-.74l.66.29-.55.68H63v.59h-.76c.27.18.65.43.83.58Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M68.34,16.63a5.72,5.72,0,0,0,.08.76,13.87,13.87,0,0,0-2.61.66,2.34,2.34,0,0,0-.28-.72c.12-.06.21-.17.21-.44V15.33h2.14v-.6H65.59v-.79h3.09v2.14h-2.2V17Zm.46-3.13H65.62V11.57h.72v1.24h.49V11.17h.76v1.64h.47V11.57h.74Zm2.92,3.84c.08,0,.1-.2.12-1a2.3,2.3,0,0,0,.67.32c-.06,1-.24,1.29-.72,1.29h-.37c-.56,0-.7-.24-.7-1V12.27h-.64V13.9a7.67,7.67,0,0,1-1,4.32,2.83,2.83,0,0,0-.65-.55,6.57,6.57,0,0,0,.83-3.78V11.52h2.26V17c0,.3,0,.35.09.35Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M75.24,11.43a13,13,0,0,1-.55,1.34v5.46h-.82V14.18c-.18.25-.37.5-.55.71a4.91,4.91,0,0,0-.46-.88,7.72,7.72,0,0,0,1.58-2.82Zm4.63.9v.75H75v-.73h2.16a9.59,9.59,0,0,0-.47-.9l.76-.28a6.49,6.49,0,0,1,.55,1l-.43.19Zm-4.42,3.34h4v2.5h-.79V18H76.24v.23h-.76Zm3.88-1.51H75.56v-.7h3.77Zm-3.77.39h3.77v.7H75.56Zm.65,1.84v.85h2.43v-.85Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M80.44,17.44a8.3,8.3,0,0,0,.71-1.58l.8.33a14.69,14.69,0,0,1-.68,1.65Zm3.29-1.92H81.57V11.83H83.3a6.17,6.17,0,0,0,.19-.74l1.09.13c-.11.23-.23.43-.32.61h2.06v3.69H84.15a4.77,4.77,0,0,1,.79,1L84.2,17a5.21,5.21,0,0,0-.89-1.19Zm1.06,1.74c.36,0,.42-.1.47-.82a2.18,2.18,0,0,0,.81.32c-.11,1-.37,1.31-1.21,1.31H83.43c-1.06,0-1.34-.25-1.34-1v-1H83v1c0,.22.07.25.5.25Zm-2.36-4.4h3v-.35h-3Zm0,1h3v-.34h-3Zm0,1h3v-.35h-3Zm4.13.87a6.18,6.18,0,0,1,.84,1.61l-.86.37a6.71,6.71,0,0,0-.77-1.65Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M90.41,14.08l-2.08.9L88,14.1c.57-.16,1.45-.46,2.3-.74Zm-.72-1.3a6.58,6.58,0,0,0-1.39-.73l.44-.64a6.79,6.79,0,0,1,1.42.66Zm-.63,2.62h5v2.84h-1V18H89.94v.3H89Zm3.87-2.72a1.78,1.78,0,0,1-.09.47,2.28,2.28,0,0,0,2.09,1.41,3,3,0,0,0-.51.77,2.78,2.78,0,0,1-1.94-1.28,3.32,3.32,0,0,1-2,1.33,2.54,2.54,0,0,0-.49-.76c1.54-.37,1.92-1,2.06-1.94h-.7a5,5,0,0,1-.64.93,4.37,4.37,0,0,0-.78-.47,4.31,4.31,0,0,0,1.11-2l.87.18a1.77,1.77,0,0,1-.19.56h2.53l.62.16a9.43,9.43,0,0,1-.62,1.63l-.73-.21c.1-.25.19-.5.27-.76ZM90,16.2v1h3.12v-1Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M97.92,15.84a5.4,5.4,0,0,0,.29.76,13.61,13.61,0,0,0-1.74,1.48,3.17,3.17,0,0,0-.43-.76.93.93,0,0,0,.38-.72V14.33h-.9v-.86h1.77v2.85Zm-1-2.78a11.39,11.39,0,0,0-1-1.25l.61-.52a9.44,9.44,0,0,1,1.09,1.19Zm5.43-.83v.42c-.09,3.45-.18,4.66-.47,5a.92.92,0,0,1-.64.38,6.73,6.73,0,0,1-1.1,0,1.93,1.93,0,0,0-.27-.87h1a.35.35,0,0,0,.31-.15c.2-.23.29-1.36.37-4.13H99.11q-.18.29-.36.54h2.17v3.1H99.14v.51h-.82v-3l-.09.1a4.88,4.88,0,0,0-.75-.61,6,6,0,0,0,1.44-2.37l.91.24c-.1.28-.22.55-.34.83ZM99.11,14.3v.5H100v-.5ZM100,16v-.49h-.93V16Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M105.87,12.91q-.14.3-.3.6h3.49v3.72c0,.44-.09.68-.4.82a3.33,3.33,0,0,1-1.33.15,4.39,4.39,0,0,0-.27-.87h1c.18,0,.17,0,.17-.15v-.45h-2.72v1.44h-.89V14.91a5,5,0,0,1-1,.89,4.3,4.3,0,0,0-.59-.69,5.8,5.8,0,0,0,1.88-2.2h-1.67v-.83h2c.11-.3.21-.6.29-.91l.93.21c-.08.23-.16.46-.25.7h3.68v.84Zm2.31,1.38h-2.72v.48h2.72Zm0,1.72v-.49h-2.72V16Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M113.41,11.76c-.2.63-.45,1.39-.65,2a2.42,2.42,0,0,1,.54,1.57,1.13,1.13,0,0,1-.34,1,.82.82,0,0,1-.42.17,4,4,0,0,1-.49,0,1.86,1.86,0,0,0-.19-.77h.32a.29.29,0,0,0,.2-.07c.1-.06.14-.23.14-.44a2.12,2.12,0,0,0-.53-1.38c.15-.46.31-1.07.43-1.56h-.73v5.9h-.78V11.46h1.91Zm4.06,3.87c-.33.26-.72.54-1.06.76a3.29,3.29,0,0,0,1.22,1,3.48,3.48,0,0,0-.59.78A4.68,4.68,0,0,1,115,14.91h-.45v2.17l1-.24a5.61,5.61,0,0,0,0,.82,8.15,8.15,0,0,0-1.93.6,2.64,2.64,0,0,0-.38-.7.73.73,0,0,0,.35-.66V11.47H117v3.45h-1.3a4,4,0,0,0,.3.82,6.72,6.72,0,0,0,.86-.74Zm-3-3.4v.59h1.66v-.59Zm0,1.92h1.66v-.61h-1.66Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M121.07,11.61A9.13,9.13,0,0,1,119,14.73a10.34,10.34,0,0,0-.84-.64,6.47,6.47,0,0,0,1.94-2.76Zm2.11,3.47a21.11,21.11,0,0,1,1.7,2.6l-.9.48c-.11-.25-.28-.54-.46-.86a30,30,0,0,0-4.53.47,8.19,8.19,0,0,0-.35-.94,1.52,1.52,0,0,0,.71-.59,13,13,0,0,0,1.79-2.89l1,.43a16.14,16.14,0,0,1-2,2.86l2.81-.18-.67-1ZM123,11.24a10,10,0,0,0,2.1,2.69,4.49,4.49,0,0,0-.75.76,13.94,13.94,0,0,1-2.24-3.09Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M132.17,17.08c0,.51-.09.78-.42.94a3.46,3.46,0,0,1-1.46.18,3.83,3.83,0,0,0-.29-1,9.37,9.37,0,0,0,1.06,0c.14,0,.19,0,.19-.17V12.47H126v-.85h6.18ZM130.5,13.8h-4.43V13h4.43Zm-3.17,3.11v.54h-.88V14.34h3.66v2.55Zm0-1.78v1h1.91v-1Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M42.92,22.86a1.88,1.88,0,0,1,.47-1.36,1.59,1.59,0,0,1,1.2-.49,1.74,1.74,0,0,1,.87.23,1.58,1.58,0,0,1,.59.64,2.18,2.18,0,0,1,.2.94,2.14,2.14,0,0,1-.21,1,1.43,1.43,0,0,1-.61.63,1.77,1.77,0,0,1-.84.21,1.81,1.81,0,0,1-.88-.23,1.61,1.61,0,0,1-.59-.65A2,2,0,0,1,42.92,22.86Zm.48,0a1.39,1.39,0,0,0,.34,1,1.17,1.17,0,0,0,1.7,0,1.42,1.42,0,0,0,.34-1,1.77,1.77,0,0,0-.15-.75,1.06,1.06,0,0,0-.39-.52,1.23,1.23,0,0,0-.62-.17,1.2,1.2,0,0,0-.84.33,1.56,1.56,0,0,0-.38,1.13Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M48.51,24.55v-.37a.9.9,0,0,1-.8.43,1.15,1.15,0,0,1-.41-.08.67.67,0,0,1-.42-.54,2.54,2.54,0,0,1,0-.39V22.08h.36v1.4a3.38,3.38,0,0,0,0,.45.55.55,0,0,0,.17.27.63.63,0,0,0,.33.09.74.74,0,0,0,.36-.09.57.57,0,0,0,.24-.27,1.68,1.68,0,0,0,.07-.5V22.08h.42V24.6Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M49.63,24.55V22.08H50v.39a1.18,1.18,0,0,1,.23-.39.46.46,0,0,1,.28-.08.84.84,0,0,1,.44.13l-.15.4a.56.56,0,0,0-.31-.09.44.44,0,0,0-.25.08.45.45,0,0,0-.16.24,1.62,1.62,0,0,0-.08.49v1.32Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M53,23.63l.42.06a1.14,1.14,0,0,1-.36.68,1,1,0,0,1-.69.24,1.07,1.07,0,0,1-.84-.34,1.39,1.39,0,0,1-.31-1,1.72,1.72,0,0,1,.13-.71.9.9,0,0,1,.42-.46,1.24,1.24,0,0,1,.6-.15,1.08,1.08,0,0,1,.67.2,1,1,0,0,1,.34.59l-.42.07a.68.68,0,0,0-.21-.38.5.5,0,0,0-.37-.13.65.65,0,0,0-.52.23,1.11,1.11,0,0,0-.2.73,1.15,1.15,0,0,0,.19.74.66.66,0,0,0,.51.23.6.6,0,0,0,.42-.15A.83.83,0,0,0,53,23.63Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M53.82,24.55V21.08h.42v1.25A1,1,0,0,1,55,22a.93.93,0,0,1,.49.11.6.6,0,0,1,.29.3,1.39,1.39,0,0,1,.09.57v1.59h-.42V23a.71.71,0,0,0-.14-.47.54.54,0,0,0-.4-.15.74.74,0,0,0-.35.1.57.57,0,0,0-.24.27,1.25,1.25,0,0,0-.07.47v1.37Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M58.32,23.74l.44.06a1.06,1.06,0,0,1-.39.6,1.32,1.32,0,0,1-1.6-.13,1.7,1.7,0,0,1,0-2,1.1,1.1,0,0,1,.85-.35,1.06,1.06,0,0,1,.82.34,1.36,1.36,0,0,1,.32,1v.11H56.89a1,1,0,0,0,.24.64.64.64,0,0,0,.52.22.65.65,0,0,0,.4-.12A.83.83,0,0,0,58.32,23.74Zm-1.41-.66h1.41a.92.92,0,0,0-.16-.48.72.72,0,0,0-1-.05A.8.8,0,0,0,56.91,23.08Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M59.36,24.55V22.08h.39v.36a.75.75,0,0,1,.31-.3.79.79,0,0,1,.45-.11.83.83,0,0,1,.46.11.63.63,0,0,1,.25.33A.89.89,0,0,1,62,22a.82.82,0,0,1,.58.2.93.93,0,0,1,.2.64V24.6h-.42V23a.92.92,0,0,0,0-.37.27.27,0,0,0-.15-.18.43.43,0,0,0-.25-.07.61.61,0,0,0-.44.17.78.78,0,0,0-.18.57v1.46h-.43V22.92a.72.72,0,0,0-.1-.43.4.4,0,0,0-.34-.14.67.67,0,0,0-.34.09.6.6,0,0,0-.22.28,1.36,1.36,0,0,0-.07.53v1.3Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M65,24.55V21.08h.46v3.48Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M66.32,24.55V22.08h.39v.36a.89.89,0,0,1,.8-.41,1,1,0,0,1,.42.08.58.58,0,0,1,.28.21.77.77,0,0,1,.14.32,2.81,2.81,0,0,1,0,.41V24.6h-.43V23a.86.86,0,0,0,0-.39.39.39,0,0,0-.17-.21.63.63,0,0,0-.3-.07.64.64,0,0,0-.47.17.87.87,0,0,0-.2.66v1.37Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M69.24,24.55V22.37h-.38v-.29h.38v-.27a1.15,1.15,0,0,1,0-.37.58.58,0,0,1,.22-.27.76.76,0,0,1,.44-.11h.39l-.06.37H70a.4.4,0,0,0-.28.08.48.48,0,0,0-.08.31v.26h.49v.34h-.49V24.6Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M70.35,23.29a1.3,1.3,0,0,1,.39-1,1.17,1.17,0,0,1,.8-.28,1.12,1.12,0,0,1,.85.34,1.29,1.29,0,0,1,.33.94,1.67,1.67,0,0,1-.15.76,1.11,1.11,0,0,1-.42.44,1.31,1.31,0,0,1-.61.15,1.11,1.11,0,0,1-.86-.34A1.3,1.3,0,0,1,70.35,23.29Zm.44,0A1,1,0,0,0,71,24a.65.65,0,0,0,.53.24.68.68,0,0,0,.53-.24,1.09,1.09,0,0,0,.21-.74,1.06,1.06,0,0,0-.21-.71.71.71,0,0,0-.53-.24.65.65,0,0,0-.53.24A1,1,0,0,0,70.79,23.29Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M73.24,24.55V22.08h.39v.39a1,1,0,0,1,.27-.36.43.43,0,0,1,.27-.08.84.84,0,0,1,.44.13l-.15.4a.56.56,0,0,0-.31-.09.44.44,0,0,0-.25.08.49.49,0,0,0-.16.24,1.61,1.61,0,0,0-.07.49V24.6Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M75,24.55V22.08h.39v.36a.75.75,0,0,1,.31-.3.79.79,0,0,1,.45-.11.83.83,0,0,1,.46.11.63.63,0,0,1,.25.33.89.89,0,0,1,.78-.44.82.82,0,0,1,.58.2.93.93,0,0,1,.2.64V24.6H78V23a1.15,1.15,0,0,0,0-.37.27.27,0,0,0-.15-.18.43.43,0,0,0-.25-.07.61.61,0,0,0-.44.17.78.78,0,0,0-.18.57v1.46h-.43V22.92a.72.72,0,0,0-.1-.43.4.4,0,0,0-.34-.14.67.67,0,0,0-.34.09.6.6,0,0,0-.22.28,1.36,1.36,0,0,0-.07.53v1.3Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M80.74,24.24a1.7,1.7,0,0,1-.46.29,1.5,1.5,0,0,1-.47.08,1,1,0,0,1-.64-.2.64.64,0,0,1-.22-.52.81.81,0,0,1,.08-.34.64.64,0,0,1,.22-.24.87.87,0,0,1,.31-.14,1.59,1.59,0,0,1,.38-.07A3.3,3.3,0,0,0,80.7,23v-.11a.46.46,0,0,0-.13-.37.75.75,0,0,0-.48-.14.71.71,0,0,0-.45.11.69.69,0,0,0-.21.37L79,22.75a1,1,0,0,1,.19-.43.84.84,0,0,1,.38-.26,1.83,1.83,0,0,1,.57-.08,1.52,1.52,0,0,1,.52.07.58.58,0,0,1,.43.48,2.67,2.67,0,0,1,0,.4v.57a4.7,4.7,0,0,0,0,.75,1,1,0,0,0,.11.3h-.45A1.08,1.08,0,0,1,80.74,24.24Zm0-1a2.84,2.84,0,0,1-.7.16,1.18,1.18,0,0,0-.37.09.37.37,0,0,0-.17.13.39.39,0,0,0-.06.21.37.37,0,0,0,.13.28.53.53,0,0,0,.38.12,1,1,0,0,0,.44-.11.68.68,0,0,0,.28-.3.87.87,0,0,0,.07-.42Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M82.8,24.17l.06.38h-.32a.64.64,0,0,1-.36-.08.34.34,0,0,1-.18-.19,1.4,1.4,0,0,1-.06-.5V22.37h-.31v-.29h.31v-.62l.43-.26v.88h.43v.34h-.43v1.47a1,1,0,0,0,0,.24.3.3,0,0,0,.08.08h.14Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M83.29,21.57v-.49h.42v.5Zm0,3V22.08h.42V24.6Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M84.24,23.29a1.3,1.3,0,0,1,.39-1,1.17,1.17,0,0,1,.8-.28,1.12,1.12,0,0,1,.85.34,1.29,1.29,0,0,1,.33.94,1.67,1.67,0,0,1-.15.76,1.11,1.11,0,0,1-.42.44,1.31,1.31,0,0,1-.61.15,1.11,1.11,0,0,1-.86-.34A1.3,1.3,0,0,1,84.24,23.29Zm.44,0a1,1,0,0,0,.22.73.65.65,0,0,0,.53.24A.68.68,0,0,0,86,24a1.09,1.09,0,0,0,.21-.74,1.06,1.06,0,0,0-.21-.71.71.71,0,0,0-.53-.24.65.65,0,0,0-.53.24,1,1,0,0,0-.19.72Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M87.24,24.55V22.08h.38v.36a.89.89,0,0,1,.8-.41.88.88,0,0,1,.42.08.56.56,0,0,1,.29.21.8.8,0,0,1,.13.32,2.81,2.81,0,0,1,0,.41V24.6h-.43V23a1.27,1.27,0,0,0,0-.39.46.46,0,0,0-.18-.21.53.53,0,0,0-.3-.07.64.64,0,0,0-.47.17.87.87,0,0,0-.2.66v1.37Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M93.94,23.33l.46.12a1.6,1.6,0,0,1-.52.87,1.46,1.46,0,0,1-.92.29,1.65,1.65,0,0,1-.92-.22,1.54,1.54,0,0,1-.54-.67,2.48,2.48,0,0,1-.18-.93,1.94,1.94,0,0,1,.21-.95,1.41,1.41,0,0,1,.59-.62A1.77,1.77,0,0,1,93,21a1.36,1.36,0,0,1,1.38,1l-.46.11a.89.89,0,0,0-.93-.73,1.14,1.14,0,0,0-.67.19,1,1,0,0,0-.38.52,2.19,2.19,0,0,0-.11.67,2.27,2.27,0,0,0,.13.77,1,1,0,0,0,.41.5,1.11,1.11,0,0,0,.59.16,1,1,0,0,0,.65-.22A1.19,1.19,0,0,0,93.94,23.33Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M94.82,23.29a1.3,1.3,0,0,1,.39-1A1.14,1.14,0,0,1,96,22a1.12,1.12,0,0,1,.85.34,1.29,1.29,0,0,1,.33.94,1.8,1.8,0,0,1-.14.76,1.07,1.07,0,0,1-.43.44,1.31,1.31,0,0,1-.61.15,1.09,1.09,0,0,1-.85-.34A1.3,1.3,0,0,1,94.82,23.29Zm.44,0a1.06,1.06,0,0,0,.21.73.71.71,0,0,0,1,.06l.06-.06a1.09,1.09,0,0,0,.21-.74,1.06,1.06,0,0,0-.21-.71.71.71,0,0,0-1-.06l-.06.06a1.09,1.09,0,0,0-.23.72Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M97.75,24.55V22.08h.39v.36a.89.89,0,0,1,.8-.41,1,1,0,0,1,.42.08.58.58,0,0,1,.28.21.77.77,0,0,1,.14.32,2.81,2.81,0,0,1,0,.41V24.6h-.43V23a.86.86,0,0,0,0-.39.39.39,0,0,0-.17-.21.63.63,0,0,0-.3-.07.64.64,0,0,0-.47.17.83.83,0,0,0-.2.66v1.37Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M100.35,23.8l.43-.06a.56.56,0,0,0,.19.38.85.85,0,0,0,.9,0,.35.35,0,0,0,.14-.28.28.28,0,0,0-.13-.23,1.41,1.41,0,0,0-.44-.14,3.79,3.79,0,0,1-.65-.21.69.69,0,0,1-.27-.24.63.63,0,0,1,0-.65.61.61,0,0,1,.21-.24A.66.66,0,0,1,101,22a1.15,1.15,0,0,1,.37,0,1.32,1.32,0,0,1,.52.08.86.86,0,0,1,.33.23.93.93,0,0,1,.15.39l-.42.06a.43.43,0,0,0-.16-.3.6.6,0,0,0-.39-.11.76.76,0,0,0-.42.09.31.31,0,0,0-.12.23.21.21,0,0,0,0,.15.31.31,0,0,0,.16.12l.38.11c.21.05.42.12.63.19a.7.7,0,0,1,.28.23.68.68,0,0,1,0,.77.79.79,0,0,1-.36.29,1.22,1.22,0,0,1-.53.1,1.17,1.17,0,0,1-.75-.2A1,1,0,0,1,100.35,23.8Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M104.68,24.55v-.37a.93.93,0,0,1-.8.43,1.2,1.2,0,0,1-.42-.08.7.7,0,0,1-.29-.22A1,1,0,0,1,103,24a2.54,2.54,0,0,1,0-.39V22.08h.43v1.4a1.7,1.7,0,0,0,0,.45.41.41,0,0,0,.17.27.59.59,0,0,0,.32.09.74.74,0,0,0,.36-.09.57.57,0,0,0,.24-.27,1.21,1.21,0,0,0,.07-.5V22.08h.43V24.6Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M105.79,24.55V21.08h.45v3.48Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M107.88,24.17l.06.38h-.32a.64.64,0,0,1-.36-.08.44.44,0,0,1-.19-.19,1.67,1.67,0,0,1,0-.5V22.37h-.31v-.29H107v-.62l.43-.26v.88h.43v.34h-.43v1.47a1,1,0,0,0,0,.24.27.27,0,0,0,.07.08h.15Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M108.37,21.57v-.49h.42v.5Zm0,3V22.08h.42V24.6Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M109.51,24.55V22.08h.39v.36a.89.89,0,0,1,.8-.41,1,1,0,0,1,.42.08.58.58,0,0,1,.28.21.77.77,0,0,1,.14.32,2.81,2.81,0,0,1,0,.41V24.6h-.43V23a.86.86,0,0,0,0-.39.39.39,0,0,0-.17-.21.63.63,0,0,0-.3-.07.64.64,0,0,0-.47.17.87.87,0,0,0-.2.66v1.37Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M112.24,24.76l.41.07a.43.43,0,0,0,.15.28.73.73,0,0,0,.43.11.83.83,0,0,0,.46-.11.57.57,0,0,0,.22-.34,2.53,2.53,0,0,0,0-.55.9.9,0,0,1-.7.33.93.93,0,0,1-.8-.37,1.47,1.47,0,0,1-.29-.9,1.7,1.7,0,0,1,.13-.67,1,1,0,0,1,.38-.47,1,1,0,0,1,.58-.16.89.89,0,0,1,.74.36v-.26h.39v2.18a2.06,2.06,0,0,1-.1.82.89.89,0,0,1-.38.39,1.3,1.3,0,0,1-.64.14,1.26,1.26,0,0,1-.73-.2A.7.7,0,0,1,112.24,24.76Zm.35-1.51a1.08,1.08,0,0,0,.2.72.65.65,0,0,0,.92.08l.08-.08a1.06,1.06,0,0,0,.19-.71,1,1,0,0,0-.2-.7.66.66,0,0,0-.5-.23.63.63,0,0,0-.48.23,1,1,0,0,0-.24.69Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M119,23.33l.47.12a1.53,1.53,0,0,1-.53.87,1.46,1.46,0,0,1-.92.29,1.62,1.62,0,0,1-.91-.22,1.48,1.48,0,0,1-.54-.67,2.48,2.48,0,0,1-.18-.93,1.94,1.94,0,0,1,.21-.95,1.36,1.36,0,0,1,.59-.62A1.77,1.77,0,0,1,118,21a1.36,1.36,0,0,1,1.38,1l-.46.11a1.14,1.14,0,0,0-.35-.56,1,1,0,0,0-.58-.17,1.14,1.14,0,0,0-.67.19,1,1,0,0,0-.38.52,2.19,2.19,0,0,0-.11.67,2.27,2.27,0,0,0,.13.77,1,1,0,0,0,.41.5,1.11,1.11,0,0,0,.59.16,1,1,0,0,0,.65-.22A1.11,1.11,0,0,0,119,23.33Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M119.9,23.29a1.3,1.3,0,0,1,.39-1,1.14,1.14,0,0,1,.79-.28,1.12,1.12,0,0,1,.85.34,1.29,1.29,0,0,1,.33.94,1.67,1.67,0,0,1-.15.76,1,1,0,0,1-.42.44,1.31,1.31,0,0,1-.61.15,1.16,1.16,0,0,1-.86-.34A1.37,1.37,0,0,1,119.9,23.29Zm.44,0a1.06,1.06,0,0,0,.21.73.71.71,0,0,0,1,.06l.06-.06a1.09,1.09,0,0,0,.21-.74,1.06,1.06,0,0,0-.21-.71.71.71,0,0,0-1-.06l-.06.06A1.09,1.09,0,0,0,120.34,23.29Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M123,24.55v-.47h.49v.48Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M124.36,24.55v-.47h.49v.48a.84.84,0,0,1-.1.44.57.57,0,0,1-.3.25l-.12-.18a.41.41,0,0,0,.2-.17.8.8,0,0,0,.07-.34Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M125.7,24.55V21.08h.46v3.07h1.72v.41Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M129.37,24.17l.07.38h-.33a.76.76,0,0,1-.36-.08.41.41,0,0,1-.18-.19,1.67,1.67,0,0,1,0-.5V22.37h-.28v-.29h.31v-.62l.42-.26v.88h.43v.34H129v1.47a.49.49,0,0,0,0,.24.18.18,0,0,0,.07.08h.15Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M131.5,24.55v-.31a.8.8,0,0,1-.71.37,1,1,0,0,1-.55-.16,1.21,1.21,0,0,1-.4-.47,1.59,1.59,0,0,1-.13-.68,2,2,0,0,1,.12-.69,1,1,0,0,1,.94-.63,1,1,0,0,1,.41.09,1,1,0,0,1,.29.25V21.08h.42v3.48Zm-1.36-1.25a1.09,1.09,0,0,0,.21.72.61.61,0,0,0,.85.15.54.54,0,0,0,.15-.15,1,1,0,0,0,.19-.7,1.2,1.2,0,0,0-.2-.76.63.63,0,0,0-.49-.24.58.58,0,0,0-.47.23A1.13,1.13,0,0,0,130.14,23.3Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M132.75,24.55v-.47h.49v.48Z" transform="translate(0 -0.01)"/>
+      </svg>
+    </div>
+    <span class="demora-footer-coop-x" aria-hidden="true">×</span>
+    <div class="demora-footer-brand-logo demora-footer-brand-demora" aria-label="Demora">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 32" fill="none">
+        <g transform="translate(0, 2)">
+          <rect x="4" y="0" width="12" height="6" rx="3" fill="#14B8A6" opacity="0.4"/>
+          <rect x="6" y="11" width="20" height="6" rx="3" fill="#14B8A6" opacity="0.7"/>
+          <rect x="0" y="22" width="36" height="6" rx="3" fill="#14B8A6"/>
+        </g>
+        <text x="48" y="23" font-family="Inter, -apple-system, sans-serif" font-weight="700" font-size="20" fill="#F5F5F7">Demora</text>
+      </svg>
+    </div>
+  </div>
+  <p class="demora-footer-copyright">
+    © 2026 Ourchem × Demora · 保留所有权利<br>
+    <span class="demora-footer-meta">本交付物由 Demora 自动生成 · 生成于 2026-07-21</span>
+  </p>
+</footer>
+<!-- [demora-copyright-footer] end -->
+
+</body>
+</html>

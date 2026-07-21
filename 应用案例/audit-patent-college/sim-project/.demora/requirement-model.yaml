@@ -1,0 +1,318 @@
+# 需求模型（Phase 1 写入，Phase 2 读取，Phase 3 判断变更）
+# Schema 见 SKILL.md 内联定义
+project:
+  name: 高校存量专利AI盘活转化匹配平台
+  description: 高校存量专利清洗、匹配、转化全流程平台
+  domain: Patent
+  slug: patent-college
+
+entities:
+  - name: college-patent
+    displayName: 高校专利
+    fields:
+      - name: patent_no
+        displayName: 专利号
+        type: string
+        required: true
+      - name: title
+        displayName: 专利名称
+        type: string
+        required: true
+      - name: owner_college
+        displayName: 所属高校
+        type: enum
+        options: [中山大学, 华南理工, 暨南大学, 华南师范, 广东工业]
+        required: true
+      - name: industry
+        displayName: 产业方向
+        type: enum
+        options: [智能制造, 生物医药, 新材料, 信息技术, 新能源]
+        required: true
+      - name: maturity
+        displayName: 成熟度
+        type: enum
+        options: [实验室, 中试, 产业化]
+        required: true
+      - name: match_score
+        displayName: 匹配度
+        type: number
+        required: false
+      - name: operator
+        displayName: 操作人
+        type: string
+        required: false
+    statuses:
+      - value: dormant
+        label: 沉睡
+        color: danger
+      - value: cleaning
+        label: 清洗中
+        color: warning
+      - value: matching
+        label: 匹配中
+        color: info
+      - value: negotiating
+        label: 洽谈中
+        color: info
+      - value: transferred
+        label: 已转化
+        color: success
+    transitions: []
+    relations: []
+
+pages:
+  - id: P01
+    name: college-patent-list
+    type: crud_list
+    entity: college-patent
+    route: /college-patents
+    priority: P0
+    fields:
+      - field: patent_no
+        in_search: true
+        in_table: true
+      - field: title
+        in_search: true
+        in_table: true
+      - field: owner_college
+        in_search: true
+        in_table: true
+      - field: industry
+        in_search: true
+        in_table: true
+      - field: maturity
+        in_search: true
+        in_table: true
+      - field: match_score
+        in_search: false
+        in_table: true
+      - field: status
+        in_search: true
+        in_table: true
+    operations:
+      - name: 发起匹配
+        type: update
+        trigger: 点击"发起匹配"按钮
+        condition: 用户拥有 college-patent:update 权限且状态为沉睡/清洗中
+        feedback: 调用匹配大模型，状态置为匹配中
+      - name: 查看专利
+        type: view
+        trigger: 点击表格行查看按钮
+        condition: 用户拥有 college-patent:read 权限
+        feedback: 跳转到专利详情
+      - name: 批量清洗
+        type: update
+        trigger: 点击"批量清洗"按钮
+        condition: 用户拥有 college-patent:update 权限且角色为高校科研处
+        feedback: 异步执行清洗分级
+    annotations:
+      L1:
+        summary: 高校专利库列表页，分页展示各高校存量专利
+        entry: 侧边栏"专利库"菜单
+        precondition: 已登录且拥有 college-patent:read 权限
+        data_entity: college-patent
+        business_rules:
+          - 企业技术经理仅可查看匹配中/洽谈中专利
+          - 高校科研处与转化中介可见全部
+          - 失效专利自动过滤不展示
+        test_data: 6 条专利 Mock 数据，覆盖各高校与状态
+      L2:
+        - zone: 搜索区
+          description: 顶部搜索表单，含专利号、名称、高校、产业、成熟度、状态下拉与搜索按钮
+        - zone: 操作栏
+          description: 含发起匹配、批量清洗按钮
+        - zone: 数据表格
+          description: 数据表格 展示专利列表，产业/成熟度/状态使用 状态标签
+        - zone: 分页区
+          description: 底部 分页组件
+      L3:
+        - element: 搜索按钮
+          function: 触发搜索
+          trigger: click
+          condition: 无
+          response: 表格刷新为搜索结果
+          state: 搜索条件已应用
+          exception: 搜索条件为空时展示全部
+        - element: 发起匹配按钮
+          function: 调用匹配大模型
+          trigger: click
+          condition: 状态为沉睡或清洗中
+          response: 异步任务启动，状态置为匹配中
+          state: 行状态更新
+          exception: 非沉睡/清洗中状态按钮禁用
+        - element: 批量清洗按钮
+          function: 批量执行清洗分级
+          trigger: click
+          condition: 角色为高校科研处
+          response: 异步任务启动
+          state: 选中行高亮
+          exception: 非高校角色按钮隐藏
+  - id: P02
+    name: college-patent-detail
+    type: detail_view
+    entity: college-patent
+    route: /college-patents/:id
+    priority: P0
+    fields:
+      - field: patent_no
+        in_detail: true
+      - field: title
+        in_detail: true
+      - field: owner_college
+        in_detail: true
+      - field: industry
+        in_detail: true
+      - field: maturity
+        in_detail: true
+      - field: match_score
+        in_detail: true
+      - field: status
+        in_detail: true
+    operations:
+      - name: 进入洽谈
+        type: update
+        trigger: 点击"进入洽谈"按钮
+        condition: 用户拥有 college-patent:update 权限且角色为企业技术经理/转化中介且状态为匹配中
+        feedback: 状态置为洽谈中，记录洽谈企业
+      - name: 标记转化
+        type: finish
+        trigger: 点击"标记转化"按钮
+        condition: 用户拥有 college-patent:update 权限且角色为转化中介且状态为洽谈中
+        feedback: 弹出合同信息录入弹窗，确认后置为已转化
+      - name: 申报补贴
+        type: export
+        trigger: 点击"申报补贴"按钮
+        condition: 用户拥有 college-patent:export 权限且状态为已转化
+        feedback: 生成补贴申报材料
+    annotations:
+      L1:
+        summary: 专利详情页，展示专利信息、匹配度与转化状态
+        entry: 专利列表点击"查看"
+        precondition: 已登录且拥有 college-patent:read 权限
+        data_entity: college-patent
+        business_rules:
+          - 状态流转：沉睡 → 清洗中 → 匹配中 → 洽谈中 → 已转化
+          - 同一专利同时仅可与 3 家企业洽谈
+          - 洽谈超过 90 天未签约自动回退至匹配中
+        test_data: 1 条专利详情 Mock 数据，含匹配企业清单
+      L2:
+        - zone: 详情头部
+          description: 描述列表 展示专利号、名称、高校、产业、成熟度、状态
+        - zone: 匹配区
+          description: 展示匹配度与匹配企业清单
+        - zone: 转化信息区
+          description: 展示转化合同信息（已转化时显示）
+        - zone: 操作按钮区
+          description: 含进入洽谈、标记转化、申报补贴按钮（按状态显示）
+      L3:
+        - element: 进入洽谈按钮
+          function: 推进转化流程
+          trigger: click
+          condition: 状态为匹配中
+          response: 状态更新为洽谈中
+          state: 按钮组刷新
+          exception: 已有 3 家洽谈中时按钮禁用
+        - element: 标记转化按钮
+          function: 完成转化
+          trigger: click
+          condition: 状态为洽谈中
+          response: 弹出合同信息录入弹窗
+          state: 弹窗显示
+          exception: 非洽谈中状态按钮隐藏
+        - element: 申报补贴按钮
+          function: 申报地方补贴
+          trigger: click
+          condition: 状态为已转化
+          response: 生成补贴申报材料并下载
+          state: 无状态变更
+          exception: 非已转化状态按钮隐藏
+  - id: P03
+    name: college-patent-match
+    type: form_page
+    entity: college-patent
+    route: /college-patents/match
+    priority: P0
+    fields:
+      - field: industry
+        in_form: true
+      - field: maturity
+        in_form: true
+      - field: owner_college
+        in_form: true
+    operations:
+      - name: 提交需求
+        type: save
+        trigger: 点击提交按钮
+        condition: 表单校验通过
+        feedback: 提交后返回匹配结果列表
+      - name: AI 匹配
+        type: update
+        trigger: 点击"AI 匹配"按钮
+        condition: 关键字段已填
+        feedback: 调用匹配大模型输出专利清单
+      - name: 取消
+        type: cancel
+        trigger: 点击取消按钮
+        condition: 无
+        feedback: 返回上一页
+    annotations:
+      L1:
+        summary: 需求匹配表单页，企业技术经理发布技术需求
+        entry: 专利列表点击"需求匹配"
+        precondition: 已登录且拥有 college-patent:read 权限
+        data_entity: college-patent
+        business_rules:
+          - 产业方向、成熟度、高校为必填
+          - 匹配度低于 60% 不推送
+          - 提交后调用匹配大模型输出结果
+        test_data: 空表单或回填的需求
+      L2:
+        - zone: 表单区
+          description: 表单 含产业方向、成熟度、高校、技术参数、预算字段
+        - zone: 操作按钮区
+          description: 含 AI 匹配、提交、取消按钮
+      L3:
+        - element: 提交按钮
+          function: 提交技术需求
+          trigger: click
+          condition: 表单校验通过
+          response: 保存需求并跳转匹配结果列表
+          state: 列表页加载
+          exception: 校验失败时高亮错误字段
+        - element: AI 匹配按钮
+          function: 调用匹配大模型
+          trigger: click
+          condition: 关键字段已填
+          response: 弹出匹配结果预览
+          state: 匹配结果展示
+          exception: 无匹配专利时提示空状态
+        - element: 取消按钮
+          function: 取消编辑
+          trigger: click
+          condition: 无
+          response: 返回上一页
+          state: 不保存任何修改
+          exception: 无
+
+roles:
+  - name: college-research
+    displayName: 高校科研处
+    permissions:
+      - entity: college-patent
+        actions: [create, read, update, delete, export]
+        scope: all
+    page_visibility: [P01, P02, P03]
+  - name: enterprise-tech
+    displayName: 企业技术经理
+    permissions:
+      - entity: college-patent
+        actions: [read, update]
+        scope: all
+    page_visibility: [P01, P02, P03]
+  - name: transfer-broker
+    displayName: 转化中介
+    permissions:
+      - entity: college-patent
+        actions: [read, update, export]
+        scope: all
+    page_visibility: [P01, P02]

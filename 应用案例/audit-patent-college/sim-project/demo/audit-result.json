@@ -1,0 +1,41 @@
+{
+  "label": "patent-college",
+  "timestamp": "2026-07-21T10:12:44.100Z",
+  "dimensions": {
+    "D0_load": "pass",
+    "D0_console": "pass",
+    "D0_contracts": "pass",
+    "D2_nav_click": "pass",
+    "D3_modal_close": "warn: modal not openable",
+    "D4_l2_flicker": "pass: 1 unique transforms",
+    "D6_button_responsiveness": "pass: 4/4"
+  },
+  "detectedPages": [
+    {
+      "id": "P01"
+    },
+    {
+      "id": "P02"
+    },
+    {
+      "id": "P03"
+    }
+  ],
+  "navLinks": [
+    {
+      "href": "#/college-patents",
+      "text": "专利库"
+    },
+    {
+      "href": "#/college-patents/match",
+      "text": "需求匹配"
+    }
+  ],
+  "summary": {
+    "pass": 8,
+    "fail": 0,
+    "warn": 1,
+    "total": 9
+  },
+  "overall": "B"
+}

@@ -1,0 +1,45 @@
+{
+  "label": "patent-oa",
+  "timestamp": "2026-07-21T10:07:56.846Z",
+  "dimensions": {
+    "D0_load": "pass",
+    "D0_console": "pass",
+    "D0_contracts": "pass",
+    "D2_nav_click": "pass",
+    "D3_modal_close": "warn: modal not openable",
+    "D4_l2_flicker": "pass: 1 unique transforms",
+    "D6_button_responsiveness": "pass: 4/4"
+  },
+  "detectedPages": [
+    {
+      "id": "P01"
+    },
+    {
+      "id": "P02"
+    },
+    {
+      "id": "P03"
+    }
+  ],
+  "navLinks": [
+    {
+      "href": "#/oa-responses",
+      "text": "01\n          OA 答复列表"
+    },
+    {
+      "href": "#/oa-responses/oa-2026-001",
+      "text": "02\n          答复详情"
+    },
+    {
+      "href": "#/oa-responses/form",
+      "text": "03\n          新建答复"
+    }
+  ],
+  "summary": {
+    "pass": 8,
+    "fail": 0,
+    "warn": 1,
+    "total": 9
+  },
+  "overall": "B"
+}

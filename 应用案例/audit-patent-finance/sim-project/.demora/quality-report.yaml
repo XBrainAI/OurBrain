@@ -1,0 +1,7 @@
+# quality-report.yaml — 自动生成
+passed: true
+defects: 0
+critical: 0
+major: 0
+checks_passed: 5
+checks_failed: 0

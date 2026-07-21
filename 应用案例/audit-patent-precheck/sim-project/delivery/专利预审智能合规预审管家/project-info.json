@@ -1,0 +1,17 @@
+{
+  "projectName": "专利预审智能合规预审管家",
+  "projectSlug": "patent-precheck",
+  "projectNameEn": "patent-precheck",
+  "version": "1.0.0",
+  "description": "专利预审案件全流程管理与智能预检平台",
+  "domain": "Patent",
+  "roles": [
+    "agent",
+    "precheck-reviewer",
+    "ipr"
+  ],
+  "pageCount": 3,
+  "entityCount": 1,
+  "generatedAt": "2026-07-21",
+  "skillVersion": "oc-demora"
+}

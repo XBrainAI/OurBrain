@@ -1,0 +1,366 @@
+# 需求模型（Phase 1 写入，Phase 2 读取，Phase 3 判断变更）
+# Schema 见 SKILL.md 内联定义
+project:
+  name: 专利资产全生命周期数字化价值运营管理平台
+  description: 专利资产台账、估值、质押与转化运营平台
+  domain: Patent
+  slug: patent-asset
+
+entities:
+  - name: patent-asset
+    displayName: 专利资产
+    fields:
+      - name: patent_no
+        displayName: 专利号
+        type: string
+        required: true
+      - name: title
+        displayName: 专利名称
+        type: string
+        required: true
+      - name: value_estimate
+        displayName: 估值（万元）
+        type: number
+        required: true
+      - name: annual_fee_due
+        displayName: 年费到期日
+        type: date
+        required: true
+      - name: owner
+        displayName: 专利权人
+        type: string
+        required: true
+      - name: operator
+        displayName: 操作人
+        type: string
+        required: false
+      - name: status
+        displayName: 状态
+        type: enum
+        required: true
+    statuses:
+      - value: active
+        label: 有效
+        color: success
+      - value: expired
+        label: 失效
+        color: danger
+      - value: pledged
+        label: 质押中
+        color: warning
+      - value: transferred
+        label: 已转让
+        color: info
+    transitions: []
+    relations: []
+
+pages:
+  - id: P01
+    name: patent-asset-list
+    type: crud_list
+    entity: patent-asset
+    route: /patent-assets
+    priority: P0
+    fields:
+      - field: patent_no
+        in_search: true
+        in_table: true
+      - field: title
+        in_search: true
+        in_table: true
+      - field: value_estimate
+        in_search: false
+        in_table: true
+      - field: annual_fee_due
+        in_search: true
+        in_table: true
+      - field: owner
+        in_search: true
+        in_table: true
+      - field: status
+        in_search: true
+        in_table: true
+    operations:
+      - name: 新增资产
+        type: create
+        trigger: 点击新增按钮
+        condition: 用户拥有 patent-asset:create 权限
+        feedback: 跳转到资产新增表单
+      - name: 查看资产
+        type: view
+        trigger: 点击表格行查看按钮
+        condition: 用户拥有 patent-asset:read 权限
+        feedback: 跳转到资产详情
+      - name: 导出尽调报告
+        type: export
+        trigger: 点击"导出尽调"按钮
+        condition: 用户拥有 patent-asset:export 权限
+        feedback: 导出投融资尽调底稿
+    annotations:
+      L1:
+        summary: 专利资产台账列表页，分页展示企业全部专利资产
+        entry: 侧边栏"资产管理"菜单
+        precondition: 已登录且拥有 patent-asset:read 权限
+        data_entity: patent-asset
+        business_rules:
+          - 银行风控仅可查看质押中专利
+          - IPR 与资产经理可见全部资产
+          - 年费到期前 30 天高亮提示
+        test_data: 6 条资产 Mock 数据，覆盖各状态
+      L2:
+        - zone: 搜索区
+          description: 顶部搜索表单，含专利号、名称、专利权人、状态、年费到期日与搜索按钮
+        - zone: 操作栏
+          description: 含新增资产、导出尽调按钮
+        - zone: 数据表格
+          description: 数据表格 展示资产列表，状态使用 状态标签
+        - zone: 分页区
+          description: 底部 分页组件
+      L3:
+        - element: 搜索按钮
+          function: 触发搜索
+          trigger: click
+          condition: 无
+          response: 表格刷新为搜索结果
+          state: 搜索条件已应用
+          exception: 搜索条件为空时展示全部
+        - element: 新增资产按钮
+          function: 打开新增表单
+          trigger: click
+          condition: 用户拥有 patent-asset:create 权限
+          response: 跳转到 /patent-assets/form
+          state: 表单页面加载
+          exception: 无权限时按钮隐藏
+        - element: 导出尽调按钮
+          function: 导出投融资尽调底稿
+          trigger: click
+          condition: 用户拥有 patent-asset:export 权限
+          response: 下载 Excel 尽调报告
+          state: 无状态变更
+          exception: 无权限时按钮隐藏
+  - id: P02
+    name: patent-asset-detail
+    type: detail_view
+    entity: patent-asset
+    route: /patent-assets/:id
+    priority: P0
+    fields:
+      - field: patent_no
+        in_detail: true
+      - field: title
+        in_detail: true
+      - field: value_estimate
+        in_detail: true
+      - field: annual_fee_due
+        in_detail: true
+      - field: owner
+        in_detail: true
+      - field: status
+        in_detail: true
+    operations:
+      - name: 标记质押
+        type: update
+        trigger: 点击"标记质押"按钮
+        condition: 用户拥有 patent-asset:update 权限且状态为有效
+        feedback: 状态置为质押中
+      - name: 解除质押
+        type: update
+        trigger: 点击"解除质押"按钮
+        condition: 用户拥有 patent-asset:update 权限且状态为质押中
+        feedback: 状态恢复为有效
+      - name: 转让
+        type: update
+        trigger: 点击"转让"按钮
+        condition: 用户拥有 patent-asset:update 权限且状态为有效
+        feedback: 弹出转让对象输入弹窗，确认后置为已转让
+    annotations:
+      L1:
+        summary: 资产详情页，展示专利资产估值与生命周期状态
+        entry: 资产列表点击"查看"
+        precondition: 已登录且拥有 patent-asset:read 权限
+        data_entity: patent-asset
+        business_rules:
+          - 仅 IPR 与资产经理可执行质押/解除/转让
+          - 质押中专利不可转让，需先解除质押
+          - 状态流转：有效 ↔ 质押中 / 有效 → 已转让 / 有效 → 失效
+        test_data: 1 条资产详情 Mock 数据，含估值明细
+      L2:
+        - zone: 详情头部
+          description: 描述列表 展示专利号、名称、专利权人、状态
+        - zone: 估值区
+          description: 展示估值金额、估值时间、估值模型四维评分
+        - zone: 年费区
+          description: 展示年费到期日与缴费记录
+        - zone: 操作按钮区
+          description: 含标记质押、解除质押、转让按钮（按状态显示）
+      L3:
+        - element: 标记质押按钮
+          function: 进入质押状态
+          trigger: click
+          condition: 状态为有效
+          response: 状态更新为质押中
+          state: 按钮组刷新
+          exception: 非有效状态按钮隐藏
+        - element: 解除质押按钮
+          function: 解除质押
+          trigger: click
+          condition: 状态为质押中
+          response: 状态恢复为有效
+          state: 按钮组刷新
+          exception: 非质押中状态按钮隐藏
+        - element: 转让按钮
+          function: 转让专利
+          trigger: click
+          condition: 状态为有效
+          response: 弹出转让对象输入弹窗
+          state: 转让弹窗显示
+          exception: 质押中状态按钮禁用
+  - id: P03
+    name: patent-asset-evaluate
+    type: form_page
+    entity: patent-asset
+    route: /patent-assets/:id/evaluate
+    priority: P0
+    fields:
+      - field: value_estimate
+        in_form: true
+      - field: annual_fee_due
+        in_form: true
+      - field: owner
+        in_form: true
+    operations:
+      - name: 提交估值
+        type: save
+        trigger: 点击提交按钮
+        condition: 表单校验通过
+        feedback: 估值更新后返回资产详情
+      - name: AI 估值建议
+        type: update
+        trigger: 点击"AI 估值"按钮
+        condition: 用户拥有 patent-asset:update 权限
+        feedback: 调用 AI 模型填充建议估值
+      - name: 取消
+        type: cancel
+        trigger: 点击取消按钮
+        condition: 无
+        feedback: 返回上一页
+    annotations:
+      L1:
+        summary: 资产价值评估表单页，资产经理录入或调取 AI 估值
+        entry: 资产详情点击"重新估值"
+        precondition: 已登录且拥有 patent-asset:update 权限
+        data_entity: patent-asset
+        business_rules:
+          - 估值金额、年费到期日为必填
+          - 估值金额需大于 0
+          - 提交后更新估值与估值时间
+        test_data: 回填的资产估值数据
+      L2:
+        - zone: 表单区
+          description: 表单 含估值金额、年费到期日、专利权人字段
+        - zone: 操作按钮区
+          description: 含 AI 估值建议、提交、取消按钮
+      L3:
+        - element: 提交按钮
+          function: 提交估值
+          trigger: click
+          condition: 表单校验通过
+          response: 保存数据并跳转资产详情
+          state: 详情页刷新
+          exception: 估值小于等于0时高亮错误
+        - element: AI 估值按钮
+          function: 调用 AI 估值
+          trigger: click
+          condition: 用户拥有 patent-asset:update 权限
+          response: 自动填充建议估值
+          state: 估值字段更新
+          exception: AI 服务异常时提示
+        - element: 取消按钮
+          function: 取消编辑
+          trigger: click
+          condition: 无
+          response: 返回上一页
+          state: 不保存任何修改
+          exception: 无
+  - id: P04
+    name: asset-dashboard
+    type: dashboard
+    entity: patent-asset
+    route: /patent-assets/dashboard
+    priority: P1
+    fields:
+      - field: status
+        in_dashboard: true
+      - field: value_estimate
+        in_dashboard: true
+    operations:
+      - name: 切换时间范围
+        type: update
+        trigger: 点击时间范围切换器
+        condition: 无
+        feedback: 重新加载图表数据
+    annotations:
+      L1:
+        summary: 高管可视化驾驶舱，展示资产组合估值与状态分布
+        entry: 侧边栏"资产驾驶舱"菜单
+        precondition: 已登录且角色为 C 级或资产经理
+        data_entity: patent-asset
+        business_rules:
+          - 仅 C 级与资产经理可访问
+          - 数据按专利权人范围过滤
+          - 支持季度/年度时间范围切换
+        test_data: 全量资产汇总 Mock 数据
+      L2:
+        - zone: 顶部 KPI 区
+          description: 展示资产总数、总估值、年费预警数、质押数
+        - zone: 状态分布图
+          description: 饼图 展示各状态资产数量分布
+        - zone: 估值趋势图
+          description: 折线图 展示近 4 季度估值变化
+        - zone: 时间范围切换器
+          description: 含季度/年度切换按钮
+      L3:
+        - element: 时间范围切换器
+          function: 切换时间范围
+          trigger: click
+          condition: 无
+          response: 重新加载图表
+          state: 图表数据更新
+          exception: 无数据时显示空状态
+        - element: 状态分布图
+          function: 查看状态分布
+          trigger: hover
+          condition: 无
+          response: 显示各状态数量与占比
+          state: tooltip 显示
+          exception: 无数据时显示空状态
+        - element: KPI 卡片
+          function: 查看核心指标
+          trigger: click
+          condition: 无
+          response: 跳转到对应资产列表
+          state: 列表页加载
+          exception: 无
+
+roles:
+  - name: ipr
+    displayName: 企业IPR
+    permissions:
+      - entity: patent-asset
+        actions: [create, read, update, delete, export]
+        scope: all
+    page_visibility: [P01, P02, P03, P04]
+  - name: asset-manager
+    displayName: 资产经理
+    permissions:
+      - entity: patent-asset
+        actions: [read, update, export]
+        scope: all
+    page_visibility: [P01, P02, P03, P04]
+  - name: bank-risk
+    displayName: 银行风控
+    permissions:
+      - entity: patent-asset
+        actions: [read]
+        scope: own
+    page_visibility: [P01, P02]

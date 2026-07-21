@@ -1,0 +1,312 @@
+# 需求模型（Phase 1 写入，Phase 2 读取，Phase 3 判断变更）
+# Schema 见 SKILL.md 内联定义
+project:
+  name: 绿色低碳新质产业专项专利布局分析平台
+  description: 双碳赛道专利布局分析与情报监测平台
+  domain: Patent
+  slug: patent-green
+
+entities:
+  - name: green-patent
+    displayName: 绿色专利
+    fields:
+      - name: patent_no
+        displayName: 专利号
+        type: string
+        required: true
+      - name: title
+        displayName: 专利名称
+        type: string
+        required: true
+      - name: green_field
+        displayName: 绿色领域
+        type: enum
+        options: [储能, 氢能, 光伏, CCUS, 节能装备]
+        required: true
+      - name: analyst
+        displayName: 分析师
+        type: string
+        required: true
+      - name: layout_plan
+        displayName: 布局方案
+        type: text
+        required: false
+      - name: owner
+        displayName: 企业
+        type: string
+        required: true
+      - name: operator
+        displayName: 操作人
+        type: string
+        required: false
+    statuses:
+      - value: scanning
+        label: 扫描中
+        color: info
+      - value: analyzing
+        label: 分析中
+        color: info
+      - value: layout_planned
+        label: 布局已规划
+        color: warning
+      - value: filed
+        label: 已申请
+        color: info
+      - value: granted
+        label: 已授权
+        color: success
+    transitions: []
+    relations: []
+
+pages:
+  - id: P01
+    name: green-patent-list
+    type: crud_list
+    entity: green-patent
+    route: /green-patents
+    priority: P0
+    fields:
+      - field: patent_no
+        in_search: true
+        in_table: true
+      - field: title
+        in_search: true
+        in_table: true
+      - field: green_field
+        in_search: true
+        in_table: true
+      - field: analyst
+        in_search: true
+        in_table: true
+      - field: owner
+        in_search: true
+        in_table: true
+      - field: status
+        in_search: true
+        in_table: true
+    operations:
+      - name: 新增专利
+        type: create
+        trigger: 点击新增按钮
+        condition: 用户拥有 green-patent:create 权限
+        feedback: 跳转到专利新增表单
+      - name: 查看专利
+        type: view
+        trigger: 点击表格行查看按钮
+        condition: 用户拥有 green-patent:read 权限
+        feedback: 跳转到专利详情
+      - name: 发起布局分析
+        type: update
+        trigger: 点击"发起布局分析"按钮
+        condition: 用户拥有 green-patent:update 权限且状态为扫描中
+        feedback: 异步执行分析，状态置为分析中
+    annotations:
+      L1:
+        summary: 绿色专利库列表页，分页展示企业双碳赛道专利
+        entry: 侧边栏"绿色专利"菜单
+        precondition: 已登录且拥有 green-patent:read 权限
+        data_entity: green-patent
+        business_rules:
+          - 企业 IPR 仅查看本企业专利
+          - 分析师与布局规划师可见全部
+          - 支持按专利号、名称、绿色领域、状态搜索
+        test_data: 6 条专利 Mock 数据，覆盖各领域与状态
+      L2:
+        - zone: 搜索区
+          description: 顶部搜索表单，含专利号、名称、绿色领域、分析师、企业、状态下拉与搜索按钮
+        - zone: 操作栏
+          description: 含新增专利、发起布局分析按钮
+        - zone: 数据表格
+          description: 数据表格 展示专利列表，绿色领域与状态使用 状态标签
+        - zone: 分页区
+          description: 底部 分页组件
+      L3:
+        - element: 搜索按钮
+          function: 触发搜索
+          trigger: click
+          condition: 无
+          response: 表格刷新为搜索结果
+          state: 搜索条件已应用
+          exception: 搜索条件为空时展示全部
+        - element: 新增专利按钮
+          function: 打开新增表单
+          trigger: click
+          condition: 用户拥有 green-patent:create 权限
+          response: 跳转到 /green-patents/form
+          state: 表单页面加载
+          exception: 无权限时按钮隐藏
+        - element: 发起布局分析按钮
+          function: 触发布局分析
+          trigger: click
+          condition: 状态为扫描中
+          response: 异步任务启动，状态置为分析中
+          state: 行状态更新
+          exception: 非扫描中状态按钮禁用
+  - id: P02
+    name: green-patent-detail
+    type: detail_view
+    entity: green-patent
+    route: /green-patents/:id
+    priority: P0
+    fields:
+      - field: patent_no
+        in_detail: true
+      - field: title
+        in_detail: true
+      - field: green_field
+        in_detail: true
+      - field: analyst
+        in_detail: true
+      - field: layout_plan
+        in_detail: true
+      - field: owner
+        in_detail: true
+      - field: status
+        in_detail: true
+    operations:
+      - name: 生成布局方案
+        type: update
+        trigger: 点击"生成布局方案"按钮
+        condition: 用户拥有 green-patent:update 权限且角色为布局规划师且状态为分析中
+        feedback: 调用 AI 生成布局方案，状态置为布局已规划
+      - name: 审核布局
+        type: confirm
+        trigger: 点击"审核通过"按钮
+        condition: 用户拥有 green-patent:update 权限且角色为IPR且状态为布局已规划
+        feedback: 状态置为已申请（进入申报流程）
+      - name: 标记授权
+        type: finish
+        trigger: 点击"标记授权"按钮
+        condition: 用户拥有 green-patent:update 权限且状态为已申请
+        feedback: 状态置为已授权
+    annotations:
+      L1:
+        summary: 专利详情页，展示布局方案与状态流转
+        entry: 专利列表点击"查看"
+        precondition: 已登录且拥有 green-patent:read 权限
+        data_entity: green-patent
+        business_rules:
+          - 状态流转：扫描中 → 分析中 → 布局已规划 → 已申请 → 已授权
+          - 布局规划需经 IPR 审核方可执行
+          - 同一企业同一赛道 6 个月内不可重复发起
+        test_data: 1 条专利详情 Mock 数据，含布局方案文本
+      L2:
+        - zone: 详情头部
+          description: 描述列表 展示专利号、名称、绿色领域、分析师、企业、状态
+        - zone: 布局方案区
+          description: 展示布局方案（核心/外围/防御）与技术空白点
+        - zone: 趋势图区
+          description: 展示赛道技术演进趋势图谱
+        - zone: 操作按钮区
+          description: 含生成布局方案、审核通过、标记授权按钮（按状态显示）
+      L3:
+        - element: 生成布局方案按钮
+          function: 生成 AI 布局方案
+          trigger: click
+          condition: 角色为布局规划师且状态为分析中
+          response: 状态更新为布局已规划
+          state: 按钮组刷新
+          exception: 非分析中状态按钮隐藏
+        - element: 审核通过按钮
+          function: 审核布局方案
+          trigger: click
+          condition: 角色为IPR且状态为布局已规划
+          response: 状态置为已申请
+          state: 按钮组刷新
+          exception: 非布局已规划状态按钮隐藏
+        - element: 标记授权按钮
+          function: 标记专利已授权
+          trigger: click
+          condition: 状态为已申请
+          response: 状态置为已授权
+          state: 按钮组刷新
+          exception: 非已申请状态按钮隐藏
+  - id: P03
+    name: green-patent-layout
+    type: form_page
+    entity: green-patent
+    route: /green-patents/form
+    priority: P0
+    fields:
+      - field: patent_no
+        in_form: true
+      - field: title
+        in_form: true
+      - field: green_field
+        in_form: true
+      - field: analyst
+        in_form: true
+      - field: owner
+        in_form: true
+    operations:
+      - name: 提交
+        type: save
+        trigger: 点击提交按钮
+        condition: 表单校验通过
+        feedback: 提交后返回专利列表，状态为扫描中
+      - name: 取消
+        type: cancel
+        trigger: 点击取消按钮
+        condition: 无
+        feedback: 返回上一页
+    annotations:
+      L1:
+        summary: 布局分析表单页，IPR 录入待分析的绿色专利
+        entry: 专利列表点击"新增专利"
+        precondition: 已登录且拥有 green-patent:create 权限
+        data_entity: green-patent
+        business_rules:
+          - 专利号、名称、绿色领域、分析师、企业为必填
+          - 绿色领域必须选择细分赛道
+          - 同一企业同一赛道 6 个月内不可重复提交
+        test_data: 空表单或回填的专利数据
+      L2:
+        - zone: 表单区
+          description: 表单 含专利号、名称、绿色领域、分析师、企业字段
+        - zone: 操作按钮区
+          description: 含提交、取消按钮
+      L3:
+        - element: 提交按钮
+          function: 提交绿色专利
+          trigger: click
+          condition: 表单校验通过
+          response: 保存数据并跳转 /green-patents
+          state: 列表页刷新
+          exception: 6 个月内重复提交时提示错误
+        - element: 绿色领域下拉
+          function: 选择绿色领域
+          trigger: change
+          condition: 无
+          response: 联动显示该领域头部企业布局情况
+          state: 领域已选择
+          exception: 无
+        - element: 取消按钮
+          function: 取消编辑
+          trigger: click
+          condition: 无
+          response: 返回上一页
+          state: 不保存任何修改
+          exception: 无
+
+roles:
+  - name: ipr
+    displayName: 企业IPR
+    permissions:
+      - entity: green-patent
+        actions: [create, read, update, delete, export]
+        scope: all
+    page_visibility: [P01, P02, P03]
+  - name: green-researcher
+    displayName: 绿色技术研究员
+    permissions:
+      - entity: green-patent
+        actions: [read, update]
+        scope: all
+    page_visibility: [P01, P02]
+  - name: layout-planner
+    displayName: 布局规划师
+    permissions:
+      - entity: green-patent
+        actions: [read, update, export]
+        scope: all
+    page_visibility: [P01, P02]

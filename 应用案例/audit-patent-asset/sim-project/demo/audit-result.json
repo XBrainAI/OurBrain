@@ -1,0 +1,52 @@
+{
+  "label": "patent-asset",
+  "timestamp": "2026-07-21T10:11:34.431Z",
+  "dimensions": {
+    "D0_load": "pass",
+    "D0_console": "pass",
+    "D0_contracts": "pass",
+    "D2_nav_click": "pass",
+    "D3_modal_close": "warn: modal not openable",
+    "D4_l2_flicker": "pass: 1 unique transforms",
+    "D6_button_responsiveness": "pass: 6/6"
+  },
+  "detectedPages": [
+    {
+      "id": "P01"
+    },
+    {
+      "id": "P02"
+    },
+    {
+      "id": "P03"
+    },
+    {
+      "id": "P04"
+    }
+  ],
+  "navLinks": [
+    {
+      "href": "#/patent-assets",
+      "text": "01\n      \n        \n "
+    },
+    {
+      "href": "#/patent-assets/PA-2024-001",
+      "text": "02\n      \n        \n "
+    },
+    {
+      "href": "#/patent-assets/PA-2024-001/evaluate",
+      "text": "03\n      \n        \n "
+    },
+    {
+      "href": "#/patent-assets/dashboard",
+      "text": "04\n      \n        \n "
+    }
+  ],
+  "summary": {
+    "pass": 8,
+    "fail": 0,
+    "warn": 1,
+    "total": 9
+  },
+  "overall": "B"
+}

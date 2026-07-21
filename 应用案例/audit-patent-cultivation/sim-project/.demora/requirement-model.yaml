@@ -1,0 +1,315 @@
+# 需求模型（Phase 1 写入，Phase 2 读取，Phase 3 判断变更）
+# Schema 见 SKILL.md 内联定义
+project:
+  name: 垂直行业AI高价值专利智能培育平台
+  description: 面向垂直行业的专利创意培育与高价值布局平台
+  domain: Patent
+  slug: patent-cultivation
+
+entities:
+  - name: patent-idea
+    displayName: 专利创意
+    fields:
+      - name: title
+        displayName: 创意标题
+        type: string
+        required: true
+      - name: industry
+        displayName: 行业领域
+        type: enum
+        options: [智能制造, 生物医药, AI软件, 新材料, 新能源]
+        required: true
+      - name: innovation_point
+        displayName: 创新点
+        type: text
+        required: true
+      - name: proposer
+        displayName: 提出人
+        type: string
+        required: true
+      - name: score
+        displayName: AI评分
+        type: number
+        required: false
+      - name: layout_plan
+        displayName: 布局方案
+        type: text
+        required: false
+      - name: owner
+        displayName: 责任IPR
+        type: string
+        required: true
+      - name: operator
+        displayName: 操作人
+        type: string
+        required: false
+    statuses:
+      - value: draft
+        label: 草稿
+        color: warning
+      - value: analyzing
+        label: 分析中
+        color: info
+      - value: recommended
+        label: 推荐培育
+        color: success
+      - value: discarded
+        label: 已归档
+        color: danger
+    transitions: []
+    relations: []
+
+pages:
+  - id: P01
+    name: patent-idea-list
+    type: crud_list
+    entity: patent-idea
+    route: /patent-ideas
+    priority: P0
+    fields:
+      - field: title
+        in_search: true
+        in_table: true
+      - field: industry
+        in_search: true
+        in_table: true
+      - field: proposer
+        in_search: true
+        in_table: true
+      - field: score
+        in_search: false
+        in_table: true
+      - field: owner
+        in_search: true
+        in_table: true
+      - field: status
+        in_search: true
+        in_table: true
+    operations:
+      - name: 新增创意
+        type: create
+        trigger: 点击新增按钮
+        condition: 用户拥有 patent-idea:create 权限
+        feedback: 跳转到创意培育表单
+      - name: 查看创意
+        type: view
+        trigger: 点击表格行查看按钮
+        condition: 用户拥有 patent-idea:read 权限
+        feedback: 跳转到创意详情
+      - name: 触发AI分析
+        type: update
+        trigger: 点击"AI分析"按钮
+        condition: 用户拥有 patent-idea:update 权限且状态为草稿
+        feedback: 异步执行分析，状态置为分析中
+    annotations:
+      L1:
+        summary: 专利创意列表页，分页展示企业所有创意及培育状态
+        entry: 侧边栏"创意培育"菜单
+        precondition: 已登录且拥有 patent-idea:read 权限
+        data_entity: patent-idea
+        business_rules:
+          - 研发工程师仅看到自己提交的创意
+          - IPR 与代理师可见全部创意
+          - 支持按标题、行业、提出人、状态搜索
+        test_data: 6 条创意 Mock 数据，覆盖各行业与状态
+      L2:
+        - zone: 搜索区
+          description: 顶部搜索表单，含标题、行业、提出人、责任IPR、状态下拉与搜索按钮
+        - zone: 操作栏
+          description: 含新增创意按钮与"批量AI分析"按钮
+        - zone: 数据表格
+          description: 数据表格 展示创意列表，行业与状态使用 状态标签
+        - zone: 分页区
+          description: 底部 分页组件
+      L3:
+        - element: 搜索按钮
+          function: 触发搜索
+          trigger: click
+          condition: 无
+          response: 表格刷新为搜索结果
+          state: 搜索条件已应用
+          exception: 搜索条件为空时展示全部
+        - element: 新增创意按钮
+          function: 打开新增表单
+          trigger: click
+          condition: 用户拥有 patent-idea:create 权限
+          response: 跳转到 /patent-ideas/form
+          state: 表单页面加载
+          exception: 无权限时按钮隐藏
+        - element: AI分析按钮
+          function: 触发AI评分与布局生成
+          trigger: click
+          condition: 状态为草稿
+          response: 状态置为分析中，异步任务启动
+          state: 行状态更新为分析中
+          exception: 非草稿状态按钮禁用
+  - id: P02
+    name: patent-idea-detail
+    type: detail_view
+    entity: patent-idea
+    route: /patent-ideas/:id
+    priority: P0
+    fields:
+      - field: title
+        in_detail: true
+      - field: industry
+        in_detail: true
+      - field: innovation_point
+        in_detail: true
+      - field: proposer
+        in_detail: true
+      - field: score
+        in_detail: true
+      - field: layout_plan
+        in_detail: true
+      - field: owner
+        in_detail: true
+      - field: status
+        in_detail: true
+    operations:
+      - name: 标记推荐培育
+        type: update
+        trigger: 点击"推荐培育"按钮
+        condition: 用户拥有 patent-idea:update 权限且状态为分析中
+        feedback: 状态更新为推荐培育
+      - name: 归档
+        type: cancel
+        trigger: 点击"归档"按钮
+        condition: 用户拥有 patent-idea:update 权限且状态为草稿/分析中
+        feedback: 弹出确认弹窗，确认后置为已归档
+      - name: 导出培育报告
+        type: export
+        trigger: 点击"导出"按钮
+        condition: 用户拥有 patent-idea:export 权限
+        feedback: 导出 PDF 培育报告
+    annotations:
+      L1:
+        summary: 创意详情页，展示创意全部信息、AI评分、布局方案
+        entry: 创意列表点击"查看"
+        precondition: 已登录且拥有 patent-idea:read 权限
+        data_entity: patent-idea
+        business_rules:
+          - 仅 IPR 可执行推荐培育/归档
+          - 状态流转：草稿 → 分析中 → 推荐培育 / 已归档
+          - 评分低于60分时归档按钮高亮提示
+        test_data: 1 条创意详情 Mock 数据，含布局方案文本
+      L2:
+        - zone: 详情头部
+          description: 描述列表 展示创意标题、行业、提出人、责任IPR、状态
+        - zone: 评分与布局区
+          description: 展示 AI 评分、布局方案（核心/外围/防御分层）
+        - zone: 创新点描述区
+          description: 展示创新点详细文本
+        - zone: 操作按钮区
+          description: 含推荐培育、归档、导出按钮（按状态显示）
+      L3:
+        - element: 推荐培育按钮
+          function: 推进培育流程
+          trigger: click
+          condition: 状态为分析中
+          response: 状态更新为推荐培育
+          state: 按钮组刷新
+          exception: 非分析中状态按钮隐藏
+        - element: 归档按钮
+          function: 归档创意
+          trigger: click
+          condition: 状态为草稿或分析中
+          response: 弹出确认弹窗
+          state: 确认弹窗显示
+          exception: 推荐培育状态按钮禁用
+        - element: 导出按钮
+          function: 导出培育报告
+          trigger: click
+          condition: 用户拥有 patent-idea:export 权限
+          response: 下载 PDF 文件
+          state: 无状态变更
+          exception: 无权限时按钮隐藏
+  - id: P03
+    name: patent-idea-form
+    type: form_page
+    entity: patent-idea
+    route: /patent-ideas/form
+    priority: P0
+    fields:
+      - field: title
+        in_form: true
+      - field: industry
+        in_form: true
+      - field: innovation_point
+        in_form: true
+      - field: proposer
+        in_form: true
+      - field: owner
+        in_form: true
+    operations:
+      - name: 提交创意
+        type: save
+        trigger: 点击提交按钮
+        condition: 表单校验通过
+        feedback: 提交成功后返回创意列表
+      - name: 取消
+        type: cancel
+        trigger: 点击取消按钮
+        condition: 无
+        feedback: 返回上一页
+    annotations:
+      L1:
+        summary: 创意培育表单页，研发工程师提交技术创意
+        entry: 创意列表点击"新增创意"
+        precondition: 已登录且拥有 patent-idea:create 权限
+        data_entity: patent-idea
+        business_rules:
+          - 标题、行业、创新点、提出人、责任IPR为必填
+          - 创新点不少于50字
+          - 提交后自动进入草稿状态，可触发 AI 分析
+        test_data: 空表单或回填的创意数据
+      L2:
+        - zone: 表单区
+          description: 表单 含标题输入、行业下拉、创新点文本域、提出人、责任IPR字段
+        - zone: 操作按钮区
+          description: 含提交、取消按钮
+      L3:
+        - element: 提交按钮
+          function: 提交创意
+          trigger: click
+          condition: 表单校验通过
+          response: 保存数据并跳转 /patent-ideas
+          state: 列表页刷新
+          exception: 校验失败时高亮错误字段
+        - element: 行业下拉
+          function: 选择行业
+          trigger: change
+          condition: 无
+          response: 联动显示该行业已有创意数量
+          state: 行业已选择
+          exception: 无
+        - element: 取消按钮
+          function: 取消编辑
+          trigger: click
+          condition: 无
+          response: 返回上一页
+          state: 不保存任何修改
+          exception: 无
+
+roles:
+  - name: ipr
+    displayName: 企业IPR
+    permissions:
+      - entity: patent-idea
+        actions: [create, read, update, delete, export]
+        scope: all
+    page_visibility: [P01, P02, P03]
+  - name: agent
+    displayName: 代理师
+    permissions:
+      - entity: patent-idea
+        actions: [read, update, export]
+        scope: all
+    page_visibility: [P01, P02]
+  - name: engineer
+    displayName: 研发工程师
+    permissions:
+      - entity: patent-idea
+        actions: [create, read]
+        scope: own
+    page_visibility: [P01, P02, P03]

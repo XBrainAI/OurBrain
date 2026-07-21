@@ -1,0 +1,93 @@
+{
+  "label": "patent-cultivation",
+  "timestamp": "2026-07-21T10:18:40.086Z",
+  "dimensions": {
+    "D0_load": "pass",
+    "D0_console": "pass",
+    "D0_contracts": "pass",
+    "D2_nav_click": "pass",
+    "D3_modal_close": "warn: modal not openable",
+    "D4_l2_flicker": "pass: 1 unique transforms",
+    "D6_button_responsiveness": "pass: 3/3"
+  },
+  "detectedPages": [
+    {
+      "id": "P01"
+    },
+    {
+      "id": "P02"
+    },
+    {
+      "id": "P03"
+    }
+  ],
+  "navLinks": [
+    {
+      "href": "#/patent-ideas",
+      "text": "01 · 创意池"
+    },
+    {
+      "href": "#/patent-ideas/form",
+      "text": "02 · 提交创意"
+    },
+    {
+      "href": "#/patent-ideas/P001",
+      "text": "03 · 创意详情"
+    },
+    {
+      "href": "#/patent-ideas/P001",
+      "text": "基于液冷主轴的数控机床热误差补偿方法"
+    },
+    {
+      "href": "#/patent-ideas/P002",
+      "text": "AI 辅助的体外诊断试剂图像识别方法"
+    },
+    {
+      "href": "#/patent-ideas/P003",
+      "text": "大语言模型推理显存优化方法"
+    },
+    {
+      "href": "#/patent-ideas/P004",
+      "text": "硅碳负极材料原位包覆制备方法"
+    },
+    {
+      "href": "#/patent-ideas/P005",
+      "text": "光伏组件 PID 效应修复装置"
+    },
+    {
+      "href": "#/patent-ideas/P006",
+      "text": "工业机器人末端执行器柔顺控制方法"
+    },
+    {
+      "href": "#/patent-ideas/P007",
+      "text": "mRNA 疫苗脂质纳米颗粒处方筛选方法"
+    },
+    {
+      "href": "#/patent-ideas/P008",
+      "text": "联邦学习异构客户端聚合方法"
+    },
+    {
+      "href": "#/patent-ideas/P009",
+      "text": "钙钛矿太阳能电池界面修饰材料"
+    },
+    {
+      "href": "#/patent-ideas/P010",
+      "text": "储能系统簇间均衡控制方法"
+    },
+    {
+      "href": "#/patent-ideas",
+      "text": "← 返回创意列表"
+    },
+    {
+      "href": "#/patent-ideas",
+      "text": "← 返回创意列表"
+    }
+  ],
+  "summary": {
+    "pass": 8,
+    "fail": 0,
+    "warn": 1,
+    "total": 9
+  },
+  "overall": "B"
+}

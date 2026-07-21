@@ -1,0 +1,17 @@
+{
+  "projectName": "AIGC软件算法类数字专利专项管理平台",
+  "projectSlug": "patent-aigc",
+  "projectNameEn": "patent-aigc",
+  "version": "1.0.0",
+  "description": "算法专利解析、权属判定与 FTO 比对平台",
+  "domain": "Patent",
+  "roles": [
+    "ai-engineer",
+    "ipr",
+    "agent"
+  ],
+  "pageCount": 3,
+  "entityCount": 1,
+  "generatedAt": "2026-07-21",
+  "skillVersion": "oc-demora"
+}

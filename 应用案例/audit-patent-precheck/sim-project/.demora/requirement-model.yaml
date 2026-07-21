@@ -1,0 +1,315 @@
+# 需求模型（Phase 1 写入，Phase 2 读取，Phase 3 判断变更）
+# Schema 见 SKILL.md 内联定义
+project:
+  name: 专利预审智能合规预审管家
+  description: 专利预审案件全流程管理与智能预检平台
+  domain: Patent
+  slug: patent-precheck
+
+entities:
+  - name: precheck-case
+    displayName: 预审案件
+    fields:
+      - name: case_no
+        displayName: 案件编号
+        type: string
+        required: true
+      - name: applicant
+        displayName: 申请人
+        type: string
+        required: true
+      - name: tech_field
+        displayName: 技术领域
+        type: enum
+        options: [新一代信息技术, 高端装备制造, 新材料, 生物医药, 新能源, 节能环保]
+        required: true
+      - name: reviewer
+        displayName: 预审员
+        type: string
+        required: false
+      - name: issues
+        displayName: 整改问题清单
+        type: text
+        required: false
+      - name: owner
+        displayName: 代理机构
+        type: string
+        required: true
+      - name: operator
+        displayName: 操作人
+        type: string
+        required: false
+    statuses:
+      - value: submitted
+        label: 已提交
+        color: warning
+      - value: checking
+        label: 预审中
+        color: info
+      - value: passed
+        label: 预审通过
+        color: success
+      - value: rejected
+        label: 预审驳回
+        color: danger
+      - value: rectified
+        label: 已整改
+        color: info
+    transitions: []
+    relations: []
+
+pages:
+  - id: P01
+    name: precheck-case-list
+    type: crud_list
+    entity: precheck-case
+    route: /precheck-cases
+    priority: P0
+    fields:
+      - field: case_no
+        in_search: true
+        in_table: true
+      - field: applicant
+        in_search: true
+        in_table: true
+      - field: tech_field
+        in_search: true
+        in_table: true
+      - field: reviewer
+        in_search: true
+        in_table: true
+      - field: owner
+        in_search: true
+        in_table: true
+      - field: status
+        in_search: true
+        in_table: true
+    operations:
+      - name: 新增案件
+        type: create
+        trigger: 点击新增按钮
+        condition: 用户拥有 precheck-case:create 权限
+        feedback: 跳转到案件提交表单
+      - name: 查看案件
+        type: view
+        trigger: 点击表格行查看按钮
+        condition: 用户拥有 precheck-case:read 权限
+        feedback: 跳转到案件详情
+      - name: 批量预检
+        type: update
+        trigger: 点击"批量预检"按钮
+        condition: 用户拥有 precheck-case:update 权限
+        feedback: 异步执行准入预检与非正常筛查
+    annotations:
+      L1:
+        summary: 预审案件列表页，分页展示代理机构全部预审案件
+        entry: 侧边栏"预审案件"菜单
+        precondition: 已登录且拥有 precheck-case:read 权限
+        data_entity: precheck-case
+        business_rules:
+          - 企业 IPR 仅查看本企业案件
+          - 代理师与预审员可见全部
+          - 支持按案件编号、申请人、技术领域、状态搜索
+        test_data: 6 条案件 Mock 数据，覆盖各技术领域与状态
+      L2:
+        - zone: 搜索区
+          description: 顶部搜索表单，含案件编号、申请人、技术领域、预审员、状态下拉与搜索按钮
+        - zone: 操作栏
+          description: 含新增案件、批量预检按钮
+        - zone: 数据表格
+          description: 数据表格 展示案件列表，技术领域与状态使用 状态标签
+        - zone: 分页区
+          description: 底部 分页组件
+      L3:
+        - element: 搜索按钮
+          function: 触发搜索
+          trigger: click
+          condition: 无
+          response: 表格刷新为搜索结果
+          state: 搜索条件已应用
+          exception: 搜索条件为空时展示全部
+        - element: 新增案件按钮
+          function: 打开新增表单
+          trigger: click
+          condition: 用户拥有 precheck-case:create 权限
+          response: 跳转到 /precheck-cases/form
+          state: 表单页面加载
+          exception: 无权限时按钮隐藏
+        - element: 批量预检按钮
+          function: 批量执行准入预检
+          trigger: click
+          condition: 用户拥有 precheck-case:update 权限
+          response: 异步任务启动，行状态更新
+          state: 选中行高亮
+          exception: 未选中行时按钮禁用
+  - id: P02
+    name: precheck-case-detail
+    type: detail_view
+    entity: precheck-case
+    route: /precheck-cases/:id
+    priority: P0
+    fields:
+      - field: case_no
+        in_detail: true
+      - field: applicant
+        in_detail: true
+      - field: tech_field
+        in_detail: true
+      - field: reviewer
+        in_detail: true
+      - field: issues
+        in_detail: true
+      - field: owner
+        in_detail: true
+      - field: status
+        in_detail: true
+    operations:
+      - name: 开始预审
+        type: update
+        trigger: 点击"开始预审"按钮
+        condition: 用户拥有 precheck-case:update 权限且角色为预审员且状态为已提交
+        feedback: 状态置为预审中
+      - name: 通过
+        type: confirm
+        trigger: 点击"通过"按钮
+        condition: 用户拥有 precheck-case:update 权限且状态为预审中/已整改
+        feedback: 状态置为预审通过
+      - name: 驳回
+        type: cancel
+        trigger: 点击"驳回"按钮
+        condition: 用户拥有 precheck-case:update 权限且状态为预审中
+        feedback: 弹出整改清单输入弹窗，确认后置为已驳回
+    annotations:
+      L1:
+        summary: 案件详情页，展示案件信息与整改清单
+        entry: 案件列表点击"查看"
+        precondition: 已登录且拥有 precheck-case:read 权限
+        data_entity: precheck-case
+        business_rules:
+          - 仅预审员可执行开始预审/通过/驳回
+          - 状态流转：已提交 → 预审中 → 通过/驳回；已驳回 → 已整改
+          - 整改清单需在 7 日内反馈
+        test_data: 1 条案件详情 Mock 数据，含整改清单文本
+      L2:
+        - zone: 详情头部
+          description: 描述列表 展示案件编号、申请人、技术领域、代理机构、状态
+        - zone: 预审员区
+          description: 展示预审员姓名与预审开始时间
+        - zone: 整改清单区
+          description: 展示非正常筛查问题清单与整改建议
+        - zone: 操作按钮区
+          description: 含开始预审、通过、驳回按钮（按状态显示）
+      L3:
+        - element: 开始预审按钮
+          function: 推进预审流程
+          trigger: click
+          condition: 角色为预审员且状态为已提交
+          response: 状态更新为预审中
+          state: 按钮组刷新
+          exception: 非已提交状态按钮隐藏
+        - element: 通过按钮
+          function: 通过预审
+          trigger: click
+          condition: 状态为预审中或已整改
+          response: 状态更新为预审通过
+          state: 按钮组刷新
+          exception: 非预审中/已整改状态按钮隐藏
+        - element: 驳回按钮
+          function: 驳回案件
+          trigger: click
+          condition: 状态为预审中
+          response: 弹出整改清单输入弹窗
+          state: 弹窗显示
+          exception: 非预审中状态按钮隐藏
+  - id: P03
+    name: precheck-case-submit
+    type: form_page
+    entity: precheck-case
+    route: /precheck-cases/form
+    priority: P0
+    fields:
+      - field: case_no
+        in_form: true
+      - field: applicant
+        in_form: true
+      - field: tech_field
+        in_form: true
+      - field: owner
+        in_form: true
+    operations:
+      - name: 提交案件
+        type: save
+        trigger: 点击提交按钮
+        condition: 表单校验通过
+        feedback: 提交后返回案件列表，状态为已提交
+      - name: 准入预检
+        type: update
+        trigger: 点击"准入预检"按钮
+        condition: 表单关键字段已填
+        feedback: 调用预检引擎校验，输出通过/不通过原因
+      - name: 取消
+        type: cancel
+        trigger: 点击取消按钮
+        condition: 无
+        feedback: 返回上一页
+    annotations:
+      L1:
+        summary: 案件提交表单页，代理师提交预审案件
+        entry: 案件列表点击"新增案件"
+        precondition: 已登录且拥有 precheck-case:create 权限
+        data_entity: precheck-case
+        business_rules:
+          - 案件编号、申请人、技术领域、代理机构为必填
+          - 提交前需通过准入预检
+          - 同一申请人同一技术领域 30 日内不可重复提交
+        test_data: 空表单或回填的案件数据
+      L2:
+        - zone: 表单区
+          description: 表单 含案件编号、申请人、技术领域、代理机构字段
+        - zone: 操作按钮区
+          description: 含准入预检、提交、取消按钮
+      L3:
+        - element: 提交按钮
+          function: 提交预审案件
+          trigger: click
+          condition: 表单校验通过且已通过准入预检
+          response: 保存数据并跳转 /precheck-cases
+          state: 列表页刷新
+          exception: 未通过准入预检时按钮禁用
+        - element: 准入预检按钮
+          function: 调用准入预检引擎
+          trigger: click
+          condition: 关键字段已填
+          response: 显示预检结果（通过/不通过原因）
+          state: 预检结果展示
+          exception: 30 日内重复提交时提示错误
+        - element: 取消按钮
+          function: 取消编辑
+          trigger: click
+          condition: 无
+          response: 返回上一页
+          state: 不保存任何修改
+          exception: 无
+
+roles:
+  - name: agent
+    displayName: 代理师
+    permissions:
+      - entity: precheck-case
+        actions: [create, read, update, delete]
+        scope: all
+    page_visibility: [P01, P02, P03]
+  - name: precheck-reviewer
+    displayName: 预审员
+    permissions:
+      - entity: precheck-case
+        actions: [read, update]
+        scope: all
+    page_visibility: [P01, P02]
+  - name: ipr
+    displayName: 企业IPR
+    permissions:
+      - entity: precheck-case
+        actions: [read]
+        scope: own
+    page_visibility: [P01, P02]

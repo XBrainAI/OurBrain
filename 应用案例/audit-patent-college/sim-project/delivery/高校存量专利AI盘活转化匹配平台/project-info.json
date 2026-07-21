@@ -1,0 +1,17 @@
+{
+  "projectName": "高校存量专利AI盘活转化匹配平台",
+  "projectSlug": "patent-college",
+  "projectNameEn": "patent-college",
+  "version": "1.0.0",
+  "description": "高校存量专利清洗、匹配、转化全流程平台",
+  "domain": "Patent",
+  "roles": [
+    "college-research",
+    "enterprise-tech",
+    "transfer-broker"
+  ],
+  "pageCount": 3,
+  "entityCount": 1,
+  "generatedAt": "2026-07-21",
+  "skillVersion": "oc-demora"
+}

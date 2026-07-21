@@ -1,0 +1,45 @@
+{
+  "label": "patent-finance",
+  "timestamp": "2026-07-21T10:15:26.527Z",
+  "dimensions": {
+    "D0_load": "pass",
+    "D0_console": "pass",
+    "D0_contracts": "pass",
+    "D2_nav_click": "pass",
+    "D3_modal_close": "warn: modal not openable",
+    "D4_l2_flicker": "pass: 1 unique transforms",
+    "D6_button_responsiveness": "pass: 3/3"
+  },
+  "detectedPages": [
+    {
+      "id": "P01"
+    },
+    {
+      "id": "P02"
+    },
+    {
+      "id": "P03"
+    }
+  ],
+  "navLinks": [
+    {
+      "href": "#/pledge-cases",
+      "text": "01\n            质押案件列"
+    },
+    {
+      "href": "#/pledge-cases/PAT-2026-0001",
+      "text": "02\n            案件详情\n"
+    },
+    {
+      "href": "#/pledge-cases/form",
+      "text": "03\n            质押申请\n"
+    }
+  ],
+  "summary": {
+    "pass": 8,
+    "fail": 0,
+    "warn": 1,
+    "total": 9
+  },
+  "overall": "B"
+}

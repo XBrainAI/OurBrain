@@ -1,0 +1,6 @@
+# 需求模型锁定状态（lock-model.mjs 维护）
+locked: true
+change_log:
+  - action: lock
+    timestamp: 2026-07-21T09:57:24.186Z
+    reason: PM 确认锁定，进入 Phase 2

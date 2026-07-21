@@ -1,0 +1,17 @@
+{
+  "projectName": "垂直行业AI高价值专利智能培育平台",
+  "projectSlug": "patent-cultivation",
+  "projectNameEn": "patent-cultivation",
+  "version": "1.0.0",
+  "description": "面向垂直行业的专利创意培育与高价值布局平台",
+  "domain": "Patent",
+  "roles": [
+    "ipr",
+    "agent",
+    "engineer"
+  ],
+  "pageCount": 3,
+  "entityCount": 1,
+  "generatedAt": "2026-07-21",
+  "skillVersion": "oc-demora"
+}

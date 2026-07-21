@@ -1,0 +1,17 @@
+{
+  "projectName": "线上AI智能侵权监测与快速维权取证系统",
+  "projectSlug": "patent-infringement",
+  "projectNameEn": "patent-infringement",
+  "version": "1.0.0",
+  "description": "多渠道侵权监测、区块链存证与维权处置平台",
+  "domain": "Patent",
+  "roles": [
+    "brand-ipr",
+    "lawyer",
+    "monitor-analyst"
+  ],
+  "pageCount": 3,
+  "entityCount": 1,
+  "generatedAt": "2026-07-21",
+  "skillVersion": "oc-demora"
+}

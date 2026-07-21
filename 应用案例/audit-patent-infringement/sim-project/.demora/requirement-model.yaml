@@ -1,0 +1,314 @@
+# 需求模型（Phase 1 写入，Phase 2 读取，Phase 3 判断变更）
+# Schema 见 SKILL.md 内联定义
+project:
+  name: 线上AI智能侵权监测与快速维权取证系统
+  description: 多渠道侵权监测、区块链存证与维权处置平台
+  domain: Patent
+  slug: patent-infringement
+
+entities:
+  - name: infringement-case
+    displayName: 侵权案件
+    fields:
+      - name: case_no
+        displayName: 案件编号
+        type: string
+        required: true
+      - name: platform
+        displayName: 平台
+        type: enum
+        options: [淘宝, 京东, 亚马逊, 1688, 独立站, 抖音]
+        required: true
+      - name: suspect_seller
+        displayName: 涉嫌卖家
+        type: string
+        required: true
+      - name: evidence_status
+        displayName: 存证状态
+        type: enum
+        options: [未存证, 存证中, 已存证]
+        required: true
+      - name: lawyer
+        displayName: 承办律师
+        type: string
+        required: false
+      - name: owner
+        displayName: 品牌方
+        type: string
+        required: true
+      - name: operator
+        displayName: 操作人
+        type: string
+        required: false
+    statuses:
+      - value: monitoring
+        label: 监测中
+        color: info
+      - value: detected
+        label: 已发现
+        color: warning
+      - value: evidence_collected
+        label: 已取证
+        color: info
+      - value: complained
+        label: 已投诉
+        color: info
+      - value: resolved
+        label: 已结案
+        color: success
+    transitions: []
+    relations: []
+
+pages:
+  - id: P01
+    name: infringement-case-list
+    type: crud_list
+    entity: infringement-case
+    route: /infringement-cases
+    priority: P0
+    fields:
+      - field: case_no
+        in_search: true
+        in_table: true
+      - field: platform
+        in_search: true
+        in_table: true
+      - field: suspect_seller
+        in_search: true
+        in_table: true
+      - field: evidence_status
+        in_search: true
+        in_table: true
+      - field: lawyer
+        in_search: true
+        in_table: true
+      - field: owner
+        in_search: true
+        in_table: true
+      - field: status
+        in_search: true
+        in_table: true
+    operations:
+      - name: 新建监测
+        type: create
+        trigger: 点击"新建监测"按钮
+        condition: 用户拥有 infringement-case:create 权限
+        feedback: 跳转到新建监测表单
+      - name: 查看案件
+        type: view
+        trigger: 点击表格行查看按钮
+        condition: 用户拥有 infringement-case:read 权限
+        feedback: 跳转到案件详情
+      - name: 批量存证
+        type: update
+        trigger: 点击"批量存证"按钮
+        condition: 用户拥有 infringement-case:update 权限且选中行存证状态为未存证
+        feedback: 异步执行区块链存证
+    annotations:
+      L1:
+        summary: 侵权案件列表页，分页展示品牌方全部维权案件
+        entry: 侧边栏"侵权监测"菜单
+        precondition: 已登录且拥有 infringement-case:read 权限
+        data_entity: infringement-case
+        business_rules:
+          - 品牌方 IPR 仅查看本品牌案件
+          - 监测命中 24 小时内必须完成存证
+          - 支持按案件编号、平台、卖家、状态搜索
+        test_data: 6 条案件 Mock 数据，覆盖各平台与状态
+      L2:
+        - zone: 搜索区
+          description: 顶部搜索表单，含案件编号、平台、卖家、存证状态、律师、状态下拉与搜索按钮
+        - zone: 操作栏
+          description: 含新建监测、批量存证按钮
+        - zone: 数据表格
+          description: 数据表格 展示案件列表，平台/存证状态/状态使用 状态标签
+        - zone: 分页区
+          description: 底部 分页组件
+      L3:
+        - element: 搜索按钮
+          function: 触发搜索
+          trigger: click
+          condition: 无
+          response: 表格刷新为搜索结果
+          state: 搜索条件已应用
+          exception: 搜索条件为空时展示全部
+        - element: 新建监测按钮
+          function: 打开新建表单
+          trigger: click
+          condition: 用户拥有 infringement-case:create 权限
+          response: 跳转到 /infringement-cases/form
+          state: 表单页面加载
+          exception: 无权限时按钮隐藏
+        - element: 批量存证按钮
+          function: 批量执行区块链存证
+          trigger: click
+          condition: 选中行存证状态为未存证
+          response: 异步任务启动，存证状态更新
+          state: 选中行高亮
+          exception: 未选中行按钮禁用
+  - id: P02
+    name: infringement-case-detail
+    type: detail_view
+    entity: infringement-case
+    route: /infringement-cases/:id
+    priority: P0
+    fields:
+      - field: case_no
+        in_detail: true
+      - field: platform
+        in_detail: true
+      - field: suspect_seller
+        in_detail: true
+      - field: evidence_status
+        in_detail: true
+      - field: lawyer
+        in_detail: true
+      - field: owner
+        in_detail: true
+      - field: status
+        in_detail: true
+    operations:
+      - name: 立即存证
+        type: update
+        trigger: 点击"立即存证"按钮
+        condition: 用户拥有 infringement-case:update 权限且状态为已发现且存证状态为未存证
+        feedback: 调用区块链存证，状态置为已取证
+      - name: 发起投诉
+        type: update
+        trigger: 点击"发起投诉"按钮
+        condition: 用户拥有 infringement-case:update 权限且状态为已取证
+        feedback: 生成投诉函，状态置为已投诉
+      - name: 结案
+        type: finish
+        trigger: 点击"结案"按钮
+        condition: 用户拥有 infringement-case:update 权限且状态为已投诉
+        feedback: 弹出结案结果录入弹窗，确认后置为已结案
+    annotations:
+      L1:
+        summary: 案件详情页，展示侵权证据与维权处置流程
+        entry: 案件列表点击"查看"
+        precondition: 已登录且拥有 infringement-case:read 权限
+        data_entity: infringement-case
+        business_rules:
+          - 状态流转：监测中 → 已发现 → 已取证 → 已投诉 → 已结案
+          - 高风险案件自动升级至维权律师
+          - 跨境案件需绑定当地投诉规则模板
+        test_data: 1 条案件详情 Mock 数据，含证据快照
+      L2:
+        - zone: 详情头部
+          description: 描述列表 展示案件编号、平台、卖家、品牌方、状态
+        - zone: 证据区
+          description: 展示商品页面快照、销售数据、区块链存证哈希
+        - zone: 维权处置区
+          description: 展示维权方案（投诉函/律师函）与处置结果
+        - zone: 操作按钮区
+          description: 含立即存证、发起投诉、结案按钮（按状态显示）
+      L3:
+        - element: 立即存证按钮
+          function: 触发区块链存证
+          trigger: click
+          condition: 状态为已发现且存证状态为未存证
+          response: 存证状态更新为已存证，案件状态置为已取证
+          state: 按钮组刷新
+          exception: 已存证按钮隐藏
+        - element: 发起投诉按钮
+          function: 发起维权投诉
+          trigger: click
+          condition: 状态为已取证
+          response: 生成投诉函，状态置为已投诉
+          state: 按钮组刷新
+          exception: 非已取证状态按钮隐藏
+        - element: 结案按钮
+          function: 结案
+          trigger: click
+          condition: 状态为已投诉
+          response: 弹出结案结果录入弹窗
+          state: 弹窗显示
+          exception: 非已投诉状态按钮隐藏
+  - id: P03
+    name: infringement-monitor-form
+    type: form_page
+    entity: infringement-case
+    route: /infringement-cases/form
+    priority: P0
+    fields:
+      - field: case_no
+        in_form: true
+      - field: platform
+        in_form: true
+      - field: suspect_seller
+        in_form: true
+      - field: owner
+        in_form: true
+    operations:
+      - name: 提交监测
+        type: save
+        trigger: 点击提交按钮
+        condition: 表单校验通过
+        feedback: 提交后返回案件列表，状态为监测中
+      - name: 取消
+        type: cancel
+        trigger: 点击取消按钮
+        condition: 无
+        feedback: 返回上一页
+    annotations:
+      L1:
+        summary: 新建监测表单页，IPR 配置侵权监测任务
+        entry: 案件列表点击"新建监测"
+        precondition: 已登录且拥有 infringement-case:create 权限
+        data_entity: infringement-case
+        business_rules:
+          - 案件编号、平台、涉嫌卖家、品牌方为必填
+          - 同一卖家同一专利不可重复立案
+          - 提交后状态置为监测中
+        test_data: 空表单或回填的案件数据
+      L2:
+        - zone: 表单区
+          description: 表单 含案件编号、平台、涉嫌卖家、品牌方字段
+        - zone: 操作按钮区
+          description: 含提交、取消按钮
+      L3:
+        - element: 提交按钮
+          function: 提交监测任务
+          trigger: click
+          condition: 表单校验通过
+          response: 保存数据并跳转 /infringement-cases
+          state: 列表页刷新
+          exception: 同一卖家同一专利重复立案时提示错误
+        - element: 平台下拉
+          function: 选择平台
+          trigger: change
+          condition: 无
+          response: 联动显示该平台投诉规则提示
+          state: 平台已选择
+          exception: 无
+        - element: 取消按钮
+          function: 取消编辑
+          trigger: click
+          condition: 无
+          response: 返回上一页
+          state: 不保存任何修改
+          exception: 无
+
+roles:
+  - name: brand-ipr
+    displayName: 品牌方IPR
+    permissions:
+      - entity: infringement-case
+        actions: [create, read, update, delete, export]
+        scope: all
+    page_visibility: [P01, P02, P03]
+  - name: lawyer
+    displayName: 维权律师
+    permissions:
+      - entity: infringement-case
+        actions: [read, update, export]
+        scope: all
+    page_visibility: [P01, P02]
+  - name: monitor-analyst
+    displayName: 监测分析师
+    permissions:
+      - entity: infringement-case
+        actions: [read, update]
+        scope: all
+    page_visibility: [P01, P02]

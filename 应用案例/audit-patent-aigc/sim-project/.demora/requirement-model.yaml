@@ -1,0 +1,315 @@
+# 需求模型（Phase 1 写入，Phase 2 读取，Phase 3 判断变更）
+# Schema 见 SKILL.md 内联定义
+project:
+  name: AIGC软件算法类数字专利专项管理平台
+  description: 算法专利解析、权属判定与 FTO 比对平台
+  domain: Patent
+  slug: patent-aigc
+
+entities:
+  - name: aigc-patent
+    displayName: AIGC专利
+    fields:
+      - name: patent_no
+        displayName: 专利号
+        type: string
+        required: true
+      - name: algorithm_type
+        displayName: 算法类型
+        type: enum
+        options: [生成式AI, 工业软件, 边缘算法, 物联网算法]
+        required: true
+      - name: code_artifact
+        displayName: 代码资产
+        type: text
+        required: false
+      - name: ownership_type
+        displayName: 权属类型
+        type: enum
+        options: [人工发明, AI辅助, 纯机器生成]
+        required: true
+      - name: developer
+        displayName: 开发者
+        type: string
+        required: true
+      - name: owner
+        displayName: 申请人
+        type: string
+        required: true
+      - name: operator
+        displayName: 操作人
+        type: string
+        required: false
+    statuses:
+      - value: submitted
+        label: 已提交
+        color: warning
+      - value: parsing
+        label: 解析中
+        color: info
+      - value: analyzing
+        label: 分析中
+        color: info
+      - value: filed
+        label: 已申请
+        color: info
+      - value: granted
+        label: 已授权
+        color: success
+    transitions: []
+    relations: []
+
+pages:
+  - id: P01
+    name: aigc-patent-list
+    type: crud_list
+    entity: aigc-patent
+    route: /aigc-patents
+    priority: P0
+    fields:
+      - field: patent_no
+        in_search: true
+        in_table: true
+      - field: algorithm_type
+        in_search: true
+        in_table: true
+      - field: ownership_type
+        in_search: true
+        in_table: true
+      - field: developer
+        in_search: true
+        in_table: true
+      - field: owner
+        in_search: true
+        in_table: true
+      - field: status
+        in_search: true
+        in_table: true
+    operations:
+      - name: 新增专利
+        type: create
+        trigger: 点击新增按钮
+        condition: 用户拥有 aigc-patent:create 权限
+        feedback: 跳转到代码上传解析表单
+      - name: 查看专利
+        type: view
+        trigger: 点击表格行查看按钮
+        condition: 用户拥有 aigc-patent:read 权限
+        feedback: 跳转到专利详情
+      - name: 触发解析
+        type: update
+        trigger: 点击"AI解析"按钮
+        condition: 用户拥有 aigc-patent:update 权限且状态为已提交
+        feedback: 异步执行代码解析，状态置为解析中
+    annotations:
+      L1:
+        summary: AIGC 专利列表页，分页展示企业全部算法专利
+        entry: 侧边栏"AIGC 专利"菜单
+        precondition: 已登录且拥有 aigc-patent:read 权限
+        data_entity: aigc-patent
+        business_rules:
+          - AI 工程师仅查看自己提交的专利
+          - IPR 与代理师可见全部
+          - 支持按专利号、算法类型、权属类型、状态搜索
+        test_data: 6 条专利 Mock 数据，覆盖各算法类型与状态
+      L2:
+        - zone: 搜索区
+          description: 顶部搜索表单，含专利号、算法类型、权属类型、开发者、申请人、状态下拉与搜索按钮
+        - zone: 操作栏
+          description: 含新增专利按钮
+        - zone: 数据表格
+          description: 数据表格 展示专利列表，算法类型/权属类型/状态使用 状态标签
+        - zone: 分页区
+          description: 底部 分页组件
+      L3:
+        - element: 搜索按钮
+          function: 触发搜索
+          trigger: click
+          condition: 无
+          response: 表格刷新为搜索结果
+          state: 搜索条件已应用
+          exception: 搜索条件为空时展示全部
+        - element: 新增专利按钮
+          function: 打开新增表单
+          trigger: click
+          condition: 用户拥有 aigc-patent:create 权限
+          response: 跳转到 /aigc-patents/form
+          state: 表单页面加载
+          exception: 无权限时按钮隐藏
+        - element: AI解析按钮
+          function: 触发代码解析
+          trigger: click
+          condition: 状态为已提交
+          response: 异步任务启动，状态置为解析中
+          state: 行状态更新
+          exception: 非已提交状态按钮禁用
+  - id: P02
+    name: aigc-patent-detail
+    type: detail_view
+    entity: aigc-patent
+    route: /aigc-patents/:id
+    priority: P0
+    fields:
+      - field: patent_no
+        in_detail: true
+      - field: algorithm_type
+        in_detail: true
+      - field: code_artifact
+        in_detail: true
+      - field: ownership_type
+        in_detail: true
+      - field: developer
+        in_detail: true
+      - field: owner
+        in_detail: true
+      - field: status
+        in_detail: true
+    operations:
+      - name: 触发分析
+        type: update
+        trigger: 点击"触发分析"按钮
+        condition: 用户拥有 aigc-patent:update 权限且状态为解析中
+        feedback: 调用 FTO 比对与权属判定，状态置为分析中
+      - name: 审核权属
+        type: confirm
+        trigger: 点击"审核权属"按钮
+        condition: 用户拥有 aigc-patent:update 权限且角色为IPR且状态为分析中
+        feedback: 弹出权属确认弹窗，确认后置为已申请
+      - name: 标记授权
+        type: finish
+        trigger: 点击"标记授权"按钮
+        condition: 用户拥有 aigc-patent:update 权限且状态为已申请
+        feedback: 状态置为已授权
+    annotations:
+      L1:
+        summary: 专利详情页，展示代码解析结果与权属判定
+        entry: 专利列表点击"查看"
+        precondition: 已登录且拥有 aigc-patent:read 权限
+        data_entity: aigc-patent
+        business_rules:
+          - 状态流转：已提交 → 解析中 → 分析中 → 已申请 → 已授权
+          - 纯机器生成内容不可作为专利发明人
+          - 开源协议冲突时禁止提交申请
+        test_data: 1 条专利详情 Mock 数据，含解析结果与 FTO 比对
+      L2:
+        - zone: 详情头部
+          description: 描述列表 展示专利号、算法类型、权属类型、开发者、申请人、状态
+        - zone: 代码资产区
+          description: 展示上传的代码与算法流程图
+        - zone: 解析结果区
+          description: 展示创新逻辑挖掘、FTO 比对、开源协议冲突
+        - zone: 操作按钮区
+          description: 含触发分析、审核权属、标记授权按钮（按状态显示）
+      L3:
+        - element: 触发分析按钮
+          function: 触发 FTO 与权属分析
+          trigger: click
+          condition: 状态为解析中
+          response: 状态更新为分析中
+          state: 按钮组刷新
+          exception: 非解析中状态按钮隐藏
+        - element: 审核权属按钮
+          function: 审核权属判定
+          trigger: click
+          condition: 角色为IPR且状态为分析中
+          response: 弹出权属确认弹窗
+          state: 弹窗显示
+          exception: 非分析中状态按钮隐藏
+        - element: 标记授权按钮
+          function: 标记专利已授权
+          trigger: click
+          condition: 状态为已申请
+          response: 状态置为已授权
+          state: 按钮组刷新
+          exception: 非已申请状态按钮隐藏
+  - id: P03
+    name: aigc-patent-upload
+    type: form_page
+    entity: aigc-patent
+    route: /aigc-patents/form
+    priority: P0
+    fields:
+      - field: patent_no
+        in_form: true
+      - field: algorithm_type
+        in_form: true
+      - field: code_artifact
+        in_form: true
+      - field: ownership_type
+        in_form: true
+      - field: developer
+        in_form: true
+      - field: owner
+        in_form: true
+    operations:
+      - name: 提交
+        type: save
+        trigger: 点击提交按钮
+        condition: 表单校验通过
+        feedback: 提交后返回专利列表，状态为已提交
+      - name: 取消
+        type: cancel
+        trigger: 点击取消按钮
+        condition: 无
+        feedback: 返回上一页
+    annotations:
+      L1:
+        summary: 代码上传解析表单页，AI 工程师提交算法专利
+        entry: 专利列表点击"新增专利"
+        precondition: 已登录且拥有 aigc-patent:create 权限
+        data_entity: aigc-patent
+        business_rules:
+          - 专利号、算法类型、权属类型、开发者、申请人为必填
+          - 同一算法不可重复申请专利
+          - 纯机器生成内容需提示权属合规风险
+        test_data: 空表单或回填的算法专利数据
+      L2:
+        - zone: 表单区
+          description: 表单 含专利号、算法类型、代码资产、权属类型、开发者、申请人字段
+        - zone: 操作按钮区
+          description: 含提交、取消按钮
+      L3:
+        - element: 提交按钮
+          function: 提交算法专利
+          trigger: click
+          condition: 表单校验通过
+          response: 保存数据并跳转 /aigc-patents
+          state: 列表页刷新
+          exception: 同一算法重复申请时提示错误
+        - element: 权属类型下拉
+          function: 选择权属类型
+          trigger: change
+          condition: 无
+          response: 选择纯机器生成时弹出合规风险提示
+          state: 类型已选择
+          exception: 无
+        - element: 取消按钮
+          function: 取消编辑
+          trigger: click
+          condition: 无
+          response: 返回上一页
+          state: 不保存任何修改
+          exception: 无
+
+roles:
+  - name: ai-engineer
+    displayName: AI工程师
+    permissions:
+      - entity: aigc-patent
+        actions: [create, read]
+        scope: own
+    page_visibility: [P01, P02, P03]
+  - name: ipr
+    displayName: 企业IPR
+    permissions:
+      - entity: aigc-patent
+        actions: [create, read, update, delete, export]
+        scope: all
+    page_visibility: [P01, P02, P03]
+  - name: agent
+    displayName: 代理师
+    permissions:
+      - entity: aigc-patent
+        actions: [read, update, export]
+        scope: all
+    page_visibility: [P01, P02]

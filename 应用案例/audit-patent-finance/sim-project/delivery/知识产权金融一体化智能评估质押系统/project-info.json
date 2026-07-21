@@ -1,0 +1,17 @@
+{
+  "projectName": "知识产权金融一体化智能评估质押系统",
+  "projectSlug": "patent-finance",
+  "projectNameEn": "patent-finance",
+  "version": "1.0.0",
+  "description": "专利估值、质押、放款与风险监控一体化平台",
+  "domain": "Patent",
+  "roles": [
+    "financing-manager",
+    "bank-risk",
+    "assessor"
+  ],
+  "pageCount": 3,
+  "entityCount": 1,
+  "generatedAt": "2026-07-21",
+  "skillVersion": "oc-demora"
+}

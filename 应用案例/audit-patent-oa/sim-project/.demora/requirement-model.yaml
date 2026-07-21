@@ -1,0 +1,320 @@
+# 需求模型（Phase 1 写入，Phase 2 读取，Phase 3 判断变更）
+# Schema 见 SKILL.md 内联定义
+project:
+  name: AI专利审查意见OA智能答复辅助专家系统
+  description: OA 答复拆解、案例匹配、修改推演与标准化输出平台
+  domain: Patent
+  slug: patent-oa
+
+entities:
+  - name: oa-response
+    displayName: OA答复
+    fields:
+      - name: case_no
+        displayName: 案件编号
+        type: string
+        required: true
+      - name: application_no
+        displayName: 申请号
+        type: string
+        required: true
+      - name: rejection_type
+        displayName: 驳回类型
+        type: enum
+        options: [新颖性, 创造性, 实用性, 清晰性]
+        required: true
+      - name: agent
+        displayName: 代理师
+        type: string
+        required: true
+      - name: deadline
+        displayName: 答复期限
+        type: date
+        required: true
+      - name: owner
+        displayName: 申请人
+        type: string
+        required: true
+      - name: operator
+        displayName: 操作人
+        type: string
+        required: false
+    statuses:
+      - value: received
+        label: 已收到OA
+        color: warning
+      - value: analyzing
+        label: 拆解中
+        color: info
+      - value: drafting
+        label: 草拟中
+        color: info
+      - value: submitted
+        label: 已答复
+        color: info
+      - value: allowed
+        label: 已授权
+        color: success
+      - value: final_rejected
+        label: 最终驳回
+        color: danger
+    transitions: []
+    relations: []
+
+pages:
+  - id: P01
+    name: oa-response-list
+    type: crud_list
+    entity: oa-response
+    route: /oa-responses
+    priority: P0
+    fields:
+      - field: case_no
+        in_search: true
+        in_table: true
+      - field: application_no
+        in_search: true
+        in_table: true
+      - field: rejection_type
+        in_search: true
+        in_table: true
+      - field: agent
+        in_search: true
+        in_table: true
+      - field: deadline
+        in_search: true
+        in_table: true
+      - field: owner
+        in_search: true
+        in_table: true
+      - field: status
+        in_search: true
+        in_table: true
+    operations:
+      - name: 新建答复
+        type: create
+        trigger: 点击"新建答复"按钮
+        condition: 用户拥有 oa-response:create 权限
+        feedback: 跳转到新建答复表单
+      - name: 查看答复
+        type: view
+        trigger: 点击表格行查看按钮
+        condition: 用户拥有 oa-response:read 权限
+        feedback: 跳转到答复详情
+      - name: 导出答复文件
+        type: export
+        trigger: 点击"导出"按钮
+        condition: 用户拥有 oa-response:export 权限且状态为已答复
+        feedback: 下载标准化答复文件
+    annotations:
+      L1:
+        summary: OA 答复列表页，分页展示代理机构全部 OA 答复案件
+        entry: 侧边栏"OA 答复"菜单
+        precondition: 已登录且拥有 oa-response:read 权限
+        data_entity: oa-response
+        business_rules:
+          - 企业 IPR 仅查看本企业案件
+          - 代理师可见全部代理案件
+          - 答复期限前 30 天高亮预警
+        test_data: 6 条答复 Mock 数据，覆盖各驳回类型与状态
+      L2:
+        - zone: 搜索区
+          description: 顶部搜索表单，含案件编号、申请号、驳回类型、代理师、申请人、状态下拉与搜索按钮
+        - zone: 操作栏
+          description: 含新建答复按钮
+        - zone: 数据表格
+          description: 数据表格 展示答复列表，驳回类型与状态使用 状态标签
+        - zone: 分页区
+          description: 底部 分页组件
+      L3:
+        - element: 搜索按钮
+          function: 触发搜索
+          trigger: click
+          condition: 无
+          response: 表格刷新为搜索结果
+          state: 搜索条件已应用
+          exception: 搜索条件为空时展示全部
+        - element: 新建答复按钮
+          function: 打开新建表单
+          trigger: click
+          condition: 用户拥有 oa-response:create 权限
+          response: 跳转到 /oa-responses/form
+          state: 表单页面加载
+          exception: 无权限时按钮隐藏
+        - element: 导出按钮
+          function: 导出标准化答复文件
+          trigger: click
+          condition: 状态为已答复
+          response: 下载 PDF 答复文件
+          state: 无状态变更
+          exception: 非已答复状态按钮禁用
+  - id: P02
+    name: oa-response-detail
+    type: detail_view
+    entity: oa-response
+    route: /oa-responses/:id
+    priority: P0
+    fields:
+      - field: case_no
+        in_detail: true
+      - field: application_no
+        in_detail: true
+      - field: rejection_type
+        in_detail: true
+      - field: agent
+        in_detail: true
+      - field: deadline
+        in_detail: true
+      - field: owner
+        in_detail: true
+      - field: status
+        in_detail: true
+    operations:
+      - name: 开始拆解
+        type: update
+        trigger: 点击"开始拆解"按钮
+        condition: 用户拥有 oa-response:update 权限且角色为代理师且状态为已收到OA
+        feedback: 调用 AI 拆解，状态置为拆解中
+      - name: 生成草稿
+        type: update
+        trigger: 点击"生成草稿"按钮
+        condition: 用户拥有 oa-response:update 权限且状态为拆解中
+        feedback: 调用 AI 生成答复草稿，状态置为草拟中
+      - name: 提交答复
+        type: finish
+        trigger: 点击"提交答复"按钮
+        condition: 用户拥有 oa-response:update 权限且状态为草拟中
+        feedback: 弹出确认弹窗，确认后置为已答复
+    annotations:
+      L1:
+        summary: 答复详情页，展示 OA 拆解结果与答复草稿
+        entry: 答复列表点击"查看"
+        precondition: 已登录且拥有 oa-response:read 权限
+        data_entity: oa-response
+        business_rules:
+          - 状态流转：已收到OA → 拆解中 → 草拟中 → 已答复 → 已授权/最终驳回
+          - 答复期限 4 个月，逾期视为放弃
+          - 修改超范围需经 IPR 复核
+        test_data: 1 条答复详情 Mock 数据，含拆解结果与草稿
+      L2:
+        - zone: 详情头部
+          description: 描述列表 展示案件编号、申请号、驳回类型、代理师、答复期限、状态
+        - zone: 拆解结果区
+          description: 展示驳回理由、对比文件、区别技术特征
+        - zone: 答复草稿区
+          description: 展示分层评述逻辑与权利要求修改推演
+        - zone: 操作按钮区
+          description: 含开始拆解、生成草稿、提交答复按钮（按状态显示）
+      L3:
+        - element: 开始拆解按钮
+          function: 触发 AI 拆解
+          trigger: click
+          condition: 角色为代理师且状态为已收到OA
+          response: 状态更新为拆解中
+          state: 按钮组刷新
+          exception: 非已收到OA状态按钮隐藏
+        - element: 生成草稿按钮
+          function: 生成答复草稿
+          trigger: click
+          condition: 状态为拆解中
+          response: 状态更新为草拟中
+          state: 按钮组刷新
+          exception: 非拆解中状态按钮隐藏
+        - element: 提交答复按钮
+          function: 提交答复文件
+          trigger: click
+          condition: 状态为草拟中
+          response: 弹出确认弹窗
+          state: 确认弹窗显示
+          exception: 非草拟中状态按钮隐藏
+  - id: P03
+    name: oa-response-form
+    type: form_page
+    entity: oa-response
+    route: /oa-responses/form
+    priority: P0
+    fields:
+      - field: case_no
+        in_form: true
+      - field: application_no
+        in_form: true
+      - field: rejection_type
+        in_form: true
+      - field: agent
+        in_form: true
+      - field: deadline
+        in_form: true
+      - field: owner
+        in_form: true
+    operations:
+      - name: 提交
+        type: save
+        trigger: 点击提交按钮
+        condition: 表单校验通过
+        feedback: 提交后返回答复列表，状态为已收到OA
+      - name: 取消
+        type: cancel
+        trigger: 点击取消按钮
+        condition: 无
+        feedback: 返回上一页
+    annotations:
+      L1:
+        summary: 新建答复表单页，代理师录入 OA 案件基础信息
+        entry: 答复列表点击"新建答复"
+        precondition: 已登录且拥有 oa-response:create 权限
+        data_entity: oa-response
+        business_rules:
+          - 案件编号、申请号、驳回类型、代理师、答复期限、申请人为必填
+          - 同一申请号不可重复提交答复
+          - 答复期限不可早于今天
+        test_data: 空表单或回填的答复数据
+      L2:
+        - zone: 表单区
+          description: 表单 含案件编号、申请号、驳回类型、代理师、答复期限、申请人字段
+        - zone: 操作按钮区
+          description: 含提交、取消按钮
+      L3:
+        - element: 提交按钮
+          function: 提交 OA 答复案件
+          trigger: click
+          condition: 表单校验通过
+          response: 保存数据并跳转 /oa-responses
+          state: 列表页刷新
+          exception: 同一申请号重复提交时提示错误
+        - element: 驳回类型下拉
+          function: 选择驳回类型
+          trigger: change
+          condition: 无
+          response: 联动显示对应答复策略提示
+          state: 类型已选择
+          exception: 无
+        - element: 取消按钮
+          function: 取消编辑
+          trigger: click
+          condition: 无
+          response: 返回上一页
+          state: 不保存任何修改
+          exception: 无
+
+roles:
+  - name: agent
+    displayName: 代理师
+    permissions:
+      - entity: oa-response
+        actions: [create, read, update, delete, export]
+        scope: all
+    page_visibility: [P01, P02, P03]
+  - name: ipr
+    displayName: 企业IPR
+    permissions:
+      - entity: oa-response
+        actions: [read, update]
+        scope: own
+    page_visibility: [P01, P02]
+  - name: examiner
+    displayName: 审查员
+    permissions:
+      - entity: oa-response
+        actions: [read]
+        scope: all
+    page_visibility: [P01, P02]

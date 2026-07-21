@@ -1,0 +1,17 @@
+{
+  "projectName": "绿色低碳新质产业专项专利布局分析平台",
+  "projectSlug": "patent-green",
+  "projectNameEn": "patent-green",
+  "version": "1.0.0",
+  "description": "双碳赛道专利布局分析与情报监测平台",
+  "domain": "Patent",
+  "roles": [
+    "ipr",
+    "green-researcher",
+    "layout-planner"
+  ],
+  "pageCount": 3,
+  "entityCount": 1,
+  "generatedAt": "2026-07-21",
+  "skillVersion": "oc-demora"
+}

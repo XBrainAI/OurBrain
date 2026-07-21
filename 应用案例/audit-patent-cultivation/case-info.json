@@ -1,0 +1,14 @@
+{
+    "caseId":  "patent-cultivation",
+    "title":  "垂直行业AI高价值专利智能培育平台",
+    "description":  "面向垂直行业的专利创意培育与高价值布局平台",
+    "domain":  "知识产权-专利",
+    "industry":  "培育",
+    "pages":  3,
+    "entities":  1,
+    "roles":  3,
+    "entryPath":  "audit-patent-cultivation/sim-project/demo/index.html",
+    "scenarioName":  "patent-cultivation",
+    "auditGrade":  "B",
+    "createdAt":  "2026-07-21"
+}

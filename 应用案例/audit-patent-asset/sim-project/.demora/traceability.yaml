@@ -1,0 +1,63 @@
+# traceability.yaml — 追溯矩阵 (v5.0)
+# 生成时间: 2026-07-21T10:12:26.951Z
+
+inbox:
+  - documents/.gitkeep
+  - screenshots/.gitkeep
+  - text/.gitkeep
+  - text/requirement-input.md
+  - text/requirement-scenario-brief.md
+
+model:
+  entities: 4
+    - patent-asset
+    - ipr
+    - asset-manager
+    - bank-risk
+  pages: 4
+    - P01
+    - P02
+    - P03
+    - P04
+
+demo:
+  exists: true
+
+docs:
+  files: 36
+    - assets/mermaid/mermaid-init.js
+    - assets/mermaid/mermaid.min.js
+    - data-model.html
+    - handoff/review-notes.md
+    - index.html
+    - page-spec.html
+    - prd/00-overview.md
+    - prd/01-background.md
+    - prd/02-target-audience.md
+    - prd/03-user-roles.md
+    - prd/04-business-flow.md
+    - prd/05-page-list.md
+    - prd/06-page-details/P01-patent-asset-list.md
+    - prd/06-page-details/P02-patent-asset-detail.md
+    - prd/06-page-details/P03-patent-asset-evaluate.md
+    - prd/06-page-details/P04-asset-dashboard.md
+    - prd/06-page-details/_page-template.md
+    - prd/07-fields.md
+    - prd/08-permissions.md
+    - prd/09-user-stories.md
+    - prd/10-success-metrics.md
+    - prd/11-timeline.md
+    - prd/12-risk-assumptions.md
+    - prd/13-open-questions.md
+    - product-overview.html
+    - role-permission.html
+    - spec/00-project-overview.md
+    - spec/01-page-architecture.md
+    - spec/02-interaction-flow.md
+    - spec/03-state-matrix.md
+    - spec/04-route-table.md
+    - spec/05-api-contract-draft.md
+    - spec/06-error-and-empty-states.md
+    - test/00-acceptance-criteria.md
+    - test/01-test-suggestions.md
+    - test/02-permission-matrix.md

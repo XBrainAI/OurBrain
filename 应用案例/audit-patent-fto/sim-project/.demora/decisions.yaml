@@ -1,0 +1,4 @@
+# 评审决策记录（Phase 3 由 PM 转述评审意见后生成）
+decisions: []
+# v2.7 新增：设计决策记录（AI 应用 frontend-design 方法论后的设计选择，含 signature_element/typography 等）
+design_decisions: []

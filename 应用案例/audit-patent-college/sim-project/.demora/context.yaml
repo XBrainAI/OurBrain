@@ -1,0 +1,6 @@
+# 跨会话上下文（领域术语、组件清单、样式约束快照）
+domain_terms: {}
+component_inventory: []
+style_constraints: {}
+# v5.0 新增：标记 AI 是否已读取 frontend-design 方法论
+design_methodology_read: false

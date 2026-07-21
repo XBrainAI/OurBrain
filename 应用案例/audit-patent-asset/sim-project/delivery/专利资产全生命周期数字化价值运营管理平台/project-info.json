@@ -1,0 +1,17 @@
+{
+  "projectName": "专利资产全生命周期数字化价值运营管理平台",
+  "projectSlug": "patent-asset",
+  "projectNameEn": "patent-asset",
+  "version": "1.0.0",
+  "description": "专利资产台账、估值、质押与转化运营平台",
+  "domain": "Patent",
+  "roles": [
+    "ipr",
+    "asset-manager",
+    "bank-risk"
+  ],
+  "pageCount": 4,
+  "entityCount": 1,
+  "generatedAt": "2026-07-21",
+  "skillVersion": "oc-demora"
+}

@@ -1,0 +1,17 @@
+{
+  "projectName": "全球多区域FTO智能合规风控系统",
+  "projectSlug": "patent-fto",
+  "projectNameEn": "patent-fto",
+  "version": "1.0.0",
+  "description": "面向跨境出口企业的多区域 FTO 分析与风险预警平台",
+  "domain": "Patent",
+  "roles": [
+    "ipr",
+    "fto-analyst",
+    "export-manager"
+  ],
+  "pageCount": 3,
+  "entityCount": 1,
+  "generatedAt": "2026-07-21",
+  "skillVersion": "oc-demora"
+}

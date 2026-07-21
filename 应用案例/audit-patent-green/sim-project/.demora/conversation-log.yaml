@@ -1,0 +1,4 @@
+# 对话历史（append-only，禁止覆盖已有条目）
+entries:
+  - timestamp: 2026-07-21T09:57:32.734Z
+    message: PM 确认锁定需求模型，进入 Phase 2
