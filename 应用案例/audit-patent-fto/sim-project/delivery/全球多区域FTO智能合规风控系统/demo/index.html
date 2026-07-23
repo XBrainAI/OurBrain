@@ -1056,6 +1056,41 @@
 /* [demora-injected-css] end */
 </style>
 <!-- [demora-annotation-css] end -->
+
+<!-- v5.13.7: client-mode — 客户视角(?annotations=0 隐藏标注) -->
+<style>
+html.client-mode .annotation-toggle-btn,
+html.client-mode .annotation-panel,
+html.client-mode .l2-marker,
+html.client-mode .l3-dot,
+html.client-mode #demora-annotation-host {
+  display: none !important;
+}
+html.client-mode [data-annotation-active] {
+  padding-right: 0 !important;
+}
+html.client-mode .anno-zone {
+  border-color: transparent !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+html.client-mode .anno-zone.is-highlighted {
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+</style>
+<script>
+// v5.13.7: 客户视角模式 — URL 参数 ?annotations=0 隐藏标注(同步执行避免闪烁)
+(function() {
+  try {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('annotations') === '0') {
+      document.documentElement.classList.add('client-mode');
+    }
+  } catch (e) {}
+})();
+</script>
+<!-- [v5.13.7-client-mode] end -->
 </head>
 <body>
   <div data-annotation-root>

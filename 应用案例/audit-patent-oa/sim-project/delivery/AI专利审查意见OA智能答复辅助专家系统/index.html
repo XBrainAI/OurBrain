@@ -24,6 +24,36 @@
   --radius-btn:        99px;
 }
 
+/* v5.13.5: 浅色主题 — 白底 + #14B8A6 强调色（与深色同色系，IP 协调） */
+[data-theme="light"] {
+  --color-bg:          #FFFFFF;
+  --color-surface:     #FAFAFA;
+  --color-surface-hi:  #F4F4F5;
+  --color-text:        #18181B;
+  --color-text-muted:  #52525B;
+  --color-text-dim:    #A1A1AA;
+  --color-border:      #E4E4E7;
+  --color-border-hi:   #D4D4D8;
+  --color-accent:      #14B8A6;
+  --color-accent-dim:  rgba(20, 184, 166, 0.12);
+}
+
+/* v5.13.5: 主题切换按钮（与 website 一致） */
+.theme-toggle {
+  position: fixed; top: 16px; right: 20px; z-index: 200;
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1px solid var(--color-border-hi);
+  background: var(--color-surface);
+  color: var(--color-text); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.theme-toggle:hover {
+  border-color: var(--color-accent); color: var(--color-accent); transform: scale(1.05);
+}
+[data-theme="light"] .theme-toggle { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
@@ -46,7 +76,7 @@ body {
   justify-content: space-between;
   height: 64px;
   padding: 0 clamp(20px, 8vw, 80px);
-  background: rgba(7, 7, 8, 0.85);
+  background: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -378,6 +408,46 @@ body {
   gap: 6px;
 }
 
+/* v5.13.7: 给客户 checkbox 包装 */
+.demo-card-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.for-client-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  user-select: none;
+  padding: 6px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  transition: border-color 0.3s, background 0.3s;
+  align-self: flex-start;
+}
+
+.for-client-toggle:hover {
+  border-color: rgba(20, 184, 166, 0.5);
+  background: var(--color-surface-hi);
+}
+
+.for-client-toggle input {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--color-accent);
+}
+
+.for-client-toggle input:checked + span {
+  color: var(--color-accent);
+}
+
 /* ===== Download cards ===== */
 .download-grid {
   display: grid;
@@ -476,6 +546,7 @@ body {
 .tip-box-content strong { color: var(--color-text); }
 
 /* ===== Footer ===== */
+/* v5.13.6: footer 始终深色底色（不随主题切换），确保 Ourchem 纯白 logo 可见 */
 .footer {
   display: flex;
   flex-direction: column;
@@ -483,10 +554,9 @@ body {
   justify-content: center;
   gap: 16px;
   padding: 40px clamp(20px, 6vw, 60px) 32px;
-  max-width: 1100px;
-  margin: 0 auto;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   text-align: center;
+  background: #0a0e14;
 }
 
 /* v5.9: Ourchem × Demora 联合版权展示 */
@@ -518,13 +588,13 @@ body {
 .footer-coop-x {
   font-size: 18px;
   font-weight: 300;
-  color: var(--color-text-dim);
+  color: rgba(255, 255, 255, 0.4);
   user-select: none;
 }
 
 .footer-copyright {
   font-size: 12px;
-  color: var(--color-text-dim);
+  color: rgba(255, 255, 255, 0.5);
   line-height: 1.7;
   margin: 0;
 }
@@ -550,6 +620,9 @@ body {
 </style>
 </head>
 <body>
+
+<!-- v5.13.5: 主题切换按钮（与 website 一致） -->
+<button class="theme-toggle" id="themeToggle" title="切换深色/浅色主题" aria-label="切换主题">🌙</button>
 
 <!-- ===== Header ===== -->
 <header class="header">
@@ -824,7 +897,7 @@ body {
       </div>
       <div class="meta-item">
         <span class="meta-label">生成时间</span>
-        <span class="meta-value">2026-07-21</span>
+        <span class="meta-value">2026-07-22</span>
       </div>
     </div>
   </section>
@@ -834,12 +907,18 @@ body {
     <div class="section-title">ONLINE BROWSE · 在线浏览</div>
     <h2 class="section-heading">在线查看交付物</h2>
     <div class="browse-grid">
-      <a href="demo/index.html" class="browse-card">
-        <div class="browse-card-icon">D</div>
-        <div class="browse-card-title">交互 Demo</div>
-        <p class="browse-card-desc">可点击的高保真原型，覆盖全部页面与状态流转。直接在浏览器中体验产品交互。</p>
-        <span class="browse-card-arrow">打开 Demo →</span>
-      </a>
+      <div class="demo-card-wrap">
+        <label class="for-client-toggle">
+          <input type="checkbox" id="forClient" checked>
+          <span>给客户（不含标注）</span>
+        </label>
+        <a href="demo/index.html?annotations=0" class="browse-card" id="demoLink">
+          <div class="browse-card-icon">D</div>
+          <div class="browse-card-title">交互 Demo</div>
+          <p class="browse-card-desc">可点击的高保真原型，覆盖全部页面与状态流转。直接在浏览器中体验产品交互。</p>
+          <span class="browse-card-arrow">打开 Demo →</span>
+        </a>
+      </div>
       <a href="docs/index.html" class="browse-card">
         <div class="browse-card-icon">📄</div>
         <div class="browse-card-title">产品文档</div>
@@ -1253,8 +1332,7 @@ body {
     </div>
   </div>
   <p class="footer-copyright">
-    © 2026 Ourchem × Demora · 保留所有权利<br>
-    <span class="footer-meta">本交付物由 Demora 自动生成 · 生成于 2026-07-21</span>
+    © 2026 Ourchem × Demora · 保留所有权利
   </p>
 </footer>
 
@@ -1571,6 +1649,59 @@ body {
 
   // 初始化：默认 directory 模式
   switchMode('directory');
+})();
+</script>
+
+<!-- v5.13.5: 主题切换逻辑（与 website 一致） -->
+<!-- v5.13.7: 添加 storage 事件监听（跨页面/跨标签页主题同步） -->
+<script>
+(function(){
+  var btn = document.getElementById('themeToggle');
+  if (!btn) return;
+  // 读取 localStorage 主题偏好，默认深色
+  var saved = localStorage.getItem('demora-theme') || 'dark';
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    btn.textContent = '☀';
+  }
+  btn.addEventListener('click', function(){
+    var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (isLight) {
+      document.documentElement.removeAttribute('data-theme');
+      btn.textContent = '🌙';
+      localStorage.setItem('demora-theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      btn.textContent = '☀';
+      localStorage.setItem('demora-theme', 'light');
+    }
+  });
+  // v5.13.7: 监听其他页面的主题变更（跨标签页同步）
+  window.addEventListener('storage', function(e) {
+    if (e.key === 'demora-theme') {
+      if (e.newValue === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        btn.textContent = '☀';
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        btn.textContent = '🌙';
+      }
+    }
+  });
+})();
+
+// v5.13.7: 给客户 checkbox — 控制打开 Demo 时是否带标注
+(function(){
+  var forClient = document.getElementById('forClient');
+  var demoLink = document.getElementById('demoLink');
+  if (!forClient || !demoLink) return;
+  function updateDemoLink() {
+    demoLink.href = forClient.checked
+      ? 'demo/index.html?annotations=0'
+      : 'demo/index.html?annotations=1';
+  }
+  forClient.addEventListener('change', updateDemoLink);
+  updateDemoLink();
 })();
 </script>
 

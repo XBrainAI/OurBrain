@@ -18,6 +18,24 @@
       --radius-card: 20px;
       --radius-btn: 99px;
     }
+    /* v5.13.4: 浅色主题 — 白底 + #14B8A6 强调色 */
+    [data-theme="light"] {
+      --color-bg: #FFFFFF;
+      --color-surface: #FAFAFA;
+      --color-text: #18181B;
+      --color-text-muted: #52525B;
+      --color-border: #E4E4E7;
+      --color-accent: #14B8A6;
+    }
+    .theme-toggle {
+      position: fixed; top: 16px; right: 20px; z-index: 200;
+      width: 40px; height: 40px; border-radius: 50%;
+      border: 1px solid var(--color-border); background: var(--color-surface);
+      color: var(--color-text); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; transition: all 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .theme-toggle:hover { border-color: var(--color-accent); color: var(--color-accent); transform: scale(1.05); }
 
     /* ===== Reset ===== */
     *,
@@ -53,7 +71,7 @@
       justify-content: space-between;
       height: 64px;
       padding: 0 clamp(20px, 8vw, 120px);
-      background: rgba(7, 7, 8, 0.85);
+      background: var(--color-bg);
       border-bottom: 1px solid var(--color-border);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
@@ -532,6 +550,7 @@
 </head>
 
 <body>
+<button class="theme-toggle" id="themeToggle" title="切换深色/浅色主题" aria-label="切换主题">🌙</button>
 
   <!-- ===== Header ===== -->
   <header class="header">
@@ -928,12 +947,46 @@
     </div>
   </div>
   <p class="demora-footer-copyright">
-    © 2026 Ourchem × Demora · 保留所有权利<br>
-    <span class="demora-footer-meta">本交付物由 Demora 自动生成 · 生成于 2026-07-21</span>
+    © 2026 Ourchem × Demora · 保留所有权利
   </p>
 </footer>
 <!-- [demora-copyright-footer] end -->
 
+<script>
+(function(){
+  var btn = document.getElementById('themeToggle');
+  if (!btn) return;
+  var saved = localStorage.getItem('demora-theme') || 'dark';
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    btn.textContent = '☀';
+  }
+  btn.addEventListener('click', function(){
+    var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (isLight) {
+      document.documentElement.removeAttribute('data-theme');
+      btn.textContent = '🌙';
+      localStorage.setItem('demora-theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      btn.textContent = '☀';
+      localStorage.setItem('demora-theme', 'light');
+    }
+  });
+  // v5.13.7: 监听其他页面的主题变更（跨标签页同步）
+  window.addEventListener('storage', function(e) {
+    if (e.key === 'demora-theme') {
+      if (e.newValue === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        btn.textContent = '☀';
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        btn.textContent = '🌙';
+      }
+    }
+  });
+})();
+</script>
 </body>
 
 </html>
