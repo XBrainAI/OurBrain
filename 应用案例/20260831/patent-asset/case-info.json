@@ -1,0 +1,16 @@
+{
+    "caseId":  "patent-asset",
+    "title":  "专利资产全生命周期数字化价值运营管理平台",
+    "description":  "将专利从授权登记、年费监控、AI 四维估值、组合战略到质押转让退出的全过程纳入统一数字底稿，让专利资产可量化、可预警、可交易",
+    "domain":  "知识产权-专利",
+    "industry":  "金融",
+    "pages":  6,
+    "entities":  5,
+    "roles":  4,
+    "entryPath":  "20260831/patent-asset/demo/index.html",
+    "scenarioName":  "patent-asset",
+    "auditGrade":  "",
+    "createdAt":  "2026-08-31",
+    "publicDemoUrl":  "https://demora.ipsunlight.com/patent-asset/demo/",
+    "publicDocsUrl":  "https://demora.ipsunlight.com/patent-asset/docs/"
+}

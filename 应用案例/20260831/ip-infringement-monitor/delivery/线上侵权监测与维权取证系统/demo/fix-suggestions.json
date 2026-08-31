@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-08-29T16:18:57.325Z",
+  "overall": "C",
+  "failed_dimensions": [
+    {
+      "dimension": "D6",
+      "reason": "fail: 1 处筛选计数与可见行不一致 - P04 筛选计数与可见行不一致（共 2 条 vs 可见 3 行，触发控件 p4Status）",
+      "fix_patterns": [
+        {
+          "root_cause": "按钮无 JS 事件绑定（cancelModal/prevPage/nextPage 等 handler 缺失）",
+          "fix_pattern": "在 app.js 中为每个按钮 addEventListener 或用事件委托（document.addEventListener(\"click\", e => { const btn = e.target.closest(\"[data-action]\"); ... })）；运行 node scripts/diagnose-button-failure.mjs --demo demo --port 8801 定位真因",
+          "evidence_selector": "grep -nE \"addEventListener|onclick|data-action\" demo/assets/app.js"
+        },
+        {
+          "root_cause": "动态行重渲染时按钮脱离 DOM（v5.18 新增）",
+          "fix_pattern": "动态行重渲染后用事件委托重新绑定（document.addEventListener 在初始化时一次绑定，不依赖具体按钮元素）；或重渲染后手动 querySelectorAll(...).forEach(addEventListener)；按钮追加内联 onclick 也可避免脱离",
+          "evidence_selector": "grep -nE \"innerHTML|renderReport|renderCaseList\" demo/assets/app.js"
+        },
+        {
+          "root_cause": "toast-only 空交互：按钮唯一效果是 toast 提示（v5.22 新增）",
+          "fix_pattern": "按 SKILL.md P1-6/R-11 契约，toast 不可单独成立为功能实现：须补充业务状态变化（数据增删改/视图切换/校验反馈/界面状态更新），如提交按钮写入数据列表并重渲染、开关按钮切换状态 class 且影响渲染输出，toast 仅作操作结果提示",
+          "evidence_selector": "grep -nE \"showToast|toast\\(\" demo/assets/app.js"
+        },
+        {
+          "root_cause": "同值重渲染假响应：handler 调用渲染函数但控件值未参与计算（v5.22 新增）",
+          "fix_pattern": "按 R-11 筛选实现检查清单：筛选处理须读取控件当前值（select.value/input.checked 等）并使其影响渲染输出（过滤条件真实参与数据筛选/排序），禁止渲染结果与控件值无关的空转重渲染",
+          "evidence_selector": "grep -nE \"render|filter|querySelector.*(value|checked)\" demo/assets/app.js"
+        },
+        {
+          "root_cause": "筛选状态位与 display 同步断链（v5.24 新增，D6_filter_consistency）",
+          "fix_pattern": "按 v2.4 契约全量重算 display：筛选 handler 须遍历数据全集，写状态位（如 dataset.xxxFiltered）与 style.display 赋值须同一行集覆盖——写状态位遍历全集、赋 display 仅 filter 子集是典型断链（计数变化但表格行不变），重算后同步更新计数文本",
+          "evidence_selector": "grep -nE \"display|Filtered|filter\" demo/assets/app.js"
+        }
+      ],
+      "diagnostics": null
+    }
+  ]
+}

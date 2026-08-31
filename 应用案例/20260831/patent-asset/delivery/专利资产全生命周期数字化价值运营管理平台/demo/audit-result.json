@@ -1,0 +1,118 @@
+{
+  "label": "patent-asset",
+  "timestamp": "2026-08-28T17:27:44.982Z",
+  "dimensions": {
+    "D0_load": "pass",
+    "D0_console": "pass",
+    "D0_contracts": "pass",
+    "D2_nav_click": "pass",
+    "D3_modal_close": "pass: 5/5",
+    "D4_l2_flicker": "pass: 1 unique transforms",
+    "D5_l2_marker_seq": "pass: 18/18",
+    "D5_multi_page_anchor": "pass: 58/58",
+    "D6_button_responsiveness": "pass: 42/42 across 6 pages",
+    "D8_l3_interactive": "pass: 19/19",
+    "D8_l3_duplication": "pass: no duplication",
+    "D8_l3_sequence_dup": "pass: no sequence duplication",
+    "D9_toggle_show": "pass: panel shown after toggle",
+    "D9_l2_coop": "pass: L2 coop ok (zones=1, cards=1)",
+    "D9_l3_coop": "pass: L3 coop ok (dots=1, cards=1)",
+    "D9_panel_close": "pass: panel hidden after close",
+    "D10_full_activation": "pass: L2 18/18, L3 40/40",
+    "D7_visual_heuristics": "pass",
+    "D8_element_coverage": "pass: 6 页采样无覆盖率缺口",
+    "D6_filter_consistency": "pass: 13 controls across 6 pages",
+    "D11_docs_mermaid": "pass: 30/30 块渲染正常"
+  },
+  "detectedPages": [
+    {
+      "id": "P01"
+    },
+    {
+      "id": "P02"
+    },
+    {
+      "id": "P03"
+    },
+    {
+      "id": "P04"
+    },
+    {
+      "id": "P05"
+    },
+    {
+      "id": "P06"
+    }
+  ],
+  "navLinks": [
+    {
+      "href": "#P01",
+      "text": "高管驾驶舱",
+      "type": "hash"
+    },
+    {
+      "href": "#P02",
+      "text": "专利资产台账",
+      "type": "hash"
+    },
+    {
+      "href": "#P03",
+      "text": "估值中心",
+      "type": "hash"
+    },
+    {
+      "href": "#P04",
+      "text": "组合战略与尽调",
+      "type": "hash"
+    },
+    {
+      "href": "#P05",
+      "text": "产业撮合通道",
+      "type": "hash"
+    },
+    {
+      "href": "#P06",
+      "text": "质押转让跟踪",
+      "type": "hash"
+    }
+  ],
+  "d8_coverage_details": {
+    "P01": {
+      "coverage": "100%",
+      "missing": [],
+      "missingNote": []
+    },
+    "P02": {
+      "coverage": "100%",
+      "missing": [],
+      "missingNote": []
+    },
+    "P03": {
+      "coverage": "100%",
+      "missing": [],
+      "missingNote": []
+    },
+    "P04": {
+      "coverage": "100%",
+      "missing": [],
+      "missingNote": []
+    },
+    "P05": {
+      "coverage": "100%",
+      "missing": [],
+      "missingNote": []
+    },
+    "P06": {
+      "coverage": "100%",
+      "missing": [],
+      "missingNote": []
+    }
+  },
+  "summary": {
+    "pass": 21,
+    "fail": 0,
+    "warn": 0,
+    "total": 21
+  },
+  "overall": "A"
+}

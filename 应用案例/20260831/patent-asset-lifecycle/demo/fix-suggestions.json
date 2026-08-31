@@ -1,0 +1,66 @@
+{
+  "timestamp": "2026-08-30T01:09:17.392Z",
+  "overall": "C",
+  "failed_dimensions": [
+    {
+      "dimension": "D10",
+      "reason": "fail: 6 annotations not activated (L2:0, L3:6)",
+      "fix_patterns": [
+        {
+          "root_cause": "main 容器 display:none 导致标注不可见",
+          "fix_pattern": "检查 demo/assets/style.css 中 main { display: ... }，移除 display:none 或改为 display:block",
+          "evidence_selector": "grep -n \"display:\\s*none\" demo/assets/style.css"
+        },
+        {
+          "root_cause": "前景色与背景色相同导致标注不可见",
+          "fix_pattern": "确保 main 文本色与背景色对比度 >= 4.5:1（WCAG AA）",
+          "evidence_selector": "node -e \"const p=require(\"path\");const c=require(\"fs\").readFileSync(p.join(\"demo\",\"assets\",\"style.css\"),\"utf8\");console.log(c.match(/color[^;]*/gi))\""
+        },
+        {
+          "root_cause": "__ANNOTATION_DATA__ 全局变量缺失",
+          "fix_pattern": "确保 demo/index.html 或 app.js 中赋值 window.__ANNOTATION_DATA__ = { pages: {...} }",
+          "evidence_selector": "grep -rn \"__ANNOTATION_DATA__\" demo/index.html demo/assets/app.js"
+        },
+        {
+          "root_cause": "data-annotation-active .l3-dot CSS 激活规则缺失",
+          "fix_pattern": "在 style.css 添加 [data-annotation-active=\"true\"] .l3-dot.is-active { background: <high-contrast-color>; border: 2px solid <accent>; }",
+          "evidence_selector": "grep -n \"data-annotation-active.*l3-dot\\|l3-dot.*is-active\" demo/assets/style.css"
+        },
+        {
+          "root_cause": "页面切换时 hidden 属性未正确移除导致标注未注入",
+          "fix_pattern": "检查 switchPage/route 函数，确保 newPage.hidden = false; oldPage.hidden = true，并触发 injectAnnotationMarkers",
+          "evidence_selector": "grep -n \"\\.hidden\\s*=\\|switchPage\\|route(\" demo/assets/app.js"
+        },
+        {
+          "root_cause": "重复 data-element-id 导致 L3 dots 只激活第一行（v5.18 新增）",
+          "fix_pattern": "检查动态表格行模板，确保每行用唯一 data-element-id（如 data-element-id=\"case-row-${idx}\"）；pre-audit-check P029 会检测静态 HTML 中的重复 id",
+          "evidence_selector": "grep -nE \"data-element-id\" demo/index.html | sort | uniq -d"
+        }
+      ],
+      "diagnostics": {
+        "mainExists": true,
+        "mainDisplay": "block",
+        "mainVisibility": "visible",
+        "mainColor": "rgb(23, 32, 42)",
+        "mainBgColor": "rgb(243, 246, 250)",
+        "annotationDataExists": true,
+        "annotationDataType": "object",
+        "annotationDataKeys": [
+          "P01",
+          "P02",
+          "P03",
+          "P04",
+          "P05",
+          "P06",
+          "P07",
+          "P08"
+        ],
+        "l3DotCount": 133,
+        "activeL3DotCount": 1,
+        "l2MarkerCount": 33,
+        "dataElementIdCount": 133,
+        "annotationActive": true
+      }
+    }
+  ]
+}

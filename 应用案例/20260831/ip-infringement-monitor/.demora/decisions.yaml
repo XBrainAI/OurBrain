@@ -1,0 +1,37 @@
+# 评审决策记录（Phase 3 由 PM 转述评审意见后生成）
+decisions:
+  - id: D-001
+    decision: accept
+    target_doc: docs/handoff/review-notes.md
+    summary: 需求模型与六页原型整体通过评审
+    description: "4 实体（侵权线索/存证记录/维权案件/跨境规则模板）、6 页面、3 角色；运行时审计 D0~D11 全部通过（21 通过 / 0 失败 / 0 警告，评级 A），标注覆盖 30 个 L2 区域与 73 个 L3 元件。"
+    actor: "PM（本轮无变更意见，默认接受）"
+    decided_at: "2026-08-29"
+  - id: D-002
+    decision: accept
+    target_doc: docs/handoff/review-notes.md
+    summary: 24 小时存证时效与重复立案拦截规则实现确认
+    description: "待办与线索列表的时效环倒计时真实驱动状态流转，超时自动置为已失效；立案弹窗对同一卖家同一专利的组合阻断提交并提示已有案件编号。"
+    actor: "PM（本轮无变更意见，默认接受）"
+    decided_at: "2026-08-29"
+  - id: D-003
+    decision: accept
+    target_doc: docs/handoff/review-notes.md
+    summary: 跨境案件规则绑定校验与分级处置实现确认
+    description: "跨境案件未绑定当地投诉规则模板时不可推进至处置中，推进操作给出明确原因并跳转规则库；高风险案件立案时自动预选诉讼前置并指派维权律师。"
+    actor: "PM（本轮无变更意见，默认接受）"
+    decided_at: "2026-08-29"
+# v2.7 新增：设计决策记录（AI 应用 frontend-design 方法论后的设计选择，含 signature_element/typography 等）
+design_decisions:
+  - aspect: 视觉主题
+    choice: "司法卷宗风：深墨蓝 #101C2B / 纸白 #F4F6F8 / 封条朱红 #C4362F / 链上蓝 #2E6BE6 / 黄铜 #B4842A"
+    reason: "知识产权维权的产品世界由卷宗、封条、证据袋与区块链凭证构成；主动规避暖奶油衬线、近黑酸性色、报纸式三种 AI 默认审美，让配色从业务世界的材料出发。"
+  - aspect: signature_element
+    choice: "存证时效环形倒计时（SVG 进度环，按 24 小时窗口收敛）+ 证据链时间轴（节点印章式圆点）"
+    reason: "把『24 小时存证窗口』这条硬性业务规则变成看得见的物件，倒计时归零即状态失效；证据链时间轴承担司法举证过程的连续性叙事，是唯一被强调的视觉记忆点。"
+  - aspect: 字体与排版
+    choice: "衬线（Georgia / 宋体）承载标题与关键数值，系统无衬线承载正文，等宽字体承载专利号、存证哈希与区块高度"
+    reason: "编号与哈希是证据凭证，等宽字体保证逐字符可核对；衬线仅用于标题与 KPI 数值，克制使用以避免装饰化。"
+  - aspect: 布局骨架
+    choice: "常驻顶栏（品牌 / 角色切换 / 最近动作 / 标注开关）+ 可折叠侧栏 + 单容器业务滚动区"
+    reason: "切页时公共区域常驻不位移，业务内容独立滚动；最近动作指示器让每一次操作都留下可观测的界面反馈。"

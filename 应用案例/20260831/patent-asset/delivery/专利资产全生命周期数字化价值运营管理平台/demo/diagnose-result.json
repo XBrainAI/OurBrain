@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-08-28T17:27:43.887Z",
+  "demo": "D:\\data\\wy25311753\\workspace\\git\\gitlab\\ourbrain\\demora\\feat-rebuild-v5.0\\test-cases\\oc-demora-0828-095614-GLM-5.3\\zc-glm53f-158\\p6\\patent-asset\\demo",
+  "mode": "fast",
+  "pages_tested": 6,
+  "total_failures": 0,
+  "page_errors": [],
+  "console_404": [],
+  "failures": [],
+  "gate": "PASS"
+}

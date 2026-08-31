@@ -1,0 +1,23 @@
+# Demora 项目状态文件（scaffold-project.mjs 自动生成）
+current_phase: 3
+model_locked: true
+demo_protected: true
+ai_html_designed: true
+annotation_injected: true
+structure_check_passed: true
+runtime_audit_passed: true
+delivery_consistency_verified: true
+final_approved: true
+delivery_packaged: true
+pages_generated: []
+docs_generated: [30]
+created_at: 2026-08-29T15:08:53.338Z
+lock_card_shown: false
+phase2_started_at: 2026-08-29T15:17:34.493Z
+demo_created: true
+phase2_enhance_completed_at: 2026-08-29T16:21:27.902Z
+phase2_check_completed_at: 2026-08-29T16:24:00.009Z
+audit_started_at: 2026-08-29T16:21:48.054Z
+delivery_demo_hash: f648e344c234159f749daa8bbfc851e5ef1512c1efb8ace6c656e0b20d1d8952
+delivery_packaged_at: 2026-08-29T16:25:15.299Z
+source_demo_hash: f648e344c234159f749daa8bbfc851e5ef1512c1efb8ace6c656e0b20d1d8952

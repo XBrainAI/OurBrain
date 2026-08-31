@@ -1,0 +1,16 @@
+{
+    "caseId":  "ip-infringement-monitor",
+    "title":  "线上侵权监测与维权取证系统",
+    "description":  "面向品牌方的电商/1688/跨境/短视频/展会渠道 AI 侵权监测、区块链存证取证与分级维权处置一体化平台",
+    "domain":  "知识产权-维权",
+    "industry":  "分析",
+    "pages":  6,
+    "entities":  4,
+    "roles":  3,
+    "entryPath":  "20260831/ip-infringement-monitor/demo/index.html",
+    "scenarioName":  "ip-infringement-monitor",
+    "auditGrade":  "A",
+    "createdAt":  "2026-08-31",
+    "publicDemoUrl":  "https://demora.ipsunlight.com/ip-infringement-monitor/demo/",
+    "publicDocsUrl":  "https://demora.ipsunlight.com/ip-infringement-monitor/docs/"
+}

@@ -1,0 +1,2658 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:,">
+  <title>专利资产全生命周期数字化价值运营管理平台</title>
+  <link rel="stylesheet" href="assets/style.css">
+
+<style>/* [demora-auto-fix-hidden] */
+[hidden] { display: none !important; }
+</style>
+
+<!-- [demora-annotation-css] start -->
+<style>
+/* [demora-injected-css] start */
+/* v5.13.4: 全局防御 — display:flex/grid 等会覆盖 HTML hidden 属性的默认 display:none
+ * v5.15 S-10：移除案例名污染，改为通用描述
+ * 根因：部分 demo 的 .pg-modal-mask { display:flex } 等 flex/grid 布局会覆盖 hidden 属性的默认 display:none
+ * 修复：[hidden] 强制 display:none !important，确保 hidden 属性始终生效
+ */
+[hidden] { display: none !important; }
+
+/* ---------- 标注面板宽度变量（响应式自适应）---------- */
+:root {
+  --annotation-panel-width: 320px;
+}
+@media (max-width: 1280px) {
+  :root { --annotation-panel-width: 280px; }
+}
+@media (max-width: 1024px) {
+  :root { --annotation-panel-width: 240px; }
+}
+/* ---------- L2 区域标记 + 区域框 ---------- */
+.anno-zone {
+  position: relative;
+  border: 1px dashed transparent;
+  border-radius: 4px;
+  transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+/* 开关开启时非激活区域显示蓝色虚线框 */
+[data-annotation-active] .anno-zone {
+  border-color: var(--primary, #3b82f6);
+}
+
+/* L2 区域激活态：静态橙色高亮 */
+.anno-zone.is-highlighted {
+  border-color: var(--warning, #f59e0b);
+  border-width: 2px;
+  background: rgba(245, 158, 11, 0.08);
+}
+
+.l2-marker {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  /* v5.19 P1-1：文本从单个数字升级为 Pn-Ln-xxx 编码（约 10 字符），
+   * 原 20px 固定圆形无法容纳 → 改为自适应宽度胶囊（badge）：
+   *   - width:20px → min-width:20px + padding:0 6px（短文本仍近圆形观感）
+   *   - border-radius:50% → 999px（单字符近圆、长编码胶囊）
+   *   - 新增 white-space:nowrap 防止编码换行遮挡业务内容
+   *   - font-size 11px → 10px 适配长编码
+   * 定位（top/left）、z-index、cursor、pointer-events 等交互属性零变化
+   */
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  box-sizing: border-box;
+  border-radius: 999px;
+  /* v5.20.1（UAT 三轮 U3-A）：改用标注系统固定鲜艳绿（#00c853），不再走 var(--success)——
+   * 业务令牌（如 p10 的灰暗绿 #2f6b4f）会覆盖 fallback 导致标注色不鲜艳、与 L3 区分度不足。
+   * 标注系统是独立叠加层（面板色即自持），marker 配色同理自持，不随业务令牌漂移 */
+  background: #00c853;
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  white-space: nowrap;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 200, 83, 0.55);
+  z-index: 2000;
+  cursor: pointer;
+  /* v5.2.6：强制启用 pointer-events，防御 demo CSS 重复定义 .l2-marker 覆盖交互
+   * 同 .l3-dot 修复策略，确保 L2 marker 点击事件始终生效
+   */
+  pointer-events: auto !important;
+  /* v5.2.7：移除 transform 过渡，避免 MutationObserver 重渲染时 transform 抖动产生闪烁
+   * 原因：transform 0.2s 过渡 + 频繁重渲染 → transform 在 scale(1) / scale(1.3) 间反复过渡 → 视觉闪烁
+   * 修复：仅保留 box-shadow 过渡（颜色变化不刺眼），transform 即时生效
+   */
+  transition: box-shadow 0.2s;
+}
+
+/* 开关开启时显示 L2 标注图标 */
+[data-annotation-active] .l2-marker {
+  display: flex;
+}
+
+.l2-marker:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 10px rgba(0, 200, 83, 0.7);
+}
+
+.anno-zone.is-highlighted .l2-marker {
+  background: var(--warning, #f59e0b);
+  box-shadow: 0 4px 10px rgba(245, 158, 11, 0.7);
+  transform: scale(1.3);
+}
+
+/* v5.2.7：L2 marker 激活态 ::before 改为 INFINITE 脉冲，与 L3 完全一致
+ * v5.2.6 修复（仅一次 0.6s）遗留问题：MutationObserver 自反馈循环导致 ::before 反复重启，
+ *   每次 ::before 重新创建都会重新触发 0.6s 动画，视觉上呈现"闪烁过快"。
+ * 修复策略：与 L3 完全一致——INFINITE 脉冲（0.8s ease-out infinite），不会因重启而闪烁。
+ *   即使 MutationObserver 触发重渲染，::before 元素重新创建后继续 INFINITE 动画，无视觉中断。
+ */
+[data-annotation-active] .anno-zone.is-highlighted .l2-marker::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--warning, #f59e0b);
+  animation: l2-pulse 0.8s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes l2-pulse {
+  0% { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* ---------- L3 元素蓝点标记 ---------- */
+[data-element-id] {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-width: 1em;
+  min-height: 1em;
+}
+
+/* v5.23：表格结构元素豁免 —— data-element-id 落在 tr/td/th/tbody/thead 时
+ * 恢复原生表格显示，防止 display:inline-flex 覆盖 table-row 导致整行坍塌
+ * （UAT0824 codex-dsf-p3 P06 表格前两行所有字段挤入第一列的根因）。
+ * position 刻意保留 relative（不 revert）：作为 .l3-dot 绝对定位的包含块锚点，
+ * 若一并 revert 为 static，dot 会逃逸到更外层定位祖先，偏到区域/页面左上角。
+ * 标注体系正确用法：行级标注应放在行内交互元素上，而非 tr 本身
+ * （enhance-prototype.mjs C20 会在构建期自动迁移，本规则为动态渲染行的运行时兜底）。
+ */
+tr[data-element-id], td[data-element-id], th[data-element-id],
+tbody[data-element-id], thead[data-element-id] {
+  display: revert;
+  align-items: revert;
+  min-width: revert;
+  min-height: revert;
+}
+
+.l3-dot {
+  position: absolute;
+  /* v5.13.5: 从右上角改为左上角 — AI 习惯把 data-element-id 加在宽容器上（如整个表单/搜索区），
+   * 原 right:-5px 导致 dot 偏到容器右上角，离实际按钮很远（"偏右且偏移量非常大"）。
+   * 改为 left 后 dot 贴近容器左上角，而左上角通常是交互元件位置。
+   * 与 L2 marker 的"左侧"理念一致。
+   * v5.20.1（UAT 三轮 U3-B）：10px 光点升级为 18px 序号圆（半出容器角，与 L2 形态对齐），
+   *   序号经 ::after 圆内居中显示（见下方），色彩改标注系统固定鲜艳蓝（不随业务令牌漂移）
+   */
+  top: -9px;
+  left: -9px;
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: #2563eb;
+  border: 1.5px solid #fff;
+  box-shadow: 0 0 0 1px #2563eb, 0 1px 3px rgba(0,0,0,0.3);
+  display: none;
+  opacity: 0.9;
+  z-index: 2000;
+  cursor: pointer;
+  /* v5.2.6：强制启用 pointer-events，防御 demo CSS 重复定义 .l3-dot { pointer-events: none } 覆盖
+   * 根因：audit-trainer-v5.2 在 demo/assets/style.css 中重复定义 .l3-dot { pointer-events: none }，
+   * 导致标注 dot 无法接收 click 事件，左侧 L3 dot 无法点击（但右侧标注面板可点）。
+   * 通过 !important 确保标注系统的点击交互优先级，AI demo CSS 中的 .l3-dot 视觉样式仍可覆盖。
+   */
+  pointer-events: auto !important;
+  transition: transform 0.2s, background-color 0.2s, opacity 0.2s;
+}
+
+/* v5.23：dot 激活显示选择器兼容表格场景 —— 表格结构元素（tr/tbody/thead）的
+ * dot 由引擎插入行首 td/th 内部（见 annotation-engine.js v5.23），不再是直接
+ * 子元素，补充 td/th 后代选择器覆盖"直接子级"与"行首单元格内"两种位置 */
+[data-annotation-active] [data-element-id] > .l3-dot,
+[data-annotation-active] [data-element-id] td > .l3-dot,
+[data-annotation-active] [data-element-id] th > .l3-dot {
+  display: block;
+}
+
+.l3-dot:not(.is-active)::before {
+  content: none;
+}
+
+.l3-dot:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.l3-dot.is-active {
+  background: var(--warning, #f59e0b);
+  transform: scale(1.4);
+  opacity: 1;
+}
+
+[data-annotation-active] .l3-dot.is-active::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--warning, #f59e0b);
+  animation: l3-pulse 0.8s ease-out infinite;
+}
+
+@keyframes l3-pulse {
+  0% { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.l3-dot.is-active:hover {
+  transform: scale(1.6);
+}
+
+/* v5.20.1（UAT 三轮 U3-B）：L3 序号圆内居中显示——与 L2 marker 形态对齐
+ * 去零序号（如 P01-L3-001 → "1"）由引擎写入 dot 的 data-seq 属性，经 ::after 圆内居中渲染：
+ *   - 完整编码保留于 data-code + title（hover 可见），面板卡片显示完整编码（U4 设计）——两态并存
+ *   - inset:0 铺满 dot（18px）+ flex 居中，白字 10px 加粗（与 L2 圆内文字同级）
+ *   - pointer-events none 不干扰 dot 点击；hover 时父级 scale(1.2) 序号随之放大
+ * 注意：::before 已被 is-active 脉冲动画占用，::after 此前空闲，无冲突
+ */
+.l3-dot[data-seq]::after {
+  content: attr(data-seq);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 2001;
+}
+
+/* 内容区在标注激活时预留空间（作用于主页面内容根，属主页面样式）*/
+[data-annotation-active] {
+  padding-right: var(--annotation-panel-width);
+  transition: padding-right 0.2s ease;
+}
+
+/*
+/* [demora-injected-css] end */
+</style>
+<!-- [demora-annotation-css] end -->
+</head>
+<body data-annotation-root>
+  <div class="app-shell">
+    <!-- ============ 顶栏（公共区常驻） ============ -->
+    <header class="topbar">
+      <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false"
+              aria-label="折叠导航" title="折叠/展开导航">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="6" width="18" height="12" rx="2" ry="2"
+                stroke="#9b9b9b" stroke-width="1.4" fill="none"/>
+          <rect x="5.5" y="9" width="1.6" height="6" fill="#9b9b9b"/>
+          <rect x="8" y="9" width="1.6" height="6" fill="#9b9b9b"/>
+          <rect x="11" y="9" width="8.5" height="6" stroke="#9b9b9b" stroke-width="1.2" fill="none"/>
+        </svg>
+      </button>
+      <div class="topbar-brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-txt">
+          <div class="brand-name">专利资产运营台</div>
+          <div class="brand-sub">PATENT ASSET LIFECYCLE OPS</div>
+        </div>
+      </div>
+      <div class="topbar-tools">
+        <span class="role-badge" id="roleBadge">C 级</span>
+        <div class="role-wrap">
+          <label class="role-label" for="roleSelect">当前角色</label>
+          <select id="roleSelect" class="select" data-action="switchRole" aria-label="切换角色">
+            <option value="executive" selected>高管（C级）</option>
+            <option value="asset-manager">资产经理（B级）</option>
+            <option value="ipr">企业IPR（A级）</option>
+            <option value="bank-risk">银行风控（B级）</option>
+          </select>
+        </div>
+        <button type="button" class="anno-toggle-btn" data-annotation-toggle>标注</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <!-- ============ 侧栏 ============ -->
+      <aside class="sidebar">
+        <nav class="side-nav" aria-label="主导航">
+          <a class="nav-item" href="#P01" data-nav="P01"><span class="nav-ico dash" aria-hidden="true"></span>高管驾驶舱</a>
+          <a class="nav-item" href="#P02" data-nav="P02"><span class="nav-ico" aria-hidden="true"></span>专利资产台账</a>
+          <a class="nav-item" href="#P03" data-nav="P03"><span class="nav-ico" aria-hidden="true"></span>估值中心</a>
+          <a class="nav-item" href="#P04" data-nav="P04"><span class="nav-ico" aria-hidden="true"></span>组合战略与尽调</a>
+          <a class="nav-item" href="#P05" data-nav="P05"><span class="nav-ico" aria-hidden="true"></span>产业撮合通道</a>
+          <a class="nav-item" href="#P06" data-nav="P06"><span class="nav-ico" aria-hidden="true"></span>质押转让跟踪</a>
+        </nav>
+        <div class="side-foot">
+          当前估值期 <span class="mono">2026-Q3</span><br>
+          待确认估值 <span class="mono" id="sidePending">4</span> 笔 · 质押生效中 <span class="mono" id="sidePledge">4</span> 笔
+        </div>
+      </aside>
+
+      <!-- ============ 业务内容（滚动容器） ============ -->
+      <main class="content">
+
+        <!-- ================= P01 高管驾驶舱 ================= -->
+        <section class="page-view" data-page-id="P01" aria-label="高管驾驶舱">
+          <div class="titleblock">
+            <div class="tb-main">
+              <div class="tb-eyebrow">EXECUTIVE DASHBOARD · DRW-2026-088</div>
+              <div class="tb-title">高管驾驶舱</div>
+              <div class="tb-desc">资产规模 · 估值分布 · 风险预警，一屏掌握专利资产运营全景（仅对 C 级角色开放）</div>
+            </div>
+            <div class="tb-cells">
+              <div class="tb-cell"><b>SHEET</b><span>01 / 06</span></div>
+              <div class="tb-cell"><b>SCALE</b><span>1 : 1</span></div>
+              <div class="tb-cell"><b>DATE</b><span>2026-08-28</span></div>
+            </div>
+          </div>
+
+          <div data-zone-id="P01-L2-001" class="anno-zone">
+            <div class="kpi-row">
+              <button type="button" class="kpi-card" data-route="P02" data-element-id="P01-L3-001" aria-label="查看在管资产台账">
+                <div class="kpi-label">在管资产</div>
+                <div class="kpi-val"><span class="dim"><span class="dim-v num" id="kpiAssets">10</span><span class="dim-u">件</span></span></div>
+                <div class="kpi-sub">台账全量 12 件 · 含失效 2 件</div>
+              </button>
+              <button type="button" class="kpi-card" data-route="P03" data-element-id="P01-L3-002" aria-label="查看估值中心">
+                <div class="kpi-label">资产总估值</div>
+                <div class="kpi-val"><span class="dim"><span class="dim-v num" id="kpiValue">11,250</span><span class="dim-u">万元</span></span></div>
+                <div class="kpi-sub">取各专利最新已确认估值</div>
+              </button>
+              <button type="button" class="kpi-card" data-route="P06" data-element-id="P01-L3-003" aria-label="查看风险资产">
+                <div class="kpi-label">风险资产</div>
+                <div class="kpi-val"><span class="dim"><span class="dim-v num" id="kpiRisk">5</span><span class="dim-u">件</span></span></div>
+                <div class="kpi-sub">年费预警 3 · 逾期失效 2</div>
+                <span class="kpi-stamp" aria-hidden="true">重点<br>关注</span>
+              </button>
+              <button type="button" class="kpi-card" data-route="P05" data-element-id="P01-L3-004" aria-label="查看产业撮合通道">
+                <div class="kpi-label">年度成交额</div>
+                <div class="kpi-val"><span class="dim"><span class="dim-v num" id="kpiDeal">2,800</span><span class="dim-u">万元</span></span></div>
+                <div class="kpi-sub">撮合成交 3 笔 · 在推意向 9 笔</div>
+              </button>
+            </div>
+          </div>
+
+          <div data-zone-id="P01-L2-002" class="anno-zone">
+            <div class="grid-2">
+              <div class="panel">
+                <div class="panel-head"><span class="panel-title">技术领域估值分布</span><span class="panel-tag">单位：万元</span><span class="spacer"></span><span class="panel-tag">SOURCE · 已确认估值</span></div>
+                <div class="hbar"><span class="hb-name">新能源</span><div class="hb-track"><div class="hb-fill" style="width:100%"></div></div><span class="hb-val num">3,180</span></div>
+                <div class="hbar"><span class="hb-name">数字通信</span><div class="hb-track"><div class="hb-fill" style="width:69%"></div></div><span class="hb-val num">2,200</span></div>
+                <div class="hbar"><span class="hb-name">人工智能</span><div class="hb-track"><div class="hb-fill" style="width:62%"></div></div><span class="hb-val num">1,970</span></div>
+                <div class="hbar"><span class="hb-name">高端制造</span><div class="hb-track"><div class="hb-fill" style="width:58%"></div></div><span class="hb-val num">1,860</span></div>
+                <div class="hbar"><span class="hb-name">新材料</span><div class="hb-track"><div class="hb-fill" style="width:37%"></div></div><span class="hb-val num">1,190</span></div>
+                <div class="hbar"><span class="hb-name">生物医药</span><div class="hb-track"><div class="hb-fill" style="width:27%"></div></div><span class="hb-val num">850</span></div>
+              </div>
+              <div class="panel">
+                <div class="panel-head"><span class="panel-title">估值等级结构</span><span class="panel-tag">单位：件</span><span class="spacer"></span><span class="panel-tag">A 级占比 25%</span></div>
+                <div class="vbars">
+                  <div class="vbar"><span class="vb-num num">3</span><div class="vb-fill" style="height:70%"></div><span class="vb-name">A级</span></div>
+                  <div class="vbar"><span class="vb-num num">3</span><div class="vb-fill" style="height:70%"></div><span class="vb-name">B级</span></div>
+                  <div class="vbar"><span class="vb-num num">4</span><div class="vb-fill" style="height:92%"></div><span class="vb-name">C级</span></div>
+                  <div class="vbar"><span class="vb-num num">2</span><div class="vb-fill" style="height:46%"></div><span class="vb-name">D级</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div data-zone-id="P01-L2-003" class="anno-zone">
+            <div class="panel">
+              <div class="panel-head"><span class="panel-title">风险预警</span><span class="panel-tag">年费预警 / 逾期失效</span><span class="spacer"></span><span class="panel-tag">到期前 30 天自动预警</span></div>
+              <div class="table-wrap">
+                <table class="grid">
+                  <thead><tr><th>专利号</th><th>专利名称</th><th>风险类型</th><th>年费截止日</th><th>估值(万元)</th><th style="text-align:right">操作</th></tr></thead>
+                  <tbody id="riskRows">
+                    <tr data-no="ZL202118990011" data-risk="预警"><td class="mono">ZL202118990011</td><td class="t-title">基于联邦学习的医疗影像脱敏方法</td><td><span class="pill warn">年费预警</span></td><td class="mono">2026-09-12</td><td class="mono num">920</td><td class="ops"><button type="button" class="mini-btn" data-action="locatePatent" data-no="ZL202118990011" data-element-id="P01-L3-005">查看</button></td></tr>
+                    <tr data-no="ZL202233445566" data-risk="预警"><td class="mono">ZL202233445566</td><td class="t-title">星载激光通信快速捕获转台</td><td><span class="pill warn">年费预警</span></td><td class="mono">2026-09-25</td><td class="mono num">1,680</td><td class="ops"><button type="button" class="mini-btn" data-action="locatePatent" data-no="ZL202233445566">查看</button></td></tr>
+                    <tr data-no="ZL202056784567" data-risk="预警"><td class="mono">ZL202056784567</td><td class="t-title">骨科手术导航定位夹持器</td><td><span class="pill warn">年费预警</span> <span class="pill plain">质押中</span></td><td class="mono">2026-09-05</td><td class="mono num">470</td><td class="ops"><button type="button" class="mini-btn" data-action="locatePatent" data-no="ZL202056784567">查看</button></td></tr>
+                    <tr data-no="ZL201922011455" data-risk="失效"><td class="mono">ZL201922011455</td><td class="t-title">低温甲醇洗工艺尾气回收系统</td><td><span class="pill danger">逾期失效</span></td><td class="mono">2026-06-30</td><td class="mono num">60</td><td class="ops"><button type="button" class="mini-btn" data-action="locatePatent" data-no="ZL201922011455">查看</button></td></tr>
+                    <tr data-no="ZL201877665544" data-risk="失效"><td class="mono">ZL201877665544</td><td class="t-title">纸基超疏水涂层配方及制备</td><td><span class="pill danger">逾期失效</span></td><td class="mono">2026-05-20</td><td class="mono num">40</td><td class="ops"><button type="button" class="mini-btn" data-action="locatePatent" data-no="ZL201877665544">查看</button></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <footer class="page-footer">© 2026 奥凯信息 × Demora · 专利资产全生命周期数字化价值运营管理平台 · <span class="mono">v1.0.0 · 2026-08-28</span></footer>
+        </section>
+
+        <!-- ================= P02 专利资产台账 ================= -->
+        <section class="page-view" data-page-id="P02" aria-label="专利资产台账" hidden>
+          <div class="titleblock">
+            <div class="tb-main">
+              <div class="tb-eyebrow">PATENT LEDGER · DRW-2026-089</div>
+              <div class="tb-title">专利资产台账</div>
+              <div class="tb-desc">全流程资产登记与年费监控：到期前 30 天自动预警，逾期未缴自动置为失效</div>
+            </div>
+            <div class="tb-cells">
+              <div class="tb-cell"><b>SHEET</b><span>02 / 06</span></div>
+              <div class="tb-cell"><b>SCALE</b><span>1 : 1</span></div>
+              <div class="tb-cell"><b>DATE</b><span>2026-08-28</span></div>
+            </div>
+          </div>
+
+          <div data-zone-id="P02-L2-001" class="anno-zone">
+            <div class="panel">
+              <div class="filter-bar">
+                <label for="patSearch">关键字</label>
+                <div class="grow" data-element-id="P02-L3-001"><input type="text" id="patSearch" class="input" data-action="filterPatents" placeholder="专利号 / 专利名称 / 权利人" aria-label="台账关键字搜索"></div>
+                <label for="patStatus">资产状态</label>
+                <div data-element-id="P02-L3-002"><select id="patStatus" class="select" data-action="filterPatents" aria-label="按资产状态筛选">
+                  <option value="">全部状态</option>
+                  <option value="有效">有效</option>
+                  <option value="年费预警">年费预警</option>
+                  <option value="失效">失效</option>
+                </select></div>
+                <label for="patField">技术领域</label>
+                <div data-element-id="P02-L3-003"><select id="patField" class="select" data-action="filterPatents" aria-label="按技术领域筛选">
+                  <option value="">全部领域</option>
+                  <option value="人工智能">人工智能</option>
+                  <option value="新能源">新能源</option>
+                  <option value="生物医药">生物医药</option>
+                  <option value="高端制造">高端制造</option>
+                  <option value="新材料">新材料</option>
+                  <option value="数字通信">数字通信</option>
+                </select></div>
+                <button type="button" class="btn-accent" data-open-modal="modalNewPatent" data-action="newPatent" data-element-id="P02-L3-004">新建专利</button>
+                <button type="button" class="btn-ghost" data-action="resetPatents" data-element-id="P02-L3-007">重置</button>
+              </div>
+            </div>
+          </div>
+
+          <div data-zone-id="P02-L2-002" class="anno-zone">
+            <div class="stat-strip">
+              <div class="stat-chip"><div class="sc-num num" id="stTotal">12</div><div class="sc-label">台账总数（件）</div></div>
+              <div class="stat-chip warn"><div class="sc-num num" id="stWarn">3</div><div class="sc-label">年费预警（件）</div></div>
+              <div class="stat-chip warn"><div class="sc-num num" id="stExpired">2</div><div class="sc-label">逾期失效（件）</div></div>
+              <div class="stat-chip info"><div class="sc-num num" id="stPledged">4</div><div class="sc-label">质押中（件）</div></div>
+            </div>
+          </div>
+
+          <div data-zone-id="P02-L2-003" class="anno-zone">
+            <div class="panel">
+              <div class="panel-head"><span class="panel-title">资产列表</span><span class="panel-tag" id="patCountTag">共 12 件</span><span class="spacer"></span><span class="panel-tag">SOURCE · PATENT ASSET</span></div>
+              <div class="table-wrap">
+                <table class="grid">
+                  <thead><tr><th>专利号</th><th>专利名称</th><th>技术领域</th><th>年费截止日</th><th>估值(万元)</th><th>等级</th><th>资产状态</th><th style="text-align:right">操作</th></tr></thead>
+                  <tbody id="patentRows">
+                    <tr data-no="ZL202118990011" data-status="年费预警" data-field="人工智能" data-search="zl202118990011 基于联邦学习的医疗影像脱敏方法 深睿医疗 发明"><td class="mono">ZL202118990011</td><td class="t-title">基于联邦学习的医疗影像脱敏方法<span class="cell-sub">深睿医疗 · 发明</span></td><td>人工智能</td><td class="mono">2026-09-12</td><td class="mono num">920</td><td><span class="grade g-b" title="估值等级 B 级">B</span></td><td><span class="pill warn">年费预警</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalPatentDetail" data-action="viewPatent" data-fill="patentDetail" data-no="ZL202118990011" data-element-id="P02-L3-005">详情</button><button type="button" class="mini-btn solid" data-open-modal="modalPayFee" data-action="payFee" data-fill="payFee" data-no="ZL202118990011" data-element-id="P02-L3-006">缴费</button></td></tr>
+                    <tr data-no="ZL202233445566" data-status="年费预警" data-field="数字通信" data-search="zl202233445566 星载激光通信快速捕获转台 长光卫星 发明"><td class="mono">ZL202233445566</td><td class="t-title">星载激光通信快速捕获转台<span class="cell-sub">长光卫星 · 发明</span></td><td>数字通信</td><td class="mono">2026-09-25</td><td class="mono num">1,680</td><td><span class="grade g-a" title="估值等级 A 级">A</span></td><td><span class="pill warn">年费预警</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalPatentDetail" data-action="viewPatent" data-fill="patentDetail" data-no="ZL202233445566">详情</button><button type="button" class="mini-btn solid" data-open-modal="modalPayFee" data-action="payFee" data-fill="payFee" data-no="ZL202233445566">缴费</button></td></tr>
+                    <tr data-no="ZL202310566789" data-status="有效" data-field="高端制造" data-search="zl202310566789 磁悬浮轴承主动减振控制结构 汇川智造 发明"><td class="mono">ZL202310566789</td><td class="t-title">磁悬浮轴承主动减振控制结构<span class="cell-sub">汇川智造 · 发明</span></td><td>高端制造</td><td class="mono">2026-11-30</td><td class="mono num">1,860</td><td><span class="grade g-a" title="估值等级 A 级">A</span></td><td><span class="pill ok">有效</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalPatentDetail" data-action="viewPatent" data-fill="patentDetail" data-no="ZL202310566789">详情</button><button type="button" class="mini-btn solid" data-open-modal="modalPayFee" data-action="payFee" data-fill="payFee" data-no="ZL202118990011">缴费</button></td></tr>
+                    <tr data-no="ZL202211233445" data-status="有效" data-field="新能源" data-search="zl202211233445 钙钛矿-晶硅叠层光伏组件封装工艺 协鑫光电 发明"><td class="mono">ZL202211233445</td><td class="t-title">钙钛矿-晶硅叠层光伏组件封装工艺<span class="cell-sub">协鑫光电 · 发明</span></td><td>新能源</td><td class="mono">2027-01-15</td><td class="mono num">2,480</td><td><span class="grade g-a" title="估值等级 A 级">A</span></td><td><span class="pill ok">有效</span> <span class="pill plain">质押中</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalPatentDetail" data-action="viewPatent" data-fill="patentDetail" data-no="ZL202211233445">详情</button><button type="button" class="mini-btn solid" data-open-modal="modalPayFee" data-action="payFee" data-fill="payFee" data-no="ZL202211233445">缴费</button></td></tr>
+                    <tr data-no="ZL202412003456" data-status="有效" data-field="新材料" data-search="zl202412003456 固态电解质膜片连续涂布装置 清陶能源 发明"><td class="mono">ZL202412003456</td><td class="t-title">固态电解质膜片连续涂布装置<span class="cell-sub">清陶能源 · 发明</span></td><td>新材料</td><td class="mono">2027-02-20</td><td class="mono num">1,150</td><td><span class="grade g-b" title="估值等级 B 级">B</span></td><td><span class="pill ok">有效</span> <span class="pill plain">质押中</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalPatentDetail" data-action="viewPatent" data-fill="patentDetail" data-no="ZL202412003456">详情</button><button type="button" class="mini-btn solid" data-open-modal="modalPayFee" data-action="payFee" data-fill="payFee" data-no="ZL202412003456">缴费</button></td></tr>
+                    <tr data-no="ZL202345678901" data-status="有效" data-field="人工智能" data-search="zl202345678901 面向客服质检的方言语音识别模型 科大讯飞 发明"><td class="mono">ZL202345678901</td><td class="t-title">面向客服质检的方言语音识别模型<span class="cell-sub">科大讯飞 · 发明</span></td><td>人工智能</td><td class="mono">2026-12-10</td><td class="mono num">1,050</td><td><span class="grade g-b" title="估值等级 B 级">B</span></td><td><span class="pill ok">有效</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalPatentDetail" data-action="viewPatent" data-fill="patentDetail" data-no="ZL202345678901">详情</button><button type="button" class="mini-btn solid" data-open-modal="modalPayFee" data-action="payFee" data-fill="payFee" data-no="ZL202345678901">缴费</button></td></tr>
+                    <tr data-no="ZL202056784567" data-status="年费预警" data-field="生物医药" data-search="zl202056784567 骨科手术导航定位夹持器 威高骨科 发明"><td class="mono">ZL202056784567</td><td class="t-title">骨科手术导航定位夹持器<span class="cell-sub">威高骨科 · 发明</span></td><td>生物医药</td><td class="mono">2026-09-05</td><td class="mono num">470</td><td><span class="grade g-c" title="估值等级 C 级">C</span></td><td><span class="pill warn">年费预警</span> <span class="pill plain">质押中</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalPatentDetail" data-action="viewPatent" data-fill="patentDetail" data-no="ZL202056784567">详情</button><button type="button" class="mini-btn solid" data-open-modal="modalPayFee" data-action="payFee" data-fill="payFee" data-no="ZL202056784567">缴费</button></td></tr>
+                    <tr data-no="ZL202020998877" data-status="有效" data-field="生物医药" data-search="zl202020998877 便携式血糖仪多光谱检测探头 三诺生物 实用新型"><td class="mono">ZL202020998877</td><td class="t-title">便携式血糖仪多光谱检测探头<span class="cell-sub">三诺生物 · 实用新型</span></td><td>生物医药</td><td class="mono">2027-03-08</td><td class="mono num">380</td><td><span class="grade g-c" title="估值等级 C 级">C</span></td><td><span class="pill ok">有效</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalPatentDetail" data-action="viewPatent" data-fill="patentDetail" data-no="ZL202020998877">详情</button><button type="button" class="mini-btn solid" data-open-modal="modalPayFee" data-action="payFee" data-fill="payFee" data-no="ZL202056784567">缴费</button></td></tr>
+                    <tr data-no="ZL202156781234" data-status="有效" data-field="新能源" data-search="zl202156781234 动力电池包液冷板流道结构 宁德时代 实用新型"><td class="mono">ZL202156781234</td><td class="t-title">动力电池包液冷板流道结构<span class="cell-sub">宁德时代 · 实用新型</span></td><td>新能源</td><td class="mono">2027-01-28</td><td class="mono num">640</td><td><span class="grade g-c" title="估值等级 C 级">C</span></td><td><span class="pill ok">有效</span> <span class="pill plain">质押中</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalPatentDetail" data-action="viewPatent" data-fill="patentDetail" data-no="ZL202156781234">详情</button><button type="button" class="mini-btn solid" data-open-modal="modalPayFee" data-action="payFee" data-fill="payFee" data-no="ZL202156781234">缴费</button></td></tr>
+                    <tr data-no="ZL202466778899" data-status="有效" data-field="数字通信" data-search="zl202466778899 5g小基站射频前端模组封装结构 烽火通信 实用新型"><td class="mono">ZL202466778899</td><td class="t-title">5G小基站射频前端模组封装结构<span class="cell-sub">烽火通信 · 实用新型</span></td><td>数字通信</td><td class="mono">2027-02-14</td><td class="mono num">520</td><td><span class="grade g-c" title="估值等级 C 级">C</span></td><td><span class="pill ok">有效</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalPatentDetail" data-action="viewPatent" data-fill="patentDetail" data-no="ZL202466778899">详情</button><button type="button" class="mini-btn solid" data-open-modal="modalPayFee" data-action="payFee" data-fill="payFee" data-no="ZL202466778899">缴费</button></td></tr>
+                    <tr data-no="ZL201922011455" data-status="失效" data-field="新能源" data-search="zl201922011455 低温甲醇洗工艺尾气回收系统 中石化宁波院 实用新型"><td class="mono">ZL201922011455</td><td class="t-title">低温甲醇洗工艺尾气回收系统<span class="cell-sub">中石化宁波院 · 实用新型</span></td><td>新能源</td><td class="mono">2026-06-30</td><td class="mono num">60</td><td><span class="grade g-d" title="估值等级 D 级">D</span></td><td><span class="pill danger">失效</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalPatentDetail" data-action="viewPatent" data-fill="patentDetail" data-no="ZL201922011455">详情</button><button type="button" class="mini-btn solid" data-open-modal="modalPayFee" data-action="payFee" data-fill="payFee" data-no="ZL201922011455">缴费</button></td></tr>
+                    <tr data-no="ZL201877665544" data-status="失效" data-field="新材料" data-search="zl201877665544 纸基超疏水涂层配方及制备 丰域新材 发明"><td class="mono">ZL201877665544</td><td class="t-title">纸基超疏水涂层配方及制备<span class="cell-sub">丰域新材 · 发明</span></td><td>新材料</td><td class="mono">2026-05-20</td><td class="mono num">40</td><td><span class="grade g-d" title="估值等级 D 级">D</span></td><td><span class="pill danger">失效</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalPatentDetail" data-action="viewPatent" data-fill="patentDetail" data-no="ZL201877665544">详情</button><button type="button" class="mini-btn solid" data-open-modal="modalPayFee" data-action="payFee" data-fill="payFee" data-no="ZL201877665544">缴费</button></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <footer class="page-footer">© 2026 奥凯信息 × Demora · 专利资产全生命周期数字化价值运营管理平台 · <span class="mono">v1.0.0 · 2026-08-28</span></footer>
+        </section>
+
+        <!-- ================= P03 估值中心 ================= -->
+        <section class="page-view" data-page-id="P03" aria-label="估值中心" hidden>
+          <div class="titleblock">
+            <div class="tb-main">
+              <div class="tb-eyebrow">AI VALUATION CENTER · DRW-2026-090</div>
+              <div class="tb-title">估值中心</div>
+              <div class="tb-desc">行业定制 AI 估值模型：法律 / 技术 / 市场 / 营收四维打分，每季度更新、资产经理确认后生效</div>
+            </div>
+            <div class="tb-cells">
+              <div class="tb-cell"><b>SHEET</b><span>03 / 06</span></div>
+              <div class="tb-cell"><b>SCALE</b><span>1 : 1</span></div>
+              <div class="tb-cell"><b>DATE</b><span>2026-08-28</span></div>
+            </div>
+          </div>
+
+          <div data-zone-id="P03-L2-001" class="anno-zone">
+            <div class="panel">
+              <div class="filter-bar">
+                <label for="valQuarter">估值期</label>
+                <div data-element-id="P03-L3-001"><select id="valQuarter" class="select" data-action="filterValuations" aria-label="按估值期筛选">
+                  <option value="">全部估值期</option>
+                  <option value="2026-Q3">2026-Q3</option>
+                  <option value="2026-Q2">2026-Q2</option>
+                  <option value="2026-Q1">2026-Q1</option>
+                </select></div>
+                <label for="valStatus">确认状态</label>
+                <div data-element-id="P03-L3-002"><select id="valStatus" class="select" data-action="filterValuations" aria-label="按确认状态筛选">
+                  <option value="">全部状态</option>
+                  <option value="待确认">待确认</option>
+                  <option value="已确认">已确认</option>
+                </select></div>
+                <div class="grow" data-element-id="P03-L3-003"><input type="text" id="valSearch" class="input" data-action="filterValuations" placeholder="估值编号 / 专利号 / 专利名称" aria-label="估值关键字搜索"></div>
+                <button type="button" class="btn-accent" data-action="startQuarterValuation" data-element-id="P03-L3-004">发起季度估值</button>
+                <button type="button" class="btn-ghost" data-action="resetValuations" data-element-id="P03-L3-007">重置</button>
+              </div>
+            </div>
+          </div>
+
+          <div data-zone-id="P03-L2-002" class="anno-zone">
+            <div class="stat-strip">
+              <div class="stat-chip warn"><div class="sc-num num" id="stValPending">4</div><div class="sc-label">待确认估值（笔）</div></div>
+              <div class="stat-chip gold"><div class="sc-num num">2026-Q3</div><div class="sc-label">最新估值期</div></div>
+              <div class="stat-chip"><div class="sc-num num" id="stValConfirmed">10</div><div class="sc-label">已确认估值（笔）</div></div>
+              <div class="stat-chip info"><div class="sc-num num">4 维</div><div class="sc-label">法律 / 技术 / 市场 / 营收</div></div>
+            </div>
+          </div>
+
+          <div data-zone-id="P03-L2-003" class="anno-zone">
+            <div class="panel">
+              <div class="panel-head"><span class="panel-title">四维估值列表</span><span class="panel-tag" id="valCountTag">共 14 笔</span><span class="spacer"></span><span class="panel-tag">权重 0.3 / 0.3 / 0.2 / 0.2</span></div>
+              <div class="table-wrap">
+                <table class="grid">
+                  <thead><tr><th>估值编号</th><th>专利</th><th>估值期</th><th>法律</th><th>技术</th><th>市场</th><th>营收</th><th>综合</th><th>估值(万元)</th><th>状态</th><th style="text-align:right">操作</th></tr></thead>
+                  <tbody id="valuationRows">
+                    <tr data-no="V-2026Q3-001" data-quarter="2026-Q3" data-status="待确认" data-search="v-2026q3-001 zl202118990011 基于联邦学习的医疗影像脱敏方法"><td class="mono">V-2026Q3-001</td><td class="t-title">基于联邦学习的医疗影像脱敏方法<span class="cell-sub mono">ZL202118990011</span></td><td class="mono">2026-Q3</td><td class="mono num">84</td><td class="mono num">90</td><td class="mono num">78</td><td class="mono num">82</td><td class="mono num">84</td><td class="mono num">950</td><td><span class="pill warn">待确认</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalModel" data-action="viewModel" data-fill="model" data-no="V-2026Q3-001" data-element-id="P03-L3-005">模型</button><button type="button" class="mini-btn solid" data-action="confirmValuation" data-no="V-2026Q3-001" data-element-id="P03-L3-006">确认</button></td></tr>
+                    <tr data-no="V-2026Q3-002" data-quarter="2026-Q3" data-status="待确认" data-search="v-2026q3-002 zl202233445566 星载激光通信快速捕获转台"><td class="mono">V-2026Q3-002</td><td class="t-title">星载激光通信快速捕获转台<span class="cell-sub mono">ZL202233445566</span></td><td class="mono">2026-Q3</td><td class="mono num">88</td><td class="mono num">86</td><td class="mono num">82</td><td class="mono num">80</td><td class="mono num">85</td><td class="mono num">1,720</td><td><span class="pill warn">待确认</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalModel" data-action="viewModel" data-fill="model" data-no="V-2026Q3-002">模型</button><button type="button" class="mini-btn solid" data-action="confirmValuation" data-no="V-2026Q3-002">确认</button></td></tr>
+                    <tr data-no="V-2026Q3-003" data-quarter="2026-Q3" data-status="待确认" data-search="v-2026q3-003 zl202310566789 磁悬浮轴承主动减振控制结构"><td class="mono">V-2026Q3-003</td><td class="t-title">磁悬浮轴承主动减振控制结构<span class="cell-sub mono">ZL202310566789</span></td><td class="mono">2026-Q3</td><td class="mono num">88</td><td class="mono num">93</td><td class="mono num">80</td><td class="mono num">85</td><td class="mono num">87</td><td class="mono num">1,900</td><td><span class="pill warn">待确认</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalModel" data-action="viewModel" data-fill="model" data-no="V-2026Q3-003">模型</button><button type="button" class="mini-btn solid" data-action="confirmValuation" data-no="V-2026Q3-003">确认</button></td></tr>
+                    <tr data-no="V-2026Q3-004" data-quarter="2026-Q3" data-status="待确认" data-search="v-2026q3-004 zl202211233445 钙钛矿-晶硅叠层光伏组件封装工艺"><td class="mono">V-2026Q3-004</td><td class="t-title">钙钛矿-晶硅叠层光伏组件封装工艺<span class="cell-sub mono">ZL202211233445</span></td><td class="mono">2026-Q3</td><td class="mono num">85</td><td class="mono num">92</td><td class="mono num">84</td><td class="mono num">82</td><td class="mono num">86</td><td class="mono num">2,550</td><td><span class="pill warn">待确认</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalModel" data-action="viewModel" data-fill="model" data-no="V-2026Q3-004">模型</button><button type="button" class="mini-btn solid" data-action="confirmValuation" data-no="V-2026Q3-004">确认</button></td></tr>
+                    <tr data-no="V-2026Q2-001" data-quarter="2026-Q2" data-status="已确认" data-search="v-2026q2-001 zl202310566789 磁悬浮轴承主动减振控制结构"><td class="mono">V-2026Q2-001</td><td class="t-title">磁悬浮轴承主动减振控制结构<span class="cell-sub mono">ZL202310566789</span></td><td class="mono">2026-Q2</td><td class="mono num">88</td><td class="mono num">92</td><td class="mono num">80</td><td class="mono num">84</td><td class="mono num">87</td><td class="mono num">1,860</td><td><span class="pill ok">已确认</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalModel" data-action="viewModel" data-fill="model" data-no="V-2026Q2-001">模型</button><button type="button" class="mini-btn solid" title="已确认，不可重复确认">确认</button></td></tr>
+                    <tr data-no="V-2026Q2-002" data-quarter="2026-Q2" data-status="已确认" data-search="v-2026q2-002 zl202211233445 钙钛矿-晶硅叠层光伏组件封装工艺"><td class="mono">V-2026Q2-002</td><td class="t-title">钙钛矿-晶硅叠层光伏组件封装工艺<span class="cell-sub mono">ZL202211233445</span></td><td class="mono">2026-Q2</td><td class="mono num">84</td><td class="mono num">91</td><td class="mono num">82</td><td class="mono num">81</td><td class="mono num">85</td><td class="mono num">2,480</td><td><span class="pill ok">已确认</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalModel" data-action="viewModel" data-fill="model" data-no="V-2026Q2-002">模型</button><button type="button" class="mini-btn solid" title="已确认，不可重复确认">确认</button></td></tr>
+                    <tr data-no="V-2026Q2-003" data-quarter="2026-Q2" data-status="已确认" data-search="v-2026q2-003 zl202412003456 固态电解质膜片连续涂布装置"><td class="mono">V-2026Q2-003</td><td class="t-title">固态电解质膜片连续涂布装置<span class="cell-sub mono">ZL202412003456</span></td><td class="mono">2026-Q2</td><td class="mono num">82</td><td class="mono num">84</td><td class="mono num">76</td><td class="mono num">80</td><td class="mono num">81</td><td class="mono num">1,150</td><td><span class="pill ok">已确认</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalModel" data-action="viewModel" data-fill="model" data-no="V-2026Q2-003">模型</button><button type="button" class="mini-btn solid" title="已确认，不可重复确认">确认</button></td></tr>
+                    <tr data-no="V-2026Q2-004" data-quarter="2026-Q2" data-status="已确认" data-search="v-2026q2-004 zl202020998877 便携式血糖仪多光谱检测探头"><td class="mono">V-2026Q2-004</td><td class="t-title">便携式血糖仪多光谱检测探头<span class="cell-sub mono">ZL202020998877</span></td><td class="mono">2026-Q2</td><td class="mono num">70</td><td class="mono num">62</td><td class="mono num">58</td><td class="mono num">66</td><td class="mono num">64</td><td class="mono num">380</td><td><span class="pill ok">已确认</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalModel" data-action="viewModel" data-fill="model" data-no="V-2026Q2-004">模型</button><button type="button" class="mini-btn solid" title="已确认，不可重复确认">确认</button></td></tr>
+                    <tr data-no="V-2026Q2-005" data-quarter="2026-Q2" data-status="已确认" data-search="v-2026q2-005 zl201922011455 低温甲醇洗工艺尾气回收系统"><td class="mono">V-2026Q2-005</td><td class="t-title">低温甲醇洗工艺尾气回收系统<span class="cell-sub mono">ZL201922011455</span></td><td class="mono">2026-Q2</td><td class="mono num">45</td><td class="mono num">40</td><td class="mono num">32</td><td class="mono num">36</td><td class="mono num">39</td><td class="mono num">60</td><td><span class="pill ok">已确认</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalModel" data-action="viewModel" data-fill="model" data-no="V-2026Q2-005">模型</button><button type="button" class="mini-btn solid" title="已确认，不可重复确认">确认</button></td></tr>
+                    <tr data-no="V-2026Q2-006" data-quarter="2026-Q2" data-status="已确认" data-search="v-2026q2-006 zl202345678901 面向客服质检的方言语音识别模型"><td class="mono">V-2026Q2-006</td><td class="t-title">面向客服质检的方言语音识别模型<span class="cell-sub mono">ZL202345678901</span></td><td class="mono">2026-Q2</td><td class="mono num">80</td><td class="mono num">82</td><td class="mono num">72</td><td class="mono num">78</td><td class="mono num">79</td><td class="mono num">1,050</td><td><span class="pill ok">已确认</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalModel" data-action="viewModel" data-fill="model" data-no="V-2026Q2-006">模型</button><button type="button" class="mini-btn solid" title="已确认，不可重复确认">确认</button></td></tr>
+                    <tr data-no="V-2026Q2-007" data-quarter="2026-Q2" data-status="已确认" data-search="v-2026q2-007 zl202156781234 动力电池包液冷板流道结构"><td class="mono">V-2026Q2-007</td><td class="t-title">动力电池包液冷板流道结构<span class="cell-sub mono">ZL202156781234</span></td><td class="mono">2026-Q2</td><td class="mono num">72</td><td class="mono num">70</td><td class="mono num">64</td><td class="mono num">70</td><td class="mono num">69</td><td class="mono num">640</td><td><span class="pill ok">已确认</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalModel" data-action="viewModel" data-fill="model" data-no="V-2026Q2-007">模型</button><button type="button" class="mini-btn solid" title="已确认，不可重复确认">确认</button></td></tr>
+                    <tr data-no="V-2026Q2-008" data-quarter="2026-Q2" data-status="已确认" data-search="v-2026q2-008 zl202056784567 骨科手术导航定位夹持器"><td class="mono">V-2026Q2-008</td><td class="t-title">骨科手术导航定位夹持器<span class="cell-sub mono">ZL202056784567</span></td><td class="mono">2026-Q2</td><td class="mono num">68</td><td class="mono num">66</td><td class="mono num">60</td><td class="mono num">70</td><td class="mono num">66</td><td class="mono num">470</td><td><span class="pill ok">已确认</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalModel" data-action="viewModel" data-fill="model" data-no="V-2026Q2-008">模型</button><button type="button" class="mini-btn solid" title="已确认，不可重复确认">确认</button></td></tr>
+                    <tr data-no="V-2026Q1-001" data-quarter="2026-Q1" data-status="已确认" data-search="v-2026q1-001 zl202118990011 基于联邦学习的医疗影像脱敏方法"><td class="mono">V-2026Q1-001</td><td class="t-title">基于联邦学习的医疗影像脱敏方法<span class="cell-sub mono">ZL202118990011</span></td><td class="mono">2026-Q1</td><td class="mono num">82</td><td class="mono num">88</td><td class="mono num">76</td><td class="mono num">80</td><td class="mono num">82</td><td class="mono num">920</td><td><span class="pill ok">已确认</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalModel" data-action="viewModel" data-fill="model" data-no="V-2026Q1-001">模型</button><button type="button" class="mini-btn solid" title="已确认，不可重复确认">确认</button></td></tr>
+                    <tr data-no="V-2026Q1-002" data-quarter="2026-Q1" data-status="已确认" data-search="v-2026q1-002 zl202233445566 星载激光通信快速捕获转台"><td class="mono">V-2026Q1-002</td><td class="t-title">星载激光通信快速捕获转台<span class="cell-sub mono">ZL202233445566</span></td><td class="mono">2026-Q1</td><td class="mono num">86</td><td class="mono num">84</td><td class="mono num">80</td><td class="mono num">78</td><td class="mono num">83</td><td class="mono num">1,680</td><td><span class="pill ok">已确认</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalModel" data-action="viewModel" data-fill="model" data-no="V-2026Q1-002">模型</button><button type="button" class="mini-btn solid" title="已确认，不可重复确认">确认</button></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <footer class="page-footer">© 2026 奥凯信息 × Demora · 专利资产全生命周期数字化价值运营管理平台 · <span class="mono">v1.0.0 · 2026-08-28</span></footer>
+        </section>
+
+        <!-- ================= P04 组合战略与尽调 ================= -->
+        <section class="page-view" data-page-id="P04" aria-label="组合战略与尽调" hidden>
+          <div class="titleblock">
+            <div class="tb-main">
+              <div class="tb-eyebrow">PORTFOLIO STRATEGY &amp; DD · DRW-2026-091</div>
+              <div class="tb-title">组合战略与尽调</div>
+              <div class="tb-desc">组合等级结构与战略四象限，按范围一键导出投融资尽调包并留痕</div>
+            </div>
+            <div class="tb-cells">
+              <div class="tb-cell"><b>SHEET</b><span>04 / 06</span></div>
+              <div class="tb-cell"><b>SCALE</b><span>1 : 1</span></div>
+              <div class="tb-cell"><b>DATE</b><span>2026-08-28</span></div>
+            </div>
+          </div>
+
+          <div data-zone-id="P04-L2-001" class="anno-zone">
+            <div class="panel">
+              <div class="panel-head">
+                <span class="panel-title">组合概览</span><span class="panel-tag">总估值 11,250 万元 · 12 件</span>
+                <span class="spacer"></span>
+                <div class="tab-group" role="tablist" aria-label="概览视图切换">
+                  <button type="button" class="active" data-action="switchOverview" data-view="grades" data-element-id="P04-L3-001" role="tab" aria-selected="true">等级结构</button>
+                  <button type="button" data-action="switchOverview" data-view="fields" data-element-id="P04-L3-006" role="tab" aria-selected="false">领域分布</button>
+                </div>
+              </div>
+              <div id="ovGrades">
+                <div class="vbars">
+                  <div class="vbar"><span class="vb-num num">6,020 万</span><div class="vb-fill" style="height:92%"></div><span class="vb-name">A级 · 3件</span></div>
+                  <div class="vbar"><span class="vb-num num">3,120 万</span><div class="vb-fill" style="height:48%"></div><span class="vb-name">B级 · 3件</span></div>
+                  <div class="vbar"><span class="vb-num num">2,010 万</span><div class="vb-fill" style="height:31%"></div><span class="vb-name">C级 · 4件</span></div>
+                  <div class="vbar"><span class="vb-num num">100 万</span><div class="vb-fill" style="height:8%"></div><span class="vb-name">D级 · 2件</span></div>
+                </div>
+              </div>
+              <div id="ovFields" hidden>
+                <div class="hbar"><span class="hb-name">新能源</span><div class="hb-track"><div class="hb-fill" style="width:100%"></div></div><span class="hb-val num">3,180 万</span></div>
+                <div class="hbar"><span class="hb-name">数字通信</span><div class="hb-track"><div class="hb-fill" style="width:69%"></div></div><span class="hb-val num">2,200 万</span></div>
+                <div class="hbar"><span class="hb-name">人工智能</span><div class="hb-track"><div class="hb-fill" style="width:62%"></div></div><span class="hb-val num">1,970 万</span></div>
+                <div class="hbar"><span class="hb-name">高端制造</span><div class="hb-track"><div class="hb-fill" style="width:58%"></div></div><span class="hb-val num">1,860 万</span></div>
+                <div class="hbar"><span class="hb-name">新材料</span><div class="hb-track"><div class="hb-fill" style="width:37%"></div></div><span class="hb-val num">1,190 万</span></div>
+                <div class="hbar"><span class="hb-name">生物医药</span><div class="hb-track"><div class="hb-fill" style="width:27%"></div></div><span class="hb-val num">850 万</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div data-zone-id="P04-L2-002" class="anno-zone">
+            <div class="panel">
+              <div class="panel-head"><span class="panel-title">战略四象限矩阵</span><span class="panel-tag">估值等级 × 处置策略</span><span class="spacer"></span><span class="panel-tag">点击象限查看专利清单</span></div>
+              <div class="quad-grid">
+                <button type="button" class="quad q-active" data-action="showQuadrant" data-q="core" data-element-id="P04-L3-002"><div class="q-name">核心防御</div><div class="q-desc">A 级资产 · 维持与防御性布局</div><div class="q-count">3 件 · 6,020 万元</div></button>
+                <button type="button" class="quad" data-action="showQuadrant" data-q="grow" data-element-id="P04-L3-007"><div class="q-name">增值运营</div><div class="q-desc">B 级资产 · 运营增值与许可</div><div class="q-count">3 件 · 3,120 万元</div></button>
+                <button type="button" class="quad" data-action="showQuadrant" data-q="sell" data-element-id="P04-L3-008"><div class="q-name">盘点出售</div><div class="q-desc">C 级资产 · 评估处置窗口</div><div class="q-count">4 件 · 2,010 万元</div></button>
+                <button type="button" class="quad" data-action="showQuadrant" data-q="retire" data-element-id="P04-L3-009"><div class="q-name">放弃退役</div><div class="q-desc">D 级资产 · 停缴评估与退役</div><div class="q-count">2 件 · 100 万元</div></button>
+              </div>
+              <div class="quad-list">
+                <div class="ql-title" id="qlTitle">象限清单 · 核心防御（A 级）</div>
+                <div class="ql-items" id="qlItems">
+                  <span class="ql-chip">磁悬浮轴承主动减振控制结构<span class="mono">ZL202310566789 · 1,860 万</span></span>
+                  <span class="ql-chip">钙钛矿-晶硅叠层光伏组件封装工艺<span class="mono">ZL202211233445 · 2,480 万</span></span>
+                  <span class="ql-chip">星载激光通信快速捕获转台<span class="mono">ZL202233445566 · 1,680 万</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div data-zone-id="P04-L2-003" class="anno-zone">
+            <div class="panel">
+              <div class="panel-head"><span class="panel-title">投融资尽调导出</span><span class="panel-tag">融资 / 上市 / 质押尽调包</span><span class="spacer"></span><span class="panel-tag">导出自动留痕</span></div>
+              <div class="filter-bar" style="margin-bottom:12px">
+                <label for="ddScope">导出范围</label>
+                <div data-element-id="P04-L3-003"><select id="ddScope" class="select" data-action="updateScope" aria-label="选择尽调导出范围">
+                  <option value="all">全部在管资产（10 件）</option>
+                  <option value="a-grade">仅 A 级资产（3 件）</option>
+                  <option value="pledge">质押相关资产（4 件）</option>
+                </select></div>
+                <span class="role-label">预估份数 <b class="mono" id="ddCount">10</b> 份</span>
+                <button type="button" class="btn-accent" data-action="exportDD" data-element-id="P04-L3-004">一键导出尽调包</button>
+                <button type="button" class="btn-ghost" data-open-modal="modalTrace" data-action="viewTrace" data-fill="trace" data-element-id="P04-L3-005">查看留痕</button>
+              </div>
+              <div class="table-wrap">
+                <table class="grid">
+                  <thead><tr><th>留痕编号</th><th>导出范围</th><th>份数</th><th>操作人</th><th>导出时间</th></tr></thead>
+                  <tbody id="traceRows">
+                    <tr><td class="mono">DD-2026-015</td><td>A 级 + 质押相关</td><td class="num">6</td><td>林岚</td><td class="mono">2026-08-12 14:20</td></tr>
+                    <tr><td class="mono">DD-2026-014</td><td>全部在管资产</td><td class="num">10</td><td>林岚</td><td class="mono">2026-07-30 09:45</td></tr>
+                    <tr><td class="mono">DD-2026-013</td><td>质押相关资产</td><td class="num">4</td><td>周衡</td><td class="mono">2026-07-08 16:02</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <footer class="page-footer">© 2026 奥凯信息 × Demora · 专利资产全生命周期数字化价值运营管理平台 · <span class="mono">v1.0.0 · 2026-08-28</span></footer>
+        </section>
+
+        <!-- ================= P05 产业撮合通道 ================= -->
+        <section class="page-view" data-page-id="P05" aria-label="产业撮合通道" hidden>
+          <div class="titleblock">
+            <div class="tb-main">
+              <div class="tb-eyebrow">INDUSTRY MATCH CHANNEL · DRW-2026-092</div>
+              <div class="tb-title">产业撮合通道</div>
+              <div class="tb-desc">登记产业需求方撮合意向，按状态机推进至成交，盘活闲置专利资产</div>
+            </div>
+            <div class="tb-cells">
+              <div class="tb-cell"><b>SHEET</b><span>05 / 06</span></div>
+              <div class="tb-cell"><b>SCALE</b><span>1 : 1</span></div>
+              <div class="tb-cell"><b>DATE</b><span>2026-08-28</span></div>
+            </div>
+          </div>
+
+          <div data-zone-id="P05-L2-001" class="anno-zone">
+            <div class="panel">
+              <div class="filter-bar">
+                <label for="dealType">意向类型</label>
+                <div data-element-id="P05-L3-001"><select id="dealType" class="select" data-action="filterDeals" aria-label="按意向类型筛选">
+                  <option value="">全部类型</option>
+                  <option value="转让">转让</option>
+                  <option value="许可">许可</option>
+                  <option value="质押融资">质押融资</option>
+                </select></div>
+                <label for="dealStatus">意向状态</label>
+                <div data-element-id="P05-L3-002"><select id="dealStatus" class="select" data-action="filterDeals" aria-label="按意向状态筛选">
+                  <option value="">全部状态</option>
+                  <option value="初步接触">初步接触</option>
+                  <option value="尽调中">尽调中</option>
+                  <option value="签署意向">签署意向</option>
+                  <option value="成交">成交</option>
+                  <option value="搁置">搁置</option>
+                </select></div>
+                <div class="grow" data-element-id="P05-L3-003"><input type="text" id="dealSearch" class="input" data-action="filterDeals" placeholder="意向编号 / 专利 / 需求方" aria-label="撮合意向关键字搜索"></div>
+                <button type="button" class="btn-accent" data-open-modal="modalNewDeal" data-action="newDeal" data-element-id="P05-L3-004">新建意向</button>
+              </div>
+            </div>
+          </div>
+
+          <div data-zone-id="P05-L2-002" class="anno-zone">
+            <div class="stat-strip">
+              <div class="stat-chip"><div class="sc-num num" id="stDealTotal">12</div><div class="sc-label">意向总数（笔）</div></div>
+              <div class="stat-chip info"><div class="sc-num num" id="stDealDD">4</div><div class="sc-label">尽调中（笔）</div></div>
+              <div class="stat-chip"><div class="sc-num num" id="stDealDone">3</div><div class="sc-label">已成交（笔）</div></div>
+              <div class="stat-chip gold"><div class="sc-num num" id="stDealAmount">2,800</div><div class="sc-label">成交总额（万元）</div></div>
+            </div>
+          </div>
+
+          <div data-zone-id="P05-L2-003" class="anno-zone">
+            <div class="panel">
+              <div class="panel-head"><span class="panel-title">撮合意向列表</span><span class="panel-tag" id="dealCountTag">共 12 笔</span><span class="spacer"></span><span class="panel-tag">状态机：接触→尽调→签署→成交/搁置</span></div>
+              <div class="table-wrap">
+                <table class="grid">
+                  <thead><tr><th>意向编号</th><th>关联专利</th><th>需求方</th><th>需求行业</th><th>类型</th><th>预算(万元)</th><th>状态</th><th>负责人</th><th style="text-align:right">操作</th></tr></thead>
+                  <tbody id="dealRows">
+                    <tr data-no="YX2026-001" data-type="转让" data-status="初步接触" data-search="yx2026-001 zl202211233445 钙钛矿-晶硅叠层光伏组件封装工艺 中广核新能源"><td class="mono">YX2026-001</td><td class="t-title">钙钛矿-晶硅叠层光伏组件封装工艺<span class="cell-sub mono">ZL202211233445</span></td><td>中广核新能源</td><td>新能源</td><td>转让</td><td class="mono num">3,000</td><td><span class="pill info">初步接触</span></td><td>林岚</td><td class="ops"><button type="button" class="mini-btn solid" data-action="advanceDeal" data-no="YX2026-001" data-element-id="P05-L3-005">推进</button><button type="button" class="mini-btn" data-open-modal="modalDealDetail" data-action="viewDeal" data-fill="dealDetail" data-no="YX2026-001" data-element-id="P05-L3-006">查看</button></td></tr>
+                    <tr data-no="YX2026-002" data-type="许可" data-status="尽调中" data-search="yx2026-002 zl202310566789 磁悬浮轴承主动减振控制结构 美的工业技术"><td class="mono">YX2026-002</td><td class="t-title">磁悬浮轴承主动减振控制结构<span class="cell-sub mono">ZL202310566789</span></td><td>美的工业技术</td><td>高端制造</td><td>许可</td><td class="mono num">800</td><td><span class="pill plain">尽调中</span></td><td>林岚</td><td class="ops"><button type="button" class="mini-btn solid" data-action="advanceDeal" data-no="YX2026-002">推进</button><button type="button" class="mini-btn" data-open-modal="modalDealDetail" data-action="viewDeal" data-fill="dealDetail" data-no="YX2026-002">查看</button></td></tr>
+                    <tr data-no="YX2026-003" data-type="转让" data-status="尽调中" data-search="yx2026-003 zl202345678901 面向客服质检的方言语音识别模型 云知声"><td class="mono">YX2026-003</td><td class="t-title">面向客服质检的方言语音识别模型<span class="cell-sub mono">ZL202345678901</span></td><td>云知声</td><td>人工智能</td><td>转让</td><td class="mono num">1,100</td><td><span class="pill plain">尽调中</span></td><td>周衡</td><td class="ops"><button type="button" class="mini-btn solid" data-action="advanceDeal" data-no="YX2026-003">推进</button><button type="button" class="mini-btn" data-open-modal="modalDealDetail" data-action="viewDeal" data-fill="dealDetail" data-no="YX2026-003">查看</button></td></tr>
+                    <tr data-no="YX2026-012" data-type="许可" data-status="尽调中" data-search="yx2026-012 zl202310566789 磁悬浮轴承主动减振控制结构 格力电器"><td class="mono">YX2026-012</td><td class="t-title">磁悬浮轴承主动减振控制结构<span class="cell-sub mono">ZL202310566789</span></td><td>格力电器</td><td>高端制造</td><td>许可</td><td class="mono num">120</td><td><span class="pill plain">尽调中</span></td><td>周衡</td><td class="ops"><button type="button" class="mini-btn solid" data-action="advanceDeal" data-no="YX2026-012">推进</button><button type="button" class="mini-btn" data-open-modal="modalDealDetail" data-action="viewDeal" data-fill="dealDetail" data-no="YX2026-012">查看</button></td></tr>
+                    <tr data-no="YX2026-009" data-type="质押融资" data-status="尽调中" data-search="yx2026-009 zl202156781234 动力电池包液冷板流道结构 中创新航"><td class="mono">YX2026-009</td><td class="t-title">动力电池包液冷板流道结构<span class="cell-sub mono">ZL202156781234</span></td><td>中创新航</td><td>新能源</td><td>质押融资</td><td class="mono num">700</td><td><span class="pill plain">尽调中</span></td><td>林岚</td><td class="ops"><button type="button" class="mini-btn solid" data-action="advanceDeal" data-no="YX2026-009">推进</button><button type="button" class="mini-btn" data-open-modal="modalDealDetail" data-action="viewDeal" data-fill="dealDetail" data-no="YX2026-009">查看</button></td></tr>
+                    <tr data-no="YX2026-004" data-type="质押融资" data-status="签署意向" data-search="yx2026-004 zl202056784567 骨科手术导航定位夹持器 鱼跃医疗"><td class="mono">YX2026-004</td><td class="t-title">骨科手术导航定位夹持器<span class="cell-sub mono">ZL202056784567</span></td><td>鱼跃医疗</td><td>生物医药</td><td>质押融资</td><td class="mono num">400</td><td><span class="pill gold">签署意向</span></td><td>林岚</td><td class="ops"><button type="button" class="mini-btn solid" data-action="advanceDeal" data-no="YX2026-004">推进</button><button type="button" class="mini-btn" data-open-modal="modalDealDetail" data-action="viewDeal" data-fill="dealDetail" data-no="YX2026-004">查看</button></td></tr>
+                    <tr data-no="YX2026-007" data-type="转让" data-status="签署意向" data-search="yx2026-007 zl202233445566 星载激光通信快速捕获转台 海格通信"><td class="mono">YX2026-007</td><td class="t-title">星载激光通信快速捕获转台<span class="cell-sub mono">ZL202233445566</span></td><td>海格通信</td><td>数字通信</td><td>转让</td><td class="mono num">1,750</td><td><span class="pill gold">签署意向</span></td><td>周衡</td><td class="ops"><button type="button" class="mini-btn solid" data-action="advanceDeal" data-no="YX2026-007">推进</button><button type="button" class="mini-btn" data-open-modal="modalDealDetail" data-action="viewDeal" data-fill="dealDetail" data-no="YX2026-007">查看</button></td></tr>
+                    <tr data-no="YX2026-005" data-type="转让" data-status="成交" data-search="yx2026-005 zl202412003456 固态电解质膜片连续涂布装置 天目先导"><td class="mono">YX2026-005</td><td class="t-title">固态电解质膜片连续涂布装置<span class="cell-sub mono">ZL202412003456</span></td><td>天目先导</td><td>新材料</td><td>转让</td><td class="mono num">1,250</td><td><span class="pill ok">成交</span></td><td>林岚</td><td class="ops"><button type="button" class="mini-btn solid" data-action="advanceDeal" data-no="YX2026-001">推进</button><button type="button" class="mini-btn" data-open-modal="modalDealDetail" data-action="viewDeal" data-fill="dealDetail" data-no="YX2026-005">查看</button></td></tr>
+                    <tr data-no="YX2026-006" data-type="许可" data-status="成交" data-search="yx2026-006 zl202466778899 5g小基站射频前端模组封装结构 锐捷网络"><td class="mono">YX2026-006</td><td class="t-title">5G小基站射频前端模组封装结构<span class="cell-sub mono">ZL202466778899</span></td><td>锐捷网络</td><td>数字通信</td><td>许可</td><td class="mono num">600</td><td><span class="pill ok">成交</span></td><td>周衡</td><td class="ops"><button type="button" class="mini-btn solid" data-action="advanceDeal" data-no="YX2026-006">推进</button><button type="button" class="mini-btn" data-open-modal="modalDealDetail" data-action="viewDeal" data-fill="dealDetail" data-no="YX2026-006">查看</button></td></tr>
+                    <tr data-no="YX2026-011" data-type="许可" data-status="成交" data-search="yx2026-011 zl202345678901 面向客服质检的方言语音识别模型 思必驰"><td class="mono">YX2026-011</td><td class="t-title">面向客服质检的方言语音识别模型<span class="cell-sub mono">ZL202345678901</span></td><td>思必驰</td><td>人工智能</td><td>许可</td><td class="mono num">950</td><td><span class="pill ok">成交</span></td><td>林岚</td><td class="ops"><button type="button" class="mini-btn solid" data-action="advanceDeal" data-no="YX2026-011">推进</button><button type="button" class="mini-btn" data-open-modal="modalDealDetail" data-action="viewDeal" data-fill="dealDetail" data-no="YX2026-011">查看</button></td></tr>
+                    <tr data-no="YX2026-008" data-type="许可" data-status="初步接触" data-search="yx2026-008 zl202118990011 基于联邦学习的医疗影像脱敏方法 联影智能"><td class="mono">YX2026-008</td><td class="t-title">基于联邦学习的医疗影像脱敏方法<span class="cell-sub mono">ZL202118990011</span></td><td>联影智能</td><td>生物医药</td><td>许可</td><td class="mono num">300</td><td><span class="pill info">初步接触</span></td><td>周衡</td><td class="ops"><button type="button" class="mini-btn solid" data-action="advanceDeal" data-no="YX2026-008">推进</button><button type="button" class="mini-btn" data-open-modal="modalDealDetail" data-action="viewDeal" data-fill="dealDetail" data-no="YX2026-008">查看</button></td></tr>
+                    <tr data-no="YX2026-010" data-type="转让" data-status="搁置" data-search="yx2026-010 zl202020998877 便携式血糖仪多光谱检测探头 乐普医疗"><td class="mono">YX2026-010</td><td class="t-title">便携式血糖仪多光谱检测探头<span class="cell-sub mono">ZL202020998877</span></td><td>乐普医疗</td><td>生物医药</td><td>转让</td><td class="mono num">50</td><td><span class="pill danger">搁置</span></td><td>周衡</td><td class="ops"><button type="button" class="mini-btn solid" data-action="advanceDeal" data-no="YX2026-008">推进</button><button type="button" class="mini-btn" data-open-modal="modalDealDetail" data-action="viewDeal" data-fill="dealDetail" data-no="YX2026-010">查看</button></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <footer class="page-footer">© 2026 奥凯信息 × Demora · 专利资产全生命周期数字化价值运营管理平台 · <span class="mono">v1.0.0 · 2026-08-28</span></footer>
+        </section>
+
+        <!-- ================= P06 质押转让跟踪 ================= -->
+        <section class="page-view" data-page-id="P06" aria-label="质押转让跟踪" hidden>
+          <div class="titleblock">
+            <div class="tb-main">
+              <div class="tb-eyebrow">PLEDGE &amp; TRANSFER TRACKING · DRW-2026-093</div>
+              <div class="tb-title">质押转让跟踪</div>
+              <div class="tb-desc">质押登记与转让记录全生命周期跟踪：质押中专利不可转让，需先解除质押</div>
+            </div>
+            <div class="tb-cells">
+              <div class="tb-cell"><b>SHEET</b><span>06 / 06</span></div>
+              <div class="tb-cell"><b>SCALE</b><span>1 : 1</span></div>
+              <div class="tb-cell"><b>DATE</b><span>2026-08-28</span></div>
+            </div>
+          </div>
+
+          <div data-zone-id="P06-L2-002" class="anno-zone">
+            <div class="risk-strip">
+              <span class="rs-item">质押生效中 <b class="num" id="plActiveCount">4</b> 笔</span>
+              <span class="rs-item">质押融资总额 <b class="num" id="plActiveAmount">2,850</b> 万元</span>
+              <span class="rs-item">涉及专利 <b class="num" id="plPatents">4</b> 件</span>
+              <span class="rs-item" style="color:var(--ink-soft)">解除质押后方可发起转让</span>
+              <span class="rs-seal" aria-hidden="true">质押<br>监管</span>
+            </div>
+          </div>
+
+          <div data-zone-id="P06-L2-001" class="anno-zone">
+            <div class="panel">
+              <div class="filter-bar">
+                <label for="plType">业务类型</label>
+                <div data-element-id="P06-L3-001"><select id="plType" class="select" data-action="filterPledges" aria-label="按业务类型筛选">
+                  <option value="">全部业务</option>
+                  <option value="质押登记">质押登记</option>
+                  <option value="专利转让">专利转让</option>
+                </select></div>
+                <label for="plStatus">状态</label>
+                <div data-element-id="P06-L3-002"><select id="plStatus" class="select" data-action="filterPledges" aria-label="按记录状态筛选">
+                  <option value="">全部状态</option>
+                  <option value="审批中">审批中</option>
+                  <option value="生效中">生效中</option>
+                  <option value="已解除">已解除</option>
+                  <option value="已完成">已完成</option>
+                  <option value="已驳回">已驳回</option>
+                </select></div>
+                <div class="grow" data-element-id="P06-L3-003"><input type="text" id="plSearch" class="input" data-action="filterPledges" placeholder="业务编号 / 专利 / 对手方" aria-label="质押转让关键字搜索"></div>
+                <button type="button" class="btn-accent" data-open-modal="modalNewPledge" data-action="newPledge" data-element-id="P06-L3-004">新建业务</button>
+              </div>
+            </div>
+          </div>
+
+          <div data-zone-id="P06-L2-003" class="anno-zone">
+            <div class="panel">
+              <div class="panel-head"><span class="panel-title">业务记录</span><span class="panel-tag" id="plCountTag">共 11 笔</span><span class="spacer"></span><span class="panel-tag">SOURCE · PLEDGE / TRANSFER</span></div>
+              <div class="table-wrap">
+                <table class="grid">
+                  <thead><tr><th>业务编号</th><th>关联专利</th><th>业务类型</th><th>对手方</th><th>金额(万元)</th><th>起始日</th><th>状态</th><th style="text-align:right">操作</th></tr></thead>
+                  <tbody id="pledgeRows">
+                    <tr data-no="DB2026-001" data-type="质押登记" data-status="生效中" data-search="db2026-001 zl202211233445 钙钛矿-晶硅叠层光伏组件封装工艺 江苏银行苏州分行"><td class="mono">DB2026-001</td><td class="t-title">钙钛矿-晶硅叠层光伏组件封装工艺<span class="cell-sub mono">ZL202211233445</span></td><td>质押登记</td><td>江苏银行苏州分行</td><td class="mono num">1,200</td><td class="mono">2026-02-10</td><td><span class="pill gold">生效中</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalRelease" data-action="releasePledge" data-fill="release" data-no="DB2026-001" data-element-id="P06-L3-005">解除质押</button><button type="button" class="mini-btn" data-open-modal="modalPledgeDetail" data-action="viewPledge" data-fill="pledgeDetail" data-no="DB2026-001" data-element-id="P06-L3-006">查看</button></td></tr>
+                    <tr data-no="DB2026-002" data-type="质押登记" data-status="生效中" data-search="db2026-002 zl202412003456 固态电解质膜片连续涂布装置 中国银行常州分行"><td class="mono">DB2026-002</td><td class="t-title">固态电解质膜片连续涂布装置<span class="cell-sub mono">ZL202412003456</span></td><td>质押登记</td><td>中国银行常州分行</td><td class="mono num">800</td><td class="mono">2026-03-15</td><td><span class="pill gold">生效中</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalRelease" data-action="releasePledge" data-fill="release" data-no="DB2026-002">解除质押</button><button type="button" class="mini-btn" data-open-modal="modalPledgeDetail" data-action="viewPledge" data-fill="pledgeDetail" data-no="DB2026-002">查看</button></td></tr>
+                    <tr data-no="DB2026-003" data-type="质押登记" data-status="生效中" data-search="db2026-003 zl202156781234 动力电池包液冷板流道结构 工商银行福建分行"><td class="mono">DB2026-003</td><td class="t-title">动力电池包液冷板流道结构<span class="cell-sub mono">ZL202156781234</span></td><td>质押登记</td><td>工商银行福建分行</td><td class="mono num">500</td><td class="mono">2026-01-20</td><td><span class="pill gold">生效中</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalRelease" data-action="releasePledge" data-fill="release" data-no="DB2026-003">解除质押</button><button type="button" class="mini-btn" data-open-modal="modalPledgeDetail" data-action="viewPledge" data-fill="pledgeDetail" data-no="DB2026-003">查看</button></td></tr>
+                    <tr data-no="DB2026-009" data-type="质押登记" data-status="生效中" data-search="db2026-009 zl202056784567 骨科手术导航定位夹持器 招商银行威海分行"><td class="mono">DB2026-009</td><td class="t-title">骨科手术导航定位夹持器<span class="cell-sub mono">ZL202056784567</span></td><td>质押登记</td><td>招商银行威海分行</td><td class="mono num">350</td><td class="mono">2026-06-05</td><td><span class="pill gold">生效中</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalRelease" data-action="releasePledge" data-fill="release" data-no="DB2026-009">解除质押</button><button type="button" class="mini-btn" data-open-modal="modalPledgeDetail" data-action="viewPledge" data-fill="pledgeDetail" data-no="DB2026-009">查看</button></td></tr>
+                    <tr data-no="DB2026-005" data-type="质押登记" data-status="审批中" data-search="db2026-005 zl202466778899 5g小基站射频前端模组封装结构 交通银行武汉分行"><td class="mono">DB2026-005</td><td class="t-title">5G小基站射频前端模组封装结构<span class="cell-sub mono">ZL202466778899</span></td><td>质押登记</td><td>交通银行武汉分行</td><td class="mono num">400</td><td class="mono">2026-07-01</td><td><span class="pill info">审批中</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalRelease" data-action="releasePledge" data-fill="release" data-no="DB2026-001">解除质押</button><button type="button" class="mini-btn" data-open-modal="modalPledgeDetail" data-action="viewPledge" data-fill="pledgeDetail" data-no="DB2026-005">查看</button></td></tr>
+                    <tr data-no="DB2026-006" data-type="专利转让" data-status="审批中" data-search="db2026-006 zl202020998877 便携式血糖仪多光谱检测探头 康泰医学"><td class="mono">DB2026-006</td><td class="t-title">便携式血糖仪多光谱检测探头<span class="cell-sub mono">ZL202020998877</span></td><td>专利转让</td><td>康泰医学</td><td class="mono num">350</td><td class="mono">2026-07-10</td><td><span class="pill info">审批中</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalRelease" data-action="releasePledge" data-fill="release" data-no="DB2026-006">解除质押</button><button type="button" class="mini-btn" data-open-modal="modalPledgeDetail" data-action="viewPledge" data-fill="pledgeDetail" data-no="DB2026-006">查看</button></td></tr>
+                    <tr data-no="DB2025-018" data-type="质押登记" data-status="已解除" data-search="db2025-018 zl202118990011 基于联邦学习的医疗影像脱敏方法 建设银行深圳分行"><td class="mono">DB2025-018</td><td class="t-title">基于联邦学习的医疗影像脱敏方法<span class="cell-sub mono">ZL202118990011</span></td><td>质押登记</td><td>建设银行深圳分行</td><td class="mono num">600</td><td class="mono">2025-08-15</td><td><span class="pill ok">已解除</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalRelease" data-action="releasePledge" data-fill="release" data-no="DB2025-018">解除质押</button><button type="button" class="mini-btn" data-open-modal="modalPledgeDetail" data-action="viewPledge" data-fill="pledgeDetail" data-no="DB2025-018">查看</button></td></tr>
+                    <tr data-no="DB2025-021" data-type="质押登记" data-status="已解除" data-search="db2025-021 zl202233445566 星载激光通信快速捕获转台 国家开发银行"><td class="mono">DB2025-021</td><td class="t-title">星载激光通信快速捕获转台<span class="cell-sub mono">ZL202233445566</span></td><td>质押登记</td><td>国家开发银行</td><td class="mono num">900</td><td class="mono">2025-09-01</td><td><span class="pill ok">已解除</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalRelease" data-action="releasePledge" data-fill="release" data-no="DB2025-021">解除质押</button><button type="button" class="mini-btn" data-open-modal="modalPledgeDetail" data-action="viewPledge" data-fill="pledgeDetail" data-no="DB2025-021">查看</button></td></tr>
+                    <tr data-no="DB2026-008" data-type="专利转让" data-status="已完成" data-search="db2026-008 zl202345678901 面向客服质检的方言语音识别模型 云知声"><td class="mono">DB2026-008</td><td class="t-title">面向客服质检的方言语音识别模型<span class="cell-sub mono">ZL202345678901</span></td><td>专利转让</td><td>云知声</td><td class="mono num">980</td><td class="mono">2026-05-20</td><td><span class="pill ok">已完成</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalRelease" data-action="releasePledge" data-fill="release" data-no="DB2026-008">解除质押</button><button type="button" class="mini-btn" data-open-modal="modalPledgeDetail" data-action="viewPledge" data-fill="pledgeDetail" data-no="DB2026-008">查看</button></td></tr>
+                    <tr data-no="DB2026-007" data-type="专利转让" data-status="已驳回" data-search="db2026-007 zl202310566789 磁悬浮轴承主动减振控制结构 三花智控"><td class="mono">DB2026-007</td><td class="t-title">磁悬浮轴承主动减振控制结构<span class="cell-sub mono">ZL202310566789</span></td><td>专利转让</td><td>三花智控</td><td class="mono num">2,000</td><td class="mono">2026-04-12</td><td><span class="pill danger">已驳回</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalRelease" data-action="releasePledge" data-fill="release" data-no="DB2026-007">解除质押</button><button type="button" class="mini-btn" data-open-modal="modalPledgeDetail" data-action="viewPledge" data-fill="pledgeDetail" data-no="DB2026-007">查看</button></td></tr>
+                    <tr data-no="DB2026-004" data-type="专利转让" data-status="已完成" data-search="db2026-004 zl201922011455 低温甲醇洗工艺尾气回收系统 竹贝壳科技"><td class="mono">DB2026-004</td><td class="t-title">低温甲醇洗工艺尾气回收系统<span class="cell-sub mono">ZL201922011455</span></td><td>专利转让</td><td>竹贝壳科技</td><td class="mono num">55</td><td class="mono">2026-03-01</td><td><span class="pill ok">已完成</span></td><td class="ops"><button type="button" class="mini-btn" data-open-modal="modalRelease" data-action="releasePledge" data-fill="release" data-no="DB2026-004">解除质押</button><button type="button" class="mini-btn" data-open-modal="modalPledgeDetail" data-action="viewPledge" data-fill="pledgeDetail" data-no="DB2026-004">查看</button></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <footer class="page-footer">© 2026 奥凯信息 × Demora · 专利资产全生命周期数字化价值运营管理平台 · <span class="mono">v1.0.0 · 2026-08-28</span></footer>
+        </section>
+
+      
+<!-- [demora-copyright-footer] start -->
+<style>
+  /* v5.10: Ourchem × Demora 联合版权 Footer（项目级统一标识） */
+  .demora-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 24px 20px;
+    margin-top: 40px;
+    background: #0a0e14;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.6);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    /* v5.14.18 防御性 CSS：防止 body 被设为 flex/grid 容器时 footer 漂移到右侧 */
+    width: 100%;
+    box-sizing: border-box;
+    flex-basis: 100%;
+    flex-shrink: 0;
+    align-self: stretch;
+  }
+  .demora-footer-coop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+  .demora-footer-brand-logo {
+    display: flex;
+    align-items: center;
+    height: 28px;
+  }
+  .demora-footer-brand-ourchem svg {
+    height: 28px;
+    width: auto;
+    opacity: 0.95;
+  }
+  .demora-footer-brand-demora svg {
+    height: 24px;
+    width: auto;
+  }
+  .demora-footer-coop-x {
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.4);
+  }
+  .demora-footer-copyright {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.7;
+    text-align: center;
+    margin: 0;
+  }
+  @media (max-width: 640px) {
+    .demora-footer { padding: 20px 16px; }
+    .demora-footer-coop { gap: 12px; }
+    .demora-footer-brand-ourchem svg, .demora-footer-brand-demora svg { height: 22px; }
+    .demora-footer-coop-x { font-size: 16px; }
+  }
+</style>
+<footer class="demora-footer">
+  <div class="demora-footer-coop">
+    <div class="demora-footer-brand-logo demora-footer-brand-ourchem" aria-label="Ourchem">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 133.24 25.6">
+<defs><style>.cls-1{fill:#fff;}</style></defs><title>奥凯logo-长-白</title><polygon class="cls-1" points="28.83 4.2 27.95 4.46 27.95 5.2 28.83 4.94 28.83 4.2"/><polygon class="cls-1" points="29.77 4.05 29.22 4.21 29.22 4.67 29.77 4.51 29.77 4.05"/><polygon class="cls-1" points="29.59 4.92 29.05 5.07 29.05 5.53 29.59 5.37 29.59 4.92"/><polygon class="cls-1" points="28.83 5.86 28.83 5.41 28.29 5.57 28.29 6.02 28.83 5.86"/><polygon class="cls-1" points="27.85 6.89 28.39 6.73 28.39 6.28 27.85 6.44 27.85 6.89"/><polygon class="cls-1" points="29.32 6.2 28.77 6.36 28.77 6.82 29.32 6.66 29.32 6.2"/><polygon class="cls-1" points="28.69 3.93 29.69 3.64 29.69 2.77 28.69 3.06 28.69 3.93"/><path class="cls-1" d="M11.69,21.54c-3.11,1.15-5.69,1.26-6.92,0-1-1-1-2.59-.13-4.55a3,3,0,0,1-.9-2.11v-3C.31,16.18-1,20.42.81,22.81c1.61,2.15,5.35,2.3,9.77.8v-1l1.11-.35Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M11.93,8.21c6.49-5.31,13.62-7.59,15.73-5a2.77,2.77,0,0,1,.42.75l.26-.09v-1l.91-.27a4.42,4.42,0,0,0-.44-.76C26.15-1.74,17.73.08,10,5.93a35.79,35.79,0,0,0-5.44,5H9A36.4,36.4,0,0,1,11.93,8.21Z" transform="translate(0 -0.01)"/><polygon class="cls-1" points="29.01 7.11 28.39 7.29 28.39 7.82 29.01 7.63 29.01 7.11"/><polygon class="cls-1" points="27.58 8.38 28.12 8.22 28.12 7.76 27.58 7.92 27.58 8.38"/><polygon class="cls-1" points="28.46 8.43 28.03 8.56 28.03 8.92 28.46 8.79 28.46 8.43"/><polygon class="cls-1" points="27.22 9.09 27.64 8.97 27.64 8.61 27.22 8.73 27.22 9.09"/><polygon class="cls-1" points="27.13 9.96 27.67 9.8 27.67 9.35 27.13 9.5 27.13 9.96"/><polygon class="cls-1" points="26.81 10.43 26.81 10.09 26.4 10.21 26.4 10.55 26.81 10.43"/><polygon class="cls-1" points="27.84 7.55 28.21 7.44 28.21 7.13 27.84 7.24 27.84 7.55"/><polygon class="cls-1" points="19.08 18.49 19.5 18.36 19.5 18 19.08 18.13 19.08 18.49"/><polygon class="cls-1" points="17.71 19.86 18.16 19.73 18.16 19.35 17.71 19.49 17.71 19.86"/><polygon class="cls-1" points="16.89 19.52 17.44 19.36 17.44 18.89 16.89 19.06 16.89 19.52"/><polygon class="cls-1" points="15.16 20.3 14.75 20.42 14.75 20.76 15.16 20.64 15.16 20.3"/><polygon class="cls-1" points="16.99 20.38 17.39 20.26 17.39 19.91 16.99 20.03 16.99 20.38"/><polygon class="cls-1" points="14.98 21.58 15.61 21.39 15.61 20.87 14.98 21.05 14.98 21.58"/><polygon class="cls-1" points="13.69 22.24 14.54 21.99 14.54 21.27 13.69 21.52 13.69 22.24"/><polygon class="cls-1" points="14.4 21.03 14.4 20.49 13.75 20.68 13.75 21.22 14.4 21.03"/><polygon class="cls-1" points="12.67 22.87 13.31 22.68 13.31 22.14 12.67 22.33 12.67 22.87"/><polygon class="cls-1" points="15.66 20.72 16.61 20.44 16.61 19.64 15.66 19.92 15.66 20.72"/><polygon class="cls-1" points="18.03 19.12 18.57 18.96 18.57 18.51 18.03 18.66 18.03 19.12"/><polygon class="cls-1" points="13.23 21.66 13.23 20.76 12.16 21.08 12.16 21.97 13.23 21.66"/><polygon class="cls-1" points="11.01 23.83 12.19 23.48 12.19 22.48 11.01 22.83 11.01 23.83"/><path class="cls-1" d="M18.82,12.61a1.69,1.69,0,0,1,1.51,1l1-.54a2.87,2.87,0,0,0-2.54-1.6,3,3,0,0,0,0,5.89,2.87,2.87,0,0,0,2.54-1.6l-1-.54a1.69,1.69,0,0,1-1.51,1,1.79,1.79,0,0,1,0-3.57Z" transform="translate(0 -0.01)"/><polygon class="cls-1" points="25.91 17.33 27.07 17.33 27.07 11.43 25.91 11.43 25.91 13.82 23.44 13.82 23.44 11.43 22.28 11.43 22.28 17.33 23.44 17.33 23.44 14.93 25.91 14.93 25.91 17.33"/><polygon class="cls-1" points="38.23 11.43 36.68 15.48 35.13 11.43 33.84 11.43 33.84 17.33 34.97 17.33 34.97 14.04 36.25 17.33 37.11 17.33 38.39 14.04 38.39 17.33 39.55 17.33 39.55 11.43 38.23 11.43"/><path class="cls-1" d="M6.67,17.34a2.42,2.42,0,0,0,2.42-2.42V11.44H7.93v3.48a1.26,1.26,0,0,1-2.52,0V11.44H4.24v3.48A2.43,2.43,0,0,0,6.67,17.34Z" transform="translate(0 -0.01)"/><polygon class="cls-1" points="28.29 17.33 32.87 17.33 32.87 16.27 29.45 16.27 29.45 14.93 32.34 14.93 32.34 13.83 29.45 13.83 29.45 13.75 29.45 12.54 32.87 12.54 32.87 11.43 28.29 11.43 28.29 17.33"/><polygon class="cls-1" points="11.71 13.9 11.71 13.9 11.71 13.9 11.71 13.9"/><path class="cls-1" d="M15.94,17.34l-2-2.39a1.81,1.81,0,0,0-.64-3.51h-3v5.9h1.16V12.6h1.89a.66.66,0,1,1,.16,1.31H12.35a.31.31,0,0,0-.29.3.32.32,0,0,0,.08.21h0l2.38,2.92Z" transform="translate(0 -0.01)"/><polygon class="cls-1" points="35.84 20.37 35.84 20.26 35.84 19.09 35.19 19.09 35.19 20.26 34.9 20.26 34.9 18.73 34.11 18.73 34.11 20.26 33.82 20.26 33.82 19.09 33.17 19.09 33.17 20.26 33.17 20.37 33.17 20.69 35.84 20.69 35.84 20.37"/><path class="cls-1" d="M38.71,23.26V19.08H36.24v4.16c0,.88-.65,1-.8,1H34.16v-1.5h1.68V21.08H33.17v.43h1.69v.78H33.17v2.36h2.77c.9,0,1.26-.43,1.26-1.43V19.53h.52v3.68c0,1,.34,1.4,1.17,1.43h.66v-.43h0C39.36,24.21,38.71,24.14,38.71,23.26Z" transform="translate(0 -0.01)"/><polygon class="cls-1" points="26.17 19.71 25.77 19.71 26.11 20.47 26.51 20.47 26.17 19.71"/><polygon class="cls-1" points="27.97 19.71 27.63 20.47 28.02 20.47 28.37 19.71 27.97 19.71"/><polygon class="cls-1" points="27.97 22.04 28.37 22.04 28.02 21.27 27.63 21.27 27.97 22.04"/><polygon class="cls-1" points="26.17 22.04 26.51 21.27 26.11 21.27 25.77 22.04 26.17 22.04"/><polygon class="cls-1" points="28.37 21.06 28.37 20.68 28.37 20.66 27.46 20.66 27.46 19.64 26.68 19.64 26.68 20.66 25.77 20.66 25.77 20.68 25.77 21.06 25.77 21.09 26.68 21.09 26.68 22.1 27.46 22.1 27.46 21.09 28.37 21.09 28.37 21.06"/><polygon class="cls-1" points="29.56 22.5 29.56 19.52 29.56 19.09 28.58 19.09 25.9 19.09 26.14 18.73 24.82 18.73 24.58 19.09 24.58 19.12 24.58 19.52 24.58 22.53 25.56 22.53 25.56 19.52 28.58 19.52 28.58 22.5 29.56 22.5"/><path class="cls-1" d="M27.48,22.29H26.24l-.36.54h-2v.43h1.74c-.19.29-.36.54-.4.62a.94.94,0,0,1-.75.33v.43c.86,0,1.46,0,1.73-.4l.64-1h.46l.64,1c.27.41.88.4,1.72.4v-.43a.92.92,0,0,1-.74-.33l-.4-.62h1.72v-.43H27.12Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M49.63,13.14H44.51v1.44a5.9,5.9,0,0,1-1,3.72,4.27,4.27,0,0,0-.74-.67,4.68,4.68,0,0,0,.78-3.06V12.26h2.69a8.68,8.68,0,0,0-.27-1l1-.17a7.65,7.65,0,0,1,.27,1.17h2.4Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M51.58,13.19A7.74,7.74,0,0,1,51,15.4l-.77-.32A6.39,6.39,0,0,0,50.82,13Zm1.67,0a9.12,9.12,0,0,1,.6,1.9l-.76.36a9.28,9.28,0,0,0-.42-1.65c0,1.55-.19,3.26-1.61,4.44a3.32,3.32,0,0,0-.65-.7,4.58,4.58,0,0,0,1.37-3.82V11.29h.89v2.09Zm3.67-1.88v6.77H56V15l-.67.37a8.14,8.14,0,0,0-.61-1.67v4h-.88v-6.2h.88v1.9l.55-.28A11,11,0,0,1,56,14.73V11.26Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M62.24,16.38a3.58,3.58,0,0,0,2.69,1,2.87,2.87,0,0,0-.55.86,3.54,3.54,0,0,1-3-1.6c-.39.82-1.22,1.33-3.14,1.61a3,3,0,0,0-.43-.79c1.63-.18,2.32-.52,2.65-1.06H58v-.76h2.74a.82.82,0,0,1,.06-.37h.94v.37h3v.76Zm-2.74-1h-.83V11.73h2q.12-.3.21-.6l1,.14c-.08.16-.15.32-.21.46h2.38v3.62h-.87V12.46H59.49Zm3.08-.16a8.71,8.71,0,0,0-.83-.64l.41-.4h-.42v.9H61V14.5a4.64,4.64,0,0,1-.93.78,2.52,2.52,0,0,0-.47-.51,4.16,4.16,0,0,0,.87-.62H59.7v-.59h.54a4.6,4.6,0,0,0-.39-.68l.56-.26a6.2,6.2,0,0,1,.44.69l-.5.25H61v-1h.76v1h.57l-.46-.23a4.88,4.88,0,0,0,.42-.74l.66.29-.55.68H63v.59h-.76c.27.18.65.43.83.58Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M68.34,16.63a5.72,5.72,0,0,0,.08.76,13.87,13.87,0,0,0-2.61.66,2.34,2.34,0,0,0-.28-.72c.12-.06.21-.17.21-.44V15.33h2.14v-.6H65.59v-.79h3.09v2.14h-2.2V17Zm.46-3.13H65.62V11.57h.72v1.24h.49V11.17h.76v1.64h.47V11.57h.74Zm2.92,3.84c.08,0,.1-.2.12-1a2.3,2.3,0,0,0,.67.32c-.06,1-.24,1.29-.72,1.29h-.37c-.56,0-.7-.24-.7-1V12.27h-.64V13.9a7.67,7.67,0,0,1-1,4.32,2.83,2.83,0,0,0-.65-.55,6.57,6.57,0,0,0,.83-3.78V11.52h2.26V17c0,.3,0,.35.09.35Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M75.24,11.43a13,13,0,0,1-.55,1.34v5.46h-.82V14.18c-.18.25-.37.5-.55.71a4.91,4.91,0,0,0-.46-.88,7.72,7.72,0,0,0,1.58-2.82Zm4.63.9v.75H75v-.73h2.16a9.59,9.59,0,0,0-.47-.9l.76-.28a6.49,6.49,0,0,1,.55,1l-.43.19Zm-4.42,3.34h4v2.5h-.79V18H76.24v.23h-.76Zm3.88-1.51H75.56v-.7h3.77Zm-3.77.39h3.77v.7H75.56Zm.65,1.84v.85h2.43v-.85Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M80.44,17.44a8.3,8.3,0,0,0,.71-1.58l.8.33a14.69,14.69,0,0,1-.68,1.65Zm3.29-1.92H81.57V11.83H83.3a6.17,6.17,0,0,0,.19-.74l1.09.13c-.11.23-.23.43-.32.61h2.06v3.69H84.15a4.77,4.77,0,0,1,.79,1L84.2,17a5.21,5.21,0,0,0-.89-1.19Zm1.06,1.74c.36,0,.42-.1.47-.82a2.18,2.18,0,0,0,.81.32c-.11,1-.37,1.31-1.21,1.31H83.43c-1.06,0-1.34-.25-1.34-1v-1H83v1c0,.22.07.25.5.25Zm-2.36-4.4h3v-.35h-3Zm0,1h3v-.34h-3Zm0,1h3v-.35h-3Zm4.13.87a6.18,6.18,0,0,1,.84,1.61l-.86.37a6.71,6.71,0,0,0-.77-1.65Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M90.41,14.08l-2.08.9L88,14.1c.57-.16,1.45-.46,2.3-.74Zm-.72-1.3a6.58,6.58,0,0,0-1.39-.73l.44-.64a6.79,6.79,0,0,1,1.42.66Zm-.63,2.62h5v2.84h-1V18H89.94v.3H89Zm3.87-2.72a1.78,1.78,0,0,1-.09.47,2.28,2.28,0,0,0,2.09,1.41,3,3,0,0,0-.51.77,2.78,2.78,0,0,1-1.94-1.28,3.32,3.32,0,0,1-2,1.33,2.54,2.54,0,0,0-.49-.76c1.54-.37,1.92-1,2.06-1.94h-.7a5,5,0,0,1-.64.93,4.37,4.37,0,0,0-.78-.47,4.31,4.31,0,0,0,1.11-2l.87.18a1.77,1.77,0,0,1-.19.56h2.53l.62.16a9.43,9.43,0,0,1-.62,1.63l-.73-.21c.1-.25.19-.5.27-.76ZM90,16.2v1h3.12v-1Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M97.92,15.84a5.4,5.4,0,0,0,.29.76,13.61,13.61,0,0,0-1.74,1.48,3.17,3.17,0,0,0-.43-.76.93.93,0,0,0,.38-.72V14.33h-.9v-.86h1.77v2.85Zm-1-2.78a11.39,11.39,0,0,0-1-1.25l.61-.52a9.44,9.44,0,0,1,1.09,1.19Zm5.43-.83v.42c-.09,3.45-.18,4.66-.47,5a.92.92,0,0,1-.64.38,6.73,6.73,0,0,1-1.1,0,1.93,1.93,0,0,0-.27-.87h1a.35.35,0,0,0,.31-.15c.2-.23.29-1.36.37-4.13H99.11q-.18.29-.36.54h2.17v3.1H99.14v.51h-.82v-3l-.09.1a4.88,4.88,0,0,0-.75-.61,6,6,0,0,0,1.44-2.37l.91.24c-.1.28-.22.55-.34.83ZM99.11,14.3v.5H100v-.5ZM100,16v-.49h-.93V16Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M105.87,12.91q-.14.3-.3.6h3.49v3.72c0,.44-.09.68-.4.82a3.33,3.33,0,0,1-1.33.15,4.39,4.39,0,0,0-.27-.87h1c.18,0,.17,0,.17-.15v-.45h-2.72v1.44h-.89V14.91a5,5,0,0,1-1,.89,4.3,4.3,0,0,0-.59-.69,5.8,5.8,0,0,0,1.88-2.2h-1.67v-.83h2c.11-.3.21-.6.29-.91l.93.21c-.08.23-.16.46-.25.7h3.68v.84Zm2.31,1.38h-2.72v.48h2.72Zm0,1.72v-.49h-2.72V16Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M113.41,11.76c-.2.63-.45,1.39-.65,2a2.42,2.42,0,0,1,.54,1.57,1.13,1.13,0,0,1-.34,1,.82.82,0,0,1-.42.17,4,4,0,0,1-.49,0,1.86,1.86,0,0,0-.19-.77h.32a.29.29,0,0,0,.2-.07c.1-.06.14-.23.14-.44a2.12,2.12,0,0,0-.53-1.38c.15-.46.31-1.07.43-1.56h-.73v5.9h-.78V11.46h1.91Zm4.06,3.87c-.33.26-.72.54-1.06.76a3.29,3.29,0,0,0,1.22,1,3.48,3.48,0,0,0-.59.78A4.68,4.68,0,0,1,115,14.91h-.45v2.17l1-.24a5.61,5.61,0,0,0,0,.82,8.15,8.15,0,0,0-1.93.6,2.64,2.64,0,0,0-.38-.7.73.73,0,0,0,.35-.66V11.47H117v3.45h-1.3a4,4,0,0,0,.3.82,6.72,6.72,0,0,0,.86-.74Zm-3-3.4v.59h1.66v-.59Zm0,1.92h1.66v-.61h-1.66Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M121.07,11.61A9.13,9.13,0,0,1,119,14.73a10.34,10.34,0,0,0-.84-.64,6.47,6.47,0,0,0,1.94-2.76Zm2.11,3.47a21.11,21.11,0,0,1,1.7,2.6l-.9.48c-.11-.25-.28-.54-.46-.86a30,30,0,0,0-4.53.47,8.19,8.19,0,0,0-.35-.94,1.52,1.52,0,0,0,.71-.59,13,13,0,0,0,1.79-2.89l1,.43a16.14,16.14,0,0,1-2,2.86l2.81-.18-.67-1ZM123,11.24a10,10,0,0,0,2.1,2.69,4.49,4.49,0,0,0-.75.76,13.94,13.94,0,0,1-2.24-3.09Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M132.17,17.08c0,.51-.09.78-.42.94a3.46,3.46,0,0,1-1.46.18,3.83,3.83,0,0,0-.29-1,9.37,9.37,0,0,0,1.06,0c.14,0,.19,0,.19-.17V12.47H126v-.85h6.18ZM130.5,13.8h-4.43V13h4.43Zm-3.17,3.11v.54h-.88V14.34h3.66v2.55Zm0-1.78v1h1.91v-1Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M42.92,22.86a1.88,1.88,0,0,1,.47-1.36,1.59,1.59,0,0,1,1.2-.49,1.74,1.74,0,0,1,.87.23,1.58,1.58,0,0,1,.59.64,2.18,2.18,0,0,1,.2.94,2.14,2.14,0,0,1-.21,1,1.43,1.43,0,0,1-.61.63,1.77,1.77,0,0,1-.84.21,1.81,1.81,0,0,1-.88-.23,1.61,1.61,0,0,1-.59-.65A2,2,0,0,1,42.92,22.86Zm.48,0a1.39,1.39,0,0,0,.34,1,1.17,1.17,0,0,0,1.7,0,1.42,1.42,0,0,0,.34-1,1.77,1.77,0,0,0-.15-.75,1.06,1.06,0,0,0-.39-.52,1.23,1.23,0,0,0-.62-.17,1.2,1.2,0,0,0-.84.33,1.56,1.56,0,0,0-.38,1.13Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M48.51,24.55v-.37a.9.9,0,0,1-.8.43,1.15,1.15,0,0,1-.41-.08.67.67,0,0,1-.42-.54,2.54,2.54,0,0,1,0-.39V22.08h.36v1.4a3.38,3.38,0,0,0,0,.45.55.55,0,0,0,.17.27.63.63,0,0,0,.33.09.74.74,0,0,0,.36-.09.57.57,0,0,0,.24-.27,1.68,1.68,0,0,0,.07-.5V22.08h.42V24.6Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M49.63,24.55V22.08H50v.39a1.18,1.18,0,0,1,.23-.39.46.46,0,0,1,.28-.08.84.84,0,0,1,.44.13l-.15.4a.56.56,0,0,0-.31-.09.44.44,0,0,0-.25.08.45.45,0,0,0-.16.24,1.62,1.62,0,0,0-.08.49v1.32Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M53,23.63l.42.06a1.14,1.14,0,0,1-.36.68,1,1,0,0,1-.69.24,1.07,1.07,0,0,1-.84-.34,1.39,1.39,0,0,1-.31-1,1.72,1.72,0,0,1,.13-.71.9.9,0,0,1,.42-.46,1.24,1.24,0,0,1,.6-.15,1.08,1.08,0,0,1,.67.2,1,1,0,0,1,.34.59l-.42.07a.68.68,0,0,0-.21-.38.5.5,0,0,0-.37-.13.65.65,0,0,0-.52.23,1.11,1.11,0,0,0-.2.73,1.15,1.15,0,0,0,.19.74.66.66,0,0,0,.51.23.6.6,0,0,0,.42-.15A.83.83,0,0,0,53,23.63Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M53.82,24.55V21.08h.42v1.25A1,1,0,0,1,55,22a.93.93,0,0,1,.49.11.6.6,0,0,1,.29.3,1.39,1.39,0,0,1,.09.57v1.59h-.42V23a.71.71,0,0,0-.14-.47.54.54,0,0,0-.4-.15.74.74,0,0,0-.35.1.57.57,0,0,0-.24.27,1.25,1.25,0,0,0-.07.47v1.37Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M58.32,23.74l.44.06a1.06,1.06,0,0,1-.39.6,1.32,1.32,0,0,1-1.6-.13,1.7,1.7,0,0,1,0-2,1.1,1.1,0,0,1,.85-.35,1.06,1.06,0,0,1,.82.34,1.36,1.36,0,0,1,.32,1v.11H56.89a1,1,0,0,0,.24.64.64.64,0,0,0,.52.22.65.65,0,0,0,.4-.12A.83.83,0,0,0,58.32,23.74Zm-1.41-.66h1.41a.92.92,0,0,0-.16-.48.72.72,0,0,0-1-.05A.8.8,0,0,0,56.91,23.08Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M59.36,24.55V22.08h.39v.36a.75.75,0,0,1,.31-.3.79.79,0,0,1,.45-.11.83.83,0,0,1,.46.11.63.63,0,0,1,.25.33A.89.89,0,0,1,62,22a.82.82,0,0,1,.58.2.93.93,0,0,1,.2.64V24.6h-.42V23a.92.92,0,0,0,0-.37.27.27,0,0,0-.15-.18.43.43,0,0,0-.25-.07.61.61,0,0,0-.44.17.78.78,0,0,0-.18.57v1.46h-.43V22.92a.72.72,0,0,0-.1-.43.4.4,0,0,0-.34-.14.67.67,0,0,0-.34.09.6.6,0,0,0-.22.28,1.36,1.36,0,0,0-.07.53v1.3Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M65,24.55V21.08h.46v3.48Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M66.32,24.55V22.08h.39v.36a.89.89,0,0,1,.8-.41,1,1,0,0,1,.42.08.58.58,0,0,1,.28.21.77.77,0,0,1,.14.32,2.81,2.81,0,0,1,0,.41V24.6h-.43V23a.86.86,0,0,0,0-.39.39.39,0,0,0-.17-.21.63.63,0,0,0-.3-.07.64.64,0,0,0-.47.17.87.87,0,0,0-.2.66v1.37Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M69.24,24.55V22.37h-.38v-.29h.38v-.27a1.15,1.15,0,0,1,0-.37.58.58,0,0,1,.22-.27.76.76,0,0,1,.44-.11h.39l-.06.37H70a.4.4,0,0,0-.28.08.48.48,0,0,0-.08.31v.26h.49v.34h-.49V24.6Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M70.35,23.29a1.3,1.3,0,0,1,.39-1,1.17,1.17,0,0,1,.8-.28,1.12,1.12,0,0,1,.85.34,1.29,1.29,0,0,1,.33.94,1.67,1.67,0,0,1-.15.76,1.11,1.11,0,0,1-.42.44,1.31,1.31,0,0,1-.61.15,1.11,1.11,0,0,1-.86-.34A1.3,1.3,0,0,1,70.35,23.29Zm.44,0A1,1,0,0,0,71,24a.65.65,0,0,0,.53.24.68.68,0,0,0,.53-.24,1.09,1.09,0,0,0,.21-.74,1.06,1.06,0,0,0-.21-.71.71.71,0,0,0-.53-.24.65.65,0,0,0-.53.24A1,1,0,0,0,70.79,23.29Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M73.24,24.55V22.08h.39v.39a1,1,0,0,1,.27-.36.43.43,0,0,1,.27-.08.84.84,0,0,1,.44.13l-.15.4a.56.56,0,0,0-.31-.09.44.44,0,0,0-.25.08.49.49,0,0,0-.16.24,1.61,1.61,0,0,0-.07.49V24.6Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M75,24.55V22.08h.39v.36a.75.75,0,0,1,.31-.3.79.79,0,0,1,.45-.11.83.83,0,0,1,.46.11.63.63,0,0,1,.25.33.89.89,0,0,1,.78-.44.82.82,0,0,1,.58.2.93.93,0,0,1,.2.64V24.6H78V23a1.15,1.15,0,0,0,0-.37.27.27,0,0,0-.15-.18.43.43,0,0,0-.25-.07.61.61,0,0,0-.44.17.78.78,0,0,0-.18.57v1.46h-.43V22.92a.72.72,0,0,0-.1-.43.4.4,0,0,0-.34-.14.67.67,0,0,0-.34.09.6.6,0,0,0-.22.28,1.36,1.36,0,0,0-.07.53v1.3Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M80.74,24.24a1.7,1.7,0,0,1-.46.29,1.5,1.5,0,0,1-.47.08,1,1,0,0,1-.64-.2.64.64,0,0,1-.22-.52.81.81,0,0,1,.08-.34.64.64,0,0,1,.22-.24.87.87,0,0,1,.31-.14,1.59,1.59,0,0,1,.38-.07A3.3,3.3,0,0,0,80.7,23v-.11a.46.46,0,0,0-.13-.37.75.75,0,0,0-.48-.14.71.71,0,0,0-.45.11.69.69,0,0,0-.21.37L79,22.75a1,1,0,0,1,.19-.43.84.84,0,0,1,.38-.26,1.83,1.83,0,0,1,.57-.08,1.52,1.52,0,0,1,.52.07.58.58,0,0,1,.43.48,2.67,2.67,0,0,1,0,.4v.57a4.7,4.7,0,0,0,0,.75,1,1,0,0,0,.11.3h-.45A1.08,1.08,0,0,1,80.74,24.24Zm0-1a2.84,2.84,0,0,1-.7.16,1.18,1.18,0,0,0-.37.09.37.37,0,0,0-.17.13.39.39,0,0,0-.06.21.37.37,0,0,0,.13.28.53.53,0,0,0,.38.12,1,1,0,0,0,.44-.11.68.68,0,0,0,.28-.3.87.87,0,0,0,.07-.42Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M82.8,24.17l.06.38h-.32a.64.64,0,0,1-.36-.08.34.34,0,0,1-.18-.19,1.4,1.4,0,0,1-.06-.5V22.37h-.31v-.29h.31v-.62l.43-.26v.88h.43v.34h-.43v1.47a1,1,0,0,0,0,.24.3.3,0,0,0,.08.08h.14Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M83.29,21.57v-.49h.42v.5Zm0,3V22.08h.42V24.6Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M84.24,23.29a1.3,1.3,0,0,1,.39-1,1.17,1.17,0,0,1,.8-.28,1.12,1.12,0,0,1,.85.34,1.29,1.29,0,0,1,.33.94,1.67,1.67,0,0,1-.15.76,1.11,1.11,0,0,1-.42.44,1.31,1.31,0,0,1-.61.15,1.11,1.11,0,0,1-.86-.34A1.3,1.3,0,0,1,84.24,23.29Zm.44,0a1,1,0,0,0,.22.73.65.65,0,0,0,.53.24A.68.68,0,0,0,86,24a1.09,1.09,0,0,0,.21-.74,1.06,1.06,0,0,0-.21-.71.71.71,0,0,0-.53-.24.65.65,0,0,0-.53.24,1,1,0,0,0-.19.72Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M87.24,24.55V22.08h.38v.36a.89.89,0,0,1,.8-.41.88.88,0,0,1,.42.08.56.56,0,0,1,.29.21.8.8,0,0,1,.13.32,2.81,2.81,0,0,1,0,.41V24.6h-.43V23a1.27,1.27,0,0,0,0-.39.46.46,0,0,0-.18-.21.53.53,0,0,0-.3-.07.64.64,0,0,0-.47.17.87.87,0,0,0-.2.66v1.37Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M93.94,23.33l.46.12a1.6,1.6,0,0,1-.52.87,1.46,1.46,0,0,1-.92.29,1.65,1.65,0,0,1-.92-.22,1.54,1.54,0,0,1-.54-.67,2.48,2.48,0,0,1-.18-.93,1.94,1.94,0,0,1,.21-.95,1.41,1.41,0,0,1,.59-.62A1.77,1.77,0,0,1,93,21a1.36,1.36,0,0,1,1.38,1l-.46.11a.89.89,0,0,0-.93-.73,1.14,1.14,0,0,0-.67.19,1,1,0,0,0-.38.52,2.19,2.19,0,0,0-.11.67,2.27,2.27,0,0,0,.13.77,1,1,0,0,0,.41.5,1.11,1.11,0,0,0,.59.16,1,1,0,0,0,.65-.22A1.19,1.19,0,0,0,93.94,23.33Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M94.82,23.29a1.3,1.3,0,0,1,.39-1A1.14,1.14,0,0,1,96,22a1.12,1.12,0,0,1,.85.34,1.29,1.29,0,0,1,.33.94,1.8,1.8,0,0,1-.14.76,1.07,1.07,0,0,1-.43.44,1.31,1.31,0,0,1-.61.15,1.09,1.09,0,0,1-.85-.34A1.3,1.3,0,0,1,94.82,23.29Zm.44,0a1.06,1.06,0,0,0,.21.73.71.71,0,0,0,1,.06l.06-.06a1.09,1.09,0,0,0,.21-.74,1.06,1.06,0,0,0-.21-.71.71.71,0,0,0-1-.06l-.06.06a1.09,1.09,0,0,0-.23.72Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M97.75,24.55V22.08h.39v.36a.89.89,0,0,1,.8-.41,1,1,0,0,1,.42.08.58.58,0,0,1,.28.21.77.77,0,0,1,.14.32,2.81,2.81,0,0,1,0,.41V24.6h-.43V23a.86.86,0,0,0,0-.39.39.39,0,0,0-.17-.21.63.63,0,0,0-.3-.07.64.64,0,0,0-.47.17.83.83,0,0,0-.2.66v1.37Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M100.35,23.8l.43-.06a.56.56,0,0,0,.19.38.85.85,0,0,0,.9,0,.35.35,0,0,0,.14-.28.28.28,0,0,0-.13-.23,1.41,1.41,0,0,0-.44-.14,3.79,3.79,0,0,1-.65-.21.69.69,0,0,1-.27-.24.63.63,0,0,1,0-.65.61.61,0,0,1,.21-.24A.66.66,0,0,1,101,22a1.15,1.15,0,0,1,.37,0,1.32,1.32,0,0,1,.52.08.86.86,0,0,1,.33.23.93.93,0,0,1,.15.39l-.42.06a.43.43,0,0,0-.16-.3.6.6,0,0,0-.39-.11.76.76,0,0,0-.42.09.31.31,0,0,0-.12.23.21.21,0,0,0,0,.15.31.31,0,0,0,.16.12l.38.11c.21.05.42.12.63.19a.7.7,0,0,1,.28.23.68.68,0,0,1,0,.77.79.79,0,0,1-.36.29,1.22,1.22,0,0,1-.53.1,1.17,1.17,0,0,1-.75-.2A1,1,0,0,1,100.35,23.8Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M104.68,24.55v-.37a.93.93,0,0,1-.8.43,1.2,1.2,0,0,1-.42-.08.7.7,0,0,1-.29-.22A1,1,0,0,1,103,24a2.54,2.54,0,0,1,0-.39V22.08h.43v1.4a1.7,1.7,0,0,0,0,.45.41.41,0,0,0,.17.27.59.59,0,0,0,.32.09.74.74,0,0,0,.36-.09.57.57,0,0,0,.24-.27,1.21,1.21,0,0,0,.07-.5V22.08h.43V24.6Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M105.79,24.55V21.08h.45v3.48Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M107.88,24.17l.06.38h-.32a.64.64,0,0,1-.36-.08.44.44,0,0,1-.19-.19,1.67,1.67,0,0,1,0-.5V22.37h-.31v-.29H107v-.62l.43-.26v.88h.43v.34h-.43v1.47a1,1,0,0,0,0,.24.27.27,0,0,0,.07.08h.15Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M108.37,21.57v-.49h.42v.5Zm0,3V22.08h.42V24.6Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M109.51,24.55V22.08h.39v.36a.89.89,0,0,1,.8-.41,1,1,0,0,1,.42.08.58.58,0,0,1,.28.21.77.77,0,0,1,.14.32,2.81,2.81,0,0,1,0,.41V24.6h-.43V23a.86.86,0,0,0,0-.39.39.39,0,0,0-.17-.21.63.63,0,0,0-.3-.07.64.64,0,0,0-.47.17.87.87,0,0,0-.2.66v1.37Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M112.24,24.76l.41.07a.43.43,0,0,0,.15.28.73.73,0,0,0,.43.11.83.83,0,0,0,.46-.11.57.57,0,0,0,.22-.34,2.53,2.53,0,0,0,0-.55.9.9,0,0,1-.7.33.93.93,0,0,1-.8-.37,1.47,1.47,0,0,1-.29-.9,1.7,1.7,0,0,1,.13-.67,1,1,0,0,1,.38-.47,1,1,0,0,1,.58-.16.89.89,0,0,1,.74.36v-.26h.39v2.18a2.06,2.06,0,0,1-.1.82.89.89,0,0,1-.38.39,1.3,1.3,0,0,1-.64.14,1.26,1.26,0,0,1-.73-.2A.7.7,0,0,1,112.24,24.76Zm.35-1.51a1.08,1.08,0,0,0,.2.72.65.65,0,0,0,.92.08l.08-.08a1.06,1.06,0,0,0,.19-.71,1,1,0,0,0-.2-.7.66.66,0,0,0-.5-.23.63.63,0,0,0-.48.23,1,1,0,0,0-.24.69Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M119,23.33l.47.12a1.53,1.53,0,0,1-.53.87,1.46,1.46,0,0,1-.92.29,1.62,1.62,0,0,1-.91-.22,1.48,1.48,0,0,1-.54-.67,2.48,2.48,0,0,1-.18-.93,1.94,1.94,0,0,1,.21-.95,1.36,1.36,0,0,1,.59-.62A1.77,1.77,0,0,1,118,21a1.36,1.36,0,0,1,1.38,1l-.46.11a1.14,1.14,0,0,0-.35-.56,1,1,0,0,0-.58-.17,1.14,1.14,0,0,0-.67.19,1,1,0,0,0-.38.52,2.19,2.19,0,0,0-.11.67,2.27,2.27,0,0,0,.13.77,1,1,0,0,0,.41.5,1.11,1.11,0,0,0,.59.16,1,1,0,0,0,.65-.22A1.11,1.11,0,0,0,119,23.33Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M119.9,23.29a1.3,1.3,0,0,1,.39-1,1.14,1.14,0,0,1,.79-.28,1.12,1.12,0,0,1,.85.34,1.29,1.29,0,0,1,.33.94,1.67,1.67,0,0,1-.15.76,1,1,0,0,1-.42.44,1.31,1.31,0,0,1-.61.15,1.16,1.16,0,0,1-.86-.34A1.37,1.37,0,0,1,119.9,23.29Zm.44,0a1.06,1.06,0,0,0,.21.73.71.71,0,0,0,1,.06l.06-.06a1.09,1.09,0,0,0,.21-.74,1.06,1.06,0,0,0-.21-.71.71.71,0,0,0-1-.06l-.06.06A1.09,1.09,0,0,0,120.34,23.29Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M123,24.55v-.47h.49v.48Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M124.36,24.55v-.47h.49v.48a.84.84,0,0,1-.1.44.57.57,0,0,1-.3.25l-.12-.18a.41.41,0,0,0,.2-.17.8.8,0,0,0,.07-.34Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M125.7,24.55V21.08h.46v3.07h1.72v.41Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M129.37,24.17l.07.38h-.33a.76.76,0,0,1-.36-.08.41.41,0,0,1-.18-.19,1.67,1.67,0,0,1,0-.5V22.37h-.28v-.29h.31v-.62l.42-.26v.88h.43v.34H129v1.47a.49.49,0,0,0,0,.24.18.18,0,0,0,.07.08h.15Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M131.5,24.55v-.31a.8.8,0,0,1-.71.37,1,1,0,0,1-.55-.16,1.21,1.21,0,0,1-.4-.47,1.59,1.59,0,0,1-.13-.68,2,2,0,0,1,.12-.69,1,1,0,0,1,.94-.63,1,1,0,0,1,.41.09,1,1,0,0,1,.29.25V21.08h.42v3.48Zm-1.36-1.25a1.09,1.09,0,0,0,.21.72.61.61,0,0,0,.85.15.54.54,0,0,0,.15-.15,1,1,0,0,0,.19-.7,1.2,1.2,0,0,0-.2-.76.63.63,0,0,0-.49-.24.58.58,0,0,0-.47.23A1.13,1.13,0,0,0,130.14,23.3Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M132.75,24.55v-.47h.49v.48Z" transform="translate(0 -0.01)"/>
+      </svg>
+    </div>
+    <span class="demora-footer-coop-x" aria-hidden="true">×</span>
+    <div class="demora-footer-brand-logo demora-footer-brand-demora" aria-label="Demora">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 32" fill="none">
+        <g transform="translate(0, 2)">
+          <rect x="4" y="0" width="12" height="6" rx="3" fill="#14B8A6" opacity="0.4"/>
+          <rect x="6" y="11" width="20" height="6" rx="3" fill="#14B8A6" opacity="0.7"/>
+          <rect x="0" y="22" width="36" height="6" rx="3" fill="#14B8A6"/>
+        </g>
+        <text x="48" y="23" font-family="Inter, -apple-system, sans-serif" font-weight="700" font-size="20" fill="#F5F5F7">Demora</text>
+      </svg>
+    </div>
+  </div>
+  <p class="demora-footer-copyright">
+    © 2026 Ourchem × Demora · 保留所有权利
+  </p>
+</footer>
+<!-- [demora-copyright-footer] end -->
+
+</main>
+    </div>
+  </div>
+
+  <!-- ============ 弹窗：专利资产档案 ============ -->
+  <div class="modal" id="modalPatentDetail" style="display:none" role="dialog" aria-modal="true" aria-label="专利资产档案">
+    <div class="modal-box wide">
+      <div class="modal-head"><span class="modal-tag">ARCHIVE</span><span class="modal-title">专利资产档案</span><span class="spacer"></span><button type="button" class="modal-close" data-close aria-label="关闭弹窗">✕</button></div>
+      <div class="modal-body" id="patentDetailBody"></div>
+      <div class="modal-foot"><button type="button" class="btn-ghost" data-close>关闭</button></div>
+    </div>
+  </div>
+
+  <!-- ============ 弹窗：新建专利 ============ -->
+  <div class="modal" id="modalNewPatent" style="display:none" role="dialog" aria-modal="true" aria-label="新建专利">
+    <div class="modal-box wide">
+      <div class="modal-head"><span class="modal-tag">REGISTER</span><span class="modal-title">新建专利资产</span><span class="spacer"></span><button type="button" class="modal-close" data-close aria-label="关闭弹窗">✕</button></div>
+      <div class="modal-body">
+        <div class="form-grid">
+          <div class="form-item"><label>专利号<em>*</em></label><input type="text" id="npNo" class="input mono" placeholder="ZL + 12 位数字"></div>
+          <div class="form-item"><label>专利名称<em>*</em></label><input type="text" id="npTitle" class="input" placeholder="专利全称"></div>
+          <div class="form-item"><label>专利类型</label><select id="npType" class="select"><option>发明专利</option><option>实用新型</option><option>外观设计</option></select></div>
+          <div class="form-item"><label>技术领域</label><select id="npField" class="select"><option>人工智能</option><option>新能源</option><option>生物医药</option><option>高端制造</option><option>新材料</option><option>数字通信</option></select></div>
+          <div class="form-item"><label>专利权人<em>*</em></label><input type="text" id="npOwner" class="input" placeholder="权利人名称"></div>
+          <div class="form-item"><label>年费截止日</label><input type="date" id="npDue" class="input"></div>
+          <div class="form-item"><label>年费金额（元）</label><input type="number" id="npFee" class="input" placeholder="如 9000"></div>
+          <div class="form-item"><label>初始估值（万元）</label><input type="number" id="npValue" class="input" placeholder="如 800"></div>
+        </div>
+        <div class="form-err" id="npErr"></div>
+      </div>
+      <div class="modal-foot"><button type="button" class="btn-ghost" data-close>取消</button><button type="button" class="btn-accent" data-action="submitNewPatent">提交登记</button></div>
+    </div>
+  </div>
+
+  <!-- ============ 弹窗：缴纳年费确认 ============ -->
+  <div class="modal" id="modalPayFee" style="display:none" role="dialog" aria-modal="true" aria-label="缴纳年费确认">
+    <div class="modal-box">
+      <div class="modal-head"><span class="modal-tag">ANNUAL FEE</span><span class="modal-title">缴纳年费确认</span><span class="spacer"></span><button type="button" class="modal-close" data-close aria-label="关闭弹窗">✕</button></div>
+      <div class="modal-body" id="payFeeBody"></div>
+      <div class="form-err" id="payErr" style="margin:0 20px 10px"></div>
+      <div class="modal-foot"><button type="button" class="btn-ghost" data-close>取消</button><button type="button" class="btn-accent" data-action="confirmPay" id="payConfirmBtn">确认缴纳</button></div>
+    </div>
+  </div>
+
+  <!-- ============ 弹窗：四维估值模型 ============ -->
+  <div class="modal" id="modalModel" style="display:none" role="dialog" aria-modal="true" aria-label="四维估值模型">
+    <div class="modal-box">
+      <div class="modal-head"><span class="modal-tag">AI MODEL</span><span class="modal-title">四维估值模型明细</span><span class="spacer"></span><button type="button" class="modal-close" data-close aria-label="关闭弹窗">✕</button></div>
+      <div class="modal-body" id="modelBody"></div>
+      <div class="modal-foot"><button type="button" class="btn-ghost" data-close>关闭</button></div>
+    </div>
+  </div>
+
+  <!-- ============ 弹窗：导出留痕明细 ============ -->
+  <div class="modal" id="modalTrace" style="display:none" role="dialog" aria-modal="true" aria-label="导出留痕明细">
+    <div class="modal-box">
+      <div class="modal-head"><span class="modal-tag">DD TRACE</span><span class="modal-title">尽调导出留痕</span><span class="spacer"></span><button type="button" class="modal-close" data-close aria-label="关闭弹窗">✕</button></div>
+      <div class="modal-body" id="traceBody"></div>
+      <div class="modal-foot"><button type="button" class="btn-ghost" data-close>关闭</button></div>
+    </div>
+  </div>
+
+  <!-- ============ 弹窗：新建撮合意向 ============ -->
+  <div class="modal" id="modalNewDeal" style="display:none" role="dialog" aria-modal="true" aria-label="新建撮合意向">
+    <div class="modal-box wide">
+      <div class="modal-head"><span class="modal-tag">MATCH INTENT</span><span class="modal-title">新建撮合意向</span><span class="spacer"></span><button type="button" class="modal-close" data-close aria-label="关闭弹窗">✕</button></div>
+      <div class="modal-body">
+        <div class="form-grid">
+          <div class="form-item"><label>关联专利<em>*</em></label><select id="ndPatent" class="select"></select></div>
+          <div class="form-item"><label>需求方<em>*</em></label><input type="text" id="ndBuyer" class="input" placeholder="企业 / 机构名称"></div>
+          <div class="form-item"><label>需求行业</label><select id="ndIndustry" class="select"><option>人工智能</option><option>新能源</option><option>生物医药</option><option>高端制造</option><option>新材料</option><option>数字通信</option></select></div>
+          <div class="form-item"><label>意向类型</label><select id="ndType" class="select"><option>转让</option><option>许可</option><option>质押融资</option></select></div>
+          <div class="form-item"><label>预算（万元）</label><input type="number" id="ndBudget" class="input" placeholder="如 1000"></div>
+        </div>
+        <div class="form-err" id="ndErr"></div>
+      </div>
+      <div class="modal-foot"><button type="button" class="btn-ghost" data-close>取消</button><button type="button" class="btn-accent" data-action="submitNewDeal">提交意向</button></div>
+    </div>
+  </div>
+
+  <!-- ============ 弹窗：撮合意向详情 ============ -->
+  <div class="modal" id="modalDealDetail" style="display:none" role="dialog" aria-modal="true" aria-label="撮合意向详情">
+    <div class="modal-box">
+      <div class="modal-head"><span class="modal-tag">INTENT</span><span class="modal-title">撮合意向详情</span><span class="spacer"></span><button type="button" class="modal-close" data-close aria-label="关闭弹窗">✕</button></div>
+      <div class="modal-body" id="dealDetailBody"></div>
+      <div class="modal-foot"><button type="button" class="btn-ghost" data-close>关闭</button></div>
+    </div>
+  </div>
+
+  <!-- ============ 弹窗：新建质押/转让 ============ -->
+  <div class="modal" id="modalNewPledge" style="display:none" role="dialog" aria-modal="true" aria-label="新建质押转让业务">
+    <div class="modal-box wide">
+      <div class="modal-head"><span class="modal-tag">PLEDGE / TRANSFER</span><span class="modal-title">新建质押 / 转让业务</span><span class="spacer"></span><button type="button" class="modal-close" data-close aria-label="关闭弹窗">✕</button></div>
+      <div class="modal-body">
+        <div class="form-grid">
+          <div class="form-item"><label>业务类型</label><select id="plNewType" class="select"><option>质押登记</option><option>专利转让</option></select></div>
+          <div class="form-item"><label>关联专利<em>*</em></label><select id="plNewPatent" class="select"></select></div>
+          <div class="form-item"><label>对手方<em>*</em></label><input type="text" id="plNewParty" class="input" placeholder="银行 / 受让方名称"></div>
+          <div class="form-item"><label>金额 / 对价（万元）</label><input type="number" id="plNewAmount" class="input" placeholder="如 800"></div>
+          <div class="form-item"><label>起始日</label><input type="date" id="plNewDate" class="input"></div>
+        </div>
+        <div class="form-err" id="plErr"></div>
+      </div>
+      <div class="modal-foot"><button type="button" class="btn-ghost" data-close>取消</button><button type="button" class="btn-accent" data-action="submitNewPledge">提交登记</button></div>
+    </div>
+  </div>
+
+  <!-- ============ 弹窗：解除质押确认 ============ -->
+  <div class="modal" id="modalRelease" style="display:none" role="dialog" aria-modal="true" aria-label="解除质押确认">
+    <div class="modal-box">
+      <div class="modal-head"><span class="modal-tag">RELEASE</span><span class="modal-title">解除质押确认</span><span class="spacer"></span><button type="button" class="modal-close" data-close aria-label="关闭弹窗">✕</button></div>
+      <div class="modal-body" id="releaseBody"></div>
+      <div class="form-err" id="releaseErr" style="margin:0 20px 10px"></div>
+      <div class="modal-foot"><button type="button" class="btn-ghost" data-close>取消</button><button type="button" class="btn-accent" data-action="confirmRelease" id="releaseConfirmBtn">确认解除</button></div>
+    </div>
+  </div>
+
+  <!-- ============ 弹窗：质押/转让详情 ============ -->
+  <div class="modal" id="modalPledgeDetail" style="display:none" role="dialog" aria-modal="true" aria-label="质押转让详情">
+    <div class="modal-box">
+      <div class="modal-head"><span class="modal-tag">RECORD</span><span class="modal-title">业务记录详情</span><span class="spacer"></span><button type="button" class="modal-close" data-close aria-label="关闭弹窗">✕</button></div>
+      <div class="modal-body" id="pledgeDetailBody"></div>
+      <div class="modal-foot"><button type="button" class="btn-ghost" data-close>关闭</button></div>
+    </div>
+  </div>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    /* 标注数据（v5.19 P1-1 编码契约：Pn-Ln-xxx；与 HTML data-zone-id/data-element-id 严格一致 18/36） */
+    window.__ANNOTATION_DATA__ = {
+      P01: {
+        name: '高管驾驶舱',
+        L1: { summary: '高管驾驶舱汇总全平台专利资产规模、估值分布与风险预警，一屏掌握资产运营全景，仅对 C 级角色开放。', entry: '侧边导航「高管驾驶舱」（C 级角色专属，默认首页）', precondition: '以高管（C级）角色登录', data_entity: 'PatentAsset / ValuationRecord / MatchDeal / AnnualFeeRecord 汇总', business_rules: ['驾驶舱仅对 C 级角色开放，其他角色导航中不可见', '估值数据取各专利最新已确认季度估值', '风险预警列表仅展示年费预警与失效资产'], test_data: '12 条专利资产、14 条估值记录、12 条撮合意向汇总' },
+        L2: [
+          { id: 'P01-L2-001', zone: '指标概览区', description: '四张核心指标卡（在管资产/总估值/风险资产/年度成交额），数据来源于全量专利资产、最新已确认估值与撮合记录的实时汇总，点击卡片可跳转对应业务页面。' },
+          { id: 'P01-L2-002', zone: '估值分布区', description: '技术领域估值分布与估值等级结构，数据来源各专利最新已确认估值记录，按技术领域聚合求和、按等级计数。' },
+          { id: 'P01-L2-003', zone: '风险预警区', description: '年费预警与失效资产列表，数据来源年费记录与台账状态，按风险等级排序，点击可跳转处理。' }
+        ],
+        L3: [
+          { id: 'P01-L3-001', element: '指标卡·在管资产', function: '总览在管专利资产数量并跳转台账', trigger: '单击指标卡', condition: '始终可用', response: '路由至专利资产台账并展示全部资产', state: '正常', exception: '无' },
+          { id: 'P01-L3-002', element: '指标卡·总估值', function: '总览资产总估值并跳转估值中心', trigger: '单击指标卡', condition: '始终可用', response: '路由至估值中心查看已确认估值', state: '正常', exception: '无' },
+          { id: 'P01-L3-003', element: '指标卡·风险资产', function: '总览年费预警与失效资产数并跳转风险处理', trigger: '单击指标卡', condition: '存在风险资产', response: '路由至质押转让跟踪查看风险记录', state: '正常', exception: '无风险资产时计数为 0 且仍可跳转' },
+          { id: 'P01-L3-004', element: '指标卡·年度成交额', function: '总览本年度撮合成交总额并跳转撮合通道', trigger: '单击指标卡', condition: '始终可用', response: '路由至产业撮合通道', state: '正常', exception: '无' },
+          { id: 'P01-L3-005', element: '预警行查看按钮（同类首个，其余 4 个实例共用本说明）', function: '定位处理该风险专利', trigger: '单击预警行「查看」', condition: '预警列表非空', response: '路由至专利资产台账并按该专利过滤定位', state: '正常', exception: '记录已删除时提示不存在' }
+        ]
+      },
+      P02: {
+        name: '专利资产台账',
+        L1: { summary: '全流程专利资产台账：登记与维护专利资产，监控年费缴纳（到期前 30 天预警、逾期失效），支持关键字/状态/技术领域组合筛选。', entry: '侧边导航「专利资产台账」', precondition: '企业IPR / 资产经理 / 银行风控 / 高管均可进入（权限随角色差异）', data_entity: 'PatentAsset / AnnualFeeRecord', business_rules: ['年费到期前 30 天自动预警', '逾期未缴自动置为失效', '筛选条件组合叠加，统计条与表格行同步重算'], test_data: '12 条专利资产记录，覆盖有效/年费预警/失效/质押中' },
+        L2: [
+          { id: 'P02-L2-001', zone: '筛选搜索区', description: '关键字/资产状态/技术领域组合筛选，数据来源台账全量记录，按组合条件全量重算表格行并同步统计条计数。' },
+          { id: 'P02-L2-002', zone: '统计概览条', description: '在管总数、年费预警、逾期失效、质押中四项实时计数，数据来源当前筛选结果集合，随筛选条件变化实时重算。' },
+          { id: 'P02-L2-003', zone: '资产列表区', description: '专利资产表格，展示专利号、名称、类型、领域、权利人、年费截止日、估值与状态，操作列提供详情查看与年费缴纳，数据来源 PatentAsset 实体。' }
+        ],
+        L3: [
+          { id: 'P02-L3-001', element: '关键字搜索框', function: '按专利号/名称/权利人模糊过滤台账', trigger: '键入文本（逐键）', condition: '无', response: '表格行与统计条实时重算', state: '正常', exception: '无匹配时展示空态提示' },
+          { id: 'P02-L3-002', element: '资产状态下拉', function: '按资产状态过滤（有效/年费预警/失效）', trigger: '选择选项', condition: '无', response: '表格行与统计条实时重算', state: '正常', exception: '无' },
+          { id: 'P02-L3-003', element: '技术领域下拉', function: '按技术领域过滤', trigger: '选择选项', condition: '无', response: '表格行与统计条实时重算', state: '正常', exception: '无' },
+          { id: 'P02-L3-004', element: '新建专利按钮', function: '打开新建专利弹窗登记资产', trigger: '单击按钮', condition: '企业IPR 角色', response: '弹窗展示可提交，提交后台账新增一行', state: '正常', exception: '专利号重复时提交阻断并提示' },
+          { id: 'P02-L3-005', element: '行详情按钮（同类首个，其余 11 个实例共用本说明）', function: '查看该专利资产完整档案', trigger: '单击行内「详情」', condition: '行存在', response: '打开详情弹窗展示全部字段与年费记录', state: '正常', exception: '无' },
+          { id: 'P02-L3-006', element: '行缴费按钮（同类首个，其余 11 个实例共用本说明）', function: '为该专利缴纳年费', trigger: '单击行内「缴费」并确认', condition: '资产状态为年费预警', response: '年费记录置为已缴、资产状态回到有效、预警计数减一', state: '正常', exception: '无待缴年费预警时确认缴纳被阻断并提示，缴费弹窗仍可正常开关' },
+          { id: 'P02-L3-007', element: '重置筛选按钮', function: '清空筛选条件并恢复全量台账', trigger: '单击「重置」', condition: '无', response: '清空搜索框与下拉并重算表格与统计', state: '正常', exception: '无' }
+        ]
+      },
+      P03: {
+        name: '估值中心',
+        L1: { summary: '行业定制 AI 估值中心：法律/技术/市场/营收四维打分，每季度生成一版估值，资产经理确认后生效并同步台账与驾驶舱。', entry: '侧边导航「估值中心」', precondition: '确认操作仅资产经理可执行，其余角色可查看', data_entity: 'ValuationRecord / PatentAsset', business_rules: ['估值每季度更新一次，需经资产经理确认', '待确认估值不参与台账与驾驶舱展示', '四维得分加权合成综合得分与估值金额'], test_data: '14 条估值记录，含待确认与已确认两态' },
+        L2: [
+          { id: 'P03-L2-001', zone: '估值筛选区', description: '估值期/确认状态/关键字组合筛选，数据来源估值记录全量集合，按组合条件重算列表与待确认计数。' },
+          { id: 'P03-L2-002', zone: '待确认概览条', description: '待确认估值数量与最新估值期提示，数据来源估值记录中状态为待确认的集合，确认后实时递减。' },
+          { id: 'P03-L2-003', zone: '估值列表区', description: '四维估值表格，展示专利、估值期、法律/技术/市场/营收四维得分、综合得分、估值金额与确认状态，操作列提供模型查看与确认，数据来源 ValuationRecord 实体。' }
+        ],
+        L3: [
+          { id: 'P03-L3-001', element: '估值期下拉', function: '按估值期过滤记录', trigger: '选择选项', condition: '无', response: '列表与待确认计数重算', state: '正常', exception: '无' },
+          { id: 'P03-L3-002', element: '确认状态下拉', function: '按待确认/已确认过滤', trigger: '选择选项', condition: '无', response: '列表与待确认计数重算', state: '正常', exception: '无' },
+          { id: 'P03-L3-003', element: '关键字搜索框', function: '按专利号/名称模糊过滤', trigger: '键入文本（逐键）', condition: '无', response: '列表实时重算', state: '正常', exception: '无匹配时空态提示' },
+          { id: 'P03-L3-004', element: '发起季度估值按钮', function: '生成新一期待确认估值', trigger: '单击按钮', condition: '当前估值期存在在管专利', response: '新增待确认记录行且计数加一', state: '正常', exception: '无待确认前置时不重复生成' },
+          { id: 'P03-L3-005', element: '行模型按钮（同类首个，其余实例共用本说明）', function: '查看四维得分明细', trigger: '单击行内「模型」', condition: '记录存在', response: '打开四维模型弹窗', state: '正常', exception: '无' },
+          { id: 'P03-L3-006', element: '行确认按钮（同类首个，其余待确认实例共用本说明）', function: '资产经理确认该估值', trigger: '单击行内「确认」', condition: '记录待确认且为资产经理', response: '状态置为已确认、按钮置灰、待确认计数减一并同步台账估值', state: '正常', exception: '非资产经理角色确认时提示无权限' },
+          { id: 'P03-L3-007', element: '重置筛选按钮', function: '清空估值筛选条件', trigger: '单击「重置」', condition: '无', response: '清空搜索与下拉并重算列表与待确认计数', state: '正常', exception: '无' }
+        ]
+      },
+      P04: {
+        name: '组合战略与尽调',
+        L1: { summary: '专利组合战略分析与投融资尽调：组合等级结构、战略四象限矩阵，按范围一键导出尽调包并留痕，支撑融资/上市/质押尽调。', entry: '侧边导航「组合战略与尽调」', precondition: '资产经理主导导出，其他角色可查看组合结构', data_entity: 'PatentAsset / ValuationRecord', business_rules: ['战略象限按估值等级与技术领域热度划分：核心防御/增值运营/盘点出售/放弃退役', '失效专利不参与组合结构统计', '每次导出生成一条留痕记录'], test_data: '12 条专利资产聚合 + 3 条导出留痕' },
+        L2: [
+          { id: 'P04-L2-001', zone: '组合概览区', description: '组合总估值、等级结构（A/B/C/D）与技术领域分布，数据来源各专利最新已确认估值聚合，失效资产剔除。' },
+          { id: 'P04-L2-002', zone: '战略矩阵区', description: '估值等级 × 技术领域的战略四象限矩阵（核心防御/增值运营/盘点出售/放弃退役），点击象限展示对应专利清单。' },
+          { id: 'P04-L2-003', zone: '尽调导出区', description: '导出范围选择与一键导出操作，导出后生成留痕记录列表（范围/份数/时间/操作人），数据来源导出留痕集合。' }
+        ],
+        L3: [
+          { id: 'P04-L3-001', element: '结构视图切换按钮·等级结构', function: '切换至等级结构视图', trigger: '单击「等级结构」Tab', condition: '无', response: '等级结构视图展示且 Tab 高亮切换', state: '正常', exception: '无' },
+          { id: 'P04-L3-002', element: '战略象限·核心防御', function: '查看 A 级资产象限清单', trigger: '单击象限', condition: '象限内存在专利', response: '展开核心防御象限专利清单', state: '正常', exception: '象限为空时展示空态' },
+          { id: 'P04-L3-003', element: '导出范围下拉', function: '选择尽调导出范围（全部/A级/质押相关）', trigger: '选择选项', condition: '无', response: '预估导出份数更新', state: '正常', exception: '无' },
+          { id: 'P04-L3-004', element: '一键导出按钮', function: '按范围导出尽调包并留痕', trigger: '单击按钮', condition: '范围内存在资产', response: '新增一条导出留痕并提示导出成功', state: '正常', exception: '范围为空时提示无可导出资产' },
+          { id: 'P04-L3-005', element: '留痕查看按钮', function: '查看最近一次尽调导出留痕明细', trigger: '单击「查看留痕」', condition: '存在导出留痕', response: '打开留痕明细弹窗', state: '正常', exception: '无留痕时按钮置灰禁用' },
+          { id: 'P04-L3-006', element: '结构视图切换按钮·领域分布', function: '切换至领域分布视图', trigger: '单击「领域分布」Tab', condition: '无', response: '领域分布视图展示且 Tab 高亮切换', state: '正常', exception: '无' },
+          { id: 'P04-L3-007', element: '战略象限·增值运营', function: '查看 B 级资产象限清单', trigger: '单击象限', condition: '象限内存在专利', response: '展开增值运营象限专利清单', state: '正常', exception: '象限为空时展示空态' },
+          { id: 'P04-L3-008', element: '战略象限·盘点出售', function: '查看 C 级资产象限清单', trigger: '单击象限', condition: '象限内存在专利', response: '展开盘点出售象限专利清单', state: '正常', exception: '象限为空时展示空态' },
+          { id: 'P04-L3-009', element: '战略象限·放弃退役', function: '查看 D 级资产象限清单', trigger: '单击象限', condition: '象限内存在专利', response: '展开放弃退役象限专利清单', state: '正常', exception: '象限为空时展示空态' }
+        ]
+      },
+      P05: {
+        name: '产业撮合通道',
+        L1: { summary: '产业专利撮合通道：登记产业需求方撮合意向（转让/许可/质押融资），按状态机推进至成交，盘活闲置专利资产。', entry: '侧边导航「产业撮合通道」', precondition: '资产经理主导撮合，其他角色可查看', data_entity: 'MatchDeal / PatentAsset', business_rules: ['撮合状态机：初步接触→尽调中→签署意向→成交/搁置，按序推进', '失效专利不可发起撮合', '成交金额计入高管驾驶舱年度成交额'], test_data: '12 条撮合意向，覆盖全部状态' },
+        L2: [
+          { id: 'P05-L2-001', zone: '撮合筛选区', description: '意向类型/状态/关键字组合筛选，数据来源撮合意向全量集合，按组合条件重算列表与统计。' },
+          { id: 'P05-L2-002', zone: '撮合统计条', description: '意向总数、尽调中、已成交、成交总额四项计数，数据来源当前筛选结果集，随筛选实时重算。' },
+          { id: 'P05-L2-003', zone: '意向列表区', description: '撮合意向表格，展示意向编号、专利、需求方、行业、类型、预算、状态与负责人，操作列提供推进与查看，数据来源 MatchDeal 实体。' }
+        ],
+        L3: [
+          { id: 'P05-L3-001', element: '意向类型下拉', function: '按转让/许可/质押融资过滤', trigger: '选择选项', condition: '无', response: '列表与统计条重算', state: '正常', exception: '无' },
+          { id: 'P05-L3-002', element: '意向状态下拉', function: '按意向状态过滤', trigger: '选择选项', condition: '无', response: '列表与统计条重算', state: '正常', exception: '无' },
+          { id: 'P05-L3-003', element: '关键字搜索框', function: '按专利/需求方模糊过滤', trigger: '键入文本（逐键）', condition: '无', response: '列表实时重算', state: '正常', exception: '无匹配时空态提示' },
+          { id: 'P05-L3-004', element: '新建意向按钮', function: '打开新建撮合意向弹窗', trigger: '单击按钮', condition: '关联专利非失效', response: '弹窗提交后列表新增一行', state: '正常', exception: '选择失效专利时提交阻断并提示' },
+          { id: 'P05-L3-005', element: '行推进按钮（同类首个，其余未到终态实例共用本说明）', function: '推进意向到下一状态', trigger: '单击行内「推进」', condition: '未到终态', response: '状态按状态机前进一步并刷新行', state: '正常', exception: '终态行按钮置灰禁用' },
+          { id: 'P05-L3-006', element: '行查看按钮（同类首个，其余实例共用本说明）', function: '查看意向详情', trigger: '单击行内「查看」', condition: '行存在', response: '打开详情弹窗', state: '正常', exception: '无' }
+        ]
+      },
+      P06: {
+        name: '质押转让跟踪',
+        L1: { summary: '质押/转让状态全生命周期跟踪：质押登记与转让记录全量管理，质押中专利不可转让（需先解除质押），支持解除质押与风险提示。', entry: '侧边导航「质押转让跟踪」', precondition: '企业IPR/资产经理可发起，银行风控查看质押价值与风险', data_entity: 'PledgeTransferRecord / PatentAsset', business_rules: ['质押中专利不可转让，需先解除质押', '解除质押后专利可再发起转让', '失效专利不可发起新质押/转让'], test_data: '11 条质押/转让记录，覆盖审批中/生效中/已解除/已完成/已驳回' },
+        L2: [
+          { id: 'P06-L2-001', zone: '业务筛选区', description: '业务类型/状态/关键字组合筛选，数据来源质押转让记录全量集合，按组合条件重算列表。' },
+          { id: 'P06-L2-002', zone: '风险提示条', description: '质押生效中笔数与质押融资总额提示，数据来源生效中质押记录集合，解除质押后实时重算。' },
+          { id: 'P06-L2-003', zone: '记录列表区', description: '质押/转让记录表格，展示业务编号、专利、类型、对手方、金额、状态与起止日，操作列提供解除质押与查看，数据来源 PledgeTransferRecord 实体。' }
+        ],
+        L3: [
+          { id: 'P06-L3-001', element: '业务类型下拉', function: '按质押登记/专利转让过滤', trigger: '选择选项', condition: '无', response: '列表重算', state: '正常', exception: '无' },
+          { id: 'P06-L3-002', element: '业务状态下拉', function: '按记录状态过滤', trigger: '选择选项', condition: '无', response: '列表重算', state: '正常', exception: '无' },
+          { id: 'P06-L3-003', element: '关键字搜索框', function: '按专利/对手方模糊过滤', trigger: '键入文本（逐键）', condition: '无', response: '列表实时重算', state: '正常', exception: '无匹配时空态提示' },
+          { id: 'P06-L3-004', element: '新建业务按钮', function: '打开新建质押/转让弹窗', trigger: '单击按钮', condition: '关联专利非失效', response: '弹窗提交后列表新增一行', state: '正常', exception: '质押中专利发起转让时阻断并提示需先解除质押' },
+          { id: 'P06-L3-005', element: '行解除质押按钮（同类首个，其余 10 个实例共用本说明）', function: '解除该专利质押', trigger: '单击行内「解除质押」并确认', condition: '质押登记且生效中', response: '记录置为已解除、专利质押状态回未质押、提示条重算', state: '正常', exception: '非生效中质押时确认解除被阻断并提示，弹窗仍可正常开关' },
+          { id: 'P06-L3-006', element: '行查看按钮（同类首个，其余实例共用本说明）', function: '查看业务记录详情', trigger: '单击行内「查看」', condition: '行存在', response: '打开详情弹窗', state: '正常', exception: '无' }
+        ]
+      }
+    };
+  </script>
+  <script src="assets/app.js"></script>
+
+<!-- [demora-annotation-panel] start -->
+<template id="demora-annotation-panel-tpl"><style>
+/* [demora-injected-panel-css] start */
+/* ---------- 右侧标注面板 ---------- */
+.annotation-panel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: var(--annotation-panel-width);
+  min-width: var(--annotation-panel-width);
+  background: var(--card, #f8fafc);
+  border-left: 1px solid var(--border, #e2e8f0);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-size: 13px;
+  z-index: 3000;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.08);
+}
+
+.annotation-panel .panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #fff;
+  border-bottom: 1px solid var(--border, #e2e8f0);
+  flex-shrink: 0;
+}
+
+.annotation-panel .panel-header h3 {
+  margin: 0;
+  font-size: 15px;
+  color: var(--foreground, #0f172a);
+}
+
+/* ---------- Tab 切换 ---------- */
+.annotation-panel .panel-tabs {
+  display: flex;
+  flex: none;
+  border-bottom: 2px solid var(--border, #e2e8f0);
+  background: #fff;
+}
+
+.annotation-panel .panel-tabs .tab-btn {
+  flex: 1;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted-foreground, #64748b);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+}
+
+.annotation-panel .panel-tabs .tab-btn.active {
+  color: var(--primary, #3b82f6);
+  border-bottom-color: var(--primary, #3b82f6);
+}
+
+/* ---------- 标注条目卡片 ---------- */
+.annotation-panel .panel-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 16px;
+}
+
+.anno-card {
+  background: #fff;
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 4px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.anno-card:hover {
+  border-color: var(--primary, #3b82f6);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+}
+
+.anno-card.is-active {
+  border-color: var(--warning, #f59e0b);
+  background: rgba(245, 158, 11, 0.08);
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.3);
+}
+
+.anno-card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.anno-card-title {
+  font-weight: 600;
+  color: var(--foreground, #0f172a);
+}
+
+.anno-card-desc {
+  color: var(--muted-foreground, #64748b);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.anno-card-grid {
+  display: grid;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--muted-foreground, #64748b);
+}
+
+.l2-tag, .l3-tag, .l1-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.l1-tag { background: var(--info, #6b7280); }
+/* v5.20.1（UAT 三轮 U3-A）：面板标签配色自持——与 marker/dot 同步硬编码。
+ * Shadow DOM 仍继承宿主自定义属性，业务令牌（如 p10 --success:#2f6b4f）会令
+ * 面板 L2 标签漂移为灰暗绿、与页面鲜艳绿 marker 不一致；L3 标签同理。 */
+.l2-tag { background: #00c853; }
+.l3-tag { background: #2563eb; }
+
+/* v5.19 P1-1：卡片主标签（l2-tag/l3-tag）已改为显示引擎编码 Pn-Ln-xxx，
+ * agent 手写 id 降级为次要信息行 — 小字灰色，不与编码徽章争夺视觉焦点
+ */
+.anno-agent-id {
+  font-size: 11px;
+  color: var(--muted-foreground, #94a3b8);
+  margin: -2px 0 4px 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.page-id-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted-foreground, #64748b);
+  background: rgba(107, 114, 128, 0.1);
+  border: 1px solid rgba(107, 114, 128, 0.2);
+  /* v5.2.3：允许长页面名称换行显示，避免溢出面板头部 */
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------- L1 卡片结构化布局 ---------- */
+.anno-card-l1 .l1-detail { margin-top: 8px; }
+
+.anno-card-l1 .l1-meta {
+  margin: 0 0 8px 0;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 4px 8px;
+  font-size: 12px;
+}
+
+.anno-card-l1 .l1-meta dt { color: var(--muted-foreground, #64748b); font-weight: 500; }
+.anno-card-l1 .l1-meta dd { margin: 0; color: var(--foreground, #0f172a); line-height: 1.5; }
+
+.anno-card-l1 .l1-rules {
+  margin: 8px 0;
+  padding: 8px;
+  background: rgba(99, 102, 241, 0.05);
+  border-left: 3px solid var(--primary, #3b82f6);
+  border-radius: 0 4px 4px 0;
+}
+
+.anno-card-l1 .l1-rules-title { font-size: 11px; font-weight: 600; color: var(--primary, #3b82f6); margin-bottom: 4px; }
+.anno-card-l1 .l1-rules-list { margin: 0; padding-left: 20px; color: var(--foreground, #0f172a); font-size: 12px; line-height: 1.6; }
+.anno-card-l1 .l1-rules-list li { margin-bottom: 2px; }
+.anno-card-l1 .l1-rules-text { margin: 0; color: var(--foreground, #0f172a); font-size: 12px; line-height: 1.5; }
+
+.anno-card-l1 .l1-test-data {
+  margin: 8px 0 0 0;
+  padding: 8px;
+  background: rgba(245, 158, 11, 0.05);
+  border-left: 3px solid var(--warning, #f59e0b);
+  border-radius: 0 4px 4px 0;
+}
+
+.anno-card-l1 .l1-test-data-title { font-size: 11px; font-weight: 600; color: var(--warning, #f59e0b); margin-bottom: 4px; }
+.anno-card-l1 .l1-test-data p { margin: 0; color: var(--foreground, #0f172a); font-size: 12px; line-height: 1.5; font-style: italic; }
+
+/* ---------- 面板关闭按钮 ---------- */
+.panel-close-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--muted-foreground, #64748b);
+  padding: 0 4px;
+  line-height: 1;
+}
+
+.panel-close-btn:hover {
+  color: var(--foreground, #0f172a);
+}
+
+/* ---------- v5.2.2：移除 is-hidden 和 anno-card-hidden-hint 样式 ----------
+ * 原因：v5.2.2 改为过滤不可见标注（不渲染卡片），不再需要灰色显示样式
+ * 保留空注释占位，避免已有注入的 Demo HTML 中残留 class 引起样式错误
+ * ------------------------------------------------------------------- */
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 768px) {
+  .annotation-panel { display: none; }
+}
+
+/*
+/* [demora-injected-panel-css] end */
+</style>
+<!-- ============================================================
+  annotation-panel.html — 标注面板 HTML 模板（v5.0 纯 HTML）
+
+  用途：右侧标注面板的 HTML 结构。
+  移植方式：enhance-prototype.mjs 将本文件注入 <body> 末尾。
+
+  无框架依赖：
+    - 不使用 Vue/React 模板语法
+    - 面板内容由 annotation-engine.js 动态渲染
+    - Tab 切换通过 data-tab 属性绑定
+    - 面板显隐通过 annotation-engine.js 控制
+
+  版本：5.0.0
+  ============================================================ -->
+
+<aside class="annotation-panel">
+  <div class="panel-header">
+    <h3>需求标注</h3>
+    <span class="page-id-tag"></span>
+    <button class="panel-close-btn" data-annotation-close title="关闭标注面板">&times;</button>
+  </div>
+
+  <div class="panel-tabs">
+    <div class="tab-btn" data-tab="L1">L1 页面</div>
+    <div class="tab-btn" data-tab="L2">L2 区域</div>
+    <div class="tab-btn" data-tab="L3">L3 元件</div>
+  </div>
+
+  <div class="panel-body">
+    <!-- 内容由 annotation-engine.js 动态渲染 -->
+  </div>
+</aside>
+</template>
+<div id="demora-annotation-host"></div>
+<script>(function(){var h=document.getElementById('demora-annotation-host');var t=document.getElementById('demora-annotation-panel-tpl');if(!h||!t){return;}var s=h.attachShadow({mode:'open'});s.appendChild(t.content.cloneNode(true));})();</script>
+<!-- [demora-annotation-panel] end -->
+
+<!-- [demora-annotation-js] start -->
+<script>
+/* ============================================================
+ * annotation-engine.js — 自包含标注引擎（v5.2.3）
+ *
+ * v5.23 变更（表格结构标注保护，UAT0824 codex-dsf-p3 P06 表格行坍塌根因）：
+ *   - ensureMarkers() 的 .l3-dot 注入防护表格结构元素（TR/TBODY/THEAD/TABLE）：
+ *     不直插 span（会形成非法表格子节点，进一步破坏行布局），改插该行第一个
+ *     td/th 内部首位（dot 的 top/left 定位语义变为相对单元格，贴近行首）；
+ *     td/th 自身可合法包含 span，仍直接插入首位
+ *   - 新增 findOwnedL3Dot()：按 data-element-ref 归属查找已存在 dot，兼容
+ *     "直接子级"与"行首单元格内"两种位置（原 :scope > .l3-dot 在表格场景失配，
+ *     每次 ensureMarkers 都会重复建 dot）
+ *   - applyHighlights() 的 dot 查找改用 findOwnedL3Dot()（嵌套标注不误配）
+ *   - 配套：annotation-styles.css v5.23 表格 display 豁免 + enhance-prototype.mjs
+ *     C20 构建期把表格元素上的 data-element-id 迁移至行内安全位置
+ *
+ * v5.20 变更（P1-3 编码显示形式，UAT 二轮 U3 澄清）：
+ *   - 圆内显示去前导零页内序号：marker.textContent / dot ::after 微缩文本改为
+ *     parseInt(xxx)（如 P01-L3-001 → "1"），圆内简洁可读
+ *   - 完整编码 Pn-Ln-xxx 保留于 data-code + title 属性（marker/dot hover 可见）；
+ *     面板卡片主标签继续显示完整编码（U4 既定设计不变）——两态并存
+ *
+ * v5.19 变更（P1-1/P2-2 标注编码体系重构，UAT U2/U3/U4 修复）：
+ *   - ensureMarkers() 改为按页分组计数：编码格式 Pn-Ln-xxx（页面-级别-页内序号，
+ *     每页每级别独立从 001 起，三位零填充），替代原全文档全局递增不按页重置的
+ *     纯数字序号（修复 U2："P02 页编号承接 P01 末尾连续排"）
+ *   - L2 marker 写入完整编码（data-code + title）；AI 手写 marker 的文本会被引擎
+ *     编码统一覆盖（契约：AI 禁止手写 marker）
+ *   - L3 dot 增加 data-code（完整编码）+ data-seq（去零序号）属性，后者由 CSS
+ *     ::after 微缩显示，圆点本体尺寸与交互零变化（U3 红线）
+ *   - 新增 computeAnnotationCodes()：ensureMarkers 与面板渲染共用同一编码算法，
+ *     结果存引擎内部 WeakMap + window.__ANNOTATION_CODES__ 供外部读取
+ *   - renderL2List/renderL3List 卡片主标签改为显示引擎编码徽章，agent 手写 id
+ *     降级为次要信息（title 提示 + 小字），消除"两套体系无映射"割裂（U4）
+ *
+ * v5.2.3 变更（覆盖完整性与页面名称）：
+ *   - renderPanel() 的 page-id-tag 显示 "P01 - 页面中文名称"（从 page.name 字段读取）
+ *     修复标注面板头部仅显示页面编号无中文名称的问题
+ *   - 新增 hasVisibleInteractiveChild()：检查 data-element-id 容器内是否有可见的实际交互元件
+ *     （button/input/select/textarea/a/[role=button]/[contenteditable]）
+ *   - renderL3List() 增强：当 data-element-id 容器可见但内部实际元件全隐藏时（如按钮按状态
+ *     display:none），不渲染 L3 卡片，修复"有标注图标但无元件"的困惑
+ *   - isElementVisible() 增强：对 [data-element-id] 容器，若内部实际交互元件全不可见，
+ *     则认为该 L3 标注不可见
+ *
+ * v5.2.2 变更（标注一致性修正）：
+ *   - 新增 getAnnotationPages()：兼容 {P01:{...}} 与 {version,pages:{P01:{...}}} 两种数据结构
+ *     修复 audit-hr-v5.2 等"标注面板没有内容"问题
+ *   - renderL2List/renderL3List 改为过滤不可见标注（不再显示灰色"当前不可见"卡片）
+ *     严格保持标注面板与页面可视区域一致
+ *   - 过滤后为空时显示"当前可视区域内无 L2/L3 标注"
+ *   - scheduleVisibilityRefresh 延迟从 300ms 降至 100ms，提升响应速度
+ *   - detectCurrentPage 从 pages 结构推断页面 ID
+ *
+ * v5.2.0 变更（标注一致性修复）：
+ *   - 新增 isElementVisible()：检查元素及其祖先的 display/visibility/opacity/hidden
+ *   - detectCurrentPage() 优先选择可见的 [data-page-id] 元素（SPA 多页面场景）
+ *   - highlightZone/highlightElement 先 renderPanel() 确保卡片渲染再高亮
+ *   - focusZoneCard/focusElementCard 先 renderPanel() 确保卡片存在再滚动
+ *   - 全局 click 监听：tab/页面切换后延迟刷新面板可见性
+ *   - refresh() API 增强：重新检测页面 + 重新渲染
+ *
+ * 设计理念：
+ *   标注系统作为"独立叠加层"，通过 data-* 属性约定与 AI 生成的 HTML 对接。
+ *   AI 不需要在 JS 中引入任何标注相关代码，不需要 mixin/插件/全局状态。
+ *
+ * 工作方式：
+ *   1. AI 在 HTML 元素上添加 data-zone-id="R-001" / data-element-id="C-001" 属性
+ *   2. AI 在页面中放置标注数据：window.__ANNOTATION_DATA__ = { ... }
+ *   3. 本引擎在 DOMContentLoaded 后自动扫描 data-* 属性，构建标注 UI 并绑定交互
+ *
+ * 注入方式（enhance-prototype.mjs 执行）：
+ *   - 注入 annotation-styles.css 到 <head>
+ *   - 注入 annotation-panel.html 到 <body> 末尾
+ *   - 注入本文件 annotation-engine.js 到 <body> 末尾
+ *
+ * AI 代码零侵入：
+ *   - 不需要全局状态对象 / mixin / 框架响应式
+ *   - 不需要在 setup() 中引入标注变量
+ *   - 只需在 HTML 元素上加 data-* 属性 + 定义标注数据对象
+ *
+ * 依赖：无（纯 vanilla JS，不依赖 Vue/React 等框架）
+ * 版本：5.2.3
+ * ============================================================ */
+
+(function () {
+  'use strict';
+
+  // ==========================================
+  // 1. 状态管理
+  // ==========================================
+
+  var state = {
+    showPanel: false,
+    activeTab: 'L1',
+    activePageId: null,
+    highlightedZone: null,
+    highlightedElement: null,
+    annotationData: {},
+    currentPageZones: [],
+    currentPageElements: [],
+    suppressRefresh: 0  // v5.2.5：用户主动高亮后抑制 refresh 的时间戳
+  };
+
+  // DOM 引用缓存
+  var dom = {
+    panel: null,
+    panelHeader: null,
+    panelTabs: null,
+    panelBody: null,
+    toggleBtn: null,
+    contentRoot: null,
+    shadowRoot: null  // v5.1：Shadow DOM 根（面板在 Shadow DOM 内）
+  };
+
+  // v5.2：可见性刷新 debounce 定时器
+  var visibilityRefreshTimer = null;
+
+  // v5.19 P1-1：统一标注编码映射 — DOM 元素（zone/element）→ 引擎编码（Pn-Ln-xxx）
+  // ensureMarkers 与 renderL2List/renderL3List 共用同一份编码，保证页面 marker 与
+  // 面板卡片徽章显示完全一致（消除"页面数字序号 vs 面板 agent 手写 id"两套体系割裂）
+  var codeMap = new WeakMap();
+
+  // ==========================================
+  // 1.1 数据结构兼容（v5.2.2 新增）
+  // ==========================================
+
+  /**
+   * v5.2.2：从 __ANNOTATION_DATA__ 中提取页面映射对象
+   * 兼容两种数据结构：
+   *   结构 A（扁平）：{ P01: {...}, P02: {...} }
+   *   结构 B（包装）：{ version: "5.2.0", pages: { P01: {...}, P02: {...} } }
+   * @returns {Object} 页面 ID 到页面标注数据的映射
+   */
+  function getAnnotationPages() {
+    var data = state.annotationData;
+    if (!data || typeof data !== 'object') return {};
+    // 结构 B：存在 data.pages 且是对象
+    if (data.pages && typeof data.pages === 'object' && !Array.isArray(data.pages)) {
+      return data.pages;
+    }
+    // 结构 A：过滤掉非页面字段（如 version），只保留以 P 开头或全大写的 key
+    var result = {};
+    var keys = Object.keys(data);
+    for (var i = 0; i < keys.length; i++) {
+      var k = keys[i];
+      // 页面 ID 通常以 P 开头（如 P01, P02），或至少不含 version/pages/metadata 等保留字
+      if (k === 'version' || k === 'pages' || k === 'metadata' || k === 'config') continue;
+      if (data[k] && typeof data[k] === 'object') {
+        result[k] = data[k];
+      }
+    }
+    return result;
+  }
+
+  // ==========================================
+  // 2.0.1 统一标注编码（v5.19 P1-1 新增）
+  // ==========================================
+
+  // ==========================================
+  // 2. 初始化
+  // ==========================================
+
+  /**
+   * v5.19 P1-1：统一标注编码算法 — Pn-Ln-xxx
+   * 规则（U4 拍板）：Pn=页面编号（data-page-id，如 P01）、Ln=级别（L2/L3）、
+   *   xxx=页内序号 001 起三位零填充，**每页每级别独立从 001 起**。
+   *   例：P01-L2-001、P01-L2-002、P02-L2-001（P02 重新从 001 起）、P01-L3-001
+   *
+   * 设计意图：
+   *   - 修复 U2：原实现全文档遍历全局递增不按页重置，导致"P02 页编号承接 P01 末尾连续排"
+   *   - 修复 U3：L3 dot 原本无任何编号，补 data-code 供 CSS ::after 微缩显示
+   *   - 修复 U4：页面 marker 与面板卡片共用同一编码，agent 手写 id 降级为次要信息
+   *
+   * 幂等性：每次调用全量重算（counters 从零开始），DOM 未变化时结果稳定；
+   *   SPA 动态增删标注元素后重新调用即可刷新编码（ensureMarkers 内部已保证）。
+   *
+   * @returns {Object} { byZoneId: {zoneId→code}, byElementId: {elementId→code} }
+   *   注意：同 id 跨页复用（v5.2.5 允许）时索引取后遍历者，仅供外部调试参考；
+   *   引擎内部以 codeMap（WeakMap，元素→code）为准，无跨页歧义。
+   */
+  function computeAnnotationCodes() {
+    var counters = Object.create(null); // pageId → { L2: n, L3: n }
+    var warnedNoPage = false;
+
+    // 兜底：元素不在任何 [data-page-id] 容器内时编码归入 P00（仅 warn 一次）
+    function pageIdOf(el) {
+      var pageEl = el.closest ? el.closest('[data-page-id]') : null;
+      if (pageEl) return pageEl.getAttribute('data-page-id');
+      if (!warnedNoPage) {
+        warnedNoPage = true;
+        console.warn('[annotation-engine] 标注元素不在任何 [data-page-id] 容器内，编码兜底为 P00：' +
+          (el.getAttribute('data-zone-id') || el.getAttribute('data-element-id') || el.tagName));
+      }
+      return 'P00';
+    }
+
+    // 三位零填充（引擎整体为保守 ES 风格，不依赖 String.prototype.padStart）
+    function pad3(n) {
+      return n < 10 ? '00' + n : (n < 100 ? '0' + n : '' + n);
+    }
+
+    function nextCode(pageId, level) {
+      if (!counters[pageId]) counters[pageId] = { L2: 0, L3: 0 };
+      counters[pageId][level]++;
+      return pageId + '-' + level + '-' + pad3(counters[pageId][level]);
+    }
+
+    var codes = { byZoneId: {}, byElementId: {} };
+
+    // document.querySelectorAll 按文档序返回，页内序号即 DOM 顺序
+    document.querySelectorAll('[data-zone-id]').forEach(function (zone) {
+      var zoneId = zone.getAttribute('data-zone-id');
+      var code = nextCode(pageIdOf(zone), 'L2');
+      codeMap.set(zone, code);
+      codes.byZoneId[zoneId] = code;
+    });
+
+    document.querySelectorAll('[data-element-id]').forEach(function (elem) {
+      var elemId = elem.getAttribute('data-element-id');
+      var code = nextCode(pageIdOf(elem), 'L3');
+      codeMap.set(elem, code);
+      codes.byElementId[elemId] = code;
+    });
+
+    // v5.19 P1-1：挂全局供审计脚本/外部工具读取编码索引
+    window.__ANNOTATION_CODES__ = codes;
+    return codes;
+  }
+
+  // v5.20 P1-3：编码 → 去前导零页内序号（如 P01-L3-001 → "1"）——圆内显示形态
+  function seqOf(code) {
+    var m = String(code || '').match(/-(\d+)$/);
+    return m ? String(parseInt(m[1], 10)) : '';
+  }
+
+  /**
+   * v5.23 新增：查找属于 elem 自己的 .l3-dot
+   *
+   * 背景（UAT0824 codex-dsf-p3 P06）：data-element-id 落在 tr 等表格结构元素时，
+   *   dot 由 ensureMarkers 插入行首 td/th 内部（不再是直接子元素），原查询
+   *   elem.querySelector(':scope > .l3-dot') 失配 → 每次刷新都重复建 dot。
+   *
+   * 归属判定（两级）：
+   *   1. 优先读创建时写入的 data-element-ref（与 .l2-marker 的 data-zone-ref 同款约定）——
+   *      嵌套标注（如 tr 与其内 td 同时标注）时 closest 会归属到更近的内层 td，
+   *      仅靠 closest 判定会导致外层 tr 反复重建 dot
+   *   2. 无 ref 标记的存量 dot（AI 手写，兼容旧 Demo）回退用
+   *      closest('[data-element-id]') 归属：最近标注容器是 elem 才算自己的
+   *
+   * 不用 elem.querySelector('.l3-dot')：嵌套标注时会拿到内层元素的 dot，误判已存在。
+   *
+   * @param {Element} elem data-element-id 容器元素
+   * @returns {Element|null} 属于 elem 的 dot（无则 null）
+   */
+  function findOwnedL3Dot(elem) {
+    var elemId = elem.getAttribute('data-element-id');
+    var dots = elem.querySelectorAll('.l3-dot');
+    for (var i = 0; i < dots.length; i++) {
+      var dot = dots[i];
+      if (dot.getAttribute('data-element-ref') === elemId) return dot;
+      if (!dot.hasAttribute('data-element-ref') &&
+          dot.closest('[data-element-id]') === elem) return dot;
+    }
+    return null;
+  }
+
+  // v5.2.8：自动创建 .l2-marker 和 .l3-dot 元素
+  // 扫描 [data-zone-id] / [data-element-id]，若缺少 marker/dot 则自动创建
+  // 根治"AI 忘记写 .l3-dot"导致"左侧页面缺失 L3 标注"的反复问题
+  // v5.19 P1-1：编号体系重构 — 按页分组计数，编码 Pn-Ln-xxx（每页每级别独立从 001 起），
+  //   替代原全文档全局递增纯数字；无论 marker/dot 是引擎新建还是 AI 手写，
+  //   编码文本/属性统一由引擎覆盖（契约：AI 禁止手写 marker，见 annotation-guide.md）
+  // v5.20 P1-3（U3 澄清）：圆内仅显示去前导零序号（textContent / data-seq），
+  //   完整编码存 data-code + title（hover 可见），面板卡片继续显示完整编码
+  function ensureMarkers() {
+    // 先全量重算编码（幂等），再统一写入 marker/dot
+    computeAnnotationCodes();
+
+    // 自动创建 .l2-marker + 写入编码
+    document.querySelectorAll('[data-zone-id]').forEach(function (zone) {
+      var marker = zone.querySelector(':scope > .l2-marker');
+      var code = codeMap.get(zone);
+      if (!marker) {
+        marker = document.createElement('span');
+        marker.className = 'l2-marker';
+        marker.setAttribute('data-zone-ref', zone.getAttribute('data-zone-id'));
+        // 插入为第一个子元素（与 annotation-guide.md 约定一致）
+        zone.insertBefore(marker, zone.firstChild);
+      }
+      // v5.20 P1-3：圆内显示去零序号；完整编码存 data-code + title（统一覆盖 AI 手写形态）
+      marker.textContent = seqOf(code);
+      marker.setAttribute('data-code', code);
+      marker.setAttribute('title', code);
+    });
+
+    // 自动创建 .l3-dot + 写入编码（圆点本体尺寸与交互零变化，U3 红线）
+    // v5.23：表格结构防护 —— data-element-id 落在 TR/TBODY/THEAD/TABLE 上时，
+    //   span 直插这些元素会形成非法表格子节点（UAT0824 P06 根因②），改插该行
+    //   第一个 td/th 内部首位；td/th 自身可合法包含 span，仍直接插为首位子元素。
+    //   配套 CSS（annotation-styles.css v5.23）：表格结构元素豁免 display:inline-flex，
+    //   且 dot 激活显示选择器已兼容 td/th 内的位置。
+    document.querySelectorAll('[data-element-id]').forEach(function (elem) {
+      var dot = findOwnedL3Dot(elem);
+      var code = codeMap.get(elem);
+      if (!dot) {
+        dot = document.createElement('span');
+        dot.className = 'l3-dot';
+        // v5.23：写入归属标记——嵌套标注时 closest 会归属到更近的内层元素，
+        // 仅靠 closest 判定会导致外层元素每次刷新都重复建 dot（见 findOwnedL3Dot）
+        dot.setAttribute('data-element-ref', elem.getAttribute('data-element-id'));
+        var tag = elem.tagName;
+        var host = elem;
+        if (tag === 'TR' || tag === 'TBODY' || tag === 'THEAD' || tag === 'TABLE') {
+          host = elem.querySelector('td, th');
+        }
+        // 无单元格可插（空表格结构）时回退直接插入，保证 dot 不缺失
+        host = host || elem;
+        host.insertBefore(dot, host.firstChild);
+      }
+      // v5.20 P1-3：data-seq（去零序号）供 CSS ::after 微缩显示；完整编码存 data-code + title
+      dot.setAttribute('data-code', code);
+      dot.setAttribute('data-seq', seqOf(code));
+      dot.setAttribute('title', code);
+    });
+  }
+
+  function init() {
+    // v5.13.4: 双视角切换 — URL 参数 ?annotations=0 为客户视角（无标注），?annotations=1 为产研视角（有标注，默认）
+    // 用途：delivery demo 兼容产研沟通（需标注）与客户沟通（不需标注）两种场景
+    var urlParams = new URLSearchParams(window.location.search);
+    var annotationsParam = urlParams.get('annotations');
+    state.clientMode = (annotationsParam === '0');
+
+    // 读取标注数据
+    if (window.__ANNOTATION_DATA__) {
+      state.annotationData = window.__ANNOTATION_DATA__;
+    }
+
+    // v5.1：通过 Shadow DOM 宿主查找面板
+    var host = document.getElementById('demora-annotation-host');
+    if (host && host.shadowRoot) {
+      dom.shadowRoot = host.shadowRoot;
+      dom.panel = dom.shadowRoot.querySelector('.annotation-panel');
+    } else {
+      // 向后兼容：无 Shadow DOM 宿主时回退到 document 查找
+      dom.panel = document.querySelector('.annotation-panel');
+    }
+
+    dom.contentRoot = document.querySelector('[data-annotation-root]') || document.body;
+
+    if (!dom.panel) {
+      console.warn('[annotation-engine] 未找到 .annotation-panel，标注系统未初始化');
+      return;
+    }
+
+    // 面板内元素通过 dom.panel 查找
+    dom.panelHeader = dom.panel.querySelector('.panel-header');
+    dom.panelTabs = dom.panel.querySelector('.panel-tabs');
+    dom.panelBody = dom.panel.querySelector('.panel-body');
+
+    // 主页面元素：标注开关按钮
+    dom.toggleBtn = document.querySelector('[data-annotation-toggle]');
+
+    // 检测当前页面 ID
+    detectCurrentPage();
+
+    // v5.2.8：自动创建 .l2-marker 和 .l3-dot 元素（根治"AI 忘记写 marker/dot"问题）
+    // 背景：标注引擎不负责动态创建 marker/dot，AI 需手动写入 HTML。
+    //   但 AI 经常忘记写 .l3-dot（只写 .l2-marker），导致"左侧页面缺失 L3 标注"反复出现。
+    //   元审计报告（meta-audit-final.md L420）确认：annotation-engine.js 从不用 createElement 创建 marker。
+    // 修复：init 时自动扫描 [data-zone-id] / [data-element-id]，若缺少 marker/dot 则自动创建。
+    //   AI 只需写 data-zone-id / data-element-id 属性，不再需要手动写 .l2-marker / .l3-dot 元素。
+    ensureMarkers();
+
+    // 绑定事件
+    bindEvents();
+
+    // v5.1.1：数据校验兜底
+    validateAnnotationData(state.annotationData);
+
+    // 初始渲染
+    renderPanel();
+
+    // v5.13.4: 客户视角模式 — 隐藏标注开关，移除标注面板，完全不激活标注功能
+    if (state.clientMode) {
+      if (dom.toggleBtn) {
+        // v5.21：隐藏整个可见开关容器，兼容 <button data-annotation-toggle> 与
+        // <label><input data-annotation-toggle></label> 自定义开关两种契约形态
+        // （原实现只隐藏 input 本身，label 形态下可见开关仍可点击激活标注）
+        var toggleHost = dom.toggleBtn.closest('.annotation-toggle') || dom.toggleBtn.closest('label');
+        // 防御：容器过大（>10 个元素）时仅隐藏控件本身，避免误隐藏大片业务内容
+        if (toggleHost && toggleHost.querySelectorAll('*').length <= 10) {
+          toggleHost.style.display = 'none';
+        } else {
+          dom.toggleBtn.style.display = 'none';
+        }
+        // 双保险：禁用控件，阻断 label 点击转发激活路径（disabled 控件不接收 click/change）
+        try { dom.toggleBtn.disabled = true; } catch (e) { /* 非 form 控件忽略 */ }
+      }
+      if (dom.panel) {
+        dom.panel.style.display = 'none';
+      }
+      // 确保不设置 data-annotation-active，L2/L3 标记通过 CSS 默认 display:none 隐藏
+      if (dom.contentRoot) {
+        dom.contentRoot.removeAttribute('data-annotation-active');
+      }
+      console.log('[annotation-engine] 客户视角模式（?annotations=0），标注功能已隐藏');
+      return;
+    }
+
+    // 默认隐藏面板
+    setPanelVisible(false);
+
+    // v5.1.1：MutationObserver 监听 SPA 异步渲染
+    setupMutationObserver();
+
+    console.log('[annotation-engine] 标注引擎已初始化 v5.2.4，页面:', state.activePageId, dom.shadowRoot ? '(Shadow DOM)' : '(document)');
+  }
+
+  // ==========================================
+  // 2.1 元素可见性检查（v5.2 新增，v5.2.3 增强）
+  // ==========================================
+
+  /**
+   * 检查元素是否在页面中实际可见
+   * 遍历元素及其所有祖先，检查 display/visibility/opacity/hidden 属性
+   * @param {Element} el 目标元素
+   * @returns {boolean} 是否可见
+   */
+  function isElementVisible(el) {
+    if (!el) return false;
+    var current = el;
+    while (current && current !== document.body) {
+      // HTML hidden 属性
+      if (current.hasAttribute && current.hasAttribute('hidden')) return false;
+      // CSS 计算样式
+      var style = window.getComputedStyle(current);
+      if (style.display === 'none') return false;
+      if (style.visibility === 'hidden') return false;
+      if (parseFloat(style.opacity) === 0) return false;
+      current = current.parentElement;
+    }
+    return true;
+  }
+
+  /**
+   * v5.2.3 新增：检查 data-element-id 容器内是否有可见的实际交互元件
+   *
+   * 解决问题：AI 将 data-element-id 放在 <span> 容器上，span 内有 button 和 l3-dot。
+   * 当 button 按状态 display:none 时，span 容器和 l3-dot 仍可见，导致
+   * "标注面板有卡片 + 页面有 l3-dot 蓝点，但实际元件（button）被隐藏"的困惑。
+   *
+   * 实际交互元件选择器：
+   *   button, input, select, textarea, a[href], [role="button"], [contenteditable], [tabindex]
+   * 排除：.l3-dot（标注系统自身的指示器）、.l2-marker（标注系统自身的标记）
+   *
+   * @param {Element} container data-element-id 容器元素
+   * @returns {boolean} true=有可见交互元件 / false=容器可见但内部元件全隐藏
+   */
+  function hasVisibleInteractiveChild(container) {
+    if (!container) return false;
+    var interactiveSelector = 'button, input, select, textarea, a[href], [role="button"], [contenteditable], [tabindex]';
+    var candidates = container.querySelectorAll(interactiveSelector);
+    if (candidates.length === 0) {
+      // 容器内无交互元件（可能是卡片/标签等非交互元件）→ 视为"有内容"，返回 true
+      // 避免误伤非交互型 L3 标注（如纯展示型卡片）
+      return true;
+    }
+    for (var i = 0; i < candidates.length; i++) {
+      // 排除标注系统自身的元素
+      var el = candidates[i];
+      if (el.classList && (el.classList.contains('l3-dot') || el.classList.contains('l2-marker'))) continue;
+      if (isElementVisible(el)) return true;
+    }
+    return false;
+  }
+
+  /**
+   * v5.2.5 新增：在所有匹配选择器的元素中找到第一个可见的
+   * 修复多页面场景下 L2/L3 id 重复问题（如每个页面都有 R-001）
+   * 旧逻辑 querySelector 只返回第一个匹配，当第一个匹配在隐藏页面时导致标注面板缺内容
+   * @param {string} selector CSS 选择器
+   * @returns {Element|null} 第一个可见的匹配元素
+   */
+  function findVisibleElement(selector) {
+    var matches = document.querySelectorAll(selector);
+    for (var i = 0; i < matches.length; i++) {
+      if (isElementVisible(matches[i])) return matches[i];
+    }
+    return null;
+  }
+
+  /**
+   * v5.2.2：调度可见性刷新（debounce 100ms，从 300ms 降低以提升响应速度）
+   * 在 tab/页面切换后延迟检测页面变化和元素可见性变化，刷新面板
+   * v5.2.2 变更：不可见标注直接过滤（不渲染），面板与可视区域严格一致
+   * v5.2.5 变更：用户主动点击高亮后 500ms 内抑制 refresh，避免 scrollToElement 触发的闪缩
+   */
+  function scheduleVisibilityRefresh() {
+    // v5.2.5：用户主动高亮后短时间内抑制 refresh，避免滚动触发闪缩
+    if (state.suppressRefresh && Date.now() - state.suppressRefresh < 500) {
+      return;
+    }
+    if (visibilityRefreshTimer) clearTimeout(visibilityRefreshTimer);
+    visibilityRefreshTimer = setTimeout(function () {
+      visibilityRefreshTimer = null;
+      var oldPageId = state.activePageId;
+      detectCurrentPage();
+      if (oldPageId !== state.activePageId) {
+        // 页面切换：清除高亮，回到 L1
+        clearHighlights();
+        state.activeTab = 'L1';
+        renderPanel();
+      } else if (state.showPanel) {
+        // 同一页面内 tab 切换：重新渲染面板（过滤可见性变化后的标注）
+        renderPanel();
+      }
+    }, 100);
+  }
+
+  // ==========================================
+  // 2.2 MutationObserver + 数据校验（v5.1.1 P3-4）
+  // ==========================================
+
+  function setupMutationObserver() {
+    if (typeof MutationObserver === 'undefined') {
+      console.warn('[annotation-engine] MutationObserver 不可用，跳过 SPA 异步渲染监听');
+      return;
+    }
+
+    var debounceTimer = null;
+    var observer = new MutationObserver(function (mutations) {
+      var shouldRefresh = false;
+      for (var i = 0; i < mutations.length; i++) {
+        var mutation = mutations[i];
+        // v5.2.7：过滤标注系统自身触发的 class 变化（is-highlighted/is-active 等）
+        // 原因：highlightZone/focusZoneCard 添加 is-highlighted → MutationObserver 监听 class 变化
+        //       → 触发 renderPanel → renderPanel 重置 is-active 卡片 → MutationObserver 再次触发
+        //       → 自反馈循环，导致右侧面板 L2 卡片"点击激活后不停闪烁"
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class' && mutation.target) {
+          var oldVal = mutation.oldValue || '';
+          var newVal = mutation.target.className || '';
+          // 提取差异 class（仅在 old/new 间变化的 class）
+          var oldSet = new Set(oldVal.split(/\s+/).filter(Boolean));
+          var newSet = new Set(newVal.split(/\s+/).filter(Boolean));
+          var diffClasses = [];
+          newSet.forEach(function (c) { if (!oldSet.has(c)) diffClasses.push(c); });
+          oldSet.forEach(function (c) { if (!newSet.has(c)) diffClasses.push(c); });
+          // v5.2.8：修复 diff 为空时 filter 失效的 bug（customer-management L2 闪烁根因）
+          // 原因：MutationObserver 批量处理时，mutation.target.className 读取的是最终值（不是 mutation 发生时的值）。
+          //   applyHighlights 先 remove('is-highlighted') 再 add('is-highlighted') 产生 2 个 mutation：
+          //   - mutation 1（remove）：oldValue="...is-highlighted"，但 className 已是 add 后的"...is-highlighted" → diff=[]
+          //   - mutation 2（add）：oldValue="...no"，className="...is-highlighted" → diff=["is-highlighted"]
+          //   原 filter 的 `diffClasses.length > 0 && diffClasses.every(...)` 在 diff=[] 时返回 false，
+          //   导致 annotOnlyChange=false，不 continue，走到第二个 if 块 shouldRefresh=true，触发循环。
+          //   customer-management 独有：R-001 zone 在 switchTab 时已带 is-highlighted，产生 remove+add 对；
+          //   其他场景 state.highlightedZone=null，只 add 不 remove，单个 mutation diff=["is-highlighted"]，filter 成功。
+          // 修复：diff 为空时直接 continue（无实际变化）；否则检查是否全是标注 class。
+          if (diffClasses.length === 0) continue;
+          // 仅标注系统自身 class 变化 → 跳过（避免自反馈循环）
+          var annotOnlyChange = diffClasses.every(function (c) {
+            return c === 'is-highlighted' || c === 'is-active' || c === 'is-expanded' ||
+              c === 'is-collapsed' || c === 'annotation-active';
+          });
+          if (annotOnlyChange) continue;
+        }
+        if (mutation.type === 'attributes' && mutation.target) {
+          var t = mutation.target;
+          if (t.matches && (t.matches('[data-zone-id]') || t.matches('[data-element-id]') ||
+              t.querySelector('[data-zone-id], [data-element-id]'))) {
+            shouldRefresh = true;
+            break;
+          }
+        }
+        for (var j = 0; j < mutation.addedNodes.length; j++) {
+          var node = mutation.addedNodes[j];
+          if (node.nodeType !== 1) continue;
+          if (node.matches && node.matches('[data-zone-id], [data-element-id]')) {
+            shouldRefresh = true;
+            break;
+          }
+          if (node.querySelector && node.querySelector('[data-zone-id], [data-element-id]')) {
+            shouldRefresh = true;
+            break;
+          }
+        }
+        if (shouldRefresh) break;
+      }
+      if (shouldRefresh) {
+        if (debounceTimer) clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(function () {
+          debounceTimer = null;
+          console.log('[annotation-engine] 检测到 DOM 变化，刷新面板');
+          ensureMarkers(); // v5.2.8：SPA 异步渲染的新元素也自动创建 marker/dot
+          detectCurrentPage();
+          renderPanel();
+        }, 200);
+      }
+    });
+    // v5.2.7：attributeOldValue 启用，用于区分标注系统自身 class 变化 vs demo 触发的 class 变化
+    observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeOldValue: true, attributeFilter: ['style', 'class', 'hidden'] });
+  }
+
+  function validateAnnotationData(data) {
+    if (!data || typeof data !== 'object') {
+      console.warn('[annotation-engine] __ANNOTATION_DATA__ 不是有效对象');
+      return false;
+    }
+    // v5.2.2：使用 getAnnotationPages 兼容 {P01:{...}} 与 {version,pages:{P01:{...}}} 结构
+    // 临时设置 state.annotationData 以便 getAnnotationPages 能读取
+    var origData = state.annotationData;
+    state.annotationData = data;
+    var pages = getAnnotationPages();
+    state.annotationData = origData;
+
+    var keys = Object.keys(pages);
+    if (keys.length === 0) {
+      console.log('[annotation-engine] __ANNOTATION_DATA__ 无页面标注数据');
+      return true;
+    }
+    for (var i = 0; i < keys.length; i++) {
+      var pageId = keys[i];
+      var pageData = pages[pageId];
+      if (!pageData || typeof pageData !== 'object') {
+        console.warn('[annotation-engine] 页面 ' + pageId + ' 数据不是有效对象');
+        continue;
+      }
+      if (Array.isArray(pageData.L2)) {
+        for (var k = 0; k < pageData.L2.length; k++) {
+          var item = pageData.L2[k];
+          if (!item.id || !item.zone) {
+            console.warn('[annotation-engine] 页面 ' + pageId + ' L2 项缺少 id 或 zone 字段', item);
+          }
+        }
+      }
+    }
+    return true;
+  }
+
+  // ==========================================
+  // 3. 页面检测（v5.2：优先可见页面，v5.2.2：兼容 pages 包装结构）
+  // ==========================================
+
+  /**
+   * 检测当前页面 ID：
+   * v5.2：优先从可见的 [data-page-id] 元素读取（SPA 多页面场景）
+   * 其次从第一个 [data-page-id] 读取
+   * 最后从 annotationData 的页面 key 推断（v5.2.2：使用 getAnnotationPages 兼容 pages 包装）
+   */
+  function detectCurrentPage() {
+    var pageEls = document.querySelectorAll('[data-page-id]');
+    if (pageEls.length > 0) {
+      // v5.2：优先选择可见的页面
+      for (var i = 0; i < pageEls.length; i++) {
+        if (isElementVisible(pageEls[i])) {
+          state.activePageId = pageEls[i].getAttribute('data-page-id');
+          return;
+        }
+      }
+      // 回退到第一个
+      state.activePageId = pageEls[0].getAttribute('data-page-id');
+      return;
+    }
+
+    // v5.2.2：从 getAnnotationPages() 推断（兼容 pages 包装结构）
+    var pages = getAnnotationPages();
+    var keys = Object.keys(pages);
+    if (keys.length > 0) {
+      state.activePageId = keys[0];
+    }
+  }
+
+  // ==========================================
+  // 4. 事件绑定
+  // ==========================================
+
+  function bindEvents() {
+    // 标注开关
+    if (dom.toggleBtn) {
+      dom.toggleBtn.addEventListener('click', function () {
+        togglePanel();
+      });
+    }
+
+    // 面板关闭按钮
+    var closeBtn = dom.panel ? dom.panel.querySelector('[data-annotation-close]') : null;
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        setPanelVisible(false);
+      });
+    }
+
+    // Tab 切换
+    if (dom.panelTabs) {
+      var tabBtns = dom.panelTabs.querySelectorAll('[data-tab]');
+      tabBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          switchTab(btn.getAttribute('data-tab'));
+        });
+      });
+    }
+
+    // 左侧标注标记点击 + v5.2 可见性刷新（事件委托）
+    document.addEventListener('click', function (e) {
+      var zoneMarker = e.target.closest('.l2-marker');
+      if (zoneMarker) {
+        e.stopPropagation();
+        var zoneId = zoneMarker.closest('[data-zone-id]');
+        if (zoneId) focusZoneCard(zoneId.getAttribute('data-zone-id'));
+        return;
+      }
+
+      var elementDot = e.target.closest('.l3-dot');
+      if (elementDot) {
+        e.stopPropagation();
+        var wrap = elementDot.closest('[data-element-id]');
+        if (wrap) focusElementCard(wrap.getAttribute('data-element-id'));
+        return;
+      }
+
+      // v5.2：检测 tab/页面切换（延迟刷新面板可见性）
+      // 排除标注面板内部（Shadow DOM）的点击
+      if (dom.shadowRoot && dom.shadowRoot.contains(e.target)) return;
+      // 排除标注开关按钮的点击（上面已处理）
+      if (dom.toggleBtn && (e.target === dom.toggleBtn || dom.toggleBtn.contains(e.target))) return;
+      // 面板打开时才需要刷新可见性
+      if (state.showPanel) {
+        scheduleVisibilityRefresh();
+      }
+    });
+
+    // 路由变化监听（SPA 场景）
+    window.addEventListener('hashchange', function () {
+      onRouteChange();
+    });
+
+    // 监听 popstate（History API 场景）
+    window.addEventListener('popstate', function () {
+      onRouteChange();
+    });
+  }
+
+  // ==========================================
+  // 5. 面板控制
+  // ==========================================
+
+  function togglePanel() {
+    setPanelVisible(!state.showPanel);
+  }
+
+  function setPanelVisible(visible) {
+    state.showPanel = visible;
+
+    if (dom.panel) {
+      dom.panel.style.display = visible ? 'flex' : 'none';
+    }
+
+    if (dom.contentRoot) {
+      if (visible) {
+        dom.contentRoot.setAttribute('data-annotation-active', '');
+      } else {
+        dom.contentRoot.removeAttribute('data-annotation-active');
+        // 关闭时清空高亮
+        clearHighlights();
+      }
+    }
+
+    if (visible && dom.toggleBtn) {
+      dom.toggleBtn.setAttribute('data-annotation-on', '');
+    } else if (dom.toggleBtn) {
+      dom.toggleBtn.removeAttribute('data-annotation-on');
+    }
+
+    // v5.2：面板打开时刷新可见性
+    if (visible) {
+      detectCurrentPage();
+      renderPanel();
+    }
+  }
+
+  function switchTab(tab) {
+    state.activeTab = tab;
+    renderPanel();
+  }
+
+  function clearHighlights() {
+    state.highlightedZone = null;
+    state.highlightedElement = null;
+    document.querySelectorAll('.anno-zone.is-highlighted').forEach(function (el) {
+      el.classList.remove('is-highlighted');
+    });
+    document.querySelectorAll('.l3-dot.is-active').forEach(function (el) {
+      el.classList.remove('is-active');
+    });
+    if (dom.panelBody) {
+      dom.panelBody.querySelectorAll('.anno-card.is-active').forEach(function (el) {
+        el.classList.remove('is-active');
+      });
+    }
+  }
+
+  // ==========================================
+  // 6. 交互方法（v5.2：确保双向激活一致性）
+  // ==========================================
+
+  /**
+   * 点击右侧 L2 卡片：高亮左侧对应区域
+   * v5.2：先 renderPanel() 确保卡片渲染，再高亮 + 滚动
+   */
+  function highlightZone(zoneId) {
+    if (state.highlightedZone === zoneId) {
+      state.highlightedZone = null;
+      state.highlightedElement = null;
+    } else {
+      state.highlightedZone = zoneId;
+      state.highlightedElement = null;
+    }
+    state.activeTab = 'L2';
+    // v5.2.5：设置 suppressRefresh，阻止 scrollToElement 触发的 refresh 导致闪缩
+    state.suppressRefresh = Date.now();
+    renderPanel();  // v5.2：先渲染确保卡片存在
+    scrollToElement('[data-zone-id="' + zoneId + '"]');
+  }
+
+  /**
+   * 点击右侧 L3 卡片：高亮左侧对应元素
+   * v5.2：先 renderPanel() 确保卡片渲染，再高亮 + 滚动
+   */
+  function highlightElement(elemId) {
+    if (state.highlightedElement === elemId) {
+      state.highlightedElement = null;
+      state.highlightedZone = null;
+    } else {
+      state.highlightedElement = elemId;
+      state.highlightedZone = null;
+    }
+    state.activeTab = 'L3';
+    // v5.2.5：设置 suppressRefresh，阻止 scrollToElement 触发的 refresh 导致闪缩
+    state.suppressRefresh = Date.now();
+    renderPanel();  // v5.2：先渲染确保卡片存在
+    scrollToElement('[data-element-id="' + elemId + '"]');
+  }
+
+  /**
+   * 点击左侧 L2 marker：打开面板 + 切换到 L2 Tab
+   * v5.2：先 renderPanel() 确保卡片渲染，再滚动到面板卡片
+   */
+  function focusZoneCard(zoneId) {
+    if (state.highlightedZone === zoneId) {
+      state.highlightedZone = null;
+      state.highlightedElement = null;
+      applyHighlights();
+      return;
+    }
+    setPanelVisible(true);
+    state.activeTab = 'L2';
+    state.highlightedZone = zoneId;
+    state.highlightedElement = null;
+    // v5.2.5：设置 suppressRefresh 避免闪缩
+    state.suppressRefresh = Date.now();
+    renderPanel();  // v5.2：先渲染面板，确保卡片存在
+    scrollToPanelCard('[data-card-zone="' + zoneId + '"]');
+  }
+
+  /**
+   * 点击左侧 L3 dot：打开面板 + 切换到 L3 Tab
+   * v5.2：先 renderPanel() 确保卡片渲染，再滚动到面板卡片
+   */
+  function focusElementCard(elemId) {
+    if (state.highlightedElement === elemId) {
+      state.highlightedElement = null;
+      state.highlightedZone = null;
+      applyHighlights();
+      return;
+    }
+    setPanelVisible(true);
+    state.activeTab = 'L3';
+    state.highlightedElement = elemId;
+    state.highlightedZone = null;
+    // v5.2.5：设置 suppressRefresh 避免闪缩
+    state.suppressRefresh = Date.now();
+    renderPanel();  // v5.2：先渲染面板，确保卡片存在
+    scrollToPanelCard('[data-card-element="' + elemId + '"]');
+  }
+
+  // ==========================================
+  // 7. DOM 操作
+  // ==========================================
+
+  function scrollToElement(selector) {
+    setTimeout(function () {
+      // v5.2.5：使用 findVisibleElement 找到可见的目标元素
+      var el = findVisibleElement(selector);
+      if (el) {
+        // v5.2：如果元素不可见，尝试展开其祖先
+        if (!isElementVisible(el)) {
+          console.warn('[annotation-engine] 目标元素不可见，scrollIntoView 可能无效:', selector);
+        }
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 50);
+  }
+
+  function scrollToPanelCard(selector) {
+    setTimeout(function () {
+      var panelBody = dom.panelBody;
+      var card = panelBody ? panelBody.querySelector(selector) : null;
+      if (panelBody && card) {
+        var panelRect = panelBody.getBoundingClientRect();
+        var cardRect = card.getBoundingClientRect();
+        var isVisible = cardRect.top >= panelRect.top && cardRect.bottom <= panelRect.bottom;
+        if (!isVisible) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }
+    }, 150);
+  }
+
+  /**
+   * 应用高亮状态到 DOM
+   */
+  function applyHighlights() {
+    // 清除所有高亮
+    document.querySelectorAll('.anno-zone.is-highlighted').forEach(function (el) {
+      el.classList.remove('is-highlighted');
+    });
+    document.querySelectorAll('.l3-dot.is-active').forEach(function (el) {
+      el.classList.remove('is-active');
+    });
+    if (dom.panelBody) {
+      dom.panelBody.querySelectorAll('.anno-card.is-active').forEach(function (el) {
+        el.classList.remove('is-active');
+      });
+    }
+
+    // 应用 L2 高亮
+    if (state.highlightedZone) {
+      // v5.2.5：使用 findVisibleElement 避免高亮到隐藏页面的元素
+      var zoneEl = findVisibleElement('[data-zone-id="' + state.highlightedZone + '"]');
+      if (zoneEl) zoneEl.classList.add('is-highlighted');
+      var cardEl = dom.panelBody ? dom.panelBody.querySelector('[data-card-zone="' + state.highlightedZone + '"]') : null;
+      if (cardEl) cardEl.classList.add('is-active');
+    }
+
+    // 应用 L3 高亮
+    if (state.highlightedElement) {
+      // v5.2.5：使用 findVisibleElement 避免高亮到隐藏页面的元素
+      var elemWrap = findVisibleElement('[data-element-id="' + state.highlightedElement + '"]');
+      if (elemWrap) {
+        // v5.23：归属查找——表格场景 dot 在行首 td 内而非直接子级；嵌套标注不误配内层 dot
+        var dot = findOwnedL3Dot(elemWrap);
+        if (dot) dot.classList.add('is-active');
+      }
+      var elemCard = dom.panelBody ? dom.panelBody.querySelector('[data-card-element="' + state.highlightedElement + '"]') : null;
+      if (elemCard) elemCard.classList.add('is-active');
+    }
+
+    // 更新 Tab 激活状态
+    renderTabState();
+  }
+
+  /**
+   * 路由变化处理
+   */
+  function onRouteChange() {
+    detectCurrentPage();
+    clearHighlights();
+    state.activeTab = 'L1';
+    renderPanel();
+  }
+
+  // ==========================================
+  // 8. 面板渲染（v5.2.2：可见性过滤，不渲染不可见标注）
+  // ==========================================
+
+  function renderPanel() {
+    if (!dom.panelBody) return;
+
+    renderTabState();
+
+    // v5.2.2：使用 getAnnotationPages() 兼容 {P01:{...}} 与 {version,pages:{P01:{...}}} 两种结构
+    var pages = getAnnotationPages();
+    var ann = pages[state.activePageId];
+    if (!ann) {
+      dom.panelBody.innerHTML = '<div style="color:#909399;text-align:center;padding:40px 0" class="anno-zone">当前页面暂无标注</div>';
+      return;
+    }
+
+    var html = '';
+
+    if (state.activeTab === 'L1' && ann.L1) {
+      html = renderL1(ann.L1);
+    } else if (state.activeTab === 'L2' && ann.L2) {
+      html = renderL2List(ann.L2);
+    } else if (state.activeTab === 'L3' && ann.L3) {
+      html = renderL3List(ann.L3);
+    }
+
+    if (!html) {
+      // v5.2.2：区分"页面无此层级标注"和"可视区域内无此层级标注"
+      var hasLevel = (state.activeTab === 'L1' && ann.L1) ||
+                     (state.activeTab === 'L2' && ann.L2 && ann.L2.length > 0) ||
+                     (state.activeTab === 'L3' && ann.L3 && ann.L3.length > 0);
+      if (hasLevel) {
+        // 有此层级标注但都被过滤（当前可视区域内无可见标注）
+        html = '<div style="color:#909399;text-align:center;padding:40px 0;line-height:1.8;">当前可视区域内无 ' + state.activeTab + ' 标注<br><span style="font-size:12px;color:#c0c4cc;">切换 tab 或展开折叠区后自动刷新</span></div>';
+      } else {
+        html = '<div style="color:#909399;text-align:center;padding:40px 0">当前页面暂无 ' + state.activeTab + ' 标注</div>';
+      }
+    }
+
+    dom.panelBody.innerHTML = html;
+
+    // 绑定卡片点击事件
+    dom.panelBody.querySelectorAll('[data-card-zone]').forEach(function (card) {
+      card.addEventListener('click', function () {
+        highlightZone(card.getAttribute('data-card-zone'));
+      });
+    });
+
+    dom.panelBody.querySelectorAll('[data-card-element]').forEach(function (card) {
+      card.addEventListener('click', function () {
+        highlightElement(card.getAttribute('data-card-element'));
+      });
+    });
+
+    // 更新页面 ID 标签
+    // v5.2.3：显示 "P01 - 页面中文名称"（从 page.name 字段读取，兼容 page.title）
+    var pageTag = dom.panelHeader ? dom.panelHeader.querySelector('.page-id-tag') : null;
+    if (pageTag) {
+      var pageName = '';
+      if (ann) {
+        pageName = ann.name || ann.title || '';
+      }
+      if (pageName) {
+        pageTag.textContent = (state.activePageId || '') + ' - ' + pageName;
+      } else {
+        pageTag.textContent = state.activePageId || '';
+      }
+    }
+
+    // 应用当前高亮
+    applyHighlights();
+  }
+
+  function renderTabState() {
+    if (!dom.panelTabs) return;
+    dom.panelTabs.querySelectorAll('[data-tab]').forEach(function (btn) {
+      if (btn.getAttribute('data-tab') === state.activeTab) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+  }
+
+  function renderL1(l1) {
+    var rules = '';
+    if (l1.business_rules) {
+      if (Array.isArray(l1.business_rules)) {
+        rules = '<div class="l1-rules"><div class="l1-rules-title">业务规则</div><ul class="l1-rules-list">';
+        l1.business_rules.forEach(function (r) { rules += '<li>' + escapeHtml(r) + '</li>'; });
+        rules += '</ul></div>';
+      } else {
+        rules = '<div class="l1-rules"><div class="l1-rules-title">业务规则</div><p class="l1-rules-text">' + escapeHtml(l1.business_rules) + '</p></div>';
+      }
+    }
+
+    var testData = '';
+    if (l1.test_data) {
+      testData = '<blockquote class="l1-test-data"><div class="l1-test-data-title">测试数据</div><p>' + escapeHtml(l1.test_data) + '</p></blockquote>';
+    }
+
+    return '<div class="anno-card anno-card-l1">' +
+      '<div class="anno-card-head"><span class="l1-tag">L1</span><span class="anno-card-title">' + escapeHtml(l1.summary || '') + '</span></div>' +
+      '<div class="anno-card-desc l1-detail"><dl class="l1-meta">' +
+      '<dt>入口</dt><dd>' + escapeHtml(l1.entry || '') + '</dd>' +
+      '<dt>前置条件</dt><dd>' + escapeHtml(l1.precondition || '') + '</dd>' +
+      '<dt>数据实体</dt><dd>' + escapeHtml(l1.data_entity || '') + '</dd>' +
+      '</dl>' + rules + testData + '</div></div>';
+  }
+
+  /**
+   * v5.2.2：渲染 L2 卡片列表，过滤不可见标注（不再显示灰色"当前不可见"卡片）
+   * 标注面板与页面可视区域严格一致：不可见的 L2 区域不渲染卡片
+   * @param {Array} zones L2 区域数组
+   * @returns {string} HTML 字符串（可能为空字符串）
+   */
+  function renderL2List(zones) {
+    var html = '';
+    // v5.14.18 修复 6：同页内 id 去重（防止 AI 复制粘贴产生同 id 卡片重复渲染）
+    // 跨页 id 复用由 findVisibleElement 按可见页过滤保证安全，此处只处理同页内 id 重复
+    var seenIds = {};
+    var entries = [];
+    zones.forEach(function (z) {
+      // v5.14.18 修复 6：无 id 的卡片不去重（避免 undefined 误判所有无 id 卡片）
+      if (z.id) {
+        if (seenIds[z.id]) {
+          console.warn('[demora] L2 卡片 id 重复，已跳过：' + z.id);
+          return;
+        }
+        seenIds[z.id] = true;
+      }
+      // v5.2.5：使用 findVisibleElement 替代 querySelector
+      // 修复多页面场景下 L2 id 重复（每个页面都有 R-001）导致 querySelector 返回隐藏页面元素的问题
+      var zoneEl = findVisibleElement('[data-zone-id="' + z.id + '"]');
+      // v5.2.2：过滤不可见元素，保持面板与可视区域一致
+      if (!zoneEl) return;
+      entries.push({ z: z, code: codeMap.get(zoneEl) || '' });
+    });
+    // v5.20.2（UAT 四轮）：卡片按引擎编码升序渲染——与 renderL3List 同根因同修复
+    //   （AI 声明顺序与 DOM 顺序错位时卡片徽章乱序），编码即视觉权威
+    entries.sort(function (a, b) {
+      if (a.code && b.code) return a.code < b.code ? -1 : (a.code > b.code ? 1 : 0);
+      if (a.code) return -1;
+      if (b.code) return 1;
+      return 0;
+    });
+    entries.forEach(function (entry) {
+      var z = entry.z;
+      var activeClass = state.highlightedZone === z.id ? ' is-active' : '';
+      // v5.19 P1-1：主标签显示引擎编码徽章（Pn-Ln-xxx，与页面 marker 一致），
+      // agent 手写 id 保留为次要信息（title 提示 + 小字行），消除两套体系割裂（U4）
+      var l2Code = entry.code;
+      var l2MainTag = l2Code || z.id || '';
+      html += '<div class="anno-card l2-card' + activeClass + '" data-card-zone="' + escapeHtml(z.id) + '">' +
+        '<div class="anno-card-head"><span class="l2-tag" title="' + escapeHtml(z.id || '') + '">' + escapeHtml(l2MainTag) + '</span><span class="anno-card-title">' + escapeHtml(z.zone || '') + '</span></div>' +
+        (l2Code && z.id ? '<div class="anno-agent-id">id: ' + escapeHtml(z.id) + '</div>' : '') +
+        '<div class="anno-card-desc">' + escapeHtml(z.description || '') + '</div>' +
+        '</div>';
+    });
+    return html;
+  }
+
+  /**
+   * v5.2.2：渲染 L3 卡片列表，过滤不可见标注（不再显示灰色"当前不可见"卡片）
+   * v5.2.3：增强 — 当 data-element-id 容器可见但内部实际交互元件全隐藏时，
+   *         也不渲染卡片（修复"有标注图标但无元件"的困惑）
+   * v5.20.2（UAT 四轮）：卡片按引擎编码升序渲染——AI 声明顺序与 DOM 顺序错位时，
+   *         卡片徽章乱序（codex-p10 实证 8/8 页面乱序）。编码即视觉权威
+   *         （与页面 dot 圆内序号一致），面板按编码排序后两态恒一致
+   * 标注面板与页面可视区域严格一致：不可见的 L3 元素不渲染卡片
+   * @param {Array} elements L3 元素数组
+   * @returns {string} HTML 字符串（可能为空字符串）
+   */
+  function renderL3List(elements) {
+    var html = '';
+    // v5.14.18 修复 6：同页内 id 去重（防止 AI 复制粘贴产生同 id 卡片重复渲染）
+    // 跨页 id 复用由 findVisibleElement 按可见页过滤保证安全，此处只处理同页内 id 重复
+    var seenIds = {};
+    var entries = [];
+    elements.forEach(function (e) {
+      // v5.14.18 修复 6：无 id 的卡片不去重（避免 undefined 误判所有无 id 卡片）
+      if (e.id) {
+        if (seenIds[e.id]) {
+          console.warn('[demora] L3 卡片 id 重复，已跳过：' + e.id);
+          return;
+        }
+        seenIds[e.id] = true;
+      }
+      // v5.2.5：使用 findVisibleElement 替代 querySelector
+      var elemEl = findVisibleElement('[data-element-id="' + e.id + '"]');
+      // v5.2.2：过滤不可见元素，保持面板与可视区域一致
+      if (!elemEl) return;
+      // v5.2.3：容器可见但内部实际交互元件全隐藏时，也跳过
+      // 例如按钮按状态 display:none，但 span 容器 + l3-dot 仍可见 → 不应显示卡片
+      if (!hasVisibleInteractiveChild(elemEl)) return;
+      entries.push({ e: e, code: codeMap.get(elemEl) || '' });
+    });
+    // v5.20.2：按引擎编码升序（pad3 字典序 = 数值序）；无编码排尾保持稳定
+    entries.sort(function (a, b) {
+      if (a.code && b.code) return a.code < b.code ? -1 : (a.code > b.code ? 1 : 0);
+      if (a.code) return -1;
+      if (b.code) return 1;
+      return 0;
+    });
+    entries.forEach(function (entry) {
+      var e = entry.e;
+      var activeClass = state.highlightedElement === e.id ? ' is-active' : '';
+      // v5.19 P1-1：主标签显示引擎编码徽章（Pn-L3-xxx，与页面 dot data-code 一致），
+      // agent 手写 id 保留为次要信息（title 提示 + 小字行），消除两套体系割裂（U4）
+      var l3Code = entry.code;
+      var l3MainTag = l3Code || e.id || '';
+      html += '<div class="anno-card l3-card' + activeClass + '" data-card-element="' + escapeHtml(e.id) + '">' +
+        '<div class="anno-card-head"><span class="l3-tag" title="' + escapeHtml(e.id || '') + '">' + escapeHtml(l3MainTag) + '</span><span class="anno-card-title">' + escapeHtml(e.element || '') + '</span></div>' +
+        (l3Code && e.id ? '<div class="anno-agent-id">id: ' + escapeHtml(e.id) + '</div>' : '') +
+        '<div class="anno-card-grid">' +
+        '<div><b>功能：</b>' + escapeHtml(e.function || '') + '</div>' +
+        '<div><b>触发：</b>' + escapeHtml(e.trigger || '') + '</div>' +
+        '<div><b>条件：</b>' + escapeHtml(e.condition || '') + '</div>' +
+        '<div><b>响应：</b>' + escapeHtml(e.response || '') + '</div>' +
+        '<div><b>状态：</b>' + escapeHtml(e.state || '') + '</div>' +
+        '<div><b>异常：</b>' + escapeHtml(e.exception || '') + '</div>' +
+        '</div>' +
+        '</div>';
+    });
+    return html;
+  }
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  // ==========================================
+  // 9. 自动初始化
+  // ==========================================
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  // 暴露 API 供外部调用
+  window.__ANNOTATION_ENGINE__ = {
+    togglePanel: togglePanel,
+    setPanelVisible: setPanelVisible,
+    highlightZone: highlightZone,
+    highlightElement: highlightElement,
+    focusZoneCard: focusZoneCard,
+    focusElementCard: focusElementCard,
+    switchTab: switchTab,
+    getState: function () { return Object.assign({}, state); },
+    // v5.2：refresh 增强 — 重新检测页面 + 重新渲染
+    refresh: function () {
+      detectCurrentPage();
+      renderPanel();
+    },
+    // v5.2：新增 — 手动触发可见性刷新
+    refreshVisibility: scheduleVisibilityRefresh
+  };
+
+})();
+
+</script>
+<!-- [demora-annotation-js] end -->
+
+<!-- [demora-nav-guard] start -->
+<script>
+/* demora C21（v5.24）：导航锚点防护 — capture 阶段拦截 data-nav 锚点默认跳转，
+ * 防止 hash 锚点滚动覆盖 route() 复位导致 topbar 被顶出视口（UAT0826 p3 实证）。
+ * 仅拦截 a[data-nav][href^="#"]（data-nav 路由型导航）；纯 hash 路由 demo 不受影响。
+ * pushState 不触发滚动（不同于 location.hash 赋值）；setTimeout(0) 滚动复位兜底。 */
+(function () {
+  if (window.__DEMORA_C21_NAV_GUARD__) return;
+  window.__DEMORA_C21_NAV_GUARD__ = true;
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[data-nav][href^="#"]') : null;
+    if (!a) return;
+    e.preventDefault();
+    try { history.pushState(null, '', a.getAttribute('href')); } catch (err) {}
+    setTimeout(function () {
+      if (document.scrollingElement) document.scrollingElement.scrollTop = 0;
+    }, 0);
+  }, true);
+})();
+</script>
+<!-- [demora-nav-guard] end -->
+</body>
+</html>

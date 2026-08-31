@@ -1,0 +1,24 @@
+# 需求模型锁定状态（lock-model.mjs 维护）
+locked: true
+change_log:
+  - action: lock
+  - action: unlock
+  - action: lock
+  - action: unlock
+  - action: lock
+  - action: unlock
+  - action: lock
+    timestamp: 2026-08-28T17:05:24.119Z
+    reason: PM 确认锁定，进入 Phase 2
+    timestamp: 2026-08-28T17:01:24.106Z
+    reason: PM 确认解锁，回到 Phase 1
+    timestamp: 2026-08-28T16:40:57.485Z
+    reason: PM 确认锁定，进入 Phase 2
+    timestamp: 2026-08-28T16:39:21.502Z
+    reason: PM 确认解锁，回到 Phase 1
+    timestamp: 2026-08-28T16:17:21.457Z
+    reason: PM 确认锁定，进入 Phase 2
+    timestamp: 2026-08-28T16:16:41.559Z
+    reason: PM 确认解锁，回到 Phase 1
+    timestamp: 2026-08-28T16:06:38.126Z
+    reason: PM 确认锁定，进入 Phase 2

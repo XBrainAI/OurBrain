@@ -1,0 +1,18 @@
+{
+  "projectName": "专利资产全生命周期数字化价值运营管理平台",
+  "projectSlug": "patent-asset-lifecycle",
+  "projectNameEn": "patent-asset-lifecycle",
+  "version": "1.0.0",
+  "description": "面向企业 IPR、资产经理与银行风控的一站式专利资产价值运营平台，覆盖全流程台账、年费监控、AI 四维估值、组合战略分析、质押转让跟踪与产业撮合，以标准化数字底稿支撑融资、上市与质押场景。",
+  "domain": "\"IPAM\"",
+  "roles": [
+    "enterprise_ipr",
+    "asset_manager",
+    "bank_risk",
+    "c_level_exec"
+  ],
+  "pageCount": 8,
+  "entityCount": 7,
+  "generatedAt": "2026-08-30",
+  "skillVersion": "oc-demora"
+}

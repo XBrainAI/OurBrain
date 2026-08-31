@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-08-29T16:25:21.930Z",
+  "project": "线上侵权监测与维权取证系统",
+  "sim_demo_dir": "D:\\data\\wy25311753\\workspace\\git\\gitlab\\ourbrain\\demora\\feat-rebuild-v5.0\\test-cases\\oc-demora-0829-190119-GLM-5.3\\codebuddy\\p4\\ip-infringement-monitor\\demo",
+  "delivery_demo_dir": "D:\\data\\wy25311753\\workspace\\git\\gitlab\\ourbrain\\demora\\feat-rebuild-v5.0\\test-cases\\oc-demora-0829-190119-GLM-5.3\\codebuddy\\p4\\ip-infringement-monitor\\delivery\\线上侵权监测与维权取证系统\\demo",
+  "sim_hash": "f648e344c234159f749daa8bbfc851e5ef1512c1efb8ace6c656e0b20d1d8952",
+  "delivery_hash": "f648e344c234159f749daa8bbfc851e5ef1512c1efb8ace6c656e0b20d1d8952",
+  "consistent": true,
+  "filterApplied": true,
+  "filterRules": [
+    "debug-files",
+    "screenshot-blacklist",
+    "historical-label"
+  ]
+}

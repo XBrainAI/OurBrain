@@ -1,0 +1,6 @@
+# v5.25 P0-1：demo 打包后冻结标记（package-delivery.mjs 自动写入）
+frozen: true
+frozen_at: 2026-08-29T16:25:15.326Z
+# demo/ 已全部只读——修复 demo 前必须先解冻：
+#   node scripts/package-delivery.mjs --unfreeze-demo
+# 解冻后修复 demo 必须重跑：run-audit.mjs → package-delivery.mjs → verify-delivery.mjs

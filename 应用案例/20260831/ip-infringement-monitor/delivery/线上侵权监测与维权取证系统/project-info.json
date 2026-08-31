@@ -1,0 +1,17 @@
+{
+  "projectName": "线上侵权监测与维权取证系统",
+  "projectSlug": "ip-infringement-monitor",
+  "projectNameEn": "ip-infringement-monitor",
+  "version": "1.0.0",
+  "description": "面向品牌方面向电商/1688/跨境/短视频/展会渠道的 AI 侵权监测、区块链存证取证与分级维权处置一体化平台",
+  "domain": "\"IPR\"",
+  "roles": [
+    "brand_ipr",
+    "rights_lawyer",
+    "monitoring_analyst"
+  ],
+  "pageCount": 6,
+  "entityCount": 4,
+  "generatedAt": "2026-08-29",
+  "skillVersion": "oc-demora"
+}

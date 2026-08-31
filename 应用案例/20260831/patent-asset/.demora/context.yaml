@@ -1,0 +1,15 @@
+# 跨会话上下文（领域术语、组件清单、样式约束快照）
+domain_terms:
+  年费预警: "年费到期前 30 天自动置为预警状态"
+  四维估值: "法律/技术/市场/营收 0.3/0.3/0.2/0.2 加权"
+  战略四象限: "核心防御/增值运营/盘点出售/放弃退役"
+component_inventory:
+  - titleblock 图纸标题栏
+  - kpi-card 尺寸标注线指标卡
+  - mini-btn 行操作
+  - quad 战略象限
+style_constraints:
+  signature: "工程图纸标题栏 + 尺寸标注线 + 骑缝章"
+  palette: "制图纸暖白 + 墨线藏青 + 鎏金 + 印泥朱红"
+# v5.0 新增：标记 AI 是否已读取 frontend-design 方法论
+design_methodology_read: true

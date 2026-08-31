@@ -1,0 +1,16 @@
+{
+    "caseId":  "patent-asset-lifecycle",
+    "title":  "专利资产全生命周期数字化价值运营管理平台",
+    "description":  "面向企业 IPR、资产经理与银行风控的一站式平台，覆盖全流程台账、年费监控、AI 四维估值、组合战略分析与产业撮合",
+    "domain":  "知识产权-专利",
+    "industry":  "管理",
+    "pages":  8,
+    "entities":  7,
+    "roles":  4,
+    "entryPath":  "20260831/patent-asset-lifecycle/demo/index.html",
+    "scenarioName":  "patent-asset-lifecycle",
+    "auditGrade":  "",
+    "createdAt":  "2026-08-31",
+    "publicDemoUrl":  "https://demora.ipsunlight.com/patent-asset-lifecycle/demo/",
+    "publicDocsUrl":  "https://demora.ipsunlight.com/patent-asset-lifecycle/docs/"
+}

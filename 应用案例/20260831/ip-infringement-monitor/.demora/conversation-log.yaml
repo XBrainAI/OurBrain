@@ -1,0 +1,101 @@
+# 对话历史（append-only，仅允许通过 scripts/append-conversation-log.mjs 追加；直接编辑会 EPERM）
+entries:
+  - timestamp: 2026-08-29T15:17:04.956Z
+    actor: pm
+    phase: 1
+    message: PM 提交需求简述：线上AI智能侵权监测与快速维权取证系统（背景/核心功能/用户角色/业务规则四段）
+  - timestamp: 2026-08-29T15:17:04.962Z
+    actor: ai
+    phase: 1
+    message: AI 归档 PM 输入：inbox/documents/audit-patent-infringement-requirement-scenario-brief.md + inbox/text/requirement-scenario-brief.md
+  - timestamp: 2026-08-29T15:17:04.964Z
+    actor: ai
+    phase: 1
+    message: AI 提炼项目名并 scaffold：slug=ip-infringement-monitor，项目名=线上侵权监测与维权取证系统
+  - timestamp: 2026-08-29T15:17:04.965Z
+    actor: ai
+    phase: 1
+    message: AI 扩展需求文档 inbox/text/requirement-input.md（业务背景/用户角色/核心功能/页面列表/业务规则/验收标准 6 章节）
+  - timestamp: 2026-08-29T15:17:04.966Z
+    actor: ai
+    phase: 1
+    message: AI 填充需求模型：4 实体（侵权线索/存证记录/维权案件/跨境规则模板）、6 页面、3 角色
+  - timestamp: 2026-08-29T15:17:04.968Z
+    actor: ai
+    phase: 1
+    message: validate-model 完成度 100%（102/102），隐藏容器 L3 契约 0 违规
+  - timestamp: 2026-08-29T15:17:34.498Z
+    actor: AI
+    message: PM 确认锁定需求模型，进入 Phase 2
+  - timestamp: 2026-08-29T15:38:27.702Z
+    actor: ai
+    phase: 2
+    message: AI 基于 frontend-design 方法论从零设计 Demo：司法卷宗风（深墨蓝+封条朱红+链上蓝），标志性元素为存证时效环与证据链时间轴
+  - timestamp: 2026-08-29T15:38:27.708Z
+    actor: ai
+    phase: 2
+    message: Demo 静态结构自检：6 页 / 30 个 L2 区域 / 53 个 L3 元件，与需求模型标注数据一一对应
+  - timestamp: 2026-08-29T15:38:27.709Z
+    actor: ai
+    phase: 2
+    message: 业务数据填充：线索 14 条、存证记录 11 条、案件 12 条、跨境规则 12 条、专利排行 10 条
+  - timestamp: 2026-08-29T15:53:30.415Z
+    actor: ai
+    phase: 2
+    message: enhance-prototype 注入标注三件套（30 区 / 53 元件），版权 footer 与 C21 导航防护同步注入
+  - timestamp: 2026-08-29T15:53:30.420Z
+    actor: ai
+    phase: 3
+    message: diagnose-runtime 首轮 9 项失效：D3 弹窗闭环 4 + D10 标注不可见 5
+  - timestamp: 2026-08-29T15:53:30.422Z
+    actor: ai
+    phase: 3
+    message: 根因定位：D6 抽样点击行内存证打开存证弹窗未关闭，导致 D3 关闭检测误判并 force-hide 污染全部弹窗；input 上的 data-element-id 无法生成可见 dot；表格首行随翻页隐藏致标注不可见
+  - timestamp: 2026-08-29T15:53:30.424Z
+    actor: ai
+    phase: 3
+    message: 修复三项：openModal 包装实现弹窗互斥并清理 hidden 残留；input 标注改由 field-control 容器承载；表格首行常驻 + 其余行分页
+  - timestamp: 2026-08-29T15:53:30.426Z
+    actor: ai
+    phase: 3
+    message: diagnose-runtime 复检 0 失效：D3 4/4 闭环正常、D10 83/83 标注可见、分页往返序列探针通过
+  - timestamp: 2026-08-29T15:53:30.429Z
+    actor: ai
+    phase: 3
+    message: pre-audit-check 通过（0 FAIL）：修复 P038 筛选控件值引用后仅剩 P004 标注数据内联位置建议 WARN
+  - timestamp: 2026-08-29T16:23:59.692Z
+    actor: ai
+    phase: 3
+    message: D8 覆盖率修复：补齐 20 个 L3 标注（表格内同类元件 ≤4 实例全标），行内复选框 aria-label 统一合并同类组
+  - timestamp: 2026-08-29T16:23:59.695Z
+    actor: ai
+    phase: 3
+    message: D6 空交互修复：topbar 增加最近动作指示器，任意契约控件点击均写入界面状态变化
+  - timestamp: 2026-08-29T16:23:59.695Z
+    actor: ai
+    phase: 3
+    message: 弹窗遮罩改为 pointer-events 穿透 + 点击卡片外自动关闭 + 切页自动关闭，消除弹窗残留遮挡导致的按钮连锁无响应
+  - timestamp: 2026-08-29T16:23:59.696Z
+    actor: ai
+    phase: 3
+    message: 筛选一致性修复：每页容量调整为 20 使计数文本与可见行数严格一致；案件表首行纳入筛选状态位
+  - timestamp: 2026-08-29T16:23:59.697Z
+    actor: ai
+    phase: 3
+    message: run-audit 全量审计通过：21 通过 / 0 失败 / 0 警告，评级 A（D6 35/35、D10 73/73、D8 覆盖率无缺口）
+  - timestamp: 2026-08-29T16:23:59.698Z
+    actor: ai
+    phase: 3
+    message: 记录 3 条评审决策与 4 条设计决策，sync-docs 已同步至文档
+  - timestamp: 2026-08-29T16:25:38.613Z
+    actor: ai
+    phase: 3
+    message: quality-check 通过（7 通过 / 0 失败），补齐 context.yaml 领域术语、组件清单与样式约束快照
+  - timestamp: 2026-08-29T16:25:38.616Z
+    actor: ai
+    phase: 3
+    message: package-delivery 打包完成：交付网站 72 文件 + demo-only.zip + full-delivery.zip + delivery.zip，demo/ 已冻结
+  - timestamp: 2026-08-29T16:25:38.617Z
+    actor: ai
+    phase: 3
+    message: verify-delivery V-1~V-16 全通过：审计评级 A、双侧哈希一致、交付物洁净，final_approved=true

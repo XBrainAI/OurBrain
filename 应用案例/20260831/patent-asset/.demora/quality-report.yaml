@@ -1,0 +1,36 @@
+# quality-report.yaml — 自动生成
+passed: true
+defects: 0
+critical: 0
+major: 0
+checks_passed: 7
+checks_failed: 0
+q5_degraded: false
+generated_at: "2026-08-28T17:29:34.007Z"
+
+# 逐项明细（v5.14 新增）
+checks:
+  - name: Q-1
+    result: pass
+    detail: 非 audit 模式通过（210443 bytes）
+  - name: Q-2
+    result: pass
+    detail: 无 __FILL_BUSINESS__ 残留
+  - name: Q-3
+    result: pass
+    detail: docs/ 非空
+  - name: Q-4
+    result: pass
+    detail: final_approved = true（verify-delivery 通过后刷新）
+  - name: Q-5
+    result: pass
+    detail: htmlhint 通过（28 警告）
+  - name: Q-6
+    result: pass
+    detail: "AI 自检通过（0 errors, 0 warnings）"
+  - name: Q-7
+    result: pass
+    detail: 项目根洁净（0 调试文件）
+  - name: Q-8
+    result: pass
+    detail: 状态文件完整

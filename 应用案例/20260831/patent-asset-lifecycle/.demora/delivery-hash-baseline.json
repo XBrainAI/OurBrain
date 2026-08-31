@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-08-30T01:13:55.232Z",
+  "project": "专利资产全生命周期数字化价值运营管理平台",
+  "sim_demo_dir": "D:\\data\\wy25311753\\workspace\\git\\gitlab\\ourbrain\\demora\\feat-rebuild-v5.0\\test-cases\\oc-demora-0829-190119-GLM-5.3\\codex\\p6\\patent-asset-lifecycle\\demo",
+  "delivery_demo_dir": "D:\\data\\wy25311753\\workspace\\git\\gitlab\\ourbrain\\demora\\feat-rebuild-v5.0\\test-cases\\oc-demora-0829-190119-GLM-5.3\\codex\\p6\\patent-asset-lifecycle\\delivery\\专利资产全生命周期数字化价值运营管理平台\\demo",
+  "sim_hash": "0e5799855e5c2fb21b491a518898eacfdb773856d4f22dd474f83a2e8b67e3d8",
+  "delivery_hash": "0e5799855e5c2fb21b491a518898eacfdb773856d4f22dd474f83a2e8b67e3d8",
+  "consistent": true,
+  "filterApplied": true,
+  "filterRules": [
+    "debug-files",
+    "screenshot-blacklist",
+    "historical-label"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-08-29T16:21:47.528Z",
+  "demo": "D:\\data\\wy25311753\\workspace\\git\\gitlab\\ourbrain\\demora\\feat-rebuild-v5.0\\test-cases\\oc-demora-0829-190119-GLM-5.3\\codebuddy\\p4\\ip-infringement-monitor\\demo",
+  "mode": "fast",
+  "pages_tested": 6,
+  "total_failures": 0,
+  "page_errors": [],
+  "console_404": [],
+  "failures": [],
+  "gate": "PASS"
+}

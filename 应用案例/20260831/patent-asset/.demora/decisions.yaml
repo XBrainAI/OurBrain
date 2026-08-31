@@ -1,0 +1,27 @@
+# 评审决策记录（Phase 3 由 PM 转述评审意见后生成）
+decisions:
+  - id: D-001
+    date: "2026-08-28T17:29:07.378Z"
+    scope: annotations
+    status: accept
+    summary: "弹窗内部不放置 L2/L3 标注（隐藏元素会被引擎剥离 data-element-id），弹窗交互由触发按钮标注承载"
+    source: "AI 自检"
+  - id: D-002
+    date: "2026-08-28T17:29:07.378Z"
+    scope: interactions
+    status: accept
+    summary: "行内弹窗触发按钮（缴费/解除质押）恒可点击，业务阻断移至确认环节内联错误提示，保证审计闭环与结构一致性"
+    source: "run-audit D3/D8 修复"
+  - id: D-003
+    date: "2026-08-28T17:29:07.378Z"
+    scope: demo
+    status: accept
+    summary: "终态行按钮与常规按钮属性完全一致（data-action+data-no），状态差异由状态徽标列与 toast 反馈承载"
+    source: "run-audit D8 同类组分组机制"
+# v2.7 新增：设计决策记录
+design_decisions:
+  - element: "工程图纸标题栏 + 尺寸标注线"
+    rationale: "专利说明书附图的制图语言作为平台签名元素，角部十字定位标与骑缝章强化 IP 资产语境"
+  - palette: "制图纸暖白 #F3F1E9 / 墨线藏青 #17324F / 鎏金 #A8752A / 印泥朱红 #B5432F"
+    typography: "标题宋体（公文证书感）+ 正文雅黑 + 编号金额 Consolas"
+

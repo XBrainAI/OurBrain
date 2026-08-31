@@ -1,0 +1,1452 @@
+# 需求模型（Phase 1 由 AI 与 PM 对话填充，Phase 2 锁定后只读）
+project:
+  name: "专利资产全生命周期数字化价值运营管理平台"
+  description: "面向企业 IPR、资产经理与银行风控的一站式专利资产价值运营平台，覆盖全流程台账、年费监控、AI 四维估值、组合战略分析、质押转让跟踪与产业撮合，以标准化数字底稿支撑融资、上市与质押场景。"
+  domain: "IPAM"
+  slug: "patent-asset-lifecycle"
+  name_en: "Patent Asset Lifecycle Platform"
+
+entities:
+  - name: Patent
+    displayName: 专利资产
+    fields:
+      - name: patentNo
+        displayName: 专利号
+        type: string
+        required: true
+      - name: title
+        displayName: 专利名称
+        type: string
+        required: true
+      - name: type
+        displayName: 专利类型
+        type: enum
+        required: true
+        options: [发明专利, 实用新型, 外观设计]
+      - name: applicant
+        displayName: 权利人
+        type: string
+      - name: inventor
+        displayName: 发明人
+        type: string
+      - name: applicationDate
+        displayName: 申请日
+        type: date
+      - name: grantDate
+        displayName: 授权日
+        type: date
+      - name: expiryDate
+        displayName: 年费到期日
+        type: date
+      - name: status
+        displayName: 法律状态
+        type: enum
+        options: [申请中, 授权有效, 即将到期, 逾期失效, 质押中, 转让中, 已转让]
+      - name: feeStatus
+        displayName: 年费状态
+        type: enum
+        options: [已缴, 待缴, 即将到期, 已逾期]
+      - name: annualFee
+        displayName: 本年度费(元)
+        type: number
+      - name: estimatedValue
+        displayName: 最新估值(万元)
+        type: number
+      - name: industry
+        displayName: 所属行业
+        type: string
+      - name: isPledged
+        displayName: 是否质押
+        type: boolean
+    statuses:
+      - value: APPLYING
+        label: 申请中
+        color: info
+      - value: ACTIVE
+        label: 授权有效
+        color: success
+      - value: EXPIRING
+        label: 即将到期
+        color: warning
+      - value: EXPIRED
+        label: 逾期失效
+        color: danger
+      - value: PLEDGED
+        label: 质押中
+        color: primary
+      - value: TRANSFERRING
+        label: 转让中
+        color: warning
+      - value: TRANSFERRED
+        label: 已转让
+        color: info
+    transitions:
+      - from: ACTIVE
+        to: EXPIRING
+        trigger: 年费到期前30天自动预警
+        condition: 距离年费到期日不超过30天且尚未缴费
+      - from: EXPIRING
+        to: EXPIRED
+        trigger: 逾期未缴自动置为失效
+        condition: 超过年费到期日仍未缴纳
+      - from: ACTIVE
+        to: PLEDGED
+        trigger: 质押登记完成
+      - from: PLEDGED
+        to: ACTIVE
+        trigger: 解除质押
+      - from: ACTIVE
+        to: TRANSFERRING
+        trigger: 发起转让
+        condition: 专利未处于质押中
+      - from: TRANSFERRING
+        to: TRANSFERRED
+        trigger: 转让成交
+      - from: TRANSFERRING
+        to: ACTIVE
+        trigger: 转让取消
+    relations:
+      - target: Valuation
+        type: one_to_many
+        description: 一项专利拥有多期季度估值记录
+      - target: AnnualFee
+        type: one_to_many
+        description: 一项专利按年度产生多笔年费记录
+      - target: Pledge
+        type: one_to_many
+        description: 一项专利可有多条质押登记记录
+      - target: TransferRequest
+        type: one_to_many
+        description: 一项专利可发起多条转让请求
+      - target: Portfolio
+        type: many_to_many
+        description: 一项专利可归属于多个战略组合
+
+  - name: Valuation
+    displayName: 估值记录
+    fields:
+      - name: valuationNo
+        displayName: 估值编号
+        type: string
+      - name: patentNo
+        displayName: 专利号
+        type: string
+      - name: patentTitle
+        displayName: 专利名称
+        type: string
+      - name: quarter
+        displayName: 估值季度
+        type: enum
+        options: [2026Q1, 2026Q2, 2026Q3, 2026Q4]
+      - name: legalScore
+        displayName: 法律维度得分
+        type: number
+      - name: techScore
+        displayName: 技术维度得分
+        type: number
+      - name: marketScore
+        displayName: 市场维度得分
+        type: number
+      - name: revenueScore
+        displayName: 营收维度得分
+        type: number
+      - name: totalValue
+        displayName: 估值金额(万元)
+        type: number
+      - name: method
+        displayName: 估值模型
+        type: enum
+        options: [行业定制AI估值, 成本法, 收益法]
+      - name: status
+        displayName: 确认状态
+        type: enum
+        options: [待确认, 已确认, 已驳回]
+      - name: confirmBy
+        displayName: 确认人
+        type: string
+      - name: confirmTime
+        displayName: 确认时间
+        type: date
+    statuses:
+      - value: PENDING
+        label: 待确认
+        color: warning
+      - value: CONFIRMED
+        label: 已确认
+        color: success
+      - value: REJECTED
+        label: 已驳回
+        color: danger
+    transitions:
+      - from: PENDING
+        to: CONFIRMED
+        trigger: 资产经理确认
+      - from: PENDING
+        to: REJECTED
+        trigger: 驳回重估
+    relations:
+      - target: Patent
+        type: many_to_one
+        description: 估值记录归属于一项专利
+
+  - name: AnnualFee
+    displayName: 年费记录
+    fields:
+      - name: feeNo
+        displayName: 记录编号
+        type: string
+      - name: patentNo
+        displayName: 专利号
+        type: string
+      - name: patentTitle
+        displayName: 专利名称
+        type: string
+      - name: feeYear
+        displayName: 费年度
+        type: number
+      - name: amount
+        displayName: 应缴金额(元)
+        type: number
+      - name: dueDate
+        displayName: 到期日
+        type: date
+      - name: status
+        displayName: 缴费状态
+        type: enum
+        options: [已缴, 待缴, 即将到期, 已逾期]
+      - name: paidDate
+        displayName: 缴费日期
+        type: date
+    statuses:
+      - value: PAID
+        label: 已缴
+        color: success
+      - value: PENDING
+        label: 待缴
+        color: warning
+      - value: UPCOMING
+        label: 即将到期
+        color: warning
+      - value: OVERDUE
+        label: 已逾期
+        color: danger
+    transitions:
+      - from: UPCOMING
+        to: PENDING
+        trigger: 进入缴费窗口期
+      - from: PENDING
+        to: PAID
+        trigger: 缴费登记
+      - from: PENDING
+        to: OVERDUE
+        trigger: 逾期未缴
+    relations:
+      - target: Patent
+        type: many_to_one
+        description: 年费记录归属于一项专利
+
+  - name: Pledge
+    displayName: 质押登记
+    fields:
+      - name: pledgeNo
+        displayName: 质押编号
+        type: string
+      - name: patentNo
+        displayName: 专利号
+        type: string
+      - name: patentTitle
+        displayName: 专利名称
+        type: string
+      - name: bank
+        displayName: 质权人(银行)
+        type: string
+      - name: pledgeAmount
+        displayName: 质押金额(万元)
+        type: number
+      - name: startDate
+        displayName: 质押开始日
+        type: date
+      - name: endDate
+        displayName: 质押到期日
+        type: date
+      - name: riskLevel
+        displayName: 风险等级
+        type: enum
+        options: [低, 中, 高]
+      - name: status
+        displayName: 质押状态
+        type: enum
+        options: [质押中, 已解除]
+    statuses:
+      - value: ACTIVE
+        label: 质押中
+        color: primary
+      - value: RELEASED
+        label: 已解除
+        color: info
+    transitions:
+      - from: ACTIVE
+        to: RELEASED
+        trigger: 解除质押
+    relations:
+      - target: Patent
+        type: many_to_one
+        description: 质押登记归属于一项专利
+
+  - name: TransferRequest
+    displayName: 转让请求
+    fields:
+      - name: transferNo
+        displayName: 转让编号
+        type: string
+      - name: patentNo
+        displayName: 专利号
+        type: string
+      - name: patentTitle
+        displayName: 专利名称
+        type: string
+      - name: buyer
+        displayName: 受让方
+        type: string
+      - name: transferPrice
+        displayName: 转让价格(万元)
+        type: number
+      - name: reason
+        displayName: 转让原因
+        type: text
+      - name: status
+        displayName: 转让状态
+        type: enum
+        options: [草稿, 审核中, 已成交, 已取消]
+      - name: createBy
+        displayName: 发起人
+        type: string
+      - name: createTime
+        displayName: 发起时间
+        type: date
+    statuses:
+      - value: DRAFT
+        label: 草稿
+        color: info
+      - value: REVIEWING
+        label: 审核中
+        color: warning
+      - value: DONE
+        label: 已成交
+        color: success
+      - value: CANCELLED
+        label: 已取消
+        color: danger
+    transitions:
+      - from: DRAFT
+        to: REVIEWING
+        trigger: 提交审核
+      - from: REVIEWING
+        to: DONE
+        trigger: 审核成交
+      - from: REVIEWING
+        to: CANCELLED
+        trigger: 取消转让
+    relations:
+      - target: Patent
+        type: many_to_one
+        description: 转让请求归属于一项专利
+
+  - name: Portfolio
+    displayName: 专利组合
+    fields:
+      - name: portfolioNo
+        displayName: 组合编号
+        type: string
+      - name: name
+        displayName: 组合名称
+        type: string
+      - name: strategy
+        displayName: 组合战略
+        type: enum
+        options: [防御型, 进攻型, 运营型]
+      - name: industry
+        displayName: 所属产业
+        type: string
+      - name: patentCount
+        displayName: 专利数量
+        type: number
+      - name: totalValue
+        displayName: 组合估值(万元)
+        type: number
+      - name: owner
+        displayName: 负责人
+        type: string
+    relations:
+      - target: Patent
+        type: many_to_many
+        description: 组合包含多项专利
+
+  - name: MatchDemand
+    displayName: 撮合需求
+    fields:
+      - name: demandNo
+        displayName: 需求编号
+        type: string
+      - name: demandCompany
+        displayName: 需求方
+        type: string
+      - name: targetIndustry
+        displayName: 目标产业
+        type: string
+      - name: keyword
+        displayName: 技术关键词
+        type: string
+      - name: budget
+        displayName: 预算(万元)
+        type: number
+      - name: contact
+        displayName: 联系人
+        type: string
+      - name: status
+        displayName: 需求状态
+        type: enum
+        options: [发布中, 匹配中, 已成交, 已关闭]
+    statuses:
+      - value: PUBLISHED
+        label: 发布中
+        color: info
+      - value: MATCHING
+        label: 匹配中
+        color: warning
+      - value: DEALT
+        label: 已成交
+        color: success
+      - value: CLOSED
+        label: 已关闭
+        color: danger
+
+pages:
+  - id: P01
+    name: patent-ledger
+    type: crud_list
+    entity: Patent
+    route: /patents
+    priority: P0
+    fields:
+      - field: patentNo
+        in_search: true
+        in_table: true
+        in_form: true
+        in_detail: true
+      - field: title
+        in_search: true
+        in_table: true
+        in_form: true
+        in_detail: true
+      - field: type
+        in_search: true
+        in_table: true
+        in_form: true
+        in_detail: true
+      - field: applicant
+        in_search: false
+        in_table: false
+        in_form: true
+        in_detail: true
+      - field: inventor
+        in_search: false
+        in_table: false
+        in_form: true
+        in_detail: true
+      - field: applicationDate
+        in_search: false
+        in_table: false
+        in_form: true
+        in_detail: true
+      - field: grantDate
+        in_search: false
+        in_table: false
+        in_form: true
+        in_detail: true
+      - field: expiryDate
+        in_search: false
+        in_table: true
+        in_form: true
+        in_detail: true
+      - field: status
+        in_search: true
+        in_table: true
+        in_form: false
+        in_detail: true
+      - field: feeStatus
+        in_search: true
+        in_table: true
+        in_form: false
+        in_detail: true
+      - field: annualFee
+        in_search: false
+        in_table: true
+        in_form: true
+        in_detail: true
+      - field: estimatedValue
+        in_search: false
+        in_table: true
+        in_form: false
+        in_detail: true
+      - field: industry
+        in_search: true
+        in_table: false
+        in_form: true
+        in_detail: true
+      - field: isPledged
+        in_search: false
+        in_table: false
+        in_form: false
+        in_detail: true
+    operations:
+      - name: 新增专利
+        type: create
+        trigger: 点击新增按钮打开表单弹窗
+        condition: 角色拥有 create 权限
+        feedback: 台账新增一行并提示新增成功
+      - name: 查看详情
+        type: read
+        trigger: 点击行详情按钮
+        condition: 无
+        feedback: 跳转 P02 专利详情页
+      - name: 搜索筛选
+        type: read
+        trigger: 输入关键词或选择筛选条件后点击查询
+        condition: 无
+        feedback: 表格按条件重算并更新结果计数
+      - name: 导出台账
+        type: export
+        trigger: 点击导出台账按钮
+        condition: 无
+        feedback: 生成 Excel 底稿并提示下载
+    annotations:
+      L1:
+        summary: 全流程专利资产台账，集中管理专利法律状态、年费与估值信息
+        entry: 登录后默认进入，顶部导航"专利台账"
+        precondition: 角色为 IPR/资产经理/银行风控且已有专利数据
+        data_entity: Patent
+        business_rules:
+          - 年费到期前30天自动置为"即将到期"并预警
+          - 逾期未缴自动置为"逾期失效"
+          - 质押中专利禁止发起转让
+        test_data: 14 条专利覆盖申请中/授权有效/即将到期/逾期失效/质押中/转让中/已转让状态
+      L2:
+        - id: P01-L2-001
+          zone: 统计概览区
+          description: 展示专利总数、有效数、预警数、质押数等指标，数据来源于 Patent 台账按状态实时汇总
+        - id: P01-L2-002
+          zone: 搜索筛选区
+          description: 提供关键词、类型、状态、行业筛选，按表单条件过滤台账行集
+        - id: P01-L2-003
+          zone: 台账列表区
+          description: 展示专利号、名称、类型、状态、年费状态与估值，按状态位全量重算显示
+        - id: P01-L2-004
+          zone: 操作按钮区
+          description: 提供新增、导出等批量操作入口，操作受角色权限约束
+      L3:
+        - id: P01-L3-001
+          element: 新增专利按钮
+          function: 打开新增专利表单弹窗
+          trigger: click
+          condition: 拥有 create 权限
+          response: 弹出表单并清空输入
+          state: 表单可见
+          exception: 权限不足时按钮禁用
+        - id: P01-L3-002
+          element: 搜索关键词输入框
+          function: 按关键词实时过滤台账
+          trigger: input
+          condition: 无
+          response: 表格行按关键词重算
+          state: 结果集变化
+          exception: 无匹配时显示空态
+        - id: P01-L3-003
+          element: 类型筛选下拉框
+          function: 按专利类型筛选台账
+          trigger: change
+          condition: 无
+          response: 表格行按类型重算
+          state: 结果集变化
+          exception: 无匹配时显示空态
+        - id: P01-L3-004
+          element: 状态筛选下拉框
+          function: 按法律状态筛选台账
+          trigger: change
+          condition: 无
+          response: 表格行按状态重算
+          state: 结果集变化
+          exception: 无匹配时显示空态
+        - id: P01-L3-005
+          element: 查询按钮
+          function: 应用当前筛选条件刷新台账
+          trigger: click
+          condition: 无
+          response: 表格按全部筛选条件重算并更新计数
+          state: 结果集变化
+          exception: 无匹配时显示空态
+        - id: P01-L3-006
+          element: 导出台账按钮
+          function: 生成当前台账 Excel 底稿
+          trigger: click
+          condition: 无
+          response: 显示导出成功并生成下载
+          state: 导出记录生成
+          exception: 无数据时提示无可导出内容
+        - id: P01-L3-007
+          element: 行详情按钮
+          function: 进入专利详情页
+          trigger: click
+          condition: 无
+          response: 跳转 P02 并携带专利号
+          state: 路由切换
+          exception: 无
+
+  - id: P02
+    name: patent-detail
+    type: detail_view
+    entity: Patent
+    route: /patents/:id
+    priority: P0
+    fields:
+      - field: patentNo
+        in_detail: true
+      - field: title
+        in_detail: true
+      - field: type
+        in_detail: true
+      - field: applicant
+        in_detail: true
+      - field: inventor
+        in_detail: true
+      - field: applicationDate
+        in_detail: true
+      - field: grantDate
+        in_detail: true
+      - field: expiryDate
+        in_detail: true
+      - field: status
+        in_detail: true
+      - field: feeStatus
+        in_detail: true
+      - field: annualFee
+        in_detail: true
+      - field: estimatedValue
+        in_detail: true
+      - field: industry
+        in_detail: true
+      - field: isPledged
+        in_detail: true
+    operations:
+      - name: 缴费登记
+        type: update
+        trigger: 点击缴费登记按钮
+        condition: 年费状态非已缴
+        feedback: 年费状态置为已缴并更新到期状态
+      - name: 发起估值
+        type: create
+        trigger: 点击发起估值按钮
+        condition: 当前季度无估值
+        feedback: 生成待确认估值记录
+      - name: 质押登记
+        type: update
+        trigger: 点击质押登记按钮
+        condition: 专利未质押且状态有效
+        feedback: 专利状态置为质押中并生成质押记录
+      - name: 解除质押
+        type: update
+        trigger: 点击解除质押按钮
+        condition: 专利处于质押中
+        feedback: 专利状态恢复为授权有效
+      - name: 发起转让
+        type: update
+        trigger: 点击发起转让按钮
+        condition: 专利未处于质押中
+        feedback: 生成转让请求并置状态为转让中
+    annotations:
+      L1:
+        summary: 专利详情页，聚合展示基本信息、年费、估值、质押与转让全生命周期记录
+        entry: 从 P01 台账点击行详情进入
+        precondition: 已选择一条专利
+        data_entity: Patent / Valuation / AnnualFee / Pledge / TransferRequest
+        business_rules:
+          - 质押中专利不可转让
+          - 缴费登记后年费状态即时更新
+        test_data: 专利 ZL202310001234 含 3 条估值、5 条年费、1 条质押记录
+      L2:
+        - id: P02-L2-001
+          zone: 基本信息区
+          description: 展示专利号、名称、类型、权利人等法律著录项，数据来源于 Patent 主数据
+        - id: P02-L2-002
+          zone: 状态与价值区
+          description: 展示法律状态、年费状态、最新估值与年度费额，数据来源于 Patent 与最新 Valuation
+        - id: P02-L2-003
+          zone: 年费记录区
+          description: 按年度列出应缴金额、到期日与缴费状态，数据来源于 AnnualFee 列表
+        - id: P02-L2-004
+          zone: 估值历史区
+          description: 按季度列出四维得分与估值金额，数据来源于 Valuation 历史记录
+        - id: P02-L2-005
+          zone: 质押转让区
+          description: 展示质押与转让记录及当前状态，数据来源于 Pledge / TransferRequest
+        - id: P02-L2-006
+          zone: 操作区
+          description: 提供缴费登记、发起估值、质押登记、解除质押、发起转让入口，按状态与权限显隐
+      L3:
+        - id: P02-L3-001
+          element: 缴费登记按钮
+          function: 登记本年费用已缴
+          trigger: click
+          condition: 年费状态为待缴或即将到期
+          response: 年费置为已缴并刷新状态
+          state: 年费状态变化
+          exception: 已缴时按钮禁用
+        - id: P02-L3-002
+          element: 发起估值按钮
+          function: 为本季度发起 AI 估值
+          trigger: click
+          condition: 当前季度无待确认估值
+          response: 生成待确认估值并刷新列表
+          state: 估值列表新增
+          exception: 本季度已有估值时提示
+        - id: P02-L3-003
+          element: 质押登记按钮
+          function: 登记专利质押
+          trigger: click
+          condition: 未质押且状态有效
+          response: 打开质押表单并生成质押记录
+          state: 专利状态置为质押中
+          exception: 已质押时禁用
+        - id: P02-L3-004
+          element: 解除质押按钮
+          function: 解除当前质押
+          trigger: click
+          condition: 处于质押中
+          response: 质押状态置为已解除
+          state: 专利状态恢复有效
+          exception: 未质押时禁用
+        - id: P02-L3-005
+          element: 发起转让按钮
+          function: 发起专利转让请求
+          trigger: click
+          condition: 未处于质押中
+          response: 打开转让表单并生成转让中请求
+          state: 专利状态置为转让中
+          exception: 质押中时提示先解除质押
+
+  - id: P03
+    name: valuation
+    type: crud_list
+    entity: Valuation
+    route: /valuations
+    priority: P1
+    fields:
+      - field: valuationNo
+        in_search: true
+        in_table: true
+        in_detail: true
+      - field: patentNo
+        in_search: true
+        in_table: true
+        in_detail: true
+      - field: patentTitle
+        in_search: false
+        in_table: true
+        in_detail: true
+      - field: quarter
+        in_search: true
+        in_table: true
+        in_detail: true
+      - field: legalScore
+        in_search: false
+        in_table: true
+        in_detail: true
+      - field: techScore
+        in_search: false
+        in_table: true
+        in_detail: true
+      - field: marketScore
+        in_search: false
+        in_table: true
+        in_detail: true
+      - field: revenueScore
+        in_search: false
+        in_table: true
+        in_detail: true
+      - field: totalValue
+        in_search: false
+        in_table: true
+        in_detail: true
+      - field: method
+        in_search: true
+        in_table: false
+        in_detail: true
+      - field: status
+        in_search: true
+        in_table: true
+        in_detail: true
+      - field: confirmBy
+        in_search: false
+        in_table: false
+        in_detail: true
+      - field: confirmTime
+        in_search: false
+        in_table: false
+        in_detail: true
+    operations:
+      - name: 发起季度估值
+        type: create
+        trigger: 点击发起季度估值按钮
+        condition: 无
+        feedback: 为未估值专利批量生成待确认估值
+      - name: 确认估值
+        type: update
+        trigger: 点击行确认按钮
+        condition: 状态为待确认且角色为资产经理
+        feedback: 估值状态置为已确认并写入确认人
+      - name: 驳回估值
+        type: update
+        trigger: 点击行驳回按钮
+        condition: 状态为待确认且角色为资产经理
+        feedback: 估值状态置为已驳回
+      - name: 导出估值报告
+        type: export
+        trigger: 点击导出估值报告按钮
+        condition: 无
+        feedback: 生成估值底稿并提示下载
+    annotations:
+      L1:
+        summary: 估值管理页，按季度跟踪 AI 四维估值结果并支持资产经理确认
+        entry: 顶部导航"估值管理"
+        precondition: 角色为 IPR/资产经理/银行风控
+        data_entity: Valuation
+        business_rules:
+          - 估值每季度更新一次
+          - 估值需经资产经理确认后方生效
+        test_data: 16 条估值记录覆盖四个季度与待确认/已确认/已驳回状态
+      L2:
+        - id: P03-L2-001
+          zone: 估值概览区
+          description: 展示待确认数、已确认数、季度均值等指标，数据来源于 Valuation 按状态汇总
+        - id: P03-L2-002
+          zone: 筛选区
+          description: 按专利号、季度、模型与确认状态筛选估值列表，数据来源于表单条件
+        - id: P03-L2-003
+          zone: 估值列表区
+          description: 展示四维得分与估值金额，按筛选条件全量重算显示
+        - id: P03-L2-004
+          zone: 操作区
+          description: 提供发起季度估值、导出报告、行确认/驳回操作，按状态与权限显隐
+      L3:
+        - id: P03-L3-001
+          element: 发起季度估值按钮
+          function: 为当前季度未估值专利批量生成估值
+          trigger: click
+          condition: 无
+          response: 新增多条待确认估值并刷新列表
+          state: 列表新增
+          exception: 无未估值专利时提示
+        - id: P03-L3-002
+          element: 季度筛选下拉框
+          function: 按季度筛选估值列表
+          trigger: change
+          condition: 无
+          response: 表格按季度重算
+          state: 结果集变化
+          exception: 无匹配时显示空态
+        - id: P03-L3-003
+          element: 状态筛选下拉框
+          function: 按确认状态筛选估值列表
+          trigger: change
+          condition: 无
+          response: 表格按状态重算
+          state: 结果集变化
+          exception: 无匹配时显示空态
+        - id: P03-L3-004
+          element: 行确认按钮
+          function: 资产经理确认估值生效
+          trigger: click
+          condition: 状态为待确认且角色为资产经理
+          response: 状态置为已确认并写入确认人
+          state: 估值状态变化
+          exception: 非资产经理时禁用
+        - id: P03-L3-005
+          element: 行驳回按钮
+          function: 驳回估值要求重估
+          trigger: click
+          condition: 状态为待确认且角色为资产经理
+          response: 状态置为已驳回
+          state: 估值状态变化
+          exception: 非资产经理时禁用
+        - id: P03-L3-006
+          element: 导出估值报告按钮
+          function: 导出估值底稿
+          trigger: click
+          condition: 无
+          response: 提示导出成功并生成文件
+          state: 导出记录生成
+          exception: 无数据时提示
+
+  - id: P04
+    name: fee-monitor
+    type: crud_list
+    entity: AnnualFee
+    route: /fees
+    priority: P0
+    fields:
+      - field: feeNo
+        in_search: true
+        in_table: true
+        in_detail: true
+      - field: patentNo
+        in_search: true
+        in_table: true
+        in_detail: true
+      - field: patentTitle
+        in_search: false
+        in_table: true
+        in_detail: true
+      - field: feeYear
+        in_search: true
+        in_table: true
+        in_detail: true
+      - field: amount
+        in_search: false
+        in_table: true
+        in_detail: true
+      - field: dueDate
+        in_search: false
+        in_table: true
+        in_detail: true
+      - field: status
+        in_search: true
+        in_table: true
+        in_detail: true
+      - field: paidDate
+        in_search: false
+        in_table: true
+        in_detail: true
+    operations:
+      - name: 缴费登记
+        type: update
+        trigger: 点击行缴费登记按钮
+        condition: 状态为待缴或即将到期
+        feedback: 状态置为已缴并记录缴费日期
+      - name: 筛选年度
+        type: read
+        trigger: 选择年度下拉框
+        condition: 无
+        feedback: 表格按年度重算
+      - name: 导出缴费清单
+        type: export
+        trigger: 点击导出缴费清单按钮
+        condition: 无
+        feedback: 生成清单文件并提示下载
+    annotations:
+      L1:
+        summary: 年费监控页，30 天预警与逾期失效全流程管理
+        entry: 顶部导航"年费监控"
+        precondition: 角色为 IPR/资产经理
+        data_entity: AnnualFee / Patent
+        business_rules:
+          - 到期前30天自动预警
+          - 逾期未缴自动置为失效
+        test_data: 18 条年费记录覆盖已缴/待缴/即将到期/已逾期
+      L2:
+        - id: P04-L2-001
+          zone: 预警概览区
+          description: 展示即将到期、已逾期、待缴数量，数据来源于 AnnualFee 按状态实时汇总
+        - id: P04-L2-002
+          zone: 筛选区
+          description: 按年度、缴费状态与专利号筛选年费记录，数据来源于表单条件
+        - id: P04-L2-003
+          zone: 年费列表区
+          description: 展示应缴金额、到期日与缴费状态，按筛选条件全量重算显示
+        - id: P04-L2-004
+          zone: 操作区
+          description: 提供缴费登记与导出缴费清单入口，按状态与权限显隐
+      L3:
+        - id: P04-L3-001
+          element: 缴费登记按钮
+          function: 登记年度费用已缴
+          trigger: click
+          condition: 状态为待缴或即将到期
+          response: 状态置为已缴并记录缴费日期
+          state: 年费状态变化
+          exception: 已缴/已逾期时禁用
+        - id: P04-L3-002
+          element: 年度筛选下拉框
+          function: 按年度筛选年费记录
+          trigger: change
+          condition: 无
+          response: 表格按年度重算
+          state: 结果集变化
+          exception: 无匹配时显示空态
+        - id: P04-L3-003
+          element: 状态筛选下拉框
+          function: 按缴费状态筛选记录
+          trigger: change
+          condition: 无
+          response: 表格按状态重算
+          state: 结果集变化
+          exception: 无匹配时显示空态
+        - id: P04-L3-004
+          element: 导出缴费清单按钮
+          function: 导出当前缴费清单
+          trigger: click
+          condition: 无
+          response: 提示导出成功并生成文件
+          state: 导出记录生成
+          exception: 无数据时提示
+
+  - id: P05
+    name: pledge-transfer
+    type: crud_list
+    entity: Pledge
+    route: /pledges
+    priority: P1
+    fields:
+      - field: pledgeNo
+        in_search: true
+        in_table: true
+        in_detail: true
+      - field: patentNo
+        in_search: true
+        in_table: true
+        in_detail: true
+      - field: patentTitle
+        in_search: false
+        in_table: true
+        in_detail: true
+      - field: bank
+        in_search: true
+        in_table: true
+        in_detail: true
+      - field: pledgeAmount
+        in_search: false
+        in_table: true
+        in_detail: true
+      - field: startDate
+        in_search: false
+        in_table: true
+        in_detail: true
+      - field: endDate
+        in_search: false
+        in_table: true
+        in_detail: true
+      - field: riskLevel
+        in_search: true
+        in_table: true
+        in_detail: true
+      - field: status
+        in_search: true
+        in_table: true
+        in_detail: true
+    operations:
+      - name: 质押登记
+        type: create
+        trigger: 点击质押登记按钮
+        condition: 无
+        feedback: 打开表单生成质押记录并更新专利状态
+      - name: 解除质押
+        type: update
+        trigger: 点击行解除质押按钮
+        condition: 状态为质押中
+        feedback: 质押置为已解除并恢复专利状态
+      - name: 发起转让
+        type: create
+        trigger: 点击发起转让按钮
+        condition: 专利未质押
+        feedback: 打开转让表单生成转让请求
+      - name: 取消转让
+        type: update
+        trigger: 点击行取消转让按钮
+        condition: 转让状态为审核中或草稿
+        feedback: 转让状态置为已取消
+    annotations:
+      L1:
+        summary: 质押转让跟踪页，管理质押登记、解除与转让请求全生命周期
+        entry: 顶部导航"质押转让"
+        precondition: 角色为 IPR/资产经理/银行风控
+        data_entity: Pledge / TransferRequest / Patent
+        business_rules:
+          - 质押中专利不可转让
+          - 解除质押后方可发起转让
+        test_data: 10 条质押记录 + 8 条转让请求覆盖各状态
+      L2:
+        - id: P05-L2-001
+          zone: 质押概览区
+          description: 展示质押中数量、风险高等级数量、转让中数量，数据来源于 Pledge / TransferRequest 汇总
+        - id: P05-L2-002
+          zone: 质押列表区
+          description: 展示质权人、质押金额与风险等级，数据来源于 Pledge 记录
+        - id: P05-L2-003
+          zone: 转让列表区
+          description: 展示受让方、转让价格与流转状态，数据来源于 TransferRequest 记录
+        - id: P05-L2-004
+          zone: 操作区
+          description: 提供质押登记、解除质押、发起转让入口，按状态与权限显隐
+      L3:
+        - id: P05-L3-001
+          element: 质押登记按钮
+          function: 登记专利质押
+          trigger: click
+          condition: 无
+          response: 打开质押表单并生成质押记录
+          state: 质押列表新增
+          exception: 无
+        - id: P05-L3-002
+          element: 行解除质押按钮
+          function: 解除当前质押
+          trigger: click
+          condition: 状态为质押中
+          response: 质押置为已解除
+          state: 质押状态变化
+          exception: 已解除时禁用
+        - id: P05-L3-003
+          element: 发起转让按钮
+          function: 发起专利转让请求
+          trigger: click
+          condition: 专利未质押
+          response: 打开转让表单并生成请求
+          state: 转让列表新增
+          exception: 质押中专利提示先解除质押
+        - id: P05-L3-004
+          element: 行取消转让按钮
+          function: 取消转让请求
+          trigger: click
+          condition: 状态为草稿或审核中
+          response: 状态置为已取消
+          state: 转让状态变化
+          exception: 已成交时禁用
+        - id: P05-L3-005
+          element: 风险等级筛选下拉框
+          function: 按风险等级筛选质押列表
+          trigger: change
+          condition: 无
+          response: 表格按风险重算
+          state: 结果集变化
+          exception: 无匹配时显示空态
+
+  - id: P06
+    name: portfolio
+    type: dashboard
+    entity: Portfolio
+    route: /portfolio
+    priority: P1
+    fields:
+      - field: portfolioNo
+        in_search: true
+        in_table: true
+        in_detail: true
+      - field: name
+        in_search: true
+        in_table: true
+        in_detail: true
+      - field: strategy
+        in_search: true
+        in_table: true
+        in_detail: true
+      - field: industry
+        in_search: true
+        in_table: true
+        in_detail: true
+      - field: patentCount
+        in_search: false
+        in_table: true
+        in_detail: true
+      - field: totalValue
+        in_search: false
+        in_table: true
+        in_detail: true
+      - field: owner
+        in_search: false
+        in_table: true
+        in_detail: true
+    operations:
+      - name: 新建组合
+        type: create
+        trigger: 点击新建组合按钮
+        condition: 角色为资产经理
+        feedback: 打开表单生成组合
+      - name: 查看组合
+        type: read
+        trigger: 点击组合行
+        condition: 无
+        feedback: 展示组合内专利列表
+      - name: 尽调一键导出
+        type: export
+        trigger: 点击尽调一键导出按钮
+        condition: 无
+        feedback: 生成融资/上市尽调底稿包
+    annotations:
+      L1:
+        summary: 专利组合分析页，按战略与产业组织专利并支持投融资尽调一键导出
+        entry: 顶部导航"组合分析"
+        precondition: 角色为资产经理/C级高管
+        data_entity: Portfolio / Patent
+        business_rules:
+          - 组合按防御/进攻/运营战略分类
+          - 尽调导出覆盖组合全部专利
+        test_data: 6 个组合覆盖三种战略
+      L2:
+        - id: P06-L2-001
+          zone: 组合概览区
+          description: 展示组合总数、覆盖专利数与组合总估值，数据来源于 Portfolio 汇总
+        - id: P06-L2-002
+          zone: 战略分布区
+          description: 按战略类型展示组合分布，数据来源于 Portfolio 按 strategy 分组
+        - id: P06-L2-003
+          zone: 组合列表区
+          description: 展示组合名称、战略、专利数与估值，数据来源于 Portfolio 记录
+        - id: P06-L2-004
+          zone: 操作区
+          description: 提供新建组合与尽调一键导出入口，按角色权限显隐
+      L3:
+        - id: P06-L3-001
+          element: 新建组合按钮
+          function: 创建新的专利组合
+          trigger: click
+          condition: 角色为资产经理
+          response: 打开表单并生成组合
+          state: 组合列表新增
+          exception: 非资产经理时禁用
+        - id: P06-L3-002
+          element: 组合行查看按钮
+          function: 查看组合内专利明细
+          trigger: click
+          condition: 无
+          response: 展开组合内专利列表
+          state: 明细展开
+          exception: 无
+        - id: P06-L3-003
+          element: 尽调一键导出按钮
+          function: 生成融资/上市尽调底稿包
+          trigger: click
+          condition: 无
+          response: 提示导出成功并生成底稿
+          state: 导出记录生成
+          exception: 无组合时提示
+
+  - id: P07
+    name: match
+    type: crud_list
+    entity: MatchDemand
+    route: /match
+    priority: P2
+    fields:
+      - field: demandNo
+        in_search: true
+        in_table: true
+        in_detail: true
+      - field: demandCompany
+        in_search: true
+        in_table: true
+        in_detail: true
+      - field: targetIndustry
+        in_search: true
+        in_table: true
+        in_detail: true
+      - field: keyword
+        in_search: true
+        in_table: true
+        in_detail: true
+      - field: budget
+        in_search: false
+        in_table: true
+        in_detail: true
+      - field: contact
+        in_search: false
+        in_table: false
+        in_detail: true
+      - field: status
+        in_search: true
+        in_table: true
+        in_detail: true
+    operations:
+      - name: 发布需求
+        type: create
+        trigger: 点击发布需求按钮
+        condition: 无
+        feedback: 打开表单生成撮合需求
+      - name: 智能匹配
+        type: read
+        trigger: 点击行智能匹配按钮
+        condition: 无
+        feedback: 按关键词与产业匹配专利并显示结果
+      - name: 查看专利
+        type: read
+        trigger: 点击匹配结果专利
+        condition: 无
+        feedback: 跳转 P02 专利详情
+    annotations:
+      L1:
+        summary: 产业专利撮合通道，发布需求并按技术关键词匹配可交易专利
+        entry: 顶部导航"撮合通道"
+        precondition: 角色为 IPR/资产经理
+        data_entity: MatchDemand / Patent
+        business_rules:
+          - 按目标产业与技术关键词匹配
+          - 质押中专利不进入撮合结果
+        test_data: 8 条撮合需求覆盖发布中/匹配中/已成交/已关闭
+      L2:
+        - id: P07-L2-001
+          zone: 需求概览区
+          description: 展示发布中与匹配中需求数量，数据来源于 MatchDemand 按状态汇总
+        - id: P07-L2-002
+          zone: 需求列表区
+          description: 展示需求方、目标产业、关键词与预算，数据来源于 MatchDemand 记录
+        - id: P07-L2-003
+          zone: 操作区
+          description: 提供发布需求与智能匹配入口，按状态与权限显隐
+      L3:
+        - id: P07-L3-001
+          element: 发布需求按钮
+          function: 发布新的撮合需求
+          trigger: click
+          condition: 无
+          response: 打开表单并生成需求
+          state: 需求列表新增
+          exception: 无
+        - id: P07-L3-002
+          element: 行智能匹配按钮
+          function: 按关键词与产业匹配专利
+          trigger: click
+          condition: 无
+          response: 显示匹配专利结果列表
+          state: 匹配结果变化
+          exception: 无匹配时显示空态
+        - id: P07-L3-003
+          element: 状态筛选下拉框
+          function: 按需求状态筛选列表
+          trigger: change
+          condition: 无
+          response: 表格按状态重算
+          state: 结果集变化
+          exception: 无匹配时显示空态
+
+  - id: P08
+    name: executive-cockpit
+    type: dashboard
+    entity: Patent
+    route: /cockpit
+    priority: P1
+    fields:
+      - field: patentNo
+        in_table: true
+      - field: title
+        in_table: true
+      - field: industry
+        in_table: true
+      - field: status
+        in_table: true
+      - field: estimatedValue
+        in_table: true
+    operations:
+      - name: 切换维度
+        type: read
+        trigger: 点击维度 Tab
+        condition: 角色为 C 级
+        feedback: 驾驶舱指标按维度切换
+      - name: 查看详情
+        type: read
+        trigger: 点击风险专利行
+        condition: 无
+        feedback: 跳转 P02 专利详情
+    annotations:
+      L1:
+        summary: 高管可视化驾驶舱，面向 C 级角色展示专利资产全景与风险预警
+        entry: 顶部导航"高管驾驶舱"
+        precondition: 角色为 C 级高管
+        data_entity: Patent / Valuation / AnnualFee / Pledge
+        business_rules:
+          - 仅对 C 级角色开放
+          - 风险口径包含逾期、质押与估值下跌
+        test_data: 驾驶舱指标由 14 条专利实时汇总
+      L2:
+        - id: P08-L2-001
+          zone: 资产全景区
+          description: 展示资产总值、有效专利数、年费风险与质押占比，数据来源于各实体实时汇总
+        - id: P08-L2-002
+          zone: 行业分布区
+          description: 按行业展示专利数量与估值分布，数据来源于 Patent 按 industry 分组
+        - id: P08-L2-003
+          zone: 风险预警区
+          description: 展示逾期失效、即将到期与高风险质押专利，数据来源于状态过滤结果
+        - id: P08-L2-004
+          zone: 维度切换区
+          description: 提供资产/风险/估值维度 Tab 切换，数据来源于驾驶舱指标聚合
+      L3:
+        - id: P08-L3-001
+          element: 维度切换 Tab
+          function: 切换驾驶舱展示维度
+          trigger: click
+          condition: 角色为 C 级
+          response: 指标区按维度重算
+          state: 展示维度变化
+          exception: 非 C 级角色无入口
+        - id: P08-L3-002
+          element: 风险专利行查看按钮
+          function: 查看风险专利详情
+          trigger: click
+          condition: 无
+          response: 跳转 P02 专利详情
+          state: 路由切换
+          exception: 无
+
+roles:
+  - name: enterprise_ipr
+    displayName: 企业IPR专员
+    permissions:
+      - entity: Patent
+        actions: [create, read, update, batch]
+        scope: all
+      - entity: AnnualFee
+        actions: [read, update]
+        scope: all
+      - entity: Valuation
+        actions: [read, create]
+        scope: all
+    page_visibility: [P01, P02, P03, P04, P05, P07]
+  - name: asset_manager
+    displayName: 资产经理
+    permissions:
+      - entity: Patent
+        actions: [read, update]
+        scope: all
+      - entity: Valuation
+        actions: [read, create, update, export]
+        scope: all
+      - entity: Portfolio
+        actions: [create, read, update, export]
+        scope: all
+      - entity: TransferRequest
+        actions: [read, create, update]
+        scope: all
+    page_visibility: [P01, P02, P03, P05, P06, P07]
+  - name: bank_risk
+    displayName: 银行风控
+    permissions:
+      - entity: Patent
+        actions: [read]
+        scope: all
+      - entity: Pledge
+        actions: [read]
+        scope: all
+      - entity: Valuation
+        actions: [read]
+        scope: all
+    page_visibility: [P01, P02, P03, P05]
+  - name: c_level_exec
+    displayName: C级高管
+    permissions:
+      - entity: Patent
+        actions: [read]
+        scope: all
+      - entity: Portfolio
+        actions: [read]
+        scope: all
+      - entity: Valuation
+        actions: [read]
+        scope: all
+    page_visibility: [P01, P02, P03, P06, P08]

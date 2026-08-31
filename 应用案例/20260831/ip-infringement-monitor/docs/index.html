@@ -1,0 +1,5797 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>产品需求文档（PRD） - 线上侵权监测与维权取证系统 产品文档</title>
+<style>
+  :root {
+    --color-bg: #070708;
+    --color-surface: #0A0A0A;
+    --color-surface-hover: #111114;
+    --color-text: #F5F5F7;
+    --color-text-muted: #A1A1AA;
+    --color-text-dim: #71717A;
+    --color-border: #1A1A1F;
+    --color-border-light: #27272A;
+    --color-accent: #14B8A6;
+    --color-accent-dim: rgba(20, 184, 166, 0.15);
+    --font-body: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", sans-serif;
+    --font-mono: "JetBrains Mono", "SF Mono", Consolas, monospace;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+  }
+  /* v5.13.4: 浅色主题 — 白底 + #14B8A6 强调色（与深色同色系，IP 协调） */
+  [data-theme="light"] {
+    --color-bg: #FFFFFF;
+    --color-surface: #FAFAFA;
+    --color-surface-hover: #F4F4F5;
+    --color-text: #18181B;
+    --color-text-muted: #52525B;
+    --color-text-dim: #A1A1AA;
+    --color-border: #E4E4E7;
+    --color-border-light: #D4D4D8;
+    --color-accent: #14B8A6;
+    --color-accent-dim: rgba(20, 184, 166, 0.12);
+  }
+  /* v5.13.4: 主题切换按钮 */
+  .theme-toggle {
+    position: fixed;
+    top: 16px;
+    right: 20px;
+    z-index: 200;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border-light);
+    background: var(--color-surface);
+    color: var(--color-text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .theme-toggle:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    transform: scale(1.05);
+  }
+  [data-theme="light"] .theme-toggle { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body);
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.7;
+    min-height: 100vh;
+    padding: 0;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px 80px; }
+  .header { text-align: center; margin-bottom: 48px; padding: 40px 0 24px; border-bottom: 1px solid var(--color-border); }
+  .header h1 { font-size: 36px; font-weight: 700; color: var(--color-text); margin-bottom: 12px; }
+  .header .subtitle { font-size: 16px; color: var(--color-text-muted); max-width: 720px; margin: 0 auto 12px; }
+  .header .badge { display: inline-block; padding: 4px 12px; background: var(--color-accent-dim); color: var(--color-accent); border-radius: 99px; font-size: 13px; font-weight: 500; }
+  /* 锚点导航栏（sticky） */
+  .anchor-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--color-surface);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+    padding: 12px 20px;
+    margin: 0 -20px 40px;
+  }
+  .anchor-nav-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .anchor-nav a {
+    display: inline-block;
+    padding: 6px 14px;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 99px;
+    border: 1px solid var(--color-border);
+    transition: all 0.2s;
+  }
+  .anchor-nav a:hover { color: var(--color-accent); border-color: var(--color-accent); background: var(--color-accent-dim); }
+  /* v5.13.8: 顶部导航栏 scroll spy 高亮当前章节 */
+  .anchor-nav a.active { color: var(--color-accent); border-color: var(--color-accent); background: var(--color-accent-dim); font-weight: 600; }
+  /* 章节 */
+  section { margin-bottom: 56px; scroll-margin-top: 80px; }
+  section h2 {
+    font-size: 24px; font-weight: 700; color: var(--color-accent);
+    margin-bottom: 20px; padding-bottom: 10px;
+    border-bottom: 1px solid var(--color-border);
+    display: flex; align-items: center; gap: 12px;
+  }
+  section h2 .section-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--color-accent-dim); color: var(--color-accent);
+    font-size: 14px; font-weight: 700;
+  }
+  section h3 { font-size: 18px; font-weight: 600; color: var(--color-text); margin: 28px 0 12px; }
+  section h4 { font-size: 15px; font-weight: 600; color: var(--color-text); margin: 20px 0 8px; }
+  section p { color: var(--color-text-muted); margin-bottom: 12px; }
+  section ul, section ol { padding-left: 24px; margin-bottom: 16px; color: var(--color-text-muted); }
+  section li { margin-bottom: 6px; }
+  section strong { color: var(--color-text); }
+  section blockquote {
+    border-left: 3px solid var(--color-accent);
+    padding: 12px 20px;
+    margin: 16px 0;
+    background: var(--color-surface);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    color: var(--color-text-muted);
+  }
+  section hr { border: none; border-top: 1px solid var(--color-border); margin: 24px 0; }
+  section pre {
+    background: var(--color-surface); border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm); padding: 16px;
+    overflow-x: auto; margin: 16px 0;
+  }
+  section pre code { background: none; padding: 0; color: var(--color-text); font-size: 13px; }
+  section table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+  section th, section td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--color-border); font-size: 14px; }
+  section th { color: var(--color-accent); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+  section td { color: var(--color-text-muted); }
+  section tr:hover td { color: var(--color-text); }
+  code { background: var(--color-surface); padding: 2px 6px; border-radius: 4px; font-family: var(--font-mono); font-size: 13px; color: var(--color-accent); }
+  a { color: var(--color-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 24px; margin-bottom: 16px; }
+  .card:hover { background: var(--color-surface-hover); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+  .tag { display: inline-block; padding: 2px 8px; background: var(--color-accent-dim); color: var(--color-accent); border-radius: 99px; font-size: 12px; font-weight: 500; margin-right: 4px; }
+  .field-list { list-style: none; padding: 0; }
+  .field-list li { padding: 8px 0; border-bottom: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center; }
+  .field-list li:last-child { border-bottom: none; }
+  .field-name { font-family: var(--font-mono); color: var(--color-accent); font-size: 14px; }
+  .field-type { color: var(--color-text-dim); font-size: 13px; }
+  .field-desc { color: var(--color-text-muted); font-size: 14px; }
+  /* 叙事段落（业务背景/痛点/解决方案等） */
+  .narrative { background: var(--color-surface); border-left: 3px solid var(--color-accent); padding: 16px 20px; margin: 16px 0; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+  .narrative h4 { color: var(--color-accent); font-size: 14px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+  .narrative p, .narrative ul, .narrative ol { color: var(--color-text-muted); font-size: 14px; }
+  /* 折叠面板（PM 原始需求等）— v5.13.4: 突出可展开感知 */
+  details {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 0;
+    margin: 16px 0;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  details:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 2px 8px rgba(20, 184, 166, 0.12);
+  }
+  details summary {
+    padding: 16px 20px 16px 24px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-text);
+    background: var(--color-surface-hover);
+    list-style: none;
+    display: flex; align-items: center; justify-content: space-between;
+    user-select: none;
+    position: relative;
+    transition: background 0.2s, padding-left 0.2s;
+  }
+  /* v5.13.4: 左侧色条 — 默认 3px，hover 时变粗 */
+  details summary::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--color-accent);
+    opacity: 0.4;
+    transition: width 0.2s, opacity 0.2s;
+  }
+  details summary:hover::before { width: 5px; opacity: 1; }
+  details summary:hover {
+    background: var(--color-accent-dim);
+    padding-left: 28px;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  /* v5.13.4: 箭头图标替代 +/-，旋转动画 */
+  details summary::after {
+    content: "▶";
+    font-size: 12px;
+    color: var(--color-accent);
+    font-weight: 700;
+    transition: transform 0.2s;
+    display: inline-block;
+  }
+  details[open] summary::after { transform: rotate(90deg); }
+  details .details-content { padding: 20px; border-top: 1px solid var(--color-border); }
+  details .details-content h1, details .details-content h2, details .details-content h3 { color: var(--color-text); margin: 16px 0 8px; }
+  details .details-content h1 { font-size: 20px; }
+  details .details-content h2 { font-size: 17px; color: var(--color-accent); }
+  details .details-content h3 { font-size: 15px; }
+  /* 元数据网格 */
+  .meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+  .meta-item { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 16px; }
+  .meta-label { font-size: 11px; font-weight: 600; color: var(--color-text-dim); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+  .meta-value { font-size: 15px; font-weight: 500; color: var(--color-text); }
+  /* 下载链接卡片 */
+  .download-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 16px; }
+  .download-link { display: block; padding: 16px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-sm); text-decoration: none; color: var(--color-text); transition: all 0.2s; }
+  .download-link:hover { border-color: var(--color-accent); background: var(--color-surface-hover); }
+  .download-link-title { font-size: 14px; font-weight: 600; color: var(--color-accent); margin-bottom: 4px; }
+  .download-link-desc { font-size: 12px; color: var(--color-text-muted); }
+  /* 页面规格折叠面板（每页一个） */
+  .page-spec { margin-bottom: 16px; }
+  .page-spec summary { padding: 14px 20px; }
+  .page-spec .details-content { padding: 16px 20px; }
+  .annotation-block { background: var(--color-bg); border-left: 3px solid var(--color-accent); padding: 12px 16px; margin: 10px 0; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+  .annotation-block h4 { color: var(--color-accent); font-size: 13px; margin-bottom: 6px; }
+  .annotation-block p { color: var(--color-text-muted); font-size: 13px; margin: 0; }
+  /* 提示框 */
+  .tip-box {
+    display: flex; gap: 12px; padding: 16px 20px;
+    background: var(--color-accent-dim); border: 1px solid rgba(20, 184, 166, 0.25);
+    border-radius: var(--radius-sm); margin-top: 24px;
+  }
+  .tip-box-icon { font-size: 16px; color: var(--color-accent); font-weight: 700; flex-shrink: 0; }
+  .tip-box-content { font-size: 13px; line-height: 1.7; color: var(--color-text-muted); }
+  .tip-box-content strong { color: var(--color-text); }
+  /* 页脚（v5.9: Ourchem × Demora 联合版权） */
+  /* v5.13.6: footer 始终深色底色（不随主题切换），确保 Ourchem 纯白 logo 可见 */
+  .footer {
+    text-align: center;
+    padding: 40px 20px 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 56px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+    background: #0a0e14;
+  }
+  .footer-coop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 16px;
+  }
+  .footer-brand-logo {
+    display: flex;
+    align-items: center;
+    height: 28px;
+  }
+  .footer-brand-ourchem svg {
+    height: 28px;
+    width: auto;
+    /* v5.10: 改用奥凯logo-长-白.svg 纯白版本，无需 filter 转色 */
+    opacity: 0.95;
+  }
+  .footer-brand-demora svg {
+    height: 24px;
+    width: auto;
+  }
+  .footer-coop-x {
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.4);
+    user-select: none;
+  }
+  .footer-copyright {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.7;
+    margin: 0;
+  }
+  .footer-copyright .footer-meta {
+    display: inline-block;
+    margin-top: 4px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    opacity: 0.75;
+  }
+  @media (max-width: 768px) {
+    .footer { padding: 32px 20px 24px; }
+    .footer-coop { gap: 12px; }
+    .footer-brand-ourchem svg, .footer-brand-demora svg { height: 22px; }
+    .footer-coop-x { font-size: 16px; }
+  }
+  /* v5.7: Mermaid 流程图样式 */
+  .mermaid {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    margin: 16px 0;
+    text-align: center;
+    overflow: auto;
+    max-height: 480px;
+    /* v5.19 P2-4: 容器可点击放大（配合 mermaid-init.js 的 dialog 放大机制） */
+    cursor: zoom-in;
+  }
+  /* v5.19 P2-4: 图表放大 — svg 硬上限 420px → 720px，大图（如 2583×1364 的 DFD）不再被过度压缩 */
+  .mermaid svg { max-width: 100%; max-height: 720px; height: auto; width: auto; }
+  /* v5.7: Mermaid 加载失败时的兜底样式 */
+  .mermaid-fallback {
+    background: var(--color-surface);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    margin: 16px 0;
+    font-family: var(--font-mono, 'Cascadia Code', Consolas, monospace);
+    font-size: 13px;
+    color: var(--color-text-muted);
+    white-space: pre;
+    overflow-x: auto;
+  }
+  /* v5.7: ASCII 流程图样式 */
+  .ascii-flow {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    margin: 16px 0;
+    font-family: var(--font-mono, 'Cascadia Code', Consolas, monospace);
+    font-size: 13px;
+    color: var(--color-accent);
+    white-space: pre;
+    overflow-x: auto;
+    line-height: 1.4;
+  }
+  /* v5.7: 受众视图 Tab */
+  .audience-tabs {
+    display: flex; gap: 4px; padding: 8px 24px;
+    background: var(--color-surface); border-bottom: 1px solid var(--color-border);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .tab-btn {
+    padding: 6px 16px; background: transparent;
+    border: 1px solid var(--color-border); border-radius: var(--radius-sm);
+    color: var(--color-text-muted); font-size: 13px; cursor: pointer;
+    transition: all 0.2s;
+  }
+  .tab-btn:hover { color: var(--color-text); border-color: var(--color-accent); }
+  .tab-btn.active {
+    background: var(--color-accent); color: white; border-color: var(--color-accent);
+  }
+  /* v5.7: 受众视图切换 CSS（默认全部显示，Tab 切换时隐藏非目标受众） */
+  section[data-audience] { display: block; }
+  body.audience-dev section[data-audience]:not([data-audience*="dev"]) { display: none; }
+  body.audience-pm section[data-audience]:not([data-audience*="pm"]) { display: none; }
+  /* v5.7: 打印时显示所有受众内容 */
+  @media print {
+    section[data-audience] { display: block !important; }
+    .audience-tabs { display: none; }
+  }
+  /* v5.7: TL;DR / Non-Goals 样式 */
+  .tldr-box {
+    background: var(--color-accent-dim); border: 1px solid rgba(20, 184, 166, 0.3);
+    border-radius: var(--radius-sm); padding: 20px 24px; margin: 24px 0;
+  }
+  .tldr-box h3 { color: var(--color-accent); margin-bottom: 12px; }
+  .tldr-box ul { margin: 0; padding-left: 20px; }
+  .tldr-box li { margin: 6px 0; color: var(--color-text); font-size: 14px; line-height: 1.7; }
+  .non-goals-box {
+    background: var(--color-surface); border-left: 3px solid #F59E0B;
+    padding: 16px 20px; margin: 16px 0; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
+  .non-goals-box h3 { color: #F59E0B; margin-bottom: 8px; }
+  .non-goals-box ul { margin: 0; padding-left: 20px; }
+  .non-goals-box li { color: var(--color-text-muted); font-size: 13px; line-height: 1.7; }
+  /* v5.7: 版本信息 */
+  .version-info {
+    display: flex; gap: 16px; padding: 8px 24px;
+    background: var(--color-bg); border-bottom: 1px solid var(--color-border);
+    font-size: 12px; color: var(--color-text-dim);
+  }
+  /* v5.13.8: 左侧目录导航布局 */
+  .docs-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .toc-sidebar {
+    position: sticky;
+    top: 80px;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    padding: 16px 0;
+    border-right: 1px solid var(--color-border);
+  }
+  .toc-sidebar h4 {
+    font-size: 12px;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    padding-left: 12px;
+  }
+  .toc-sidebar ul { list-style: none; padding: 0; margin: 0; }
+  .toc-sidebar li { margin: 0; }
+  .toc-sidebar a {
+    display: block;
+    padding: 6px 12px;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 13px;
+    border-left: 2px solid transparent;
+    transition: all 0.2s;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .toc-sidebar a:hover { color: var(--color-text); background: var(--color-surface); }
+  .toc-sidebar a.active {
+    color: var(--color-accent);
+    border-left-color: var(--color-accent);
+    background: var(--color-accent-dim);
+    font-weight: 600;
+  }
+  .main-content { min-width: 0; }
+  /* 响应式 */
+  @media (max-width: 768px) {
+    .container { padding: 24px 16px 60px; }
+    .header h1 { font-size: 26px; }
+    .anchor-nav { margin: 0 -16px 32px; padding: 10px 16px; }
+    .anchor-nav a { font-size: 12px; padding: 4px 10px; }
+    .grid { grid-template-columns: 1fr; }
+    .meta-grid { grid-template-columns: 1fr 1fr; }
+    .download-links { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 1024px) {
+    .docs-layout { grid-template-columns: 1fr; }
+    .toc-sidebar { display: none; }
+  }
+  </style>
+<!-- v5.7: Mermaid 流程图渲染（离线打包，无外部依赖） -->
+<script src="assets/mermaid/mermaid.min.js"></script>
+<script src="assets/mermaid/mermaid-init.js"></script>
+</head>
+<body>
+<button class="theme-toggle" id="themeToggle" title="切换深色/浅色主题" aria-label="切换主题">🌙</button>
+<div class="container">
+<div class="docs-layout">
+<aside class="toc-sidebar" id="tocSidebar"></aside>
+<main class="main-content">
+
+<header class="header">
+  <h1>线上侵权监测与维权取证系统 产品需求文档</h1>
+  <p class="subtitle">面向品牌方面向电商/1688/跨境/短视频/展会渠道的 AI 侵权监测、区块链存证取证与分级维权处置一体化平台</p>
+  <span class="badge">Demora v5.7 单页 PRD</span>
+</header>
+
+<nav class="audience-tabs" id="audienceTabs">
+  <button class="tab-btn active" data-audience="all">全部</button>
+  <button class="tab-btn" data-audience="pm">PM 视图</button>
+  <button class="tab-btn" data-audience="dev">研发视图</button>
+</nav>
+
+<div class="version-info" data-audience="pm dev test">
+  <span><strong>文档版本：</strong>v1.0</span>
+  <span><strong>生成时间：</strong>2026-08-29</span>
+  <span><strong>模板版本：</strong>v5.7</span>
+  <span><strong>对标：</strong>Lenny's 1-Pager + Notion Ultimate PRD</span>
+</div>
+
+<nav class="anchor-nav">
+  <div class="anchor-nav-inner">
+    <a href="#tldr">摘要</a>
+    <a href="#problem">业务背景</a>
+    <a href="#users">目标用户</a>
+    <a href="#business-process">业务流程</a>
+    <a href="#business-flow">产品流程</a>
+    <a href="#metrics">指标时间线</a>
+    <a href="#scope">范围风险</a>
+    <a href="#dev-docs">研发文档</a>
+  </div>
+</nav>
+
+<section id="tldr" data-audience="pm dev test">
+  <h2><span class="section-num">0</span> 摘要</h2>
+  <p class="section-hint">让 PM/研发在 30 秒内理解项目本质。</p>
+  <div class="tldr-box">
+    <h3>项目摘要</h3>
+<ul>
+<li><strong>项目定位</strong>：面向品牌方面向电商/1688/跨境/短视频/展会渠道的 AI 侵权监测、区块链存证取证与分级维权处置一体化平台</li>
+<li><strong>核心差异点</strong>：整合 4 大业务实体（侵权线索、存证记录、维权案件、跨境规则模板），提供全流程数字化管理</li>
+<li><strong>关键功能</strong>：查看看板、浏览InfringementLead、查看EvidenceRecord详情</li>
+<li><strong>一句话状态</strong>：规划中，计划 2026-Q4 上线</li>
+<li><strong>关键数字</strong>：4 实体 / 3 角色 / 6 页面</li>
+</ul>
+<hr>
+  </div>
+</section>
+
+<section id="problem" data-audience="pm dev test">
+  <h2><span class="section-num">1</span> 业务背景</h2>
+  <p>本章节阐述项目的业务背景、核心痛点与解决方案，对标业界 PRD "Problem before solution" 原则。</p>
+
+  <div class="narrative">
+    <h4>业务背景</h4>
+    <p>本系统面向 IPR 领域的核心业务场景。当前线上侵权监测与维权取证系统旨在通过数字化手段整合侵权线索、存证记录、维权案件、跨境规则模板等业务模块，实现数据集中管理、流程标准化与跨角色协作提效。项目定位为：面向品牌方面向电商/1688/跨境/短视频/展会渠道的 AI 侵权监测、区块链存证取证与分级维权处置一体化平台。</p>
+<hr>
+  </div>
+  <div class="narrative">
+    <h4>核心痛点</h4>
+    <ol>
+<li><strong>痛点一</strong>：侵权线索管理缺乏统一系统支撑，数据分散、流程不规范、跨角色协作效率低（模板生成：需求输入未包含该部分内容）</li>
+<li><strong>痛点二</strong>：存证记录管理缺乏统一系统支撑，数据分散、流程不规范、跨角色协作效率低（模板生成：需求输入未包含该部分内容）</li>
+<li><strong>痛点三</strong>：维权案件管理缺乏统一系统支撑，数据分散、流程不规范、跨角色协作效率低（模板生成：需求输入未包含该部分内容）</li>
+<li><strong>痛点四</strong>：跨模块数据孤岛严重，侵权线索、存证记录、维权案件等业务数据无法联动，报表统计依赖人工汇总，决策缺乏实时数据支撑（模板生成：需求输入未包含该部分内容）</li>
+</ol>
+<hr>
+  </div>
+  <div class="narrative">
+    <h4>解决方案</h4>
+    <p>面向品牌方面向电商/1688/跨境/短视频/展会渠道的 AI 侵权监测、区块链存证取证与分级维权处置一体化平台。通过构建IPR一体化管理平台，实现以下能力：</p>
+<ul>
+<li><strong>维权律师</strong>：重度侵权案件的处理人。接收自动升级的高风险案件，输出诉讼/无效方案，出具律师函。关注&quot;证据链是否完整、时效是否过期、适用法域规则&quot;。</li>
+<li><strong>区块链存证取证</strong>：对命中线索一键发起区块链存证，生成存证哈希与时间戳，支持录屏/页面快照/公证多种取证方式，输出标准化取证报告（PDF）。</li>
+<li><strong>权限边界</strong>：监测分析师可执行监测与存证操作，无立案与处置审批权；品牌方IPR 拥有立案、处置策略确认与结案权；维权律师拥有重度案件处置方案与律师函出具权，不可修改监测任务配置。</li>
+</ul>
+<hr>
+  </div>
+  <div class="narrative">
+    <h4>业务目标</h4>
+    <table><thead><tr>
+<th>业务指标</th>
+<th>当前值</th>
+<th>目标值</th>
+<th>关联战略</th>
+</tr></thead><tbody>
+<tr>
+<td>侵权线索数据准确率</td>
+<td>80%</td>
+<td>98%</td>
+<td>数字化转型提效</td>
+</tr>
+<tr>
+<td>存证记录数据准确率</td>
+<td>80%</td>
+<td>98%</td>
+<td>数字化转型提效</td>
+</tr>
+<tr>
+<td>维权案件数据准确率</td>
+<td>80%</td>
+<td>98%</td>
+<td>数字化转型提效</td>
+</tr>
+<tr>
+<td>跨境规则模板数据准确率</td>
+<td>80%</td>
+<td>98%</td>
+<td>数字化转型提效</td>
+</tr>
+</tbody></table>
+<hr>
+  </div>
+  <div class="narrative">
+    <h4>产品目标 (OKR)</h4>
+    <p><strong>Objective</strong>: 构建IPR一体化平台，实现侵权线索、存证记录、维权案件全流程数字化管理</p>
+<table><thead><tr>
+<th>Key Result</th>
+<th>当前基准</th>
+<th>目标值</th>
+<th>衡量方式</th>
+</tr></thead><tbody>
+<tr>
+<td>KR1: 侵权线索数据准确率提升至 98%</td>
+<td>80%</td>
+<td>98%</td>
+<td>数据校验通过率</td>
+</tr>
+<tr>
+<td>KR2: 存证记录数据准确率提升至 98%</td>
+<td>80%</td>
+<td>98%</td>
+<td>数据校验通过率</td>
+</tr>
+<tr>
+<td>KR3: 维权案件数据准确率提升至 98%</td>
+<td>80%</td>
+<td>98%</td>
+<td>数据校验通过率</td>
+</tr>
+<tr>
+<td>KR4: 系统覆盖 4 个核心业务实体</td>
+<td>0</td>
+<td>4</td>
+<td>实体上线数</td>
+</tr>
+</tbody></table>
+<hr>
+  </div></section>
+<section id="non-goals" data-audience="pm dev test">
+  <h2><span class="section-num">1.5</span> Non-Goals 明确不做的事</h2>
+  <p class="section-hint">显式声明不在本期范围内的事项，避免范围蔓延。</p>
+  <div class="non-goals-box">
+    <h3>本期不实现</h3>
+<ul>
+<li>本期范围外事项：需求输入未指定（如需明确请在需求输入中补充&quot;非目标/范围外&quot;章节）</li>
+</ul>
+  </div>
+</section>
+
+<section id="pm-requirement" data-audience="pm dev">
+  <h2><span class="section-num">2</span> PM 原始需求</h2>
+  <p>本章节按时间顺序展示 PM 在阶段 0（场景简报）与阶段 1（完整需求）输入的原始资料，体现需求从模糊到清晰的迭代过程。</p>
+
+  <details>
+    <summary>阶段 0 · 场景简报（requirement-scenario-brief.md · 487 字符）</summary>
+    <div class="details-content">
+      <h1>PM 需求场景简述</h1>
+<blockquote>来源：inbox/documents/audit-patent-infringement-requirement-scenario-brief.md</blockquote>
+<h2>背景</h2>
+<p>线上电商、1688、跨境平台专利仿冒泛滥，传统维权人工检索取证周期长、证据效力弱；区块链存证成为司法采信硬性标准，快速维权中心数字化工具缺口巨大。</p>
+<h2>核心功能</h2>
+<ul>
+<li>多渠道全网实时侵权爬虫监测（电商/独立站/短视频/展会）</li>
+<li>区块链实时存证取证与标准化取证报告</li>
+<li>维权分级处置（投诉函/律师函/无效检索/诉讼前置）</li>
+<li>海外跨境侵权专项模块（欧美/东南亚投诉规则）</li>
+<li>案件全流程跟踪与维权效果统计</li>
+</ul>
+<h2>用户角色</h2>
+<ul>
+<li>品牌方IPR：发起监测，跟进维权进度</li>
+<li>维权律师：处理重度侵权案件，输出诉讼方案</li>
+<li>监测分析师：执行爬虫监测与存证取证</li>
+</ul>
+<h2>业务规则</h2>
+<ul>
+<li>监测命中后 24 小时内必须完成存证，否则证据失效</li>
+<li>同一卖家同一专利不可重复立案</li>
+<li>高风险案件自动升级至维权律师</li>
+<li>跨境案件需绑定当地投诉规则模板</li>
+</ul>
+    </div>
+  </details>
+  <details>
+    <summary>阶段 1 · 完整需求文档（requirement-input.md · 2945 字符）</summary>
+    <div class="details-content">
+      <h1>线上AI智能侵权监测与快速维权取证系统 — 需求详版</h1>
+<blockquote>来源：inbox/text/requirement-scenario-brief.md（PM 原始输入） 本文档由 AI 基于 PM 简述 + 需求澄清扩展，作为 Phase 1 需求模型填充与 Phase 2 原型设计的输入。</blockquote>
+<h2>1. 业务背景</h2>
+<p>线上电商（淘宝/京东/拼多多）、1688 批发、跨境平台（Amazon/eBay/Shopee/Lazada/Temu）及短视频、独立站、展会渠道的专利仿冒商品泛滥。品牌方传统维权依赖人工检索截图，存在三个硬伤：一是人工全网检索周期长（单轮 3-7 天），侵权链接常在取证前已下架或改价；二是截图类证据易被质疑篡改，司法采信度低；三是区块链存证已成为司法采信的硬性标准，但缺乏从&quot;监测命中&quot;到&quot;存证取证&quot;再到&quot;分级处置&quot;的一体化数字工具，快速维权中心存在显著工具缺口。</p>
+<p>本系统的价值主张：以 AI 爬虫多渠道实时监测为入口，把&quot;发现侵权&quot;到&quot;完成区块链存证&quot;压缩到 24 小时内，并通过分级处置与跨境规则模板，让维权动作可跟踪、效果可量化。</p>
+<h2>2. 用户角色</h2>
+<ul>
+<li><strong>品牌方IPR</strong>：权利人与专利资产的归口人。发起监测任务、确认线索真实性、发起立案与处置审批、跟进维权进度与效果报表。关注&quot;我的专利被谁侵权、处置到哪一步&quot;。</li>
+<li><strong>维权律师</strong>：重度侵权案件的处理人。接收自动升级的高风险案件，输出诉讼/无效方案，出具律师函。关注&quot;证据链是否完整、时效是否过期、适用法域规则&quot;。</li>
+<li><strong>监测分析师</strong>：执行层。配置爬虫监测任务与渠道策略，复核机器命中结果，执行存证取证操作并生成标准化取证报告。关注&quot;待办队列、24 小时存证时效倒计时、重复线索去重&quot;。</li>
+</ul>
+<h2>3. 核心功能</h2>
+<ul>
+<li><strong>多渠道全网侵权监测</strong>：电商/独立站/短视频/展会四类渠道的爬虫监测任务管理，命中结果生成侵权线索，含相似度评分与风险分级（高/中/低）。</li>
+<li><strong>区块链存证取证</strong>：对命中线索一键发起区块链存证，生成存证哈希与时间戳，支持录屏/页面快照/公证多种取证方式，输出标准化取证报告（PDF）。</li>
+<li><strong>维权分级处置</strong>：按侵权严重程度与证据完备度选择处置策略——平台投诉函、律师函、专利无效检索、诉讼前置，并流转至对应责任角色。</li>
+<li><strong>跨境维权专项</strong>：维护欧美/东南亚各国各平台的投诉规则模板（响应时效、材料清单、受理渠道），跨境案件必须绑定当地规则模板才能提交。</li>
+<li><strong>案件全流程跟踪与效果统计</strong>：案件状态机（待处置→处置中→平台受理→已下架/已结案/已驳回）全程留痕，按渠道/地区/专利维度统计下架率、平均处置周期、维权收益。</li>
+</ul>
+<h2>4. 页面列表</h2>
+<table><thead><tr>
+<th>ID</th>
+<th>名称</th>
+<th>类型</th>
+<th>路由</th>
+<th>主要功能</th>
+</tr></thead><tbody>
+<tr>
+<td>P01</td>
+<td>侵权监测工作台</td>
+<td>dashboard</td>
+<td>/dashboard</td>
+<td>监测总览指标卡、24 小时存证倒计时待办、风险等级分布、渠道命中趋势、快捷入口</td>
+</tr>
+<tr>
+<td>P02</td>
+<td>侵权线索清单</td>
+<td>crud_list</td>
+<td>/leads</td>
+<td>多渠道线索列表、按渠道/风险/状态/关键词筛选、批量存证、立案、忽略、重复线索提示</td>
+</tr>
+<tr>
+<td>P03</td>
+<td>存证取证详情</td>
+<td>detail_view</td>
+<td>/evidence</td>
+<td>线索基本信息、区块链存证信息（哈希/时间戳/区块高度）、证据链时间轴、取证报告预览与下载</td>
+</tr>
+<tr>
+<td>P04</td>
+<td>维权案件中心</td>
+<td>crud_list</td>
+<td>/cases</td>
+<td>案件列表、处置策略选择（投诉函/律师函/无效检索/诉讼前置）、状态流转、责任人与升级</td>
+</tr>
+<tr>
+<td>P05</td>
+<td>跨境规则库</td>
+<td>crud_list</td>
+<td>/rules</td>
+<td>欧美/东南亚各国平台投诉规则模板维护、响应时效与材料清单配置、案件绑定关系</td>
+</tr>
+<tr>
+<td>P06</td>
+<td>维权效果统计</td>
+<td>dashboard</td>
+<td>/analytics</td>
+<td>下架率/结案率/平均处置周期指标、渠道与地区分布、专利维度排行、案件漏斗</td>
+</tr>
+</tbody></table>
+<h2>5. 业务规则</h2>
+<ul>
+<li><strong>24 小时存证时效</strong>：监测命中后必须在 24 小时内完成区块链存证，超时后线索状态置为&quot;已失效&quot;，证据不可再用于司法举证；工作台与线索清单对剩余时长分级预警（&gt;12h 正常 / 4-12h 警告 / &lt;4h 危险）。</li>
+<li><strong>不可重复立案</strong>：同一卖家 + 同一专利只可存在一条在办案件；发起立案时若命中重复组合，阻断提交并跳转到已有案件。</li>
+<li><strong>高风险自动升级</strong>：风险等级为&quot;高&quot;或侵权规模达到批量阈值（同卖家同专利命中商品数 ≥ 5）的线索，立案时处置策略自动预选&quot;诉讼前置&quot;并指派维权律师，品牌方IPR 可改派但需填写理由。</li>
+<li><strong>跨境规则绑定</strong>：渠道归属海外（Amazon/eBay/Shopee/Lazada/Temu 等）的案件，必须绑定对应国家/地区的投诉规则模板后方可提交处置；未绑定时提交按钮阻断并提示缺失项。</li>
+<li><strong>状态流转约束</strong>：线索状态 待存证 → 已存证 → 已立案 → 结案；已失效与已忽略为终态，不可逆回。案件状态 待处置 → 处置中 → 平台受理 → 已结案/已驳回，驳回可退回处置中。</li>
+<li><strong>权限边界</strong>：监测分析师可执行监测与存证操作，无立案与处置审批权；品牌方IPR 拥有立案、处置策略确认与结案权；维权律师拥有重度案件处置方案与律师函出具权，不可修改监测任务配置。</li>
+</ul>
+<h2>6. 验收标准</h2>
+<ul>
+<li>页面结构与标注：6 个页面的 <code>data-page-id</code> 与导航项一一对应，每页 L2 区域覆盖 hero/筛选/列表/统计/操作区，L3 标注覆盖按钮、输入框、下拉选择、链接等可交互元件类型（check-structure S-1~S-14 / run-audit D5、D8、D10 可验证）。</li>
+<li>交互实质性：筛选与搜索必须真实过滤列表行并同步更新计数文本；一键存证必须产生业务状态变化（线索状态变更为已存证、生成存证哈希与时间戳、倒计时停止）；24 小时超时线索自动置为已失效（run-audit D6 业务状态签名、筛选往返一致性探针可验证）。</li>
+<li>表单与校验：立案弹窗对重复卖家+专利组合阻断提交并提示；跨境案件未绑定规则模板时阻断提交；必填项缺失时给出错误提示并阻断（pre-audit-check P036/P038/P039 静态检测 + D6 运行时可验证）。</li>
+<li>弹窗闭环：存证、立案、规则绑定等弹窗可正常开启与关闭（run-audit D3 可验证）。</li>
+<li>数据质量：每个业务实体 mock 数据不少于 10 条，覆盖正常/边界/异常态（check-business-fill 可验证）。</li>
+<li>视觉与运行时：无 console error 与 404 资源，无横向溢出，导航切换后公共区域保持完整（run-audit D0、D7、D10 可验证）。</li>
+</ul>
+    </div>
+  </details></section>
+<section id="users" data-audience="pm dev test">
+  <h2><span class="section-num">3</span> 目标用户</h2>
+  <p>目标用户分群、画像与角色定义。</p>
+
+  <h3>用户分群</h3>
+  <div class="narrative">
+    <table><thead><tr>
+<th>用户类型</th>
+<th>定位</th>
+<th>占比</th>
+<th>核心诉求</th>
+</tr></thead><tbody>
+<tr>
+<td>品牌方IPR</td>
+<td>IPR系统核心管理用户</td>
+<td>40%</td>
+<td>高效完成品牌方IPR相关业务操作</td>
+</tr>
+<tr>
+<td>维权律师</td>
+<td>IPR系统协同管理用户</td>
+<td>35%</td>
+<td>高效完成维权律师相关业务操作</td>
+</tr>
+<tr>
+<td>监测分析师</td>
+<td>IPR系统终端使用用户</td>
+<td>20%</td>
+<td>高效完成监测分析师相关业务操作</td>
+</tr>
+</tbody></table>
+<hr>
+  </div>
+  <h3>用户画像</h3>
+  <div class="narrative">
+    <h3>画像 A：品牌方IPR</h3>
+<table><thead><tr>
+<th>维度</th>
+<th>描述</th>
+</tr></thead><tbody>
+<tr>
+<td>职业</td>
+<td>品牌方IPR</td>
+</tr>
+<tr>
+<td>核心职责</td>
+<td>负责品牌方IPR相关业务的管理与执行</td>
+</tr>
+<tr>
+<td>痛点</td>
+<td>侵权线索管理缺乏统一系统支撑，数据分散、流程不规范、跨角色协作效率低</td>
+</tr>
+<tr>
+<td>使用场景</td>
+<td>通过仪表盘页(monitor-dashboard)进行日常业务操作</td>
+</tr>
+<tr>
+<td>期望体验</td>
+<td>操作简洁高效，数据实时准确，权限清晰无越权风险</td>
+</tr>
+<tr>
+<td>当前替代方案</td>
+<td>Excel 表格 + 纸质流程 + 邮件/即时通讯沟通</td>
+</tr>
+</tbody></table>
+<h3>画像 B：维权律师</h3>
+<table><thead><tr>
+<th>维度</th>
+<th>描述</th>
+</tr></thead><tbody>
+<tr>
+<td>职业</td>
+<td>维权律师</td>
+</tr>
+<tr>
+<td>核心职责</td>
+<td>负责维权律师相关业务的管理与执行</td>
+</tr>
+<tr>
+<td>痛点</td>
+<td>存证记录管理缺乏统一系统支撑，数据分散、流程不规范、跨角色协作效率低</td>
+</tr>
+<tr>
+<td>使用场景</td>
+<td>通过侵权线索列表页(infringement-leads)进行日常业务操作</td>
+</tr>
+<tr>
+<td>期望体验</td>
+<td>操作简洁高效，数据实时准确，权限清晰无越权风险</td>
+</tr>
+<tr>
+<td>当前替代方案</td>
+<td>Excel 表格 + 纸质流程 + 邮件/即时通讯沟通</td>
+</tr>
+</tbody></table>
+<h3>画像 C：监测分析师</h3>
+<table><thead><tr>
+<th>维度</th>
+<th>描述</th>
+</tr></thead><tbody>
+<tr>
+<td>职业</td>
+<td>监测分析师</td>
+</tr>
+<tr>
+<td>核心职责</td>
+<td>负责监测分析师相关业务的管理与执行</td>
+</tr>
+<tr>
+<td>痛点</td>
+<td>维权案件管理缺乏统一系统支撑，数据分散、流程不规范、跨角色协作效率低</td>
+</tr>
+<tr>
+<td>使用场景</td>
+<td>通过存证记录详情页(evidence-detail)进行日常业务操作</td>
+</tr>
+<tr>
+<td>期望体验</td>
+<td>操作简洁高效，数据实时准确，权限清晰无越权风险</td>
+</tr>
+<tr>
+<td>当前替代方案</td>
+<td>Excel 表格 + 纸质流程 + 邮件/即时通讯沟通</td>
+</tr>
+</tbody></table>
+<hr>
+  </div>
+  <h3>使用场景</h3>
+  <div class="narrative">
+    <table><thead><tr>
+<th>场景编号</th>
+<th>用户类型</th>
+<th>触发情境</th>
+<th>任务</th>
+<th>设备</th>
+</tr></thead><tbody>
+<tr>
+<td>S01</td>
+<td>品牌方IPR</td>
+<td>需要查看/管理侵权线索数据</td>
+<td>在仪表盘页(monitor-dashboard)进行操作</td>
+<td>桌面端 PC</td>
+</tr>
+<tr>
+<td>S02</td>
+<td>品牌方IPR</td>
+<td>需要查看/管理侵权线索数据</td>
+<td>在侵权线索列表页(infringement-leads)进行操作</td>
+<td>桌面端 PC</td>
+</tr>
+<tr>
+<td>S03</td>
+<td>维权律师</td>
+<td>需要查看/管理侵权线索数据</td>
+<td>在仪表盘页(monitor-dashboard)进行操作</td>
+<td>桌面端 PC</td>
+</tr>
+<tr>
+<td>S04</td>
+<td>维权律师</td>
+<td>需要查看/管理侵权线索数据</td>
+<td>在侵权线索列表页(infringement-leads)进行操作</td>
+<td>桌面端 PC</td>
+</tr>
+<tr>
+<td>S05</td>
+<td>监测分析师</td>
+<td>需要查看/管理侵权线索数据</td>
+<td>在仪表盘页(monitor-dashboard)进行操作</td>
+<td>桌面端 PC</td>
+</tr>
+<tr>
+<td>S06</td>
+<td>监测分析师</td>
+<td>需要查看/管理侵权线索数据</td>
+<td>在侵权线索列表页(infringement-leads)进行操作</td>
+<td>桌面端 PC</td>
+</tr>
+</tbody></table>
+<hr>
+  </div></section>
+<section id="business-process" data-audience="pm dev test">
+  <h2><span class="section-num">4</span> 业务流程</h2>
+  <p>包含主流程、分支流程、异常流程与状态流转。</p>
+
+  <details>
+    <summary>主流程（业务流程）</summary>
+    <div class="narrative">
+      <h3>业务流程图（按角色泳道）</h3>
+<div class="mermaid">flowchart TD
+    N1["用户登录"]
+    END["完成"]
+    subgraph R1["品牌方IPR"]
+        N2("查看看板")
+        N3("浏览侵权线索")
+        N5("浏览维权案件")
+        N6("浏览跨境规则模板")
+        N7("查看看板")
+    end
+    subgraph R3["监测分析师"]
+        N4("查看存证记录详情")
+    end
+    N1 --> N2
+    N2 --> D1{"需要浏览侵权线索?"}
+    D1 -->|是| N3
+    D1 -->|否| END
+    N3 --> D2{"需要查看存证记录详情?"}
+    D2 -->|是| N4
+    D2 -->|否| END
+    N4 --> D3{"需要浏览维权案件?"}
+    D3 -->|是| N5
+    D3 -->|否| END
+    N5 --> D4{"需要浏览跨境规则模板?"}
+    D4 -->|是| N6
+    D4 -->|否| END
+    N6 --> D5{"需要查看看板?"}
+    D5 -->|是| N7
+    D5 -->|否| END
+    N7 --> END</div>
+<h3>主流程步骤说明</h3>
+<p><strong>步骤 1：查看看板</strong></p>
+<ul>
+<li>页面 ID：P01</li>
+<li>页面类型：仪表盘页</li>
+<li>关联实体：侵权线索</li>
+<li>路由：/dashboard</li>
+</ul>
+<p><strong>步骤 2：浏览侵权线索</strong></p>
+<ul>
+<li>页面 ID：P02</li>
+<li>页面类型：CRUD 列表页</li>
+<li>关联实体：侵权线索</li>
+<li>路由：/leads</li>
+</ul>
+<p><strong>步骤 3：查看存证记录详情</strong></p>
+<ul>
+<li>页面 ID：P03</li>
+<li>页面类型：详情页</li>
+<li>关联实体：存证记录</li>
+<li>路由：/evidence</li>
+</ul>
+<p><strong>步骤 4：浏览维权案件</strong></p>
+<ul>
+<li>页面 ID：P04</li>
+<li>页面类型：CRUD 列表页</li>
+<li>关联实体：维权案件</li>
+<li>路由：/cases</li>
+</ul>
+<p><strong>步骤 5：浏览跨境规则模板</strong></p>
+<ul>
+<li>页面 ID：P05</li>
+<li>页面类型：CRUD 列表页</li>
+<li>关联实体：跨境规则模板</li>
+<li>路由：/rules</li>
+</ul>
+<p><strong>步骤 6：查看看板</strong></p>
+<ul>
+<li>页面 ID：P06</li>
+<li>页面类型：仪表盘页</li>
+<li>关联实体：维权案件</li>
+<li>路由：/analytics</li>
+</ul>
+<hr>
+    </div>
+  </details>
+  <details>
+    <summary>分支流程</summary>
+    <div class="narrative">
+      <h3>分支一：侵权线索状态流转</h3>
+<div class="mermaid">graph TD
+    S0["待存证"]
+    S1["已存证"]
+    S2["已失效"]
+    S3["已立案"]
+    S4["已忽略"]
+    S0 -->|一键存证| S1
+    S0 -->|超时失效| S2
+    S1 -->|发起立案| S3
+    S0 -->|判定忽略| S4</div>
+<ul>
+<li><strong>待存证 -&gt; 已存证</strong>：触发=一键存证，条件=命中后 24 小时内完成区块链存证</li>
+<li><strong>待存证 -&gt; 已失效</strong>：触发=超时失效，条件=超过存证截止时间仍未完成存证</li>
+<li><strong>已存证 -&gt; 已立案</strong>：触发=发起立案，条件=同一卖家同一专利无在办案件</li>
+<li><strong>待存证 -&gt; 已忽略</strong>：触发=判定忽略，条件=分析师复核为不侵权或重复线索</li>
+</ul>
+<h3>分支二：存证记录状态流转</h3>
+<div class="mermaid">graph TD
+    S0["存证中"]
+    S1["已上链"]
+    S2["已失效"]
+    S0 -->|上链成功| S1
+    S0 -->|存证失败| S2</div>
+<ul>
+<li><strong>存证中 -&gt; 已上链</strong>：触发=上链成功，条件=区块链网络返回存证哈希与时间戳</li>
+<li><strong>存证中 -&gt; 已失效</strong>：触发=存证失败，条件=上链超时或证据文件缺失</li>
+</ul>
+<h3>分支三：维权案件状态流转</h3>
+<div class="mermaid">graph TD
+    S0["待处置"]
+    S1["处置中"]
+    S2["平台受理"]
+    S3["已结案"]
+    S4["已驳回"]
+    S0 -->|启动处置| S1
+    S1 -->|平台受理| S2
+    S2 -->|结案归档| S3
+    S1 -->|平台驳回| S4
+    S4 -->|补充证据重启| S1</div>
+<ul>
+<li><strong>待处置 -&gt; 处置中</strong>：触发=启动处置，条件=已选定处置策略且跨境案件已绑定当地规则模板</li>
+<li><strong>处置中 -&gt; 平台受理</strong>：触发=平台受理，条件=平台返回受理回执</li>
+<li><strong>平台受理 -&gt; 已结案</strong>：触发=结案归档，条件=侵权商品已下架或达成和解</li>
+<li><strong>处置中 -&gt; 已驳回</strong>：触发=平台驳回，条件=证据不足或权利不稳定</li>
+<li><strong>已驳回 -&gt; 处置中</strong>：触发=补充证据重启，条件=补充存证后重新提交</li>
+</ul>
+<h3>分支四：跨境规则模板状态流转</h3>
+<div class="mermaid">graph TD
+    S0["已启用"]
+    S1["已停用"]
+    S0 -->|停用规则| S1
+    S1 -->|启用规则| S0</div>
+<ul>
+<li><strong>已启用 -&gt; 已停用</strong>：触发=停用规则，条件=平台投诉渠道变更或规则过期</li>
+<li><strong>已停用 -&gt; 已启用</strong>：触发=启用规则，条件=规则内容复核通过</li>
+</ul>
+<hr>
+    </div>
+  </details>
+  <details>
+    <summary>异常流程</summary>
+    <p class="section-hint">测试关注：覆盖所有异常场景的测试用例。</p>
+    <div class="narrative">
+      <table><thead><tr>
+<th>异常场景</th>
+<th>触发条件</th>
+<th>处理方式</th>
+<th>提示信息</th>
+</tr></thead><tbody>
+<tr>
+<td>数据加载失败</td>
+<td>网络异常或接口超时</td>
+<td>显示错误状态页，提供重试按钮</td>
+<td>数据加载失败，请重试</td>
+</tr>
+<tr>
+<td>权限不足</td>
+<td>用户访问无权限页面或操作</td>
+<td>路由守卫拦截，跳转 403 页面</td>
+<td>您无权访问该页面</td>
+</tr>
+<tr>
+<td>数据校验失败</td>
+<td>表单提交字段不合规</td>
+<td>表单内联显示校验错误</td>
+<td>请检查输入内容</td>
+</tr>
+<tr>
+<td>数据不存在</td>
+<td>访问已删除/不存在的记录</td>
+<td>显示 404 空状态页</td>
+<td>该记录不存在或已删除</td>
+</tr>
+<tr>
+<td>并发冲突</td>
+<td>多人同时编辑同一记录</td>
+<td>提交时检测版本冲突，提示刷新</td>
+<td>数据已被他人修改，请刷新后重试</td>
+</tr>
+</tbody></table>
+<hr>
+    </div>
+  </details>
+  <details>
+    <summary>状态流转</summary>
+    <p class="section-hint">测试关注：状态机覆盖测试。</p>
+    <div class="narrative">
+      <table><thead><tr>
+<th>实体</th>
+<th>当前状态</th>
+<th>允许转换到</th>
+<th>触发操作</th>
+<th>触发条件</th>
+</tr></thead><tbody>
+<tr>
+<td>侵权线索</td>
+<td>待存证</td>
+<td>已存证</td>
+<td>一键存证</td>
+<td>命中后 24 小时内完成区块链存证</td>
+</tr>
+<tr>
+<td>侵权线索</td>
+<td>待存证</td>
+<td>已失效</td>
+<td>超时失效</td>
+<td>超过存证截止时间仍未完成存证</td>
+</tr>
+<tr>
+<td>侵权线索</td>
+<td>已存证</td>
+<td>已立案</td>
+<td>发起立案</td>
+<td>同一卖家同一专利无在办案件</td>
+</tr>
+<tr>
+<td>侵权线索</td>
+<td>待存证</td>
+<td>已忽略</td>
+<td>判定忽略</td>
+<td>分析师复核为不侵权或重复线索</td>
+</tr>
+<tr>
+<td>存证记录</td>
+<td>存证中</td>
+<td>已上链</td>
+<td>上链成功</td>
+<td>区块链网络返回存证哈希与时间戳</td>
+</tr>
+<tr>
+<td>存证记录</td>
+<td>存证中</td>
+<td>已失效</td>
+<td>存证失败</td>
+<td>上链超时或证据文件缺失</td>
+</tr>
+<tr>
+<td>维权案件</td>
+<td>待处置</td>
+<td>处置中</td>
+<td>启动处置</td>
+<td>已选定处置策略且跨境案件已绑定当地规则模板</td>
+</tr>
+<tr>
+<td>维权案件</td>
+<td>处置中</td>
+<td>平台受理</td>
+<td>平台受理</td>
+<td>平台返回受理回执</td>
+</tr>
+<tr>
+<td>维权案件</td>
+<td>平台受理</td>
+<td>已结案</td>
+<td>结案归档</td>
+<td>侵权商品已下架或达成和解</td>
+</tr>
+<tr>
+<td>维权案件</td>
+<td>处置中</td>
+<td>已驳回</td>
+<td>平台驳回</td>
+<td>证据不足或权利不稳定</td>
+</tr>
+<tr>
+<td>维权案件</td>
+<td>已驳回</td>
+<td>处置中</td>
+<td>补充证据重启</td>
+<td>补充存证后重新提交</td>
+</tr>
+<tr>
+<td>跨境规则模板</td>
+<td>已启用</td>
+<td>已停用</td>
+<td>停用规则</td>
+<td>平台投诉渠道变更或规则过期</td>
+</tr>
+<tr>
+<td>跨境规则模板</td>
+<td>已停用</td>
+<td>已启用</td>
+<td>启用规则</td>
+<td>规则内容复核通过</td>
+</tr>
+</tbody></table>
+<h3>各实体状态枚举</h3>
+<ul>
+<li><strong>侵权线索</strong>：待存证 / 已存证 / 已立案 / 已失效 / 已忽略</li>
+<li><strong>存证记录</strong>：存证中 / 已上链 / 已失效</li>
+<li><strong>维权案件</strong>：待处置 / 处置中 / 平台受理 / 已结案 / 已驳回</li>
+<li><strong>跨境规则模板</strong>：已启用 / 已停用</li>
+</ul>
+<blockquote>状态字典定义请参见 <code>status-dictionary.yaml</code>（由实体状态枚举自动推导）。</blockquote>
+<hr>
+<blockquote>本文档由 generate-prd.mjs (v5.2.2) 基于 requirement-model.yaml 自动生成（2026-08-29T15:52:06.986Z）</blockquote>
+    </div>
+  </details></section>
+<section id="business-flow" data-audience="pm dev test">
+  <h2><span class="section-num">5</span> 产品流程</h2>
+  <p>包含任务流、数据流与页面流三类结构性视图。</p>
+
+  <h3>Task Flow（任务流）</h3>
+  <p class="section-hint">用户完成业务任务的操作步骤序列，按角色分泳道。PM 与培训关注。</p>
+  <div class="narrative">
+    <blockquote><strong>关注点</strong>：用户完成业务任务的操作步骤序列，按角色分 Pool/Lane。 <strong>图例</strong>：<code>(( ))</code> 事件 / <code>( )</code> 任务 / <code>{ }</code> 网关 / 实线=Sequence Flow / 虚线=Message Flow</blockquote>
+<h3>BPMN 任务流图</h3>
+<div class="mermaid">flowchart TD
+    Start((用户登录))
+    subgraph Pool1["品牌方IPR"]
+        Pool1_T1("查看看板")
+        Pool1_T2("浏览侵权线索")
+        Pool1_T1 --> Pool1_G1{"通过?"}
+        Pool1_G1 -->|是| Pool1_T2
+        Pool1_G1 -->|否| Pool1_End((结束))
+        Pool1_T3("浏览维权案件")
+        Pool1_T2 --> Pool1_G2{"通过?"}
+        Pool1_G2 -->|是| Pool1_T3
+        Pool1_G2 -->|否| Pool1_End((结束))
+        Pool1_T4("浏览跨境规则模板")
+        Pool1_T3 --> Pool1_G3{"通过?"}
+        Pool1_G3 -->|是| Pool1_T4
+        Pool1_G3 -->|否| Pool1_End((结束))
+        Pool1_T5("查看看板")
+        Pool1_T4 --> Pool1_G4{"通过?"}
+        Pool1_G4 -->|是| Pool1_T5
+        Pool1_G4 -->|否| Pool1_End((结束))
+        Pool1_T5 --> Pool1_Done((任务完成))
+    end
+    subgraph Pool2["维权律师"]
+        Pool2_T1("执行业务操作")
+    end
+    subgraph Pool3["监测分析师"]
+        Pool3_T1("查看存证记录详情")
+        Pool3_T1 --> Pool3_Done((任务完成))
+    end
+    Start --> Pool1_T1
+    Pool1_Done -.->|交付维权案件/跨境规则模板| Pool2_T1
+    Pool2_Done -.->|交付| Pool3_T1
+    Pool3_Done --> End((业务完成))
+    Evt1{{"侵权线索: 待存证 → 已存证"}}
+    Evt2{{"侵权线索: 待存证 → 已失效"}}
+    Evt3{{"侵权线索: 已存证 → 已立案"}}</div>
+<h3>角色任务清单（BPMN Pool/Lane 视角）</h3>
+<table><thead><tr>
+<th>角色 (Pool)</th>
+<th>任务 (Task)</th>
+<th>触发条件</th>
+<th>关联页面</th>
+<th>关联实体</th>
+<th>交付物</th>
+</tr></thead><tbody>
+<tr>
+<td>品牌方IPR</td>
+<td>查看看板</td>
+<td>登录后进入工作台</td>
+<td>仪表盘页(monitor-dashboard)</td>
+<td>侵权线索、维权案件、跨境规则模板</td>
+<td>业务数据</td>
+</tr>
+<tr>
+<td>维权律师</td>
+<td>执行业务操作</td>
+<td>登录后进入工作台</td>
+<td>-</td>
+<td>维权案件、跨境规则模板</td>
+<td>业务数据</td>
+</tr>
+<tr>
+<td>监测分析师</td>
+<td>查看存证记录详情</td>
+<td>登录后进入工作台</td>
+<td>存证记录详情页(evidence-detail)</td>
+<td>侵权线索、存证记录</td>
+<td>业务数据</td>
+</tr>
+</tbody></table>
+<hr>
+  </div>
+  <details>
+    <summary>Data Flow（数据流）</summary>
+    <p class="section-hint">数据在系统各模块/角色间的流动路径。研发与架构关注。</p>
+    <div class="narrative">
+      <blockquote><strong>关注点</strong>：数据在系统各模块/角色间的流动路径，含数据归属与操作权限。 <strong>图例</strong>：<code>[ ]</code> 外部实体 / <code>( )</code> 处理过程 / <code>[[ ]]</code> 数据存储 / 箭头标签=数据流内容</blockquote>
+<h3>Level 0 - 上下文图（Context Diagram）</h3>
+<div class="mermaid">flowchart LR
+    System((本系统<br/>线上侵权监测与维权取证系统))
+    Ext1["品牌方IPR"]
+    Ext2["维权律师"]
+    Ext3["监测分析师"]
+    Ext1 -->|侵权线索、维权案件数据| System
+    System -.->|查询结果/反馈| Ext1
+    Ext2 -->|维权案件、跨境规则模板数据| System
+    System -.->|查询结果/反馈| Ext2
+    Ext3 -->|侵权线索、存证记录数据| System
+    System -.->|查询结果/反馈| Ext3</div>
+<h3>Level 1 - 数据流分解图</h3>
+<div class="mermaid">flowchart LR
+    DS1[["侵权线索<br/>字段: leadNo, patentNo, patentTitle, itemTitle..."]]
+    DS2[["存证记录<br/>字段: evidenceNo, leadNo, method, blockHash..."]]
+    DS3[["维权案件<br/>字段: caseNo, leadNo, patentNo, seller..."]]
+    DS4[["跨境规则模板<br/>字段: ruleCode, region, platform, channel..."]]
+    P1("立即存证<br/>(侵权线索)")
+    P2("新建监测任务<br/>(侵权线索)")
+    P3("立即存证<br/>(侵权线索)")
+    P4("发起立案<br/>(侵权线索)")
+    P5("发起存证<br/>(存证记录)")
+    P6("生成取证报告<br/>(存证记录)")
+    P7("新建案件<br/>(维权案件)")
+    P8("推进状态<br/>(维权案件)")
+    P9("新建规则<br/>(跨境规则模板)")
+    P10("编辑规则<br/>(跨境规则模板)")
+    P11("时间范围筛选<br/>(维权案件)")
+    P12("导出统计报表<br/>(维权案件)")
+    Ext1["品牌方IPR"]
+    Ext2["维权律师"]
+    Ext3["监测分析师"]
+    Ext1 -->|custom 侵权线索| P1
+    Ext3 -->|custom 侵权线索| P1
+    P1 -.->|CRUD| DS1
+    P1 -.->|查询结果| Ext1
+    P1 -.->|查询结果| Ext2
+    P1 -.->|查询结果| Ext3
+    Ext1 -->|create 侵权线索| P2
+    Ext3 -->|create 侵权线索| P2
+    P2 -->|写入| DS1
+    P2 -.->|查询结果| Ext1
+    P2 -.->|查询结果| Ext2
+    P2 -.->|查询结果| Ext3
+    Ext1 -->|custom 侵权线索| P3
+    Ext3 -->|custom 侵权线索| P3
+    P3 -.->|CRUD| DS1
+    P3 -.->|查询结果| Ext1
+    P3 -.->|查询结果| Ext2
+    P3 -.->|查询结果| Ext3
+    Ext1 -->|create 侵权线索| P4
+    Ext3 -->|create 侵权线索| P4
+    P4 -->|写入| DS1
+    P4 -.->|查询结果| Ext1
+    P4 -.->|查询结果| Ext2
+    P4 -.->|查询结果| Ext3
+    Ext3 -->|create 存证记录| P5
+    P5 -->|写入| DS2
+    P5 -.->|查询结果| Ext1
+    P5 -.->|查询结果| Ext2
+    P5 -.->|查询结果| Ext3
+    Ext3 -->|export 存证记录| P6
+    DS2 -->|读取| P6
+    P6 -.->|查询结果| Ext1
+    P6 -.->|查询结果| Ext2
+    P6 -.->|查询结果| Ext3
+    Ext1 -->|create 维权案件| P7
+    Ext2 -->|create 维权案件| P7
+    P7 -->|写入| DS3
+    P7 -.->|查询结果| Ext1
+    P7 -.->|查询结果| Ext2
+    P7 -.->|查询结果| Ext3
+    Ext1 -->|update 维权案件| P8
+    Ext2 -->|update 维权案件| P8
+    P8 -->|写入| DS3
+    P8 -.->|查询结果| Ext1
+    P8 -.->|查询结果| Ext2
+    P8 -.->|查询结果| Ext3
+    Ext1 -->|create 跨境规则模板| P9
+    Ext2 -->|create 跨境规则模板| P9
+    P9 -->|写入| DS4
+    P9 -.->|查询结果| Ext1
+    P9 -.->|查询结果| Ext2
+    P9 -.->|查询结果| Ext3
+    Ext1 -->|update 跨境规则模板| P10
+    Ext2 -->|update 跨境规则模板| P10
+    P10 -->|写入| DS4
+    P10 -.->|查询结果| Ext1
+    P10 -.->|查询结果| Ext2
+    P10 -.->|查询结果| Ext3
+    Ext1 -->|read 维权案件| P11
+    Ext2 -->|read 维权案件| P11
+    DS3 -->|读取| P11
+    P11 -.->|查询结果| Ext1
+    P11 -.->|查询结果| Ext2
+    P11 -.->|查询结果| Ext3
+    Ext1 -->|export 维权案件| P12
+    Ext2 -->|export 维权案件| P12
+    DS3 -->|读取| P12
+    P12 -.->|查询结果| Ext1
+    P12 -.->|查询结果| Ext2
+    P12 -.->|查询结果| Ext3</div>
+<h3>实体数据归属矩阵</h3>
+<table><thead><tr>
+<th>实体</th>
+<th>所有者角色</th>
+<th>可读角色</th>
+<th>可写角色</th>
+<th>数据流向</th>
+<th>主键字段</th>
+<th>关键字段</th>
+</tr></thead><tbody>
+<tr>
+<td>侵权线索</td>
+<td>品牌方IPR</td>
+<td>品牌方IPR/维权律师/监测分析师</td>
+<td>品牌方IPR/监测分析师</td>
+<td>品牌方IPR → [侵权线索] → 品牌方IPR</td>
+<td>id</td>
+<td>leadNo, patentNo, patentTitle</td>
+</tr>
+<tr>
+<td>存证记录</td>
+<td>监测分析师</td>
+<td>品牌方IPR/维权律师/监测分析师</td>
+<td>监测分析师</td>
+<td>监测分析师 → [存证记录] → 品牌方IPR</td>
+<td>id</td>
+<td>evidenceNo, leadNo, method</td>
+</tr>
+<tr>
+<td>维权案件</td>
+<td>品牌方IPR</td>
+<td>品牌方IPR/维权律师/监测分析师</td>
+<td>品牌方IPR/维权律师</td>
+<td>品牌方IPR → [维权案件] → 品牌方IPR</td>
+<td>id</td>
+<td>caseNo, leadNo, patentNo</td>
+</tr>
+<tr>
+<td>跨境规则模板</td>
+<td>品牌方IPR</td>
+<td>品牌方IPR/维权律师/监测分析师</td>
+<td>品牌方IPR/维权律师</td>
+<td>品牌方IPR → [跨境规则模板] → 品牌方IPR</td>
+<td>id</td>
+<td>ruleCode, region, platform</td>
+</tr>
+</tbody></table>
+<h3>数据流层级说明</h3>
+<ul>
+<li><strong>Level 0 - Context Diagram</strong>：将整个系统视为单一 Process，展示外部实体与系统的交互边界</li>
+<li><strong>Level 1 - 数据流分解图</strong>：将系统分解为多个 Process（页面操作），展示 Process 与 Data Store（实体）的数据交互</li>
+<li><strong>建议进一步分解</strong>：复杂 Process 可继续分解为 Level 2 / Level 3 DFD</li>
+</ul>
+<hr>
+    </div>
+  </details>
+  <h3>Page Flow（页面流）</h3>
+  <p class="section-hint">页面间的跳转关系。前端与交互设计关注。</p>
+  <div class="narrative">
+    <blockquote><strong>关注点</strong>：页面间的跳转关系，含路由、跳转条件与决策分支。 <strong>图例</strong>：<code>(( ))</code> 起止节点 / <code>[ ]</code> 页面 / <code>{ }</code> 决策点 / 实线=跳转 / 虚线=返回</blockquote>
+<h3>UI Flow 页面跳转图</h3>
+<div class="mermaid">flowchart TD
+    Start((用户登录))
+    P01["仪表盘页(monitor-dashboard)<br/>/dashboard"]
+    P02["侵权线索列表页(infringement-leads)<br/>/leads"]
+    P03["存证记录详情页(evidence-detail)<br/>/evidence"]
+    P04["维权案件列表页(rights-cases)<br/>/cases"]
+    P05["跨境规则模板列表页(cross-border-rules)<br/>/rules"]
+    P06["仪表盘页(rights-analytics)<br/>/analytics"]
+    Start --> P01
+    P01 -->|待办行存证按钮| P02
+    P02 --> P02_D{"用户操作?"}
+    P02_D -->|查看详情| P03
+    P02_D -->|新建| P02
+    P03 -->|发起存证按钮| P04
+    P04 --> P04_D{"用户操作?"}
+    P04_D -->|查看详情| P05
+    P04_D -->|新建| P04
+    P05 --> P05_D{"用户操作?"}
+    P05_D -->|查看详情| P06
+    P05_D -->|新建| P05
+    P06 -.->|返回主页| P01
+    P03 -.->|返回列表| P02
+    P01 -->|退出登录| Exit((退出系统))</div>
+<h3>路由表与跳转条件</h3>
+<table><thead><tr>
+<th>源页面</th>
+<th>目标页面</th>
+<th>触发条件</th>
+<th>传参</th>
+<th>权限要求</th>
+<th>跳转类型</th>
+</tr></thead><tbody>
+<tr>
+<td>登录页</td>
+<td>仪表盘页(monitor-dashboard)</td>
+<td>用户登录成功</td>
+<td>userId</td>
+<td>已认证</td>
+<td>路由跳转</td>
+</tr>
+<tr>
+<td>仪表盘页(monitor-dashboard)</td>
+<td>侵权线索列表页(infringement-leads)</td>
+<td>点击待办行存证按钮</td>
+<td>InfringementLead</td>
+<td>已认证</td>
+<td>路由跳转</td>
+</tr>
+<tr>
+<td>侵权线索列表页(infringement-leads)</td>
+<td>存证记录详情页(evidence-detail)</td>
+<td>点击行内存证按钮</td>
+<td>InfringementLead</td>
+<td>已认证</td>
+<td>路由跳转</td>
+</tr>
+<tr>
+<td>存证记录详情页(evidence-detail)</td>
+<td>维权案件列表页(rights-cases)</td>
+<td>点击发起存证按钮</td>
+<td>EvidenceRecord</td>
+<td>已认证</td>
+<td>路由跳转</td>
+</tr>
+<tr>
+<td>维权案件列表页(rights-cases)</td>
+<td>跨境规则模板列表页(cross-border-rules)</td>
+<td>点击新建案件按钮</td>
+<td>RightsCase</td>
+<td>已认证</td>
+<td>路由跳转</td>
+</tr>
+<tr>
+<td>跨境规则模板列表页(cross-border-rules)</td>
+<td>仪表盘页(rights-analytics)</td>
+<td>点击新建规则按钮</td>
+<td>CrossBorderRule</td>
+<td>已认证</td>
+<td>路由跳转</td>
+</tr>
+<tr>
+<td>仪表盘页(rights-analytics)</td>
+<td>仪表盘页(monitor-dashboard)</td>
+<td>点击返回/面包屑</td>
+<td>-</td>
+<td>已认证</td>
+<td>返回</td>
+</tr>
+</tbody></table>
+<h3>跳转模式说明</h3>
+<ul>
+<li><strong>列表 → 详情</strong>：用户在列表页点击行项目，跳转到详情页查看完整信息</li>
+<li><strong>列表 → 表单</strong>：用户在列表页点击&quot;新建&quot;按钮，跳转到表单页录入数据</li>
+<li><strong>详情 → 列表</strong>：用户在详情页点击&quot;返回&quot;，回到列表页</li>
+<li><strong>任意页 → 主页</strong>：用户点击面包屑或 Logo，返回主页</li>
+<li><strong>退出登录</strong>：用户点击退出按钮，终止会话</li>
+</ul>
+<hr>
+  </div></section>
+<section id="pages" data-audience="dev test">
+  <h2><span class="section-num">6</span> 页面规格</h2>
+  <p>页面清单与三层标注体系（L1 摘要 / L2 区域 / L3 元件）。共 6 个页面。</p>
+
+  <h3>页面清单</h3>
+  <table>
+    <thead><tr><th>ID</th><th>页面名称</th><th>类型</th><th>路由</th><th>实体</th><th>优先级</th></tr></thead>
+    <tbody>
+      <tr><td>P01</td><td>monitor-dashboard</td><td><span class="tag">dashboard</span></td><td><code>/dashboard</code></td><td>InfringementLead</td><td>P0</td></tr>
+      <tr><td>P02</td><td>infringement-leads</td><td><span class="tag">crud_list</span></td><td><code>/leads</code></td><td>InfringementLead</td><td>P0</td></tr>
+      <tr><td>P03</td><td>evidence-detail</td><td><span class="tag">detail_view</span></td><td><code>/evidence</code></td><td>EvidenceRecord</td><td>P0</td></tr>
+      <tr><td>P04</td><td>rights-cases</td><td><span class="tag">crud_list</span></td><td><code>/cases</code></td><td>RightsCase</td><td>P0</td></tr>
+      <tr><td>P05</td><td>cross-border-rules</td><td><span class="tag">crud_list</span></td><td><code>/rules</code></td><td>CrossBorderRule</td><td>P1</td></tr>
+      <tr><td>P06</td><td>rights-analytics</td><td><span class="tag">dashboard</span></td><td><code>/analytics</code></td><td>RightsCase</td><td>P1</td></tr>
+    </tbody>
+  </table>
+  <h3>页面详情</h3>
+  <details class="page-spec">
+    <summary>P01 · monitor-dashboard <span style="font-size:12px;color:var(--color-text-dim);margin-left:8px;">[dashboard]</span></summary>
+    <div class="details-content">
+      <table>
+        <tr><th>页面 ID</th><td>P01</td></tr>
+        <tr><th>页面名称</th><td>monitor-dashboard</td></tr>
+        <tr><th>页面类型</th><td><span class="tag">dashboard</span></td></tr>
+        <tr><th>路由</th><td><code>/dashboard</code></td></tr>
+        <tr><th>关联实体</th><td>InfringementLead</td></tr>
+      </table>
+
+      <h4>L1 页面说明</h4>
+      <div class="annotation-block">        <h4>摘要</h4><p>侵权监测工作台是品牌方IPR 与监测分析师的每日作业入口，汇总监测命中的线索规模、24 小时存证时效倒计时待办、风险等级分布与渠道命中趋势，让用户一屏判断今天必须先处理哪些侵权线索。</p>        <h4>入口</h4><p>系统首页默认落地页，左侧导航第一项；也可由其他页面点击品牌区返回。</p>        <h4>前置条件</h4><p>用户已登录并具备品牌方IPR、监测分析师或维权律师任一角色；系统已至少执行过一轮爬虫监测任务并产生线索数据。</p>        <h4>数据实体</h4><p>InfringementLead、EvidenceRecord、RightsCase</p>        <h4>测试数据</h4><p>内置 12 条线索：4 条待存证（含 1 条剩余 3 小时危险态、1 条超时失效）、3 条已存证、3 条已立案、2 条已忽略；覆盖电商/独立站/短视频/展会/跨境五类渠道。</p>        <h4>业务规则</h4><ul style="padding-left: 20px; color: var(--color-text-muted); font-size: 13px;"><li>监测命中后 24 小时内必须完成存证，超时线索状态自动置为已失效</li><li>剩余时长大于 12 小时为正常，4 至 12 小时为警告，小于 4 小时为危险</li><li>风险等级为高或命中商品数大于等于 5 的线索立案时自动预选诉讼前置并指派维权律师</li></ul>      </div>
+
+      <h4>L2 区域标注（5）</h4>      <table><thead><tr><th>区域 ID</th><th>区域名称</th><th>说明</th></tr></thead><tbody><tr><td>P01-L2-001</td><td>监测总览指标区</td><td>以四张可点击指标卡展示待存证线索数、高风险案件数、已下架商品数与平均处置周期；数据由线索表按状态聚合、案件表按处置结果聚合实时计算，点击卡片可跳转对应清单并预置筛选条件。</td></tr><tr><td>P01-L2-002</td><td>存证时效待办区</td><td>按剩余存证倒计时升序展示待处理线索，每行含线索编号、卖家、剩余时长与时效徽标；数据来源于线索表的存证截止时间字段与当前时间比对，倒计时归零后行状态自动变为已失效。</td></tr><tr><td>P01-L2-003</td><td>风险等级分布区</td><td>以横向条形展示高中低三档风险线索的条数与占比；数据由线索表按风险等级分组统计，随渠道筛选条件联动重算，用于判断本期维权资源投入优先级。</td></tr><tr><td>P01-L2-004</td><td>渠道命中趋势区</td><td>展示近七日各渠道侵权命中的趋势柱形，数据来源于线索表按命中日期与渠道分组聚合，用于识别仿冒集中爆发的渠道并调整监测任务频次。</td></tr><tr><td>P01-L2-005</td><td>快捷操作区</td><td>提供新建监测任务、批量存证、导出日报三类高频动作入口；操作受角色权限约束，监测分析师可见全部，品牌方IPR 不可新建监测任务。</td></tr></tbody></table>      <h4>L3 元件标注（9）</h4>      <table><thead><tr><th>元件 ID</th><th>元件名称</th><th>功能</th><th>触发</th><th>响应</th></tr></thead><tbody><tr><td>P01-L3-001</td><td>指标卡-待存证线索</td><td>展示待存证线索总数并作为跳转入口</td><td>点击指标卡</td><td>跳转侵权线索清单页并自动按待存证状态筛选列表</td></tr><tr><td>P01-L3-002</td><td>指标卡-高风险案件</td><td>展示高风险线索与在办案件数并跳转案件中心</td><td>点击指标卡</td><td>跳转维权案件中心并自动按高风险筛选</td></tr><tr><td>P01-L3-003</td><td>指标卡-已下架商品</td><td>展示已结案案件中处置结果为已下架的数量</td><td>点击指标卡</td><td>跳转维权效果统计页并定位渠道分布区块</td></tr><tr><td>P01-L3-004</td><td>指标卡-平均处置周期</td><td>展示从立案到结案的平均天数</td><td>点击指标卡</td><td>跳转维权效果统计页并高亮处置周期趋势</td></tr><tr><td>P01-L3-005</td><td>待办行立即存证按钮</td><td>对单条待存证线索发起区块链存证</td><td>点击待办行存证按钮</td><td>弹出存证方式选择弹窗，确认后生成存证编号与上链哈希，线索状态变更为已存证</td></tr><tr><td>P01-L3-006</td><td>待办行查看线索链接</td><td>跳转到存证取证详情页查看线索与证据信息</td><td>点击待办行查看链接</td><td>切换至存证取证详情页并载入该线索的存证信息</td></tr><tr><td>P01-L3-007</td><td>渠道筛选下拉</td><td>按侵权渠道过滤看板指标与待办列表</td><td>切换下拉选项</td><td>指标卡、风险分布、趋势与待办列表同步按渠道重算并更新计数</td></tr><tr><td>P01-L3-008</td><td>新建监测任务按钮</td><td>创建新的爬虫监测任务</td><td>点击新建监测任务按钮</td><td>弹出任务配置弹窗，填写专利号与渠道后提交，任务进入监测队列并提示创建成功</td></tr><tr><td>P01-L3-009</td><td>时效预警筛选标签</td><td>按存证剩余时长档位筛选待办列表</td><td>点击全部或警告或危险标签</td><td>待办列表仅显示符合所选档位的线索并更新计数</td></tr></tbody></table>    </div>
+  </details>
+  <details class="page-spec">
+    <summary>P02 · infringement-leads <span style="font-size:12px;color:var(--color-text-dim);margin-left:8px;">[crud_list]</span></summary>
+    <div class="details-content">
+      <table>
+        <tr><th>页面 ID</th><td>P02</td></tr>
+        <tr><th>页面名称</th><td>infringement-leads</td></tr>
+        <tr><th>页面类型</th><td><span class="tag">crud_list</span></td></tr>
+        <tr><th>路由</th><td><code>/leads</code></td></tr>
+        <tr><th>关联实体</th><td>InfringementLead</td></tr>
+      </table>
+
+      <h4>L1 页面说明</h4>
+      <div class="annotation-block">        <h4>摘要</h4><p>侵权线索清单是监测命中的线索总库，支持按渠道、风险等级、状态与关键词组合筛选，分析师在此执行存证、忽略与批量处理，品牌方IPR 在此筛选可立案线索并发起维权案件。</p>        <h4>入口</h4><p>左侧导航侵权线索；或由工作台指标卡、待办跳转进入并预置筛选条件。</p>        <h4>前置条件</h4><p>已完成至少一轮监测任务产生线索数据；用户具备监测分析师或品牌方IPR 角色。</p>        <h4>数据实体</h4><p>InfringementLead、EvidenceRecord</p>        <h4>测试数据</h4><p>内置 14 条线索覆盖五类渠道、三档风险与五种状态，其中 2 条为超时失效态、3 条为同一卖家同一专利的重复组合用于验证立案拦截。</p>        <h4>业务规则</h4><ul style="padding-left: 20px; color: var(--color-text-muted); font-size: 13px;"><li>同一卖家同一专利不可重复立案，命中重复组合时阻断提交并提示已有案件编号</li><li>超过存证截止时间的线索状态为已失效，不可再执行存证操作</li><li>风险等级为高的线索在列表中置顶并按危险色高亮</li></ul>      </div>
+
+      <h4>L2 区域标注（5）</h4>      <table><thead><tr><th>区域 ID</th><th>区域名称</th><th>说明</th></tr></thead><tbody><tr><td>P02-L2-001</td><td>筛选搜索区</td><td>提供关键词、渠道、平台、风险等级、状态五组筛选控件与重置按钮；筛选条件由线索表字段实时匹配，所有条件为与关系组合，筛选后同步刷新统计条与分页。</td></tr><tr><td>P02-L2-002</td><td>线索统计条</td><td>展示当前筛选结果总数及各状态分档数量，数据由线索表按筛选条件实时聚合；用于校验筛选是否生效，计数与表格可见行数始终保持一致。</td></tr><tr><td>P02-L2-003</td><td>线索数据表格区</td><td>以表格展示线索编号、专利号、商品标题、渠道、平台、卖家、相似度、风险等级、命中时间、存证倒计时与状态；数据来源于线索表，行集随筛选与分页状态位全量重算。</td></tr><tr><td>P02-L2-004</td><td>批量操作区</td><td>提供全选复选框与批量存证、导出按钮，勾选行后按钮由禁用转为可用；批量操作仅对状态为待存证的行生效，其余行在提交时自动跳过并计入跳过条数。</td></tr><tr><td>P02-L2-005</td><td>分页控制区</td><td>提供每页条数选择、上一页下一页与页码跳转；分页与筛选使用互相独立的状态位，翻页不会丢失筛选条件，切页后列表计数与分页信息同步刷新。</td></tr></tbody></table>      <h4>L3 元件标注（11）</h4>      <table><thead><tr><th>元件 ID</th><th>元件名称</th><th>功能</th><th>触发</th><th>响应</th></tr></thead><tbody><tr><td>P02-L3-001</td><td>关键词搜索输入框</td><td>按专利号、商品标题或卖家模糊搜索线索</td><td>在输入框逐键输入</td><td>表格行集按关键词实时过滤，统计条计数同步更新</td></tr><tr><td>P02-L3-002</td><td>渠道筛选下拉</td><td>按侵权渠道过滤线索列表</td><td>切换下拉选项</td><td>列表仅显示所选渠道线索并刷新统计条与分页</td></tr><tr><td>P02-L3-003</td><td>风险等级下拉</td><td>按高中低风险等级过滤线索列表</td><td>切换下拉选项</td><td>列表按所选风险等级过滤并刷新计数</td></tr><tr><td>P02-L3-004</td><td>状态筛选下拉</td><td>按线索状态过滤列表</td><td>切换下拉选项</td><td>列表按所选状态过滤，切换为待存证时倒计时列高亮</td></tr><tr><td>P02-L3-005</td><td>重置筛选按钮</td><td>清空全部筛选条件恢复全量列表</td><td>点击重置按钮</td><td>所有筛选控件恢复默认值，列表恢复全量并刷新计数</td></tr><tr><td>P02-L3-006</td><td>行内存证按钮（同类首个，其余 13 个实例共用本说明）</td><td>对当前行线索发起区块链存证</td><td>点击行内存证按钮</td><td>弹出存证方式选择，确认后生成存证编号与哈希，该行状态变更为已存证</td></tr><tr><td>P02-L3-007</td><td>行内查看链接（同类首个，其余 13 个实例共用本说明）</td><td>查看该行线索的存证取证详情</td><td>点击行内查看链接</td><td>切换至存证取证详情页并载入该线索数据</td></tr><tr><td>P02-L3-008</td><td>行内忽略按钮（同类首个，其余 13 个实例共用本说明）</td><td>将当前行线索判定为忽略</td><td>点击行内忽略按钮</td><td>该行状态变更为已忽略并移出待办队列，统计条分档数量同步更新</td></tr><tr><td>P02-L3-009</td><td>全选复选框</td><td>勾选或取消当前页全部可操作行</td><td>点击表头复选框</td><td>当前页待存证行全部进入勾选态，批量存证按钮转为可用</td></tr><tr><td>P02-L3-010</td><td>批量存证按钮</td><td>对全部勾选线索批量发起存证</td><td>点击批量存证按钮</td><td>批量生成存证记录，勾选行状态变更为已存证并提示成功与跳过条数</td></tr><tr><td>P02-L3-011</td><td>下一页按钮</td><td>切换到下一页线索数据</td><td>点击下一页按钮</td><td>表格载入下一页行集，分页信息更新，筛选条件保持不变</td></tr></tbody></table>    </div>
+  </details>
+  <details class="page-spec">
+    <summary>P03 · evidence-detail <span style="font-size:12px;color:var(--color-text-dim);margin-left:8px;">[detail_view]</span></summary>
+    <div class="details-content">
+      <table>
+        <tr><th>页面 ID</th><td>P03</td></tr>
+        <tr><th>页面名称</th><td>evidence-detail</td></tr>
+        <tr><th>页面类型</th><td><span class="tag">detail_view</span></td></tr>
+        <tr><th>路由</th><td><code>/evidence</code></td></tr>
+        <tr><th>关联实体</th><td>EvidenceRecord</td></tr>
+      </table>
+
+      <h4>L1 页面说明</h4>
+      <div class="annotation-block">        <h4>摘要</h4><p>存证取证详情页展示单条侵权线索的完整证据链，包含线索基本信息、区块链存证信息、取证过程时间轴与标准化取证报告，是分析师执行取证与律师核验证据效力的核心页面。</p>        <h4>入口</h4><p>由线索清单行内查看链接进入；或在工作台待办点击查看进入。</p>        <h4>前置条件</h4><p>已选定一条侵权线索；该线索可处于待存证或已存证状态。</p>        <h4>数据实体</h4><p>InfringementLead、EvidenceRecord</p>        <h4>测试数据</h4><p>内置 11 条存证记录，覆盖四种存证方式、三种证据状态，含 1 条存证失败失效态与 1 条尚未存证的空态线索。</p>        <h4>业务规则</h4><ul style="padding-left: 20px; color: var(--color-text-muted); font-size: 13px;"><li>存证完成前证据状态为存证中，上链成功后方可生成取证报告</li><li>存证哈希与时间轴一经上链不可修改，仅可追加后续取证动作</li><li>取证报告必须在证据状态为已上链后才可生成</li></ul>      </div>
+
+      <h4>L2 区域标注（5）</h4>      <table><thead><tr><th>区域 ID</th><th>区域名称</th><th>说明</th></tr></thead><tbody><tr><td>P03-L2-001</td><td>线索基本信息区</td><td>展示线索编号、专利号、专利名称、涉嫌商品标题、卖家与渠道平台等基础字段；数据来源于线索表关联查询，是判断侵权主体与权利基础是否匹配的依据。</td></tr><tr><td>P03-L2-002</td><td>区块链存证信息区</td><td>展示存证编号、存证方式、存证哈希、区块高度与上链时间；数据由存证记录表与区块链服务返回值合成，哈希为司法举证的关键凭证。</td></tr><tr><td>P03-L2-003</td><td>证据链时间轴区</td><td>按时间顺序展示监测命中、人工复核、发起存证、上链完成等节点，支持按证据类型切换时间轴视图；数据来源于存证记录的操作日志，用于证明取证过程连续未被篡改。</td></tr><tr><td>P03-L2-004</td><td>取证报告区</td><td>展示取证报告编号、报告格式与生成状态，提供生成与下载入口；报告由存证哈希、时间轴与商品快照合成，仅在证据状态为已上链时可生成。</td></tr><tr><td>P03-L2-005</td><td>操作按钮区</td><td>聚合返回清单、发起存证、复制哈希、生成报告与立案五类操作；按钮可用性由证据状态与角色权限共同决定，未满足条件时以禁用态呈现并 tooltip 说明原因。</td></tr></tbody></table>      <h4>L3 元件标注（8）</h4>      <table><thead><tr><th>元件 ID</th><th>元件名称</th><th>功能</th><th>触发</th><th>响应</th></tr></thead><tbody><tr><td>P03-L3-001</td><td>返回线索清单链接</td><td>返回侵权线索清单页</td><td>点击返回链接</td><td>切换回侵权线索清单页并保持此前的筛选条件</td></tr><tr><td>P03-L3-002</td><td>存证方式下拉</td><td>选择本次取证采用的存证方式</td><td>切换下拉选项</td><td>选中的方式写入存证记录，报告区按方式展示对应材料说明</td></tr><tr><td>P03-L3-003</td><td>发起存证按钮</td><td>对当前线索发起存证并写入区块链</td><td>点击发起存证按钮</td><td>生成存证编号与哈希，证据状态由存证中转为已上链，时间轴追加节点</td></tr><tr><td>P03-L3-004</td><td>复制存证哈希按钮</td><td>复制存证哈希用于外部举证</td><td>点击复制按钮</td><td>哈希写入剪贴板并提示复制成功</td></tr><tr><td>P03-L3-005</td><td>证据链视图切换标签</td><td>按证据类型切换时间轴视图</td><td>点击全部或快照或录屏标签</td><td>时间轴仅显示所选类型节点并更新节点计数</td></tr><tr><td>P03-L3-006</td><td>报告格式下拉</td><td>选择取证报告输出格式</td><td>切换下拉选项</td><td>报告区展示所选格式的字段说明，生成按钮随之可用</td></tr><tr><td>P03-L3-007</td><td>生成取证报告按钮</td><td>生成标准化取证报告</td><td>点击生成报告按钮</td><td>生成报告编号并更新报告区状态为已生成，提示报告已就绪</td></tr><tr><td>P03-L3-008</td><td>发起立案按钮</td><td>基于已上链证据发起维权案件</td><td>点击立案按钮</td><td>弹出立案弹窗，提交后生成案件编号并跳转案件中心</td></tr></tbody></table>    </div>
+  </details>
+  <details class="page-spec">
+    <summary>P04 · rights-cases <span style="font-size:12px;color:var(--color-text-dim);margin-left:8px;">[crud_list]</span></summary>
+    <div class="details-content">
+      <table>
+        <tr><th>页面 ID</th><td>P04</td></tr>
+        <tr><th>页面名称</th><td>rights-cases</td></tr>
+        <tr><th>页面类型</th><td><span class="tag">crud_list</span></td></tr>
+        <tr><th>路由</th><td><code>/cases</code></td></tr>
+        <tr><th>关联实体</th><td>RightsCase</td></tr>
+      </table>
+
+      <h4>L1 页面说明</h4>
+      <div class="annotation-block">        <h4>摘要</h4><p>维权案件中心承载从立案到结案的全流程跟踪，支持按处置策略、状态、责任人与地区筛选，并在此执行状态推进、律师升级与驳回处理，是分级处置规则落地的主页面。</p>        <h4>入口</h4><p>左侧导航维权案件；或由线索清单立案、存证详情立案跳转进入。</p>        <h4>前置条件</h4><p>用户具备品牌方IPR 或维权律师角色；跨境案件已绑定对应地区规则模板。</p>        <h4>数据实体</h4><p>RightsCase、CrossBorderRule、InfringementLead</p>        <h4>测试数据</h4><p>内置 12 条案件覆盖四种处置策略与五种状态，含 3 条未绑定规则模板的跨境案件用于验证提交拦截、2 条高风险待升级案件。</p>        <h4>业务规则</h4><ul style="padding-left: 20px; color: var(--color-text-muted); font-size: 13px;"><li>同一卖家同一专利不可重复立案，重复提交时阻断并提示已有案件编号</li><li>跨境案件必须绑定当地投诉规则模板后方可推进至处置中</li><li>高风险案件自动升级至维权律师，策略预选诉讼前置</li></ul>      </div>
+
+      <h4>L2 区域标注（5）</h4>      <table><thead><tr><th>区域 ID</th><th>区域名称</th><th>说明</th></tr></thead><tbody><tr><td>P04-L2-001</td><td>案件统计条</td><td>展示当前筛选下案件总数与待处置、处置中、平台受理、已结案、已驳回的分档数量；数据由案件表按状态聚合，随筛选条件实时刷新并与表格行数一致。</td></tr><tr><td>P04-L2-002</td><td>筛选搜索区</td><td>提供关键词、处置策略、状态、责任角色、地区五组控件与重置按钮；条件作用于案件表字段组合匹配，跨境筛选会联动校验规则模板绑定情况。</td></tr><tr><td>P04-L2-003</td><td>案件数据表格区</td><td>展示案件编号、关联线索、涉案专利、被诉卖家、处置策略、地区、绑定规则、状态与责任人；数据来源于案件表，行集由筛选与分页状态位全量重算。</td></tr><tr><td>P04-L2-004</td><td>处置操作区</td><td>聚合新建案件、导出台账与批量提醒三类操作；新建与导出受角色权限控制，按钮可用性随勾选状态与角色动态变化。</td></tr><tr><td>P04-L2-005</td><td>分页控制区</td><td>提供每页条数与翻页控件，与筛选状态位独立计算；翻页后计数文本与可见行数保持一致，避免状态污染导致的半吊子筛选。</td></tr></tbody></table>      <h4>L3 元件标注（9）</h4>      <table><thead><tr><th>元件 ID</th><th>元件名称</th><th>功能</th><th>触发</th><th>响应</th></tr></thead><tbody><tr><td>P04-L3-001</td><td>新建案件按钮</td><td>创建新的维权案件</td><td>点击新建案件按钮</td><td>弹出立案弹窗，选择线索与处置策略后提交，生成案件编号并插入列表首行</td></tr><tr><td>P04-L3-002</td><td>处置策略下拉</td><td>按处置策略过滤案件列表</td><td>切换下拉选项</td><td>列表按所选策略过滤并刷新统计条分档计数</td></tr><tr><td>P04-L3-003</td><td>状态筛选下拉</td><td>按案件状态过滤列表</td><td>切换下拉选项</td><td>列表按所选状态过滤并同步更新统计条与分页</td></tr><tr><td>P04-L3-004</td><td>责任人筛选下拉</td><td>按责任角色过滤案件列表</td><td>切换下拉选项</td><td>列表按所选责任人过滤并刷新计数</td></tr><tr><td>P04-L3-005</td><td>关键词搜索输入框</td><td>按案件编号、专利号或卖家模糊搜索</td><td>在输入框逐键输入</td><td>表格行集按关键词实时过滤，统计条计数同步更新</td></tr><tr><td>P04-L3-006</td><td>行内推进状态按钮（同类首个，其余 11 个实例共用本说明）</td><td>将当前案件状态按流转规则推进</td><td>点击行内推进按钮</td><td>案件状态前进一格，状态列徽标与时间线同步更新</td></tr><tr><td>P04-L3-007</td><td>行内查看证据链接（同类首个，其余 11 个实例共用本说明）</td><td>查看该案件关联的存证取证详情</td><td>点击行内查看证据链接</td><td>切换至存证取证详情页并载入关联线索的存证信息</td></tr><tr><td>P04-L3-008</td><td>行内升级律师按钮（同类首个，其余 11 个实例共用本说明）</td><td>将案件责任人升级为维权律师</td><td>点击行内升级按钮</td><td>责任人列变更为维权律师并提示升级成功，案件置顶显示</td></tr><tr><td>P04-L3-009</td><td>导出案件台账按钮</td><td>导出当前筛选结果为案件台账</td><td>点击导出台账按钮</td><td>按当前筛选条件导出 CSV 并提示导出条数</td></tr></tbody></table>    </div>
+  </details>
+  <details class="page-spec">
+    <summary>P05 · cross-border-rules <span style="font-size:12px;color:var(--color-text-dim);margin-left:8px;">[crud_list]</span></summary>
+    <div class="details-content">
+      <table>
+        <tr><th>页面 ID</th><td>P05</td></tr>
+        <tr><th>页面名称</th><td>cross-border-rules</td></tr>
+        <tr><th>页面类型</th><td><span class="tag">crud_list</span></td></tr>
+        <tr><th>路由</th><td><code>/rules</code></td></tr>
+        <tr><th>关联实体</th><td>CrossBorderRule</td></tr>
+      </table>
+
+      <h4>L1 页面说明</h4>
+      <div class="annotation-block">        <h4>摘要</h4><p>跨境规则库维护欧美与东南亚各国各平台的投诉规则模板，包含投诉渠道、响应时效与材料清单，跨境案件必须在此绑定对应规则模板后方可推进处置，是海外维权的合规前置。</p>        <h4>入口</h4><p>左侧导航跨境规则；或由案件中心跨境案件提示缺少规则模板跳转进入。</p>        <h4>前置条件</h4><p>用户具备品牌方IPR 或维权律师角色；规则库已完成至少一条地区模板初始化。</p>        <h4>数据实体</h4><p>CrossBorderRule、RightsCase</p>        <h4>测试数据</h4><p>内置 12 条规则覆盖美欧英日东南亚韩国六个地区与六个平台，含 2 条停用态规则与 3 条尚未绑定任何案件的规则。</p>        <h4>业务规则</h4><ul style="padding-left: 20px; color: var(--color-text-muted); font-size: 13px;"><li>跨境案件必须绑定对应国家地区的投诉规则模板，否则不可推进至处置中</li><li>规则停用后已绑定案件不受影响，但新案件不可再绑定该规则</li><li>响应时效以工作日计算，超期未受理的案件在案件中心标记超时提醒</li></ul>      </div>
+
+      <h4>L2 区域标注（5）</h4>      <table><thead><tr><th>区域 ID</th><th>区域名称</th><th>说明</th></tr></thead><tbody><tr><td>P05-L2-001</td><td>地区平台筛选区</td><td>提供地区下拉、平台下拉、启用状态下拉与关键词搜索四组控件；条件作用于规则表字段组合匹配，筛选后卡片区与统计同步刷新。</td></tr><tr><td>P05-L2-002</td><td>规则数据表格区</td><td>以表格展示规则编号、地区、平台、投诉渠道、响应时效、模板名称、启用状态与已绑定案件数；数据来源于规则表，行集随筛选与分页状态位全量重算。</td></tr><tr><td>P05-L2-003</td><td>规则详情区</td><td>展示当前选中规则的材料清单、投诉渠道说明与已绑定案件列表；数据由规则表与案件表关联查询，用于提交投诉前核对材料是否齐备。</td></tr><tr><td>P05-L2-004</td><td>绑定案件区</td><td>展示规则与案件的绑定关系及绑定数量，提供绑定入口；绑定后案件中心该案件的规则校验通过，未绑定案件在案件中心被标记为待绑定。</td></tr><tr><td>P05-L2-005</td><td>操作按钮区</td><td>聚合新建规则、导出规则库与操作说明入口；新建受角色权限控制，停用规则不出现在案件绑定候选中。</td></tr></tbody></table>      <h4>L3 元件标注（8）</h4>      <table><thead><tr><th>元件 ID</th><th>元件名称</th><th>功能</th><th>触发</th><th>响应</th></tr></thead><tbody><tr><td>P05-L3-001</td><td>地区下拉筛选</td><td>按国家地区过滤规则列表</td><td>切换下拉选项</td><td>列表仅显示所选地区规则并刷新统计与分页</td></tr><tr><td>P05-L3-002</td><td>平台下拉筛选</td><td>按适用平台过滤规则列表</td><td>切换下拉选项</td><td>列表按所选平台过滤并刷新计数</td></tr><tr><td>P05-L3-003</td><td>规则关键词搜索框</td><td>按规则编号或模板名称模糊搜索</td><td>在输入框逐键输入</td><td>表格行集实时过滤并同步更新统计</td></tr><tr><td>P05-L3-004</td><td>新建规则按钮</td><td>创建新的跨境投诉规则模板</td><td>点击新建规则按钮</td><td>弹出规则编辑弹窗，填写地区平台与材料清单后提交，规则以启用态插入列表</td></tr><tr><td>P05-L3-005</td><td>行内编辑按钮（同类首个，其余 11 个实例共用本说明）</td><td>编辑当前规则的渠道、时效与材料清单</td><td>点击行内编辑按钮</td><td>弹出编辑弹窗，保存后更新时间戳并刷新该行</td></tr><tr><td>P05-L3-006</td><td>行内绑定案件按钮（同类首个，其余 11 个实例共用本说明）</td><td>将当前规则绑定到跨境案件</td><td>点击行内绑定按钮</td><td>弹出案件选择弹窗，选定后已绑定案件数加一并提示绑定成功</td></tr><tr><td>P05-L3-007</td><td>行内下载模板链接（同类首个，其余 11 个实例共用本说明）</td><td>下载该规则的投诉材料模板</td><td>点击行内下载模板链接</td><td>生成模板文件下载并提示下载成功</td></tr><tr><td>P05-L3-008</td><td>规则启用开关</td><td>切换规则的启用与停用状态</td><td>点击开关</td><td>启用状态列切换并同步过滤案件绑定候选项</td></tr></tbody></table>    </div>
+  </details>
+  <details class="page-spec">
+    <summary>P06 · rights-analytics <span style="font-size:12px;color:var(--color-text-dim);margin-left:8px;">[dashboard]</span></summary>
+    <div class="details-content">
+      <table>
+        <tr><th>页面 ID</th><td>P06</td></tr>
+        <tr><th>页面名称</th><td>rights-analytics</td></tr>
+        <tr><th>页面类型</th><td><span class="tag">dashboard</span></td></tr>
+        <tr><th>路由</th><td><code>/analytics</code></td></tr>
+        <tr><th>关联实体</th><td>RightsCase</td></tr>
+      </table>
+
+      <h4>L1 页面说明</h4>
+      <div class="annotation-block">        <h4>摘要</h4><p>维权效果统计以案件数据为基础输出下架率、结案率、平均处置周期与维权收益四项核心指标，并按渠道、地区与专利维度拆解分布，供品牌方IPR 向管理层汇报维权投入产出。</p>        <h4>入口</h4><p>左侧导航维权统计；或由工作台指标卡、案件中心结案后跳转进入。</p>        <h4>前置条件</h4><p>系统内已存在至少一条已结案案件；用户具备任一角色均可查看。</p>        <h4>数据实体</h4><p>RightsCase、InfringementLead、CrossBorderRule</p>        <h4>测试数据</h4><p>内置 12 条结案案件覆盖近三个月、六个地区与四种处置策略，含 2 条超期未结案案件用于验证周期统计边界。</p>        <h4>业务规则</h4><ul style="padding-left: 20px; color: var(--color-text-muted); font-size: 13px;"><li>下架率等于处置结果为已下架的结案案件数除以结案案件总数</li><li>平均处置周期取立案时间与结案时间差值均值，未结案案件不计入</li><li>维权收益仅统计已结案且已回款的案件金额</li></ul>      </div>
+
+      <h4>L2 区域标注（5）</h4>      <table><thead><tr><th>区域 ID</th><th>区域名称</th><th>说明</th></tr></thead><tbody><tr><td>P06-L2-001</td><td>效果指标卡区</td><td>以四张可点击指标卡展示下架率、结案率、平均处置周期与累计维权收益；数据由案件表按结案状态与处置结果聚合计算，随顶部时间范围筛选联动重算。</td></tr><tr><td>P06-L2-002</td><td>渠道分布统计区</td><td>展示各侵权渠道的结案数与下架数对比，数据来源于线索渠道字段与案件处置结果关联聚合，用于识别需要加大监测力度的渠道。</td></tr><tr><td>P06-L2-003</td><td>地区分布统计区</td><td>展示境内与跨境各地区的案件量与平均周期，数据由案件地区字段分组聚合，跨境地区按规则模板响应时效对比实际周期以评估合规成本。</td></tr><tr><td>P06-L2-004</td><td>专利维权排行区</td><td>按维权收益与案件数对涉案专利排序，展示专利号、案件数、下架率与收益；数据来源于案件表按专利号分组，点击可跳转案件中心查看明细。</td></tr><tr><td>P06-L2-005</td><td>时间范围筛选区</td><td>提供近七日、近三十日、本季度与全部四个时间范围选项与渠道类型下拉；选项变更后全部指标与分布区块同步重算并更新分区标题。</td></tr></tbody></table>      <h4>L3 元件标注（8）</h4>      <table><thead><tr><th>元件 ID</th><th>元件名称</th><th>功能</th><th>触发</th><th>响应</th></tr></thead><tbody><tr><td>P06-L3-001</td><td>指标卡-下架率</td><td>展示结案案件中的侵权商品下架比例</td><td>点击指标卡</td><td>高亮渠道分布区块并展示下架明细说明</td></tr><tr><td>P06-L3-002</td><td>指标卡-结案率</td><td>展示已结案案件占全部案件的比例</td><td>点击指标卡</td><td>跳转案件中心并按已结案状态筛选</td></tr><tr><td>P06-L3-003</td><td>指标卡-平均处置周期</td><td>展示立案到结案的平均天数</td><td>点击指标卡</td><td>高亮地区分布区块的周期对比</td></tr><tr><td>P06-L3-004</td><td>指标卡-维权收益</td><td>展示已结案且已回款案件的累计收益金额</td><td>点击指标卡</td><td>跳转专利维权排行并按收益排序</td></tr><tr><td>P06-L3-005</td><td>时间范围下拉</td><td>切换统计的时间范围</td><td>切换下拉选项</td><td>四项指标与三个分布区块按所选范围重算并更新标题</td></tr><tr><td>P06-L3-006</td><td>渠道类型下拉</td><td>按侵权渠道过滤统计分布</td><td>切换下拉选项</td><td>分布区块与指标按所选渠道重算</td></tr><tr><td>P06-L3-007</td><td>导出统计报表按钮</td><td>导出当前统计结果为报表文件</td><td>点击导出报表按钮</td><td>按当前时间范围与渠道导出 CSV 并提示导出条数</td></tr><tr><td>P06-L3-008</td><td>排行行查看专利案件链接（同类首个，其余 9 个实例共用本说明）</td><td>查看该专利关联的全部维权案件</td><td>点击排行行查看链接</td><td>跳转维权案件中心并按该专利号自动筛选</td></tr></tbody></table>    </div>
+  </details></section>
+<section id="data" data-audience="dev test">
+  <h2><span class="section-num">7</span> 数据模型</h2>
+  <p>实体定义、字段清单、状态字典与关联关系。共 4 个实体。</p>
+
+  <h3>实体清单</h3>
+  <div class="grid">
+    <div class="card">
+      <h4>侵权线索</h4>
+      <p style="color: var(--color-text-muted); font-size: 14px; margin-bottom: 8px;">-</p>
+      <p style="font-size: 13px;"><code>InfringementLead</code> · 14 字段</p>
+    </div>
+    <div class="card">
+      <h4>存证记录</h4>
+      <p style="color: var(--color-text-muted); font-size: 14px; margin-bottom: 8px;">-</p>
+      <p style="font-size: 13px;"><code>EvidenceRecord</code> · 10 字段</p>
+    </div>
+    <div class="card">
+      <h4>维权案件</h4>
+      <p style="color: var(--color-text-muted); font-size: 14px; margin-bottom: 8px;">-</p>
+      <p style="font-size: 13px;"><code>RightsCase</code> · 15 字段</p>
+    </div>
+    <div class="card">
+      <h4>跨境规则模板</h4>
+      <p style="color: var(--color-text-muted); font-size: 14px; margin-bottom: 8px;">-</p>
+      <p style="font-size: 13px;"><code>CrossBorderRule</code> · 10 字段</p>
+    </div>
+  </div>
+  <h3>侵权线索</h3>
+  <div class="card">
+    <table>
+      <tr><th>实体名称</th><td><code>InfringementLead</code></td></tr>
+      <tr><th>显示名称</th><td>侵权线索</td></tr>
+      <tr><th>描述</th><td>-</td></tr>
+    </table>
+  </div>
+
+  <h4>字段清单</h4>  <table><thead><tr><th>字段名</th><th>类型</th><th>显示名称</th><th>必填</th><th>说明</th></tr></thead><tbody><tr><td><code>leadNo</code></td><td>string</td><td>线索编号</td><td>是</td><td>-</td></tr><tr><td><code>patentNo</code></td><td>string</td><td>专利号</td><td>是</td><td>-</td></tr><tr><td><code>patentTitle</code></td><td>string</td><td>专利名称</td><td>是</td><td>-</td></tr><tr><td><code>itemTitle</code></td><td>string</td><td>涉嫌商品标题</td><td>是</td><td>-</td></tr><tr><td><code>channel</code></td><td>enum</td><td>侵权渠道</td><td>是</td><td>-</td></tr><tr><td><code>platform</code></td><td>enum</td><td>平台站点</td><td>是</td><td>-</td></tr><tr><td><code>seller</code></td><td>string</td><td>涉嫌卖家</td><td>是</td><td>-</td></tr><tr><td><code>shopUrl</code></td><td>string</td><td>商品链接</td><td>否</td><td>-</td></tr><tr><td><code>similarity</code></td><td>number</td><td>相似度评分</td><td>否</td><td>-</td></tr><tr><td><code>riskLevel</code></td><td>enum</td><td>风险等级</td><td>是</td><td>-</td></tr><tr><td><code>hitCount</code></td><td>number</td><td>命中商品数</td><td>否</td><td>-</td></tr><tr><td><code>hitTime</code></td><td>date</td><td>命中时间</td><td>是</td><td>-</td></tr><tr><td><code>evidenceDeadline</code></td><td>date</td><td>存证截止时间</td><td>是</td><td>-</td></tr><tr><td><code>status</code></td><td>enum</td><td>线索状态</td><td>是</td><td>-</td></tr></tbody></table>  <h4>状态字典</h4>
+  <table><thead><tr><th>状态值</th><th>显示名称</th><th>标签颜色</th></tr></thead><tbody><tr><td><code>PENDING_EVIDENCE</code></td><td>待存证</td><td><span class="tag">warning</span></td></tr><tr><td><code>EVIDENCED</code></td><td>已存证</td><td><span class="tag">info</span></td></tr><tr><td><code>FILED</code></td><td>已立案</td><td><span class="tag">primary</span></td></tr><tr><td><code>EXPIRED</code></td><td>已失效</td><td><span class="tag">danger</span></td></tr><tr><td><code>IGNORED</code></td><td>已忽略</td><td><span class="tag">info</span></td></tr></tbody></table>  <h4>关联关系</h4>
+  <table><thead><tr><th>关系类型</th><th>目标实体</th></tr></thead><tbody><tr><td><span class="tag">one_to_many</span></td><td><code>EvidenceRecord</code></td></tr><tr><td><span class="tag">one_to_many</span></td><td><code>RightsCase</code></td></tr></tbody></table>
+  <h3>存证记录</h3>
+  <div class="card">
+    <table>
+      <tr><th>实体名称</th><td><code>EvidenceRecord</code></td></tr>
+      <tr><th>显示名称</th><td>存证记录</td></tr>
+      <tr><th>描述</th><td>-</td></tr>
+    </table>
+  </div>
+
+  <h4>字段清单</h4>  <table><thead><tr><th>字段名</th><th>类型</th><th>显示名称</th><th>必填</th><th>说明</th></tr></thead><tbody><tr><td><code>evidenceNo</code></td><td>string</td><td>存证编号</td><td>是</td><td>-</td></tr><tr><td><code>leadNo</code></td><td>string</td><td>关联线索编号</td><td>是</td><td>-</td></tr><tr><td><code>method</code></td><td>enum</td><td>存证方式</td><td>是</td><td>-</td></tr><tr><td><code>blockHash</code></td><td>string</td><td>存证哈希</td><td>否</td><td>-</td></tr><tr><td><code>blockHeight</code></td><td>number</td><td>区块高度</td><td>否</td><td>-</td></tr><tr><td><code>chainTime</code></td><td>date</td><td>上链时间</td><td>否</td><td>-</td></tr><tr><td><code>evidenceStatus</code></td><td>enum</td><td>证据状态</td><td>是</td><td>-</td></tr><tr><td><code>reportNo</code></td><td>string</td><td>取证报告编号</td><td>否</td><td>-</td></tr><tr><td><code>operator</code></td><td>string</td><td>取证操作人</td><td>否</td><td>-</td></tr><tr><td><code>fileCount</code></td><td>number</td><td>证据文件数</td><td>否</td><td>-</td></tr></tbody></table>  <h4>状态字典</h4>
+  <table><thead><tr><th>状态值</th><th>显示名称</th><th>标签颜色</th></tr></thead><tbody><tr><td><code>CHAINING</code></td><td>存证中</td><td><span class="tag">warning</span></td></tr><tr><td><code>ON_CHAIN</code></td><td>已上链</td><td><span class="tag">success</span></td></tr><tr><td><code>INVALID</code></td><td>已失效</td><td><span class="tag">danger</span></td></tr></tbody></table>  <h4>关联关系</h4>
+  <table><thead><tr><th>关系类型</th><th>目标实体</th></tr></thead><tbody><tr><td><span class="tag">one_to_one</span></td><td><code>InfringementLead</code></td></tr></tbody></table>
+  <h3>维权案件</h3>
+  <div class="card">
+    <table>
+      <tr><th>实体名称</th><td><code>RightsCase</code></td></tr>
+      <tr><th>显示名称</th><td>维权案件</td></tr>
+      <tr><th>描述</th><td>-</td></tr>
+    </table>
+  </div>
+
+  <h4>字段清单</h4>  <table><thead><tr><th>字段名</th><th>类型</th><th>显示名称</th><th>必填</th><th>说明</th></tr></thead><tbody><tr><td><code>caseNo</code></td><td>string</td><td>案件编号</td><td>是</td><td>-</td></tr><tr><td><code>leadNo</code></td><td>string</td><td>关联线索编号</td><td>是</td><td>-</td></tr><tr><td><code>patentNo</code></td><td>string</td><td>涉案专利号</td><td>是</td><td>-</td></tr><tr><td><code>seller</code></td><td>string</td><td>被诉卖家</td><td>是</td><td>-</td></tr><tr><td><code>strategy</code></td><td>enum</td><td>处置策略</td><td>是</td><td>-</td></tr><tr><td><code>region</code></td><td>enum</td><td>国家地区</td><td>是</td><td>-</td></tr><tr><td><code>platform</code></td><td>string</td><td>受理平台</td><td>否</td><td>-</td></tr><tr><td><code>ruleCode</code></td><td>string</td><td>绑定规则模板</td><td>否</td><td>-</td></tr><tr><td><code>status</code></td><td>enum</td><td>案件状态</td><td>是</td><td>-</td></tr><tr><td><code>owner</code></td><td>enum</td><td>责任角色</td><td>否</td><td>-</td></tr><tr><td><code>ownerName</code></td><td>string</td><td>责任人</td><td>否</td><td>-</td></tr><tr><td><code>createdAt</code></td><td>date</td><td>立案时间</td><td>否</td><td>-</td></tr><tr><td><code>closedAt</code></td><td>date</td><td>结案时间</td><td>否</td><td>-</td></tr><tr><td><code>outcome</code></td><td>enum</td><td>处置结果</td><td>否</td><td>-</td></tr><tr><td><code>compensation</code></td><td>number</td><td>维权收益</td><td>否</td><td>-</td></tr></tbody></table>  <h4>状态字典</h4>
+  <table><thead><tr><th>状态值</th><th>显示名称</th><th>标签颜色</th></tr></thead><tbody><tr><td><code>PENDING</code></td><td>待处置</td><td><span class="tag">warning</span></td></tr><tr><td><code>PROCESSING</code></td><td>处置中</td><td><span class="tag">primary</span></td></tr><tr><td><code>ACCEPTED</code></td><td>平台受理</td><td><span class="tag">info</span></td></tr><tr><td><code>CLOSED</code></td><td>已结案</td><td><span class="tag">success</span></td></tr><tr><td><code>REJECTED</code></td><td>已驳回</td><td><span class="tag">danger</span></td></tr></tbody></table>  <h4>关联关系</h4>
+  <table><thead><tr><th>关系类型</th><th>目标实体</th></tr></thead><tbody><tr><td><span class="tag">one_to_one</span></td><td><code>InfringementLead</code></td></tr><tr><td><span class="tag">one_to_one</span></td><td><code>CrossBorderRule</code></td></tr></tbody></table>
+  <h3>跨境规则模板</h3>
+  <div class="card">
+    <table>
+      <tr><th>实体名称</th><td><code>CrossBorderRule</code></td></tr>
+      <tr><th>显示名称</th><td>跨境规则模板</td></tr>
+      <tr><th>描述</th><td>-</td></tr>
+    </table>
+  </div>
+
+  <h4>字段清单</h4>  <table><thead><tr><th>字段名</th><th>类型</th><th>显示名称</th><th>必填</th><th>说明</th></tr></thead><tbody><tr><td><code>ruleCode</code></td><td>string</td><td>规则编号</td><td>是</td><td>-</td></tr><tr><td><code>region</code></td><td>enum</td><td>国家地区</td><td>是</td><td>-</td></tr><tr><td><code>platform</code></td><td>enum</td><td>适用平台</td><td>是</td><td>-</td></tr><tr><td><code>channel</code></td><td>string</td><td>投诉渠道</td><td>否</td><td>-</td></tr><tr><td><code>responseSla</code></td><td>number</td><td>响应时效工作日</td><td>否</td><td>-</td></tr><tr><td><code>materials</code></td><td>text</td><td>材料清单</td><td>否</td><td>-</td></tr><tr><td><code>templateName</code></td><td>string</td><td>模板名称</td><td>否</td><td>-</td></tr><tr><td><code>enabled</code></td><td>boolean</td><td>启用状态</td><td>否</td><td>-</td></tr><tr><td><code>boundCases</code></td><td>number</td><td>已绑定案件数</td><td>否</td><td>-</td></tr><tr><td><code>updatedAt</code></td><td>date</td><td>更新时间</td><td>否</td><td>-</td></tr></tbody></table>  <h4>状态字典</h4>
+  <table><thead><tr><th>状态值</th><th>显示名称</th><th>标签颜色</th></tr></thead><tbody><tr><td><code>ENABLED</code></td><td>已启用</td><td><span class="tag">success</span></td></tr><tr><td><code>DISABLED</code></td><td>已停用</td><td><span class="tag">info</span></td></tr></tbody></table></section>
+<section id="roles" data-audience="dev test">
+  <h2><span class="section-num">8</span> 角色权限</h2>
+  <p>角色清单、权限矩阵与页面可见性。共 3 个角色。</p>
+
+  <h3>角色清单</h3>
+  <div class="grid">
+    <div class="card">
+      <h4>品牌方IPR</h4>
+      <p style="font-size: 13px; margin-bottom: 8px;"><code>brand_ipr</code></p>
+      <p style="color: var(--color-text-muted); font-size: 14px;">对 侵权线索 全部创建、查看、编辑、导出；对 存证记录 全部查看、导出；对 维权案件 全部创建、查看、编辑、导出、batch；对 跨境规则模板 全部创建、查看、编辑；可见 6 个页面</p>
+    </div>
+    <div class="card">
+      <h4>维权律师</h4>
+      <p style="font-size: 13px; margin-bottom: 8px;"><code>rights_lawyer</code></p>
+      <p style="color: var(--color-text-muted); font-size: 14px;">对 侵权线索 全部查看、导出；对 存证记录 全部查看、导出；对 维权案件 全部查看、编辑、导出、custom；对 跨境规则模板 全部查看、编辑；可见 6 个页面</p>
+    </div>
+    <div class="card">
+      <h4>监测分析师</h4>
+      <p style="font-size: 13px; margin-bottom: 8px;"><code>monitoring_analyst</code></p>
+      <p style="color: var(--color-text-muted); font-size: 14px;">对 侵权线索 全部创建、查看、编辑、batch、导出；对 存证记录 全部创建、查看、编辑、导出；对 维权案件 全部查看；对 跨境规则模板 全部查看；可见 6 个页面</p>
+    </div>
+  </div>
+  <h3>权限矩阵</h3>  <table><thead><tr><th>角色</th><th>侵权线索</th><th>存证记录</th><th>维权案件</th><th>跨境规则模板</th></tr></thead><tbody><tr><td>品牌方IPR</td><td><span class="tag">all</span> create, read, update, export</td><td><span class="tag">all</span> read, export</td><td><span class="tag">all</span> create, read, update, export, batch</td><td><span class="tag">all</span> create, read, update</td></tr><tr><td>维权律师</td><td><span class="tag">all</span> read, export</td><td><span class="tag">all</span> read, export</td><td><span class="tag">all</span> read, update, export, custom</td><td><span class="tag">all</span> read, update</td></tr><tr><td>监测分析师</td><td><span class="tag">all</span> create, read, update, batch, export</td><td><span class="tag">all</span> create, read, update, export</td><td><span class="tag">all</span> read</td><td><span class="tag">all</span> read</td></tr></tbody></table>
+  <h3>页面可见性</h3>
+  <table><thead><tr><th>角色</th><th>可见页面</th></tr></thead><tbody><tr><td>品牌方IPR</td><td><span class="tag">P01</span> <span class="tag">P02</span> <span class="tag">P03</span> <span class="tag">P04</span> <span class="tag">P05</span> <span class="tag">P06</span></td></tr><tr><td>维权律师</td><td><span class="tag">P01</span> <span class="tag">P02</span> <span class="tag">P03</span> <span class="tag">P04</span> <span class="tag">P05</span> <span class="tag">P06</span></td></tr><tr><td>监测分析师</td><td><span class="tag">P01</span> <span class="tag">P02</span> <span class="tag">P03</span> <span class="tag">P04</span> <span class="tag">P05</span> <span class="tag">P06</span></td></tr></tbody></table></section>
+<section id="metrics" data-audience="pm dev test">
+  <h2><span class="section-num">9</span> 成功指标与时间线</h2>
+  <p>产品成功指标定义、测量计划与发布时间线。</p>
+
+  <h3>指标定义</h3>
+  <div class="narrative">
+    <table><thead><tr>
+<th>指标名称</th>
+<th>类型</th>
+<th>当前基准</th>
+<th>目标值</th>
+<th>测量方法</th>
+<th>数据源</th>
+<th>负责人</th>
+</tr></thead><tbody>
+<tr>
+<td>侵权线索数据准确率</td>
+<td>质量指标</td>
+<td>80%</td>
+<td>98%</td>
+<td>数据校验通过率</td>
+<td>侵权线索表</td>
+<td>产品经理</td>
+</tr>
+<tr>
+<td>存证记录数据准确率</td>
+<td>质量指标</td>
+<td>80%</td>
+<td>98%</td>
+<td>数据校验通过率</td>
+<td>存证记录表</td>
+<td>产品经理</td>
+</tr>
+<tr>
+<td>维权案件数据准确率</td>
+<td>质量指标</td>
+<td>80%</td>
+<td>98%</td>
+<td>数据校验通过率</td>
+<td>维权案件表</td>
+<td>产品经理</td>
+</tr>
+<tr>
+<td>跨境规则模板数据准确率</td>
+<td>质量指标</td>
+<td>80%</td>
+<td>98%</td>
+<td>数据校验通过率</td>
+<td>跨境规则模板表</td>
+<td>产品经理</td>
+</tr>
+<tr>
+<td>系统使用率</td>
+<td>采纳指标</td>
+<td>0%</td>
+<td>80%</td>
+<td>月活用户/目标用户数</td>
+<td>系统日志</td>
+<td>产品经理</td>
+</tr>
+<tr>
+<td>用户满意度</td>
+<td>满意度指标</td>
+<td>-</td>
+<td>&gt;=4.0/5</td>
+<td>季度满意度问卷</td>
+<td>问卷系统</td>
+<td>产品经理</td>
+</tr>
+<tr>
+<td>操作效率提升</td>
+<td>效率指标</td>
+<td>基准值</td>
+<td>提升 50%</td>
+<td>单次操作耗时对比</td>
+<td>时间戳日志</td>
+<td>产品经理</td>
+</tr>
+</tbody></table>
+<hr>
+  </div>
+  <h3>测量计划</h3>
+  <div class="narrative">
+    <table><thead><tr>
+<th>指标名称</th>
+<th>测量频率</th>
+<th>测量工具</th>
+<th>数据采集方式</th>
+<th>报告周期</th>
+<th>负责人</th>
+</tr></thead><tbody>
+<tr>
+<td>侵权线索数据准确率</td>
+<td>每周</td>
+<td>数据库统计脚本</td>
+<td>自动采集</td>
+<td>月报</td>
+<td>产品经理</td>
+</tr>
+<tr>
+<td>存证记录数据准确率</td>
+<td>每周</td>
+<td>数据库统计脚本</td>
+<td>自动采集</td>
+<td>月报</td>
+<td>产品经理</td>
+</tr>
+<tr>
+<td>维权案件数据准确率</td>
+<td>每周</td>
+<td>数据库统计脚本</td>
+<td>自动采集</td>
+<td>月报</td>
+<td>产品经理</td>
+</tr>
+<tr>
+<td>系统使用率</td>
+<td>每日</td>
+<td>系统日志分析</td>
+<td>自动采集</td>
+<td>周报</td>
+<td>产品经理</td>
+</tr>
+<tr>
+<td>用户满意度</td>
+<td>每季度</td>
+<td>问卷系统</td>
+<td>人工发放</td>
+<td>季报</td>
+<td>产品经理</td>
+</tr>
+</tbody></table>
+<hr>
+  </div>
+  <h3>关键里程碑</h3>
+  <div class="narrative">
+    <table><thead><tr>
+<th>阶段</th>
+<th>名称</th>
+<th>开始</th>
+<th>结束</th>
+<th>负责人</th>
+<th>交付物</th>
+</tr></thead><tbody>
+<tr>
+<td>阶段一</td>
+<td>需求确认与设计</td>
+<td>2026-07</td>
+<td>2026-08</td>
+<td>产品经理</td>
+<td>PRD 文档、原型设计、需求模型锁定</td>
+</tr>
+<tr>
+<td>阶段二</td>
+<td>核心功能开发</td>
+<td>2026-08</td>
+<td>2026-10</td>
+<td>研发团队</td>
+<td>侵权线索、存证记录、维权案件管理功能、权限系统</td>
+</tr>
+<tr>
+<td>阶段三</td>
+<td>测试与上线</td>
+<td>2026-10</td>
+<td>2026-12</td>
+<td>QA + 研发</td>
+<td>测试报告、上线部署、验收交付</td>
+</tr>
+</tbody></table>
+<hr>
+  </div>
+  <h3>路线图</h3>
+  <div class="narrative">
+    <pre><code>2026 Q3                      2026 Q4
+|--7月--|--8月--|--9月--|  |--10月-|--11月-|--12月-|
+                                                   
+需求设计 ████████░░░░░░░░  ░░░░░░░░░░░░░░░░  ░░░░░░░░░░░░░░░░
+核心开发 ░░░░░░░░████████  ████████░░░░░░░░  ░░░░░░░░░░░░░░░░
+测试上线 ░░░░░░░░░░░░░░░░  ░░░░░░░░████████  ████████░░░░░░░░</code></pre>
+<hr>
+  </div></section>
+<section id="scope" data-audience="pm dev test">
+  <h2><span class="section-num">10</span> 范围与风险</h2>
+  <p>项目范围、假设清单、风险矩阵与待确认问题。</p>
+
+  <h3>假设清单</h3>
+  <div class="narrative">
+    <table><thead><tr>
+<th>编号</th>
+<th>假设内容</th>
+<th>类型</th>
+<th>验证状态</th>
+<th>验证方式</th>
+</tr></thead><tbody>
+<tr>
+<td>A01</td>
+<td>用户具备基本的电脑操作能力，能熟练使用 Web 浏览器</td>
+<td>用户行为假设</td>
+<td>未验证</td>
+<td>用户调研</td>
+</tr>
+<tr>
+<td>A02</td>
+<td>IPR相关业务规则在项目周期内保持稳定</td>
+<td>业务假设</td>
+<td>未验证</td>
+<td>与业务方确认</td>
+</tr>
+<tr>
+<td>A03</td>
+<td>后端 API 能在 2026-09 前完成契约定义并进入联调</td>
+<td>技术假设</td>
+<td>未验证</td>
+<td>项目进度跟踪</td>
+</tr>
+<tr>
+<td>A04</td>
+<td>侵权线索、存证记录、维权案件数据可从现有系统迁移或人工录入</td>
+<td>业务假设</td>
+<td>未验证</td>
+<td>数据迁移评估</td>
+</tr>
+<tr>
+<td>A05</td>
+<td>目标用户规模在万级以内，单体架构可满足性能需求</td>
+<td>技术假设</td>
+<td>未验证</td>
+<td>性能压测</td>
+</tr>
+</tbody></table>
+<hr>
+  </div>
+  <h3>风险矩阵</h3>
+  <div class="narrative">
+    <table><thead><tr>
+<th>编号</th>
+<th>描述</th>
+<th>概率</th>
+<th>影响</th>
+<th>等级</th>
+<th>缓解策略</th>
+<th>负责人</th>
+</tr></thead><tbody>
+<tr>
+<td>RISK-01</td>
+<td>侵权线索状态流转异常（非法状态跳转、状态停滞）导致业务数据不一致</td>
+<td>中</td>
+<td>高</td>
+<td>中风险</td>
+<td>增加数据校验与状态机控制</td>
+<td>产品经理</td>
+</tr>
+<tr>
+<td>RISK-02</td>
+<td>存证记录状态流转异常（非法状态跳转、状态停滞）导致业务数据不一致</td>
+<td>中</td>
+<td>高</td>
+<td>中风险</td>
+<td>增加数据校验与状态机控制</td>
+<td>产品经理</td>
+</tr>
+<tr>
+<td>RISK-03</td>
+<td>维权案件状态流转异常（非法状态跳转、状态停滞）导致业务数据不一致</td>
+<td>中</td>
+<td>高</td>
+<td>中风险</td>
+<td>增加数据校验与状态机控制</td>
+<td>产品经理</td>
+</tr>
+<tr>
+<td>RISK-04</td>
+<td>跨境规则模板状态流转异常（非法状态跳转、状态停滞）导致业务数据不一致</td>
+<td>中</td>
+<td>高</td>
+<td>中风险</td>
+<td>增加数据校验与状态机控制</td>
+<td>产品经理</td>
+</tr>
+<tr>
+<td>RISK-05</td>
+<td>权限设计不完整导致越权访问</td>
+<td>低</td>
+<td>高</td>
+<td>高风险</td>
+<td>完善权限矩阵评审，上线前安全测试</td>
+<td>研发负责人</td>
+</tr>
+<tr>
+<td>RISK-06</td>
+<td>需求变更频繁导致开发延期</td>
+<td>中</td>
+<td>中</td>
+<td>中风险</td>
+<td>需求模型锁定机制，变更需走流程</td>
+<td>产品经理</td>
+</tr>
+<tr>
+<td>RISK-07</td>
+<td>前后端联调效率低</td>
+<td>中</td>
+<td>中</td>
+<td>中风险</td>
+<td>提前约定 API 契约，Mock 数据先行</td>
+<td>研发负责人</td>
+</tr>
+</tbody></table>
+<blockquote>概率参考：高 / 中 / 低 影响参考：高 / 中 / 低 等级参考：高风险 / 中风险 / 低风险</blockquote>
+<hr>
+  </div></section>
+<section id="dev-docs" data-audience="dev">
+  <h2><span class="section-num">11</span> 研发文档</h2>
+  <p>聚合 spec / test / handoff 研发文档全文（默认收起，点击文件名展开）。本章节仅在"研发视图"下显示。</p>
+
+  <h3>spec 规格文档（7）</h3>
+  <details>
+    <summary><code>spec/00-project-overview.md</code> <span style="font-size:12px;color:var(--color-text-dim);margin-left:8px;">00 - 项目总览 (技术规格)</span></summary>
+    <div class="details-content">
+      <h1>00 - 项目总览 (技术规格)</h1>
+<blockquote>本文档为技术规格层面的项目总览，从工程实现视角描述系统架构、技术选型、部署方案等信息。</blockquote>
+<hr>
+<h2>1. 文档说明</h2>
+<p>本文档与 PRD <code>00-overview.md</code> 互补：PRD 侧重业务视角，本文档侧重技术实现视角，覆盖架构、技术栈、部署、性能等非功能性需求。</p>
+<hr>
+<h2>2. 系统架构</h2>
+<h3>2.1 架构概览</h3>
+<p>本项目采用前后端分离的 B/S 架构，前端单页应用 (SPA) 通过 RESTful API 与后端服务通信，后端按业务模块划分服务边界。</p>
+<h3>2.2 架构图</h3>
+<div class="mermaid">flowchart LR
+    subgraph 客户端
+        UI[Web 浏览器]
+    end
+    subgraph 前端
+        SPA[单页应用<br/>React + Router]
+        HTTP[HTTP 客户端<br/>Axios]
+    end
+    subgraph 后端
+        API[API 网关]
+        BIZ[业务服务层]
+        AUTH[认证授权]
+    end
+    subgraph 数据层
+        DB[("关系型数据库")]
+        CACHE[("缓存")]
+    end
+    UI --> SPA
+    SPA --> HTTP
+    HTTP --> API
+    API --> AUTH
+    API --> BIZ
+    BIZ --> DB
+    BIZ --> CACHE</div>
+<h3>2.3 模块划分</h3>
+<p>基于需求模型中的 4 个业务实体，系统划分为以下模块：</p>
+<table><thead><tr>
+<th>模块</th>
+<th>核心实体</th>
+<th>职责</th>
+</tr></thead><tbody>
+<tr>
+<td>InfringementLead管理</td>
+<td>侵权线索</td>
+<td>侵权线索数据的增删改查、状态流转、权限控制</td>
+</tr>
+<tr>
+<td>EvidenceRecord管理</td>
+<td>存证记录</td>
+<td>存证记录数据的增删改查、状态流转、权限控制</td>
+</tr>
+<tr>
+<td>RightsCase管理</td>
+<td>维权案件</td>
+<td>维权案件数据的增删改查、状态流转、权限控制</td>
+</tr>
+<tr>
+<td>CrossBorderRule管理</td>
+<td>跨境规则模板</td>
+<td>跨境规则模板数据的增删改查、状态流转、权限控制</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. 技术栈</h2>
+<h3>3.1 前端技术栈</h3>
+<table><thead><tr>
+<th>类别</th>
+<th>选型</th>
+<th>说明</th>
+</tr></thead><tbody>
+<tr>
+<td>框架</td>
+<td>React 18</td>
+<td>函数组件 + Hooks 模式</td>
+</tr>
+<tr>
+<td>路由</td>
+<td>React Router v6</td>
+<td>声明式路由 + 嵌套路由</td>
+</tr>
+<tr>
+<td>UI 库</td>
+<td>Ant Design 5</td>
+<td>企业级中后台组件库</td>
+</tr>
+<tr>
+<td>状态管理</td>
+<td>Zustand / Context</td>
+<td>轻量级状态管理</td>
+</tr>
+<tr>
+<td>HTTP 客户端</td>
+<td>Axios</td>
+<td>请求/响应拦截、统一错误处理</td>
+</tr>
+<tr>
+<td>构建工具</td>
+<td>Vite</td>
+<td>快速冷启动 + HMR</td>
+</tr>
+<tr>
+<td>语言</td>
+<td>TypeScript</td>
+<td>类型安全</td>
+</tr>
+</tbody></table>
+<h3>3.2 后端技术栈</h3>
+<table><thead><tr>
+<th>类别</th>
+<th>选型</th>
+<th>说明</th>
+</tr></thead><tbody>
+<tr>
+<td>语言</td>
+<td>Node.js / Java / Go</td>
+<td>按团队技术栈选择</td>
+</tr>
+<tr>
+<td>API 风格</td>
+<td>RESTful</td>
+<td>资源化 URL + JSON</td>
+</tr>
+<tr>
+<td>认证</td>
+<td>JWT + Refresh Token</td>
+<td>无状态认证</td>
+</tr>
+<tr>
+<td>权限模型</td>
+<td>RBAC</td>
+<td>基于角色的访问控制</td>
+</tr>
+<tr>
+<td>数据库</td>
+<td>MySQL / PostgreSQL</td>
+<td>关系型数据库</td>
+</tr>
+<tr>
+<td>缓存</td>
+<td>Redis</td>
+<td>会话/热点数据缓存</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>4. 部署架构</h2>
+<h3>4.1 环境清单</h3>
+<table><thead><tr>
+<th>环境</th>
+<th>用途</th>
+<th>部署方式</th>
+</tr></thead><tbody>
+<tr>
+<td>开发环境 (dev)</td>
+<td>开发联调</td>
+<td>本地 / Docker Compose</td>
+</tr>
+<tr>
+<td>测试环境 (test)</td>
+<td>QA 测试</td>
+<td>容器化部署</td>
+</tr>
+<tr>
+<td>预发布环境 (staging)</td>
+<td>上线前验证</td>
+<td>与生产同构</td>
+</tr>
+<tr>
+<td>生产环境 (prod)</td>
+<td>对外服务</td>
+<td>容器编排 + 负载均衡</td>
+</tr>
+</tbody></table>
+<h3>4.2 部署拓扑</h3>
+<div class="mermaid">flowchart TB
+    LB[负载均衡<br/>Nginx/ALB] --> FE1[前端实例 1]
+    LB --> FE2[前端实例 2]
+    LB --> API1[API 实例 1]
+    LB --> API2[API 实例 2]
+    API1 --> DBM[("数据库主")]
+    API2 --> DBM
+    DBM -.同步.-> DBS[("数据库从")]
+    API1 --> REDIS[("Redis 集群")]
+    API2 --> REDIS</div>
+<hr>
+<h2>5. 第三方服务集成</h2>
+<table><thead><tr>
+<th>服务</th>
+<th>用途</th>
+<th>集成方式</th>
+</tr></thead><tbody>
+<tr>
+<td>短信服务</td>
+<td>验证码、通知</td>
+<td>API 调用</td>
+</tr>
+<tr>
+<td>邮件服务</td>
+<td>系统通知、报表</td>
+<td>SMTP / API</td>
+</tr>
+<tr>
+<td>对象存储</td>
+<td>文件附件</td>
+<td>SDK 上传</td>
+</tr>
+<tr>
+<td>日志服务</td>
+<td>操作审计、错误追踪</td>
+<td>日志采集 + ELK</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>6. 性能指标与非功能性需求</h2>
+<table><thead><tr>
+<th>指标</th>
+<th>目标值</th>
+<th>说明</th>
+</tr></thead><tbody>
+<tr>
+<td>首屏加载时间</td>
+<td>≤ 2s</td>
+<td>桌面端 4G 网络</td>
+</tr>
+<tr>
+<td>API 平均响应</td>
+<td>≤ 200ms</td>
+<td>P95 ≤ 500ms</td>
+</tr>
+<tr>
+<td>并发用户数</td>
+<td>≥ 500</td>
+<td>同时在线</td>
+</tr>
+<tr>
+<td>系统可用性</td>
+<td>≥ 99.5%</td>
+<td>月度 SLA</td>
+</tr>
+<tr>
+<td>数据备份</td>
+<td>每日全量 + 实时增量</td>
+<td>RPO ≤ 1h</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>7. 项目规模</h2>
+<table><thead><tr>
+<th>维度</th>
+<th>数量</th>
+</tr></thead><tbody>
+<tr>
+<td>业务实体</td>
+<td>4</td>
+</tr>
+<tr>
+<td>用户角色</td>
+<td>3</td>
+</tr>
+<tr>
+<td>页面数</td>
+<td>6</td>
+</tr>
+<tr>
+<td>API 接口数（预估）</td>
+<td>26</td>
+</tr>
+</tbody></table>
+<hr>
+<blockquote>本文档由 generate-prd.mjs (v5.2.2) 基于 requirement-model.yaml 自动生成（2026-08-29T15:52:07.036Z）</blockquote>
+    </div>
+  </details>
+  <details>
+    <summary><code>spec/01-page-architecture.md</code> <span style="font-size:12px;color:var(--color-text-dim);margin-left:8px;">01 - 页面架构 (技术规格)</span></summary>
+    <div class="details-content">
+      <h1>01 - 页面架构 (技术规格)</h1>
+<blockquote>本文档定义前端页面的技术架构，包括组件树结构、布局方案、组件清单、通信方式与响应式策略。</blockquote>
+<hr>
+<h2>1. 文档说明</h2>
+<p>本文档基于需求模型中的 6 个页面，推导前端组件架构与布局方案。</p>
+<hr>
+<h2>2. 全局布局</h2>
+<h3>2.1 布局结构</h3>
+<p>系统采用经典的中后台布局：顶部导航 + 左侧菜单 + 主内容区。</p>
+<div class="mermaid">flowchart TB
+    Layout[AppLayout]
+    Layout --> Header[AppHeader<br/>Logo + 用户信息 + 通知]
+    Layout --> Sider[AppSider<br/>主导航菜单]
+    Layout --> Content[AppContent<br/>路由出口]
+    Content --> Breadcrumb[PageBreadcrumb<br/>面包屑]
+    Content --> RouterView[RouterOutlet<br/>页面组件]
+    Content --> Footer[PageFooter<br/>版权信息]</div>
+<h3>2.2 路由出口</h3>
+<p>主内容区通过 React Router 的 <code>&amp;lt;Outlet /&amp;gt;</code> 渲染当前路由对应的页面组件。</p>
+<hr>
+<h2>3. 页面组件树</h2>
+<h3>3.1 monitor-dashboard (P01)</h3>
+<div class="mermaid">flowchart TB
+    P[P01 monitor-dashboard]
+    P --> Search[SearchBar 搜索区]
+    P --> Toolbar[Toolbar 操作栏]
+    P --> Cards[StatisticCards 指标卡片]
+    P --> Charts[Charts 图表区]</div>
+<h3>3.2 infringement-leads (P02)</h3>
+<div class="mermaid">flowchart TB
+    P[P02 infringement-leads]
+    P --> Search[SearchBar 搜索区]
+    P --> Toolbar[Toolbar 操作栏]
+    P --> Table[DataTable 数据表格]
+    P --> Pagination[Pagination 分页]
+    P --> Form[侵权线索Form 新增/编辑表单]
+    P --> Detail[侵权线索Detail 详情弹窗]</div>
+<h3>3.3 evidence-detail (P03)</h3>
+<div class="mermaid">flowchart TB
+    P[P03 evidence-detail]
+    P --> Search[SearchBar 搜索区]
+    P --> Toolbar[Toolbar 操作栏]
+    P --> Desc[Descriptions 详情展示]
+    P --> Tabs[Tabs 关联信息标签页]</div>
+<h3>3.4 rights-cases (P04)</h3>
+<div class="mermaid">flowchart TB
+    P[P04 rights-cases]
+    P --> Search[SearchBar 搜索区]
+    P --> Toolbar[Toolbar 操作栏]
+    P --> Table[DataTable 数据表格]
+    P --> Pagination[Pagination 分页]
+    P --> Form[维权案件Form 新增/编辑表单]
+    P --> Detail[维权案件Detail 详情弹窗]</div>
+<h3>3.5 cross-border-rules (P05)</h3>
+<div class="mermaid">flowchart TB
+    P[P05 cross-border-rules]
+    P --> Search[SearchBar 搜索区]
+    P --> Toolbar[Toolbar 操作栏]
+    P --> Table[DataTable 数据表格]
+    P --> Pagination[Pagination 分页]
+    P --> Form[跨境规则模板Form 新增/编辑表单]
+    P --> Detail[跨境规则模板Detail 详情弹窗]</div>
+<h3>3.6 rights-analytics (P06)</h3>
+<div class="mermaid">flowchart TB
+    P[P06 rights-analytics]
+    P --> Search[SearchBar 搜索区]
+    P --> Toolbar[Toolbar 操作栏]
+    P --> Cards[StatisticCards 指标卡片]
+    P --> Charts[Charts 图表区]</div>
+<hr>
+<h2>4. 公共组件清单</h2>
+<table><thead><tr>
+<th>组件</th>
+<th>路径</th>
+<th>用途</th>
+</tr></thead><tbody>
+<tr>
+<td>AppLayout</td>
+<td>components/layout/AppLayout</td>
+<td>全局布局</td>
+</tr>
+<tr>
+<td>AppHeader</td>
+<td>components/layout/AppHeader</td>
+<td>顶部导航</td>
+</tr>
+<tr>
+<td>AppSider</td>
+<td>components/layout/AppSider</td>
+<td>侧边菜单</td>
+</tr>
+<tr>
+<td>PageBreadcrumb</td>
+<td>components/layout/PageBreadcrumb</td>
+<td>面包屑</td>
+</tr>
+<tr>
+<td>SearchBar</td>
+<td>components/common/SearchBar</td>
+<td>通用搜索区</td>
+</tr>
+<tr>
+<td>DataTable</td>
+<td>components/common/DataTable</td>
+<td>通用数据表格</td>
+</tr>
+<tr>
+<td>Pagination</td>
+<td>components/common/Pagination</td>
+<td>分页器</td>
+</tr>
+<tr>
+<td>FormDialog</td>
+<td>components/common/FormDialog</td>
+<td>表单弹窗</td>
+</tr>
+<tr>
+<td>ConfirmDialog</td>
+<td>components/common/ConfirmDialog</td>
+<td>确认弹窗</td>
+</tr>
+<tr>
+<td>EmptyState</td>
+<td>components/common/EmptyState</td>
+<td>空状态</td>
+</tr>
+<tr>
+<td>ErrorBoundary</td>
+<td>components/common/ErrorBoundary</td>
+<td>错误边界</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>5. 业务组件清单</h2>
+<table><thead><tr>
+<th>组件</th>
+<th>所属页面</th>
+<th>用途</th>
+</tr></thead><tbody>
+<tr>
+<td>P01Page</td>
+<td>/dashboard</td>
+<td>monitor-dashboard页面主组件</td>
+</tr>
+<tr>
+<td>P02Page</td>
+<td>/leads</td>
+<td>infringement-leads页面主组件</td>
+</tr>
+<tr>
+<td>P03Page</td>
+<td>/evidence</td>
+<td>evidence-detail页面主组件</td>
+</tr>
+<tr>
+<td>P04Page</td>
+<td>/cases</td>
+<td>rights-cases页面主组件</td>
+</tr>
+<tr>
+<td>P05Page</td>
+<td>/rules</td>
+<td>cross-border-rules页面主组件</td>
+</tr>
+<tr>
+<td>P06Page</td>
+<td>/analytics</td>
+<td>rights-analytics页面主组件</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>6. 组件间通信方式</h2>
+<table><thead><tr>
+<th>通信方式</th>
+<th>场景</th>
+<th>说明</th>
+</tr></thead><tbody>
+<tr>
+<td>Props</td>
+<td>父子组件</td>
+<td>单向数据流</td>
+</tr>
+<tr>
+<td>Context</td>
+<td>全局状态</td>
+<td>用户信息、主题、权限</td>
+</tr>
+<tr>
+<td>State Store</td>
+<td>跨页面共享</td>
+<td>Zustand 全局 store</td>
+</tr>
+<tr>
+<td>Event Bus</td>
+<td>兄弟组件</td>
+<td>低频场景，避免滥用</td>
+</tr>
+<tr>
+<td>URL Params</td>
+<td>路由跳转</td>
+<td>详情页参数传递</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>7. 响应式策略</h2>
+<table><thead><tr>
+<th>断点</th>
+<th>宽度</th>
+<th>布局调整</th>
+</tr></thead><tbody>
+<tr>
+<td>lg</td>
+<td>≥ 1200px</td>
+<td>默认布局（侧边栏展开）</td>
+</tr>
+<tr>
+<td>md</td>
+<td>992-1199px</td>
+<td>侧边栏可折叠</td>
+</tr>
+<tr>
+<td>sm</td>
+<td>768-991px</td>
+<td>侧边栏抽屉式</td>
+</tr>
+<tr>
+<td>xs</td>
+<td>&lt; 768px</td>
+<td>不支持，提示使用桌面端</td>
+</tr>
+</tbody></table>
+<blockquote>主要面向桌面端后台管理场景，移动端不做强制适配。</blockquote>
+<hr>
+<blockquote>本文档由 generate-prd.mjs (v5.2.2) 基于 requirement-model.yaml 自动生成（2026-08-29T15:52:07.042Z）</blockquote>
+    </div>
+  </details>
+  <details>
+    <summary><code>spec/02-interaction-flow.md</code> <span style="font-size:12px;color:var(--color-text-dim);margin-left:8px;">02 - 交互流程 (技术规格)</span></summary>
+    <div class="details-content">
+      <h1>02 - 交互流程 (技术规格)</h1>
+<blockquote>本文档定义系统的主要交互流程，覆盖核心业务场景的前后端协作时序。</blockquote>
+<hr>
+<h2>1. 文档说明</h2>
+<p>本文档基于需求模型推导主要交互流程，使用 Mermaid 时序图描述前后端协作。</p>
+<hr>
+<h2>2. 通用列表页交互流程</h2>
+<p>以 monitor-dashboard为例，描述 CRUD 列表页的标准交互：</p>
+<div class="mermaid">sequenceDiagram
+    actor U as 用户
+    participant V as 前端页面
+    participant API as 后端 API
+    participant DB as 数据库
+    U->>V: 访问列表页
+    V->>API: GET /api/xxx?page=1&size=20
+    API->>DB: SELECT ... LIMIT
+    DB-->>API: 数据集
+    API-->>V: { list, total }
+    V-->>U: 渲染表格 + 分页器
+    U->>V: 输入搜索条件
+    V->>API: GET /api/xxx?keyword=...
+    API->>DB: WHERE ... LIKE
+    DB-->>API: 过滤数据
+    API-->>V: { list, total }
+    V-->>U: 重新渲染表格
+    U->>V: 点击新增
+    V-->>U: 弹出表单弹窗
+    U->>V: 填写表单并提交
+    V->>API: POST /api/xxx
+    API->>DB: INSERT
+    DB-->>API: 新增 ID
+    API-->>V: { success, id }
+    V-->>U: 提示成功 + 刷新列表</div>
+<hr>
+<h2>3. 状态流转交互流程</h2>
+<h3>3.1 侵权线索 状态流转</h3>
+<div class="mermaid">sequenceDiagram
+    actor U as 用户
+    participant V as 前端
+    participant API as 后端
+    participant DB as 数据库
+    U->>V: 触发: 一键存证
+    V->>API: POST /api/xxx/{id}/transition
+    API->>DB: UPDATE status PENDING_EVIDENCE->EVIDENCED
+    API-->>V: { success }
+    V-->>U: 侵权线索 PENDING_EVIDENCE -> EVIDENCED（命中后 24 小时内完成区块链存证）
+    U->>V: 触发: 超时失效
+    V->>API: POST /api/xxx/{id}/transition
+    API->>DB: UPDATE status PENDING_EVIDENCE->EXPIRED
+    API-->>V: { success }
+    V-->>U: 侵权线索 PENDING_EVIDENCE -> EXPIRED（超过存证截止时间仍未完成存证）
+    U->>V: 触发: 发起立案
+    V->>API: POST /api/xxx/{id}/transition
+    API->>DB: UPDATE status EVIDENCED->FILED
+    API-->>V: { success }
+    V-->>U: 侵权线索 EVIDENCED -> FILED（同一卖家同一专利无在办案件）
+    U->>V: 触发: 判定忽略
+    V->>API: POST /api/xxx/{id}/transition
+    API->>DB: UPDATE status PENDING_EVIDENCE->IGNORED
+    API-->>V: { success }
+    V-->>U: 侵权线索 PENDING_EVIDENCE -> IGNORED（分析师复核为不侵权或重复线索）</div>
+<h3>3.2 存证记录 状态流转</h3>
+<div class="mermaid">sequenceDiagram
+    actor U as 用户
+    participant V as 前端
+    participant API as 后端
+    participant DB as 数据库
+    U->>V: 触发: 上链成功
+    V->>API: POST /api/xxx/{id}/transition
+    API->>DB: UPDATE status CHAINING->ON_CHAIN
+    API-->>V: { success }
+    V-->>U: 存证记录 CHAINING -> ON_CHAIN（区块链网络返回存证哈希与时间戳）
+    U->>V: 触发: 存证失败
+    V->>API: POST /api/xxx/{id}/transition
+    API->>DB: UPDATE status CHAINING->INVALID
+    API-->>V: { success }
+    V-->>U: 存证记录 CHAINING -> INVALID（上链超时或证据文件缺失）</div>
+<h3>3.3 维权案件 状态流转</h3>
+<div class="mermaid">sequenceDiagram
+    actor U as 用户
+    participant V as 前端
+    participant API as 后端
+    participant DB as 数据库
+    U->>V: 触发: 启动处置
+    V->>API: POST /api/xxx/{id}/transition
+    API->>DB: UPDATE status PENDING->PROCESSING
+    API-->>V: { success }
+    V-->>U: 维权案件 PENDING -> PROCESSING（已选定处置策略且跨境案件已绑定当地规则模板）
+    U->>V: 触发: 平台受理
+    V->>API: POST /api/xxx/{id}/transition
+    API->>DB: UPDATE status PROCESSING->ACCEPTED
+    API-->>V: { success }
+    V-->>U: 维权案件 PROCESSING -> ACCEPTED（平台返回受理回执）
+    U->>V: 触发: 结案归档
+    V->>API: POST /api/xxx/{id}/transition
+    API->>DB: UPDATE status ACCEPTED->CLOSED
+    API-->>V: { success }
+    V-->>U: 维权案件 ACCEPTED -> CLOSED（侵权商品已下架或达成和解）
+    U->>V: 触发: 平台驳回
+    V->>API: POST /api/xxx/{id}/transition
+    API->>DB: UPDATE status PROCESSING->REJECTED
+    API-->>V: { success }
+    V-->>U: 维权案件 PROCESSING -> REJECTED（证据不足或权利不稳定）
+    U->>V: 触发: 补充证据重启
+    V->>API: POST /api/xxx/{id}/transition
+    API->>DB: UPDATE status REJECTED->PROCESSING
+    API-->>V: { success }
+    V-->>U: 维权案件 REJECTED -> PROCESSING（补充存证后重新提交）</div>
+<h3>3.4 跨境规则模板 状态流转</h3>
+<div class="mermaid">sequenceDiagram
+    actor U as 用户
+    participant V as 前端
+    participant API as 后端
+    participant DB as 数据库
+    U->>V: 触发: 停用规则
+    V->>API: POST /api/xxx/{id}/transition
+    API->>DB: UPDATE status ENABLED->DISABLED
+    API-->>V: { success }
+    V-->>U: 跨境规则模板 ENABLED -> DISABLED（平台投诉渠道变更或规则过期）
+    U->>V: 触发: 启用规则
+    V->>API: POST /api/xxx/{id}/transition
+    API->>DB: UPDATE status DISABLED->ENABLED
+    API-->>V: { success }
+    V-->>U: 跨境规则模板 DISABLED -> ENABLED（规则内容复核通过）</div>
+<hr>
+<h2>4. 权限校验流程</h2>
+<div class="mermaid">sequenceDiagram
+    actor U as 用户
+    participant V as 前端路由
+    participant G as 全局守卫
+    participant API as 后端 API
+    U->>V: 访问页面 /xxx
+    V->>G: 路由守卫触发
+    G->>G: 检查登录状态
+    alt 未登录
+        G-->>U: 重定向到登录页
+    else 已登录
+        G->>G: 检查角色权限
+        alt 无权限
+            G-->>U: 重定向到 403 页面
+        else 有权限
+            G-->>V: 放行
+            V->>API: 请求业务数据
+            API-->>V: 数据
+            V-->>U: 渲染页面
+        end
+    end</div>
+<hr>
+<h2>5. 异常处理流程</h2>
+<div class="mermaid">sequenceDiagram
+    actor U as 用户
+    participant V as 前端
+    participant API as 后端
+    U->>V: 操作
+    V->>API: 请求
+    alt 网络异常
+        API-->>V: 超时/无响应
+        V-->>U: 提示网络异常 + 重试按钮
+    else 业务错误
+        API-->>V: 4xx + 错误信息
+        V-->>U: 表单内联提示 / Toast
+    else 系统错误
+        API-->>V: 5xx
+        V-->>U: 系统繁忙提示 + 上报日志
+    else 成功
+        API-->>V: 2xx
+        V-->>U: 成功反馈 + 刷新数据
+    end</div>
+<hr>
+<blockquote>本文档由 generate-prd.mjs (v5.2.2) 基于 requirement-model.yaml 自动生成（2026-08-29T15:52:07.046Z）</blockquote>
+    </div>
+  </details>
+  <details>
+    <summary><code>spec/03-state-matrix.md</code> <span style="font-size:12px;color:var(--color-text-dim);margin-left:8px;">03 - 状态矩阵 (技术规格)</span></summary>
+    <div class="details-content">
+      <h1>03 - 状态矩阵 (技术规格)</h1>
+<blockquote>本文档定义所有实体的状态枚举与状态流转规则，作为状态机实现的依据。</blockquote>
+<hr>
+<h2>1. 文档说明</h2>
+<p>本文档从需求模型提取实体状态枚举与转换规则，用于前后端状态同步与校验。</p>
+<hr>
+<h2>2. 状态枚举清单</h2>
+<table><thead><tr>
+<th>实体</th>
+<th>状态值</th>
+<th>显示名称</th>
+<th>颜色标识</th>
+</tr></thead><tbody>
+<tr>
+<td>侵权线索</td>
+<td>PENDING_EVIDENCE</td>
+<td>待存证</td>
+<td>warning</td>
+</tr>
+<tr>
+<td>侵权线索</td>
+<td>EVIDENCED</td>
+<td>已存证</td>
+<td>info</td>
+</tr>
+<tr>
+<td>侵权线索</td>
+<td>FILED</td>
+<td>已立案</td>
+<td>primary</td>
+</tr>
+<tr>
+<td>侵权线索</td>
+<td>EXPIRED</td>
+<td>已失效</td>
+<td>danger</td>
+</tr>
+<tr>
+<td>侵权线索</td>
+<td>IGNORED</td>
+<td>已忽略</td>
+<td>info</td>
+</tr>
+<tr>
+<td>存证记录</td>
+<td>CHAINING</td>
+<td>存证中</td>
+<td>warning</td>
+</tr>
+<tr>
+<td>存证记录</td>
+<td>ON_CHAIN</td>
+<td>已上链</td>
+<td>success</td>
+</tr>
+<tr>
+<td>存证记录</td>
+<td>INVALID</td>
+<td>已失效</td>
+<td>danger</td>
+</tr>
+<tr>
+<td>维权案件</td>
+<td>PENDING</td>
+<td>待处置</td>
+<td>warning</td>
+</tr>
+<tr>
+<td>维权案件</td>
+<td>PROCESSING</td>
+<td>处置中</td>
+<td>primary</td>
+</tr>
+<tr>
+<td>维权案件</td>
+<td>ACCEPTED</td>
+<td>平台受理</td>
+<td>info</td>
+</tr>
+<tr>
+<td>维权案件</td>
+<td>CLOSED</td>
+<td>已结案</td>
+<td>success</td>
+</tr>
+<tr>
+<td>维权案件</td>
+<td>REJECTED</td>
+<td>已驳回</td>
+<td>danger</td>
+</tr>
+<tr>
+<td>跨境规则模板</td>
+<td>ENABLED</td>
+<td>已启用</td>
+<td>success</td>
+</tr>
+<tr>
+<td>跨境规则模板</td>
+<td>DISABLED</td>
+<td>已停用</td>
+<td>info</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. 状态转换矩阵</h2>
+<table><thead><tr>
+<th>实体</th>
+<th>起始状态</th>
+<th>目标状态</th>
+<th>触发动作</th>
+<th>前置条件</th>
+</tr></thead><tbody>
+<tr>
+<td>侵权线索</td>
+<td>PENDING_EVIDENCE</td>
+<td>EVIDENCED</td>
+<td>一键存证</td>
+<td>命中后 24 小时内完成区块链存证</td>
+</tr>
+<tr>
+<td>侵权线索</td>
+<td>PENDING_EVIDENCE</td>
+<td>EXPIRED</td>
+<td>超时失效</td>
+<td>超过存证截止时间仍未完成存证</td>
+</tr>
+<tr>
+<td>侵权线索</td>
+<td>EVIDENCED</td>
+<td>FILED</td>
+<td>发起立案</td>
+<td>同一卖家同一专利无在办案件</td>
+</tr>
+<tr>
+<td>侵权线索</td>
+<td>PENDING_EVIDENCE</td>
+<td>IGNORED</td>
+<td>判定忽略</td>
+<td>分析师复核为不侵权或重复线索</td>
+</tr>
+<tr>
+<td>存证记录</td>
+<td>CHAINING</td>
+<td>ON_CHAIN</td>
+<td>上链成功</td>
+<td>区块链网络返回存证哈希与时间戳</td>
+</tr>
+<tr>
+<td>存证记录</td>
+<td>CHAINING</td>
+<td>INVALID</td>
+<td>存证失败</td>
+<td>上链超时或证据文件缺失</td>
+</tr>
+<tr>
+<td>维权案件</td>
+<td>PENDING</td>
+<td>PROCESSING</td>
+<td>启动处置</td>
+<td>已选定处置策略且跨境案件已绑定当地规则模板</td>
+</tr>
+<tr>
+<td>维权案件</td>
+<td>PROCESSING</td>
+<td>ACCEPTED</td>
+<td>平台受理</td>
+<td>平台返回受理回执</td>
+</tr>
+<tr>
+<td>维权案件</td>
+<td>ACCEPTED</td>
+<td>CLOSED</td>
+<td>结案归档</td>
+<td>侵权商品已下架或达成和解</td>
+</tr>
+<tr>
+<td>维权案件</td>
+<td>PROCESSING</td>
+<td>REJECTED</td>
+<td>平台驳回</td>
+<td>证据不足或权利不稳定</td>
+</tr>
+<tr>
+<td>维权案件</td>
+<td>REJECTED</td>
+<td>PROCESSING</td>
+<td>补充证据重启</td>
+<td>补充存证后重新提交</td>
+</tr>
+<tr>
+<td>跨境规则模板</td>
+<td>ENABLED</td>
+<td>DISABLED</td>
+<td>停用规则</td>
+<td>平台投诉渠道变更或规则过期</td>
+</tr>
+<tr>
+<td>跨境规则模板</td>
+<td>DISABLED</td>
+<td>ENABLED</td>
+<td>启用规则</td>
+<td>规则内容复核通过</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>4. 状态机图</h2>
+<h3>4.1 侵权线索 状态机</h3>
+<div class="mermaid">stateDiagram-v2
+    [*] --> PENDING_EVIDENCE
+    [*] --> EVIDENCED
+    [*] --> EXPIRED
+    [*] --> FILED
+    [*] --> IGNORED
+    PENDING_EVIDENCE --> EVIDENCED : 一键存证
+    PENDING_EVIDENCE --> EXPIRED : 超时失效
+    EVIDENCED --> FILED : 发起立案
+    PENDING_EVIDENCE --> IGNORED : 判定忽略</div>
+<h3>4.2 存证记录 状态机</h3>
+<div class="mermaid">stateDiagram-v2
+    [*] --> CHAINING
+    [*] --> ON_CHAIN
+    [*] --> INVALID
+    CHAINING --> ON_CHAIN : 上链成功
+    CHAINING --> INVALID : 存证失败</div>
+<h3>4.3 维权案件 状态机</h3>
+<div class="mermaid">stateDiagram-v2
+    [*] --> PENDING
+    [*] --> PROCESSING
+    [*] --> ACCEPTED
+    [*] --> CLOSED
+    [*] --> REJECTED
+    PENDING --> PROCESSING : 启动处置
+    PROCESSING --> ACCEPTED : 平台受理
+    ACCEPTED --> CLOSED : 结案归档
+    PROCESSING --> REJECTED : 平台驳回
+    REJECTED --> PROCESSING : 补充证据重启</div>
+<h3>4.4 跨境规则模板 状态机</h3>
+<div class="mermaid">stateDiagram-v2
+    [*] --> ENABLED
+    [*] --> DISABLED
+    ENABLED --> DISABLED : 停用规则
+    DISABLED --> ENABLED : 启用规则</div>
+<hr>
+<h2>5. 状态校验规则</h2>
+<table><thead><tr>
+<th>规则</th>
+<th>说明</th>
+</tr></thead><tbody>
+<tr>
+<td>后端校验</td>
+<td>每次状态变更必须校验转换合法性，非法转换返回 422</td>
+</tr>
+<tr>
+<td>前端展示</td>
+<td>根据当前状态动态显示可执行的操作按钮</td>
+</tr>
+<tr>
+<td>日志记录</td>
+<td>状态变更记录操作日志，含操作人、时间、前后状态</td>
+</tr>
+<tr>
+<td>并发控制</td>
+<td>状态变更使用乐观锁（version 字段）防止并发冲突</td>
+</tr>
+</tbody></table>
+<hr>
+<blockquote>本文档由 generate-prd.mjs (v5.2.2) 基于 requirement-model.yaml 自动生成（2026-08-29T15:52:07.053Z）</blockquote>
+    </div>
+  </details>
+  <details>
+    <summary><code>spec/04-route-table.md</code> <span style="font-size:12px;color:var(--color-text-dim);margin-left:8px;">04 - 路由表 (技术规格)</span></summary>
+    <div class="details-content">
+      <h1>04 - 路由表 (技术规格)</h1>
+<blockquote>本文档定义前端路由配置，覆盖路径、组件、权限、布局等。</blockquote>
+<hr>
+<h2>1. 文档说明</h2>
+<p>本文档基于需求模型中的 6 个页面生成路由表，作为前端路由配置的依据。</p>
+<hr>
+<h2>2. 路由总表</h2>
+<table><thead><tr>
+<th>路由路径</th>
+<th>页面 ID</th>
+<th>页面名称</th>
+<th>页面类型</th>
+<th>关联实体</th>
+<th>允许角色</th>
+</tr></thead><tbody>
+<tr>
+<td>/dashboard</td>
+<td>P01</td>
+<td>monitor-dashboard</td>
+<td>仪表盘页</td>
+<td>InfringementLead</td>
+<td>品牌方IPR / 维权律师 / 监测分析师</td>
+</tr>
+<tr>
+<td>/leads</td>
+<td>P02</td>
+<td>infringement-leads</td>
+<td>CRUD 列表页</td>
+<td>InfringementLead</td>
+<td>品牌方IPR / 维权律师 / 监测分析师</td>
+</tr>
+<tr>
+<td>/evidence</td>
+<td>P03</td>
+<td>evidence-detail</td>
+<td>详情页</td>
+<td>EvidenceRecord</td>
+<td>品牌方IPR / 维权律师 / 监测分析师</td>
+</tr>
+<tr>
+<td>/cases</td>
+<td>P04</td>
+<td>rights-cases</td>
+<td>CRUD 列表页</td>
+<td>RightsCase</td>
+<td>品牌方IPR / 维权律师 / 监测分析师</td>
+</tr>
+<tr>
+<td>/rules</td>
+<td>P05</td>
+<td>cross-border-rules</td>
+<td>CRUD 列表页</td>
+<td>CrossBorderRule</td>
+<td>品牌方IPR / 维权律师 / 监测分析师</td>
+</tr>
+<tr>
+<td>/analytics</td>
+<td>P06</td>
+<td>rights-analytics</td>
+<td>仪表盘页</td>
+<td>RightsCase</td>
+<td>品牌方IPR / 维权律师 / 监测分析师</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. 路由配置示例</h2>
+<pre><code class="language-typescript">// router/routes.ts
+import { lazy } from &quot;react&quot;;
+
+const P01Page = lazy(() =&gt; import(&quot;@/pages/P01&quot;));
+const P02Page = lazy(() =&gt; import(&quot;@/pages/P02&quot;));
+const P03Page = lazy(() =&gt; import(&quot;@/pages/P03&quot;));
+const P04Page = lazy(() =&gt; import(&quot;@/pages/P04&quot;));
+const P05Page = lazy(() =&gt; import(&quot;@/pages/P05&quot;));
+const P06Page = lazy(() =&gt; import(&quot;@/pages/P06&quot;));
+
+export const routes = [
+  {
+    path: &quot;/dashboard&quot;,
+    element: &lt;P01Page /&gt;,
+    meta: {
+      pageId: &quot;P01&quot;,
+      title: &quot;monitor-dashboard&quot;,
+      entity: &quot;InfringementLead&quot;,
+      type: &quot;dashboard&quot;,
+    },
+  },
+  {
+    path: &quot;/leads&quot;,
+    element: &lt;P02Page /&gt;,
+    meta: {
+      pageId: &quot;P02&quot;,
+      title: &quot;infringement-leads&quot;,
+      entity: &quot;InfringementLead&quot;,
+      type: &quot;crud_list&quot;,
+    },
+  },
+  {
+    path: &quot;/evidence&quot;,
+    element: &lt;P03Page /&gt;,
+    meta: {
+      pageId: &quot;P03&quot;,
+      title: &quot;evidence-detail&quot;,
+      entity: &quot;EvidenceRecord&quot;,
+      type: &quot;detail_view&quot;,
+    },
+  },
+  {
+    path: &quot;/cases&quot;,
+    element: &lt;P04Page /&gt;,
+    meta: {
+      pageId: &quot;P04&quot;,
+      title: &quot;rights-cases&quot;,
+      entity: &quot;RightsCase&quot;,
+      type: &quot;crud_list&quot;,
+    },
+  },
+  {
+    path: &quot;/rules&quot;,
+    element: &lt;P05Page /&gt;,
+    meta: {
+      pageId: &quot;P05&quot;,
+      title: &quot;cross-border-rules&quot;,
+      entity: &quot;CrossBorderRule&quot;,
+      type: &quot;crud_list&quot;,
+    },
+  },
+  {
+    path: &quot;/analytics&quot;,
+    element: &lt;P06Page /&gt;,
+    meta: {
+      pageId: &quot;P06&quot;,
+      title: &quot;rights-analytics&quot;,
+      entity: &quot;RightsCase&quot;,
+      type: &quot;dashboard&quot;,
+    },
+  },
+];</code></pre>
+<hr>
+<h2>4. 路由守卫</h2>
+<pre><code class="language-typescript">// router/guard.ts
+export function requireAuth(to: RouteLocation, from: RouteLocation, next: Function) {
+  const user = useUserStore();
+  if (!user.isLoggedIn) {
+    next({ path: &quot;/login&quot;, query: { redirect: to.fullPath } });
+    return;
+  }
+  // 检查角色权限
+  const allowedRoles = to.meta?.allowedRoles as string[] | undefined;
+  if (allowedRoles &amp;&amp; !allowedRoles.some(r =&gt; user.roles.includes(r))) {
+    next({ path: &quot;/403&quot; });
+    return;
+  }
+  next();
+}</code></pre>
+<hr>
+<h2>5. 特殊路由</h2>
+<table><thead><tr>
+<th>路由</th>
+<th>用途</th>
+</tr></thead><tbody>
+<tr>
+<td>/login</td>
+<td>登录页（无需鉴权）</td>
+</tr>
+<tr>
+<td>/403</td>
+<td>无权限页</td>
+</tr>
+<tr>
+<td>/404</td>
+<td>未找到页</td>
+</tr>
+<tr>
+<td>/</td>
+<td>默认重定向到第一个有权限的页面</td>
+</tr>
+</tbody></table>
+<hr>
+<blockquote>本文档由 generate-prd.mjs (v5.2.2) 基于 requirement-model.yaml 自动生成（2026-08-29T15:52:07.057Z）</blockquote>
+    </div>
+  </details>
+  <details>
+    <summary><code>spec/05-api-contract-draft.md</code> <span style="font-size:12px;color:var(--color-text-dim);margin-left:8px;">05 - API 接口契约 (技术规格)</span></summary>
+    <div class="details-content">
+      <h1>05 - API 接口契约 (技术规格)</h1>
+<blockquote>本文档定义前后端接口契约，包括 RESTful API 的请求/响应格式、参数规范、错误码等。</blockquote>
+<hr>
+<h2>1. 文档说明</h2>
+<p>本文档基于需求模型中的实体推导 RESTful API 契约，作为前后端联调的依据。</p>
+<hr>
+<h2>2. 通用规范</h2>
+<h3>2.1 请求头</h3>
+<table><thead><tr>
+<th>Header</th>
+<th>说明</th>
+</tr></thead><tbody>
+<tr>
+<td>Authorization</td>
+<td>Bearer {JWT token}</td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td>application/json</td>
+</tr>
+<tr>
+<td>X-Request-Id</td>
+<td>请求追踪 ID（前端生成 UUID）</td>
+</tr>
+</tbody></table>
+<h3>2.2 统一响应格式</h3>
+<pre><code class="language-json">{
+  &quot;code&quot;: 0,
+  &quot;message&quot;: &quot;success&quot;,
+  &quot;data&quot;: { ... },
+  &quot;requestId&quot;: &quot;xxx-xxx-xxx&quot;
+}</code></pre>
+<h3>2.3 分页参数规范</h3>
+<table><thead><tr>
+<th>参数</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr></thead><tbody>
+<tr>
+<td>page</td>
+<td>int</td>
+<td>1</td>
+<td>页码（从 1 开始）</td>
+</tr>
+<tr>
+<td>size</td>
+<td>int</td>
+<td>20</td>
+<td>每页条数（最大 100）</td>
+</tr>
+<tr>
+<td>sort</td>
+<td>string</td>
+<td>-</td>
+<td>排序字段，格式：<code>field,asc</code> 或 <code>field,desc</code></td>
+</tr>
+</tbody></table>
+<h3>2.4 分页响应格式</h3>
+<pre><code class="language-json">{
+  &quot;code&quot;: 0,
+  &quot;data&quot;: {
+    &quot;list&quot;: [...],
+    &quot;total&quot;: 100,
+    &quot;page&quot;: 1,
+    &quot;size&quot;: 20
+  }
+}</code></pre>
+<hr>
+<h2>3. 接口清单</h2>
+<h3>3.1 侵权线索 (InfringementLead)</h3>
+<h4>InfringementLead-01 列表查询</h4>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>URL</strong>: /api/infringementleads</li>
+<li><strong>Query</strong>: page, size, sort, keyword, leadNo</li>
+<li><strong>Response</strong>: <code>{ list: InfringementLead[], total, page, size }</code></li>
+</ul>
+<h4>InfringementLead-02 详情查询</h4>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>URL</strong>: /api/infringementleads/{id}</li>
+<li><strong>Response</strong>: InfringementLead 对象</li>
+</ul>
+<h4>InfringementLead-03 新增</h4>
+<ul>
+<li><strong>Method</strong>: POST</li>
+<li><strong>URL</strong>: /api/infringementleads</li>
+<li><strong>Body</strong>: InfringementLead 对象（不含 id）</li>
+<li><strong>Response</strong>: <code>{ id: string }</code></li>
+</ul>
+<h4>InfringementLead-04 编辑</h4>
+<ul>
+<li><strong>Method</strong>: PUT</li>
+<li><strong>URL</strong>: /api/infringementleads/{id}</li>
+<li><strong>Body</strong>: InfringementLead 对象（可变字段）</li>
+<li><strong>Response</strong>: <code>{ success: true }</code></li>
+</ul>
+<h4>InfringementLead-05 删除</h4>
+<ul>
+<li><strong>Method</strong>: DELETE</li>
+<li><strong>URL</strong>: /api/infringementleads/{id}</li>
+<li><strong>Response</strong>: <code>{ success: true }</code></li>
+</ul>
+<h4>InfringementLead-06 状态转换</h4>
+<ul>
+<li><strong>Method</strong>: POST</li>
+<li><strong>URL</strong>: /api/infringementleads/{id}/transition</li>
+<li><strong>Body</strong>: <code>{ to: string, reason: string }</code></li>
+<li><strong>Response</strong>: <code>{ success: true }</code></li>
+</ul>
+<h3>3.2 存证记录 (EvidenceRecord)</h3>
+<h4>EvidenceRecord-01 列表查询</h4>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>URL</strong>: /api/evidencerecords</li>
+<li><strong>Query</strong>: page, size, sort, keyword, evidenceNo</li>
+<li><strong>Response</strong>: <code>{ list: EvidenceRecord[], total, page, size }</code></li>
+</ul>
+<h4>EvidenceRecord-02 详情查询</h4>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>URL</strong>: /api/evidencerecords/{id}</li>
+<li><strong>Response</strong>: EvidenceRecord 对象</li>
+</ul>
+<h4>EvidenceRecord-03 新增</h4>
+<ul>
+<li><strong>Method</strong>: POST</li>
+<li><strong>URL</strong>: /api/evidencerecords</li>
+<li><strong>Body</strong>: EvidenceRecord 对象（不含 id）</li>
+<li><strong>Response</strong>: <code>{ id: string }</code></li>
+</ul>
+<h4>EvidenceRecord-04 编辑</h4>
+<ul>
+<li><strong>Method</strong>: PUT</li>
+<li><strong>URL</strong>: /api/evidencerecords/{id}</li>
+<li><strong>Body</strong>: EvidenceRecord 对象（可变字段）</li>
+<li><strong>Response</strong>: <code>{ success: true }</code></li>
+</ul>
+<h4>EvidenceRecord-05 删除</h4>
+<ul>
+<li><strong>Method</strong>: DELETE</li>
+<li><strong>URL</strong>: /api/evidencerecords/{id}</li>
+<li><strong>Response</strong>: <code>{ success: true }</code></li>
+</ul>
+<h4>EvidenceRecord-06 状态转换</h4>
+<ul>
+<li><strong>Method</strong>: POST</li>
+<li><strong>URL</strong>: /api/evidencerecords/{id}/transition</li>
+<li><strong>Body</strong>: <code>{ to: string, reason: string }</code></li>
+<li><strong>Response</strong>: <code>{ success: true }</code></li>
+</ul>
+<h3>3.3 维权案件 (RightsCase)</h3>
+<h4>RightsCase-01 列表查询</h4>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>URL</strong>: /api/rightscases</li>
+<li><strong>Query</strong>: page, size, sort, keyword, caseNo</li>
+<li><strong>Response</strong>: <code>{ list: RightsCase[], total, page, size }</code></li>
+</ul>
+<h4>RightsCase-02 详情查询</h4>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>URL</strong>: /api/rightscases/{id}</li>
+<li><strong>Response</strong>: RightsCase 对象</li>
+</ul>
+<h4>RightsCase-03 新增</h4>
+<ul>
+<li><strong>Method</strong>: POST</li>
+<li><strong>URL</strong>: /api/rightscases</li>
+<li><strong>Body</strong>: RightsCase 对象（不含 id）</li>
+<li><strong>Response</strong>: <code>{ id: string }</code></li>
+</ul>
+<h4>RightsCase-04 编辑</h4>
+<ul>
+<li><strong>Method</strong>: PUT</li>
+<li><strong>URL</strong>: /api/rightscases/{id}</li>
+<li><strong>Body</strong>: RightsCase 对象（可变字段）</li>
+<li><strong>Response</strong>: <code>{ success: true }</code></li>
+</ul>
+<h4>RightsCase-05 删除</h4>
+<ul>
+<li><strong>Method</strong>: DELETE</li>
+<li><strong>URL</strong>: /api/rightscases/{id}</li>
+<li><strong>Response</strong>: <code>{ success: true }</code></li>
+</ul>
+<h4>RightsCase-06 状态转换</h4>
+<ul>
+<li><strong>Method</strong>: POST</li>
+<li><strong>URL</strong>: /api/rightscases/{id}/transition</li>
+<li><strong>Body</strong>: <code>{ to: string, reason: string }</code></li>
+<li><strong>Response</strong>: <code>{ success: true }</code></li>
+</ul>
+<h3>3.4 跨境规则模板 (CrossBorderRule)</h3>
+<h4>CrossBorderRule-01 列表查询</h4>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>URL</strong>: /api/crossborderrules</li>
+<li><strong>Query</strong>: page, size, sort, keyword, ruleCode</li>
+<li><strong>Response</strong>: <code>{ list: CrossBorderRule[], total, page, size }</code></li>
+</ul>
+<h4>CrossBorderRule-02 详情查询</h4>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>URL</strong>: /api/crossborderrules/{id}</li>
+<li><strong>Response</strong>: CrossBorderRule 对象</li>
+</ul>
+<h4>CrossBorderRule-03 新增</h4>
+<ul>
+<li><strong>Method</strong>: POST</li>
+<li><strong>URL</strong>: /api/crossborderrules</li>
+<li><strong>Body</strong>: CrossBorderRule 对象（不含 id）</li>
+<li><strong>Response</strong>: <code>{ id: string }</code></li>
+</ul>
+<h4>CrossBorderRule-04 编辑</h4>
+<ul>
+<li><strong>Method</strong>: PUT</li>
+<li><strong>URL</strong>: /api/crossborderrules/{id}</li>
+<li><strong>Body</strong>: CrossBorderRule 对象（可变字段）</li>
+<li><strong>Response</strong>: <code>{ success: true }</code></li>
+</ul>
+<h4>CrossBorderRule-05 删除</h4>
+<ul>
+<li><strong>Method</strong>: DELETE</li>
+<li><strong>URL</strong>: /api/crossborderrules/{id}</li>
+<li><strong>Response</strong>: <code>{ success: true }</code></li>
+</ul>
+<h4>CrossBorderRule-06 状态转换</h4>
+<ul>
+<li><strong>Method</strong>: POST</li>
+<li><strong>URL</strong>: /api/crossborderrules/{id}/transition</li>
+<li><strong>Body</strong>: <code>{ to: string, reason: string }</code></li>
+<li><strong>Response</strong>: <code>{ success: true }</code></li>
+</ul>
+<hr>
+<h2>4. 错误码定义</h2>
+<table><thead><tr>
+<th>HTTP 状态码</th>
+<th>业务码</th>
+<th>含义</th>
+<th>处理建议</th>
+</tr></thead><tbody>
+<tr>
+<td>200</td>
+<td>0</td>
+<td>成功</td>
+<td>-</td>
+</tr>
+<tr>
+<td>400</td>
+<td>10001</td>
+<td>参数错误</td>
+<td>前端表单校验</td>
+</tr>
+<tr>
+<td>401</td>
+<td>10002</td>
+<td>未登录</td>
+<td>重定向到登录页</td>
+</tr>
+<tr>
+<td>403</td>
+<td>10003</td>
+<td>无权限</td>
+<td>提示无权限</td>
+</tr>
+<tr>
+<td>404</td>
+<td>10004</td>
+<td>资源不存在</td>
+<td>提示并返回列表</td>
+</tr>
+<tr>
+<td>422</td>
+<td>10005</td>
+<td>业务校验失败</td>
+<td>显示具体错误信息</td>
+</tr>
+<tr>
+<td>429</td>
+<td>10006</td>
+<td>请求过于频繁</td>
+<td>提示稍后重试</td>
+</tr>
+<tr>
+<td>500</td>
+<td>20001</td>
+<td>系统错误</td>
+<td>提示系统繁忙 + 上报日志</td>
+</tr>
+<tr>
+<td>502</td>
+<td>20002</td>
+<td>网关错误</td>
+<td>提示服务不可用</td>
+</tr>
+<tr>
+<td>504</td>
+<td>20003</td>
+<td>网关超时</td>
+<td>提示网络超时 + 重试</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>5. 鉴权方式</h2>
+<h3>5.1 登录</h3>
+<ul>
+<li><strong>POST /api/auth/login</strong></li>
+<li><strong>Body</strong>: <code>{ username, password }</code></li>
+<li><strong>Response</strong>: <code>{ token, refreshToken, user }</code></li>
+</ul>
+<h3>5.2 Token 刷新</h3>
+<ul>
+<li><strong>POST /api/auth/refresh</strong></li>
+<li><strong>Body</strong>: <code>{ refreshToken }</code></li>
+<li><strong>Response</strong>: <code>{ token, refreshToken }</code></li>
+</ul>
+<h3>5.3 退出</h3>
+<ul>
+<li><strong>POST /api/auth/logout</strong></li>
+</ul>
+<hr>
+<h2>6. Mock 数据方案</h2>
+<table><thead><tr>
+<th>阶段</th>
+<th>方案</th>
+</tr></thead><tbody>
+<tr>
+<td>前端开发</td>
+<td>本地 Mock（Mock.js / MSW）</td>
+</tr>
+<tr>
+<td>联调</td>
+<td>后端提供 Swagger 文档 + Mock 服务</td>
+</tr>
+<tr>
+<td>测试</td>
+<td>测试环境真实接口</td>
+</tr>
+</tbody></table>
+<p>Mock 数据需覆盖：侵权线索、存证记录、维权案件、跨境规则模板 等 4 个实体的列表/详情/新增/编辑/删除场景。</p>
+<hr>
+<blockquote>本文档由 generate-prd.mjs (v5.2.2) 基于 requirement-model.yaml 自动生成（2026-08-29T15:52:07.061Z）</blockquote>
+    </div>
+  </details>
+  <details>
+    <summary><code>spec/06-error-and-empty-states.md</code> <span style="font-size:12px;color:var(--color-text-dim);margin-left:8px;">06 - 错误与空状态 (技术规格)</span></summary>
+    <div class="details-content">
+      <h1>06 - 错误与空状态 (技术规格)</h1>
+<blockquote>本文档定义系统各场景下的错误提示、空状态、加载状态的设计规范与实现方案。</blockquote>
+<hr>
+<h2>1. 文档说明</h2>
+<p>本文档基于页面清单与实体定义，统一错误与空状态的设计与实现规范。</p>
+<hr>
+<h2>2. 错误状态</h2>
+<h3>2.1 错误分类</h3>
+<table><thead><tr>
+<th>类型</th>
+<th>触发场景</th>
+<th>提示方式</th>
+<th>持续时间</th>
+</tr></thead><tbody>
+<tr>
+<td>表单校验错误</td>
+<td>字段必填、格式、长度校验</td>
+<td>输入框下方红色文字</td>
+<td>持续显示</td>
+</tr>
+<tr>
+<td>业务错误</td>
+<td>接口返回 4xx</td>
+<td>Toast / Notification</td>
+<td>3 秒</td>
+</tr>
+<tr>
+<td>系统错误</td>
+<td>接口返回 5xx</td>
+<td>全屏错误页 + 重试按钮</td>
+<td>持续显示</td>
+</tr>
+<tr>
+<td>网络错误</td>
+<td>请求超时、断网</td>
+<td>Toast + 重试按钮</td>
+<td>持续显示</td>
+</tr>
+<tr>
+<td>权限错误</td>
+<td>无权限访问</td>
+<td>403 页面</td>
+<td>持续显示</td>
+</tr>
+</tbody></table>
+<h3>2.2 错误提示文案规范</h3>
+<table><thead><tr>
+<th>场景</th>
+<th>文案</th>
+</tr></thead><tbody>
+<tr>
+<td>必填字段为空</td>
+<td>{字段名}不能为空</td>
+</tr>
+<tr>
+<td>字符串超长</td>
+<td>{字段名}不能超过 {n} 个字符</td>
+</tr>
+<tr>
+<td>数值越界</td>
+<td>{字段名}必须在 {min}-{max} 之间</td>
+</tr>
+<tr>
+<td>格式错误</td>
+<td>{字段名}格式不正确</td>
+</tr>
+<tr>
+<td>网络异常</td>
+<td>网络异常，请检查网络后重试</td>
+</tr>
+<tr>
+<td>系统繁忙</td>
+<td>系统繁忙，请稍后重试</td>
+</tr>
+<tr>
+<td>无权限</td>
+<td>您无权访问此功能</td>
+</tr>
+<tr>
+<td>资源不存在</td>
+<td>资源不存在或已被删除</td>
+</tr>
+</tbody></table>
+<h3>2.3 错误页设计</h3>
+<div class="mermaid">flowchart LR
+    Err[错误发生] --> Type{错误类型}
+    Type -->|表单错误| Inline[输入框内联提示]
+    Type -->|业务错误| Toast[Toast 全局提示]
+    Type -->|系统错误| Page[全屏错误页]
+    Type -->|权限错误| Forbid[403 页面]
+    Type -->|未找到| NotFound[404 页面]</div>
+<hr>
+<h2>3. 空状态</h2>
+<h3>3.1 空状态场景</h3>
+<table><thead><tr>
+<th>场景</th>
+<th>触发条件</th>
+<th>展示内容</th>
+</tr></thead><tbody>
+<tr>
+<td>列表为空</td>
+<td>查询结果为 0 条</td>
+<td>空状态图 + &quot;暂无数据&quot; + 新增按钮</td>
+</tr>
+<tr>
+<td>搜索无结果</td>
+<td>搜索后无匹配</td>
+<td>空状态图 + &quot;未找到匹配数据&quot; + 重置按钮</td>
+</tr>
+<tr>
+<td>详情不存在</td>
+<td>资源被删除</td>
+<td>空状态图 + &quot;资源不存在&quot; + 返回按钮</td>
+</tr>
+<tr>
+<td>关联数据为空</td>
+<td>关联标签页无数据</td>
+<td>空状态图 + &quot;暂无关联数据&quot;</td>
+</tr>
+</tbody></table>
+<h3>3.2 各页面空状态</h3>
+<h4>P01 monitor-dashboard</h4>
+<table><thead><tr>
+<th>场景</th>
+<th>展示内容</th>
+<th>操作</th>
+</tr></thead><tbody>
+<tr>
+<td>首次进入无数据</td>
+<td>空状态图 + &quot;暂无侵权线索数据&quot;</td>
+<td>[新增侵权线索] 按钮</td>
+</tr>
+<tr>
+<td>搜索无结果</td>
+<td>空状态图 + &quot;未找到匹配数据&quot;</td>
+<td>[重置搜索] 按钮</td>
+</tr>
+<tr>
+<td>筛选无结果</td>
+<td>空状态图 + &quot;当前筛选条件下无数据&quot;</td>
+<td>[清空筛选] 按钮</td>
+</tr>
+</tbody></table>
+<h4>P02 infringement-leads</h4>
+<table><thead><tr>
+<th>场景</th>
+<th>展示内容</th>
+<th>操作</th>
+</tr></thead><tbody>
+<tr>
+<td>首次进入无数据</td>
+<td>空状态图 + &quot;暂无侵权线索数据&quot;</td>
+<td>[新增侵权线索] 按钮</td>
+</tr>
+<tr>
+<td>搜索无结果</td>
+<td>空状态图 + &quot;未找到匹配数据&quot;</td>
+<td>[重置搜索] 按钮</td>
+</tr>
+<tr>
+<td>筛选无结果</td>
+<td>空状态图 + &quot;当前筛选条件下无数据&quot;</td>
+<td>[清空筛选] 按钮</td>
+</tr>
+</tbody></table>
+<h4>P03 evidence-detail</h4>
+<table><thead><tr>
+<th>场景</th>
+<th>展示内容</th>
+<th>操作</th>
+</tr></thead><tbody>
+<tr>
+<td>首次进入无数据</td>
+<td>空状态图 + &quot;暂无存证记录数据&quot;</td>
+<td>[新增存证记录] 按钮</td>
+</tr>
+<tr>
+<td>搜索无结果</td>
+<td>空状态图 + &quot;未找到匹配数据&quot;</td>
+<td>[重置搜索] 按钮</td>
+</tr>
+<tr>
+<td>筛选无结果</td>
+<td>空状态图 + &quot;当前筛选条件下无数据&quot;</td>
+<td>[清空筛选] 按钮</td>
+</tr>
+</tbody></table>
+<h4>P04 rights-cases</h4>
+<table><thead><tr>
+<th>场景</th>
+<th>展示内容</th>
+<th>操作</th>
+</tr></thead><tbody>
+<tr>
+<td>首次进入无数据</td>
+<td>空状态图 + &quot;暂无维权案件数据&quot;</td>
+<td>[新增维权案件] 按钮</td>
+</tr>
+<tr>
+<td>搜索无结果</td>
+<td>空状态图 + &quot;未找到匹配数据&quot;</td>
+<td>[重置搜索] 按钮</td>
+</tr>
+<tr>
+<td>筛选无结果</td>
+<td>空状态图 + &quot;当前筛选条件下无数据&quot;</td>
+<td>[清空筛选] 按钮</td>
+</tr>
+</tbody></table>
+<h4>P05 cross-border-rules</h4>
+<table><thead><tr>
+<th>场景</th>
+<th>展示内容</th>
+<th>操作</th>
+</tr></thead><tbody>
+<tr>
+<td>首次进入无数据</td>
+<td>空状态图 + &quot;暂无跨境规则模板数据&quot;</td>
+<td>[新增跨境规则模板] 按钮</td>
+</tr>
+<tr>
+<td>搜索无结果</td>
+<td>空状态图 + &quot;未找到匹配数据&quot;</td>
+<td>[重置搜索] 按钮</td>
+</tr>
+<tr>
+<td>筛选无结果</td>
+<td>空状态图 + &quot;当前筛选条件下无数据&quot;</td>
+<td>[清空筛选] 按钮</td>
+</tr>
+</tbody></table>
+<h4>P06 rights-analytics</h4>
+<table><thead><tr>
+<th>场景</th>
+<th>展示内容</th>
+<th>操作</th>
+</tr></thead><tbody>
+<tr>
+<td>首次进入无数据</td>
+<td>空状态图 + &quot;暂无维权案件数据&quot;</td>
+<td>[新增维权案件] 按钮</td>
+</tr>
+<tr>
+<td>搜索无结果</td>
+<td>空状态图 + &quot;未找到匹配数据&quot;</td>
+<td>[重置搜索] 按钮</td>
+</tr>
+<tr>
+<td>筛选无结果</td>
+<td>空状态图 + &quot;当前筛选条件下无数据&quot;</td>
+<td>[清空筛选] 按钮</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>4. 加载状态</h2>
+<h3>4.1 加载状态分类</h3>
+<table><thead><tr>
+<th>场景</th>
+<th>加载方式</th>
+</tr></thead><tbody>
+<tr>
+<td>页面首次进入</td>
+<td>全屏 Skeleton 骨架屏</td>
+</tr>
+<tr>
+<td>表格数据请求</td>
+<td>表格区域 Loading 遮罩</td>
+</tr>
+<tr>
+<td>表单提交</td>
+<td>按钮 Loading + 禁用</td>
+</tr>
+<tr>
+<td>详情数据请求</td>
+<td>卡片 Skeleton</td>
+</tr>
+<tr>
+<td>下拉数据请求</td>
+<td>Select 占位符 &quot;加载中...&quot;</td>
+</tr>
+</tbody></table>
+<h3>4.2 加载时长建议</h3>
+<table><thead><tr>
+<th>时长</th>
+<th>处理</th>
+</tr></thead><tbody>
+<tr>
+<td>&lt; 100ms</td>
+<td>不显示 Loading</td>
+</tr>
+<tr>
+<td>100ms - 1s</td>
+<td>显示 Loading 遮罩</td>
+</tr>
+<tr>
+<td>&gt; 1s</td>
+<td>显示 Skeleton + 进度提示</td>
+</tr>
+<tr>
+<td>&gt; 5s</td>
+<td>显示超时提示 + 重试</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>5. 实现方案</h2>
+<h3>5.1 通用错误处理</h3>
+<pre><code class="language-typescript">// utils/request.ts
+instance.interceptors.response.use(
+  (response) =&gt; response.data,
+  (error) =&gt; {
+    const { response } = error;
+    if (!response) {
+      message.error(&quot;网络异常，请检查网络后重试&quot;);
+      return Promise.reject(error);
+    }
+    const { status, data } = response;
+    switch (status) {
+      case 401: redirectToLogin(); break;
+      case 403: message.error(&quot;您无权访问此功能&quot;); break;
+      case 404: message.error(&quot;资源不存在或已被删除&quot;); break;
+      case 422: message.error(data.message || &quot;业务校验失败&quot;); break;
+      case 500: message.error(&quot;系统繁忙，请稍后重试&quot;); break;
+      default: message.error(data.message || &quot;未知错误&quot;);
+    }
+    return Promise.reject(error);
+  }
+);</code></pre>
+<h3>5.2 通用空状态组件</h3>
+<pre><code class="language-tsx">// components/common/EmptyState.tsx
+interface EmptyStateProps {
+  description?: string;
+  image?: ReactNode;
+  action?: ReactNode;
+}
+export function EmptyState({ description = &quot;暂无数据&quot;, image, action }: EmptyStateProps) {
+  return (
+    &lt;div className=&quot;empty-state&quot;&gt;
+      {image || &lt;EmptyImage /&gt;}
+      &lt;p&gt;{description}&lt;/p&gt;
+      {action}
+    &lt;/div&gt;
+  );
+}</code></pre>
+<hr>
+<blockquote>本文档由 generate-prd.mjs (v5.2.2) 基于 requirement-model.yaml 自动生成（2026-08-29T15:52:07.064Z）</blockquote>
+    </div>
+  </details>
+  <h3>test 测试文档（3）</h3>
+  <details>
+    <summary><code>test/00-acceptance-criteria.md</code> <span style="font-size:12px;color:var(--color-text-dim);margin-left:8px;">00 - 验收标准</span></summary>
+    <div class="details-content">
+      <h1>00 - 验收标准</h1>
+<blockquote>本文档定义系统各页面及全局的验收标准，作为产品交付验收的依据。</blockquote>
+<hr>
+<h2>1. 验收原则</h2>
+<ol>
+<li><strong>功能完整性</strong>：所有 PRD 中定义的功能点均需实现并通过验收</li>
+<li><strong>数据准确性</strong>：页面展示数据与后端返回数据一致</li>
+<li><strong>交互规范性</strong>：操作流程符合 PRD 及 UX 设计规范</li>
+<li><strong>异常容错性</strong>：异常场景有友好提示，不出现白屏或崩溃</li>
+<li><strong>权限正确性</strong>：各角色权限控制准确无遗漏</li>
+</ol>
+<hr>
+<h2>2. 各页面验收条件</h2>
+<h3>页面 P01 - monitor-dashboard</h3>
+<table><thead><tr>
+<th>编号</th>
+<th>验收条件</th>
+<th>优先级</th>
+<th>验收结果</th>
+</tr></thead><tbody>
+<tr>
+<td>AC-P01-01</td>
+<td>页面正常加载，展示 loading 状态后渲染数据</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P01-02</td>
+<td>侵权线索列表数据正确分页展示（默认每页 20 条）</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P01-03</td>
+<td>指标卡片正确展示数值</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P01-04</td>
+<td>图表正确渲染并支持时间范围切换</td>
+<td>P1</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P01-11</td>
+<td>侵权线索状态变更操作正确触发状态转换</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+</tbody></table>
+<h3>页面 P02 - infringement-leads</h3>
+<table><thead><tr>
+<th>编号</th>
+<th>验收条件</th>
+<th>优先级</th>
+<th>验收结果</th>
+</tr></thead><tbody>
+<tr>
+<td>AC-P02-01</td>
+<td>页面正常加载，展示 loading 状态后渲染数据</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P02-02</td>
+<td>侵权线索列表数据正确分页展示（默认每页 20 条）</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P02-03</td>
+<td>搜索条件输入后能正确触发查询并刷新列表</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P02-04</td>
+<td>点击新增按钮弹出表单，填写后能成功创建侵权线索</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P02-05</td>
+<td>点击编辑按钮弹出表单并预填数据，修改后能成功保存</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P02-06</td>
+<td>点击删除按钮有二次确认，确认后能成功删除</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P02-07</td>
+<td>表格支持按字段排序</td>
+<td>P1</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P02-08</td>
+<td>无权限的操作按钮不可见</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P02-09</td>
+<td>空数据状态正确展示空状态图</td>
+<td>P1</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P02-10</td>
+<td>必填字段未填写时表单校验失败并给出提示</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P02-11</td>
+<td>侵权线索状态变更操作正确触发状态转换</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+</tbody></table>
+<h3>页面 P03 - evidence-detail</h3>
+<table><thead><tr>
+<th>编号</th>
+<th>验收条件</th>
+<th>优先级</th>
+<th>验收结果</th>
+</tr></thead><tbody>
+<tr>
+<td>AC-P03-01</td>
+<td>页面正常加载，展示 loading 状态后渲染数据</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P03-02</td>
+<td>存证记录列表数据正确分页展示（默认每页 20 条）</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P03-03</td>
+<td>详情页正确展示存证记录所有字段</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P03-04</td>
+<td>关联信息标签页能正确切换并展示数据</td>
+<td>P1</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P03-05</td>
+<td>返回按钮能正确返回列表页</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P03-11</td>
+<td>存证记录状态变更操作正确触发状态转换</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+</tbody></table>
+<h3>页面 P04 - rights-cases</h3>
+<table><thead><tr>
+<th>编号</th>
+<th>验收条件</th>
+<th>优先级</th>
+<th>验收结果</th>
+</tr></thead><tbody>
+<tr>
+<td>AC-P04-01</td>
+<td>页面正常加载，展示 loading 状态后渲染数据</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P04-02</td>
+<td>维权案件列表数据正确分页展示（默认每页 20 条）</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P04-03</td>
+<td>搜索条件输入后能正确触发查询并刷新列表</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P04-04</td>
+<td>点击新增按钮弹出表单，填写后能成功创建维权案件</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P04-05</td>
+<td>点击编辑按钮弹出表单并预填数据，修改后能成功保存</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P04-06</td>
+<td>点击删除按钮有二次确认，确认后能成功删除</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P04-07</td>
+<td>表格支持按字段排序</td>
+<td>P1</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P04-08</td>
+<td>无权限的操作按钮不可见</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P04-09</td>
+<td>空数据状态正确展示空状态图</td>
+<td>P1</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P04-10</td>
+<td>必填字段未填写时表单校验失败并给出提示</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P04-11</td>
+<td>维权案件状态变更操作正确触发状态转换</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+</tbody></table>
+<h3>页面 P05 - cross-border-rules</h3>
+<table><thead><tr>
+<th>编号</th>
+<th>验收条件</th>
+<th>优先级</th>
+<th>验收结果</th>
+</tr></thead><tbody>
+<tr>
+<td>AC-P05-01</td>
+<td>页面正常加载，展示 loading 状态后渲染数据</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P05-02</td>
+<td>跨境规则模板列表数据正确分页展示（默认每页 20 条）</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P05-03</td>
+<td>搜索条件输入后能正确触发查询并刷新列表</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P05-04</td>
+<td>点击新增按钮弹出表单，填写后能成功创建跨境规则模板</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P05-05</td>
+<td>点击编辑按钮弹出表单并预填数据，修改后能成功保存</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P05-06</td>
+<td>点击删除按钮有二次确认，确认后能成功删除</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P05-07</td>
+<td>表格支持按字段排序</td>
+<td>P1</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P05-08</td>
+<td>无权限的操作按钮不可见</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P05-09</td>
+<td>空数据状态正确展示空状态图</td>
+<td>P1</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P05-10</td>
+<td>必填字段未填写时表单校验失败并给出提示</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P05-11</td>
+<td>跨境规则模板状态变更操作正确触发状态转换</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+</tbody></table>
+<h3>页面 P06 - rights-analytics</h3>
+<table><thead><tr>
+<th>编号</th>
+<th>验收条件</th>
+<th>优先级</th>
+<th>验收结果</th>
+</tr></thead><tbody>
+<tr>
+<td>AC-P06-01</td>
+<td>页面正常加载，展示 loading 状态后渲染数据</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P06-02</td>
+<td>维权案件列表数据正确分页展示（默认每页 20 条）</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P06-03</td>
+<td>指标卡片正确展示数值</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P06-04</td>
+<td>图表正确渲染并支持时间范围切换</td>
+<td>P1</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-P06-11</td>
+<td>维权案件状态变更操作正确触发状态转换</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. 全局验收条件</h2>
+<table><thead><tr>
+<th>编号</th>
+<th>验收条件</th>
+<th>优先级</th>
+<th>验收结果</th>
+</tr></thead><tbody>
+<tr>
+<td>AC-G-01</td>
+<td>所有页面加载时展示 loading 状态</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-G-02</td>
+<td>所有表单提交有成功/失败反馈</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-G-03</td>
+<td>所有删除操作有二次确认弹窗</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-G-04</td>
+<td>所有列表页支持分页且默认每页 20 条</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-G-05</td>
+<td>所有操作按钮根据权限正确显示/隐藏</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-G-06</td>
+<td>空数据状态正确展示空状态图</td>
+<td>P1</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-G-07</td>
+<td>网络异常时有友好错误提示</td>
+<td>P1</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-G-08</td>
+<td>页面支持浏览器前进/后退</td>
+<td>P1</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-G-09</td>
+<td>响应式布局在 1280×720 及以上分辨率正常展示</td>
+<td>P1</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-G-10</td>
+<td>登录态过期后自动跳转登录页</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-G-11</td>
+<td>接口异常不出现白屏</td>
+<td>P0</td>
+<td>待验收</td>
+</tr>
+<tr>
+<td>AC-G-12</td>
+<td>操作日志正确记录（含操作人、时间、操作内容）</td>
+<td>P1</td>
+<td>待验收</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>4. 数据准确性验收</h2>
+<table><thead><tr>
+<th>编号</th>
+<th>验收条件</th>
+<th>优先级</th>
+</tr></thead><tbody>
+<tr>
+<td>AC-D-01</td>
+<td>侵权线索列表数据与数据库记录一致</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>AC-D-02</td>
+<td>侵权线索新增后列表立即显示新记录</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>AC-D-03</td>
+<td>侵权线索编辑后列表数据正确更新</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>AC-D-04</td>
+<td>侵权线索删除后列表不再显示该记录</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>AC-D-05</td>
+<td>存证记录列表数据与数据库记录一致</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>AC-D-06</td>
+<td>存证记录新增后列表立即显示新记录</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>AC-D-07</td>
+<td>存证记录编辑后列表数据正确更新</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>AC-D-08</td>
+<td>存证记录删除后列表不再显示该记录</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>AC-D-09</td>
+<td>维权案件列表数据与数据库记录一致</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>AC-D-10</td>
+<td>维权案件新增后列表立即显示新记录</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>AC-D-11</td>
+<td>维权案件编辑后列表数据正确更新</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>AC-D-12</td>
+<td>维权案件删除后列表不再显示该记录</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>AC-D-13</td>
+<td>跨境规则模板列表数据与数据库记录一致</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>AC-D-14</td>
+<td>跨境规则模板新增后列表立即显示新记录</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>AC-D-15</td>
+<td>跨境规则模板编辑后列表数据正确更新</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>AC-D-16</td>
+<td>跨境规则模板删除后列表不再显示该记录</td>
+<td>P0</td>
+</tr>
+</tbody></table>
+<hr>
+<blockquote>本文档由 generate-prd.mjs (v5.2.2) 基于 requirement-model.yaml 自动生成（2026-08-29T15:52:07.067Z）</blockquote>
+    </div>
+  </details>
+  <details>
+    <summary><code>test/01-test-suggestions.md</code> <span style="font-size:12px;color:var(--color-text-dim);margin-left:8px;">01 - 测试用例框架</span></summary>
+    <div class="details-content">
+      <h1>01 - 测试用例框架</h1>
+<blockquote>本文档定义测试用例的框架结构，覆盖功能测试、边界测试及异常测试。</blockquote>
+<hr>
+<h2>1. 功能测试</h2>
+<table><thead><tr>
+<th>用例编号</th>
+<th>测试模块</th>
+<th>测试功能</th>
+<th>前置条件</th>
+<th>操作步骤</th>
+<th>预期结果</th>
+<th>优先级</th>
+</tr></thead><tbody>
+<tr>
+<td>FT-001</td>
+<td>InfringementLead管理</td>
+<td>侵权线索列表查询</td>
+<td>已登录且有侵权线索查询权限</td>
+<td>1.进入侵权线索列表页 2.默认加载第一页数据</td>
+<td>列表正确显示，分页器显示总数</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>FT-002</td>
+<td>InfringementLead管理</td>
+<td>侵权线索搜索</td>
+<td>列表已有数据</td>
+<td>1.输入关键字 2.点击查询</td>
+<td>列表按关键字过滤并刷新</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>FT-003</td>
+<td>InfringementLead管理</td>
+<td>侵权线索新增</td>
+<td>有新增权限</td>
+<td>1.点击新增 2.填写必填字段 3.提交</td>
+<td>新增成功，列表出现新记录</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>FT-004</td>
+<td>InfringementLead管理</td>
+<td>侵权线索编辑</td>
+<td>列表已有数据</td>
+<td>1.点击编辑 2.修改字段 3.保存</td>
+<td>修改成功，列表数据更新</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>FT-005</td>
+<td>InfringementLead管理</td>
+<td>侵权线索删除</td>
+<td>列表已有数据</td>
+<td>1.点击删除 2.确认删除</td>
+<td>删除成功，列表不再显示该记录</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>FT-006</td>
+<td>InfringementLead管理</td>
+<td>侵权线索状态转换</td>
+<td>存在PENDING_EVIDENCE状态的记录</td>
+<td>1.选择记录 2.触发状态变更</td>
+<td>状态正确转换，记录显示新状态</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>FT-007</td>
+<td>EvidenceRecord管理</td>
+<td>存证记录列表查询</td>
+<td>已登录且有存证记录查询权限</td>
+<td>1.进入存证记录列表页 2.默认加载第一页数据</td>
+<td>列表正确显示，分页器显示总数</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>FT-008</td>
+<td>EvidenceRecord管理</td>
+<td>存证记录搜索</td>
+<td>列表已有数据</td>
+<td>1.输入关键字 2.点击查询</td>
+<td>列表按关键字过滤并刷新</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>FT-009</td>
+<td>EvidenceRecord管理</td>
+<td>存证记录新增</td>
+<td>有新增权限</td>
+<td>1.点击新增 2.填写必填字段 3.提交</td>
+<td>新增成功，列表出现新记录</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>FT-010</td>
+<td>EvidenceRecord管理</td>
+<td>存证记录编辑</td>
+<td>列表已有数据</td>
+<td>1.点击编辑 2.修改字段 3.保存</td>
+<td>修改成功，列表数据更新</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>FT-011</td>
+<td>EvidenceRecord管理</td>
+<td>存证记录删除</td>
+<td>列表已有数据</td>
+<td>1.点击删除 2.确认删除</td>
+<td>删除成功，列表不再显示该记录</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>FT-012</td>
+<td>EvidenceRecord管理</td>
+<td>存证记录状态转换</td>
+<td>存在CHAINING状态的记录</td>
+<td>1.选择记录 2.触发状态变更</td>
+<td>状态正确转换，记录显示新状态</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>FT-013</td>
+<td>RightsCase管理</td>
+<td>维权案件列表查询</td>
+<td>已登录且有维权案件查询权限</td>
+<td>1.进入维权案件列表页 2.默认加载第一页数据</td>
+<td>列表正确显示，分页器显示总数</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>FT-014</td>
+<td>RightsCase管理</td>
+<td>维权案件搜索</td>
+<td>列表已有数据</td>
+<td>1.输入关键字 2.点击查询</td>
+<td>列表按关键字过滤并刷新</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>FT-015</td>
+<td>RightsCase管理</td>
+<td>维权案件新增</td>
+<td>有新增权限</td>
+<td>1.点击新增 2.填写必填字段 3.提交</td>
+<td>新增成功，列表出现新记录</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>FT-016</td>
+<td>RightsCase管理</td>
+<td>维权案件编辑</td>
+<td>列表已有数据</td>
+<td>1.点击编辑 2.修改字段 3.保存</td>
+<td>修改成功，列表数据更新</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>FT-017</td>
+<td>RightsCase管理</td>
+<td>维权案件删除</td>
+<td>列表已有数据</td>
+<td>1.点击删除 2.确认删除</td>
+<td>删除成功，列表不再显示该记录</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>FT-018</td>
+<td>RightsCase管理</td>
+<td>维权案件状态转换</td>
+<td>存在PENDING状态的记录</td>
+<td>1.选择记录 2.触发状态变更</td>
+<td>状态正确转换，记录显示新状态</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>FT-019</td>
+<td>CrossBorderRule管理</td>
+<td>跨境规则模板列表查询</td>
+<td>已登录且有跨境规则模板查询权限</td>
+<td>1.进入跨境规则模板列表页 2.默认加载第一页数据</td>
+<td>列表正确显示，分页器显示总数</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>FT-020</td>
+<td>CrossBorderRule管理</td>
+<td>跨境规则模板搜索</td>
+<td>列表已有数据</td>
+<td>1.输入关键字 2.点击查询</td>
+<td>列表按关键字过滤并刷新</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>FT-021</td>
+<td>CrossBorderRule管理</td>
+<td>跨境规则模板新增</td>
+<td>有新增权限</td>
+<td>1.点击新增 2.填写必填字段 3.提交</td>
+<td>新增成功，列表出现新记录</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>FT-022</td>
+<td>CrossBorderRule管理</td>
+<td>跨境规则模板编辑</td>
+<td>列表已有数据</td>
+<td>1.点击编辑 2.修改字段 3.保存</td>
+<td>修改成功，列表数据更新</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>FT-023</td>
+<td>CrossBorderRule管理</td>
+<td>跨境规则模板删除</td>
+<td>列表已有数据</td>
+<td>1.点击删除 2.确认删除</td>
+<td>删除成功，列表不再显示该记录</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>FT-024</td>
+<td>CrossBorderRule管理</td>
+<td>跨境规则模板状态转换</td>
+<td>存在ENABLED状态的记录</td>
+<td>1.选择记录 2.触发状态变更</td>
+<td>状态正确转换，记录显示新状态</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>FT-025</td>
+<td>通用</td>
+<td>分页功能</td>
+<td>列表数据 &gt; 20 条</td>
+<td>1.点击第 2 页 2.切换每页条数</td>
+<td>分页器正确响应，列表正确切换</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>FT-026</td>
+<td>通用</td>
+<td>排序功能</td>
+<td>列表已有数据</td>
+<td>1.点击表头排序图标</td>
+<td>列表按字段升序/降序排列</td>
+<td>P1</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>2. 边界测试</h2>
+<table><thead><tr>
+<th>用例编号</th>
+<th>测试模块</th>
+<th>测试场景</th>
+<th>边界条件</th>
+<th>预期结果</th>
+<th>优先级</th>
+</tr></thead><tbody>
+<tr>
+<td>BT-001</td>
+<td>InfringementLead管理</td>
+<td>侵权线索必填字段校验</td>
+<td>leadNo为空</td>
+<td>表单校验失败，提示&quot;线索编号不能为空&quot;</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>BT-002</td>
+<td>InfringementLead管理</td>
+<td>侵权线索字符串长度上限</td>
+<td>leadNo输入 256 个字符</td>
+<td>提示长度超限</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>BT-003</td>
+<td>InfringementLead管理</td>
+<td>侵权线索数值边界</td>
+<td>similarity输入 -1 / 0 / 最大值</td>
+<td>按业务规则校验</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>BT-004</td>
+<td>InfringementLead管理</td>
+<td>侵权线索列表分页边界</td>
+<td>跳转到不存在的页码（如总页数+1）</td>
+<td>显示空列表或最后一页</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>BT-005</td>
+<td>EvidenceRecord管理</td>
+<td>存证记录必填字段校验</td>
+<td>evidenceNo为空</td>
+<td>表单校验失败，提示&quot;存证编号不能为空&quot;</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>BT-006</td>
+<td>EvidenceRecord管理</td>
+<td>存证记录字符串长度上限</td>
+<td>evidenceNo输入 256 个字符</td>
+<td>提示长度超限</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>BT-007</td>
+<td>EvidenceRecord管理</td>
+<td>存证记录数值边界</td>
+<td>blockHeight输入 -1 / 0 / 最大值</td>
+<td>按业务规则校验</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>BT-008</td>
+<td>EvidenceRecord管理</td>
+<td>存证记录列表分页边界</td>
+<td>跳转到不存在的页码（如总页数+1）</td>
+<td>显示空列表或最后一页</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>BT-009</td>
+<td>RightsCase管理</td>
+<td>维权案件必填字段校验</td>
+<td>caseNo为空</td>
+<td>表单校验失败，提示&quot;案件编号不能为空&quot;</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>BT-010</td>
+<td>RightsCase管理</td>
+<td>维权案件字符串长度上限</td>
+<td>caseNo输入 256 个字符</td>
+<td>提示长度超限</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>BT-011</td>
+<td>RightsCase管理</td>
+<td>维权案件数值边界</td>
+<td>compensation输入 -1 / 0 / 最大值</td>
+<td>按业务规则校验</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>BT-012</td>
+<td>RightsCase管理</td>
+<td>维权案件列表分页边界</td>
+<td>跳转到不存在的页码（如总页数+1）</td>
+<td>显示空列表或最后一页</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>BT-013</td>
+<td>CrossBorderRule管理</td>
+<td>跨境规则模板必填字段校验</td>
+<td>ruleCode为空</td>
+<td>表单校验失败，提示&quot;规则编号不能为空&quot;</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>BT-014</td>
+<td>CrossBorderRule管理</td>
+<td>跨境规则模板字符串长度上限</td>
+<td>ruleCode输入 256 个字符</td>
+<td>提示长度超限</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>BT-015</td>
+<td>CrossBorderRule管理</td>
+<td>跨境规则模板数值边界</td>
+<td>responseSla输入 -1 / 0 / 最大值</td>
+<td>按业务规则校验</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>BT-016</td>
+<td>CrossBorderRule管理</td>
+<td>跨境规则模板列表分页边界</td>
+<td>跳转到不存在的页码（如总页数+1）</td>
+<td>显示空列表或最后一页</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>BT-017</td>
+<td>通用</td>
+<td>搜索关键字边界</td>
+<td>输入特殊字符 &lt;script&gt;</td>
+<td>正确转义，无 XSS</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>BT-018</td>
+<td>通用</td>
+<td>文件上传边界</td>
+<td>上传超过大小限制的文件</td>
+<td>提示文件过大</td>
+<td>P1</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. 异常测试</h2>
+<table><thead><tr>
+<th>用例编号</th>
+<th>测试模块</th>
+<th>异常场景</th>
+<th>触发方式</th>
+<th>预期结果</th>
+<th>优先级</th>
+</tr></thead><tbody>
+<tr>
+<td>ET-001</td>
+<td>InfringementLead管理</td>
+<td>侵权线索接口超时</td>
+<td>Mock 接口延迟 30s</td>
+<td>显示加载状态，超时后提示重试</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>ET-002</td>
+<td>InfringementLead管理</td>
+<td>侵权线索接口 500</td>
+<td>Mock 接口返回 500</td>
+<td>提示系统繁忙，不出现白屏</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>ET-003</td>
+<td>InfringementLead管理</td>
+<td>侵权线索并发新增</td>
+<td>同时提交两次新增请求</td>
+<td>仅创建一条记录，提示重复提交</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>ET-004</td>
+<td>EvidenceRecord管理</td>
+<td>存证记录接口超时</td>
+<td>Mock 接口延迟 30s</td>
+<td>显示加载状态，超时后提示重试</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>ET-005</td>
+<td>EvidenceRecord管理</td>
+<td>存证记录接口 500</td>
+<td>Mock 接口返回 500</td>
+<td>提示系统繁忙，不出现白屏</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>ET-006</td>
+<td>EvidenceRecord管理</td>
+<td>存证记录并发新增</td>
+<td>同时提交两次新增请求</td>
+<td>仅创建一条记录，提示重复提交</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>ET-007</td>
+<td>RightsCase管理</td>
+<td>维权案件接口超时</td>
+<td>Mock 接口延迟 30s</td>
+<td>显示加载状态，超时后提示重试</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>ET-008</td>
+<td>RightsCase管理</td>
+<td>维权案件接口 500</td>
+<td>Mock 接口返回 500</td>
+<td>提示系统繁忙，不出现白屏</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>ET-009</td>
+<td>RightsCase管理</td>
+<td>维权案件并发新增</td>
+<td>同时提交两次新增请求</td>
+<td>仅创建一条记录，提示重复提交</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>ET-010</td>
+<td>CrossBorderRule管理</td>
+<td>跨境规则模板接口超时</td>
+<td>Mock 接口延迟 30s</td>
+<td>显示加载状态，超时后提示重试</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>ET-011</td>
+<td>CrossBorderRule管理</td>
+<td>跨境规则模板接口 500</td>
+<td>Mock 接口返回 500</td>
+<td>提示系统繁忙，不出现白屏</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>ET-012</td>
+<td>CrossBorderRule管理</td>
+<td>跨境规则模板并发新增</td>
+<td>同时提交两次新增请求</td>
+<td>仅创建一条记录，提示重复提交</td>
+<td>P1</td>
+</tr>
+<tr>
+<td>ET-013</td>
+<td>通用</td>
+<td>网络断开</td>
+<td>操作中断网</td>
+<td>提示网络异常 + 重试按钮</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>ET-014</td>
+<td>通用</td>
+<td>登录态过期</td>
+<td>Token 过期后操作</td>
+<td>自动跳转登录页，登录后恢复操作</td>
+<td>P0</td>
+</tr>
+<tr>
+<td>ET-015</td>
+<td>通用</td>
+<td>跨标签页同步</td>
+<td>在另一标签页退出登录</td>
+<td>当前标签页操作时自动跳转登录</td>
+<td>P1</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>4. 测试覆盖度统计</h2>
+<table><thead><tr>
+<th>类别</th>
+<th>用例数</th>
+</tr></thead><tbody>
+<tr>
+<td>功能测试</td>
+<td>26</td>
+</tr>
+<tr>
+<td>边界测试</td>
+<td>18</td>
+</tr>
+<tr>
+<td>异常测试</td>
+<td>15</td>
+</tr>
+<tr>
+<td>总计</td>
+<td>59</td>
+</tr>
+</tbody></table>
+<hr>
+<blockquote>本文档由 generate-prd.mjs (v5.2.2) 基于 requirement-model.yaml 自动生成（2026-08-29T15:52:07.070Z）</blockquote>
+    </div>
+  </details>
+  <details>
+    <summary><code>test/02-permission-matrix.md</code> <span style="font-size:12px;color:var(--color-text-dim);margin-left:8px;">02 - 权限验证矩阵</span></summary>
+    <div class="details-content">
+      <h1>02 - 权限验证矩阵</h1>
+<blockquote>本文档定义权限相关的测试验证矩阵，覆盖功能权限与数据权限的测试用例。</blockquote>
+<hr>
+<h2>1. 功能权限测试</h2>
+<table><thead><tr>
+<th>用例编号</th>
+<th>页面/功能</th>
+<th>操作</th>
+<th>角色</th>
+<th>预期结果</th>
+<th>测试结果</th>
+</tr></thead><tbody>
+<tr>
+<td>PT-F-001</td>
+<td>侵权线索管理</td>
+<td>新增</td>
+<td>brand_ipr - 品牌方IPR</td>
+<td>可见新增按钮，能成功新增</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-002</td>
+<td>侵权线索管理</td>
+<td>编辑</td>
+<td>brand_ipr - 品牌方IPR</td>
+<td>可见编辑按钮，能成功编辑</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-003</td>
+<td>侵权线索管理</td>
+<td>删除</td>
+<td>brand_ipr - 品牌方IPR</td>
+<td>可见删除按钮，能成功删除</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-004</td>
+<td>侵权线索管理</td>
+<td>新增</td>
+<td>rights_lawyer - 维权律师</td>
+<td>可见新增按钮，能成功新增</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-005</td>
+<td>侵权线索管理</td>
+<td>编辑</td>
+<td>rights_lawyer - 维权律师</td>
+<td>可见编辑按钮，能成功编辑</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-006</td>
+<td>侵权线索管理</td>
+<td>删除</td>
+<td>rights_lawyer - 维权律师</td>
+<td>可见删除按钮，能成功删除</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-007</td>
+<td>侵权线索管理</td>
+<td>新增</td>
+<td>monitoring_analyst - 监测分析师</td>
+<td>可见新增按钮，能成功新增</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-008</td>
+<td>侵权线索管理</td>
+<td>编辑</td>
+<td>monitoring_analyst - 监测分析师</td>
+<td>可见编辑按钮，能成功编辑</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-009</td>
+<td>侵权线索管理</td>
+<td>删除</td>
+<td>monitoring_analyst - 监测分析师</td>
+<td>可见删除按钮，能成功删除</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-010</td>
+<td>存证记录管理</td>
+<td>新增</td>
+<td>brand_ipr - 品牌方IPR</td>
+<td>可见新增按钮，能成功新增</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-011</td>
+<td>存证记录管理</td>
+<td>编辑</td>
+<td>brand_ipr - 品牌方IPR</td>
+<td>可见编辑按钮，能成功编辑</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-012</td>
+<td>存证记录管理</td>
+<td>删除</td>
+<td>brand_ipr - 品牌方IPR</td>
+<td>可见删除按钮，能成功删除</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-013</td>
+<td>存证记录管理</td>
+<td>新增</td>
+<td>rights_lawyer - 维权律师</td>
+<td>可见新增按钮，能成功新增</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-014</td>
+<td>存证记录管理</td>
+<td>编辑</td>
+<td>rights_lawyer - 维权律师</td>
+<td>可见编辑按钮，能成功编辑</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-015</td>
+<td>存证记录管理</td>
+<td>删除</td>
+<td>rights_lawyer - 维权律师</td>
+<td>可见删除按钮，能成功删除</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-016</td>
+<td>存证记录管理</td>
+<td>新增</td>
+<td>monitoring_analyst - 监测分析师</td>
+<td>可见新增按钮，能成功新增</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-017</td>
+<td>存证记录管理</td>
+<td>编辑</td>
+<td>monitoring_analyst - 监测分析师</td>
+<td>可见编辑按钮，能成功编辑</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-018</td>
+<td>存证记录管理</td>
+<td>删除</td>
+<td>monitoring_analyst - 监测分析师</td>
+<td>可见删除按钮，能成功删除</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-019</td>
+<td>维权案件管理</td>
+<td>新增</td>
+<td>brand_ipr - 品牌方IPR</td>
+<td>可见新增按钮，能成功新增</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-020</td>
+<td>维权案件管理</td>
+<td>编辑</td>
+<td>brand_ipr - 品牌方IPR</td>
+<td>可见编辑按钮，能成功编辑</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-021</td>
+<td>维权案件管理</td>
+<td>删除</td>
+<td>brand_ipr - 品牌方IPR</td>
+<td>可见删除按钮，能成功删除</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-022</td>
+<td>维权案件管理</td>
+<td>新增</td>
+<td>rights_lawyer - 维权律师</td>
+<td>可见新增按钮，能成功新增</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-023</td>
+<td>维权案件管理</td>
+<td>编辑</td>
+<td>rights_lawyer - 维权律师</td>
+<td>可见编辑按钮，能成功编辑</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-024</td>
+<td>维权案件管理</td>
+<td>删除</td>
+<td>rights_lawyer - 维权律师</td>
+<td>可见删除按钮，能成功删除</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-025</td>
+<td>维权案件管理</td>
+<td>新增</td>
+<td>monitoring_analyst - 监测分析师</td>
+<td>可见新增按钮，能成功新增</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-026</td>
+<td>维权案件管理</td>
+<td>编辑</td>
+<td>monitoring_analyst - 监测分析师</td>
+<td>可见编辑按钮，能成功编辑</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-F-027</td>
+<td>维权案件管理</td>
+<td>删除</td>
+<td>monitoring_analyst - 监测分析师</td>
+<td>可见删除按钮，能成功删除</td>
+<td>待测试</td>
+</tr>
+</tbody></table>
+<blockquote>验证要点：有权限的操作按钮可见且可执行；无权限的操作按钮不可见；通过 URL 直接访问无权限页面时应被拦截。</blockquote>
+<hr>
+<h2>2. 数据权限测试</h2>
+<table><thead><tr>
+<th>用例编号</th>
+<th>测试场景</th>
+<th>角色</th>
+<th>数据范围</th>
+<th>预期结果</th>
+<th>测试结果</th>
+</tr></thead><tbody>
+<tr>
+<td>PT-D-001</td>
+<td>侵权线索列表数据范围</td>
+<td>brand_ipr - 品牌方IPR</td>
+<td>全部数据</td>
+<td>仅展示全部数据，无越权数据</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-D-002</td>
+<td>侵权线索列表数据范围</td>
+<td>rights_lawyer - 维权律师</td>
+<td>全部数据</td>
+<td>仅展示全部数据，无越权数据</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-D-003</td>
+<td>侵权线索列表数据范围</td>
+<td>monitoring_analyst - 监测分析师</td>
+<td>全部数据</td>
+<td>仅展示全部数据，无越权数据</td>
+<td>待测试</td>
+</tr>
+</tbody></table>
+<blockquote>数据权限场景示例：仅查看本人数据 / 查看本部门数据 / 查看全部数据 / 跨部门数据隔离等</blockquote>
+<hr>
+<h2>3. 页面访问权限测试</h2>
+<table><thead><tr>
+<th>用例编号</th>
+<th>页面</th>
+<th>允许角色</th>
+<th>验证方式</th>
+<th>预期结果</th>
+<th>测试结果</th>
+</tr></thead><tbody>
+<tr>
+<td>PT-P-001</td>
+<td>monitor-dashboard (/dashboard)</td>
+<td>brand<em>ipr - 品牌方IPR, rights</em>lawyer - 维权律师, monitoring_analyst - 监测分析师</td>
+<td>1.登录有权限角色访问 2.登录无权限角色访问</td>
+<td>有权限可访问，无权限跳转 403</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-P-002</td>
+<td>infringement-leads (/leads)</td>
+<td>brand<em>ipr - 品牌方IPR, rights</em>lawyer - 维权律师, monitoring_analyst - 监测分析师</td>
+<td>1.登录有权限角色访问 2.登录无权限角色访问</td>
+<td>有权限可访问，无权限跳转 403</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-P-003</td>
+<td>evidence-detail (/evidence)</td>
+<td>brand<em>ipr - 品牌方IPR, rights</em>lawyer - 维权律师, monitoring_analyst - 监测分析师</td>
+<td>1.登录有权限角色访问 2.登录无权限角色访问</td>
+<td>有权限可访问，无权限跳转 403</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-P-004</td>
+<td>rights-cases (/cases)</td>
+<td>brand<em>ipr - 品牌方IPR, rights</em>lawyer - 维权律师, monitoring_analyst - 监测分析师</td>
+<td>1.登录有权限角色访问 2.登录无权限角色访问</td>
+<td>有权限可访问，无权限跳转 403</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-P-005</td>
+<td>cross-border-rules (/rules)</td>
+<td>brand<em>ipr - 品牌方IPR, rights</em>lawyer - 维权律师, monitoring_analyst - 监测分析师</td>
+<td>1.登录有权限角色访问 2.登录无权限角色访问</td>
+<td>有权限可访问，无权限跳转 403</td>
+<td>待测试</td>
+</tr>
+<tr>
+<td>PT-P-006</td>
+<td>rights-analytics (/analytics)</td>
+<td>brand<em>ipr - 品牌方IPR, rights</em>lawyer - 维权律师, monitoring_analyst - 监测分析师</td>
+<td>1.登录有权限角色访问 2.登录无权限角色访问</td>
+<td>有权限可访问，无权限跳转 403</td>
+<td>待测试</td>
+</tr>
+</tbody></table>
+<hr>
+<blockquote>本文档由 generate-prd.mjs (v5.2.2) 基于 requirement-model.yaml 自动生成（2026-08-29T15:52:07.074Z）</blockquote>
+    </div>
+  </details>
+  <h3>handoff 交接文档（1）</h3>
+  <details>
+    <summary><code>handoff/review-notes.md</code> <span style="font-size:12px;color:var(--color-text-dim);margin-left:8px;">评审会议记录</span></summary>
+    <div class="details-content">
+      <h1>评审会议记录</h1>
+<blockquote>本文档用于记录项目评审会议的讨论内容、反馈意见及后续行动项。</blockquote>
+<hr>
+<h2>1. 会议信息</h2>
+<table><thead><tr>
+<th>字段</th>
+<th>内容</th>
+</tr></thead><tbody>
+<tr>
+<td>会议日期</td>
+<td>2026-08-29</td>
+</tr>
+<tr>
+<td>参会人员</td>
+<td>产品经理、前端开发、后端开发、测试、设计</td>
+</tr>
+<tr>
+<td>Demo 版本</td>
+<td>v5.2.2</td>
+</tr>
+<tr>
+<td>评审范围</td>
+<td>线上侵权监测与维权取证系统 PRD 全套文档（23 篇）与原型 Demo</td>
+</tr>
+<tr>
+<td>记录人</td>
+<td>由 Demora Skill 生成</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>2. 评审范围概要</h2>
+<table><thead><tr>
+<th>维度</th>
+<th>数量</th>
+<th>说明</th>
+</tr></thead><tbody>
+<tr>
+<td>业务实体</td>
+<td>4</td>
+<td>侵权线索、存证记录、维权案件、跨境规则模板</td>
+</tr>
+<tr>
+<td>用户角色</td>
+<td>3</td>
+<td>品牌方IPR、维权律师、监测分析师</td>
+</tr>
+<tr>
+<td>页面数量</td>
+<td>6</td>
+<td>monitor-dashboard、infringement-leads、evidence-detail、rights-cases、cross-border-rules、rights-analytics</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>3. 反馈意见</h2>
+<table><thead><tr>
+<th>编号</th>
+<th>反馈内容</th>
+<th>提出人</th>
+<th>类型</th>
+<th>严重程度</th>
+<th>处理状态</th>
+<th>负责人</th>
+</tr></thead><tbody>
+<tr>
+<td>FB-01</td>
+<td>侵权线索字段定义是否覆盖业务实际需求，需业务方复核</td>
+<td>产品经理</td>
+<td>需求变更</td>
+<td>一般</td>
+<td>待处理</td>
+<td>产品经理</td>
+</tr>
+<tr>
+<td>FB-02</td>
+<td>页面交互流程是否符合用户习惯，需用户测试验证</td>
+<td>设计</td>
+<td>体验优化</td>
+<td>一般</td>
+<td>待处理</td>
+<td>设计</td>
+</tr>
+<tr>
+<td>FB-03</td>
+<td>权限模型是否满足数据隔离需求，需安全评审</td>
+<td>后端</td>
+<td>需求变更</td>
+<td>严重</td>
+<td>待处理</td>
+<td>后端</td>
+</tr>
+<tr>
+<td>FB-04</td>
+<td>Mock 数据是否覆盖所有状态枚举与角色组合</td>
+<td>测试</td>
+<td>数据问题</td>
+<td>一般</td>
+<td>待处理</td>
+<td>测试</td>
+</tr>
+<tr>
+<td>FB-05</td>
+<td>API 契约是否与前端预期一致，需联调验证</td>
+<td>前端</td>
+<td>体验优化</td>
+<td>一般</td>
+<td>待处理</td>
+<td>前端</td>
+</tr>
+</tbody></table>
+<blockquote>反馈类型参考：功能问题 / 体验优化 / 数据问题 / 需求变更 / 建议 严重程度参考：严重 / 一般 / 建议 处理状态参考：待处理 / 处理中 / 已完成 / 已关闭</blockquote>
+<hr>
+<h2>4. 行动项</h2>
+<table><thead><tr>
+<th>编号</th>
+<th>行动内容</th>
+<th>负责人</th>
+<th>截止日期</th>
+<th>完成状态</th>
+</tr></thead><tbody>
+<tr>
+<td>AI-01</td>
+<td>业务方复核 侵权线索字段定义</td>
+<td>产品经理</td>
+<td>2026-08-29 + 7 天</td>
+<td>待处理</td>
+</tr>
+<tr>
+<td>AI-02</td>
+<td>完成主要页面的可点击原型与用户测试</td>
+<td>设计</td>
+<td>2026-08-29 + 14 天</td>
+<td>待处理</td>
+</tr>
+<tr>
+<td>AI-03</td>
+<td>后端完成权限模型安全评审并出具评审意见</td>
+<td>后端</td>
+<td>2026-08-29 + 7 天</td>
+<td>待处理</td>
+</tr>
+<tr>
+<td>AI-04</td>
+<td>测试补充 Mock 数据覆盖度（含所有状态与角色）</td>
+<td>测试</td>
+<td>2026-08-29 + 5 天</td>
+<td>待处理</td>
+</tr>
+<tr>
+<td>AI-05</td>
+<td>前后端按 API 契约完成首轮联调</td>
+<td>前端 + 后端</td>
+<td>2026-08-29 + 10 天</td>
+<td>待处理</td>
+</tr>
+<tr>
+<td>AI-06</td>
+<td>完成 6 个页面的开发排期确认</td>
+<td>项目经理</td>
+<td>2026-08-29 + 3 天</td>
+<td>待处理</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>5. 关键决策记录</h2>
+<table><thead><tr>
+<th>决策 ID</th>
+<th>决策内容</th>
+<th>决策人</th>
+<th>决策日期</th>
+</tr></thead><tbody>
+<tr>
+<td>D-01</td>
+<td>采用 React + Ant Design 作为前端技术栈</td>
+<td>产品经理</td>
+<td>2026-08-29</td>
+</tr>
+<tr>
+<td>D-02</td>
+<td>后端采用 RESTful API 风格</td>
+<td>后端</td>
+<td>2026-08-29</td>
+</tr>
+<tr>
+<td>D-03</td>
+<td>权限模型采用 RBAC（基于角色的访问控制）</td>
+<td>后端</td>
+<td>2026-08-29</td>
+</tr>
+<tr>
+<td>D-04</td>
+<td>数据库选用关系型数据库（MySQL/PostgreSQL）</td>
+<td>后端</td>
+<td>2026-08-29</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>6. 风险提示</h2>
+<table><thead><tr>
+<th>风险 ID</th>
+<th>风险描述</th>
+<th>影响</th>
+<th>应对措施</th>
+</tr></thead><tbody>
+<tr>
+<td>R-InfringementLead</td>
+<td>侵权线索状态流转异常（非法状态跳转、状态停滞）导致业务数据不一致</td>
+<td>侵权线索管理模块</td>
+<td>在 07-fields.md 与 03-state-matrix.md 中明确校验规则</td>
+</tr>
+<tr>
+<td>R-EvidenceRecord</td>
+<td>存证记录状态流转异常（非法状态跳转、状态停滞）导致业务数据不一致</td>
+<td>存证记录管理模块</td>
+<td>在 07-fields.md 与 03-state-matrix.md 中明确校验规则</td>
+</tr>
+<tr>
+<td>R-RightsCase</td>
+<td>维权案件状态流转异常（非法状态跳转、状态停滞）导致业务数据不一致</td>
+<td>维权案件管理模块</td>
+<td>在 07-fields.md 与 03-state-matrix.md 中明确校验规则</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>7. 下次会议</h2>
+<table><thead><tr>
+<th>字段</th>
+<th>内容</th>
+</tr></thead><tbody>
+<tr>
+<td>会议日期</td>
+<td>2026-08-29 + 14 天</td>
+</tr>
+<tr>
+<td>预期议题</td>
+<td>1. 行动项完成情况复核 2. 用户测试结果讨论 3. 开发排期确认 4. 联调进展同步</td>
+</tr>
+</tbody></table>
+<hr>
+<blockquote>本文档由 generate-prd.mjs (v5.2.2) 基于 requirement-model.yaml 自动生成（2026-08-29T15:52:07.078Z）</blockquote>
+    </div>
+  </details></section>
+<div class="footer">
+  <div class="footer-coop">
+    <div class="footer-brand-logo footer-brand-ourchem" aria-label="Ourchem">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 133.24 25.6">
+<defs><style>.cls-1{fill:#fff;}</style></defs><polygon class="cls-1" points="28.83 4.2 27.95 4.46 27.95 5.2 28.83 4.94 28.83 4.2"/><polygon class="cls-1" points="29.77 4.05 29.22 4.21 29.22 4.67 29.77 4.51 29.77 4.05"/><polygon class="cls-1" points="29.59 4.92 29.05 5.07 29.05 5.53 29.59 5.37 29.59 4.92"/><polygon class="cls-1" points="28.83 5.86 28.83 5.41 28.29 5.57 28.29 6.02 28.83 5.86"/><polygon class="cls-1" points="27.85 6.89 28.39 6.73 28.39 6.28 27.85 6.44 27.85 6.89"/><polygon class="cls-1" points="29.32 6.2 28.77 6.36 28.77 6.82 29.32 6.66 29.32 6.2"/><polygon class="cls-1" points="28.69 3.93 29.69 3.64 29.69 2.77 28.69 3.06 28.69 3.93"/><path class="cls-1" d="M11.69,21.54c-3.11,1.15-5.69,1.26-6.92,0-1-1-1-2.59-.13-4.55a3,3,0,0,1-.9-2.11v-3C.31,16.18-1,20.42.81,22.81c1.61,2.15,5.35,2.3,9.77.8v-1l1.11-.35Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M11.93,8.21c6.49-5.31,13.62-7.59,15.73-5a2.77,2.77,0,0,1,.42.75l.26-.09v-1l.91-.27a4.42,4.42,0,0,0-.44-.76C26.15-1.74,17.73.08,10,5.93a35.79,35.79,0,0,0-5.44,5H9A36.4,36.4,0,0,1,11.93,8.21Z" transform="translate(0 -0.01)"/><polygon class="cls-1" points="29.01 7.11 28.39 7.29 28.39 7.82 29.01 7.63 29.01 7.11"/><polygon class="cls-1" points="27.58 8.38 28.12 8.22 28.12 7.76 27.58 7.92 27.58 8.38"/><polygon class="cls-1" points="28.46 8.43 28.03 8.56 28.03 8.92 28.46 8.79 28.46 8.43"/><polygon class="cls-1" points="27.22 9.09 27.64 8.97 27.64 8.61 27.22 8.73 27.22 9.09"/><polygon class="cls-1" points="27.13 9.96 27.67 9.8 27.67 9.35 27.13 9.5 27.13 9.96"/><polygon class="cls-1" points="26.81 10.43 26.81 10.09 26.4 10.21 26.4 10.55 26.81 10.43"/><polygon class="cls-1" points="27.84 7.55 28.21 7.44 28.21 7.13 27.84 7.24 27.84 7.55"/><polygon class="cls-1" points="19.08 18.49 19.5 18.36 19.5 18 19.08 18.13 19.08 18.49"/><polygon class="cls-1" points="17.71 19.86 18.16 19.73 18.16 19.35 17.71 19.49 17.71 19.86"/><polygon class="cls-1" points="16.89 19.52 17.44 19.36 17.44 18.89 16.89 19.06 16.89 19.52"/><polygon class="cls-1" points="15.16 20.3 14.75 20.42 14.75 20.76 15.16 20.64 15.16 20.3"/><polygon class="cls-1" points="16.99 20.38 17.39 20.26 17.39 19.91 16.99 20.03 16.99 20.38"/><polygon class="cls-1" points="14.98 21.58 15.61 21.39 15.61 20.87 14.98 21.05 14.98 21.58"/><polygon class="cls-1" points="13.69 22.24 14.54 21.99 14.54 21.27 13.69 21.52 13.69 22.24"/><polygon class="cls-1" points="14.4 21.03 14.4 20.49 13.75 20.68 13.75 21.22 14.4 21.03"/><polygon class="cls-1" points="12.67 22.87 13.31 22.68 13.31 22.14 12.67 22.33 12.67 22.87"/><polygon class="cls-1" points="15.66 20.72 16.61 20.44 16.61 19.64 15.66 19.92 15.66 20.72"/><polygon class="cls-1" points="18.03 19.12 18.57 18.96 18.57 18.51 18.03 18.66 18.03 19.12"/><polygon class="cls-1" points="13.23 21.66 13.23 20.76 12.16 21.08 12.16 21.97 13.23 21.66"/><polygon class="cls-1" points="11.01 23.83 12.19 23.48 12.19 22.48 11.01 22.83 11.01 23.83"/><path class="cls-1" d="M18.82,12.61a1.69,1.69,0,0,1,1.51,1l1-.54a2.87,2.87,0,0,0-2.54-1.6,3,3,0,0,0,0,5.89,2.87,2.87,0,0,0,2.54-1.6l-1-.54a1.69,1.69,0,0,1-1.51,1,1.79,1.79,0,0,1,0-3.57Z" transform="translate(0 -0.01)"/><polygon class="cls-1" points="25.91 17.33 27.07 17.33 27.07 11.43 25.91 11.43 25.91 13.82 23.44 13.82 23.44 11.43 22.28 11.43 22.28 17.33 23.44 17.33 23.44 14.93 25.91 14.93 25.91 17.33"/><polygon class="cls-1" points="38.23 11.43 36.68 15.48 35.13 11.43 33.84 11.43 33.84 17.33 34.97 17.33 34.97 14.04 36.25 17.33 37.11 17.33 38.39 14.04 38.39 17.33 39.55 17.33 39.55 11.43 38.23 11.43"/><path class="cls-1" d="M6.67,17.34a2.42,2.42,0,0,0,2.42-2.42V11.44H7.93v3.48a1.26,1.26,0,0,1-2.52,0V11.44H4.24v3.48A2.43,2.43,0,0,0,6.67,17.34Z" transform="translate(0 -0.01)"/><polygon class="cls-1" points="28.29 17.33 32.87 17.33 32.87 16.27 29.45 16.27 29.45 14.93 32.34 14.93 32.34 13.83 29.45 13.83 29.45 13.75 29.45 12.54 32.87 12.54 32.87 11.43 28.29 11.43 28.29 17.33"/><polygon class="cls-1" points="11.71 13.9 11.71 13.9 11.71 13.9 11.71 13.9"/><path class="cls-1" d="M15.94,17.34l-2-2.39a1.81,1.81,0,0,0-.64-3.51h-3v5.9h1.16V12.6h1.89a.66.66,0,1,1,.16,1.31H12.35a.31.31,0,0,0-.29.3.32.32,0,0,0,.08.21h0l2.38,2.92Z" transform="translate(0 -0.01)"/><polygon class="cls-1" points="35.84 20.37 35.84 20.26 35.84 19.09 35.19 19.09 35.19 20.26 34.9 20.26 34.9 18.73 34.11 18.73 34.11 20.26 33.82 20.26 33.82 19.09 33.17 19.09 33.17 20.26 33.17 20.37 33.17 20.69 35.84 20.69 35.84 20.37"/><path class="cls-1" d="M38.71,23.26V19.08H36.24v4.16c0,.88-.65,1-.8,1H34.16v-1.5h1.68V21.08H33.17v.43h1.69v.78H33.17v2.36h2.77c.9,0,1.26-.43,1.26-1.43V19.53h.52v3.68c0,1,.34,1.4,1.17,1.43h.66v-.43h0C39.36,24.21,38.71,24.14,38.71,23.26Z" transform="translate(0 -0.01)"/><polygon class="cls-1" points="26.17 19.71 25.77 19.71 26.11 20.47 26.51 20.47 26.17 19.71"/><polygon class="cls-1" points="27.97 19.71 27.63 20.47 28.02 20.47 28.37 19.71 27.97 19.71"/><polygon class="cls-1" points="27.97 22.04 28.37 22.04 28.02 21.27 27.63 21.27 27.97 22.04"/><polygon class="cls-1" points="26.17 22.04 26.51 21.27 26.11 21.27 25.77 22.04 26.17 22.04"/><polygon class="cls-1" points="28.37 21.06 28.37 20.68 28.37 20.66 27.46 20.66 27.46 19.64 26.68 19.64 26.68 20.66 25.77 20.66 25.77 20.68 25.77 21.06 25.77 21.09 26.68 21.09 26.68 22.1 27.46 22.1 27.46 21.09 28.37 21.09 28.37 21.06"/><polygon class="cls-1" points="29.56 22.5 29.56 19.52 29.56 19.09 28.58 19.09 25.9 19.09 26.14 18.73 24.82 18.73 24.58 19.09 24.58 19.12 24.58 19.52 24.58 22.53 25.56 22.53 25.56 19.52 28.58 19.52 28.58 22.5 29.56 22.5"/><path class="cls-1" d="M27.48,22.29H26.24l-.36.54h-2v.43h1.74c-.19.29-.36.54-.4.62a.94.94,0,0,1-.75.33v.43c.86,0,1.46,0,1.73-.4l.64-1h.46l.64,1c.27.41.88.4,1.72.4v-.43a.92.92,0,0,1-.74-.33l-.4-.62h1.72v-.43H27.12Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M49.63,13.14H44.51v1.44a5.9,5.9,0,0,1-1,3.72,4.27,4.27,0,0,0-.74-.67,4.68,4.68,0,0,0,.78-3.06V12.26h2.69a8.68,8.68,0,0,0-.27-1l1-.17a7.65,7.65,0,0,1,.27,1.17h2.4Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M51.58,13.19A7.74,7.74,0,0,1,51,15.4l-.77-.32A6.39,6.39,0,0,0,50.82,13Zm1.67,0a9.12,9.12,0,0,1,.6,1.9l-.76.36a9.28,9.28,0,0,0-.42-1.65c0,1.55-.19,3.26-1.61,4.44a3.32,3.32,0,0,0-.65-.7,4.58,4.58,0,0,0,1.37-3.82V11.29h.89v2.09Zm3.67-1.88v6.77H56V15l-.67.37a8.14,8.14,0,0,0-.61-1.67v4h-.88v-6.2h.88v1.9l.55-.28A11,11,0,0,1,56,14.73V11.26Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M62.24,16.38a3.58,3.58,0,0,0,2.69,1,2.87,2.87,0,0,0-.55.86,3.54,3.54,0,0,1-3-1.6c-.39.82-1.22,1.33-3.14,1.61a3,3,0,0,0-.43-.79c1.63-.18,2.32-.52,2.65-1.06H58v-.76h2.74a.82.82,0,0,1,.06-.37h.94v.37h3v.76Zm-2.74-1h-.83V11.73h2q.12-.3.21-.6l1,.14c-.08.16-.15.32-.21.46h2.38v3.62h-.87V12.46H59.49Zm3.08-.16a8.71,8.71,0,0,0-.83-.64l.41-.4h-.42v.9H61V14.5a4.64,4.64,0,0,1-.93.78,2.52,2.52,0,0,0-.47-.51,4.16,4.16,0,0,0,.87-.62H59.7v-.59h.54a4.6,4.6,0,0,0-.39-.68l.56-.26a6.2,6.2,0,0,1,.44.69l-.5.25H61v-1h.76v1h.57l-.46-.23a4.88,4.88,0,0,0,.42-.74l.66.29-.55.68H63v.59h-.76c.27.18.65.43.83.58Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M68.34,16.63a5.72,5.72,0,0,0,.08.76,13.87,13.87,0,0,0-2.61.66,2.34,2.34,0,0,0-.28-.72c.12-.06.21-.17.21-.44V15.33h2.14v-.6H65.59v-.79h3.09v2.14h-2.2V17Zm.46-3.13H65.62V11.57h.72v1.24h.49V11.17h.76v1.64h.47V11.57h.74Zm2.92,3.84c.08,0,.1-.2.12-1a2.3,2.3,0,0,0,.67.32c-.06,1-.24,1.29-.72,1.29h-.37c-.56,0-.7-.24-.7-1V12.27h-.64V13.9a7.67,7.67,0,0,1-1,4.32,2.83,2.83,0,0,0-.65-.55,6.57,6.57,0,0,0,.83-3.78V11.52h2.26V17c0,.3,0,.35.09.35Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M75.24,11.43a13,13,0,0,1-.55,1.34v5.46h-.82V14.18c-.18.25-.37.5-.55.71a4.91,4.91,0,0,0-.46-.88,7.72,7.72,0,0,0,1.58-2.82Zm4.63.9v.75H75v-.73h2.16a9.59,9.59,0,0,0-.47-.9l.76-.28a6.49,6.49,0,0,1,.55,1l-.43.19Zm-4.42,3.34h4v2.5h-.79V18H76.24v.23h-.76Zm3.88-1.51H75.56v-.7h3.77Zm-3.77.39h3.77v.7H75.56Zm.65,1.84v.85h2.43v-.85Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M80.44,17.44a8.3,8.3,0,0,0,.71-1.58l.8.33a14.69,14.69,0,0,1-.68,1.65Zm3.29-1.92H81.57V11.83H83.3a6.17,6.17,0,0,0,.19-.74l1.09.13c-.11.23-.23.43-.32.61h2.06v3.69H84.15a4.77,4.77,0,0,1,.79,1L84.2,17a5.21,5.21,0,0,0-.89-1.19Zm1.06,1.74c.36,0,.42-.1.47-.82a2.18,2.18,0,0,0,.81.32c-.11,1-.37,1.31-1.21,1.31H83.43c-1.06,0-1.34-.25-1.34-1v-1H83v1c0,.22.07.25.5.25Zm-2.36-4.4h3v-.35h-3Zm0,1h3v-.34h-3Zm0,1h3v-.35h-3Zm4.13.87a6.18,6.18,0,0,1,.84,1.61l-.86.37a6.71,6.71,0,0,0-.77-1.65Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M90.41,14.08l-2.08.9L88,14.1c.57-.16,1.45-.46,2.3-.74Zm-.72-1.3a6.58,6.58,0,0,0-1.39-.73l.44-.64a6.79,6.79,0,0,1,1.42.66Zm-.63,2.62h5v2.84h-1V18H89.94v.3H89Zm3.87-2.72a1.78,1.78,0,0,1-.09.47,2.28,2.28,0,0,0,2.09,1.41,3,3,0,0,0-.51.77,2.78,2.78,0,0,1-1.94-1.28,3.32,3.32,0,0,1-2,1.33,2.54,2.54,0,0,0-.49-.76c1.54-.37,1.92-1,2.06-1.94h-.7a5,5,0,0,1-.64.93,4.37,4.37,0,0,0-.78-.47,4.31,4.31,0,0,0,1.11-2l.87.18a1.77,1.77,0,0,1-.19.56h2.53l.62.16a9.43,9.43,0,0,1-.62,1.63l-.73-.21c.1-.25.19-.5.27-.76ZM90,16.2v1h3.12v-1Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M97.92,15.84a5.4,5.4,0,0,0,.29.76,13.61,13.61,0,0,0-1.74,1.48,3.17,3.17,0,0,0-.43-.76.93.93,0,0,0,.38-.72V14.33h-.9v-.86h1.77v2.85Zm-1-2.78a11.39,11.39,0,0,0-1-1.25l.61-.52a9.44,9.44,0,0,1,1.09,1.19Zm5.43-.83v.42c-.09,3.45-.18,4.66-.47,5a.92.92,0,0,1-.64.38,6.73,6.73,0,0,1-1.1,0,1.93,1.93,0,0,0-.27-.87h1a.35.35,0,0,0,.31-.15c.2-.23.29-1.36.37-4.13H99.11q-.18.29-.36.54h2.17v3.1H99.14v.51h-.82v-3l-.09.1a4.88,4.88,0,0,0-.75-.61,6,6,0,0,0,1.44-2.37l.91.24c-.1.28-.22.55-.34.83ZM99.11,14.3v.5H100v-.5ZM100,16v-.49h-.93V16Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M105.87,12.91q-.14.3-.3.6h3.49v3.72c0,.44-.09.68-.4.82a3.33,3.33,0,0,1-1.33.15,4.39,4.39,0,0,0-.27-.87h1c.18,0,.17,0,.17-.15v-.45h-2.72v1.44h-.89V14.91a5,5,0,0,1-1,.89,4.3,4.3,0,0,0-.59-.69,5.8,5.8,0,0,0,1.88-2.2h-1.67v-.83h2c.11-.3.21-.6.29-.91l.93.21c-.08.23-.16.46-.25.7h3.68v.84Zm2.31,1.38h-2.72v.48h2.72Zm0,1.72v-.49h-2.72V16Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M113.41,11.76c-.2.63-.45,1.39-.65,2a2.42,2.42,0,0,1,.54,1.57,1.13,1.13,0,0,1-.34,1,.82.82,0,0,1-.42.17,4,4,0,0,1-.49,0,1.86,1.86,0,0,0-.19-.77h.32a.29.29,0,0,0,.2-.07c.1-.06.14-.23.14-.44a2.12,2.12,0,0,0-.53-1.38c.15-.46.31-1.07.43-1.56h-.73v5.9h-.78V11.46h1.91Zm4.06,3.87c-.33.26-.72.54-1.06.76a3.29,3.29,0,0,0,1.22,1,3.48,3.48,0,0,0-.59.78A4.68,4.68,0,0,1,115,14.91h-.45v2.17l1-.24a5.61,5.61,0,0,0,0,.82,8.15,8.15,0,0,0-1.93.6,2.64,2.64,0,0,0-.38-.7.73.73,0,0,0,.35-.66V11.47H117v3.45h-1.3a4,4,0,0,0,.3.82,6.72,6.72,0,0,0,.86-.74Zm-3-3.4v.59h1.66v-.59Zm0,1.92h1.66v-.61h-1.66Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M121.07,11.61A9.13,9.13,0,0,1,119,14.73a10.34,10.34,0,0,0-.84-.64,6.47,6.47,0,0,0,1.94-2.76Zm2.11,3.47a21.11,21.11,0,0,1,1.7,2.6l-.9.48c-.11-.25-.28-.54-.46-.86a30,30,0,0,0-4.53.47,8.19,8.19,0,0,0-.35-.94,1.52,1.52,0,0,0,.71-.59,13,13,0,0,0,1.79-2.89l1,.43a16.14,16.14,0,0,1-2,2.86l2.81-.18-.67-1ZM123,11.24a10,10,0,0,0,2.1,2.69,4.49,4.49,0,0,0-.75.76,13.94,13.94,0,0,1-2.24-3.09Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M132.17,17.08c0,.51-.09.78-.42.94a3.46,3.46,0,0,1-1.46.18,3.83,3.83,0,0,0-.29-1,9.37,9.37,0,0,0,1.06,0c.14,0,.19,0,.19-.17V12.47H126v-.85h6.18ZM130.5,13.8h-4.43V13h4.43Zm-3.17,3.11v.54h-.88V14.34h3.66v2.55Zm0-1.78v1h1.91v-1Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M42.92,22.86a1.88,1.88,0,0,1,.47-1.36,1.59,1.59,0,0,1,1.2-.49,1.74,1.74,0,0,1,.87.23,1.58,1.58,0,0,1,.59.64,2.18,2.18,0,0,1,.2.94,2.14,2.14,0,0,1-.21,1,1.43,1.43,0,0,1-.61.63,1.77,1.77,0,0,1-.84.21,1.81,1.81,0,0,1-.88-.23,1.61,1.61,0,0,1-.59-.65A2,2,0,0,1,42.92,22.86Zm.48,0a1.39,1.39,0,0,0,.34,1,1.17,1.17,0,0,0,1.7,0,1.42,1.42,0,0,0,.34-1,1.77,1.77,0,0,0-.15-.75,1.06,1.06,0,0,0-.39-.52,1.23,1.23,0,0,0-.62-.17,1.2,1.2,0,0,0-.84.33,1.56,1.56,0,0,0-.38,1.13Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M48.51,24.55v-.37a.9.9,0,0,1-.8.43,1.15,1.15,0,0,1-.41-.08.67.67,0,0,1-.42-.54,2.54,2.54,0,0,1,0-.39V22.08h.36v1.4a3.38,3.38,0,0,0,0,.45.55.55,0,0,0,.17.27.63.63,0,0,0,.33.09.74.74,0,0,0,.36-.09.57.57,0,0,0,.24-.27,1.68,1.68,0,0,0,.07-.5V22.08h.42V24.6Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M49.63,24.55V22.08H50v.39a1.18,1.18,0,0,1,.23-.39.46.46,0,0,1,.28-.08.84.84,0,0,1,.44.13l-.15.4a.56.56,0,0,0-.31-.09.44.44,0,0,0-.25.08.45.45,0,0,0-.16.24,1.62,1.62,0,0,0-.08.49v1.32Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M53,23.63l.42.06a1.14,1.14,0,0,1-.36.68,1,1,0,0,1-.69.24,1.07,1.07,0,0,1-.84-.34,1.39,1.39,0,0,1-.31-1,1.72,1.72,0,0,1,.13-.71.9.9,0,0,1,.42-.46,1.24,1.24,0,0,1,.6-.15,1.08,1.08,0,0,1,.67.2,1,1,0,0,1,.34.59l-.42.07a.68.68,0,0,0-.21-.38.5.5,0,0,0-.37-.13.65.65,0,0,0-.52.23,1.11,1.11,0,0,0-.2.73,1.15,1.15,0,0,0,.19.74.66.66,0,0,0,.51.23.6.6,0,0,0,.42-.15A.83.83,0,0,0,53,23.63Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M53.82,24.55V21.08h.42v1.25A1,1,0,0,1,55,22a.93.93,0,0,1,.49.11.6.6,0,0,1,.29.3,1.39,1.39,0,0,1,.09.57v1.59h-.42V23a.71.71,0,0,0-.14-.47.54.54,0,0,0-.4-.15.74.74,0,0,0-.35.1.57.57,0,0,0-.24.27,1.25,1.25,0,0,0-.07.47v1.37Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M58.32,23.74l.44.06a1.06,1.06,0,0,1-.39.6,1.32,1.32,0,0,1-1.6-.13,1.7,1.7,0,0,1,0-2,1.1,1.1,0,0,1,.85-.35,1.06,1.06,0,0,1,.82.34,1.36,1.36,0,0,1,.32,1v.11H56.89a1,1,0,0,0,.24.64.64.64,0,0,0,.52.22.65.65,0,0,0,.4-.12A.83.83,0,0,0,58.32,23.74Zm-1.41-.66h1.41a.92.92,0,0,0-.16-.48.72.72,0,0,0-1-.05A.8.8,0,0,0,56.91,23.08Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M59.36,24.55V22.08h.39v.36a.75.75,0,0,1,.31-.3.79.79,0,0,1,.45-.11.83.83,0,0,1,.46.11.63.63,0,0,1,.25.33A.89.89,0,0,1,62,22a.82.82,0,0,1,.58.2.93.93,0,0,1,.2.64V24.6h-.42V23a.92.92,0,0,0,0-.37.27.27,0,0,0-.15-.18.43.43,0,0,0-.25-.07.61.61,0,0,0-.44.17.78.78,0,0,0-.18.57v1.46h-.43V22.92a.72.72,0,0,0-.1-.43.4.4,0,0,0-.34-.14.67.67,0,0,0-.34.09.6.6,0,0,0-.22.28,1.36,1.36,0,0,0-.07.53v1.3Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M65,24.55V21.08h.46v3.48Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M66.32,24.55V22.08h.39v.36a.89.89,0,0,1,.8-.41,1,1,0,0,1,.42.08.58.58,0,0,1,.28.21.77.77,0,0,1,.14.32,2.81,2.81,0,0,1,0,.41V24.6h-.43V23a.86.86,0,0,0,0-.39.39.39,0,0,0-.17-.21.63.63,0,0,0-.3-.07.64.64,0,0,0-.47.17.87.87,0,0,0-.2.66v1.37Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M69.24,24.55V22.37h-.38v-.29h.38v-.27a1.15,1.15,0,0,1,0-.37.58.58,0,0,1,.22-.27.76.76,0,0,1,.44-.11h.39l-.06.37H70a.4.4,0,0,0-.28.08.48.48,0,0,0-.08.31v.26h.49v.34h-.49V24.6Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M70.35,23.29a1.3,1.3,0,0,1,.39-1,1.17,1.17,0,0,1,.8-.28,1.12,1.12,0,0,1,.85.34,1.29,1.29,0,0,1,.33.94,1.67,1.67,0,0,1-.15.76,1.11,1.11,0,0,1-.42.44,1.31,1.31,0,0,1-.61.15,1.11,1.11,0,0,1-.86-.34A1.3,1.3,0,0,1,70.35,23.29Zm.44,0A1,1,0,0,0,71,24a.65.65,0,0,0,.53.24.68.68,0,0,0,.53-.24,1.09,1.09,0,0,0,.21-.74,1.06,1.06,0,0,0-.21-.71.71.71,0,0,0-.53-.24.65.65,0,0,0-.53.24A1,1,0,0,0,70.79,23.29Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M73.24,24.55V22.08h.39v.39a1,1,0,0,1,.27-.36.43.43,0,0,1,.27-.08.84.84,0,0,1,.44.13l-.15.4a.56.56,0,0,0-.31-.09.44.44,0,0,0-.25.08.49.49,0,0,0-.16.24,1.61,1.61,0,0,0-.07.49V24.6Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M75,24.55V22.08h.39v.36a.75.75,0,0,1,.31-.3.79.79,0,0,1,.45-.11.83.83,0,0,1,.46.11.63.63,0,0,1,.25.33.89.89,0,0,1,.78-.44.82.82,0,0,1,.58.2.93.93,0,0,1,.2.64V24.6H78V23a1.15,1.15,0,0,0,0-.37.27.27,0,0,0-.15-.18.43.43,0,0,0-.25-.07.61.61,0,0,0-.44.17.78.78,0,0,0-.18.57v1.46h-.43V22.92a.72.72,0,0,0-.1-.43.4.4,0,0,0-.34-.14.67.67,0,0,0-.34.09.6.6,0,0,0-.22.28,1.36,1.36,0,0,0-.07.53v1.3Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M80.74,24.24a1.7,1.7,0,0,1-.46.29,1.5,1.5,0,0,1-.47.08,1,1,0,0,1-.64-.2.64.64,0,0,1-.22-.52.81.81,0,0,1,.08-.34.64.64,0,0,1,.22-.24.87.87,0,0,1,.31-.14,1.59,1.59,0,0,1,.38-.07A3.3,3.3,0,0,0,80.7,23v-.11a.46.46,0,0,0-.13-.37.75.75,0,0,0-.48-.14.71.71,0,0,0-.45.11.69.69,0,0,0-.21.37L79,22.75a1,1,0,0,1,.19-.43.84.84,0,0,1,.38-.26,1.83,1.83,0,0,1,.57-.08,1.52,1.52,0,0,1,.52.07.58.58,0,0,1,.43.48,2.67,2.67,0,0,1,0,.4v.57a4.7,4.7,0,0,0,0,.75,1,1,0,0,0,.11.3h-.45A1.08,1.08,0,0,1,80.74,24.24Zm0-1a2.84,2.84,0,0,1-.7.16,1.18,1.18,0,0,0-.37.09.37.37,0,0,0-.17.13.39.39,0,0,0-.06.21.37.37,0,0,0,.13.28.53.53,0,0,0,.38.12,1,1,0,0,0,.44-.11.68.68,0,0,0,.28-.3.87.87,0,0,0,.07-.42Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M82.8,24.17l.06.38h-.32a.64.64,0,0,1-.36-.08.34.34,0,0,1-.18-.19,1.4,1.4,0,0,1-.06-.5V22.37h-.31v-.29h.31v-.62l.43-.26v.88h.43v.34h-.43v1.47a1,1,0,0,0,0,.24.3.3,0,0,0,.08.08h.14Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M83.29,21.57v-.49h.42v.5Zm0,3V22.08h.42V24.6Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M84.24,23.29a1.3,1.3,0,0,1,.39-1,1.17,1.17,0,0,1,.8-.28,1.12,1.12,0,0,1,.85.34,1.29,1.29,0,0,1,.33.94,1.67,1.67,0,0,1-.15.76,1.11,1.11,0,0,1-.42.44,1.31,1.31,0,0,1-.61.15,1.11,1.11,0,0,1-.86-.34A1.3,1.3,0,0,1,84.24,23.29Zm.44,0a1,1,0,0,0,.22.73.65.65,0,0,0,.53.24A.68.68,0,0,0,86,24a1.09,1.09,0,0,0,.21-.74,1.06,1.06,0,0,0-.21-.71.71.71,0,0,0-.53-.24.65.65,0,0,0-.53.24,1,1,0,0,0-.19.72Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M87.24,24.55V22.08h.38v.36a.89.89,0,0,1,.8-.41.88.88,0,0,1,.42.08.56.56,0,0,1,.29.21.8.8,0,0,1,.13.32,2.81,2.81,0,0,1,0,.41V24.6h-.43V23a1.27,1.27,0,0,0,0-.39.46.46,0,0,0-.18-.21.53.53,0,0,0-.3-.07.64.64,0,0,0-.47.17.87.87,0,0,0-.2.66v1.37Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M93.94,23.33l.46.12a1.6,1.6,0,0,1-.52.87,1.46,1.46,0,0,1-.92.29,1.65,1.65,0,0,1-.92-.22,1.54,1.54,0,0,1-.54-.67,2.48,2.48,0,0,1-.18-.93,1.94,1.94,0,0,1,.21-.95,1.41,1.41,0,0,1,.59-.62A1.77,1.77,0,0,1,93,21a1.36,1.36,0,0,1,1.38,1l-.46.11a.89.89,0,0,0-.93-.73,1.14,1.14,0,0,0-.67.19,1,1,0,0,0-.38.52,2.19,2.19,0,0,0-.11.67,2.27,2.27,0,0,0,.13.77,1,1,0,0,0,.41.5,1.11,1.11,0,0,0,.59.16,1,1,0,0,0,.65-.22A1.19,1.19,0,0,0,93.94,23.33Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M94.82,23.29a1.3,1.3,0,0,1,.39-1A1.14,1.14,0,0,1,96,22a1.12,1.12,0,0,1,.85.34,1.29,1.29,0,0,1,.33.94,1.8,1.8,0,0,1-.14.76,1.07,1.07,0,0,1-.43.44,1.31,1.31,0,0,1-.61.15,1.09,1.09,0,0,1-.85-.34A1.3,1.3,0,0,1,94.82,23.29Zm.44,0a1.06,1.06,0,0,0,.21.73.71.71,0,0,0,1,.06l.06-.06a1.09,1.09,0,0,0,.21-.74,1.06,1.06,0,0,0-.21-.71.71.71,0,0,0-1-.06l-.06.06a1.09,1.09,0,0,0-.23.72Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M97.75,24.55V22.08h.39v.36a.89.89,0,0,1,.8-.41,1,1,0,0,1,.42.08.58.58,0,0,1,.28.21.77.77,0,0,1,.14.32,2.81,2.81,0,0,1,0,.41V24.6h-.43V23a.86.86,0,0,0,0-.39.39.39,0,0,0-.17-.21.63.63,0,0,0-.3-.07.64.64,0,0,0-.47.17.83.83,0,0,0-.2.66v1.37Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M100.35,23.8l.43-.06a.56.56,0,0,0,.19.38.85.85,0,0,0,.9,0,.35.35,0,0,0,.14-.28.28.28,0,0,0-.13-.23,1.41,1.41,0,0,0-.44-.14,3.79,3.79,0,0,1-.65-.21.69.69,0,0,1-.27-.24.63.63,0,0,1,0-.65.61.61,0,0,1,.21-.24A.66.66,0,0,1,101,22a1.15,1.15,0,0,1,.37,0,1.32,1.32,0,0,1,.52.08.86.86,0,0,1,.33.23.93.93,0,0,1,.15.39l-.42.06a.43.43,0,0,0-.16-.3.6.6,0,0,0-.39-.11.76.76,0,0,0-.42.09.31.31,0,0,0-.12.23.21.21,0,0,0,0,.15.31.31,0,0,0,.16.12l.38.11c.21.05.42.12.63.19a.7.7,0,0,1,.28.23.68.68,0,0,1,0,.77.79.79,0,0,1-.36.29,1.22,1.22,0,0,1-.53.1,1.17,1.17,0,0,1-.75-.2A1,1,0,0,1,100.35,23.8Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M104.68,24.55v-.37a.93.93,0,0,1-.8.43,1.2,1.2,0,0,1-.42-.08.7.7,0,0,1-.29-.22A1,1,0,0,1,103,24a2.54,2.54,0,0,1,0-.39V22.08h.43v1.4a1.7,1.7,0,0,0,0,.45.41.41,0,0,0,.17.27.59.59,0,0,0,.32.09.74.74,0,0,0,.36-.09.57.57,0,0,0,.24-.27,1.21,1.21,0,0,0,.07-.5V22.08h.43V24.6Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M105.79,24.55V21.08h.45v3.48Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M107.88,24.17l.06.38h-.32a.64.64,0,0,1-.36-.08.44.44,0,0,1-.19-.19,1.67,1.67,0,0,1,0-.5V22.37h-.31v-.29H107v-.62l.43-.26v.88h.43v.34h-.43v1.47a1,1,0,0,0,0,.24.27.27,0,0,0,.07.08h.15Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M108.37,21.57v-.49h.42v.5Zm0,3V22.08h.42V24.6Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M109.51,24.55V22.08h.39v.36a.89.89,0,0,1,.8-.41,1,1,0,0,1,.42.08.58.58,0,0,1,.28.21.77.77,0,0,1,.14.32,2.81,2.81,0,0,1,0,.41V24.6h-.43V23a.86.86,0,0,0,0-.39.39.39,0,0,0-.17-.21.63.63,0,0,0-.3-.07.64.64,0,0,0-.47.17.87.87,0,0,0-.2.66v1.37Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M112.24,24.76l.41.07a.43.43,0,0,0,.15.28.73.73,0,0,0,.43.11.83.83,0,0,0,.46-.11.57.57,0,0,0,.22-.34,2.53,2.53,0,0,0,0-.55.9.9,0,0,1-.7.33.93.93,0,0,1-.8-.37,1.47,1.47,0,0,1-.29-.9,1.7,1.7,0,0,1,.13-.67,1,1,0,0,1,.38-.47,1,1,0,0,1,.58-.16.89.89,0,0,1,.74.36v-.26h.39v2.18a2.06,2.06,0,0,1-.1.82.89.89,0,0,1-.38.39,1.3,1.3,0,0,1-.64.14,1.26,1.26,0,0,1-.73-.2A.7.7,0,0,1,112.24,24.76Zm.35-1.51a1.08,1.08,0,0,0,.2.72.65.65,0,0,0,.92.08l.08-.08a1.06,1.06,0,0,0,.19-.71,1,1,0,0,0-.2-.7.66.66,0,0,0-.5-.23.63.63,0,0,0-.48.23,1,1,0,0,0-.24.69Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M119,23.33l.47.12a1.53,1.53,0,0,1-.53.87,1.46,1.46,0,0,1-.92.29,1.62,1.62,0,0,1-.91-.22,1.48,1.48,0,0,1-.54-.67,2.48,2.48,0,0,1-.18-.93,1.94,1.94,0,0,1,.21-.95,1.36,1.36,0,0,1,.59-.62A1.77,1.77,0,0,1,118,21a1.36,1.36,0,0,1,1.38,1l-.46.11a1.14,1.14,0,0,0-.35-.56,1,1,0,0,0-.58-.17,1.14,1.14,0,0,0-.67.19,1,1,0,0,0-.38.52,2.19,2.19,0,0,0-.11.67,2.27,2.27,0,0,0,.13.77,1,1,0,0,0,.41.5,1.11,1.11,0,0,0,.59.16,1,1,0,0,0,.65-.22A1.11,1.11,0,0,0,119,23.33Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M119.9,23.29a1.3,1.3,0,0,1,.39-1,1.14,1.14,0,0,1,.79-.28,1.12,1.12,0,0,1,.85.34,1.29,1.29,0,0,1,.33.94,1.67,1.67,0,0,1-.15.76,1,1,0,0,1-.42.44,1.31,1.31,0,0,1-.61.15,1.16,1.16,0,0,1-.86-.34A1.37,1.37,0,0,1,119.9,23.29Zm.44,0a1.06,1.06,0,0,0,.21.73.71.71,0,0,0,1,.06l.06-.06a1.09,1.09,0,0,0,.21-.74,1.06,1.06,0,0,0-.21-.71.71.71,0,0,0-1-.06l-.06.06A1.09,1.09,0,0,0,120.34,23.29Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M123,24.55v-.47h.49v.48Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M124.36,24.55v-.47h.49v.48a.84.84,0,0,1-.1.44.57.57,0,0,1-.3.25l-.12-.18a.41.41,0,0,0,.2-.17.8.8,0,0,0,.07-.34Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M125.7,24.55V21.08h.46v3.07h1.72v.41Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M129.37,24.17l.07.38h-.33a.76.76,0,0,1-.36-.08.41.41,0,0,1-.18-.19,1.67,1.67,0,0,1,0-.5V22.37h-.28v-.29h.31v-.62l.42-.26v.88h.43v.34H129v1.47a.49.49,0,0,0,0,.24.18.18,0,0,0,.07.08h.15Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M131.5,24.55v-.31a.8.8,0,0,1-.71.37,1,1,0,0,1-.55-.16,1.21,1.21,0,0,1-.4-.47,1.59,1.59,0,0,1-.13-.68,2,2,0,0,1,.12-.69,1,1,0,0,1,.94-.63,1,1,0,0,1,.41.09,1,1,0,0,1,.29.25V21.08h.42v3.48Zm-1.36-1.25a1.09,1.09,0,0,0,.21.72.61.61,0,0,0,.85.15.54.54,0,0,0,.15-.15,1,1,0,0,0,.19-.7,1.2,1.2,0,0,0-.2-.76.63.63,0,0,0-.49-.24.58.58,0,0,0-.47.23A1.13,1.13,0,0,0,130.14,23.3Z" transform="translate(0 -0.01)"/><path class="cls-1" d="M132.75,24.55v-.47h.49v.48Z" transform="translate(0 -0.01)"/>
+      </svg>
+    </div>
+    <span class="footer-coop-x" aria-hidden="true">×</span>
+    <div class="footer-brand-logo footer-brand-demora" aria-label="Demora">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 32" fill="none">
+        <g transform="translate(0, 2)">
+          <rect x="4" y="0" width="12" height="6" rx="3" fill="#14B8A6" opacity="0.4"/>
+          <rect x="6" y="11" width="20" height="6" rx="3" fill="#14B8A6" opacity="0.7"/>
+          <rect x="0" y="22" width="36" height="6" rx="3" fill="#14B8A6"/>
+        </g>
+        <text x="48" y="23" font-family="Inter, -apple-system, sans-serif" font-weight="700" font-size="20" fill="#F5F5F7">Demora</text>
+      </svg>
+    </div>
+  </div>
+  <p class="footer-copyright">
+    © 2026 Ourchem × Demora · 保留所有权利
+  </p>
+</div>
+
+<script>
+// v5.20.2（UAT 四轮 U-A）：TOC 受众过滤全局函数——顶部 anchor-nav 与左侧 tocSidebar 双覆盖
+//   根因（codex-p10 实证）：左侧 TOC 在后续 IIFE 动态生成且全量列出全部章节，
+//   v5.20.1 联动只过滤 .anchor-nav；且 localStorage 恢复偏好的联动先于左侧 TOC 生成执行而空转
+//   → PM 视图下左侧 TOC 仍显示「研发文档」「数据模型」等隐藏章节链接；
+//   研发视图下「PM 原始需求」链接显示但章节隐藏 → 点击无反应（锚点跳转到不可见 section）
+window.__demoraSyncTocAudience = function() {
+  document.querySelectorAll('.anchor-nav a[href^="#"], #tocSidebar a[data-toc-target]').forEach(function(link) {
+    var href = link.getAttribute('href') || ('#' + (link.getAttribute('data-toc-target') || ''));
+    var target = href.length > 1 ? document.getElementById(href.slice(1)) : null;
+    link.style.display = (target && getComputedStyle(target).display === 'none') ? 'none' : '';
+  });
+};
+(function() {
+  // 受众 Tab 切换：通过 body.className 控制 section[data-audience] 显示
+  var tabs = document.querySelectorAll('.tab-btn');
+  var STORAGE_KEY = 'demora-audience-preference';
+
+  function applyAudience(audience) {
+    // 移除所有 audience-* class
+    document.body.className = document.body.className.replace(/\baudience-\w+\b/g, '').trim();
+    if (audience !== 'all') {
+      document.body.classList.add('audience-' + audience);
+    }
+    // 更新 Tab active 状态
+    tabs.forEach(function(tab) {
+      if (tab.dataset.audience === audience) {
+        tab.classList.add('active');
+      } else {
+        tab.classList.remove('active');
+      }
+    });
+    // v5.20.1（UAT 三轮 U18-A）+ v5.20.2（UAT 四轮 U-A）：TOC 联动受众过滤——
+    //   目标 section 在当前受众视图下隐藏时，对应 TOC 链接（顶部 + 左侧）同步隐藏
+    if (typeof window.__demoraSyncTocAudience === 'function') {
+      window.__demoraSyncTocAudience();
+    }
+    // 记忆用户偏好
+    try { localStorage.setItem(STORAGE_KEY, audience); } catch (e) {}
+  }
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      applyAudience(tab.dataset.audience);
+    });
+  });
+
+  // 恢复上次偏好
+  try {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    // v5.9：移除 'test' 受众（仅保留 全部/PM/研发）
+    if (saved && ['all', 'pm', 'dev'].indexOf(saved) >= 0) {
+      applyAudience(saved);
+    }
+  } catch (e) {}
+})();
+</script>
+
+</main>
+</div>
+<script>
+(function(){
+  var btn = document.getElementById('themeToggle');
+  if (!btn) return;
+  // 读取 localStorage 主题偏好，默认深色
+  var saved = localStorage.getItem('demora-theme') || 'dark';
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    btn.textContent = '☀';
+  }
+  btn.addEventListener('click', function(){
+    var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (isLight) {
+      document.documentElement.removeAttribute('data-theme');
+      btn.textContent = '🌙';
+      localStorage.setItem('demora-theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      btn.textContent = '☀';
+      localStorage.setItem('demora-theme', 'light');
+    }
+  });
+  // v5.13.7: 监听其他页面的主题变更（跨标签页同步）
+  window.addEventListener('storage', function(e) {
+    if (e.key === 'demora-theme') {
+      if (e.newValue === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        btn.textContent = '☀';
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        btn.textContent = '🌙';
+      }
+    }
+  });
+})();
+
+// v5.13.8: 左侧 TOC 动态生成 + 顶部导航栏 scroll spy
+(function() {
+  var sections = document.querySelectorAll('.main-content section[id]');
+  var navLinks = document.querySelectorAll('.anchor-nav a[href^="#"]');
+  var sidebar = document.getElementById('tocSidebar');
+
+  // 生成左侧 TOC
+  if (sidebar && sections.length) {
+    var html = '<h4>目录</h4><ul>';
+    sections.forEach(function(s) {
+      var id = s.getAttribute('id');
+      var h2 = s.querySelector('h2');
+      var label = h2 ? h2.textContent.trim() : id;
+      html += '<li><a href="#' + id + '" data-toc-target="' + id + '">' + label + '</a></li>';
+    });
+    html += '</ul>';
+    sidebar.innerHTML = html;
+    // v5.20.2（UAT 四轮 U-A）：TOC 生成后立即应用当前受众过滤——
+    //   localStorage 恢复偏好的联动先于本 IIFE 执行（时序漏洞），此处补一次同步，
+    //   确保 PM/研发视图下左侧 TOC 不显示隐藏章节链接
+    if (typeof window.__demoraSyncTocAudience === 'function') {
+      window.__demoraSyncTocAudience();
+    }
+  }
+
+  // scroll spy: 高亮当前可见章节对应的导航项 + TOC 项
+  if (!sections.length) return;
+  var tocLinks = sidebar ? sidebar.querySelectorAll('a[data-toc-target]') : [];
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var id = entry.target.getAttribute('id');
+        navLinks.forEach(function(link) {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+        tocLinks.forEach(function(link) {
+          link.classList.toggle('active', link.getAttribute('data-toc-target') === id);
+        });
+      }
+    });
+  }, { rootMargin: '-80px 0px -70% 0px' });
+
+  sections.forEach(function(s) { observer.observe(s); });
+})();
+</script>
+</body>
+</html>

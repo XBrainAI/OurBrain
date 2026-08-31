@@ -312,6 +312,101 @@
       min-width: 96px;
     }
 
+    /* ===== Setup Flow（Desktop Agent 配置步骤） ===== */
+    .setup-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .setup-step {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 480px);
+      gap: 28px;
+      align-items: start;
+      padding: 28px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+    }
+
+    .setup-step-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .setup-step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--color-accent-dim);
+      color: var(--color-accent);
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .setup-step-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--color-text);
+    }
+
+    .setup-step-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--color-text-muted);
+    }
+
+    .setup-step-desc a {
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+
+    .setup-step-desc a:hover {
+      text-decoration: underline;
+    }
+
+    .setup-step-desc code {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--color-accent);
+      background: var(--color-accent-dim);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    /* 多行代码块（配置文件 / 脚本） */
+    .code-block {
+      position: relative;
+      margin-top: 14px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border-hi);
+      border-radius: var(--radius-md);
+    }
+
+    .code-block pre {
+      margin: 0;
+      padding: 16px 96px 16px 20px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--color-text);
+      overflow-x: auto;
+    }
+
+    .code-block .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+    }
+
     /* ===== Screenshot Gallery ===== */
     .screenshot-intro {
       font-size: 14px;
@@ -651,6 +746,37 @@
       color: var(--color-text-muted);
     }
 
+    /* 案例公网 Demo 地址（内部团队分享，暂未做权限隔离） */
+    .case-card-public {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      font-family: var(--font-mono);
+    }
+
+    .case-card-public-label {
+      font-family: var(--font-family);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--color-text-dim);
+      text-transform: uppercase;
+      flex-shrink: 0;
+      min-width: 68px;
+    }
+
+    .case-card-link {
+      color: var(--color-accent);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .case-card-link:hover {
+      text-decoration: underline;
+    }
+
     .case-card-meta {
       display: flex;
       gap: 16px;
@@ -874,6 +1000,137 @@
       border-radius: 4px;
     }
 
+    /* ===== Release Guide（交付总入口内的「发布到公网」说明） ===== */
+    .delivery-release {
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px dashed rgba(20, 184, 166, 0.35);
+    }
+
+    .delivery-release-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-accent);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .delivery-release-title {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--color-text);
+      margin-bottom: 10px;
+    }
+
+    .delivery-release-desc {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--color-text-muted);
+      margin-bottom: 16px;
+    }
+
+    .release-url-table {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .release-url-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr);
+      gap: 12px;
+      padding: 12px 16px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--color-text-muted);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .release-url-row:last-child {
+      border-bottom: none;
+    }
+
+    .release-url-header {
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--color-text);
+      text-transform: uppercase;
+    }
+
+    .release-url-cell code {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--color-accent);
+      background: var(--color-accent-dim);
+      padding: 2px 6px;
+      border-radius: 4px;
+      word-break: break-all;
+    }
+
+    /* 警示框：权限隔离未实现，禁止对外分发 */
+    .release-warn-box {
+      display: flex;
+      gap: 12px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-radius: var(--radius-md);
+    }
+
+    .release-warn-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      margin-top: 3px;
+      border-radius: 50%;
+      background: rgba(245, 158, 11, 0.25);
+      color: #F59E0B;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .release-warn-content {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--color-text-muted);
+    }
+
+    .release-warn-content strong {
+      color: #F59E0B;
+    }
+
+    .release-howto {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px dashed rgba(20, 184, 166, 0.25);
+    }
+
+    .release-howto-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 14px;
+    }
+
+    .release-shot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
     /* ===== Lightbox ===== */
     .lightbox {
       display: none;
@@ -1043,6 +1300,21 @@
         padding: 24px;
       }
 
+      .setup-step {
+        grid-template-columns: 1fr;
+        padding: 24px;
+        gap: 20px;
+      }
+
+      .release-url-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .release-url-header {
+        display: none;
+      }
+
       .agent-recommend {
         flex-direction: column;
         align-items: flex-start;
@@ -1127,31 +1399,124 @@
         <span class="gs-section-label">STEP 01 · 选择 Desktop Agent</span>
         <h2 class="gs-section-title">选一个 AI 编程助手</h2>
         <p class="gs-section-desc">
-          Demora 的 Skill 以通用格式发布，理论上支持任何兼容的 Desktop&nbsp;Agent（AI 编程助手）。我们推荐使用 Trae&nbsp;Work，它与 Demora 的对话式工作流配合最佳。
+          Demora 的 Skill 以通用格式发布，理论上支持任何兼容的 Desktop&nbsp;Agent（AI 编程助手）。我们推荐使用 Codex，它可自由切换多家国产大模型，与 Demora 的对话式工作流配合最佳。
         </p>
       </div>
 
       <div class="agent-card">
         <div class="agent-recommend">
           <span class="agent-recommend-label">推荐</span>
-          <span class="agent-recommend-name">Trae Work</span>
-          <span class="agent-recommend-desc">国内版 AI 编程助手，支持中文交互，对 Demora 工作流原生兼容</span>
-          <a href="https://www.trae.cn/ide/download#solo-download" target="_blank" rel="noopener" class="agent-recommend-link">下载 Trae Work →</a>
+          <span class="agent-recommend-name">Codex</span>
+          <span class="agent-recommend-desc">桌面版 AI 编程助手，支持自定义大模型端点，对 Demora 工作流原生兼容</span>
+          <a href="https://apps.microsoft.com/detail/9plm9xgg6vks" target="_blank" rel="noopener" class="agent-recommend-link">下载 Codex →</a>
         </div>
 
         <div class="agent-meta">
           <div class="agent-meta-item">
             <strong>推荐模型</strong>
-            <span>GLM-5.2（中文需求理解与文档生成表现最佳，推荐模型将不定期更新，敬请关注）</span>
+            <span>deepseek-v4-flash 及以上档位，如 qwen-3.8-flash、glm-5.3-flash（推荐模型将不定期更新，敬请关注）</span>
           </div>
           <div class="agent-meta-item">
             <strong>总工作区</strong>
-            <span>建议在 Trae&nbsp;Work 中新建一个独立 workspace 作为 Demora 总工作区，所有项目放在该工作区下，便于统一管理</span>
+            <span>建议新建一个独立文件夹作为 Demora 总工作区，所有项目都放在该目录下，用 Codex 打开它即可统一管理</span>
           </div>
           <div class="agent-meta-item">
             <strong>项目产出</strong>
             <span>每个项目产出独立的 <code style="font-family: var(--font-mono); color: var(--color-accent);">delivery/&lt;项目名&gt;/</code> 交付目录，含 Demo + 文档 + 三种下载包，详见 <a href="docs.html" style="color: var(--color-accent);">文档</a></span>
           </div>
+        </div>
+      </div>
+
+      <div class="setup-flow">
+        <div class="setup-step">
+          <div>
+            <div class="setup-step-head">
+              <span class="setup-step-num">1</span>
+              <h3 class="setup-step-title">下载并登录</h3>
+            </div>
+            <p class="setup-step-desc">
+              复制下面的地址到浏览器打开，从 Microsoft&nbsp;Store 安装 Codex 桌面版。首次打开时，如有 GPT 账号可直接登录；如没有，<strong>随便输入一个 key</strong>（例如 <code>123456</code>）也可以进入应用界面。
+            </p>
+            <div class="code-block">
+              <pre id="codexDownload">https://apps.microsoft.com/detail/9plm9xgg6vks</pre>
+              <button class="copy-btn" data-target="codexDownload" type="button">复制</button>
+            </div>
+          </div>
+
+          <figure class="screenshot-item" data-full="DesktopAgent/codex/01-codex-login.png">
+            <img class="screenshot-img" src="DesktopAgent/codex/01-codex-login.png" alt="登录 Codex" loading="lazy">
+            <figcaption class="screenshot-body">
+              <div class="screenshot-step">DOWNLOAD &amp; LOGIN</div>
+              <div class="screenshot-title">登录 Codex</div>
+              <div class="screenshot-desc">没有 GPT 账号时，输入任意 key 即可进入应用界面，不影响后续使用。</div>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="setup-step">
+          <div>
+            <div class="setup-step-head">
+              <span class="setup-step-num">2</span>
+              <h3 class="setup-step-title">配置大模型</h3>
+            </div>
+            <p class="setup-step-desc">
+              编辑配置文件 <code>C:\Users\&lt;你的用户名&gt;\.codex\config.toml</code>，按下面示例填入模型与供应商信息（端点与 Key 换成你所用大模型的），保存后重启 Codex 即可生效。
+            </p>
+            <div class="code-block">
+              <pre id="codexConfigToml">model = "deepseek-v4-flash"
+model_provider = "deepseek"
+
+[model_providers.deepseek]
+name = "deepseek-v4-flash"
+base_url = "https://api.deepseek.com/"
+wire_api = "responses"
+experimental_bearer_token = "你的 API Key"</pre>
+              <button class="copy-btn" data-target="codexConfigToml" type="button">复制</button>
+            </div>
+            <p class="setup-step-desc" style="margin-top: 16px;">
+              部分大模型提供一键配置脚本。以 DeepSeek 为例，在 PowerShell 中运行下面这行，按提示选择模型、输入 Key，完成后重启 Codex 即可。
+            </p>
+            <div class="code-block">
+              <pre id="codexDeepseekScript">irm https://cdn.deepseek.com/api-docs/codex-deepseek-setup-en.ps1 | iex</pre>
+              <button class="copy-btn" data-target="codexDeepseekScript" type="button">复制</button>
+            </div>
+          </div>
+
+          <figure class="screenshot-item" data-full="DesktopAgent/codex/02-codex-model-configured.png">
+            <img class="screenshot-img" src="DesktopAgent/codex/02-codex-model-configured.png" alt="大模型配置完成" loading="lazy">
+            <figcaption class="screenshot-body">
+              <div class="screenshot-step">CONFIG MODEL</div>
+              <div class="screenshot-title">大模型配置完成</div>
+              <div class="screenshot-desc">重启 Codex 后，界面中即可看到并选择刚配置的大模型。</div>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="setup-step">
+          <div>
+            <div class="setup-step-head">
+              <span class="setup-step-num">3</span>
+              <h3 class="setup-step-title">打开高档位</h3>
+            </div>
+            <p class="setup-step-desc">
+              在 <code>config.toml</code> 的 <code>[desktop]</code> 章节增加下面两项配置，否则部分大模型看不到最高档位选项。保存后重启 Codex，即可在界面中自由切换推理档位。
+            </p>
+            <div class="code-block">
+              <pre id="codexDesktopConfig">[desktop]
+enabled-reasoning-efforts = ["low", "medium", "high", "xhigh", "max", "ultra"]
+model_reasoning_effort = "max"</pre>
+              <button class="copy-btn" data-target="codexDesktopConfig" type="button">复制</button>
+            </div>
+          </div>
+
+          <figure class="screenshot-item" data-full="DesktopAgent/codex/03-codex-reasoning-effort.png">
+            <img class="screenshot-img" src="DesktopAgent/codex/03-codex-reasoning-effort.png" alt="推理档位已开启" loading="lazy">
+            <figcaption class="screenshot-body">
+              <div class="screenshot-step">REASONING EFFORT</div>
+              <div class="screenshot-title">高档位已开启</div>
+              <div class="screenshot-desc">重启 Codex 后，可在输入框旁选择推理档位；需求越复杂，建议选越高档位。</div>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -1162,39 +1527,63 @@
         <span class="gs-section-label">STEP 02 · 安装 Demora Skill</span>
         <h2 class="gs-section-title">把 Skill 装进你的 Desktop Agent</h2>
         <p class="gs-section-desc">
-          Skill 是 Demora 的能力载体，安装在 Desktop&nbsp;Agent 后即可让 AI 助手具备 Demora 的需求澄清与 Demo&nbsp;生成能力。安装方式为通用命令，支持跨 Desktop&nbsp;Agent 复用。
+          Skill 是 Demora 的能力载体，安装后 AI 助手就具备 Demora 的需求澄清与 Demo&nbsp;生成能力。在 Codex 中，直接在对话框里运行下面两条命令即可完成安装与后续更新。
         </p>
       </div>
 
-      <div class="command-block">
-        <div class="command-label">INSTALL · 安装命令（复制粘贴到 Desktop Agent 终端执行）</div>
-        <div class="command-code">
-          <span class="command-code-text" id="installCmd">npx skills add https://demora--ourchem.netlify.app/skills/oc-demora.zip -g -y --agent trae-cn</span>
-          <button class="copy-btn" data-target="installCmd" type="button">复制</button>
+      <div class="setup-flow">
+        <div class="setup-step">
+          <div>
+            <div class="setup-step-head">
+              <span class="setup-step-num">1</span>
+              <h3 class="setup-step-title">安装 Skill</h3>
+            </div>
+            <p class="setup-step-desc">
+              点击「复制」，把命令粘贴到 Codex 的对话框中直接运行，即可完成安装。
+            </p>
+            <div class="code-block">
+              <pre id="installCmd">$skill-installer install https://demora--ourchem.netlify.app/skills/oc-demora.zip</pre>
+              <button class="copy-btn" data-target="installCmd" type="button">复制</button>
+            </div>
+            <p class="setup-step-desc" style="margin-top: 16px;">
+              <strong>更新 Skill：</strong>Demora Skill 会持续迭代，把 <code>install</code> 换成 <code>update</code> 再运行一次即可（命令幂等，会覆盖旧版本，无需先卸载，也无需手工删除文件）。
+            </p>
+            <div class="code-block">
+              <pre id="updateCmd">$skill-installer update https://demora--ourchem.netlify.app/skills/oc-demora.zip</pre>
+              <button class="copy-btn" data-target="updateCmd" type="button">复制</button>
+            </div>
+          </div>
+
+          <figure class="screenshot-item" data-full="DesktopAgent/codex/04-codex-skill-install.png">
+            <img class="screenshot-img" src="DesktopAgent/codex/04-codex-skill-install.png" alt="在 Codex 中安装 Skill" loading="lazy">
+            <figcaption class="screenshot-body">
+              <div class="screenshot-step">INSTALL SKILL</div>
+              <div class="screenshot-title">在 Codex 中安装 Skill</div>
+              <div class="screenshot-desc">命令运行后，Codex 会直接回显安装结果。</div>
+            </figcaption>
+          </figure>
         </div>
-        <p class="command-hint">
-          <strong>使用方法：</strong>点击「复制」按钮，将命令粘贴到 Desktop&nbsp;Agent 的对话框或终端中直接执行即可完成安装。
-        </p>
       </div>
 
       <div class="info-list">
         <div class="info-item">
           <div class="info-item-title">
             <span class="info-item-icon">↻</span>
-            <span>如何更新 Skill</span>
+            <span>什么时候需要更新</span>
           </div>
           <div class="info-item-desc">
-            Demora Skill 会持续迭代。每次发布新版本后，<strong>重新执行同一条安装命令</strong>即可完成更新（命令幂等，会覆盖旧版本）。无需先卸载，也无需手工删除文件。
+            建议每次开启新项目前运行一次 <code>update</code> 命令，确保用到最新的需求澄清与 Demo 生成能力。
           </div>
         </div>
 
         <div class="info-item">
           <div class="info-item-title">
             <span class="info-item-icon">⇄</span>
-            <span>跨 Agent 兼容</span>
+            <span>用其它 Desktop Agent</span>
           </div>
           <div class="info-item-desc">
-            <code>npx skills add</code> 是通用的 Skill 安装机制，理论上支持 Trae Work、Cursor、Windsurf 等主流 Desktop Agent。只需根据所用 Agent 调整 <code>--agent</code> 参数即可。
+            若使用 Trae&nbsp;Work、Cursor 等其它 Desktop&nbsp;Agent，可用通用安装命令
+            <code>npx skills add &lt;同一个 zip 地址&gt; -g -y</code>，再按所用 Agent 调整 <code>--agent</code> 参数。
           </div>
         </div>
 
@@ -1204,103 +1593,9 @@
             <span>安装失败怎么办</span>
           </div>
           <div class="info-item-desc">
-            常见原因：网络代理拦截、Node.js 版本过低（需 18+）、Desktop Agent 未正确配置 npx 路径。建议先在系统终端单独执行该命令验证网络与权限，再回到 Desktop Agent 重试。
+            常见原因：网络代理拦截了 Skill 包的下载地址、Codex 未联网、Skill 安装目录无写权限。可先在系统终端单独执行一次命令验证网络，再回到 Codex 重试。
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ===== Step 3: Workflow Preview ===== -->
-    <section class="gs-section" id="workflow">
-      <div class="gs-section-header">
-        <span class="gs-section-label">STEP 03 · WORKFLOW · 工作流预览</span>
-        <h2 class="gs-section-title">从新建项目到交付</h2>
-        <p class="gs-section-desc">
-          以下是 Demora 在 Desktop&nbsp;Agent 中的完整工作流截图，按照编号顺序阅读即可理解从「新建项目」到「交付」的整个过程。<strong>点击任意图片可放大查看</strong>。
-        </p>
-      </div>
-
-      <div class="screenshot-grid">
-        <figure class="screenshot-item" data-full="DesktopAgent/01-new-project.png">
-          <img class="screenshot-img" src="DesktopAgent/01-new-project.png" alt="新建项目" loading="lazy">
-          <figcaption class="screenshot-body">
-            <div class="screenshot-step"><span class="screenshot-step-num">1</span> NEW PROJECT</div>
-            <div class="screenshot-title">新建项目</div>
-            <div class="screenshot-desc">在 Trae&nbsp;Work 中新建一个空目录作为本次需求的工程目录。</div>
-          </figcaption>
-        </figure>
-
-        <figure class="screenshot-item" data-full="DesktopAgent/02-select-local-path.png">
-          <img class="screenshot-img" src="DesktopAgent/02-select-local-path.png" alt="选择本地项目路径" loading="lazy">
-          <figcaption class="screenshot-body">
-            <div class="screenshot-step"><span class="screenshot-step-num">2</span> SELECT PATH</div>
-            <div class="screenshot-title">选择本地项目路径</div>
-            <div class="screenshot-desc">在打开项目时指定本地路径，Demora 会在此目录下生成所有产出物。</div>
-          </figcaption>
-        </figure>
-
-        <figure class="screenshot-item" data-full="DesktopAgent/03-authorize-modify.png">
-          <img class="screenshot-img" src="DesktopAgent/03-authorize-modify.png" alt="授权对项目路径进行修改" loading="lazy">
-          <figcaption class="screenshot-body">
-            <div class="screenshot-step"><span class="screenshot-step-num">3</span> AUTHORIZE</div>
-            <div class="screenshot-title">授权修改</div>
-            <div class="screenshot-desc">允许 AI 助手对项目路径进行读写，Demora 需要在此目录创建 Demo、文档与交付物。</div>
-          </figcaption>
-        </figure>
-
-        <figure class="screenshot-item" data-full="DesktopAgent/04-invoke-skill.png">
-          <img class="screenshot-img" src="DesktopAgent/04-invoke-skill.png" alt="召唤技能" loading="lazy">
-          <figcaption class="screenshot-body">
-            <div class="screenshot-step"><span class="screenshot-step-num">4</span> INVOKE SKILL</div>
-            <div class="screenshot-title">召唤技能</div>
-            <div class="screenshot-desc">通过 @ 或快捷键调出 Demora Skill，开始与 AI 助手的需求对话。</div>
-          </figcaption>
-        </figure>
-
-        <figure class="screenshot-item" data-full="DesktopAgent/05-apply-skill.png">
-          <img class="screenshot-img" src="DesktopAgent/05-apply-skill.png" alt="运用技能" loading="lazy">
-          <figcaption class="screenshot-body">
-            <div class="screenshot-step"><span class="screenshot-step-num">5</span> APPLY SKILL</div>
-            <div class="screenshot-title">运用技能</div>
-            <div class="screenshot-desc">用自然语言描述你的需求，AI 会进入 Phase 1「想清楚」阶段，结构化整理并追问澄清。</div>
-          </figcaption>
-        </figure>
-
-        <figure class="screenshot-item" data-full="DesktopAgent/06-view-workspace-output.png">
-          <img class="screenshot-img" src="DesktopAgent/06-view-workspace-output.png" alt="查看项目空间与产出区" loading="lazy">
-          <figcaption class="screenshot-body">
-            <div class="screenshot-step"><span class="screenshot-step-num">6</span> VIEW OUTPUT</div>
-            <div class="screenshot-title">查看项目空间与产出区</div>
-            <div class="screenshot-desc">在左侧文件树中查看 Demora 自动生成的目录结构：demo、docs、.demora 状态目录等。</div>
-          </figcaption>
-        </figure>
-
-        <figure class="screenshot-item" data-full="DesktopAgent/07-demo-workspace-output.png">
-          <img class="screenshot-img" src="DesktopAgent/07-demo-workspace-output.png" alt="演示项目空间与产出区" loading="lazy">
-          <figcaption class="screenshot-body">
-            <div class="screenshot-step"><span class="screenshot-step-num">7</span> DEMO OUTPUT</div>
-            <div class="screenshot-title">演示项目空间与产出区</div>
-            <div class="screenshot-desc">双击 demo/index.html 即可在浏览器中预览生成的可交互 Demo。</div>
-          </figcaption>
-        </figure>
-
-        <figure class="screenshot-item" data-full="DesktopAgent/08-human-ai-dialog.png">
-          <img class="screenshot-img" src="DesktopAgent/08-human-ai-dialog.png" alt="人机交互，沟通与确认需求细节" loading="lazy">
-          <figcaption class="screenshot-body">
-            <div class="screenshot-step"><span class="screenshot-step-num">8</span> DIALOG</div>
-            <div class="screenshot-title">人机交互，沟通与确认需求细节</div>
-            <div class="screenshot-desc">根据 AI 的追问补全信息，循环迭代直到需求清晰，确认无误后说「锁定需求」进入 Phase 2。</div>
-          </figcaption>
-        </figure>
-
-        <figure class="screenshot-item" data-full="DesktopAgent/09-delivery.png">
-          <img class="screenshot-img" src="DesktopAgent/09-delivery.png" alt="交付" loading="lazy">
-          <figcaption class="screenshot-body">
-            <div class="screenshot-step"><span class="screenshot-step-num">9</span> DELIVERY</div>
-            <div class="screenshot-title">交付</div>
-            <div class="screenshot-desc">说「打包交付」生成完整交付网站：含 Demo、文档、三种角色对应的下载包，可直接交付客户与团队。</div>
-          </figcaption>
-        </figure>
       </div>
     </section>
 
@@ -1310,13 +1605,12 @@
         <span class="gs-section-label">STEP 04 · 参考应用案例</span>
         <h2 class="gs-section-title">看看别人怎么用</h2>
         <p class="gs-section-desc">
-          以下案例均使用 Demora Skill 完整跑通「想清楚 → 做精致 → 改到位」三阶段流程后产出，每个案例即一个完整的交付网站，可在线浏览 Demo 与文档，也可下载对应角色的交付包。
+          以下案例均使用 Demora Skill 完整跑通「想清楚 → 做精致 → 改到位」三阶段流程后产出，每个案例即一个完整的交付网站，可在线浏览 Demo 与文档，也可下载对应角色的交付包。卡片上的「公网 Demo」与「公网 文档」是该案例发布后的在线入口，<strong>当前未做权限隔离，仅供内部团队参考，请勿转发给客户</strong>。
         </p>
       </div>
 
       <div class="case-filter-tabs" id="caseFilterTabs">
         <button class="case-tab active" data-industry="all" type="button">全部 <span class="case-tab-count">0</span></button>
-        <button class="case-tab" data-industry="培育" type="button">培育 <span class="case-tab-count">0</span></button>
         <button class="case-tab" data-industry="分析" type="button">分析 <span class="case-tab-count">0</span></button>
         <button class="case-tab" data-industry="管理" type="button">管理 <span class="case-tab-count">0</span></button>
         <button class="case-tab" data-industry="金融" type="button">金融 <span class="case-tab-count">0</span></button>
@@ -1330,7 +1624,7 @@
       <!-- v5.13.1: 内联案例数据，支持 file:// 协议双击离线打开（不依赖 httpserver / fetch） -->
       <!-- 数据源：应用案例/cases-index.json，由 scripts/generate-cases-index.mjs 自动同步 -->
       <script type="application/json" id="cases-data">
-{"count":10,"cases":[{"caseId":"patent-aigc","title":"AIGC软件算法类数字专利专项管理平台","description":"算法专利解析、权属判定与 FTO 比对平台","domain":"知识产权-专利","industry":"分析","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-aigc/sim-project/demo/index.html","scenarioName":"patent-aigc","auditGrade":"B","createdAt":"2026-07-21","deliveryEntryPath":"audit-patent-aigc/sim-project/delivery/AIGC软件算法类数字专利专项管理平台/index.html"},{"caseId":"patent-asset","title":"专利资产全生命周期数字化价值运营管理平台","description":"专利资产台账、估值、质押与转化运营平台","domain":"知识产权-专利","industry":"管理","pages":4,"entities":1,"roles":3,"entryPath":"audit-patent-asset/sim-project/demo/index.html","scenarioName":"patent-asset","auditGrade":"B","createdAt":"2026-07-21","deliveryEntryPath":"audit-patent-asset/sim-project/delivery/专利资产全生命周期数字化价值运营管理平台/index.html"},{"caseId":"patent-college","title":"高校存量专利AI盘活转化匹配平台","description":"高校存量专利清洗、匹配、转化全流程平台","domain":"知识产权-专利","industry":"管理","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-college/sim-project/demo/index.html","scenarioName":"patent-college","auditGrade":"B","createdAt":"2026-07-21","deliveryEntryPath":"audit-patent-college/sim-project/delivery/高校存量专利AI盘活转化匹配平台/index.html"},{"caseId":"patent-cultivation","title":"垂直行业AI高价值专利智能培育平台","description":"面向垂直行业的专利创意培育与高价值布局平台","domain":"知识产权-专利","industry":"培育","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-cultivation/sim-project/demo/index.html","scenarioName":"patent-cultivation","auditGrade":"B","createdAt":"2026-07-21","deliveryEntryPath":"audit-patent-cultivation/sim-project/delivery/垂直行业AI高价值专利智能培育平台/index.html"},{"caseId":"patent-finance","title":"知识产权金融一体化智能评估质押系统","description":"专利估值、质押、放款与风险监控一体化平台","domain":"知识产权-专利","industry":"金融","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-finance/sim-project/demo/index.html","scenarioName":"patent-finance","auditGrade":"B","createdAt":"2026-07-21","deliveryEntryPath":"audit-patent-finance/sim-project/delivery/知识产权金融一体化智能评估质押系统/index.html"},{"caseId":"patent-fto","title":"全球多区域FTO智能合规风控系统","description":"面向跨境出口企业的多区域 FTO 分析与风险预警平台","domain":"知识产权-专利","industry":"分析","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-fto/sim-project/demo/index.html","scenarioName":"patent-fto","auditGrade":"B","createdAt":"2026-07-21","deliveryEntryPath":"audit-patent-fto/sim-project/delivery/全球多区域FTO智能合规风控系统/index.html"},{"caseId":"patent-green","title":"绿色低碳新质产业专项专利布局分析平台","description":"双碳赛道专利布局分析与情报监测平台","domain":"知识产权-专利","industry":"分析","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-green/sim-project/demo/index.html","scenarioName":"patent-green","auditGrade":"B","createdAt":"2026-07-21","deliveryEntryPath":"audit-patent-green/sim-project/delivery/绿色低碳新质产业专项专利布局分析平台/index.html"},{"caseId":"patent-infringement","title":"线上AI智能侵权监测与快速维权取证系统","description":"多渠道侵权监测、区块链存证与维权处置平台","domain":"知识产权-专利","industry":"管理","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-infringement/sim-project/demo/index.html","scenarioName":"patent-infringement","auditGrade":"B","createdAt":"2026-07-21","deliveryEntryPath":"audit-patent-infringement/sim-project/delivery/线上AI智能侵权监测与快速维权取证系统/index.html"},{"caseId":"patent-oa","title":"AI专利审查意见OA智能答复辅助专家系统","description":"OA 答复拆解、案例匹配、修改推演与标准化输出平台","domain":"知识产权-专利","industry":"管理","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-oa/sim-project/demo/index.html","scenarioName":"patent-oa","auditGrade":"B","createdAt":"2026-07-21","deliveryEntryPath":"audit-patent-oa/sim-project/delivery/AI专利审查意见OA智能答复辅助专家系统/index.html"},{"caseId":"patent-precheck","title":"专利预审智能合规预审管家","description":"专利预审案件全流程管理与智能预检平台","domain":"知识产权-专利","industry":"分析","pages":3,"entities":1,"roles":3,"entryPath":"audit-patent-precheck/sim-project/demo/index.html","scenarioName":"patent-precheck","auditGrade":"B","createdAt":"2026-07-21","deliveryEntryPath":"audit-patent-precheck/sim-project/delivery/专利预审智能合规预审管家/index.html"}]}
+{"count":3,"cases":[{"caseId":"ip-infringement-monitor","title":"线上侵权监测与维权取证系统","description":"面向品牌方的电商/1688/跨境/短视频/展会渠道 AI 侵权监测、区块链存证取证与分级维权处置一体化平台","domain":"知识产权-维权","industry":"分析","pages":6,"entities":4,"roles":3,"entryPath":"20260831/ip-infringement-monitor/demo/index.html","scenarioName":"ip-infringement-monitor","auditGrade":"A","createdAt":"2026-08-31","publicDemoUrl":"https://demora.ipsunlight.com/ip-infringement-monitor/demo/","publicDocsUrl":"https://demora.ipsunlight.com/ip-infringement-monitor/docs/","deliveryEntryPath":"20260831/ip-infringement-monitor/delivery/线上侵权监测与维权取证系统/index.html"},{"caseId":"patent-asset","title":"专利资产全生命周期数字化价值运营管理平台","description":"将专利从授权登记、年费监控、AI 四维估值、组合战略到质押转让退出的全过程纳入统一数字底稿，让专利资产可量化、可预警、可交易","domain":"知识产权-专利","industry":"金融","pages":6,"entities":5,"roles":4,"entryPath":"20260831/patent-asset/demo/index.html","scenarioName":"patent-asset","auditGrade":"","createdAt":"2026-08-31","publicDemoUrl":"https://demora.ipsunlight.com/patent-asset/demo/","publicDocsUrl":"https://demora.ipsunlight.com/patent-asset/docs/","deliveryEntryPath":"20260831/patent-asset/delivery/专利资产全生命周期数字化价值运营管理平台/index.html"},{"caseId":"patent-asset-lifecycle","title":"专利资产全生命周期数字化价值运营管理平台","description":"面向企业 IPR、资产经理与银行风控的一站式平台，覆盖全流程台账、年费监控、AI 四维估值、组合战略分析与产业撮合","domain":"知识产权-专利","industry":"管理","pages":8,"entities":7,"roles":4,"entryPath":"20260831/patent-asset-lifecycle/demo/index.html","scenarioName":"patent-asset-lifecycle","auditGrade":"","createdAt":"2026-08-31","publicDemoUrl":"https://demora.ipsunlight.com/patent-asset-lifecycle/demo/","publicDocsUrl":"https://demora.ipsunlight.com/patent-asset-lifecycle/docs/","deliveryEntryPath":"20260831/patent-asset-lifecycle/delivery/专利资产全生命周期数字化价值运营管理平台/index.html"}]}
       </script>
 
       <script>
@@ -1367,6 +1661,7 @@
                 '<span class="case-card-title">', escapeHtml(c.title), '</span>',
               '</div>',
               '<p class="case-card-desc">', escapeHtml(c.description), '</p>',
+              renderPublicLinks(c),
               '<div class="case-card-meta">', metaHtml, '</div>',
               '<div class="case-card-actions">',
                 '<a href="', escapeAttr(fullEntryPath), '?annotations=0" class="case-btn case-btn-demo">面向客户 Demo</a>',
@@ -1374,6 +1669,23 @@
               '</div>',
             '</div>'
           ].join('');
+        }
+
+        // 公网入口（内部团队分享，暂未做权限隔离）：Demo / 文档
+        // 字段缺失时对应行不渲染
+        function renderPublicLinks(c) {
+          var links = [
+            ['公网 Demo', c.publicDemoUrl],
+            ['公网 文档', c.publicDocsUrl],
+          ];
+          return links.map(function (pair) {
+            if (!pair[1]) return '';
+            return '<div class="case-card-public">'
+              + '<span class="case-card-public-label">' + pair[0] + '</span>'
+              + '<a class="case-card-link" href="' + escapeAttr(pair[1]) + '" target="_blank" rel="noopener">'
+              + escapeHtml(pair[1]) + ' \u2197</a>'
+              + '</div>';
+          }).join('');
         }
 
         function escapeHtml(s) {
@@ -1488,7 +1800,7 @@
           <h3 class="delivery-entry-title">在你自己的项目里得到同样的交付网站</h3>
         </div>
         <p class="delivery-entry-desc">
-          上面这些案例页面并不是手工搭建的 —— 它们就是 Demora 三阶段流程跑通后的最终交付物。当你按照本页「STEP 01 → STEP 02 → STEP 03 → STEP 04」在自己的项目里完成需求澄清、Demo 生成、评审修订后，只需对 Desktop&nbsp;Agent 说一句「打包交付」，Demora 即会在你的项目目录下生成同样的交付总入口页面：
+          上面这些案例页面并不是手工搭建的 —— 它们就是 Demora 三阶段流程跑通后的最终交付物。当你按照本页「STEP 01 → STEP 02 → STEP 04」在自己的项目里完成需求澄清、Demo 生成、评审修订后，只需对 Desktop&nbsp;Agent 说一句「打包交付」，Demora 即会在你的项目目录下生成同样的交付总入口页面：
         </p>
         <div class="delivery-entry-path">
           <code>&lt;你的项目目录&gt;/delivery/&lt;项目名&gt;/index.html</code>
@@ -1499,8 +1811,86 @@
         <ol class="delivery-entry-steps">
           <li><strong>Phase 1「想清楚」</strong>：与 AI 对话澄清需求，锁定需求模型</li>
           <li><strong>Phase 2「做精致」</strong>：AI 生成可交互 Demo + 自动注入标注 + 生成 PRD 文档</li>
-          <li><strong>Phase 3「改到位」</strong>：评审修订完成后说「打包交付」，自动生成 <code>delivery/&lt;项目名&gt;/index.html</code></li>
+          <li><strong>Phase 3「改到位」</strong>：评审修订完成后说「打包交付」，自动生成 <code>delivery/&lt;项目名&gt;/index.html</code> 与交付包 <code>delivery.zip</code></li>
         </ol>
+
+        <div class="delivery-release">
+          <span class="delivery-release-label">RELEASE · 发布到公网</span>
+          <h4 class="delivery-release-title">把 Demo 发到公网，团队打开链接就能看</h4>
+          <p class="delivery-release-desc">
+            交付总入口页面自带「RELEASE · 发布到公网」章节。填入管理员分发的 Key，点一下「发布到公网」，Demo 就会部署到一个公网地址——团队评审、跨部门协同时不用再传压缩包，也不用装任何东西。
+          </p>
+
+          <div class="release-warn-box">
+            <span class="release-warn-icon">!</span>
+            <div class="release-warn-content">
+              <strong>暂未实现权限隔离，仅供内部团队分享。</strong>当前 Demo 入口<strong>不做任何鉴权</strong>：拿到链接的任何人都能直接打开，既不需要 Key，也不需要一次性 token。因此<strong>现阶段不要把公网 Demo 链接发给客户，也不要放到任何对外渠道</strong>。等权限隔离能力上线后，本页说明会同步更新。
+            </div>
+          </div>
+
+          <div class="release-url-table">
+            <div class="release-url-row release-url-header">
+              <div class="release-url-cell">公网地址</div>
+              <div class="release-url-cell">用途</div>
+              <div class="release-url-cell">当前访问控制</div>
+            </div>
+            <div class="release-url-row">
+              <div class="release-url-cell"><code>https://demora.ipsunlight.com/&lt;项目英文名&gt;/</code></div>
+              <div class="release-url-cell">项目入口（最新版本）</div>
+              <div class="release-url-cell">暂未鉴权，仅限内部团队</div>
+            </div>
+            <div class="release-url-row">
+              <div class="release-url-cell"><code>https://demora.ipsunlight.com/&lt;项目英文名&gt;/demo/</code></div>
+              <div class="release-url-cell">Demo 入口（团队协同时最常用）</div>
+              <div class="release-url-cell">暂未鉴权、无 token，拿到链接即可打开</div>
+            </div>
+            <div class="release-url-row">
+              <div class="release-url-cell"><code>https://demora.ipsunlight.com/&lt;项目英文名&gt;/docs/</code></div>
+              <div class="release-url-cell">文档入口</div>
+              <div class="release-url-cell">暂未鉴权，仅限内部团队</div>
+            </div>
+            <div class="release-url-row">
+              <div class="release-url-cell"><code>https://demora.ipsunlight.com/&lt;项目英文名&gt;/v&lt;版本&gt;/</code></div>
+              <div class="release-url-cell">历史版本快照</div>
+              <div class="release-url-cell">暂未鉴权，仅限内部团队</div>
+            </div>
+          </div>
+
+          <div class="release-howto">
+            <h5 class="release-howto-title">怎么把 Demo 发上去</h5>
+            <ol class="delivery-entry-steps">
+              <li><strong>打开交付总入口</strong>：双击 <code>delivery/&lt;项目名&gt;/index.html</code>，通读一遍确认无需再改</li>
+              <li><strong>滚到 RELEASE 章节</strong>：项目英文名（小写字母 + 数字 + 连字符）与中文名已由交付包自动预填</li>
+              <li><strong>填入管理员分发的 Key</strong>：粘贴到「PM API Key」输入框（版本号留空即默认 1.0.0）</li>
+              <li><strong>点「发布到公网」</strong>：稍等片刻即可看到「[OK] 发布成功」与 4 个公网访问地址，复制 Demo 入口那条发给团队</li>
+              <li><strong>改版后重新发布</strong>：调高版本号再发布；若版本号与线上重复，系统会提示并自动建议下一个可用版本号</li>
+            </ol>
+
+            <div class="release-shot-grid">
+              <figure class="screenshot-item" data-full="release2web/01-release-form-filled.png">
+                <img class="screenshot-img" src="release2web/01-release-form-filled.png" alt="填入 Key 并发布 Demo 到公网" loading="lazy">
+                <figcaption class="screenshot-body">
+                  <div class="screenshot-step">FILL KEY &amp; PUBLISH</div>
+                  <div class="screenshot-title">填入 Key，点击发布</div>
+                  <div class="screenshot-desc">项目信息已自动预填，只需填入管理员分发的 PM API Key，再点「发布到公网」。</div>
+                </figcaption>
+              </figure>
+
+              <figure class="screenshot-item" data-full="release2web/02-release-success.png">
+                <img class="screenshot-img" src="release2web/02-release-success.png" alt="发布成功并返回公网访问地址" loading="lazy">
+                <figcaption class="screenshot-body">
+                  <div class="screenshot-step">PUBLISHED</div>
+                  <div class="screenshot-title">发布成功，拿到公网地址</div>
+                  <div class="screenshot-desc">页面底部回显 4 个公网访问地址，复制 Demo 入口那条即可分享给团队。</div>
+                </figcaption>
+              </figure>
+            </div>
+
+            <p class="delivery-release-desc" style="margin-top: 20px;">
+              <strong>再次提醒：</strong>发布后的 Demo 是<strong>公开可访问</strong>的，现阶段只适合发给内部团队做评审与协同，<strong>不要发给客户</strong>。
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 

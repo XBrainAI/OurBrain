@@ -1,0 +1,118 @@
+{
+  "label": "ip-enforcement-baseline",
+  "timestamp": "2026-08-29T16:21:54.175Z",
+  "dimensions": {
+    "D0_load": "pass",
+    "D0_console": "pass",
+    "D0_contracts": "pass",
+    "D2_nav_click": "pass",
+    "D3_modal_close": "pass: 4/4",
+    "D4_l2_flicker": "pass: 1 unique transforms",
+    "D5_l2_marker_seq": "pass: 30/30",
+    "D5_multi_page_anchor": "pass: 103/103",
+    "D6_button_responsiveness": "pass: 35/35 across 6 pages",
+    "D8_l3_interactive": "pass: 24/24",
+    "D8_l3_duplication": "pass: no duplication",
+    "D8_l3_sequence_dup": "pass: no sequence duplication",
+    "D9_toggle_show": "pass: panel shown after toggle",
+    "D9_l2_coop": "pass: L2 coop ok (zones=1, cards=1)",
+    "D9_l3_coop": "pass: L3 coop ok (dots=1, cards=1)",
+    "D9_panel_close": "pass: panel hidden after close",
+    "D10_full_activation": "pass: L2 30/30, L3 73/73",
+    "D7_visual_heuristics": "pass",
+    "D8_element_coverage": "pass: 6 页采样无覆盖率缺口",
+    "D6_filter_consistency": "pass: 13 controls across 6 pages",
+    "D11_docs_mermaid": "pass: 30/30 块渲染正常"
+  },
+  "detectedPages": [
+    {
+      "id": "P01"
+    },
+    {
+      "id": "P02"
+    },
+    {
+      "id": "P03"
+    },
+    {
+      "id": "P04"
+    },
+    {
+      "id": "P05"
+    },
+    {
+      "id": "P06"
+    }
+  ],
+  "navLinks": [
+    {
+      "href": "#P01",
+      "text": "侵权监测工作台Today",
+      "type": "hash"
+    },
+    {
+      "href": "#P02",
+      "text": "侵权线索Leads",
+      "type": "hash"
+    },
+    {
+      "href": "#P03",
+      "text": "存证取证Evidence",
+      "type": "hash"
+    },
+    {
+      "href": "#P04",
+      "text": "维权案件Cases",
+      "type": "hash"
+    },
+    {
+      "href": "#P05",
+      "text": "跨境规则Rules",
+      "type": "hash"
+    },
+    {
+      "href": "#P06",
+      "text": "维权统计Analytics",
+      "type": "hash"
+    }
+  ],
+  "d8_coverage_details": {
+    "P01": {
+      "coverage": "100%",
+      "missing": [],
+      "missingNote": []
+    },
+    "P02": {
+      "coverage": "100%",
+      "missing": [],
+      "missingNote": []
+    },
+    "P03": {
+      "coverage": "100%",
+      "missing": [],
+      "missingNote": []
+    },
+    "P04": {
+      "coverage": "100%",
+      "missing": [],
+      "missingNote": []
+    },
+    "P05": {
+      "coverage": "100%",
+      "missing": [],
+      "missingNote": []
+    },
+    "P06": {
+      "coverage": "100%",
+      "missing": [],
+      "missingNote": []
+    }
+  },
+  "summary": {
+    "pass": 21,
+    "fail": 0,
+    "warn": 0,
+    "total": 21
+  },
+  "overall": "A"
+}

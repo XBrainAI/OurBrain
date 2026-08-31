@@ -1,0 +1,36 @@
+# quality-report.yaml — 自动生成
+passed: true
+defects: 0
+critical: 0
+major: 0
+checks_passed: 7
+checks_failed: 0
+q5_degraded: false
+generated_at: "2026-08-29T16:25:21.942Z"
+
+# 逐项明细（v5.14 新增）
+checks:
+  - name: Q-1
+    result: pass
+    detail: 非 audit 模式通过（167201 bytes）
+  - name: Q-2
+    result: pass
+    detail: 无 __FILL_BUSINESS__ 残留
+  - name: Q-3
+    result: pass
+    detail: docs/ 非空
+  - name: Q-4
+    result: pass
+    detail: final_approved = true（verify-delivery 通过后刷新）
+  - name: Q-5
+    result: pass
+    detail: htmlhint 通过（29 警告）
+  - name: Q-6
+    result: pass
+    detail: "AI 自检通过（0 errors, 0 warnings）"
+  - name: Q-7
+    result: pass
+    detail: 项目根洁净（0 调试文件）
+  - name: Q-8
+    result: warn
+    detail: "状态文件不完整: conversation-log.yaml 疑似批量补记（4 组时间戳各出现 ≥3 次，如 2026-08-29T15:17:04），应即时调用 scripts/append-conversation-log.mjs 追加"

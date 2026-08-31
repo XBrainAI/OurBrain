@@ -1,0 +1,16 @@
+# 评审决策记录（Phase 3 由 PM 转述评审意见后生成）
+decisions:
+  - id: D-001
+    scope: demo
+    decision: accept
+    summary: "接受当前 Demo 交互与数据口径：8 页 SPA、质押中专利禁止转让、C 级驾驶舱角色隔离"
+    timestamp: 2026-08-30T01:10:00.000Z
+# v2.7 新增：设计决策记录（AI 应用 frontend-design 方法论后的设计选择，含 signature_element/typography 等）
+design_decisions:
+  - id: DD-001
+    decision: "采用专利公报著录项排版 + 年费倒计时环作为标志性视觉元素"
+    rationale: "将专利文献的编号体系与水印网格引入界面，让年费预警成为可读的资产语言"
+    palette: "专利蓝 #1E3A8A + 钢青 #0E7490 + 铜金 #B45309 + 雾白 #F3F6FA"
+    typography: "展示用思源宋体衬线，正文用系统无衬线，数据用等宽数字"
+    layout: "app-shell 侧栏布局，topbar 常驻，业务内容独立滚动"
+    signature_element: "年费到期倒计时环（SVG 圆环按剩余天数着色）"

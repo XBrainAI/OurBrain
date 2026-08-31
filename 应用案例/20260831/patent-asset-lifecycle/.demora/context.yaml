@@ -1,0 +1,29 @@
+# 跨会话上下文（领域术语、组件清单、样式约束快照）
+domain_terms:
+  专利台账: 全流程专利资产登记与状态管理
+  年费监控: 年费到期预警与缴费状态跟踪
+  AI 估值: 法律/技术/市场/营收四维行业定制估值模型
+  质押: 以专利为标的物的融资质押登记
+  转让: 专利所有权转移请求与成交跟踪
+  撮合: 产业专利需求与供给的匹配通道
+  尽调底稿: 融资/上市/质押场景的标准化专利资产文档
+component_inventory:
+  - name: metric-card
+    usage: 各页顶部统计概览指标卡
+  - name: filter-bar
+    usage: 搜索框 + 下拉筛选 + 查询/重置按钮
+  - name: data-table
+    usage: 台账/列表数据展示与行操作
+  - name: detail-panel
+    usage: 专利详情聚合展示
+  - name: modal-form
+    usage: 新增/登记/发起类表单弹窗
+  - name: tabs
+    usage: 驾驶舱维度切换
+style_constraints:
+  palette: 专利蓝主色 + 钢青辅助色 + 暖灰背景，规避 AI 默认奶油/黑底荧光风格
+  typography: 展示标题用衬线感强的思源宋体，正文用无衬线系统字体，数据用等宽数字
+  layout: app-shell 侧栏布局，topbar 常驻，content 业务滚动
+  signature: 专利号水印网格 + 年费到期倒计时环
+# v5.0 新增：标记 AI 是否已读取 frontend-design 方法论
+design_methodology_read: true

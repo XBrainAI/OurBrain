@@ -1,0 +1,168 @@
+{
+  "label": "patent-asset-lifecycle",
+  "timestamp": "2026-08-30T01:11:01.462Z",
+  "dimensions": {
+    "D0_load": "pass",
+    "D0_console": "pass",
+    "D0_contracts": "pass",
+    "D2_nav_click": "pass",
+    "D3_modal_close": "pass: 5/5",
+    "D4_l2_flicker": "pass: 1 unique transforms",
+    "D5_l2_marker_seq": "pass: 33/33",
+    "D5_multi_page_anchor": "pass: 162/162",
+    "D6_button_responsiveness": "pass: 55/55 across 6 pages",
+    "D8_l3_interactive": "pass: 23/23",
+    "D8_l3_duplication": "pass: no duplication",
+    "D8_l3_sequence_dup": "warn: 13 组序号型重复 - P01 行详情按钮·ZLx14 | P03 行确认按钮·V-2026Q4-x10 | P03 行确认按钮·V-2026Q3-x4",
+    "D9_toggle_show": "pass: panel shown after toggle",
+    "D9_l2_coop": "pass: L2 coop ok (zones=1, cards=1)",
+    "D9_l3_coop": "pass: L3 coop ok (dots=1, cards=1)",
+    "D9_panel_close": "pass: panel hidden after close",
+    "D10_full_activation": "pass: L2 33/33, L3 127/127",
+    "D7_visual_heuristics": "warn: 1 项初始页启发式 - D7-b: 2 个大块级元素无文本/图形内容（≥ 2 触发 WARN）",
+    "D8_element_coverage": "pass: 8 页采样无覆盖率缺口",
+    "D6_filter_consistency": "pass: 13 controls across 8 pages",
+    "D11_docs_mermaid": "pass: 35/35 块渲染正常"
+  },
+  "detectedPages": [
+    {
+      "id": "P01"
+    },
+    {
+      "id": "P02"
+    },
+    {
+      "id": "P03"
+    },
+    {
+      "id": "P04"
+    },
+    {
+      "id": "P05"
+    },
+    {
+      "id": "P06"
+    },
+    {
+      "id": "P07"
+    },
+    {
+      "id": "P08"
+    }
+  ],
+  "navLinks": [
+    {
+      "href": "#P01",
+      "text": "专利台账",
+      "type": "hash"
+    },
+    {
+      "href": "#P02",
+      "text": "专利详情",
+      "type": "hash"
+    },
+    {
+      "href": "#P03",
+      "text": "估值管理",
+      "type": "hash"
+    },
+    {
+      "href": "#P04",
+      "text": "年费监控",
+      "type": "hash"
+    },
+    {
+      "href": "#P05",
+      "text": "质押转让",
+      "type": "hash"
+    },
+    {
+      "href": "#P07",
+      "text": "撮合通道",
+      "type": "hash"
+    }
+  ],
+  "d8_coverage_details": {
+    "P01": {
+      "coverage": "100%",
+      "missing": [],
+      "missingNote": [
+        {
+          "type": "BUTTON|patent-view",
+          "count": 14,
+          "cardElement": "行详情按钮·ZL202310001234"
+        }
+      ]
+    },
+    "P02": {
+      "coverage": "100%",
+      "missing": [],
+      "missingNote": []
+    },
+    "P03": {
+      "coverage": "100%",
+      "missing": [],
+      "missingNote": [
+        {
+          "type": "BUTTON|val-confirm",
+          "count": 19,
+          "cardElement": "行确认按钮·V-2026Q4-001"
+        },
+        {
+          "type": "BUTTON|val-reject",
+          "count": 19,
+          "cardElement": "行驳回按钮·V-2026Q4-001"
+        }
+      ]
+    },
+    "P04": {
+      "coverage": "100%",
+      "missing": [],
+      "missingNote": []
+    },
+    "P05": {
+      "coverage": "100%",
+      "missing": [],
+      "missingNote": []
+    },
+    "P06": {
+      "coverage": "100%",
+      "missing": [],
+      "missingNote": [
+        {
+          "type": "BUTTON|portfolio-view",
+          "count": 6,
+          "cardElement": "组合行查看按钮·PF-001"
+        }
+      ]
+    },
+    "P07": {
+      "coverage": "100%",
+      "missing": [],
+      "missingNote": []
+    },
+    "P08": {
+      "coverage": "100%",
+      "missing": [],
+      "missingNote": [
+        {
+          "type": "BUTTON|cockpit-tab",
+          "count": 7,
+          "cardElement": "维度Tab·资产总览"
+        },
+        {
+          "type": "BUTTON|cockpit-view",
+          "count": 6,
+          "cardElement": "风险专利行查看按钮·ZL202310001234"
+        }
+      ]
+    }
+  },
+  "summary": {
+    "pass": 19,
+    "fail": 0,
+    "warn": 14,
+    "total": 33
+  },
+  "overall": "B"
+}
