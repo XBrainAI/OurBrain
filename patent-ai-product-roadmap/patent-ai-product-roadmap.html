@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="BDcozYGA9wTGD0GQ1OSSJO">
+<head data-page-node-id="6w4sLq0SAmorwaJKFMf9MB">
+<meta charset="UTF-8" data-page-node-id="DV5GkxInysjaBxZRyjl8r8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="fwufQTRVvdoT97NyiVigxi">
+<title>从卖工时到卖产品 · 专利智能产品应用形态规划</title>
+<style>
+  :root{
+    --navy:#12305B;
+    --navy-deep:#0A1F3D;
+    --navy-soft:#1E4680;
+    --gold:#C89B3C;
+    --gold-soft:#E8D5A8;
+    --bg:#FFFFFF;
+    --bg-soft:#F7F8FA;
+    --bg-tint:#F2F5F9;
+    --border:#E3E7ED;
+    --text:#1F2937;
+    --muted:#6B7280;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Source Han Sans SC","Noto Sans CJK SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    color:var(--text);
+    background:var(--bg-soft);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 55%,var(--navy-soft) 100%);
+    color:#fff;
+    padding:86px 40px 74px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    right:-120px;top:-120px;
+    width:460px;height:460px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(200,155,60,.22),transparent 62%);
+  }
+  .hero-inner{max-width:1080px;margin:0 auto;position:relative;z-index:1;}
+  .hero .eyebrow{
+    display:inline-block;
+    font-size:12px;letter-spacing:.22em;
+    color:var(--gold-soft);
+    border:1px solid rgba(200,155,60,.45);
+    border-radius:2px;
+    padding:5px 14px;
+    margin-bottom:26px;
+  }
+  .hero h1{font-size:40px;line-height:1.3;font-weight:700;letter-spacing:.5px;margin-bottom:18px;}
+  .hero .subtitle{font-size:21px;color:var(--gold-soft);font-weight:600;letter-spacing:1.5px;margin-bottom:16px;}
+  .hero .sub{font-size:16px;color:rgba(255,255,255,.82);max-width:720px;}
+  .hero .meta{
+    margin-top:34px;padding-top:22px;
+    border-top:1px solid rgba(255,255,255,.16);
+    display:flex;flex-wrap:wrap;gap:38px;font-size:13px;color:rgba(255,255,255,.68);
+  }
+  .hero .meta b{display:block;color:#fff;font-size:14px;font-weight:600;margin-top:2px;}
+
+  /* ---------- Layout ---------- */
+  .wrap{max-width:1080px;margin:0 auto;padding:0 40px;}
+
+  /* ---------- Nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  nav ul{
+    max-width:1080px;margin:0 auto;padding:0 40px;
+    list-style:none;display:flex;flex-wrap:wrap;
+  }
+  nav a{
+    display:block;padding:15px 20px;
+    font-size:14px;color:var(--muted);text-decoration:none;
+    border-bottom:2px solid transparent;transition:.18s;
+  }
+  nav a:hover{color:var(--navy);border-bottom-color:var(--gold);}
+
+  /* ---------- Section ---------- */
+  section{padding:64px 0;background:var(--bg);border-bottom:1px solid var(--border);}
+  section:last-of-type{border-bottom:none;}
+  section.tint{background:var(--bg-tint);}
+  .sec-head{margin-bottom:38px;}
+  .sec-num{
+    font-size:12px;letter-spacing:.2em;color:var(--gold);
+    font-weight:700;margin-bottom:10px;
+  }
+  .sec-head h2{
+    font-size:27px;font-weight:700;color:var(--navy);
+    letter-spacing:.5px;margin-bottom:12px;
+  }
+  .sec-head p{color:var(--muted);font-size:15px;max-width:780px;}
+
+  /* ---------- Pain cards ---------- */
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .card{
+    background:#fff;border:1px solid var(--border);border-radius:6px;
+    padding:26px 24px;transition:.2s;
+  }
+  .card:hover{box-shadow:0 6px 22px rgba(18,48,91,.09);border-color:#CBD5E1;}
+  .card h3{font-size:16px;color:var(--navy);margin-bottom:10px;font-weight:700;}
+  .card p{font-size:14px;color:var(--muted);}
+  .card .kicker{
+    display:inline-block;font-size:11px;letter-spacing:.14em;
+    color:var(--gold);font-weight:700;margin-bottom:12px;
+  }
+
+  /* ---------- Foundation ---------- */
+  .foundation{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);border-radius:6px;overflow:hidden;background:#fff;}
+  .fcell{padding:30px 26px;border-right:1px solid var(--border);}
+  .fcell:last-child{border-right:none;}
+  .fcell .tag{font-size:11px;letter-spacing:.16em;color:var(--gold);font-weight:700;margin-bottom:12px;}
+  .fcell h3{font-size:19px;color:var(--navy);margin-bottom:6px;font-weight:700;}
+  .fcell .role{font-size:13px;color:var(--muted);margin-bottom:14px;padding-bottom:14px;border-bottom:1px dashed var(--border);}
+  .fcell p{font-size:14px;color:var(--text);}
+  .equation{
+    margin-top:24px;background:var(--navy);color:#fff;
+    border-radius:6px;padding:24px 30px;text-align:center;font-size:17px;
+  }
+  .equation b{color:var(--gold-soft);}
+
+  /* ---------- Overview table ---------- */
+  table{width:100%;border-collapse:collapse;background:#fff;font-size:14px;border:1px solid var(--border);border-radius:6px;overflow:hidden;}
+  thead{background:var(--navy);color:#fff;}
+  th{padding:14px 16px;text-align:left;font-weight:600;font-size:13px;letter-spacing:.05em;}
+  td{padding:15px 16px;border-top:1px solid var(--border);vertical-align:top;color:var(--text);}
+  tbody tr:nth-child(even){background:var(--bg-soft);}
+  td.name{font-weight:700;color:var(--navy);white-space:nowrap;}
+  .pill{
+    display:inline-block;font-size:11px;padding:3px 10px;border-radius:11px;
+    background:var(--bg-tint);color:var(--navy);border:1px solid var(--border);white-space:nowrap;
+  }
+  .pill.hot{background:rgba(200,155,60,.14);color:#8A6A1F;border-color:var(--gold-soft);}
+
+  /* ---------- Product detail ---------- */
+  .prod{
+    background:#fff;border:1px solid var(--border);border-radius:6px;
+    padding:0;margin-bottom:22px;overflow:hidden;
+  }
+  .prod-head{
+    display:flex;align-items:center;gap:16px;
+    padding:22px 28px;background:var(--bg-tint);border-bottom:1px solid var(--border);
+  }
+  .badge{
+    flex:none;width:38px;height:38px;border-radius:5px;
+    background:var(--navy);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:16px;font-weight:700;
+  }
+  .prod-head h3{font-size:19px;color:var(--navy);font-weight:700;}
+  .prod-head .en{font-size:12px;color:var(--muted);margin-top:2px;}
+  .prod-body{padding:24px 28px;}
+  .prod-body .lead{font-size:15px;color:var(--text);margin-bottom:20px;}
+  .kv{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 28px;}
+  .kv .item{border-left:2px solid var(--gold);padding-left:14px;}
+  .kv .item .k{font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.08em;margin-bottom:4px;}
+  .kv .item .v{font-size:14px;color:var(--text);}
+
+  /* ---------- Business ladder ---------- */
+  .ladder{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .step{
+    background:#fff;border:1px solid var(--border);border-radius:6px;padding:28px 24px;position:relative;
+  }
+  .step .lv{font-size:11px;letter-spacing:.16em;color:var(--gold);font-weight:700;margin-bottom:10px;}
+  .step h3{font-size:18px;color:var(--navy);margin-bottom:6px;font-weight:700;}
+  .step .when{font-size:12px;color:var(--muted);margin-bottom:16px;padding-bottom:14px;border-bottom:1px dashed var(--border);}
+  .step ul{list-style:none;}
+  .step li{font-size:14px;color:var(--text);padding-left:16px;position:relative;margin-bottom:8px;}
+  .step li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--gold);}
+  .step .rev{margin-top:16px;padding-top:14px;border-top:1px solid var(--border);font-size:13px;color:var(--navy);font-weight:600;}
+
+  /* ---------- Metrics ---------- */
+  .metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
+  .metric{background:#fff;border:1px solid var(--border);border-radius:6px;padding:22px 16px;text-align:center;}
+  .metric .num{font-size:24px;font-weight:700;color:var(--navy);}
+  .metric .txt{font-size:13px;color:var(--muted);margin-top:6px;}
+
+  /* ---------- Timeline ---------- */
+  .timeline{position:relative;padding-left:34px;}
+  .timeline::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:var(--border);}
+  .tl{position:relative;margin-bottom:30px;}
+  .tl::before{
+    content:"";position:absolute;left:-30px;top:6px;
+    width:12px;height:12px;border-radius:50%;
+    background:var(--gold);border:2px solid #fff;box-shadow:0 0 0 2px var(--gold-soft);
+  }
+  .tl .phase{font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.1em;margin-bottom:4px;}
+  .tl h3{font-size:17px;color:var(--navy);margin-bottom:8px;font-weight:700;}
+  .tl p{font-size:14px;color:var(--muted);max-width:760px;}
+  .tl .deliver{
+    margin-top:10px;font-size:13px;color:var(--navy);
+    background:var(--bg-tint);border-radius:4px;padding:10px 14px;display:inline-block;
+  }
+
+  /* ---------- Moat ---------- */
+  .moat{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .moat .m{background:#fff;border:1px solid var(--border);border-top:3px solid var(--gold);border-radius:6px;padding:26px 24px;}
+  .moat .m h3{font-size:17px;color:var(--navy);margin-bottom:10px;font-weight:700;}
+  .moat .m p{font-size:14px;color:var(--muted);}
+
+  /* ---------- Risk ---------- */
+  .risks{background:#fff;border:1px solid var(--border);border-radius:6px;padding:8px 28px;}
+  .risk{padding:18px 0;border-bottom:1px solid var(--border);display:flex;gap:20px;align-items:flex-start;}
+  .risk:last-child{border-bottom:none;}
+  .risk .rt{flex:none;width:112px;font-size:14px;font-weight:700;color:var(--navy);}
+  .risk .rd{font-size:14px;color:var(--muted);}
+  .risk .rd b{color:var(--text);font-weight:600;}
+
+  footer{background:var(--navy-deep);color:rgba(255,255,255,.6);padding:34px 40px;font-size:13px;text-align:center;}
+  footer b{color:var(--gold-soft);}
+
+  /* ================= DEMO ================= */
+  .demo-shell{background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;box-shadow:0 12px 40px rgba(10,31,61,.10);}
+  .demo-tabs{display:flex;gap:6px;flex-wrap:wrap;padding:10px 12px 0;background:var(--bg-tint);border-bottom:1px solid var(--border);}
+  .dtab{
+    appearance:none;font-family:inherit;font-size:14px;cursor:pointer;
+    border:1px solid var(--border);border-bottom:none;background:transparent;color:var(--muted);
+    padding:10px 20px;border-radius:6px 6px 0 0;position:relative;top:1px;transition:.18s;
+  }
+  .dtab:hover{color:var(--navy);background:rgba(255,255,255,.6);}
+  .dtab.active{background:#fff;color:var(--navy);font-weight:700;}
+  .demo-panel{display:none;}
+  .demo-panel.active{display:block;}
+  .demo-caption{
+    padding:12px 20px;background:#fff;border-bottom:1px solid var(--border);
+    font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;
+  }
+  .cap-tag{font-size:12px;color:var(--navy);background:var(--bg-tint);border:1px solid var(--border);border-radius:11px;padding:2px 11px;white-space:nowrap;}
+  .cap-tag b{color:var(--gold);font-weight:700;}
+
+  .app{background:#F1F4F8;}
+  .app-bar{display:flex;align-items:center;gap:12px;padding:10px 16px;background:var(--navy-deep);color:#fff;font-size:13px;}
+  .app-dots{display:flex;gap:6px;flex:none;}
+  .app-dots i{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.3);display:block;}
+  .app-title{flex:1;color:rgba(255,255,255,.9);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .app-tag{flex:none;font-size:11px;background:rgba(200,155,60,.2);color:var(--gold-soft);border:1px solid rgba(200,155,60,.42);padding:3px 10px;border-radius:11px;white-space:nowrap;}
+  .app-body{display:grid;grid-template-columns:196px 1fr 208px;height:604px;overflow:hidden;}
+  .app-side{background:#fff;border-right:1px solid var(--border);padding:14px 0;overflow:auto;}
+  .side-sec{font-size:11px;letter-spacing:.14em;color:var(--gold);font-weight:700;padding:0 16px;margin:14px 0 8px;}
+  .side-sec:first-child{margin-top:0;}
+  .side-item{font-size:13px;color:var(--muted);padding:8px 16px;border-left:3px solid transparent;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:default;}
+  .side-item.active{background:var(--bg-tint);color:var(--navy);border-left-color:var(--gold);font-weight:600;}
+  .tool-item{display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--text);padding:7px 16px;}
+  .tool-item i{width:6px;height:6px;border-radius:50%;background:var(--navy-soft);flex:none;}
+  .tool-item.on i{background:var(--gold);box-shadow:0 0 0 3px rgba(200,155,60,.2);}
+  .app-main{display:flex;flex-direction:column;min-width:0;min-height:0;overflow:hidden;}
+  .chat{flex:1;min-height:0;overflow-y:auto;padding:20px 22px;scroll-behavior:smooth;}
+  .app-right{background:#fff;border-left:1px solid var(--border);padding:14px 0;overflow:auto;}
+  .artifact{margin:0 12px 8px;padding:11px 12px;border:1px solid var(--border);border-radius:5px;font-size:12.5px;color:var(--text);background:#fff;}
+  .artifact .an{display:block;font-weight:600;color:var(--navy);margin-bottom:3px;}
+  .artifact .ad{font-size:11px;color:var(--muted);}
+  .artifact.pending{opacity:.42;border-style:dashed;}
+  .artifact.fresh{border-color:var(--gold);background:rgba(200,155,60,.07);animation:pulseGold 1.6s ease-out 2;}
+
+  .msg{display:flex;gap:11px;margin-bottom:18px;}
+  .msg .av{flex:none;width:26px;height:26px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;}
+  .msg.user .av{background:var(--bg-tint);color:var(--navy);border:1px solid var(--border);}
+  .msg.ai .av{background:var(--navy);color:#fff;}
+  .msg .bub{font-size:13.5px;color:var(--text);background:#fff;border:1px solid var(--border);border-radius:0 6px 6px 6px;padding:11px 14px;max-width:88%;line-height:1.72;}
+  .msg.user{justify-content:flex-end;}
+  .msg.user .bub{background:var(--navy);color:#fff;border-color:var(--navy);border-radius:6px 0 6px 6px;}
+  .msg .bub .nm{display:block;font-size:11px;color:var(--muted);margin-bottom:5px;letter-spacing:.06em;}
+  .msg.user .bub .nm{color:rgba(255,255,255,.65);}
+
+  .step{display:none;}
+  .step.show{display:block;animation:fadeUp .38s ease-out;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(9px);}to{opacity:1;transform:none;}}
+  @keyframes pulseGold{0%{box-shadow:0 0 0 0 rgba(200,155,60,.42);}70%{box-shadow:0 0 0 9px rgba(200,155,60,0);}100%{box-shadow:0 0 0 0 rgba(200,155,60,0);}}
+
+  .plan-card{background:#fff;border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:6px;padding:14px 16px;margin:0 0 16px 37px;max-width:88%;}
+  .plan-card .ph{font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.1em;margin-bottom:10px;}
+  .plan-item{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--muted);padding:4px 0;opacity:.4;transition:.3s;}
+  .plan-item.done{opacity:1;color:var(--text);}
+  .plan-item .ck{flex:none;width:15px;height:15px;border-radius:50%;border:1.5px solid var(--border);margin-top:2px;display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;}
+  .plan-item.done .ck{background:var(--gold);border-color:var(--gold);}
+
+  .tool-card{background:#fff;border:1px solid var(--border);border-radius:6px;margin:0 0 12px 37px;max-width:88%;overflow:hidden;}
+  .tool-head{display:flex;align-items:center;gap:9px;padding:9px 13px;background:var(--bg-tint);border-bottom:1px solid var(--border);font-size:12px;color:var(--navy);font-weight:600;}
+  .tool-head .spin{width:11px;height:11px;border:2px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;}
+  .tool-head.done .spin{border-color:var(--gold);border-top-color:var(--gold);animation:none;}
+  .tool-body{padding:11px 13px;font-size:12.5px;color:var(--muted);font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;line-height:1.65;}
+  .tool-body b{color:var(--navy);font-family:inherit;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  .result-card{background:#fff;border:1px solid var(--border);border-radius:6px;padding:18px 20px;margin:0 0 12px 37px;max-width:88%;}
+  .result-card h4{font-size:15px;color:var(--navy);margin-bottom:10px;font-weight:700;}
+  .result-card p{font-size:13.5px;color:var(--text);margin-bottom:12px;}
+  .result-card ul{margin:0 0 12px;padding-left:18px;}
+  .result-card li{font-size:13px;color:var(--text);margin-bottom:6px;}
+  .bars{margin:14px 0 12px;}
+  .bar{display:flex;align-items:center;gap:10px;margin-bottom:7px;font-size:12px;}
+  .bar .bl{flex:none;width:74px;color:var(--muted);text-align:right;}
+  .bar .bt{flex:1;height:15px;background:var(--bg-tint);border-radius:3px;overflow:hidden;}
+  .bar .bf{height:100%;background:linear-gradient(90deg,var(--navy),var(--navy-soft));width:0;transition:width 1s cubic-bezier(.22,1,.36,1);}
+  .bar .bv{flex:none;width:52px;color:var(--navy);font-weight:600;}
+  .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;padding-top:14px;border-top:1px dashed var(--border);}
+  .btn-mini{font-family:inherit;font-size:12.5px;padding:7px 14px;border-radius:5px;cursor:pointer;border:1px solid var(--navy);background:var(--navy);color:#fff;}
+  .btn-mini.ghost{background:#fff;color:var(--navy);border-color:var(--border);}
+  .btn-mini:hover{opacity:.86;}
+
+  .composer{display:flex;gap:9px;padding:12px 22px;background:#fff;border-top:1px solid var(--border);}
+  .composer input{flex:1;font-family:inherit;font-size:13px;padding:9px 13px;border:1px solid var(--border);border-radius:5px;color:var(--text);background:var(--bg-soft);}
+  .composer input:focus{outline:none;border-color:var(--navy);background:#fff;}
+  .demo-ctrl{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:13px 18px;background:var(--bg-tint);border-top:1px solid var(--border);}
+  .demo-ctrl .hint{font-size:12.5px;color:var(--muted);}
+
+  /* ---- classroom ---- */
+  .cls-body{display:grid;grid-template-columns:1fr 216px;height:604px;overflow:hidden;}
+  .cls-stage{position:relative;background:#101828;overflow:hidden;}
+  .scene{display:none;position:absolute;inset:0;padding:34px 44px 96px;color:#fff;flex-direction:column;justify-content:flex-start;justify-content:safe center;overflow-y:auto;}
+  .scene.active{display:flex;animation:fadeUp .4s ease-out;}
+  .scene .stype{font-size:11px;letter-spacing:.18em;color:var(--gold-soft);font-weight:700;margin-bottom:14px;}
+  .scene h3{font-size:27px;font-weight:700;margin-bottom:18px;line-height:1.4;max-width:660px;}
+  .scene ul{list-style:none;max-width:640px;}
+  .scene li{font-size:15px;color:rgba(255,255,255,.88);padding:9px 0 9px 20px;position:relative;line-height:1.7;}
+  .scene li::before{content:"";position:absolute;left:0;top:17px;width:6px;height:6px;border-radius:50%;background:var(--gold);}
+  .scene .note{margin-top:20px;font-size:13px;color:rgba(255,255,255,.55);border-left:2px solid var(--gold);padding-left:12px;max-width:600px;}
+  .kbd{margin-top:26px;font-size:12px;color:rgba(255,255,255,.45);}
+  .wb{margin-top:22px;border:1px dashed rgba(200,155,60,.5);border-radius:6px;padding:14px 18px;background:rgba(200,155,60,.07);font-size:13.5px;color:var(--gold-soft);font-family:"SFMono-Regular",Consolas,monospace;max-width:620px;}
+
+  .cbars{margin-top:8px;max-width:600px;}
+  .cbar{display:flex;align-items:center;gap:12px;margin-bottom:9px;font-size:13px;color:rgba(255,255,255,.88);}
+  .cbar .cl{flex:none;width:88px;text-align:right;}
+  .cbar .ct{flex:1;height:17px;background:rgba(255,255,255,.11);border-radius:3px;overflow:hidden;}
+  .cbar .cf{height:100%;background:linear-gradient(90deg,var(--gold),#E4C475);width:0;transition:width 1.1s cubic-bezier(.22,1,.36,1);}
+  .cbar .cv{flex:none;width:56px;color:var(--gold-soft);font-weight:600;}
+
+  .quiz-box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:22px 24px;max-width:620px;}
+  .quiz-box .qq{font-size:17px;font-weight:600;margin-bottom:16px;line-height:1.6;}
+  .qopt{display:block;width:100%;text-align:left;font-family:inherit;font-size:14px;padding:12px 15px;margin-bottom:9px;border-radius:6px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);color:#fff;cursor:pointer;transition:.18s;}
+  .qopt:hover{background:rgba(255,255,255,.13);border-color:var(--gold);}
+  .qopt:disabled{cursor:default;opacity:.55;}
+  .qopt.right{background:rgba(56,178,120,.2);border-color:#38B278;opacity:1;}
+  .qopt.wrong{background:rgba(214,80,80,.18);border-color:#D65050;opacity:1;}
+  .qfb{margin-top:14px;font-size:13.5px;line-height:1.75;color:rgba(255,255,255,.86);background:rgba(255,255,255,.07);border-left:3px solid var(--gold);padding:12px 15px;border-radius:0 6px 6px 0;display:none;}
+  .qfb.show{display:block;animation:fadeUp .35s;}
+
+  .simwrap{display:flex;gap:16px;flex-wrap:wrap;max-width:640px;}
+  .bub-pt{flex:1;min-width:120px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#0A1F3D;cursor:pointer;transition:.25s;border:2px solid transparent;text-align:center;}
+  .bub-pt:hover,.bub-pt.sel{border-color:#fff;transform:translateY(-4px);}
+  .bub-pt .bn{font-size:15px;font-weight:700;}
+  .bub-pt .bv2{font-size:11.5px;opacity:.75;margin-top:2px;}
+  .sim-detail{margin-top:20px;font-size:13.5px;color:rgba(255,255,255,.82);background:rgba(255,255,255,.07);border-radius:6px;padding:13px 16px;max-width:620px;min-height:52px;line-height:1.7;}
+  .sim-detail b{color:var(--gold-soft);}
+
+  .teacher{position:absolute;right:26px;bottom:74px;display:flex;align-items:flex-end;gap:10px;z-index:3;}
+  .tav{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#A87C22);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff;box-shadow:0 4px 16px rgba(0,0,0,.35);}
+  .teacher.talking .tav{animation:speak 1s ease-in-out infinite;}
+  @keyframes speak{0%,100%{transform:scale(1);}50%{transform:scale(1.09);}}
+  .twrap{position:relative;}
+  .tsay{background:rgba(0,0,0,.72);color:#fff;font-size:12.5px;padding:8px 13px;border-radius:8px;max-width:330px;line-height:1.6;display:none;}
+  .teacher.talking .tsay{display:block;}
+  .narration{position:absolute;left:0;right:0;bottom:0;padding:13px 26px;background:linear-gradient(0deg,rgba(10,31,61,.96),rgba(10,31,61,.72));display:flex;align-items:center;gap:12px;z-index:2;}
+  .narration .wave{display:flex;gap:3px;align-items:flex-end;height:16px;flex:none;}
+  .narration .wave i{width:3px;background:var(--gold);border-radius:2px;height:5px;animation:wv .9s ease-in-out infinite;}
+  .narration .wave i:nth-child(2){animation-delay:.15s;}
+  .narration .wave i:nth-child(3){animation-delay:.3s;}
+  .narration .wave i:nth-child(4){animation-delay:.45s;}
+  @keyframes wv{0%,100%{height:5px;}50%{height:15px;}}
+  .narration .ntx{font-size:13px;color:rgba(255,255,255,.92);line-height:1.6;min-height:19px;}
+  .scene-meta{position:absolute;top:16px;right:22px;font-size:11.5px;color:rgba(255,255,255,.5);z-index:3;}
+  .cls-side{background:#fff;border-left:1px solid var(--border);padding:14px 0;overflow:auto;}
+  .oc-item{font-size:12.5px;color:var(--muted);padding:9px 16px;border-left:3px solid transparent;display:flex;gap:8px;}
+  .oc-item.active{background:var(--bg-tint);color:var(--navy);border-left-color:var(--gold);font-weight:600;}
+  .oc-item .oi{color:var(--gold);font-weight:700;flex:none;}
+  .qa-layer{position:absolute;left:40px;right:40px;bottom:130px;z-index:6;display:none;flex-direction:column;gap:9px;max-height:250px;overflow-y:auto;padding:14px;background:rgba(6,14,28,.62);border:1px solid rgba(255,255,255,.16);border-radius:10px;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);}
+  .qa-head{display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:rgba(255,255,255,.66);letter-spacing:.1em;padding-bottom:8px;margin-bottom:2px;border-bottom:1px solid rgba(255,255,255,.14);flex:none;}
+  .qa-head .qx{cursor:pointer;background:none;border:none;color:rgba(255,255,255,.62);font-size:17px;line-height:1;padding:0 4px;font-family:inherit;}
+  .qa-head .qx:hover{color:#fff;}
+  .qa-layer.show{display:flex;}
+  .qa{font-size:13px;line-height:1.74;padding:11px 14px;max-width:92%;animation:fadeUp .3s ease-out;box-shadow:0 4px 16px rgba(0,0,0,.3);}
+  .qa .qn{display:block;font-size:11px;opacity:.72;margin-bottom:5px;letter-spacing:.06em;}
+  .qa.stu{align-self:flex-end;background:rgba(78,124,184,.94);color:#fff;border-radius:9px 9px 2px 9px;}
+  .qa.tch{align-self:flex-start;background:rgba(6,14,28,.88);color:#fff;border-left:3px solid var(--gold);border-radius:9px 9px 9px 2px;}
+  .cls-foot{display:flex;align-items:center;gap:10px;padding:12px 18px;background:#fff;border-top:1px solid var(--border);flex-wrap:wrap;}
+  .cls-foot input{flex:1;min-width:150px;font-family:inherit;font-size:13px;padding:9px 13px;border:1px solid var(--border);border-radius:5px;background:var(--bg-soft);color:var(--text);}
+  .cls-foot input:focus{outline:none;border-color:var(--navy);background:#fff;}
+  .nbtn{font-family:inherit;font-size:12.5px;padding:8px 15px;border-radius:5px;border:1px solid var(--border);background:#fff;color:var(--navy);cursor:pointer;}
+  .nbtn:hover{background:var(--bg-tint);}
+  .nbtn.pri{background:var(--navy);color:#fff;border-color:var(--navy);}
+
+  /* ---- moot ---- */
+  .moot-body{display:grid;grid-template-columns:1fr 226px;height:604px;overflow:hidden;}
+  .moot-main{display:flex;flex-direction:column;min-width:0;min-height:0;overflow:hidden;}
+  .case-card{margin:0 0 16px;background:#fff;border:1px solid var(--border);border-left:3px solid var(--navy);border-radius:6px;padding:14px 16px;font-size:13px;color:var(--text);line-height:1.7;}
+  .case-card .ch{font-size:11.5px;letter-spacing:.12em;color:var(--gold);font-weight:700;margin-bottom:8px;}
+  .role-msg{display:flex;gap:11px;margin:16px 0 0;}
+  .role-msg .rav{flex:none;width:32px;height:32px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;}
+  .role-msg.exm .rav{background:#8C3B3B;}
+  .role-msg.you .rav{background:var(--navy);}
+  .role-msg.men .rav{background:var(--gold);}
+  .role-msg .rb{flex:1;min-width:0;background:#fff;border:1px solid var(--border);border-radius:0 6px 6px 6px;padding:12px 15px;}
+  .role-msg .rn{font-size:11.5px;color:var(--muted);margin-bottom:6px;letter-spacing:.06em;display:flex;gap:8px;align-items:center;}
+  .role-msg .rn b{color:var(--navy);font-size:12.5px;letter-spacing:0;}
+  .role-msg .rt2{font-size:13.5px;color:var(--text);line-height:1.75;}
+  .evid{margin-top:11px;border:1px solid var(--border);border-radius:5px;overflow:hidden;}
+  .evid .eh{background:var(--bg-tint);padding:7px 11px;font-size:11.5px;color:var(--navy);font-weight:600;display:flex;justify-content:space-between;gap:10px;}
+  .evid .eb{padding:10px 12px;font-size:12px;color:var(--muted);line-height:1.7;font-family:"SFMono-Regular",Consolas,monospace;}
+  .evid .eb b{color:var(--navy);font-family:inherit;}
+  .searchbar{display:flex;align-items:center;gap:12px;margin:16px 0 14px;padding:11px 14px;background:#fff;border:1px dashed var(--border);border-radius:6px;flex-wrap:wrap;}
+  .searchbar .hint{font-size:12px;color:var(--muted);flex:1;min-width:180px;}
+  .qa-actions{margin-top:10px;}
+  .qa-actions .nbtn{background:var(--navy);color:#fff;border-color:var(--navy);padding:6px 14px;}
+  .chips{display:flex;flex-direction:column;gap:8px;margin:16px 0 0;}
+  .chip{font-family:inherit;text-align:left;font-size:13px;padding:11px 14px;border-radius:6px;border:1px solid var(--border);background:#fff;color:var(--text);cursor:pointer;transition:.18s;line-height:1.6;}
+  .chip:hover{border-color:var(--navy);background:var(--bg-tint);}
+  .chip.picked{border-color:var(--navy);background:var(--bg-tint);}
+  .chip:disabled{cursor:default;opacity:.5;}
+  .moot-right{background:#fff;border-left:1px solid var(--border);padding:14px 0;overflow:auto;}
+  .score{margin:0 14px 14px;}
+  .score .sl{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:5px;}
+  .score .sl b{color:var(--navy);}
+  .score .st{height:7px;background:var(--bg-tint);border-radius:4px;overflow:hidden;}
+  .score .sf{height:100%;width:0;background:linear-gradient(90deg,var(--navy),var(--gold));transition:width 1s cubic-bezier(.22,1,.36,1);}
+  .verdict{margin:6px 14px;padding:13px 14px;border-radius:6px;background:var(--bg-tint);border:1px dashed var(--border);font-size:12.5px;color:var(--muted);line-height:1.7;}
+  .verdict b{color:var(--navy);}
+
+  section.showcase{background:linear-gradient(180deg,#08182F 0%,#12305B 100%);border-bottom:none;}
+  section.showcase .sec-head h2{color:#fff;}
+  section.showcase .sec-head p{color:rgba(255,255,255,.72);}
+  section.showcase .sec-num{color:var(--gold-soft);}
+  section.showcase .demo-caption{background:rgba(255,255,255,.05);border-bottom-color:rgba(255,255,255,.14);color:rgba(255,255,255,.72);}
+  section.showcase .cap-tag{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.9);}
+  section.showcase .cap-tag b{color:var(--gold-soft);}
+
+  @media(max-width:1000px){
+    .app-body,.cls-body,.moot-body{grid-template-columns:1fr;height:auto;}
+    .app-side,.app-right,.cls-side,.moot-right{display:none;}
+    .chat{max-height:430px;}
+    .cls-stage{height:420px;}
+    .moot-main{padding-bottom:16px;}
+  }
+  @media(max-width:900px){
+    .grid2,.grid3,.foundation,.ladder,.moat,.metrics,.kv{grid-template-columns:1fr;}
+    .foundation .fcell{border-right:none;border-bottom:1px solid var(--border);}
+    .hero{padding:64px 24px 54px;}
+    .hero h1{font-size:30px;}
+    .wrap,nav ul{padding:0 24px;}
+    .metrics{grid-template-columns:repeat(2,1fr);}
+  }
+  @media print{
+    nav{display:none;}
+    .demo-tabs{display:none;}
+    body{background:#fff;}
+    section{page-break-inside:avoid;padding:36px 0;}
+    .hero{background:var(--navy) !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  }
+</style>
+</head>
+<body data-page-node-id="MqSIfjelATrgxzktFOghkt">
+
+<header class="hero" data-page-node-id="G2Jg4v347bLeTMbCz8zjo3">
+  <div class="hero-inner" data-page-node-id="IFzIAKyj1zWkPdeyMzf0LQ">
+    <span class="eyebrow" data-page-node-id="GR7YepN31XRIpoDEg9cG7E">产品规划 · 内部汇报稿</span>
+    <h1>从卖工时到卖产品</h1>
+      <div class="subtitle">专利智能产品应用形态规划</div>
+    <p class="sub" data-page-node-id="BkIVNQZRNuTI0WvFHFiyBI">以专利检索与分析为核心场景，构建从「卖工时」走向「卖产品」的第二增长曲线——让 AI 既会做专利分析，又能把分析讲清楚、教给客户。</p>
+    <div class="meta" data-page-node-id="KDVpqz2nouqQfUCL97zg1n">
+      <div data-page-node-id="wb45HwXCROkIplhSJFujcV">面向人群<b data-page-node-id="EukDctZ0ErwFqqLMfACbzv">CEO / 产品负责人</b></div>
+      <div data-page-node-id="DrC75zsa9O6bA9lVpcdRAd">行业领域<b data-page-node-id="iDXaSIA4RHzS6IFoKoz87c">专利服务 · 知识产权</b></div>
+      <div data-page-node-id="f9ZbxxdxiyLvgEHv3nQKMd">文档性质<b data-page-node-id="Z1WNpMPkW2DnRdzNQsCwoG">产品形态规划（纯净版）</b></div>
+    </div>
+  </div>
+</header>
+
+<nav data-page-node-id="fpEGL2hVHkYVnJExHcdaRv">
+  <ul data-page-node-id="YfbFwP5MrDdwb7GrAjJiCa">
+    <li data-page-node-id="V7nO9pOGuuaFqs5Jjkc4DK"><a href="#s1" data-page-node-id="CrtSzzNWYYHGk4c0Cib6kA">行业机会</a></li>
+    <li data-page-node-id="nth1RGq1swH7GcDmAGLORv"><a href="#s2" data-page-node-id="X5as4HxIcSZCMVk4YCdIGF">能力底座</a></li>
+    <li data-page-node-id="xWSfoJVuthCjyTjPs6rHay"><a href="#s3" data-page-node-id="o4NbHsZOQXLoCPHmaf4I5I">产品形态矩阵</a></li>
+    <li data-page-node-id="C21ROopANlP7A0r7HwPIlW"><a href="#sdemo">产品体验演示</a></li>
+    <li><a href="#s4" data-page-node-id="xymfzgqRGW8cxNt1mptNjm">六大形态详解</a></li>
+    <li data-page-node-id="csqQ15CJkO84kMigD64xmh"><a href="#s5" data-page-node-id="dOobtteNztlUY0huA4euFU">商业价值路径</a></li>
+    <li data-page-node-id="SFlPlA6FQF80JAKS3fN0L7"><a href="#s6" data-page-node-id="MVnmqeAf6czJufdjocg5d1">落地路线图</a></li>
+    <li data-page-node-id="IhWOWSWtwYkrUI7imDn4xO"><a href="#s7" data-page-node-id="lG2NNvGT6ALruja5kXPvFA">壁垒与风险</a></li>
+  </ul>
+</nav>
+
+<!-- 1 -->
+<section id="s1" data-page-node-id="wC7n3gazuSJPuRgAHJHkOW">
+  <div class="wrap" data-page-node-id="kplmirDxHTR1ufM79HvAIN">
+    <div class="sec-head" data-page-node-id="zSM76dIxqez1EFGwbVXWJe">
+      <div class="sec-num" data-page-node-id="64muWNHlcMdiXE1E5Fjg2f">01 &nbsp;/&nbsp; 行业机会</div>
+      <h2 data-page-node-id="3NjJKNPZSVvRTtUw0Npmcw">专利服务的价值断点，正是我们的机会窗口</h2>
+      <p data-page-node-id="xu4FAb9bwyTpTrzmptkVBl">客户买的从来不是数据，而是"我看懂了、我知道该怎么办"。传统交付模式在最后一公里断裂，而这个断点今天第一次具备了被规模化补齐的可能。</p>
+    </div>
+    <div class="grid2" data-page-node-id="43vbTTww9LgopFHrkmqRX9">
+      <div class="card" data-page-node-id="UBCpbaXiI03Xur9fLDKbJU">
+        <div class="kicker" data-page-node-id="jagby6g2oy7qQccYEfnxWq">断点一</div>
+        <h3 data-page-node-id="Z6nmnXMx2xFWYmObi4TWUd">分析能力强，结论理解弱</h3>
+        <p data-page-node-id="FLSVMAqT3I2cOJfK8L90yV">检索与分析结果以报告形式交付，信息密度极高。非 IP 背景的决策者看不懂，研发看不出行动点，报告的真实价值被严重低估，后续完全依赖人工会议反复讲解。</p>
+      </div>
+      <div class="card" data-page-node-id="E0LSHrhjJ8q799FpzpE0CN">
+        <div class="kicker" data-page-node-id="Gry1xbdqmpWHKRpIvDRPDq">断点二</div>
+        <h3 data-page-node-id="4G9DTtGSADXElhZrcEpaWP">专家经验难以复制</h3>
+        <p data-page-node-id="r1CAahyfuwfSfCoHFYi8nN">资深分析师与代理人培养周期长达三到五年，产能即公司天花板。专家经验沉淀在个人身上，而非组织资产，人员流动即能力流失。</p>
+      </div>
+      <div class="card" data-page-node-id="XWbLIVsvvZkBbGxpiiwyGS">
+        <div class="kicker" data-page-node-id="ql45B2ZaxxldCIglGgRReQ">断点三</div>
+        <h3 data-page-node-id="e9qYdBkjRiLAWpjMsDD2r1">交付形态单一</h3>
+        <p data-page-node-id="kkBeBGLq0eBl0HFXjsiiQO">一份 PDF 报告，无法复用、无法分发给没有系统账号的人、无法考核效果、无法沉淀为长期资产。交付结束，价值创造即终止。</p>
+      </div>
+      <div class="card" data-page-node-id="0bUR8bN3VssODwE65icwMl">
+        <div class="kicker" data-page-node-id="mm29TmxfaGwQuw20B3LdER">断点四</div>
+        <h3 data-page-node-id="oW0J4G2oKcnj6Idbg7HZv4">客户能力不成长</h3>
+        <p data-page-node-id="aZEoWJg3F4dDwxQlFZU2t4">客户持续购买结果，但自身专利能力不积累，对供应商的依赖停留在人力层面而非能力层面，黏性弱、议价空间小、易被低价替代。</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:20px;border-left:3px solid var(--gold);" data-page-node-id="fruAVeBRGdGvyCZKEGl7CC">
+      <h3 data-page-node-id="M9CpBnJpldpn9HeP6vbJ1b">机会窗口</h3>
+      <p data-page-node-id="eBYRbCeDrcnPXjRSSJYDx4">智能体技术已能完成"检索—分析—判断"的执行工作，多智能体技术已能完成"讲解—演示—训练"的教学工作。<b data-page-node-id="yKpTs2BcZ6uXU6ReIM6uPq">谁先把「执行」与「教学」组合成一个完整体验，谁就能把专利服务从按工时计价，转向按产品计价。</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section id="s2" class="tint" data-page-node-id="JhkdaDYQ6SyEjHkesGfGGn">
+  <div class="wrap" data-page-node-id="r0XViwAPIuEjhARRmT2QNW">
+    <div class="sec-head" data-page-node-id="nvGsNohcWoMC8ST8r9aNUT">
+      <div class="sec-num" data-page-node-id="IhxbExFw5SHnQ4LdqVkqkb">02 &nbsp;/&nbsp; 能力底座</div>
+      <h2 data-page-node-id="oDh5xWITr4S7HipDiyPNJq">三块能力拼成一个 AI 专利团队</h2>
+      <p data-page-node-id="XaQfqpFlS1DmeFGEzlpvMo">我们不单独谈论任何一项技术，只看三者组合后形成的完整能力：既会做，也会教。</p>
+    </div>
+    <div class="foundation" data-page-node-id="crYHxHLBp23nA3vnnUDqbX">
+      <div class="fcell" data-page-node-id="4X75K1GBoLHuPqU1J8aqGZ">
+        <div class="tag" data-page-node-id="asCULolsxPFsaz8nLjKXlC">能力一 · 会做</div>
+        <h3 data-page-node-id="mhiSfaIg64XTLI2GgC1e3E">智能体运行底座</h3>
+        <div class="role" data-page-node-id="w9etLK2CeDFiQrNQXzjjTN">让 AI 具备自主完成复杂任务的能力</div>
+        <p data-page-node-id="0HbooBJMADi9HMG8NKWsd2">能够理解自然语言目标，自主规划步骤、调用专业工具、多轮迭代完成任务，而不是简单的一问一答。它是把专利分析流程自动化的执行引擎。</p>
+      </div>
+      <div class="fcell" data-page-node-id="kFJCNM3gZDQwkNVnHmVraz">
+        <div class="tag" data-page-node-id="las9tn0NJ95Q1TuoxuqIiZ">能力二 · 查得准</div>
+        <h3 data-page-node-id="J8vQLxvTSe3wKwbxNNVeUF">专利数据能力</h3>
+        <div class="role" data-page-node-id="M8N2Elckscg9qhkB5mjDjk">让 AI 用上我们最核心的专业资产</div>
+        <p data-page-node-id="jtt28eQdC3INotlMr9N2qW">公司自研平台的检索、分类、引证、同族、法律状态、对比分析等能力，以标准接口开放给智能体调用。这是外部通用 AI 无法获得的差异化数据资产。</p>
+      </div>
+      <div class="fcell" data-page-node-id="nE1syvsSDHC4MIHCDNZPAJ">
+        <div class="tag" data-page-node-id="YBdrW1jP00tPMqBpgByx2Z">能力三 · 会教</div>
+        <h3 data-page-node-id="hytg5cy6LnhVrIIHh5AluR">多智能体互动课堂</h3>
+        <div class="role" data-page-node-id="Twjp6TA3xJmymNAsgcZIc7">让 AI 具备讲解、训练与考核的能力</div>
+        <p data-page-node-id="TG7a6BIFvNcXBtLqAONLKU">支持 AI 教师讲解、AI 同学讨论、白板演示、随堂测验与自动评分、互动模拟实验，并可导出为幻灯片、互动页面或视频。它是把专业结论转化为可理解、可交付、可考核产品的封装层。</p>
+      </div>
+    </div>
+    <div class="equation" data-page-node-id="e8UjJkAZPkh3wlute3Db94">
+      会做 &nbsp;+&nbsp; 查得准 &nbsp;+&nbsp; 会教 &nbsp;＝&nbsp; <b data-page-node-id="3syInjTJ9LDIqGXoGmEuEX">一支既懂专利分析、又能把分析讲清楚教给客户的 AI 专利团队</b>
+    </div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section id="s3" data-page-node-id="SKY9wf3LFDWalInHFK421G">
+  <div class="wrap" data-page-node-id="BhztGb5E8YwiQCwjEsOj9n">
+    <div class="sec-head" data-page-node-id="5BO8DOAPdxyWtkMRDfIkvI">
+      <div class="sec-num" data-page-node-id="SfayWLCH7grGxs55gFRXRo">03 &nbsp;/&nbsp; 产品形态矩阵</div>
+      <h2 data-page-node-id="lYa3TMOuPK6sAvFyxHKTXj">六大可打造的产品应用形态</h2>
+      <p data-page-node-id="805XvpHG8xBwQlRF2DRVdH">按"客户价值类型"排列：从即时效率，到交付升级，再到能力培养与资产沉淀。</p>
+    </div>
+    <table data-page-node-id="Z57BADPlPqkSK1OSw5Wy68">
+      <thead data-page-node-id="ES6bEYsndwRqQ2XRwnaBVN">
+        <tr data-page-node-id="3X4mFJ6jl7GhDPG9TBoGef">
+          <th style="width:150px;" data-page-node-id="HNtBfy2zVdJ8ZQBWl3uwFN">产品形态</th>
+          <th style="width:230px;" data-page-node-id="5v7UX50FquuXuSlLpSy0Jf">一句话定义</th>
+          <th style="width:150px;" data-page-node-id="dXFDPgkHmSs7bM7XinjW6L">目标客户</th>
+          <th style="width:150px;" data-page-node-id="hRHlBtDxCl1u87k3j4GjU3">商业形态</th>
+          <th style="width:96px;" data-page-node-id="K4X9pMa9fF1x3BZxE6VENV">优先级</th>
+        </tr>
+      </thead>
+      <tbody data-page-node-id="PQ0kGs8eboAJDWCj6JD3zM">
+        <tr data-page-node-id="si3brtdo11I6COuCWeMMU6">
+          <td class="name" data-page-node-id="EshzEDhPEpktWp2NAHXMeO">AI 专利分析师</td>
+          <td data-page-node-id="zUnej3Oxj24G96lZE72yZV">自然语言对话，自主完成检索—筛选—分析—出具结论</td>
+          <td data-page-node-id="uvEYmlPrdafb5HZzPmEJ4K">企业 IP 部门、研发人员、战略与投资人员</td>
+          <td data-page-node-id="HL8IsGmVlO2wxFFyxOgrDO">席位订阅 / 按查询量</td>
+          <td data-page-node-id="hEJam3EUGBifSqLKjDQTfQ"><span class="pill hot" data-page-node-id="ODg8bNClOZ5bHr2TRYKNIj">首选启动</span></td>
+        </tr>
+        <tr data-page-node-id="40Yj7sFQhda7rm7ti4crF7">
+          <td class="name" data-page-node-id="zD5030FtzcKPmBgKuIdeFI">报告 + 解读微课</td>
+          <td data-page-node-id="PAPDNJkUCiL3S9KGoPXJwE">每份分析报告自动配一节可交互解读课，扫码即听可追问</td>
+          <td data-page-node-id="PcEtgnCXKoqfVNE8usK6OW">全部现有报告客户</td>
+          <td data-page-node-id="gUtZTFTRrq3FQeaQENe7HT">标准交付增强，提升续费与客单价</td>
+          <td data-page-node-id="SZjT8LrcPjLQmuExSKgBTd"><span class="pill hot" data-page-node-id="3aYPQkpz1uWzPJa23AdhWV">首选启动</span></td>
+        </tr>
+        <tr data-page-node-id="tlKlGa6hrGCMxCwku9LR83">
+          <td class="name" data-page-node-id="T52WQmCXHklwxJM8uqOeGb">技术洞察订阅</td>
+          <td data-page-node-id="oCMQZZYiKkwnx3QtWm4t52">锁定技术领域或竞争对手，定期自动生成全景课与动态课</td>
+          <td data-page-node-id="ctkzMT8I5fi3ijf2F8bPCy">研发战略、竞争情报、投资机构</td>
+          <td data-page-node-id="rrHPyct9KYDA7Y6qfcXgbv">年度订阅（按主题 / 按竞对数量）</td>
+          <td data-page-node-id="sqApUhHapxuNYp0DBgils7"><span class="pill" data-page-node-id="XarHSIUW1x2uoT8tDdbqLc">中期重点</span></td>
+        </tr>
+        <tr data-page-node-id="CImRJR2LPnSCCnZWHEEl05">
+          <td class="name" data-page-node-id="9HwSgeqbCcERGvgCPECqKZ">企业专利培训课堂</td>
+          <td data-page-node-id="BwHDTK1Yh4OaQ0aCQNUmiC">标准课程体系 + AI 授课 + 随堂测验 + 完成率追踪</td>
+          <td data-page-node-id="bwGdTIQaFQZkmOblDerOqu">企业培训部门、IP 部门、高校</td>
+          <td data-page-node-id="UXt8lPWIW4oCseQp0GoMNy">按人头 / 课程包 / 年度培训包</td>
+          <td data-page-node-id="ABSkwSV0EWl1GfnXBHd8yF"><span class="pill" data-page-node-id="1Vw2v7TjHEXCjeCnV4o1zn">中期重点</span></td>
+        </tr>
+        <tr data-page-node-id="xftaPAuq77qdrfGHE9YEks">
+          <td class="name" data-page-node-id="OhyNz6zuLvEbPR6iAG5BUJ">审查员模拟对练</td>
+          <td data-page-node-id="V2AlKf4epjLGGw41ZA5Te3">AI 扮演审查员与无效请求人，基于真实检索证据开展对抗训练</td>
+          <td data-page-node-id="imoDcvqQ03u05l0HnR5VPf">代理机构、企业 IP 部门、备考人群</td>
+          <td data-page-node-id="BDCrqyf53K8cYfNksLfXMt">按席位 / 按场次授权</td>
+          <td data-page-node-id="dLDwWGX2gvbEwdBYfO5pKB"><span class="pill" data-page-node-id="dvFzey1bxHxEurDWJJfvT2">长期壁垒</span></td>
+        </tr>
+        <tr data-page-node-id="EUVcMrT4YuDNdDe8HQGxmc">
+          <td class="name" data-page-node-id="VWijZmLNvv5LWoS2j8zkIu">专利知识资产中心</td>
+          <td data-page-node-id="Zv9xz55YWfgRRsStXcMyTH">客户每次提问、每份报告、每节课自动沉淀为企业专属知识库</td>
+          <td data-page-node-id="I23Grc5ILu4HHDh2W9OWWz">企业 IP 部门、研发团队</td>
+          <td data-page-node-id="026CejFQCqXzAqbfW8YTwq">平台增值模块，绑定长期合约</td>
+          <td data-page-node-id="m6fxdFJABnd7pf9tesuJF9"><span class="pill" data-page-node-id="XifF4q9CqfdQiYar0XAVKK">长期壁垒</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section id="sdemo" class="showcase">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">04 &nbsp;/&nbsp; 产品体验演示</div>
+      <h2>三分钟，直接上手感受真实体验</h2>
+      <p>以下为可交互的高保真产品原型，使用真实专利业务场景与数据构造。点击标签切换场景，点击「播放演示」可观看完整流程；在课堂与对练场景中，你可以直接作答并与 AI 互动。</p>
+    </div>
+
+    <div class="demo-shell">
+      <div class="demo-tabs">
+        <button class="dtab active" data-demo="analyst">AI 专利分析师</button>
+        <button class="dtab" data-demo="classroom">报告解读课堂</button>
+        <button class="dtab" data-demo="moot">审查员模拟对练</button>
+      </div>
+
+      <!-- ============ DEMO 1 : AI 专利分析师 ============ -->
+      <div class="demo-panel active" id="demo-analyst">
+        <div class="demo-caption">
+          <span>场景：研发总监临时需要一份"固态电池电解质专利壁垒"的判断依据</span>
+          <span class="cap-tag">能力：<b>自主任务编排</b></span>
+          <span class="cap-tag">能力：<b>专利数据实时调用</b></span>
+          <span class="cap-tag">能力：<b>分析产物自动沉淀</b></span>
+        </div>
+        <div class="app">
+          <div class="app-bar">
+            <span class="app-dots"><i></i><i></i><i></i></span>
+            <span class="app-title">专利智能工作台 · 固态电池电解质专利壁垒分析</span>
+            <span class="app-tag">会话已保存</span>
+          </div>
+          <div class="app-body">
+            <aside class="app-side">
+              <div class="side-sec">会话</div>
+              <div class="side-item active">固态电池电解质专利壁垒…</div>
+              <div class="side-item">竞对监控：宁德时代 Q3</div>
+              <div class="side-item">FTO 检索：XX 型电池包</div>
+              <div class="side-item">无效检索：CN1145XXXXX</div>
+              <div class="side-sec">可调用能力</div>
+              <div class="tool-item"><i></i>专利检索</div>
+              <div class="tool-item"><i></i>申请人分析</div>
+              <div class="tool-item"><i></i>引证分析</div>
+              <div class="tool-item"><i></i>同族查询</div>
+              <div class="tool-item"><i></i>法律状态</div>
+              <div class="tool-item"><i></i>对比分析</div>
+            </aside>
+
+            <main class="app-main">
+              <div class="chat" id="chatA">
+
+                <div class="step" id="a1">
+                  <div class="msg user">
+                    <div class="bub"><span class="nm">研发总监</span>帮我分析固态电池电解质领域的专利壁垒，重点看丰田的布局。结论要能直接用于立项决策，别给我原始清单。</div>
+                    <div class="av">研</div>
+                  </div>
+                </div>
+
+                <div class="step" id="a2">
+                  <div class="plan-card">
+                    <div class="ph">任务规划</div>
+                    <div class="plan-item"><span class="ck">✓</span><span>确定技术边界与检索式（IPC 限定 + 关键词扩展）</span></div>
+                    <div class="plan-item"><span class="ck">✓</span><span>统计全球申请人格局，锁定头部玩家</span></div>
+                    <div class="plan-item"><span class="ck">✓</span><span>分析丰田的技术路线分布与核心专利</span></div>
+                    <div class="plan-item"><span class="ck">✓</span><span>输出壁垒判断与规避方向建议</span></div>
+                  </div>
+                </div>
+
+                <div class="step" id="a3">
+                  <div class="tool-card">
+                    <div class="tool-head"><span class="spin"></span>专利检索 · patent.search</div>
+                    <div class="tool-body">检索式：(固态电解质 OR solid-state electrolyte) AND IPC:(H01M10/0562 OR H01M10/052)<br>限定：申请日 2018-01-01 起 · 全球<br>结果：<b>命中 12,847 件</b>，去同族后 8,362 个专利族</div>
+                  </div>
+                </div>
+
+                <div class="step" id="a4">
+                  <div class="tool-card">
+                    <div class="tool-head"><span class="spin"></span>申请人分析 · assignee.analyze</div>
+                    <div class="tool-body">丰田自动车：<b>2,331 件</b>（全球第一）· 技术路线分布待拆解<br>松下 1,742 · 三星 SDI 1,506 · LG 新能源 1,318 · 宁德时代 1,124 · 出光兴产 986</div>
+                  </div>
+                </div>
+
+                <div class="step" id="a5">
+                  <div class="tool-card">
+                    <div class="tool-head"><span class="spin"></span>引证分析 · citation.analyze</div>
+                    <div class="tool-body">丰田高被引核心专利 <b>Top 5</b> 已定位，其中 3 件同族进入中国<br>硫化物路线占比：<b>68%</b>（1,585 / 2,331）</div>
+                  </div>
+                </div>
+
+                <div class="step" id="a6">
+                  <div class="msg ai">
+                    <div class="av">AI</div>
+                    <div class="result-card" style="margin:0;max-width:100%;">
+                      <h4>核心结论：硫化物路线存在实质性壁垒，规避设计应转向氧化物或卤化物</h4>
+                      <p>全球固态电解质专利共 8,362 个专利族，申请人格局高度集中，前六家合计占比 47%。丰田以 2,331 件居首，且 <b>68% 集中在硫化物路线</b>——这一方向的绕行成本最高。</p>
+                      <div class="bars">
+                        <div class="bar"><span class="bl">丰田自动车</span><span class="bt"><span class="bf" data-w="100"></span></span><span class="bv">2,331</span></div>
+                        <div class="bar"><span class="bl">松下</span><span class="bt"><span class="bf" data-w="75"></span></span><span class="bv">1,742</span></div>
+                        <div class="bar"><span class="bl">三星 SDI</span><span class="bt"><span class="bf" data-w="65"></span></span><span class="bv">1,506</span></div>
+                        <div class="bar"><span class="bl">LG 新能源</span><span class="bt"><span class="bf" data-w="57"></span></span><span class="bv">1,318</span></div>
+                        <div class="bar"><span class="bl">宁德时代</span><span class="bt"><span class="bf" data-w="48"></span></span><span class="bv">1,124</span></div>
+                        <div class="bar"><span class="bl">出光兴产</span><span class="bt"><span class="bf" data-w="42"></span></span><span class="bv">986</span></div>
+                      </div>
+                      <ul>
+                        <li>硫化物路线：丰田壁垒最密集，建议规避，或评估交叉许可</li>
+                        <li>氧化物路线：玩家分散，专利密度低，为首选替代方向</li>
+                        <li>卤化物路线：近三年增速最快，尚存布局窗口期</li>
+                      </ul>
+                      <div class="cta-row">
+                        <button class="btn-mini">下载完整报告</button>
+                        <button class="btn-mini ghost" id="jumpToClass">生成解读微课</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step" id="a7">
+                  <div class="msg ai">
+                    <div class="av">AI</div>
+                    <div class="bub"><span class="nm">AI 专利分析师</span>已基于本轮结论自动生成一节 <b>9 场景解读微课</b>，含幻灯片讲解、随堂测验与专利地图模拟，可一键分享给研发团队。需要我调整讲解深度或补充竞对对比吗？</div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="composer">
+                <input placeholder="继续追问，或输入新的分析需求…（演示中可直接编辑）">
+                <button class="btn-mini">发送</button>
+              </div>
+            </main>
+
+            <aside class="app-right">
+              <div class="side-sec">本轮产物</div>
+              <div class="artifact pending" id="art1"><span class="an">专利壁垒分析报告.md</span><span class="ad">生成中…</span></div>
+              <div class="artifact pending" id="art2"><span class="an">核心专利清单.xlsx</span><span class="ad">生成中…</span></div>
+              <div class="artifact pending" id="art3"><span class="an">解读微课 · 9 场景</span><span class="ad">待生成</span></div>
+              <div class="side-sec">引用来源</div>
+              <div class="artifact" style="cursor:default;"><span class="an">8,362 个专利族</span><span class="ad">全部可回溯至平台数据</span></div>
+            </aside>
+          </div>
+        </div>
+        <div class="demo-ctrl">
+          <button class="nbtn pri" id="playA">播放演示</button>
+          <button class="nbtn" id="resetA">重置</button>
+          <span class="hint" id="hintA">演示将完整呈现：理解需求 → 自主规划 → 调用数据 → 产出结论 → 自动生成解读课堂</span>
+        </div>
+      </div>
+
+      <!-- ============ DEMO 2 : 报告解读课堂 ============ -->
+      <div class="demo-panel" id="demo-classroom">
+        <div class="demo-caption">
+          <span>场景：研发总监用 8 分钟听完上一步生成的解读微课</span>
+          <span class="cap-tag">能力：<b>多智能体课堂讲解</b></span>
+          <span class="cap-tag">能力：<b>随堂测验与自动评分</b></span>
+          <span class="cap-tag">能力：<b>互动模拟</b></span>
+        </div>
+        <div class="app">
+          <div class="app-bar">
+            <span class="app-dots"><i></i><i></i><i></i></span>
+            <span class="app-title">互动课堂 · 固态电池电解质专利壁垒解读</span>
+            <span class="app-tag">场景 <b id="sceneNum">1</b> / <b id="sceneTot">9</b></span>
+          </div>
+          <div class="cls-body">
+            <div class="cls-stage">
+              <div class="scene-meta">AI 教师讲解中 · 语音已开启</div>
+
+              <div class="scene active" data-scene="1" data-narration="固态电池的核心分歧在电解质。目前主流有四条路线：硫化物、氧化物、聚合物和卤化物。丰田选择的是硫化物——它的离子电导率最高，但空气稳定性最差，而这恰恰也是它的专利最密集的地方。">
+                <div class="stype">场景类型 · 幻灯片</div>
+                <h3>为什么电解质路线，决定了专利壁垒的形状</h3>
+                <ul>
+                  <li>硫化物：离子电导率最高，但空气稳定性差，工艺门槛极高</li>
+                  <li>氧化物：稳定性好、易量产，但界面阻抗偏高</li>
+                  <li>聚合物：加工性最优，室温电导率是短板</li>
+                  <li>卤化物：近三年增速最快，专利布局尚未固化</li>
+                </ul>
+                <div class="wb">白板：AI 教师正在绘制四条路线对比图…</div>
+              </div>
+
+              <div class="scene" data-scene="2" data-narration="这是全球专利格局。丰田以 2331 件排在第一，松下 1742 件，三星 SDI 1506 件。但真正的信号不是总量——而是丰田有 68% 的专利压在硫化物这一条路线上。">
+                <div class="stype">场景类型 · 幻灯片</div>
+                <h3>全球格局：丰田第一，但真正的信号是路线集中度</h3>
+                <div class="cbars">
+                  <div class="cbar"><span class="cl">丰田自动车</span><span class="ct"><span class="cf" data-w="100"></span></span><span class="cv">2,331</span></div>
+                  <div class="cbar"><span class="cl">松下</span><span class="ct"><span class="cf" data-w="75"></span></span><span class="cv">1,742</span></div>
+                  <div class="cbar"><span class="cl">三星 SDI</span><span class="ct"><span class="cf" data-w="65"></span></span><span class="cv">1,506</span></div>
+                  <div class="cbar"><span class="cl">LG 新能源</span><span class="ct"><span class="cf" data-w="57"></span></span><span class="cv">1,318</span></div>
+                  <div class="cbar"><span class="cl">宁德时代</span><span class="ct"><span class="cf" data-w="48"></span></span><span class="cv">1,124</span></div>
+                </div>
+                <div class="note">聚光灯：丰田 · 硫化物路线占比 68%（1,585 / 2,331）——本轮分析最关键的一个数字</div>
+              </div>
+
+              
+              <div class="scene" data-scene="3" data-narration="我们把时间拉长看。2015 年之前这个领域几乎没人关注，2018 年起申请量开始爬升，2021 到 2023 年是真正的爆发期。而丰田恰恰是在爆发期之前，就把核心专利布局完成了。">
+                <div class="stype">场景类型 · 幻灯片</div>
+                <h3>技术演进：丰田的壁垒是"提前五年"建立的</h3>
+                <ul>
+                  <li>2015 年前：年申请量不足 200 件，主体为高校与研究所</li>
+                  <li>2016–2019：丰田、出光兴产密集布局硫化物基础专利</li>
+                  <li>2020–2023：年申请量突破 2,000 件，中韩企业快速跟进</li>
+                  <li>2024 至今：卤化物成为新的申请热点，格局尚未固化</li>
+                </ul>
+                <div class="note">关键洞察：后来者很难在硫化物上正面竞争，机会只存在于新增方向</div>
+              </div>
+              <div class="scene" data-scene="4" data-narration="我们来检验一下刚才的内容。丰田在硫化物路线上的专利占比大约是多少？请选择一个答案。">
+                <div class="stype">场景类型 · 随堂测验</div>
+                <h3>随堂检验</h3>
+                <div class="quiz-box">
+                  <div class="qq">丰田自动车在硫化物电解质路线上的专利占比约为多少？</div>
+                  <button class="qopt" data-ok="0">A · 38%</button>
+                  <button class="qopt" data-ok="1">B · 68%</button>
+                  <button class="qopt" data-ok="0">C · 82%</button>
+                  <div class="qfb" id="qfbRight">回答正确。68% 这个数字是本次分析中最关键的判断依据——它意味着丰田的壁垒并非均匀分布，而是高度压注在单一路线上。因此规避设计的主攻方向，应当放在氧化物或卤化物，而不是在硫化物上硬碰硬。</div>
+                  <div class="qfb" id="qfbWrong">再想一想。提示：丰田选择的是离子电导率最高、但空气稳定性最差的那条路线，并把主要研发资源压在了上面。</div>
+                </div>
+              </div>
+
+              <div class="scene" data-scene="5" data-narration="这是一张可交互的专利地图。每个气泡是一个技术分支，面积代表专利数量。试着点开看看——你会发现氧化物和卤化物方向的竞争密度，比硫化物低得多。">
+                <div class="stype">场景类型 · 互动模拟</div>
+                <h3>专利地图：找出竞争相对宽松的方向</h3>
+                <div class="simwrap">
+                  <div class="bub-pt" style="width:112px;height:112px;background:#C89B3C;" data-d="硫化物路线：专利 3,210 件，丰田、出光兴产、松下三家合计占 61%。竞争最激烈，规避成本高。"><span class="bn">硫化物</span><span class="bv2">3,210 件</span></div>
+                  <div class="bub-pt" style="width:82px;height:82px;background:#4E7CB8;" data-d="氧化物路线：专利 1,760 件，玩家分散，无绝对主导者。专利密度低，为首选替代方向。"><span class="bn">氧化物</span><span class="bv2">1,760 件</span></div>
+                  <div class="bub-pt" style="width:64px;height:64px;background:#6FA98A;" data-d="聚合物路线：专利 1,180 件，技术成熟度低，室温电导率是主要瓶颈。"><span class="bn">聚合物</span><span class="bv2">1,180 件</span></div>
+                  <div class="bub-pt" style="width:56px;height:56px;background:#B87C4E;" data-d="卤化物路线：专利 690 件，近三年年均增速 47%，布局窗口尚未关闭，建议优先卡位。"><span class="bn">卤化物</span><span class="bv2">690 件</span></div>
+                </div>
+                <div class="sim-detail" id="simDetail">点击任一气泡，查看该分支的专利量与竞争格局。</div>
+              </div>
+
+              
+              <div class="scene" data-scene="6" data-narration="这是丰田被引用最多的一件核心专利。请注意它的权利要求 1——只限定了组分通式和电导率下限，没有任何工艺限定。这意味着无论你用什么方法制备，只要落在这个组分和性能范围内，都可能触碰它。">
+                <div class="stype">场景类型 · 幻灯片</div>
+                <h3>核心专利解读：为什么这件专利特别难绕</h3>
+                <ul>
+                  <li>专利号 JP2018-XXXXXX，同族已进入中国、美国、欧洲</li>
+                  <li>被引 412 次，位列该技术领域全球前 1%</li>
+                  <li>权利要求 1 特征：Li₆PS₅Cl 组分通式 + 离子电导率 ≥ 10⁻³ S/cm + 无工艺限定</li>
+                </ul>
+                <div class="wb">白板：AI 教师正在拆解权利要求 1 的技术特征构成…</div>
+                <div class="note">"宽范围 + 无工艺限定"的写法，是规避设计中最难处理的类型</div>
+              </div>
+
+              <div class="scene" data-scene="7" data-narration="有三个风险点需要研发特别注意。尤其是第二个——很多团队会误以为换个配方就安全了，实际上组分通式的保护范围比想象中要宽得多。">
+                <div class="stype">场景类型 · 幻灯片</div>
+                <h3>侵权风险提示：三个必须盯住的点</h3>
+                <ul>
+                  <li>风险一：组分通式覆盖宽，简单替换元素难以跳出保护范围</li>
+                  <li>风险二：中国同族仍在有效期内，境内生产同样存在侵权风险</li>
+                  <li>风险三：核心专利剩余保护期约 11 年，等待过期不现实</li>
+                </ul>
+                <div class="note">建议在立项阶段即开展 FTO 专项检索，而非产品定型后再评估</div>
+              </div>
+
+              <div class="scene" data-scene="8" data-narration="第二个问题，也是实务中最容易判断错的一个。面对这件丰田核心专利，以下哪种做法最有可能真正绕开它？">
+                <div class="stype">场景类型 · 随堂测验</div>
+                <h3>随堂检验（二）</h3>
+                <div class="quiz-box">
+                  <div class="qq">面对这件丰田核心专利，以下哪种做法最有可能真正绕开它？</div>
+                  <button class="qopt" data-ok="0">A · 更换制备工艺，但保持相同的组分与电导率</button>
+                  <button class="qopt" data-ok="1">B · 改用氧化物路线的电解质体系</button>
+                  <button class="qopt" data-ok="0">C · 等待该专利到期后再推进产品</button>
+                  <div class="qfb">回答正确。关键判断在于：这件专利保护的是"组分 + 性能"，而不是"工艺"。换工艺不改变产品本身，就不可能跳出保护范围；而等过期需要 11 年，代价过大。真正可行的只有换一条技术路线。</div>
+                  <div class="qfb">注意题干中的关键提示：这件专利限定的是组分通式和电导率下限，没有限定工艺。因此更换工艺无效；剩余保护期还有约 11 年，等待也不现实。唯一可行的方向是换一条技术路线。</div>
+                </div>
+              </div>
+
+              <div class="scene" data-scene="9" data-narration="最后总结三点建议。第一，硫化物方向不建议作为主攻；第二，氧化物是当前最优的替代路径；第三，卤化物窗口期大约在两年内，建议尽快评估卡位。">
+                <div class="stype">场景类型 · 幻灯片</div>
+                <h3>给研发决策的三条建议</h3>
+                <ul>
+                  <li>硫化物方向：丰田壁垒密集，不建议作为主攻，除非已评估交叉许可方案</li>
+                  <li>氧化物方向：专利密度低、工艺成熟，为当前最优替代路径</li>
+                  <li>卤化物方向：近三年增速 47%，布局窗口约剩两年，建议尽快评估</li>
+                </ul>
+                <div class="note">本课堂可导出为：可编辑幻灯片 / 互动页面 / 讲解视频，也可生成链接直接分享</div>
+              </div>
+
+              <div class="teacher" id="teacher">
+                <div class="twrap"><div class="tsay" id="tsay"></div></div>
+                <div class="tav">师</div>
+              </div>
+
+                            <div class="qa-layer" id="qaLayer"></div>
+              <div class="narration">
+                <span class="wave"><i></i><i></i><i></i><i></i></span>
+                <span class="ntx" id="narrTx">点击「播放讲解」，AI 教师将开始授课。</span>
+              </div>
+            </div>
+
+            <aside class="cls-side">
+              <div class="side-sec">课程目录</div>
+              <div class="oc-item active" data-go="1"><span class="oi">01</span><span>技术路线概览</span></div>
+              <div class="oc-item" data-go="2"><span class="oi">02</span><span>全球竞争格局</span></div>
+              <div class="oc-item" data-go="3"><span class="oi">03</span><span>技术演进时间线</span></div>
+              <div class="oc-item" data-go="4"><span class="oi">04</span><span>随堂测验（一）</span></div>
+              <div class="oc-item" data-go="5"><span class="oi">05</span><span>专利地图模拟</span></div>
+              <div class="oc-item" data-go="6"><span class="oi">06</span><span>核心专利解读</span></div>
+              <div class="oc-item" data-go="7"><span class="oi">07</span><span>侵权风险提示</span></div>
+              <div class="oc-item" data-go="8"><span class="oi">08</span><span>随堂测验（二）</span></div>
+              <div class="oc-item" data-go="9"><span class="oi">09</span><span>结论与建议</span></div>
+              <div class="side-sec">课堂角色</div>
+              <div class="tool-item"><i></i>AI 教师 · 主讲</div>
+              <div class="tool-item"><i></i>AI 助教 · 答疑</div>
+              <div class="tool-item"><i></i>AI 同学 × 3 · 提问</div>
+              <div class="side-sec">学习状态</div>
+              <div class="tool-item"><i></i><span id="progTxt">进度 1/9</span> · 已开启语音</div>
+            </aside>
+          </div>
+          <div class="cls-foot">
+            <button class="nbtn" id="prevS">上一场景</button>
+            <button class="nbtn pri" id="playS">播放讲解</button>
+            <button class="nbtn" id="nextS">下一场景</button>
+            <input id="askInput" placeholder="随时插话提问，AI 教师会停下来回答你…"><button class="nbtn pri" id="askBtn">提问</button>
+          </div>
+        </div>
+        <div class="demo-ctrl">
+          <span class="hint">共 9 个场景，默认从第 01 讲开始。可在下方输入框<b style="color:#fff">随时插话提问</b>，教师回答后点「继续讲解」恢复上课；测验场景可点击选项，专利地图可点击气泡。</span>
+        </div>
+      </div>
+
+      <!-- ============ DEMO 3 : 审查员模拟对练 ============ -->
+      <div class="demo-panel" id="demo-moot">
+        <div class="demo-caption">
+          <span>场景：新人代理师在真实对比文件压力下练习审查意见答复</span>
+          <span class="cap-tag">能力：<b>多角色对抗</b></span>
+          <span class="cap-tag">能力：<b>真实对比文件检索</b></span>
+          <span class="cap-tag">能力：<b>答复质量评估</b></span>
+        </div>
+        <div class="app">
+          <div class="app-bar">
+            <span class="app-dots"><i></i><i></i><i></i></span>
+            <span class="app-title">审查意见答复模拟训练 · 第 1 轮 · 权利要求 1 新颖性</span>
+            <span class="app-tag">训练模式</span>
+          </div>
+          <div class="moot-body">
+            <main class="moot-main">
+              <div class="chat" id="chatM" style="padding-top:16px;">
+
+                <div class="case-card">
+                  <div class="ch">本轮案情</div>
+                  本申请权利要求 1 保护：一种硫化物固态电解质，其离子电导率 ≥ 1×10⁻³ S/cm，且含有 Li₆PS₅Cl。审查员发出第一次审查意见，指出权利要求 1 不具备新颖性。
+                </div>
+
+                <div class="role-msg exm">
+                  <div class="rav">审查</div>
+                  <div class="rb">
+                    <div class="rn"><b>审查员 Agent</b><span>· 已检索并附上对比文件</span></div>
+                    <div class="rt2">权利要求 1 相对于对比文件 1 不具备新颖性。对比文件 1 已公开一种 Li₆PS₅Cl 硫化物固态电解质及其制备方法，并明确记载其离子电导率达到 2.1×10⁻³ S/cm，落入你方"≥1×10⁻³ S/cm"的限定范围。请陈述意见。</div>
+                    <div class="evid">
+                      <div class="eh"><span>对比文件 1 · CN1145XXXXX</span><span>公开日 2021-09-15</span></div>
+                      <div class="eb">申请人：某材料科技（中国）有限公司<br>相关公开内容：<b>说明书 [0032]–[0045]</b>、实施例 2<br>记载参数：离子电导率 <b>2.1×10⁻³ S/cm</b>（25℃）</div>
+                    </div>
+                  </div>
+                </div>
+
+                              <div class="searchbar">
+                <button class="nbtn" id="doSearch">检索对比文件</button>
+                <span class="hint" id="searchHint">主动调用专利数据能力，检索与本案权利要求相关的现有技术（第 2 轮会用到）</span>
+              </div>
+              <div id="mDyn"></div>
+              <div class="chips" id="mootChips">
+                  <button class="chip" data-opt="a">A · 主张对比文件 1 未公开本申请的离子电导率数值范围，故具备新颖性</button>
+                  <button class="chip" data-opt="b">B · 修改权利要求，进一步限定晶粒尺寸 D50 ≤ 2μm，并援引本申请实施例 3 证明晶界电阻下降 38%</button>
+                  <button class="chip" data-opt="c">C · 主张本申请采用的机械球磨工艺与对比文件的烧结工艺不同，故产品不同</button>
+                </div>
+
+                <div class="step" id="mYou"></div>
+                <div class="step" id="mExm"></div>
+                <div class="step" id="mMentor"></div>
+                <div class="step" id="mEnd">
+                  <div class="role-msg men">
+                    <div class="rav">导师</div>
+                    <div class="rb">
+                      <div class="rn"><b>导师 Agent</b><span>· 本轮总结</span></div>
+                      <div class="rt2">本轮训练结束。真实答复中，你需要同时完成三件事：锁定对比文件未覆盖的技术特征、用本申请自身数据证明技术效果、并预判审查员的下一轮质疑。点击「重新开始」可换一种思路再练一次。</div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </main>
+            <aside class="moot-right">
+              <div class="side-sec">本轮评分</div>
+              <div class="score"><div class="sl"><span>新颖性论证</span><b><span id="s1v">—</span></b></div><div class="st"><span class="sf" id="s1b"></span></div></div>
+              <div class="score"><div class="sl"><span>证据运用</span><b><span id="s2v">—</span></b></div><div class="st"><span class="sf" id="s2b"></span></div></div>
+              <div class="score"><div class="sl"><span>答复策略</span><b><span id="s3v">—</span></b></div><div class="st"><span class="sf" id="s3b"></span></div></div>
+              <div class="verdict" id="verdict">完成一次答复后，系统将给出评分与改进建议。</div>
+              <div class="side-sec">训练记录</div>
+              <div class="tool-item"><i></i>历史已完成 3 轮</div><div class="tool-item"><i></i><span id="roundTxt">当前：第 1 轮</span></div>
+              <div class="tool-item"><i></i>历史均分 71</div>
+              <div class="tool-item"><i></i>薄弱环节：创造性论证</div>
+              <div class="side-sec">本轮产物</div>
+              <div class="artifact"><span class="an">答复要点复盘.md</span><span class="ad" id="mArtAd">待生成</span></div>
+            </aside>
+          </div>
+        </div>
+        <div class="demo-ctrl">
+          <button class="nbtn" id="resetM">重新开始</button>
+          <span class="hint">完整流程：检索对比文件 → 第 1 轮化解新颖性质疑 → 第 2 轮创造性对抗 → 评分与复盘。共 6 种答复路径，只有一条能完整走通。</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section id="s4" class="tint" data-page-node-id="rPfpmtrVT3ZNU4Xo2rmzkU">
+  <div class="wrap" data-page-node-id="ZvwT2e2ELfFOW2S7ob7rIl">
+    <div class="sec-head" data-page-node-id="NjqDXXcEOKcQew7fsnJA5b">
+      <div class="sec-num" data-page-node-id="6niXtn6IYPHoD4f1ZzPHXV">05 &nbsp;/&nbsp; 形态详解</div>
+      <h2 data-page-node-id="W5jiuLFMIk5pybNBcFXBFC">每一个形态解决什么问题、带来什么价值</h2>
+    </div>
+
+    <div class="prod" data-page-node-id="fS8YKphHAYdqMlNzyhPHaa">
+      <div class="prod-head" data-page-node-id="axJJGA94AkwKwnep5gtCpG">
+        <div class="badge" data-page-node-id="sYQLKPqAvQ8pFiGLnb61hF">1</div>
+        <div data-page-node-id="ELvmzvd0hdOLUWJuTbJMxB">
+          <h3 data-page-node-id="zDV3Dnp6hTYtc2eEV61O5C">AI 专利分析师</h3>
+          <div class="en" data-page-node-id="1930N9qVeayxFynfOcHIz7">面向企业 IP 与研发人员的对话式分析助手</div>
+        </div>
+      </div>
+      <div class="prod-body" data-page-node-id="GkFIm5If3JsXsoiP8sS0x5">
+        <p class="lead" data-page-node-id="ZC7oXzOChDJCeZhyW5zGEt">用自然语言提出需求，系统自主规划检索策略、调用专利数据能力完成筛选与分析，直接给出带依据的结论，并可继续追问深挖。</p>
+        <div class="kv" data-page-node-id="AoVzFnzplnSNSlZFhtMe9m">
+          <div class="item" data-page-node-id="DHLrt5yeGzei0YplniswNW"><div class="k" data-page-node-id="1hkaJrOdXmBixVUH9dYyeD">解决什么痛点</div><div class="v" data-page-node-id="N78VUt0joFoSvOHhMyFaAI">检索需要掌握专业语法，门槛高；专家排期长、响应慢；简单问题也要占用分析师工时。</div></div>
+          <div class="item" data-page-node-id="ltZnTGYPOloElewqD0ZSUO"><div class="k" data-page-node-id="RWLyCqz2lpi0ZAnS4IcrFj">客户获得的价值</div><div class="v" data-page-node-id="ucIzRBY3qSC8FgpTeEAZGZ">把"提需求—等报告"变为"即时问答"；研发人员无需学习检索技能即可自助获取专利情报。</div></div>
+          <div class="item" data-page-node-id="bvZbymud4Q5sXau4rxD9HZ"><div class="k" data-page-node-id="RRP31HGidurYq6K1qv4M7n">我们的价值</div><div class="v" data-page-node-id="3ZdirYEEmcG8jRVVsSZf7M">释放分析师重复劳动，把稀缺专家产能集中到高价值项目上；同时形成高频客户触达。</div></div>
+          <div class="item" data-page-node-id="iKT58ooQqWTULEBOmg4poP"><div class="k" data-page-node-id="Zsbdt7s81ttTR2xlJUVSE8">商业形态</div><div class="v" data-page-node-id="S9pAgo6pgHaPBbRUutbfzc">席位订阅、按查询量计费，或作为现有平台的高级模块。</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod" data-page-node-id="ICUDj4UQhaakuw9RJsIHEQ">
+      <div class="prod-head" data-page-node-id="fvD2dB5E7HFfwUZHg7p8t2">
+        <div class="badge" data-page-node-id="TqbooZkoG3twh1awnDwyyl">2</div>
+        <div data-page-node-id="wp4eLkiW8NaNsMPUfm9C1e">
+          <h3 data-page-node-id="0UVV3woNexPIfwvjnRGWBJ">报告 + 解读微课（双交付）</h3>
+          <div class="en" data-page-node-id="GYfZN2NDyvl9K9DEsLPzWy">让每一份报告都自带一位讲解人</div>
+        </div>
+      </div>
+      <div class="prod-body" data-page-node-id="4gb2khgmDVB1xXk5XXu8Wl">
+        <p class="lead" data-page-node-id="Re8mjgridqGuINgvGtpU02">分析结论产出的同时，自动生成一节可交互解读课：AI 讲解核心结论，白板演示关键图表，客户可随时追问，并可导出为幻灯片、互动页面或视频分发。</p>
+        <div class="kv" data-page-node-id="DS7ETdniswJgKGO0lt5hu6">
+          <div class="item" data-page-node-id="EQwRieyA1ulEdlwGgW3lCo"><div class="k" data-page-node-id="ReHZSGejxdTmbqHVAlzeFK">解决什么痛点</div><div class="v" data-page-node-id="S0FGcn7XKGl0s2tGJuOKQZ">报告看不懂、需要反复开会讲解；决策层没时间看长文档；交付物无法转给外部人员。</div></div>
+          <div class="item" data-page-node-id="tNsM8havUNU6uojL37pgty"><div class="k" data-page-node-id="zv1WaBIs7vkpB15ivKWOwf">客户获得的价值</div><div class="v" data-page-node-id="sF4simvDQFkp3buuHpr1lh">随时随地理解报告结论；一个链接即可分享给管理层与合作方，无需再约讲解会议。</div></div>
+          <div class="item" data-page-node-id="FSYQsErT5IFEjLKR8docre"><div class="k" data-page-node-id="spdseA0L0AEOhCq0veYs7E">我们的价值</div><div class="v" data-page-node-id="HrUoTE5f4JKGEbiC0ANxFy">交付差异化（同行仍在发 PDF）；显著削减重复性讲解工时；提升客户感知价值与续费理由。</div></div>
+          <div class="item" data-page-node-id="oAVcc75BDnEhxfJbru6aFI"><div class="k" data-page-node-id="YbAHpvYcE0Vb9M0qMggu1i">商业形态</div><div class="v" data-page-node-id="LvQiXBXEexmkoVxJioQ52O">作为标准交付增强纳入现有报价体系，支撑客单价提升。</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod" data-page-node-id="ORit73HeqdG1LN4oubQBLT">
+      <div class="prod-head" data-page-node-id="a29Jf2jZDzv5e77AjOezEt">
+        <div class="badge" data-page-node-id="aiSX4AQFT8r71o8qcg1Dms">3</div>
+        <div data-page-node-id="2Wkmy6SYXx0phhqoNQzePv">
+          <h3 data-page-node-id="64tJ956s9DqgUbKNMhGPEA">技术洞察订阅</h3>
+          <div class="en" data-page-node-id="UhJ3UTJhDK4aRiJdJGtrrH">把一次性项目变成持续订阅服务</div>
+        </div>
+      </div>
+      <div class="prod-body" data-page-node-id="5dyb6w01zg42P1iWDIjXBX">
+        <p class="lead" data-page-node-id="b3D61fQuVZvAoY7ipbso54">客户锁定若干技术领域或竞争对手，系统按周期自动重新检索并生成新一期技术全景课或竞对动态课，讲清楚本期变化、新增玩家与值得关注的技术信号。</p>
+        <div class="kv" data-page-node-id="X6EpmH3Ux1EsYpJ5jCgc4S">
+          <div class="item" data-page-node-id="lMplGte1NRZHMW6caUbl1n"><div class="k" data-page-node-id="xbk2J3IzHXrDAUaedH2G6e">解决什么痛点</div><div class="v" data-page-node-id="nCg0FUgcsjCOtA5AiuakvS">技术监控是持续需求，但传统报告是一次性的，交付即过期，无法被持续消费。</div></div>
+          <div class="item" data-page-node-id="SAfOUOeS9DaiLBfnsEOIA8"><div class="k" data-page-node-id="DoRBF5EhHdwcexdFSFjZ2J">客户获得的价值</div><div class="v" data-page-node-id="fdcaQpdYH9L2bfvnDbAnvQ">持续、低负担地保持技术嗅觉；管理层可直接消费易懂的解读课而非原始数据。</div></div>
+          <div class="item" data-page-node-id="ZnVOt7XnaEWaxbaISjAkaf"><div class="k" data-page-node-id="TcfXjY52556gpm5gTWN0OB">我们的价值</div><div class="v" data-page-node-id="uRBFACQXiBqZgDdMJ0IuFT">商业模式从一次性项目收入升级为可预测的订阅收入，客户生命周期价值大幅提升。</div></div>
+          <div class="item" data-page-node-id="MKKqZiAPwsU97u8OsGX1bS"><div class="k" data-page-node-id="XFG9H9b2FYA5E4aRgdcJXr">商业形态</div><div class="v" data-page-node-id="1xlVE2OKUAGCW83o88J1ua">年度订阅，按监控主题数量或竞争对手数量分级定价。</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod" data-page-node-id="2OMuDrLtxV3lNOjHvOrNaO">
+      <div class="prod-head" data-page-node-id="V1CKpH7yb3XWkRxoobKgEf">
+        <div class="badge" data-page-node-id="0ikiUgtgmuYIJZox5jffLK">4</div>
+        <div data-page-node-id="CB1tzNaHP2x7wO0mf51huq">
+          <h3 data-page-node-id="Zf4RyFfdFpB8u2ofYG0BMG">企业专利培训课堂</h3>
+          <div class="en" data-page-node-id="eCmqReUR310gnCXWOAcdAD">可规模化复制的专利能力培养产品线</div>
+        </div>
+      </div>
+      <div class="prod-body" data-page-node-id="iFu47u1IMGh7Oj2LOh3yVQ">
+        <p class="lead" data-page-node-id="4Px6kjBhRVpDmkbUbAUhth">围绕研发专利意识、IPR 实务、出海专利风险、规避设计等主题构建标准课程体系，AI 教师授课，配套随堂测验与自动评分，学习完成率可追踪、可出具培训报告。</p>
+        <div class="kv" data-page-node-id="QUIEZZHsz4H7IndmtMQyTG">
+          <div class="item" data-page-node-id="wc0makj1mpjhw5z7SQctFp"><div class="k" data-page-node-id="2AqkorNWDLUX1G1wHaX19d">解决什么痛点</div><div class="v" data-page-node-id="Kg20Mz5nKGcjbyA7rmKj4G">企业内训依赖外部讲师，成本高、难复制、效果无法量化；标准化课程缺乏互动与陪伴感。</div></div>
+          <div class="item" data-page-node-id="Rc0EWNIanaES8u4YL3lL5d"><div class="k" data-page-node-id="cceoWczl6KA6JdbDdFpxBz">客户获得的价值</div><div class="v" data-page-node-id="dOn2CjZAfBwoFmCOACWARJ">低成本覆盖全员；培训效果首次可量化；员工可反复学习、随时补课。</div></div>
+          <div class="item" data-page-node-id="taO6SKdE0V778IzCuBQQ3M"><div class="k" data-page-node-id="g3VigT1rFRGZEK2vU0KPxq">我们的价值</div><div class="v" data-page-node-id="FtB44eeQ6gcxYmh4xNZgrz">把专家经验从"人"转化为"课"，一次生产、无限次销售，边际成本趋近于零。</div></div>
+          <div class="item" data-page-node-id="MRhBI2bksvYlph1QZrWp9K"><div class="k" data-page-node-id="Ni9BvTnQ46Qa4lnVFCjI4M">商业形态</div><div class="v" data-page-node-id="HCy4EG9hkqFbmBNk4GGRWN">按人头、按课程包或企业年度培训包售卖；亦可作为大客户的增值权益。</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod" data-page-node-id="wI1qv9w4BBOCJjMawWDZFV">
+      <div class="prod-head" data-page-node-id="we6r2PDJnrcW8yiQ8bZ7ud">
+        <div class="badge" data-page-node-id="7635tp75n2n5Jtwkaf6Ltg">5</div>
+        <div data-page-node-id="AnfPrbGcWDmW5nHVl0BEA8">
+          <h3 data-page-node-id="UQULmuFgzYuQHH0GxK8ctX">审查员模拟对练系统</h3>
+          <div class="en" data-page-node-id="sDN7KkjvJ93SL0oLzdVWFT">高壁垒的专业实战训练产品</div>
+        </div>
+      </div>
+      <div class="prod-body" data-page-node-id="KuwT6HNN1epAbhQ0DJMYLl">
+        <p class="lead" data-page-node-id="2GRS2HeFM2asjZSr7VRZl0">AI 扮演审查员或无效请求人，基于真实检索到的对比文件向学员发起质疑，训练审查意见答复、无效应对与口头审理能力，并对答复思路给出评估与改进建议。</p>
+        <div class="kv" data-page-node-id="Y434uFWSAgnes6EGSREdRV">
+          <div class="item" data-page-node-id="DljyNjw8qzHS055JFUSlUp"><div class="k" data-page-node-id="AJS9U4rlW3LOD0aGjM8tUD">解决什么痛点</div><div class="v" data-page-node-id="Md1wpMNQbdFsn6klA0Fe6e">实战训练机会稀缺，新人培养依赖师傅带教，试错成本高、失败代价大。</div></div>
+          <div class="item" data-page-node-id="F2WE7h5FCZaofWVT88sM82"><div class="k" data-page-node-id="FFhSF2gAeSVLJyggy8CKoB">客户获得的价值</div><div class="v" data-page-node-id="XYE1PCPAAviMf2lKBUFmdP">在零风险环境中反复实战；对抗过程有真实证据支撑，而非脱离实际的角色扮演。</div></div>
+          <div class="item" data-page-node-id="HCW5GDDqhiXW9gOg0vrOUP"><div class="k" data-page-node-id="slmj7haMWvFoLHEMlc05qU">我们的价值</div><div class="v" data-page-node-id="cEZn1SUUFvKPvkGBQR0Bk6">高单价、高壁垒的专业训练产品，面向代理机构与企业 IP 部门，同行短期难以复制。</div></div>
+          <div class="item" data-page-node-id="qXhBDtosP7WWYreotsgBYy"><div class="k" data-page-node-id="Mce4NzcsJRAoW3hgAnoGaY">商业形态</div><div class="v" data-page-node-id="kGaDtL4uZEqrnHLNuGzDuT">按席位或按场次授权给培训机构、代理机构；亦可纳入企业年度培训方案。</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod" data-page-node-id="LjdWpiKRwR5ITyUD42mgLx">
+      <div class="prod-head" data-page-node-id="eagXQpw7uccZF5eopA3ZJi">
+        <div class="badge" data-page-node-id="biEgjCJQraqJ18TI8npOwT">6</div>
+        <div data-page-node-id="7xbIAykDDSLIwa1VKHqArl">
+          <h3 data-page-node-id="dnRWPJwa0ZMFPLnZXpwx8Y">企业专利知识资产中心</h3>
+          <div class="en" data-page-node-id="LmwFYFuMyBhz76rZhdSqMk">让客户用得越久，越离不开我们</div>
+        </div>
+      </div>
+      <div class="prod-body" data-page-node-id="eG8THzgAf1aupYDTNC04QO">
+        <p class="lead" data-page-node-id="b3AvCkFdTbwQlSrPYP4SO8">客户每一次提问、每一份报告、每一节课程自动沉淀为其专属的专利知识库与课程集，新员工可直接学习前人的经验，历史决策脉络可追溯。</p>
+        <div class="kv" data-page-node-id="hTOIwz1OCEnHozq9XEPtSx">
+          <div class="item" data-page-node-id="8VQaiGfVk6AYMeVfcsAPh8"><div class="k" data-page-node-id="VN5ms8QmQhKnCiBYBxCmtl">解决什么痛点</div><div class="v" data-page-node-id="k3N15dE2EE4TvrC3WuHkgI">知识与人绑定，人员流动即经验流失；新员工重复踩坑；历史分析结论难以检索复用。</div></div>
+          <div class="item" data-page-node-id="2oOrCnIjnIcsiEmfHIxB3Z"><div class="k" data-page-node-id="O2uoOAZPvxK1iPHesFbU9U">客户获得的价值</div><div class="v" data-page-node-id="SCLWXrBT8atyCo0csaZvO0">把个人能力转化为组织能力；知识资产随使用持续增厚。</div></div>
+          <div class="item" data-page-node-id="FTAidnSWUV7sYjwsWgyrs0"><div class="k" data-page-node-id="uNrkA6VRhs4Cwt8ufq4g0d">我们的价值</div><div class="v" data-page-node-id="7nzi8jCz10LJFEUVoOuA4T">构建极强的切换成本——客户迁移意味着放弃多年积累的知识资产，是最稳固的留存机制。</div></div>
+          <div class="item" data-page-node-id="KZFjsZ9a6lYdzNHgyrILvU"><div class="k" data-page-node-id="ELXbDAzzQDBeHNjCIOszz2">商业形态</div><div class="v" data-page-node-id="NWy6Rde59c7oqLcPGHMEw2">作为平台增值模块，与长期合约绑定，提升续约率与议价能力。</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 5 -->
+<section id="s5" data-page-node-id="3DKa8zMH2pTuXT4ALP4qyw">
+  <div class="wrap" data-page-node-id="kdbaXkOCurBUHjbzQbBvAJ">
+    <div class="sec-head" data-page-node-id="LHuZPl75gMBx3LO8bQadTO">
+      <div class="sec-num" data-page-node-id="qqw4oKkFHSO26oVZzJ94Xb">06 &nbsp;/&nbsp; 商业价值路径</div>
+      <h2 data-page-node-id="msFHgZf5yuYNQXJYeQfRzV">从卖工时，到卖产品，再到卖能力</h2>
+      <p data-page-node-id="ENnF2BNIWLE1Ft9eIeYBOx">三级跃迁的本质，是把收入天花板从"公司有多少分析师"，转移到"我们能把能力封装成多少种可复用的产品"。</p>
+    </div>
+    <div class="ladder" data-page-node-id="nlLNTOFfpFIvkKTj35FIow">
+      <div class="step" data-page-node-id="Vpfxvw8qd13IXxEdrWI8oe">
+        <div class="lv" data-page-node-id="ecKQ698sOZiG0F0oQZxKXu">第一级</div>
+        <h3 data-page-node-id="yFQS6MAzTZTgXpgOKH1V8L">卖结果</h3>
+        <div class="when" data-page-node-id="gRQI8VfXArTk7utvKEx71I">现状</div>
+        <ul data-page-node-id="hALDDd6nPp8Rs1GKcjyADi">
+          <li data-page-node-id="NqUCjZAy13EkWDi2thskAB">项目制咨询与检索报告</li>
+          <li data-page-node-id="oRaAN2TPrN4pbTiIpY9lj4">收入等于工时乘以人天</li>
+          <li data-page-node-id="Erhrza2USJPgPmg4te0Yue">天花板等于分析师数量</li>
+        </ul>
+        <div class="rev" data-page-node-id="UElxjzFg2Mh6YlF26gstOi">特征：线性增长，规模受制于人力</div>
+      </div>
+      <div class="step" data-page-node-id="W7hAfJ0G9WYO8rUyD7ZS3V">
+        <div class="lv" data-page-node-id="HJzVdCEt1IHCJFCedD0b6G">第二级</div>
+        <h3 data-page-node-id="HKs7ZNltfJNOs1I7XP9eHA">卖订阅</h3>
+        <div class="when" data-page-node-id="RBEn3rc4DiK9PSM8CswEvh">一至三年</div>
+        <ul data-page-node-id="8S0cX53knnAFt1C3cwXQVA">
+          <li data-page-node-id="vIQ6OjA025HDjigS8j2Xzd">AI 分析师席位</li>
+          <li data-page-node-id="ZWK9ZyfAJVBW9BfwhcHBNC">技术洞察订阅</li>
+          <li data-page-node-id="vWRlUvrHC5wiYf7BzrOHGh">企业培训课程包</li>
+        </ul>
+        <div class="rev" data-page-node-id="mviaIwgAlAeyCXIAF7Uv7Z">特征：收入可预测、可复利、可估值</div>
+      </div>
+      <div class="step" data-page-node-id="UF9XgwYtFIww7QavsmUhiD">
+        <div class="lv" data-page-node-id="toPxDmJ767AQ1ipqcN10QB">第三级</div>
+        <h3 data-page-node-id="XGQ3HbWbWksETZMLgOyxPI">卖能力</h3>
+        <div class="when" data-page-node-id="7uyFTQTFNuTC3A0LtSwpcZ">三至五年</div>
+        <ul data-page-node-id="vbP8PU6oXMiQWGdqlE0yRS">
+          <li data-page-node-id="VQil8LEPwh8imz00QKFnde">客户自助生产分析与课程</li>
+          <li data-page-node-id="T4631UlbH1PGzjUks3nwOE">平台化与生态化</li>
+          <li data-page-node-id="2r4hq10VLW3Fzdj6zBzvjI">边际成本趋近于零</li>
+        </ul>
+        <div class="rev" data-page-node-id="euYEBKtXye83duFL3kO29d">特征：平台型收入，议价权显著增强</div>
+      </div>
+    </div>
+
+    <div class="sec-head" style="margin-top:52px;margin-bottom:24px;" data-page-node-id="2csHKlUzR1WPNHn5Vsh1xg">
+      <h2 style="font-size:20px;" data-page-node-id="wLidTOK1n9qK1EDs6YqbPx">建议纳入经营看板的价值指标</h2>
+    </div>
+    <div class="metrics" data-page-node-id="orhPe23udavpQwWbFBPX1t">
+      <div class="metric" data-page-node-id="MDHPFAbK7imOkrUDJkURPl"><div class="num" data-page-node-id="uQsm54xu7UJMdqWu0LUKFL">↑</div><div class="txt" data-page-node-id="tNoxy2bYABdxQVbn5ykEbX">分析师人均<br data-page-node-id="XU1FyBIhWGQ5RvsVHxzEfs">交付项目数</div></div>
+      <div class="metric" data-page-node-id="oByJBC1WfE599SMNZSFGI5"><div class="num" data-page-node-id="D40HDMfdCs3xCCDk2ArEDu">↓</div><div class="txt" data-page-node-id="MrA9mts3Cz3PAJ3XHHwGmF">单位项目<br data-page-node-id="Cfyf8i2urJtEj0KEmCGHJS">人工工时</div></div>
+      <div class="metric" data-page-node-id="2FxoEEkWiQvCHghccLgogQ"><div class="num" data-page-node-id="Uw3wDiLGmg17W0aXvBHs0l">↑</div><div class="txt" data-page-node-id="XLyJy4AEAs1HNmXI3msq8G">客户续费率<br data-page-node-id="PAwK5xKmHlikgZqmRI5VDK">与客单价</div></div>
+      <div class="metric" data-page-node-id="1irSojMnHUrpFbjzjKoDQm"><div class="num" data-page-node-id="MGQEbZcN3EOIFXpYQNbqW0">↑</div><div class="txt" data-page-node-id="nGEj3V2NwAN044GmB72Mrc">订阅收入<br data-page-node-id="5wvqdpsuRaUXrxKPlIosGt">占总收入比</div></div>
+      <div class="metric" data-page-node-id="GMSKjEinH3yx6pGONIk0x5"><div class="num" data-page-node-id="SKHorECPnpD1aJDn7uFonk">↑</div><div class="txt" data-page-node-id="gbdXPGmXXqhZ0kGQJ3hI3A">客户活跃度<br data-page-node-id="TJ5sHB67fhHn9nfyVHg33s">提问与完课率</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section id="s6" class="tint" data-page-node-id="QQl0jutsPXzZFLDqny2TDw">
+  <div class="wrap" data-page-node-id="mV036ATUyo2xpKF0kemOEh">
+    <div class="sec-head" data-page-node-id="Wfqbgw87hKDNZ8srt3kdR3">
+      <div class="sec-num" data-page-node-id="MANU4iYPmWEHAGopn8AazG">07 &nbsp;/&nbsp; 落地路线图</div>
+      <h2 data-page-node-id="exH6VsrXTFdjqFFcYoIYGx">四阶段推进，每阶段都有可验证的产出</h2>
+    </div>
+    <div class="timeline" data-page-node-id="ULWSAReg8bUxj5fA4pUndi">
+      <div class="tl" data-page-node-id="n6SYrPHoqRsqBlVAGQ7GMK">
+        <div class="phase" data-page-node-id="DPGCS8zXO7E4jrPhObY4D7">近期 · 零至三个月</div>
+        <h3 data-page-node-id="W8udUibjG4xEiNR3oIa3If">验证期：把 AI 装进现有交付流程</h3>
+        <p data-page-node-id="WbBbZghD5M2So2HSoYAWzX">上线对话式 AI 专利分析师，并让每一份分析报告自动附带解读微课。选择三到五家关系紧密的种子客户试点，重点验证客户是否愿意使用、是否愿意为此付费。</p>
+        <div class="deliver" data-page-node-id="xbAyC35JGONBJUZvi6kEHA">阶段产出：可演示的 AI 分析师 + 双交付样板客户案例 + 真实客户反馈</div>
+      </div>
+      <div class="tl" data-page-node-id="sF50aG2fflXUnbdEMxp1vZ">
+        <div class="phase" data-page-node-id="NDZB3Jt1GuPhODWrSiTFg5">中期 · 三至六个月</div>
+        <h3 data-page-node-id="TbbyVx78UFaAKPJUlFi22F">产品化：形成可售卖的标准 SKU</h3>
+        <p data-page-node-id="V1s9TWdSvNACmKYlnkEZHP">推出技术洞察订阅与企业专利培训课堂两条产品线，完成定价、销售话术与交付 SOP 的标准化，开始产生订阅收入。</p>
+        <div class="deliver" data-page-node-id="3r6SahdLmtxp3rgFMd1AIl">阶段产出：两条可售卖产品线 + 标准定价体系 + 首批订阅客户</div>
+      </div>
+      <div class="tl" data-page-node-id="QSNkMo8n6jIP1xZsiYzb76">
+        <div class="phase" data-page-node-id="JbI4NxMCXjDWJ0SpwWBDBe">成长期 · 六至十二个月</div>
+        <h3 data-page-node-id="2zSUFLBJjpO6rOOp3dfOFo">规模化：让客户的能力与我们共同增长</h3>
+        <p data-page-node-id="BDugiid7op0zfBQugaVChJ">上线企业专利知识资产中心，推出面向研发的规避设计课程，推动订阅收入占比持续提升，逐步降低对单次项目收入的依赖。</p>
+        <div class="deliver" data-page-node-id="3cWEaBgrrQEBxCzYS4MPJN">阶段产出：知识资产中心上线 + 订阅收入占比明确提升</div>
+      </div>
+      <div class="tl" data-page-node-id="oTcwRE7uS8B5Zv2sWfiDko">
+        <div class="phase" data-page-node-id="w6G3qNOvY3mxe9sQUdyrJd">远期 · 十二个月以上</div>
+        <h3 data-page-node-id="LCZvT94LcPeEusblct33Sw">壁垒期：建立行业标准与平台地位</h3>
+        <p data-page-node-id="zCFFfGxfdZY8OhRzHi5ZHn">推出审查员模拟对练系统，开放客户自助生产分析与课程的能力，从产品供应商升级为能力平台，形成同行难以复制的行业标准地位。</p>
+        <div class="deliver" data-page-node-id="TIvqbBY7i1pC5XW6Iy7BRM">阶段产出：高壁垒训练产品 + 客户自助生产能力 + 平台化收入结构</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 -->
+<section id="s7" data-page-node-id="ikFQlNJEPojz0qh0QVAkVS">
+  <div class="wrap" data-page-node-id="GVpCmr8tHWeGpmMuiSZsUG">
+    <div class="sec-head" data-page-node-id="5xdTaHtkGdBJ7lnUy1lVAF">
+      <div class="sec-num" data-page-node-id="aN8faEZ9zKMFugsmXGXbOq">08 &nbsp;/&nbsp; 壁垒与风险</div>
+      <h2 data-page-node-id="QKZGA84DgVGdFui0gZxDK3">为什么是我们，以及需要守住什么</h2>
+    </div>
+    <div class="moat" data-page-node-id="TWPICD6hVzey429wddfobi">
+      <div class="m" data-page-node-id="JgGNTduO0jYSBEQrtKWCRL">
+        <h3 data-page-node-id="z3Ali1cXu5tsbFoat7fpjx">数据壁垒</h3>
+        <p data-page-node-id="sXz0e4h3m5W92SmbCafsv7">自研平台的专利检索与分析能力是长期积累的核心资产，通用大模型与通用工具无法获得同等质量的专业数据供给。</p>
+      </div>
+      <div class="m" data-page-node-id="4UzIb5FybrpEkh0KEK4gRH">
+        <h3 data-page-node-id="CkMHnV9SgWWI0E7MWSP1Rb">场景壁垒</h3>
+        <p data-page-node-id="wTHqDryyYzBgF1SeMeldIM">真实客户、真实案例与真实反馈，让我们比技术方更懂专利行业究竟需要什么，知道哪些场景值得做、哪些是伪需求。</p>
+      </div>
+      <div class="m" data-page-node-id="PNYByxEZoiA7cpgznp36rK">
+        <h3 data-page-node-id="kENjcImPTbs0OoZFrVBb3h">组合壁垒</h3>
+        <p data-page-node-id="7jfKl4GhPPXAoAG2nvjHOc">把"会做分析的智能体"与"会讲会教的课堂系统"组合应用于专利领域，目前行业内尚无成熟方案，先发优势明显。</p>
+      </div>
+    </div>
+
+    <div class="sec-head" style="margin-top:52px;margin-bottom:24px;" data-page-node-id="CTqooofvQmidDt3BbKbkCF">
+      <h2 style="font-size:20px;" data-page-node-id="SvxC9QoTXNu46QU2FmLQJ1">需要守住的三条底线</h2>
+    </div>
+    <div class="risks" data-page-node-id="tIWucC0ZBkw0TVqZ7etr9w">
+      <div class="risk" data-page-node-id="aLdr0pTHrSX6EsHa23cF7U">
+        <div class="rt" data-page-node-id="drtQZwTggjkAUPkJRZCkxm">事实准确性</div>
+        <div class="rd" data-page-node-id="wYst0fvX6OvuFcEFsTyTWE">这是专业服务的生命线。<b data-page-node-id="X7hzSUOUmFli0W32ODGvsQ">所有结论必须可溯源至平台数据</b>，专利号、法条、权利要求等关键信息不得由模型自由生成；高风险场景保留专家复核环节。</div>
+      </div>
+      <div class="risk" data-page-node-id="uTIiGgduXbO2YHx6WMnGGZ">
+        <div class="rt" data-page-node-id="n1CJhGkUu91YgyUBqVCgq8">客户习惯培育</div>
+        <div class="rd" data-page-node-id="BBcwrnjKkcVWmI4WpeQyXQ">从"看报告"到"对话与听课"存在使用习惯迁移成本。<b data-page-node-id="G9DkqxKtXNM87Z1GROQYY7">需要通过引导、示范与样板客户带动</b>，避免功能上线但无人使用。</div>
+      </div>
+      <div class="risk" data-page-node-id="9eFEix3RGn13LYRGSAYb9v">
+        <div class="rt" data-page-node-id="SKEHKmk6GKGplqFBsmRlfP">投入节奏控制</div>
+        <div class="rd" data-page-node-id="DKD3PeeEBJTKePYk4TEafl">建议<b data-page-node-id="Nfw4HdJHx04Cp4aQTr4ft9">先小范围试点验证价值，再规模化投入</b>。每个阶段以明确的经营指标作为继续投入的判定依据，避免技术先行、需求滞后。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer data-page-node-id="Wbc26WkLc4DPfJ1kaJehmQ">
+  <b>从卖工时到卖产品</b> &nbsp;·&nbsp; 专利智能产品应用形态规划 &nbsp;·&nbsp; 面向 CEO 与产品负责人 &nbsp;·&nbsp; 内部汇报稿
+</footer>
+
+<script>
+(function(){
+  var $  = function(s,r){ return (r||document).querySelector(s); };
+  var $$ = function(s,r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)); };
+  function esc(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function goSec(){
+    var s=document.getElementById('sdemo');
+    if(s && s.scrollIntoView) s.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  /* ---------------- tab ---------------- */
+  $$('.dtab').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      $$('.dtab').forEach(function(b){ b.classList.remove('active'); });
+      $$('.demo-panel').forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      var p=document.getElementById('demo-'+btn.dataset.demo);
+      if(p) p.classList.add('active');
+      // 切走时停掉分析师演示，避免后台继续推进
+      if(btn.dataset.demo!=='analyst' && tmA){ clearTimeout(tmA); tmA=null; var pb0=$('#playA'); if(pb0) pb0.textContent='播放演示'; }
+      if(btn.dataset.demo==='classroom') initScene();
+    });
+  });
+
+  /* ================= DEMO 1 · AI 专利分析师 ================= */
+  var seqA=['#a1','#a2','#a3','#a4','#a5','#a6','#a7'];
+  var tmA=null;
+  function setHintA(t){ var h=$('#hintA'); if(h) h.innerHTML=t; }
+  function resetA(){
+    if(tmA){ clearTimeout(tmA); tmA=null; }
+    seqA.forEach(function(x){ var e=$(x); if(e) e.classList.remove('show'); });
+    $$('#demo-analyst .tool-item').forEach(function(t){ t.classList.remove('on'); });
+    ['#art1','#art2','#art3'].forEach(function(x){ var e=$(x); if(e){ e.classList.add('pending'); e.classList.remove('fresh'); } });
+    var d1=$('#art1 .ad'), d2=$('#art2 .ad'), d3=$('#art3 .ad');
+    if(d1) d1.textContent='生成中…';
+    if(d2) d2.textContent='生成中…';
+    if(d3) d3.textContent='待生成';
+    $$('#a2 .plan-item').forEach(function(i){ i.classList.remove('done'); });
+    $$('#a6 .bf').forEach(function(b){ b.style.width='0'; });
+    $$('#a3 .tool-head,#a4 .tool-head,#a5 .tool-head').forEach(function(h){ h.classList.remove('done'); });
+    var c=$('#chatA'); if(c) c.scrollTop=0;
+    var pb=$('#playA'); if(pb) pb.textContent='播放演示';
+    setHintA('演示将完整呈现：理解需求 → 自主规划 → 调用数据 → 产出结论 → 自动生成解读课堂');
+  }
+  function playA(){
+    resetA();
+    var chat=$('#chatA');
+    var tools=$$('#demo-analyst .tool-item');
+    var pb=$('#playA'); if(pb) pb.textContent='播放中…';
+    setHintA('正在演示：AI 分析师自主规划任务并调用专利数据能力…');
+    function reveal(i){
+      if(i>=seqA.length){
+        if(pb) pb.textContent='重新播放';
+        setHintA('演示完成 · 解读微课已生成（9 场景）。可点击结论卡中的「生成解读微课」进入课堂，或直接切到「报告解读课堂」标签。');
+        return;
+      }
+      var el=$(seqA[i]); if(!el){ return; }
+      el.classList.add('show');
+      if(chat) chat.scrollTop=chat.scrollHeight;
+      if(seqA[i]==='#a2'){
+        var items=$$('#a2 .plan-item'), k=0;
+        var iv=setInterval(function(){
+          if(k<items.length){ items[k].classList.add('done'); k++; }
+          else clearInterval(iv);
+        },360);
+      }
+      if(seqA[i]==='#a3' && tools[0]) tools[0].classList.add('on');
+      if(seqA[i]==='#a4' && tools[1]) tools[1].classList.add('on');
+      if(seqA[i]==='#a5'){
+        if(tools[2]) tools[2].classList.add('on');
+        $$('#a3 .tool-head,#a4 .tool-head,#a5 .tool-head').forEach(function(h){ h.classList.add('done'); });
+      }
+      if(seqA[i]==='#a6'){
+        setTimeout(function(){ $$('#a6 .bf').forEach(function(b){ b.style.width=b.dataset.w+'%'; }); },240);
+        var a1=$('#art1'), a2=$('#art2');
+        if(a1){ a1.classList.remove('pending'); var t1=$('#art1 .ad'); if(t1) t1.textContent='已完成 · 12 页'; }
+        if(a2){ a2.classList.remove('pending'); var t2=$('#art2 .ad'); if(t2) t2.textContent='已完成 · 86 件'; }
+      }
+      if(seqA[i]==='#a7'){
+        var a3=$('#art3');
+        if(a3){ a3.classList.remove('pending'); a3.classList.add('fresh'); var t3=$('#art3 .ad'); if(t3) t3.textContent='已生成 · 9 场景'; }
+      }
+      var delay = (seqA[i]==='#a6')?1900:(seqA[i]==='#a2'?1750:1000);
+      tmA=setTimeout(function(){ reveal(i+1); }, delay);
+    }
+    reveal(0);
+  }
+  var pA=$('#playA');  if(pA) pA.addEventListener('click',playA);
+  var rA=$('#resetA'); if(rA) rA.addEventListener('click',resetA);
+  var jC=$('#jumpToClass');
+  if(jC) jC.addEventListener('click',function(){
+    var t=$$('.dtab').filter(function(b){ return b.dataset.demo==='classroom'; })[0];
+    if(t) t.click();
+    setTimeout(goSec,80);
+  });
+
+  /* ================= DEMO 2 · 报告解读课堂 ================= */
+  var scenes=$$('#demo-classroom .scene');
+  var cur=0, typeT=null, autoT=null, playing=false, wasPlaying=false;
+  var QAHEAD='<div class="qa-head"><span>课堂问答 · 教师已暂停讲解</span><button class="qx" data-qclose="1" title="收起">×</button></div>';
+
+  function stopPlay(){
+    playing=false;
+    if(typeT){ clearInterval(typeT); typeT=null; }
+    if(autoT){ clearTimeout(autoT); autoT=null; }
+    var t=$('#teacher'); if(t) t.classList.remove('talking');
+    var b=$('#playS'); if(b) b.textContent='播放讲解';
+  }
+  function hideQA(){
+    var l=$('#qaLayer'); if(l) l.classList.remove('show');
+    var t=$('#teacher'); if(t) t.classList.remove('talking');
+  }
+  function closeQA(resume){
+    hideQA();
+    if(resume && wasPlaying){
+      wasPlaying=false;
+      playing=true;
+      var b=$('#playS'); if(b) b.textContent='暂停讲解';
+      goScene(cur,true);
+    } else {
+      var narr=$('#narrTx');
+      if(narr && cur>=0 && cur<scenes.length) narr.textContent=scenes[cur].dataset.narration||'';
+    }
+  }
+
+  function render(n, animate){
+    scenes.forEach(function(s,i){ s.classList.toggle('active', i===n); });
+    $$('#demo-classroom .oc-item').forEach(function(o,i){ o.classList.toggle('active', i===n); });
+    var sn=$('#sceneNum'); if(sn) sn.textContent=String(n+1);
+    var tot=$('#sceneTot'); if(tot) tot.textContent=String(scenes.length);
+    var prog=$('#progTxt'); if(prog) prog.textContent='进度 '+String(n+1)+'/'+scenes.length;
+    hideQA();
+    if(n===1){ setTimeout(function(){ $$('#demo-classroom .cf').forEach(function(b){ b.style.width=b.dataset.w+'%'; }); },200); }
+    else { $$('#demo-classroom .cf').forEach(function(b){ b.style.width='0'; }); }
+    var txt=scenes[n].dataset.narration||'';
+    var narr=$('#narrTx'), tsay=$('#tsay'), tch=$('#teacher');
+    if(animate){
+      if(typeT){ clearInterval(typeT); }
+      if(tch) tch.classList.add('talking');
+      var i=0;
+      if(narr) narr.textContent='';
+      if(tsay) tsay.textContent=txt;
+      typeT=setInterval(function(){
+        if(!narr){ clearInterval(typeT); return; }
+        narr.textContent = txt.slice(0, ++i);
+        if(i>=txt.length){
+          clearInterval(typeT); typeT=null;
+          if(tch) tch.classList.remove('talking');
+          if(playing){
+            autoT=setTimeout(function(){
+              if(cur<scenes.length-1) goScene(cur+1,true);
+              else { stopPlay(); var b=$('#playS'); if(b) b.textContent='重新播放'; }
+            },1600);
+          }
+        }
+      },26);
+    } else {
+      if(narr) narr.textContent = txt;
+      if(tsay) tsay.textContent = txt;
+    }
+  }
+  function goScene(n,auto){
+    if(n<0 || n>=scenes.length) return;
+    cur=n;
+    render(n,true);
+  }
+  function initScene(){
+    stopPlay();
+    wasPlaying=false;
+    cur=0;
+    render(0,false);
+    var layer=$('#qaLayer');
+    if(layer){ layer.classList.remove('show'); layer.innerHTML=QAHEAD; }
+    $$('#demo-classroom .qopt').forEach(function(o){ o.disabled=false; o.classList.remove('right','wrong'); });
+    $$('#demo-classroom .qfb').forEach(function(f){ f.classList.remove('show'); });
+    $$('#demo-classroom .bub-pt').forEach(function(x){ x.classList.remove('sel'); });
+    var d=$('#simDetail'); if(d) d.innerHTML='点击任一气泡，查看该分支的专利量与竞争格局。';
+    var b=$('#playS'); if(b) b.textContent='播放讲解';
+  }
+
+  var pS=$('#playS');
+  if(pS) pS.addEventListener('click',function(){
+    if(playing){ stopPlay(); return; }
+    wasPlaying=false;
+    playing=true;
+    pS.textContent='暂停讲解';
+    if(cur>=scenes.length-1){ cur=0; }
+    goScene(cur,true);
+  });
+  var nS=$('#nextS'); if(nS) nS.addEventListener('click',function(){ stopPlay(); wasPlaying=false; if(cur<scenes.length-1){ cur++; render(cur,false);} });
+  var vS=$('#prevS'); if(vS) vS.addEventListener('click',function(){ stopPlay(); wasPlaying=false; if(cur>0){ cur--; render(cur,false);} });
+  $$('#demo-classroom .oc-item').forEach(function(o){
+    o.addEventListener('click',function(){ stopPlay(); wasPlaying=false; cur=parseInt(o.dataset.go,10)-1; render(cur,false); });
+  });
+
+  $$('#demo-classroom .quiz-box').forEach(function(box){
+    var opts=$$('.qopt',box), fbs=$$('.qfb',box);
+    opts.forEach(function(b){
+      b.addEventListener('click',function(){
+        var ok=b.dataset.ok==='1';
+        opts.forEach(function(o){ o.disabled=true; });
+        b.classList.add(ok?'right':'wrong');
+        var fb = ok ? fbs[0] : fbs[1];
+        if(fb) fb.classList.add('show');
+      });
+    });
+  });
+
+  $$('#demo-classroom .bub-pt').forEach(function(b){
+    b.addEventListener('click',function(){
+      $$('#demo-classroom .bub-pt').forEach(function(x){ x.classList.remove('sel'); });
+      b.classList.add('sel');
+      var d=$('#simDetail'), nm=b.querySelector('.bn');
+      if(d) d.innerHTML='<b>'+(nm?nm.textContent:'')+'</b> · '+b.dataset.d;
+    });
+  });
+
+  function answerFor(q){
+    if(/丰田|壁垒/.test(q)) return '丰田的壁垒集中在硫化物路线，共 2,331 件，其中 68% 压在这一条路上。但这不代表固态电池整体走不通——它的保护范围限定在硫化物组分，换成氧化物或卤化物体系就能绕开。';
+    if(/规避|绕开|绕行|替代|设计/.test(q)) return '规避设计有三个可行方向：一是换技术路线，首选氧化物；二是卡位卤化物，窗口期约两年；三是若必须用硫化物，只能评估交叉许可。不建议在硫化物上做局部改进，成功率很低。';
+    if(/卤化物|窗口|增速/.test(q)) return '卤化物目前专利 690 件，近三年年均增速 47%，尚未出现绝对主导者，是当下最值得卡位的方向。我判断窗口期大约还有两年，之后格局会明显固化。';
+    if(/氧化物/.test(q)) return '氧化物目前 1,760 件，玩家分散、无绝对主导者，专利密度明显低于硫化物，工艺也相对成熟，是替代路径中落地最快的一条。主要代价是界面阻抗偏高，需要用包覆或复合工艺解决。';
+    if(/成本|费用|许可|多少|价格/.test(q)) return '这需要单独做许可评估。粗略判断：硫化物路线的交叉许可成本通常显著高于自主研发氧化物路线的投入，且谈判周期长。建议先做一次 FTO 专项检索再决策。';
+    if(/风险|侵权|诉讼|有效期|保护期/.test(q)) return '三个风险点要盯住：一是组分通式的保护范围比想象中宽；二是丰田的中国同族仍在有效期内，境内生产同样有风险；三是核心专利剩余保护期约 11 年，等过期不现实。';
+    if(/硫化物/.test(q)) return '硫化物离子电导率最高，是性能最优的路线，但空气稳定性差、工艺门槛高，而且丰田已经用 1,585 件专利把这条路封得很密。除非已有交叉许可方案，否则不建议作为主攻方向。';
+    return '这个问题我会结合本轮分析的 8,362 个专利族来回答。判断专利壁垒通常要同时看三件事：保护范围怎么写、同族进入了哪些国家、还剩多少保护期。你可以针对其中任何一点继续问我。';
+  }
+
+  /* 提问：教师回复同时出现在「教师气泡」与「问答浮层」，确保一定可见 */
+  function askTeacher(){
+    var inp=$('#askInput'); if(!inp) return;
+    var q=(inp.value||'').trim();
+    if(!q){ inp.focus(); return; }
+    inp.value='';
+    wasPlaying = playing;
+    stopPlay();
+    var ans = answerFor(q);
+
+    var layer=$('#qaLayer'); if(!layer) return;
+    if(!layer.querySelector('.qa-head')) layer.insertAdjacentHTML('afterbegin', QAHEAD);
+    var stu=document.createElement('div');
+    stu.className='qa stu';
+    stu.innerHTML='<span class="qn">你 · 插话提问</span>'+esc(q);
+    var tch=document.createElement('div');
+    tch.className='qa tch';
+    tch.innerHTML='<span class="qn">AI 教师 · 停下讲解回答你</span>'+esc(ans)
+      +'<div class="qa-actions"><button class="nbtn" data-resume="1">继续讲解</button></div>';
+    layer.appendChild(stu);
+    layer.appendChild(tch);
+    layer.classList.add('show');
+
+    // 教师气泡同步显示完整回答，并保持“说话中”状态
+    var tv=$('#teacher'); if(tv) tv.classList.add('talking');
+    var tsay=$('#tsay'); if(tsay) tsay.textContent=ans;
+    var narr=$('#narrTx');
+    if(narr) narr.textContent='（讲解已暂停 · 教师正在回答你的提问，可点击「继续讲解」或右侧 × 收起）';
+
+    setTimeout(function(){ layer.scrollTop=layer.scrollHeight; },30);
+  }
+  var askB=$('#askBtn'); if(askB) askB.addEventListener('click',askTeacher);
+  var askI=$('#askInput');
+  if(askI) askI.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); askTeacher(); } });
+  var qaL=$('#qaLayer');
+  if(qaL) qaL.addEventListener('click',function(e){
+    var tg=e.target;
+    if(tg && tg.getAttribute && tg.getAttribute('data-resume')){ e.preventDefault(); closeQA(true); }
+    else if(tg && tg.getAttribute && tg.getAttribute('data-qclose')){ e.preventDefault(); closeQA(false); }
+  });
+
+  /* ================= DEMO 3 · 审查员模拟对练 ================= */
+  var EV2='<div class="evid"><div class="eh"><span>对比文件 2 · CN11XXXXXX</span><span>公开日 2022-06-08</span></div><div class="eb">标题：一种硫化物固态电解质的晶粒尺寸控制方法<br>教导内容：晶粒细化可降低晶界电阻（说明书 [0021]–[0029]）</div></div>';
+
+  var R1=[
+    {key:'a1', t:'A · 主张对比文件 1 未公开本申请的离子电导率数值范围，故具备新颖性'},
+    {key:'b1', t:'B · 修改权利要求，进一步限定晶粒尺寸 D50 ≤ 2μm，并援引本申请实施例 3 证明晶界电阻下降 38%'},
+    {key:'c1', t:'C · 主张本申请采用的机械球磨工艺与对比文件的烧结工艺不同，故产品不同'}
+  ];
+  var R2=[
+    {key:'b2a', t:'D · 争辩对比文件 2 未公开"2μm"这一具体数值，故不具备结合启示'},
+    {key:'b2b', t:'E · 主张本申请实施例 3 证明该限定产生了晶界电阻下降 38% 的预料不到的技术效果'},
+    {key:'b2c', t:'F · 主张本申请产品已获得商业成功，故具备创造性'}
+  ];
+
+  var MROOT={
+    a1:{ you:R1[0].t,
+      exm:'该主张不成立。对比文件 1 说明书 [0038] 明确记载离子电导率 2.1×10⁻³ S/cm，落入你方"≥1×10⁻³ S/cm"的限定范围。数值范围一旦重合即破坏新颖性，与制备方法是否相同无关。',
+      men:'这是新人最常见的失误——把"工艺不同"当成"产品不同"。产品权利要求的新颖性看的是产品本身的结构与性能参数是否被公开。本轮建议：先核实对比文件的公开范围，再决定争辩还是修改。',
+      end:true, s:[35,30,40], pass:false,
+      v:'综合判定：<b>本轮答复不成立</b>。未核实对比文件公开范围就提出主张，会削弱后续所有陈述的可信度。',
+      endMsg:'本轮训练结束。你的路径暴露了新颖性判断的典型误区。点击「重新开始」换一条思路，试试修改权利要求并引用实施例数据。' },
+    c1:{ you:R1[2].t,
+      exm:'工艺特征的区别不必然带来产品结构的区别。若最终产物在组分、晶体结构与性能参数上与对比文件 1 相同，仍不具备新颖性。请补充产品层面的结构差异论证，或提交对比实验数据。',
+      men:'方向不够聚焦。审查员要的是"产品有什么不同"，不是"我怎么做的不同"。若存在结构差异应直接指向该差异并附数据；若不存在，应尽早修改权利要求。',
+      end:true, s:[55,48,52], pass:false,
+      v:'综合判定：<b>本轮答复偏弱</b>。工艺论证在实务中成功率很低，且会暴露对新颖性判断标准的误读。',
+      endMsg:'本轮训练结束。工艺路线的论证成本高、收益低。点击「重新开始」，试试修改权利要求的思路。' },
+    b1:{ you:R1[1].t,
+      exm:'该技术特征在对比文件 1 中未予公开，新颖性异议成立。但创造性尚未确认——请回答：将晶粒尺寸限定应用于对比文件 1 的体系，对本领域技术人员而言是否显而易见？',
+      men:'正确的第一步。注意审查员的措辞——新颖性异议已被你化解，但战场转移到了创造性。接下来不要只争辩"没有公开"，要论证"即使结合也得不到"。',
+      next:'r2' },
+    r2:{ exm:'对比文件 2 已教导"通过控制硫化物电解质晶粒尺寸可降低晶界电阻"，且晶粒细化属于本领域公知常识。因此权利要求 1 相对于对比文件 1 与对比文件 2 的结合不具备创造性。请陈述意见。',
+      ev:EV2, chips:R2 },
+    b2a:{ you:R2[0].t,
+      exm:'具体数值的差异若未带来预料不到的效果，不能否定结合启示。对比文件 2 已给出明确的技术方向与手段，本领域技术人员为解决相同问题有动机将其应用于对比文件 1 的体系。该争辩不成立。',
+      men:'只争辩"数值不同"而不论证效果，是创造性答辩中常见的弱主张。审查员看的是"有没有动机结合"加"有没有预料不到的效果"，二者缺一不可。',
+      end:true, s:[70,58,60], pass:false,
+      v:'综合判定：<b>本轮答复偏弱</b>。仅以数值差异抗辩结合启示，说服力不足；缺少技术效果论证是关键失分点。',
+      endMsg:'本轮训练结束。你守住了新颖性，但创造性论证力度不够。点击「重新开始」，在第二轮改用实施例数据主张预料不到的技术效果。' },
+    b2b:{ you:R2[1].t,
+      exm:'对比文件 2 仅教导了晶粒尺寸控制的宏观方向，未公开或暗示 D50 ≤ 2μm 的特定范围可带来晶界电阻下降 38% 的效果。该效果超出本领域技术人员基于对比文件 1、2 能够合理预期的范围，构成了预料不到的技术效果。修改后的权利要求 1 具备创造性。本轮答复通过。',
+      men:'教科书级的创造性答辩：以"预料不到的技术效果"为支点，用本申请自己的实施例数据闭环。新颖性解决"有没有公开"，创造性解决"能不能想到"——你在两轮里分别用对了武器。',
+      end:true, s:[92,88,90], pass:true,
+      v:'综合判定：<b>本轮答复通过</b>。完整的两步走：第一步用结构参数限定避开现有技术，第二步用实验数据支撑预料不到的技术效果。',
+      endMsg:'本轮训练结束，答复通过。复盘要点：新颖性靠"对比文件没公开什么"，创造性靠"结合之后能否合理预期"。两条线都守住，答复才成立。' },
+    b2c:{ you:R2[2].t,
+      exm:'商业成功仅在本领域技术人员无法预见、且与发明特征存在直接因果关系时才予考虑。你未提交销售数据与因果性证据，该主张不予支持。',
+      men:'商业成功是辅助性论据，不能替代技术层面的创造性论证，且举证门槛很高。在技术论证尚未完成前抛出商业成功，反而显得论据不足。',
+      end:true, s:[50,42,45], pass:false,
+      v:'综合判定：<b>本轮答复失败</b>。商业成功是辅助论据，无法替代"预料不到的技术效果"这一核心论证。',
+      endMsg:'本轮训练结束。创造性答辩的核心永远是技术效果。点击「重新开始」，优先使用实施例数据。' }
+  };
+
+  var mootRound=1, searched=false;
+
+  function addDyn(html){
+    var z=$('#mDyn'); if(!z) return;
+    var tmp=document.createElement('div');
+    tmp.innerHTML=html;
+    while(tmp.firstChild){ z.appendChild(tmp.firstChild); }
+    var chat=$('#chatM'); if(chat) chat.scrollTop=chat.scrollHeight;
+  }
+  function renderChips(list){
+    var box=$('#mootChips'); if(!box) return;
+    box.innerHTML=list.map(function(c){ return '<button class="chip" data-key="'+c.key+'">'+c.t+'</button>'; }).join('');
+    $$('#mootChips .chip').forEach(function(ch){
+      ch.addEventListener('click',function(){ mootPick(ch.dataset.key); });
+    });
+  }
+  function setScore(sc){
+    [['#s1v','#s1b',sc[0]],['#s2v','#s2b',sc[1]],['#s3v','#s3b',sc[2]]].forEach(function(x){
+      var ve=$(x[0]), be=$(x[1]);
+      if(ve) ve.textContent=x[2];
+      if(be) be.style.width=x[2]+'%';
+    });
+  }
+  function mootEnd(st){
+    var v=$('#verdict'); if(v) v.innerHTML=st.v;
+    setScore(st.s);
+    var ad=$('#mArtAd'); if(ad) ad.textContent='已生成 · 含改进建议';
+    var me=$('#mEnd');
+    if(me){
+      var t=me.querySelector('.rt2'); if(t) t.textContent=st.endMsg;
+      me.classList.add('show');
+    }
+    var rt=$('#roundTxt'); if(rt) rt.textContent='已结束 · '+(st.pass?'通过':'未通过');
+    var chat=$('#chatM'); if(chat) chat.scrollTop=chat.scrollHeight;
+  }
+  function mootShow(key){
+    var st=MROOT[key]; if(!st) return;
+    addDyn('<div class="role-msg exm"><div class="rav">审查</div><div class="rb"><div class="rn"><b>审查员 Agent</b><span>· 第 '+mootRound+' 轮质疑</span></div><div class="rt2">'+st.exm+(st.ev?st.ev:'')+'</div></div></div>');
+    renderChips(st.chips||[]);
+    $$('#mootChips .chip').forEach(function(c){ c.disabled=false; });
+  }
+  function mootPick(key){
+    var st=MROOT[key]; if(!st) return;
+    $$('#mootChips .chip').forEach(function(c){ c.disabled=true; });
+    addDyn('<div class="role-msg you"><div class="rav">你</div><div class="rb"><div class="rn"><b>学员答复</b><span>· 第 '+mootRound+' 轮</span></div><div class="rt2">'+st.you+'</div></div></div>');
+    setTimeout(function(){
+      addDyn('<div class="role-msg exm"><div class="rav">审查</div><div class="rb"><div class="rn"><b>审查员 Agent</b><span>· 基于对比文件回应</span></div><div class="rt2">'+st.exm+'</div></div></div>');
+      setTimeout(function(){
+        addDyn('<div class="role-msg men"><div class="rav">导师</div><div class="rb"><div class="rn"><b>导师 Agent</b><span>· 点评</span></div><div class="rt2">'+st.men+'</div></div></div>');
+        if(st.next){
+          mootRound++;
+          var rt=$('#roundTxt'); if(rt) rt.textContent='当前：第 '+mootRound+' 轮';
+          setTimeout(function(){ mootShow(st.next); },900);
+        } else {
+          mootEnd(st);
+        }
+      },1000);
+    },700);
+  }
+  renderChips(R1);
+
+  var ds=$('#doSearch');
+  if(ds) ds.addEventListener('click',function(){
+    if(searched) return;
+    searched=true;
+    ds.disabled=true;
+    var h=$('#searchHint'); if(h) h.textContent='正在调用专利数据能力，检索与本案权利要求相关的现有技术…';
+    addDyn('<div class="tool-card" id="sTool"><div class="tool-head"><span class="spin"></span>对比文件检索 · priorart.search</div><div class="tool-body">检索要素：Li₆PS₅Cl 组分 · 离子电导率 · 晶粒尺寸 · 晶界电阻<br>范围：中国专利文献 · 2018 年至今</div></div>');
+    setTimeout(function(){
+      var th=$('#sTool .tool-head'); if(th) th.classList.add('done');
+      var tb=$('#sTool .tool-body');
+      if(tb) tb.innerHTML='检索要素：Li₆PS₅Cl 组分 · 离子电导率 · 晶粒尺寸 · 晶界电阻<br>结果：<b>命中 2 篇高相关对比文件</b><br>① 对比文件 1 · CN1145XXXXX · 已公开 Li₆PS₅Cl 及 2.1×10⁻³ S/cm<br>② 对比文件 2 · CN11XXXXXX · 教导晶粒尺寸控制可降低晶界电阻';
+      if(h) h.textContent='已找到 2 篇对比文件。提示：对比文件 2 将在第 2 轮创造性对抗中被审查员引用';
+    },1500);
+  });
+
+  var rM=$('#resetM');
+  if(rM) rM.addEventListener('click',function(){
+    var z=$('#mDyn'); if(z) z.innerHTML='';
+    mootRound=1; searched=false;
+    var rt=$('#roundTxt'); if(rt) rt.textContent='当前：第 1 轮';
+    renderChips(R1);
+    setScore([0,0,0]);
+    ['#s1v','#s2v','#s3v'].forEach(function(x){ var ve=$(x); if(ve) ve.textContent='—'; });
+    var v=$('#verdict'); if(v) v.innerHTML='完成一次答复后，系统将给出评分与改进建议。';
+    var ad=$('#mArtAd'); if(ad) ad.textContent='待生成';
+    var me=$('#mEnd'); if(me) me.classList.remove('show');
+    var h=$('#searchHint');
+    if(h) h.textContent='主动调用专利数据能力，检索与本案权利要求相关的现有技术（第 2 轮会用到）';
+    var db=$('#doSearch'); if(db) db.disabled=false;
+    var c=$('#chatM'); if(c) c.scrollTop=0;
+  });
+
+  initScene();
+})();
+</script>
+</body>
+</html>
