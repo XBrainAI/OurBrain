@@ -1,0 +1,531 @@
+COMMIT@ec4c225be5aff18738c1420a8f0b0347d546eece
+1	1	src/api/user.js
+4	0	src/components/common/commonDown/index.vue
+2	2	src/router/index.js
+3	2	vue.config.js
+
+COMMIT@f0330814192f03415066574a4e8ef6197f56f8ea
+9	0	src/api/user.js
+35	1	src/router/index.js
+3	2	vue.config.js
+
+COMMIT@669fe8753ff2657dfaa803b909a433d3c7011a23
+31	4	src/views/QuestionAnswer/index.vue
+
+COMMIT@5e3af26ba69bcef2d51c9a60c0c7405ac755be40
+3	1	src/components/common/DetailTabs/index.vue
+
+COMMIT@30723345171a42a6aa98aa76d35e983063d4fe44
+1	1	src/views/Home/components/dataAtlas.vue
+5	3	src/views/Patyee/PatResults/index.vue
+
+COMMIT@e160444a6655b22caab8a48ae38e552eda4af17b
+9	8	src/views/Home/components/dataAtlas.vue
+
+COMMIT@ae5cd877ab7ca1544b86ce6cce745b83831b6417
+1	1	src/views/Patyee/AdvancedSearch/components/DialogDeptTool.vue
+9	3	src/views/Patyee/AdvancedSearch/components/SearchFiled.vue
+92	0	src/views/Patyee/PatResults/index.vue
+
+COMMIT@52695b9a13677e137d23f26fe32ce5bf5bf508a1
+1	2	src/components/common/DetailTabs/details.js
+4	1	src/styles/patyee.scss
+2	2	src/views/Advocacy/index.vue
+2	2	src/views/DataNavigation/index.vue
+1	1	src/views/Home/components/HomeFooter.vue
+1	1	src/views/Home/components/ThematicTraining.vue
+13	6	src/views/Home/components/dataAtlas.vue
+2	2	src/views/Home/components/patyeeSearch.vue
+1	1	src/views/Index/components/Footer.vue
+1	1	src/views/Index/components/NoAccess.vue
+232	0	src/views/Patyee/AdvancedSearch/components/DialogDeptTool.vue
+27	2	src/views/Patyee/AdvancedSearch/components/SearchFiled.vue
+2	2	src/views/Patyee/Home/index.vue
+2	2	src/views/Patyee/HomePage/index.vue
+3	2	src/views/Patyee/PatResults/components/LeftSide/OrgTree.vue
+1	1	src/views/Patyee/PatResults/components/SchoolSearchHeader/index.vue
+0	8	src/views/Patyee/PatResults/components/TableField/fields.js
+0	6	src/views/Patyee/PatResults/components/TableField/index.vue
+0	9	src/views/Patyee/PatResults/components/list/PatsImgList.vue
+1	1	src/views/Patyee/PatResults/components/list/index.vue
+1	1	src/views/Patyee/PatResults/index.vue
+1	1	src/views/Patyee/PatSearch/components/search.vue
+2	2	src/views/Patyee/QuickSearch/index.vue
+
+COMMIT@4fecb8165d4d3314030ee5a3515d62f4e54b28ec
+1	0	src/views/Index/components/Header.vue
+
+COMMIT@8b5ecfa26c8d258938d340518dc1631823c490dc
+30	5	src/mixins/loginStatus.js
+90	4	src/utils/platformLink.js
+4	1	src/views/Home/components/CenterAchievement.vue
+3	2	src/views/Home/components/CenterService.vue
+5	2	src/views/Home/components/NewsNotice.vue
+7	1	src/views/Home/components/_mixin.js
+2	1	src/views/Home/components/bookRecommend.vue
+4	1	src/views/Home/components/dataList.vue
+4	1	src/views/Home/components/hotTechnologyDynamic.vue
+2	1	src/views/Home/components/resources.vue
+4	1	src/views/Home/components/typeBlock.vue
+5	4	src/views/Index/components/Header.vue
+
+COMMIT@1163a9024ee3f808f29bc7d3b386feadcd927b7f
+34	13	src/views/Home/components/listDetail.vue
+-	-	static/files/专利申请前评估专利查新--功能操作手册--V1.9.pdf
+
+COMMIT@0e6e64d3b06a2f426c0e5515eacd9e145dff7134
+145	145	src/views/Home/components/CenterService.vue
+2	3	src/views/Home/components/HomeFooter.vue
+2	2	src/views/Home/components/listDetail.vue
+0	1	src/views/Index/components/Footer.vue
+1	1	src/views/Index/components/Header.vue
+4	3	src/views/Index/components/configs.js
+2	2	vue.config.js
+
+COMMIT@88b74ebc00bbec15ce1c7a91866e675d6c88560d
+2	0	src/views/Index/components/Header.vue
+
+COMMIT@a60e516285d66878a0c96409ee2f4ac630dcb229
+61	2	src/mixins/loginStatus.js
+55	0	src/styles/home.scss
+42	0	src/styles/trainingServices.scss
+89	0	src/utils/platformLink.js
+1	1	src/utils/utils.js
+2	1	src/views/Home/components/AiConsult.vue
+38	1	src/views/Home/components/listDetail.vue
+
+COMMIT@9c98af1b402f3ee69af9353f47d41985c126c776
+2	2	src/views/Advocacy/index.vue
+2	2	src/views/DataNavigation/index.vue
+6	3	src/views/Home/components/CenterService.vue
+7	4	src/views/Home/components/HomeFooter.vue
+2	2	src/views/Home/components/listDetail.vue
+3	1	src/views/Index/components/Footer.vue
+1	1	src/views/Index/components/NoAccess.vue
+2	2	src/views/Patyee/Home/index.vue
+2	2	src/views/Patyee/HomePage/index.vue
+1	1	src/views/Patyee/PatSearch/components/search.vue
+2	2	src/views/Patyee/QuickSearch/index.vue
+
+COMMIT@ded9b12ba88b6a5430b34e84819d1d07ba2a490f
+261	0	src/views/Home/components/AiConsult.vue
+4	17	src/views/Home/index.vue
+
+COMMIT@38cf510be074af670f61f921c6a1605dc52025ab
+1	0	src/styles/trainingServices.scss
+1	1	src/views/Index/components/Header.vue
+0	3	src/views/TrainingServices/components/detail.vue
+0	1	src/views/TrainingServices/components/searchList.vue
+0	1	src/views/TrainingServices/index.vue
+0	1	src/views/Work/trainingReport/index.vue
+
+COMMIT@708220f4f7fff47090e289e77f725177ce25f034
+4	0	src/components/common/Recommend/field.js
+1	1	src/components/common/Recommend/field.vue
+2	2	src/views/Patyee/PatResults/components/LeftSide/index.vue
+
+COMMIT@c6966bddc4f70cb58f368ff172effe25baed73e0
+1	1	src/views/ReportCenter/mixins/index.js
+-	-	static/img/report-cover.png
+
+COMMIT@70a1f0f792b52e27b58b6a5b3bd1f80de4353b4b
+7	0	src/views/Help/fieldExplain.js
+1	1	src/views/Patyee/AdvancedSearch/components/LabelFiled.vue
+10	0	src/views/Patyee/AdvancedSearch/components/dataArr.js
+
+COMMIT@76ba722f66384ccb56ae16cb4ec126322c51f874
+1	1	src/views/Home/components/patyeeSearch.vue
+1	1	src/views/Patyee/PatResults/components/SchoolSearchHeader/index.vue
+
+COMMIT@3bde93993378f27945ba358833d9820711f09352
+16	4	src/views/Index/components/Header.vue
+
+COMMIT@049c6147e6544dad81e261d8bae9789f96ec6e31
+1	1	src/views/Home/components/patyeeSearch.vue
+2	0	src/views/Index/components/Header.vue
+
+COMMIT@4bc9f6d6df7ec23e71f9b5e087756b2117c0a91c
+39	0	src/styles/home.scss
+11	3	src/views/Home/components/patyeeSearch.vue
+48	6	src/views/Index/components/Header.vue
+11	1	src/views/Index/components/configs.js
+
+COMMIT@a15451f1d11176895fed3294545dd3ca123c07ef
+4	8	src/views/Home/components/patyeeSearch.vue
+
+COMMIT@45ac0754c1db2f86f9bc166861d0606d5773cdc8
+13	8	src/views/Home/components/dataAtlas.vue
+4	0	src/views/Patyee/PatResults/components/list/index.vue
+
+COMMIT@5aa45d66bdd395e4afe8048f045b8bc7cbccbc83
+8	0	src/api/digitalAtlas.js
+3	0	src/styles/home.scss
+82	54	src/views/Home/components/dataAtlas.vue
+
+COMMIT@163f99fd52ac7da2e78a7275fd63eed51a15fea2
+60	0	src/views/Home/components/listDetail.vue
+-	-	static/files/附件1-北航电子端口操作指南(1)(1).pdf
+-	-	static/files/附件2-北航电子端口提交文件说明以及填写示例.zip
+
+COMMIT@80e32b3d37e8374f8ea0212d1118b47202428753
+1	1	src/views/Patyee/PatResults/components/FilterOrderFiled/fields.js
+
+COMMIT@3e036e4900bc946ffdac2d69f7d0eaa64bb8914c
+16	7	src/views/userSet/index.vue
+
+COMMIT@3edbcfe970ca21a0116b3abb49520e51e0464743
+25	0	src/views/Patyee/PatResults/components/FilterOrderFiled/fields.js
+1	1	src/views/Patyee/PatResults/components/LeftSide/index.vue
+
+COMMIT@0bde7c2bd9872420213af32b844e0aaa55d76049
+1	1	src/views/Home/components/HighValue.vue
+
+COMMIT@433292de1127082db42c3d47ef0d22c3874a5f56
+3	3	src/views/Home/components/HomeFooter.vue
+
+COMMIT@e57eaf4099527709c7c069f3d2472881df3baf4b
+3	1	src/store/modules/user.js
+6	3	src/utils/utils.js
+
+COMMIT@781aa90020134481aba82dc278e490d903a5d2d1
+1	1	src/views/Patyee/Report/CustomerDetail/index.vue
+
+COMMIT@6ba58393774404b1e3b0d89604c511b8ed0f62eb
+-	-	static/img/newHome/zz1.png
+-	-	static/img/newHome/zz2.png
+-	-	static/img/newHome/zz3.png
+
+COMMIT@d8feb3179d672d624fd3ba1e0b60fde904032176
+1	0	package.json
+22	2	vue.config.js
+
+COMMIT@8214da798f193b8a3644fd35343e26ecf0f5f7e2
+11	0	src/styles/fnApps.scss
+4	4	src/styles/home.scss
+
+COMMIT@56c37be831fe5ff1f490d026eb0b38f9fef8b8db
+5	4	src/views/Help/help.vue
+
+COMMIT@15cc0891233742545cc4921f13864f2e3dc58722
+1	1	src/components/common/ContentEditTable/index.vue
+17	0	src/styles/fnApps.scss
+1	1	src/styles/fnPage.scss
+7	7	src/styles/home.scss
+2	2	src/views/Home/components/CenterAchievement.vue
+1	1	src/views/Home/components/CenterQualification.vue
+5	3	src/views/Home/components/CenterService.vue
+2	2	src/views/Home/components/HighValueThree.vue
+2	2	src/views/Home/components/HighValueTwoCopy.vue
+6	6	src/views/Home/components/NewsNotice.vue
+1	1	src/views/Home/components/ThematicTraining.vue
+4	4	src/views/Home/components/dataList.vue
+1	1	src/views/Home/components/patyeeSearch.vue
+2	2	src/views/PatentAchievement/index.vue
+
+COMMIT@388cae4e6e2c67cc48b5dbf075233f975e4f5516
+5	12	src/views/Home/components/ThematicTraining.vue
+
+COMMIT@3dbd84ddf97c6fc92e15ccf890f3a2e397d81eae
+15	5	src/views/Patyee/PatResults/components/MainHead/SortTypeSelect/SelectBody.vue
+
+COMMIT@fdfb757285848558e0ce3a48cdc9c463ab96379e
+61	1	src/views/Home/components/CenterService.vue
+
+COMMIT@bbf873068ade4f711417b7536b70a0506a75789c
+2	1	src/views/Patyee/PatResults/components/MainHead/index.vue
+
+COMMIT@626e1b135b3b9dd5c2587f79330b8bbbff417280
+2	2	src/views/Home/components/HomeFooter.vue
+
+COMMIT@d7b0b71829ad7c78352481887b2e03728a878930
+5	1	src/views/PatentInventory/components/MainHead/MergeStatus.vue
+5	1	src/views/Patyee/PatResults/components/MainHead/MergeStatus.vue
+
+COMMIT@199d61abe38205b90286a30d2e0faaadded4fe12
+2	2	src/views/Help/help.vue
+2	3	src/views/Help/index.vue
+
+COMMIT@c5a1ab4b9097685e525cfd00692ad046ae6ec642
+10	4	src/components/common/DetailTabs/index.vue
+9	0	src/styles/fnPage.scss
+
+COMMIT@138fc387328498c46f64ae95fef77da5739483ce
+4	1	src/components/common/DetailTabs/components/echartRadar.vue
+62	0	src/components/common/DetailTabs/index.vue
+8	7	src/utils/saasAnalysis.js
+19	0	src/views/Login/components/mixins.js
+2	0	src/views/Patyee/PatDetails/index.vue
+
+COMMIT@2133738618da736673bc4338de747c951e990d5e
+12	12	src/components/common/DetailTabs/index.vue
+1	1	src/views/Patyee/PatDetails/components/ToolBar.vue
+2	2	src/views/Patyee/PatDetails/index.vue
+2	1	src/views/Patyee/mixins/getDetail.js
+
+COMMIT@7d50df08f9933db41ab2676b24adc1a8036da35a
+3	3	src/views/Patyee/PatResults/components/MainHead/MergeStatus.vue
+
+COMMIT@1c8725b1b70c8d4f0d999e05273b1eff527b74bc
+2	2	src/components/common/DetailTabs/components/echartRadar.vue
+2	2	src/views/Patyee/PatResults/components/LeftSide/index.vue
+
+COMMIT@3fba155c3887783ddf62ce31f4022e5eee0aa881
+21	5	src/components/common/ContentEditTable/index.vue
+
+COMMIT@678e36ded37fba0c6dcd4a18d39e52546a08c424
+4	1	src/views/Home/components/patyeeSearch.vue
+
+COMMIT@40cb5f26c6c0c3e73edd836a1285fee2481ab88f
+3	1	src/views/Home/components/NewsNotice.vue
+5	2	src/views/Home/components/listDetail.vue
+
+COMMIT@37b9aca942de8dde33da0552d2cdcfb03613d5bb
+2	2	src/styles/patyee.scss
+2	2	src/views/Patyee/AdvancedSearch/components/SearchBox.vue
+2	2	src/views/Patyee/AdvancedSearch/components/SearchFiled.vue
+
+COMMIT@adccb72b9546223d55b0c80db67886c189903538
+11	9	src/views/Home/components/patyeeSearch.vue
+
+COMMIT@8e37843918b64462496242085690f52b7f523283
+9	4	src/views/Home/components/patyeeSearch.vue
+
+COMMIT@960dbdc6b482c1389d1ff94080373f0e0ca80608
+62	1	src/views/Home/components/CenterService.vue
+
+COMMIT@f161b323242b71f3353a9142a7f22b122ad12cd7
+2	1	src/views/Home/components/ThematicTraining.vue
+
+COMMIT@b62b9afda62986cb369c5786970af7d8873ca36f
+10	0	src/views/Patyee/PatResults/components/TableField/fields.js
+10	5	src/views/Patyee/PatResults/components/TableField/index.vue
+12	1	src/views/Patyee/PatResults/components/list/PatsList.vue
+23	3	src/views/Patyee/PatResults/components/list/index.vue
+
+COMMIT@a9c3873f7bf6cfa19a8cac5c0065e47e608c3e8d
+0	3	src/main.js
+0	15	src/router/index.js
+0	7	src/utils/tenant.js
+1	8	src/views/Home/index.vue
+3	21	src/views/Index/components/Header.vue
+0	2	src/views/Login/ThirdToken.vue
+7	56	src/views/Login/components/mixins.js
+
+COMMIT@cca71f9ad585dca1b3246a3a39a2a79495793740
+23	7	src/views/Login/components/mixins.js
+
+COMMIT@a4301cb005bdeddaa64b6471b19760ef468e1086
+COMMIT@a715f27884bf85722ece29b5ad2b2f8f18820a9a
+29	0	src/mixins/downloadPdf.js
+1	1	src/views/ReportCenter/mixins/index.js
+
+COMMIT@405e2610ef3053faf46ce6ca23ff880de7c1035b
+106	14	src/views/Home/components/CenterAchievement.vue
+
+COMMIT@089d643c865859f9e76e20d35b3df615bc76aed0
+31	11	src/styles/layout.scss
+65	46	src/views/Patyee/PatResults/components/LeftSide/index.vue
+20	3	src/views/Patyee/PatResults/components/MainHead/index.vue
+9	0	src/views/Patyee/PatResults/components/TableField/index.vue
+8	0	src/views/Patyee/PatResults/components/list/PatsList.vue
+45	45	src/views/Patyee/PatResults/components/list/index.vue
+21	18	src/views/Patyee/PatResults/index.vue
+
+COMMIT@583c0f3b11eed141394db4e38530201b92803034
+1	0	src/styles/home.scss
+3	3	src/views/Home/components/NewsNotice.vue
+3	2	src/views/Home/components/patyeeSearch.vue
+2	2	src/views/Home/index.vue
+
+COMMIT@e5ed3f6a1b8d2ee4b0572ac19f6ae602a0031d3f
+50	32	src/mixins/loginStatus.js
+58	0	src/utils/saasToken.js
+20	4	src/views/CoInnovationSpace/iframe.vue
+8	3	src/views/Home/components/CenterService.vue
+11	3	src/views/Home/components/listDetail.vue
+10	11	src/views/Index/components/Header.vue
+3	3	src/views/Index/components/configs.js
+1	5	src/views/Index/components/customHeader/sxauHeader.vue
+3	2	vue.config.js
+
+COMMIT@9adb1ccab5cc48c8a1396152c10961d179930cc2
+2	0	src/views/Patyee/PatResults/components/MainHead/AnalysisChoose.vue
+2	0	src/views/Patyee/PatResults/components/MainHead/AnalysisMenu.vue
+
+COMMIT@c07eefad38897173ae8177fe02ffce12e0ddfbab
+2	25	src/mixins/loginStatus.js
+0	9	src/utils/saasAnalysis.js
+0	8	src/views/Exception/404.vue
+0	12	src/views/Home/index.vue
+2	57	src/views/Login/components/mixins.js
+5	15	src/views/Patyee/PatResults/components/MainHead/AnalysisChoose.vue
+1	1	src/views/Patyee/PatResults/components/MainHead/AnalysisMenu.vue
+
+COMMIT@96ca3954f133845ba39adeb6bedb3f067a6bdb40
+28	10	src/views/Patyee/PatResults/components/MainHead/AnalysisMenu.vue
+
+COMMIT@c8d8987a331dcd917ea510b41f1339d2853fef47
+31	7	src/mixins/loginStatus.js
+73	0	src/utils/saasAnalysis.js
+8	0	src/views/Exception/404.vue
+26	0	src/views/Home/index.vue
+71	3	src/views/Login/components/mixins.js
+58	50	src/views/Patyee/PatResults/components/MainHead/AnalysisChoose.vue
+64	3	src/views/Patyee/PatResults/components/MainHead/AnalysisMenu.vue
+
+COMMIT@e4e710c39fe1fc54731e4605f18375489de50305
+2	2	src/styles/patyee.scss
+
+COMMIT@8a0f76c8fc06fd0a86aae929fdf39fed5fc4672b
+14	2	src/views/Home/components/listDetail.vue
+
+COMMIT@9fd358c73129acc16bcdb177258be412fe762ab2
+17	0	src/views/Index/components/Header.vue
+
+COMMIT@46b1b85156cbfcc271244e71fc4c4e96ba2885a8
+14	4	src/views/Home/index.vue
+17	11	src/views/Login/components/mixins.js
+
+COMMIT@f225ae046018c93753638fd82710567b0e32722a
+101	16	src/views/Login/components/mixins.js
+
+COMMIT@bc745812bcbb5e1c436c4fbc235e403c0051ebf7
+1	1	src/views/Login/components/mixins.js
+
+COMMIT@d0f2431d22669d9bf507719ebdc498060b855b7f
+25	0	src/views/Home/index.vue
+4	1	src/views/Index/components/Header.vue
+34	6	src/views/Login/components/mixins.js
+
+COMMIT@cac1d6886648f70c0ab2f166c4121fe417f50acd
+3	0	src/main.js
+33	5	src/router/index.js
+10	2	src/utils/tenant.js
+25	4	src/views/Index/components/Header.vue
+3	1	src/views/Login/ThirdToken.vue
+38	14	src/views/Login/components/mixins.js
+
+COMMIT@d2e33a07aa1f4df557c366ab7bfc71723433ab90
+0	22	src/views/Home/index.vue
+63	43	src/views/Index/components/Header.vue
+21	6	src/views/Login/components/mixins.js
+
+COMMIT@0bf5236da609b82201ba8115086a30428a051af1
+5	0	src/views/Index/components/Header.vue
+
+COMMIT@cbf1eb6f4abcef1da085714fb9ee6ba1d9f9a0c5
+8	4	src/mixins/loginStatus.js
+
+COMMIT@24b54e9dba7177f1083abcbda7200367b5e6956c
+6	6	src/views/Home/components/ThematicTraining.vue
+10	10	src/views/Home/index.vue
+
+COMMIT@ea5319a8b869fb7718e162ebee166b329711d9c1
+3	0	src/views/Home/index.vue
+
+COMMIT@52b14c8cb82f57ac328370079e1e23cf5bd4bc24
+6	1	src/views/Home/components/ThematicTraining.vue
+86	0	src/views/Home/index.vue
+
+COMMIT@1d343b278f339954b6a6b896c110527e9a32c08a
+43	4	src/views/Home/components/ThematicTraining.vue
+2	1	src/views/ThematicDatabase/components/ThematicData.vue
+
+COMMIT@d2780645fc1c735dca6737d22f8cd697b9a5d8b0
+10	0	src/views/Home/components/CenterService.vue
+9	4	src/views/Home/components/ThematicTraining.vue
+
+COMMIT@d23b8cc494ff5a082d797529120ab279a5fcf533
+2	0	src/views/Home/components/dataAtlas.vue
+
+COMMIT@d744efe5e3297a1b5f5538988d42dcf2a90f4fc2
+6	4	src/mixins/loginStatus.js
+2	2	src/views/Home/index.vue
+3	3	vue.config.js
+
+COMMIT@a61aa082886afd4bc236d7ece79925edf99fefe6
+2	1	src/views/Home/components/dataAtlas.vue
+1	1	vue.config.js
+
+COMMIT@e76ce7c30a096e189d80268982ea29d68172dc12
+21	2	src/views/Home/components/dataAtlas.vue
+
+COMMIT@e0ddf52445f0a2b7d78ad58bacf6f5e407d5fb7c
+1	1	src/views/Home/index.vue
+
+COMMIT@2d091ed2db33966c7126208e74107e94b102a3dc
+8	0	src/views/Home/index.vue
+6	2	src/views/Login/components/mixins.js
+
+COMMIT@27f295207e316d5f2e2de546add2576db8b0bed1
+27	1	src/mixins/loginStatus.js
+1	7	src/views/Index/components/Header.vue
+
+COMMIT@da6839a7450fac821e062382cfa38285f833a7d3
+1	0	package.json
+19	0	vue.config.js
+
+COMMIT@1d7c52cf9670b1e67d26e0f6cadb58b8b463838c
+2	1	src/api/saas.js
+9	1	src/views/Index/components/Header.vue
+12	1	src/views/Login/components/mixins.js
+
+COMMIT@7cc2e2b311658c3a9847788e17de818b5f6890ea
+3	3	vue.config.js
+
+COMMIT@5c7f7e0335cf7f9fb494640587e57ce5719756fd
+22	0	src/api/saas.js
+69	2	src/mixins/loginStatus.js
+1	0	src/store/modules/user.js
+6	3	src/types/storage.js
+2	2	src/views/Home/components/ThematicTraining.vue
+4	23	src/views/Home/components/dataAtlas.vue
+4	2	src/views/Home/index.vue
+11	1	src/views/Index/components/Header.vue
+3	2	src/views/Login/components/mixins.js
+12	4	vue.config.js
+
+COMMIT@76a22e3804f6e696ccec6b759c73361f62bc9cdc
+72	94	src/styles/home.scss
+2	2	src/utils/utils.js
+12	10	src/views/Home/components/HighValue.vue
+103	14	src/views/Home/components/HighValueTwoCopy.vue
+115	12	src/views/Home/components/NewsNotice.vue
+19	0	src/views/Home/components/ThematicTraining.vue
+16	12	src/views/Home/components/dataList.vue
+3	3	src/views/Home/index.vue
+45	4	src/views/PatentAchievement/index.vue
+3	1	src/views/Patyee/PatResults/components/FilterOrderFiled/fields.js
+39	39	src/views/Patyee/PatResults/components/LeftSide/index.vue
+116	84	src/views/Patyee/PatResults/components/list/PatsImgList.vue
+2	1	vue.config.js
+
+COMMIT@cacaa6c5d8c1e8c1eb1b755bc2468662d6bb09b3
+2	2	src/utils/utils.js
+9	6	src/views/Home/components/DetailSidebar.vue
+28	67	src/views/Home/components/dataList.vue
+2	0	src/views/Index/components/Header.vue
+
+COMMIT@4b61bfc2fb7b30e0ddff13d320a6eabcd5d254b0
+93	0	src/views/Home/components/DetailSidebar.vue
+102	3	src/views/Home/components/listDetail.vue
+20	1	src/views/Index/components/Header.vue
+8	0	src/views/Index/components/configs.js
+
+COMMIT@d2eb7e73fe8862f8b7bda030efa8278020a88974
+146	12	src/views/Home/components/dataList.vue
+4	2	src/views/Home/components/listDetail.vue
+29	9	src/views/Index/components/Header.vue
+
+COMMIT@90edb26f10be2f846b8b111bf3aa64cf69c304ed
+52	1	src/components/common/DetailTabs/details.js
+15	2	src/components/common/DetailTabs/index.vue
+3	0	src/views/Patyee/mixins/getDetail.js
+
+COMMIT@d22818edc8cf1894c650fcca3417b61eaa08226b
+1	1	src/views/Home/components/HomeFooter.vue
+4	2	src/views/Home/index.vue
+58	2	src/views/Patyee/AdvancedSearch/components/LabelFiled.vue
+1	0	src/views/Patyee/AdvancedSearch/components/SearchBox.vue
+2	2	src/views/Patyee/PatResults/index.vue
+1	0	src/views/Patyee/PatSearch/components/EntranceItem.vue

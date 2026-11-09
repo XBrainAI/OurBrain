@@ -1,0 +1,2881 @@
+{
+ "meta": {
+  "project": "public-service",
+  "date": "2026-11-04",
+  "period": 3,
+  "window": "2026-10-28 ~ 2026-11-04",
+  "runAt": "2026-11-04 08:43",
+  "statsRange": "2026-09-30 ~ 2026-11-04",
+  "repoCount": 4,
+  "template": 19,
+  "planRange": {
+   "start": "2026-10-26",
+   "end": "2026-10-30"
+  },
+  "prev": {
+   "date": "2026-11-02",
+   "period": 2,
+   "label": "11-02 P2"
+  },
+  "dayDiff": {
+   "prevDay": "11-03",
+   "today": "11-04",
+   "todayAsOf": "截至 08:43（非整日）",
+   "gapDays": 1,
+   "skipped": "",
+   "docsChangedToday": false,
+   "docsSummary": "今日无文档更新（最近一次为 10-30 的 W44 任务明细/缺陷统计/项目档案归档；W45 周计划尚未发布）",
+   "headline": "今日四仓 0 提交（截至 08:43 非整日，禁止判骤降）；上一变动日 11-03 为 wx 仓 10 笔（肖作志转出/转入逻辑与雪花 ID 修复、黄振豪主体详情修复），间隔 1 天无跳过日"
+  },
+  "roundDiff": {
+   "roundNo": 1,
+   "roundsToday": 1,
+   "prevRoundAt": null,
+   "headline": "今日首轮（第 1/1 轮），无轮内增量可对比"
+  },
+  "roundChain": {
+   "rounds": [
+    {
+     "period": 3,
+     "at": "08:43",
+     "roundNo": 1
+    }
+   ]
+  }
+ },
+ "headline": "在线二期修复与新功能持续推进（wx 30 笔有效 + 索引重建/缓存预热），但生产口令明文第 2 期仍未轮换，R22/R23 连续第 3 期逾期无证据，四仓测试同步仍为零。",
+ "keyPoints": [
+  {
+   "level": "中",
+   "type": "risk",
+   "text": "平台仓 10-28「生产配置提交」把生产库口令明文更新进配置文件并推到客户分支远端——第 2 期逐文件核验明文仍在、轮换未执行，需立即按泄露处置并改走密管。"
+  },
+  {
+   "level": "中",
+   "type": "risk",
+   "text": "R22（南航维护人变更）提测已过 4 个工作日、R23（北化院补丁）已过 3 个工作日，连续第 3 期零 git 证据（R23 属运维盲区，需运维记录佐证）——建议升级专项核对。"
+  },
+  {
+   "level": "中",
+   "type": "risk",
+   "text": "四仓窗口 33 笔有效提交零测试同步连续 3 期；缺陷基线（快照 10-29：存量 59、未关闭 18、返工阻塞 12）仍为四产品线最重且快照已滞后 6 天。"
+  },
+  {
+   "level": "低",
+   "type": "risk",
+   "text": "平台仓双胞胎重复入库从 1 对回升到 3 对（20%）、单人集中度回升到 73%（超阈值）；Sokach 第 3 期待映射（本期窗口零提交但统计期仍跨三仓 23 笔）。"
+  },
+  {
+   "level": "低",
+   "type": "positive",
+   "text": "R20 在线二期前后端持续实质推进：新增转入转出专利索引重建与图谱缓存预热能力，返工比 0.502→0.125、过短 message 27.8%→11.1% 双双好转。"
+  }
+ ],
+ "repos": [
+  {
+   "name": "wx-public-service-platform",
+   "total": 43.9,
+   "level": "中",
+   "delta": -0.2,
+   "scores": {
+    "progress": 36,
+    "people": 45,
+    "quality": 62,
+    "integration": 50,
+    "convention": 28
+   },
+   "topRisk": "生产口令明文第 2 期未轮换 + 双胞胎 3 对回升",
+   "narrative": {
+    "progress": "R20 实质强推进（窗口 30 笔有效 + 索引重建/缓存预热新能力）；R22 逾期 4 个工作日零推进（第 3 期）。",
+    "people": "窗口肖作志 22/30（73%）回升超阈值；2 人活跃，Sokach 窗口消失（统计期仍跨三仓 23 笔）。",
+    "quality": "口令明文第 2 期未处置；双胞胎 1 对→3 对；返工比 0.502→0.125 好转；TODO 仅 11 处。",
+    "integration": "主干 master 4 年半无提交、3 客户分支领先 669~2437（已知形态，dm_jl +34）。",
+    "convention": "过短 message 11.1%（上期 27.8%，大幅好转）；「生产配置提交/逻辑备份」类无信息说明仍存。",
+    "rhythm": "周序列 39→51→36 高位回落（%ad 口径）；11-03 单日 10 笔为窗口次峰。",
+    "modules": "改动集中数据服务（+2391）与在线二期业务（+1454/−376，24 笔）。",
+    "plans": "R20 已推进；R21/R27 按文档完成维持；R22 延期风险（第 3 期）。",
+    "testing": "30 笔有效修复零测试同步，存量 3 个框架期测试（连续 3 期）。"
+   },
+   "testing": {
+    "testCommitShare": 0,
+    "syncRate": 0,
+    "syncDenom": 30,
+    "testRatio": 0,
+    "stockTestFiles": 3,
+    "stockNote": "3 个存量测试（EsRestClient/OperationManage/UpdatePwdByBpm，框架期自带）",
+    "sitTraces": 0,
+    "aiReview": "30 笔有效修复零测试同步；本期新增转入转出索引重建与缓存预热能力均无回归用例——建议对产业链/创新主体/TL 链路补测试后再放开客户验收；密管缺口（口令明文第 2 期未处置）需一并整改。"
+   },
+   "members": [
+    {
+     "name": "肖作志",
+     "commits": 22,
+     "insertions": 2873,
+     "deletions": 348,
+     "branches": {
+      "knowledge_online_dm_jl": 22
+     },
+     "activeDays": 5,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "11-03",
+     "peakN": 6,
+     "modulesTouched": 6,
+     "testCommits": 0
+    },
+    {
+     "name": "黄振豪",
+     "commits": 8,
+     "insertions": 1184,
+     "deletions": 159,
+     "branches": {
+      "knowledge_online_dm_jl": 8
+     },
+     "activeDays": 5,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "10-30",
+     "peakN": 3,
+     "modulesTouched": 3,
+     "testCommits": 0
+    }
+   ],
+   "branches": [
+    {
+     "name": "knowledge_online_dm_jl",
+     "ahead": 2103,
+     "behind": 0,
+     "staleDays": 1678,
+     "lastActive": "11-03"
+    },
+    {
+     "name": "nuaa_integrated",
+     "ahead": 2437,
+     "behind": 0,
+     "staleDays": 1678,
+     "lastActive": "10-19"
+    },
+    {
+     "name": "gzkfq_service_platform",
+     "ahead": 669,
+     "behind": 0,
+     "staleDays": 1678,
+     "lastActive": "07-03"
+    }
+   ],
+   "quality": {
+    "todo": 11,
+    "todoThreshold": 20,
+    "bigCommits": 1,
+    "reworkRatio": 0.125,
+    "reworkThreshold": 0.5,
+    "largeFiles": 0
+   },
+   "rhythm": [
+    {
+     "date": "09-30",
+     "commits": 1
+    },
+    {
+     "date": "10-01",
+     "commits": 0
+    },
+    {
+     "date": "10-02",
+     "commits": 0
+    },
+    {
+     "date": "10-03",
+     "commits": 0
+    },
+    {
+     "date": "10-04",
+     "commits": 0
+    },
+    {
+     "date": "10-05",
+     "commits": 0
+    },
+    {
+     "date": "10-06",
+     "commits": 0
+    },
+    {
+     "date": "10-07",
+     "commits": 0
+    },
+    {
+     "date": "10-08",
+     "commits": 2
+    },
+    {
+     "date": "10-09",
+     "commits": 1
+    },
+    {
+     "date": "10-10",
+     "commits": 0
+    },
+    {
+     "date": "10-11",
+     "commits": 0
+    },
+    {
+     "date": "10-12",
+     "commits": 1
+    },
+    {
+     "date": "10-13",
+     "commits": 0
+    },
+    {
+     "date": "10-14",
+     "commits": 3
+    },
+    {
+     "date": "10-15",
+     "commits": 5
+    },
+    {
+     "date": "10-16",
+     "commits": 6
+    },
+    {
+     "date": "10-17",
+     "commits": 0
+    },
+    {
+     "date": "10-18",
+     "commits": 0
+    },
+    {
+     "date": "10-19",
+     "commits": 13
+    },
+    {
+     "date": "10-20",
+     "commits": 12
+    },
+    {
+     "date": "10-21",
+     "commits": 7
+    },
+    {
+     "date": "10-22",
+     "commits": 6
+    },
+    {
+     "date": "10-23",
+     "commits": 12
+    },
+    {
+     "date": "10-24",
+     "commits": 8
+    },
+    {
+     "date": "10-25",
+     "commits": 0
+    },
+    {
+     "date": "10-26",
+     "commits": 10
+    },
+    {
+     "date": "10-27",
+     "commits": 8
+    },
+    {
+     "date": "10-28",
+     "commits": 4
+    },
+    {
+     "date": "10-29",
+     "commits": 10
+    },
+    {
+     "date": "10-30",
+     "commits": 9
+    },
+    {
+     "date": "10-31",
+     "commits": 0
+    },
+    {
+     "date": "11-01",
+     "commits": 0
+    },
+    {
+     "date": "11-02",
+     "commits": 3
+    },
+    {
+     "date": "11-03",
+     "commits": 10
+    },
+    {
+     "date": "11-04",
+     "commits": 0
+    }
+   ],
+   "weekly": [
+    {
+     "label": "09-30",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "insertions": 332,
+     "deletions": 1
+    },
+    {
+     "label": "10-07",
+     "commits": 4,
+     "effective": 4,
+     "authors": 2,
+     "insertions": 647,
+     "deletions": 122
+    },
+    {
+     "label": "10-14",
+     "commits": 39,
+     "effective": 34,
+     "authors": 3,
+     "insertions": 1787,
+     "deletions": 503
+    },
+    {
+     "label": "10-21",
+     "commits": 51,
+     "effective": 44,
+     "authors": 3,
+     "insertions": 3561,
+     "deletions": 1799
+    },
+    {
+     "label": "10-28",
+     "commits": 36,
+     "effective": 30,
+     "authors": 2,
+     "insertions": 4057,
+     "deletions": 507
+    },
+    {
+     "label": "11-04",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    }
+   ],
+   "moduleActivity": [
+    {
+     "module": "knowledge-online-dataserver/knowledge-online-data-server",
+     "desc": "数据服务（TL 索引重建/Hbase 导入）",
+     "insertions": 2391,
+     "deletions": 74,
+     "commits": 4,
+     "core": true
+    },
+    {
+     "module": "knowledge-online-bus/knowledge-online-biz",
+     "desc": "在线二期业务（产业链/创新主体）",
+     "insertions": 1454,
+     "deletions": 376,
+     "commits": 24,
+     "core": true
+    },
+    {
+     "module": "knowledge-online-admin/src",
+     "desc": "后台管理端（配置/口令）",
+     "insertions": 156,
+     "deletions": 46,
+     "commits": 13,
+     "core": true
+    },
+    {
+     "module": "knowledge-online-framework/src",
+     "desc": "框架层",
+     "insertions": 38,
+     "deletions": 10,
+     "commits": 2,
+     "core": false
+    },
+    {
+     "module": "knowledge-online-dataserver",
+     "desc": "个人 SQL 脚本（xiaozz.sql）",
+     "insertions": 15,
+     "deletions": 0,
+     "commits": 1,
+     "core": false
+    },
+    {
+     "module": "knowledge-online-bus/knowledge-online-sbpt",
+     "desc": "申报相关模块",
+     "insertions": 3,
+     "deletions": 1,
+     "commits": 1,
+     "core": true
+    }
+   ],
+   "peopleProfile": [
+    {
+     "name": "肖作志",
+     "role": "在线二期后端主力（产业链/创新主体/索引）",
+     "intent": "R20 修复主写 + 转入转出专利索引重建（b7f0bb3efa）",
+     "workload": "统计期有效 70 笔（份额 62%），+5425/−1679",
+     "intensity": "18 活跃天，峰值 10-24 周六（7 笔），深夜 0/周末 7",
+     "engagement": "统计期 10+ 模块（窗口 6），与黄振豪互 merge 协作",
+     "risk": "后端 bus factor 偏低（窗口 73% 超阈值）；双胞胎 3 对均出自其个人分支双向合并；4087f26b2 生产口令入库在其名下，密管纪律待复盘",
+     "riskLevel": "中",
+     "activeDays": 18,
+     "deepNight": 0,
+     "weekend": 7,
+     "peakDay": "10-24",
+     "peakN": 7,
+     "modulesTouched": 10,
+     "testCommits": 0,
+     "share": 0.62
+    },
+    {
+     "name": "黄振豪",
+     "role": "报告/图谱/主体修复 + 缓存预热新功能",
+     "intent": "报告质押/图谱转入转出许可/主体详情修复 + feat 图谱缓存预热（ac3c15d348 602 行）",
+     "workload": "统计期有效 25 笔（份额 22%），+2890/−526",
+     "intensity": "15 活跃天，峰值 10-30（3 笔），深夜 0/周末 1",
+     "engagement": "窗口 3 模块，fix: 前缀规范使用良好",
+     "risk": "缺陷存量处理人第一（28/59，快照 10-29）与其修复角色对应，建议关注其模块回归",
+     "riskLevel": "中",
+     "activeDays": 15,
+     "deepNight": 0,
+     "weekend": 1,
+     "peakDay": "10-30",
+     "peakN": 3,
+     "modulesTouched": 3,
+     "testCommits": 0,
+     "share": 0.22
+    },
+    {
+     "name": "Sokach（待映射）",
+     "role": "配置/南航支援（跨仓活跃，本期窗口零提交）",
+     "intent": "统计期跨 wx/ip/nuaa 三仓（devDmLocal 配置与南航字段）",
+     "workload": "统计期有效 23 笔（跨三仓；本仓 18 笔），+2524/−1026",
+     "intensity": "8 活跃天，无深夜/周末",
+     "engagement": "跨 3 仓库活动，身份待映射（第 3 期）",
+     "risk": "身份未登记（待用户交代）；本期窗口零提交",
+     "riskLevel": "低",
+     "activeDays": 8,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "10-26",
+     "peakN": 4,
+     "modulesTouched": 5,
+     "testCommits": 0,
+     "share": 0.16
+    }
+   ],
+   "plans": [
+    {
+     "id": "R20",
+     "name": "在线二期问题修复（TAPD iteration 1137245826001000049，后端面）",
+     "owner": "肖作志/黄振豪/孙健凯/许志奇",
+     "start": "10-26",
+     "due": "—",
+     "status": "已推进",
+     "note": "窗口 30 笔有效（修复 7 笔 fix + TL 索引重建 + 缓存预热）；文档开发中 0.26（快照未更新，W45 未发布）",
+     "prevStatus": "已推进",
+     "done": null
+    },
+    {
+     "id": "R21",
+     "name": "南航-认领提示补充申请 bug（后端面，bug 1148201782001006722）",
+     "owner": "许志奇",
+     "start": "10-26",
+     "due": "10-26",
+     "status": "已完成",
+     "note": "每期复核：文档维持已完成；nuaa 分支窗口零提交，沿用 done=10-26",
+     "prevStatus": "已完成",
+     "done": "10-26"
+    },
+    {
+     "id": "R22",
+     "name": "南航-「维护人变更」功能异常（后端面，bug 1148201782001006660）",
+     "owner": "许志奇",
+     "start": "10-29",
+     "due": "10-29",
+     "status": "延期风险",
+     "note": "文档未开始、提测 10-29 已过 4 个工作日；nuaa 分支最后活跃 10-19；后端 10-19 50dd6e348 与文档落差未闭环（第 3 期，建议升级核对）",
+     "prevStatus": "延期风险",
+     "done": null
+    },
+    {
+     "id": "R27",
+     "name": "广州开发区-去客户现场配合编写信创方案（后端面 gzkfq）",
+     "owner": "许志奇",
+     "start": "10-28",
+     "due": "10-28",
+     "status": "已完成",
+     "note": "非代码交付（现场方案），git 盲区；文档确认完成，沿用 done=10-28",
+     "prevStatus": "已完成",
+     "done": "10-28"
+    }
+   ],
+   "risks": [
+    {
+     "title": "生产库口令明文写入版本库（第 2 期未处置）",
+     "plain": "10-28 的一次「生产配置提交」把生产数据库的密码明文更新进配置文件并推到远端——第 2 期核验密码仍在历史里、轮换没有执行，需要按泄露处理。",
+     "dimension": "quality",
+     "level": "高",
+     "evidence": "@4087f26b2 conf/bootstrap.yml 3 处 password 切生产库 10.207.148.177 并更新口令值、generatorConfig.xml jdbc 连接串同步；本期核验 tip 分支 conf/bootstrap.yml 5 处/generatorConfig.xml 1 处/application-devDmPro.yml 12 处 password 明文仍在，其后无处置提交（口令值不复现）",
+     "advice": "立即轮换该批生产口令并按泄露处置；生产配置改走密管/环境变量并移出版本库；补提交前 secret 扫描门禁",
+     "agePeriods": 2
+    },
+    {
+     "title": "双胞胎重复入库回升至 3 对（20%）",
+     "plain": "一模一样内容的提交重复入库从 1 对涨回 3 对——个人分支和集成分支来回合并造成的。",
+     "dimension": "quality",
+     "level": "中",
+     "evidence": "bf884ee98a/144d11fdb5、818d94bd77/3892e1e846、57a841bdcb/1fafc54590 三对 patch-id --stable 完全相同（均为同秒同题）；6/30=20%（上期约 11%）",
+     "advice": "专项复盘 dm_jl_xiaozz 个人分支与集成分支双向合并纪律：提交前 pull --rebase、合并后校验 patch-id；连续 3 期检出纳入迭代复盘",
+     "agePeriods": 3
+    },
+    {
+     "title": "窗口 30 笔有效修复零测试同步（连续 3 期）",
+     "plain": "在线二期改了这么多 bug，还是没有一笔带测试；仓库里只有 3 个建仓期的老测试。",
+     "dimension": "quality",
+     "level": "中",
+     "evidence": "窗口 numstat 测试同步 0/30；ls-files 测试文件 3（框架期自带）；test 前缀 0",
+     "advice": "对产业链/创新主体/转入转出主链路建立回归用例后再放开客户验收；「修复配测试」纳入 R20 验收口径（连续 3 期需专项治理）",
+     "agePeriods": 3
+    },
+    {
+     "title": "大提交 b7f0bb3efa（2353 行）评审面大",
+     "plain": "一次提交改了 2353 行——大部分是新索引配置，评审与回溯困难。",
+     "dimension": "quality",
+     "level": "中",
+     "evidence": "5 文件 +2290/−63：2073 行 ES dsl 配置 + ImportHbaseDataServiceImpl 257 行重写",
+     "advice": "拆分配置与代码评审；dsl.json 变更纳入配置评审清单",
+     "agePeriods": 1
+    },
+    {
+     "title": "在线二期后端单人集中回升至 73%",
+     "plain": "窗口六成以上的有效提交仍出自肖作志一人，比例从上期的 60% 反弹超过了警戒线。",
+     "dimension": "people",
+     "level": "中",
+     "evidence": "22/30=0.733 > 0.6（上期 0.60）；黄振豪 8/30=0.267",
+     "advice": "为产业链/创新主体模块指定第二责任人；黄振豪已有 8 笔介入基础，扩大其模块覆盖",
+     "agePeriods": 3
+    },
+    {
+     "title": "主干 master 死亡 4 年半，3 条客户分支脱节",
+     "plain": "主干 2022 年 4 月起没有任何提交，三个客户的分支各自领先 669~2437 笔——master 已经起不到集成作用（已知接入形态）。",
+     "dimension": "integration",
+     "level": "中",
+     "evidence": "master 2022-04-01；ahead 2103/2437/669、behind 0；dm_jl 较上期 +34。已知（见项目上下文），不据此单独上调集成维度分",
+     "advice": "专项确认 master 定位（归档或重建集成线）；「1 项目多分支」形态下明确客户分支回流策略",
+     "agePeriods": 3
+    },
+    {
+     "title": "R22 逾期 4 个工作日零推进（后端面）",
+     "plain": "南航「维护人变更」的修复提测时间已过 4 个工作日，后端看不到任何动静。",
+     "dimension": "progress",
+     "level": "中",
+     "evidence": "文档未开始；nuaa_integrated 最后活跃 10-19；后端 10-19 50dd6e348 与文档落差（P2 发现未闭环）",
+     "advice": "升级处理：与许志奇核对 TAPD 1148201782001006660 实际状态并向项目组呈报；连续 3 期需复盘计划状态维护流程",
+     "agePeriods": 3
+    },
+    {
+     "title": "碎提交与同秒拆分",
+     "plain": "有 3 笔只改一两行的碎提交，其中还有同一秒拆成两笔的。",
+     "dimension": "quality",
+     "level": "低",
+     "evidence": "5440f4bbd9（1 行注释）/239c7e0de0 同秒拆分对、f1520b2a9c（1 行）、9a57716cc5（2 行）",
+     "advice": "同一逻辑修改合并单笔提交；避免注释与实现拆成两笔",
+     "agePeriods": 1
+    },
+    {
+     "title": "个人工作分支 dm_jl_xiaozz 未纳管",
+     "plain": "肖作志的个人开发分支不在监测清单里，中间产出看不到（已知观察项）。",
+     "dimension": "progress",
+     "level": "低",
+     "evidence": "origin/knowledge_online_dm_jl_xiaozz 不在 config branches（已知，见项目上下文）",
+     "advice": "如需覆盖肖作志中间产出，按 A 类流程确认后追加至 config",
+     "agePeriods": 3
+    },
+    {
+     "title": "Sokach 身份待映射（第 3 期）",
+     "plain": "统计期贡献 23 笔的成员至今不知道真实姓名。",
+     "dimension": "people",
+     "level": "低",
+     "evidence": "1594574183@qq.com 统计期跨三仓 23 笔；本期窗口 0 笔",
+     "advice": "请用户交代身份后按 B 类流程登记成员映射（连续 3 期，建议升级为项目组沟通事项）",
+     "agePeriods": 3
+    }
+   ],
+   "dayDiff": {
+    "todayCommits": 0,
+    "todayEffective": 0,
+    "todayIns": 0,
+    "todayDel": 0,
+    "prevDayCommits": 10,
+    "prevDayEffective": 7,
+    "prevDayIns": 159,
+    "prevDayDel": 37,
+    "newAuthors": [],
+    "goneAuthors": [],
+    "aheadDelta": "+0",
+    "note": "今日截至 08:43 零提交（非整日）；上一变动日 11-03 本仓 10 笔（有效 7 + 合并 3，+159/−37）；ahead 精确回推 rev-list --count origin/master..3ebb186a95（11-03 最后提交）=2103 与当前持平，较上期（P2 11-02）2069 为 +34"
+   },
+   "roundDiff": null,
+   "roundSnapshots": [
+    {
+     "period": 3,
+     "at": "08:43",
+     "commits": 36,
+     "effective": 30,
+     "ins": 4057,
+     "del": 507,
+     "authors": 2,
+     "big": 1,
+     "todos": 11,
+     "scores": {
+      "progress": 36,
+      "people": 45,
+      "quality": 62,
+      "integration": 50,
+      "standard": 28
+     },
+     "total": 43.9,
+     "level": "中",
+     "topRisk": "生产口令明文第 2 期未轮换 + 双胞胎 3 对回升"
+    }
+   ],
+   "insights": [
+    "wx-public-service-platform@b7f0bb3efa conf/es-dsl/转入转出专利模型创建dsl.json —— 新增 2073 行 ES 索引 mapping；ImportHbaseDataServiceImpl +257 行实现达梦重建 search_analy_tl_index（游标分页 + 许可/转让预加载避免 N+1 + 批量 flush），实现质量良好、实质为新增能力而非纯修复，零测试兜底。",
+    "wx-public-service-platform@4087f26b2 conf/bootstrap.yml —— 3 处 password 由内网库 192.168.0.30 切至生产库 10.207.148.177 并更新口令值（明文存量+该提交更新）；admin/bootstrap.yml +29 行为关闭 Nacos 修复说明（不含口令，P2 证据表述已精确化）；tip 核验轮换未执行。",
+    "wx-public-service-platform@bf884ee98a/144d11fdb5 等 —— 三对同秒同题提交 patch-id --stable 完全相同（10-28/10-29/11-03 各一对），dm_jl_xiaozz 双向合并纪律失守，重复入库 11%→20%。",
+    "wx-public-service-platform@ac3c15d348 ChainAnalyzeCacheWarmupServiceImpl.java —— 产业链分析缓存预热定时任务（10 文件 +602/−22，常量+调度+服务+表达式工具），与 TL 索引构成 R20 产业链功能面新增能力。",
+    "wx-public-service-platform@861094d9f1 KeyTechNodeModelServiceImpl.java —— 「点击分类数据显示不对」修复 −68/+29 净删除收敛；7feccdf14a→b7f0bb3efa 修复链证实专利数据问题为索引层，R20 主线实质推进。"
+   ],
+   "prev": {
+    "total": 44.1,
+    "scores": {
+     "progress": 38,
+     "people": 42,
+     "quality": 60,
+     "integration": 50,
+     "convention": 32
+    },
+    "members": [
+     {
+      "name": "肖作志",
+      "commits": 12
+     },
+     {
+      "name": "黄振豪",
+      "commits": 5
+     },
+     {
+      "name": "Sokach（待映射）",
+      "commits": 1
+     }
+    ],
+    "branches": [
+     {
+      "name": "knowledge_online_dm_jl",
+      "ahead": 2069,
+      "behind": 0
+     },
+     {
+      "name": "nuaa_integrated",
+      "ahead": 2437,
+      "behind": 0
+     },
+     {
+      "name": "gzkfq_service_platform",
+      "ahead": 669,
+      "behind": 0
+     }
+    ],
+    "quality": {
+     "todo": 11,
+     "bigCommits": 0,
+     "reworkRatio": 0.502,
+     "largeFiles": 0
+    }
+   },
+   "windowAnalysis": {
+    "classification": {
+     "feat": 1,
+     "fix": 7,
+     "other": 22
+    },
+    "merges": 6,
+    "effectiveCommits": 30,
+    "trivial": [
+     {
+      "h": "5440f4bbd9",
+      "msg": "雪花ID超过JS安全整数序列化为字符串（注释行）",
+      "lines": 1
+     },
+     {
+      "h": "f1520b2a9c",
+      "msg": "产业链图谱过滤掉个人类型企业",
+      "lines": 1
+     },
+     {
+      "h": "9a57716cc5",
+      "msg": "电子档案对接生产地址修复",
+      "lines": 2
+     }
+    ]
+   },
+   "lifetime": {
+    "first": "2022-01-24",
+    "last": "2026-11-03",
+    "totalCommits": 6325,
+    "authors": 39,
+    "monthly": {
+     "2022-01": 3,
+     "2022-03": 45,
+     "2022-04": 90,
+     "2022-05": 12,
+     "2022-06": 9,
+     "2022-07": 7,
+     "2022-08": 2,
+     "2022-09": 69,
+     "2022-10": 58,
+     "2022-11": 115,
+     "2022-12": 51,
+     "2023-02": 8,
+     "2023-03": 102,
+     "2023-04": 308,
+     "2023-05": 185,
+     "2023-06": 315,
+     "2023-07": 328,
+     "2023-08": 221,
+     "2023-09": 164,
+     "2023-10": 203,
+     "2023-11": 112,
+     "2023-12": 60,
+     "2024-01": 108,
+     "2024-02": 36,
+     "2024-03": 49,
+     "2024-04": 60,
+     "2024-05": 120,
+     "2024-06": 63,
+     "2024-07": 38,
+     "2024-08": 79,
+     "2024-09": 432,
+     "2024-10": 114,
+     "2024-11": 229,
+     "2024-12": 232,
+     "2025-01": 134,
+     "2025-02": 49,
+     "2025-03": 185,
+     "2025-04": 209,
+     "2025-05": 146,
+     "2025-06": 103,
+     "2025-07": 155,
+     "2025-08": 92,
+     "2025-09": 199,
+     "2025-10": 197,
+     "2025-11": 195,
+     "2025-12": 89,
+     "2026-01": 25,
+     "2026-02": 8,
+     "2026-03": 13,
+     "2026-04": 27,
+     "2026-05": 51,
+     "2026-06": 70,
+     "2026-07": 90,
+     "2026-08": 22,
+     "2026-09": 105,
+     "2026-10": 121,
+     "2026-11": 13
+    },
+    "topAuthors": [
+     {
+      "who": "zjy（待映射）",
+      "commits": 713
+     },
+     {
+      "who": "黄振豪（huangzhenhao）",
+      "commits": 626
+     },
+     {
+      "who": "outens（待映射）",
+      "commits": 548
+     },
+     {
+      "who": "2423244747@qq.com（待映射）",
+      "commits": 490
+     },
+     {
+      "who": "wensicong（待映射）",
+      "commits": 468
+     }
+    ]
+   }
+  },
+  {
+   "name": "ip-online",
+   "total": 44.4,
+   "level": "中",
+   "delta": 0.9,
+   "scores": {
+    "progress": 32,
+    "people": 48,
+    "quality": 53,
+    "integration": 25,
+    "convention": 72
+   },
+   "topRisk": "message 100% 过短连续 3 期 + 前端单人化 100% 触顶",
+   "narrative": {
+    "progress": "R20 前端面每工作日 1 笔匀速推进（3 笔有效），18 文件取消请求优化实质落地。",
+    "people": "孙健凯 3/3（100%）单人触顶（上期 67%）；Sokach 窗口消失。",
+    "quality": "TODO 85 与 5 个超大文件存量持平；新增 1 个 18 文件大提交；返工比 0.227 好转。",
+    "integration": "master 即开发分支（11-02 仍活跃），无分支问题——四仓最健康。",
+    "convention": "3 笔 message 全部 <10 字符（修改bug/修改代码），连续 3 期 100%。",
+    "rhythm": "窗口每工作日 1 笔匀速；统计期 16 笔（%ad 口径），10-19/10-23 小峰。",
+    "modules": "改动集中在后台管理视图（src/views +599/−137）。",
+    "plans": "R20 已推进（每期复核维持）。",
+    "testing": "3 笔有效提交零测试同步，存量 0 个测试文件（连续 3 期）。"
+   },
+   "testing": {
+    "testCommitShare": 0,
+    "syncRate": 0,
+    "syncDenom": 3,
+    "testRatio": 0,
+    "stockTestFiles": 0,
+    "stockNote": "前端仓无测试文件（3004 个 tracked 文件中 0 个）",
+    "sitTraces": 0,
+    "aiReview": "3 笔有效提交零测试同步；本期 18 文件取消请求批量优化恰是回归敏感面（切换查询场景）——在线二期为付费客户交付面，建议至少为产业链主体管理主表单补 E2E 冒烟。"
+   },
+   "members": [
+    {
+     "name": "孙健凯",
+     "commits": 3,
+     "insertions": 603,
+     "deletions": 137,
+     "branches": {
+      "master": 3
+     },
+     "activeDays": 3,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "11-02",
+     "peakN": 1,
+     "modulesTouched": 2,
+     "testCommits": 0
+    }
+   ],
+   "branches": [],
+   "quality": {
+    "todo": 85,
+    "todoThreshold": 20,
+    "bigCommits": 1,
+    "reworkRatio": 0.227,
+    "reworkThreshold": 0.5,
+    "largeFiles": 5
+   },
+   "rhythm": [
+    {
+     "date": "09-30",
+     "commits": 0
+    },
+    {
+     "date": "10-01",
+     "commits": 0
+    },
+    {
+     "date": "10-02",
+     "commits": 0
+    },
+    {
+     "date": "10-03",
+     "commits": 0
+    },
+    {
+     "date": "10-04",
+     "commits": 0
+    },
+    {
+     "date": "10-05",
+     "commits": 0
+    },
+    {
+     "date": "10-06",
+     "commits": 0
+    },
+    {
+     "date": "10-07",
+     "commits": 0
+    },
+    {
+     "date": "10-08",
+     "commits": 0
+    },
+    {
+     "date": "10-09",
+     "commits": 0
+    },
+    {
+     "date": "10-10",
+     "commits": 1
+    },
+    {
+     "date": "10-11",
+     "commits": 0
+    },
+    {
+     "date": "10-12",
+     "commits": 0
+    },
+    {
+     "date": "10-13",
+     "commits": 0
+    },
+    {
+     "date": "10-14",
+     "commits": 0
+    },
+    {
+     "date": "10-15",
+     "commits": 1
+    },
+    {
+     "date": "10-16",
+     "commits": 0
+    },
+    {
+     "date": "10-17",
+     "commits": 0
+    },
+    {
+     "date": "10-18",
+     "commits": 0
+    },
+    {
+     "date": "10-19",
+     "commits": 3
+    },
+    {
+     "date": "10-20",
+     "commits": 1
+    },
+    {
+     "date": "10-21",
+     "commits": 0
+    },
+    {
+     "date": "10-22",
+     "commits": 1
+    },
+    {
+     "date": "10-23",
+     "commits": 3
+    },
+    {
+     "date": "10-24",
+     "commits": 0
+    },
+    {
+     "date": "10-25",
+     "commits": 0
+    },
+    {
+     "date": "10-26",
+     "commits": 3
+    },
+    {
+     "date": "10-27",
+     "commits": 1
+    },
+    {
+     "date": "10-28",
+     "commits": 1
+    },
+    {
+     "date": "10-29",
+     "commits": 0
+    },
+    {
+     "date": "10-30",
+     "commits": 1
+    },
+    {
+     "date": "10-31",
+     "commits": 0
+    },
+    {
+     "date": "11-01",
+     "commits": 0
+    },
+    {
+     "date": "11-02",
+     "commits": 1
+    },
+    {
+     "date": "11-03",
+     "commits": 0
+    },
+    {
+     "date": "11-04",
+     "commits": 0
+    }
+   ],
+   "weekly": [
+    {
+     "label": "09-30",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-07",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "insertions": 634,
+     "deletions": 122
+    },
+    {
+     "label": "10-14",
+     "commits": 5,
+     "effective": 5,
+     "authors": 1,
+     "insertions": 798,
+     "deletions": 380
+    },
+    {
+     "label": "10-21",
+     "commits": 8,
+     "effective": 7,
+     "authors": 2,
+     "insertions": 855,
+     "deletions": 767
+    },
+    {
+     "label": "10-28",
+     "commits": 3,
+     "effective": 3,
+     "authors": 1,
+     "insertions": 603,
+     "deletions": 137
+    },
+    {
+     "label": "11-04",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    }
+   ],
+   "moduleActivity": [
+    {
+     "module": "src/views",
+     "desc": "后台管理视图（主体/图谱/奖惩/取消请求）",
+     "insertions": 599,
+     "deletions": 137,
+     "commits": 3,
+     "core": true
+    },
+    {
+     "module": "src/utils",
+     "desc": "请求拦截器（取消请求不弹错）",
+     "insertions": 4,
+     "deletions": 0,
+     "commits": 1,
+     "core": false
+    }
+   ],
+   "peopleProfile": [
+    {
+     "name": "孙健凯",
+     "role": "ip-online 前端唯一活跃开发",
+     "intent": "R20 前端修复 + 取消请求防抖批量优化（3a46cbe27e 跨 8+ 模块）",
+     "workload": "统计期有效 14 笔（份额 87.5%），+2574/−1129",
+     "intensity": "11 活跃天，窗口每工作日 1 笔，深夜 0/周末 1",
+     "engagement": "窗口 2 模块（views/utils），统计期 4 模块",
+     "risk": "前端单点（窗口/统计期 100%）；message 纪律差连续 3 期降低可回溯性",
+     "riskLevel": "中",
+     "activeDays": 11,
+     "deepNight": 0,
+     "weekend": 1,
+     "peakDay": "10-19",
+     "peakN": 3,
+     "modulesTouched": 4,
+     "testCommits": 0,
+     "share": 0.875
+    }
+   ],
+   "plans": [
+    {
+     "id": "R20",
+     "name": "在线二期问题修复（前端面）",
+     "owner": "肖作志/黄振豪/孙健凯/许志奇",
+     "start": "10-26",
+     "due": "—",
+     "status": "已推进",
+     "note": "窗口 3 笔有效（主体详情/主体管理/取消请求批量优化）；文档开发中 0.26（快照未更新）",
+     "prevStatus": "已推进",
+     "done": null
+    }
+   ],
+   "risks": [
+    {
+     "title": "message 100% 过短且无信息量（连续 3 期）",
+     "plain": "最近 3 笔提交说明全是「修改bug」「修改代码」这类几个字，出问题回溯时查不到改了什么——已连续 3 期没有改善。",
+     "dimension": "convention",
+     "level": "中",
+     "evidence": "3/3 笔 <10 字符（占比 1.0 > 0.3）；连续 3 期（P1 6/6、P2 6/6）",
+     "advice": "推行「模块+问题」式说明（平台仓同项目已是范例）；评审卡无信息 message；连续 3 期纳入迭代复盘专项",
+     "agePeriods": 3
+    },
+    {
+     "title": "前端提交单人化触顶（孙健凯 100%）",
+     "plain": "在线二期前端现在 100% 是孙健凯一个人在改。",
+     "dimension": "people",
+     "level": "中",
+     "evidence": "窗口 3/3=1.0 > 0.6（上期 0.667）；Sokach 窗口消失",
+     "advice": "安排黄振豪/肖作志交叉熟悉前端产业链模块；至少建立代码评审双人签核",
+     "agePeriods": 3
+    },
+    {
+     "title": "TODO 85 处 + 5 个超大文件存量",
+     "plain": "代码里积了 85 处待办标记；库里还有 4 万行 PDF 插件和 1.7 万行城市配置等大文件。",
+     "dimension": "quality",
+     "level": "中",
+     "evidence": "TODO 85>20（54 处来自 pdf.js 第三方）；largeFiles 5（pdf.worker.js 41274 行、_city.js 17088 行等，存量持平）",
+     "advice": "手册迁至文档库；构建产物/第三方库不入业务仓；迭代收尾分批清理 TODO",
+     "agePeriods": 3
+    },
+    {
+     "title": "大提交 3a46cbe27e（18 文件）",
+     "plain": "一次提交改了 18 个文件——同主题批量改动可接受，但 message 只有四个字。",
+     "dimension": "quality",
+     "level": "中",
+     "evidence": "18 文件 +317/−54 横跨 8+ 业务模块 + filterConfig（同主题：取消请求防抖）",
+     "advice": "同主题批量改动建议按模块拆 2~3 笔以利回溯；message 须说明主题",
+     "agePeriods": 1
+    },
+    {
+     "title": "零测试：存量 0 个测试文件（连续 3 期）",
+     "plain": "整个前端仓库找不到一个测试文件，最近提交也都没有配套测试。",
+     "dimension": "quality",
+     "level": "中",
+     "evidence": "窗口测试同步 0/3；存量 0/3004",
+     "advice": "先建测试目录约定与最小 E2E 冒烟；连续 3 期需专项治理",
+     "agePeriods": 3
+    }
+   ],
+   "dayDiff": {
+    "todayCommits": 0,
+    "todayEffective": 0,
+    "todayIns": 0,
+    "todayDel": 0,
+    "prevDayCommits": 1,
+    "prevDayEffective": 1,
+    "prevDayIns": 317,
+    "prevDayDel": 54,
+    "newAuthors": [],
+    "goneAuthors": [],
+    "aheadDelta": "+0",
+    "note": "上一变动日 11-02 本仓 1 笔（3a46cbe27e 取消请求批量优化 +317/−54）；间隔 2 天（11-03 无提交与文档更新）；今日截至 08:43 零提交（非整日）；master 单分支无领先概念"
+   },
+   "roundDiff": null,
+   "roundSnapshots": [
+    {
+     "period": 3,
+     "at": "08:43",
+     "commits": 3,
+     "effective": 3,
+     "ins": 603,
+     "del": 137,
+     "authors": 1,
+     "big": 1,
+     "todos": 85,
+     "scores": {
+      "progress": 32,
+      "people": 48,
+      "quality": 53,
+      "integration": 25,
+      "standard": 72
+     },
+     "total": 44.4,
+     "level": "中",
+     "topRisk": "message 100% 过短连续 3 期 + 前端单人化 100%"
+    }
+   ],
+   "insights": [
+    "ip-online@3a46cbe27e src/utils/request.js —— 响应拦截器新增「主动取消的请求不视为错误、不弹提示」分支；16 个视图组件批量加入取消请求逻辑（每处 +9~47 行，模式统一），5 个 filterConfig 各 +9 行——同主题跨模块批量落地，无逻辑冲突迹象，但 message 仅「修改代码」。",
+    "ip-online@3a46cbe27e migrateLicenseInfo.vue —— 图表轴名「公开年→许可年」修正夹带在同一 18 文件提交内。",
+    "ip-online@d7de5a12c1 src/views/BackstageManage/industrialChain —— 10-30 主体管理/图谱修复 +158/−53，与 3a46cbe27e 构成同一修复链两日落地的两端。",
+    "ip-online 窗口 3 笔 message 全部 <10 字符（修改bug×2/修改代码×1）——连续 3 期 100%。"
+   ],
+   "prev": {
+    "total": 43.5,
+    "scores": {
+     "progress": 32,
+     "people": 45,
+     "quality": 53,
+     "integration": 25,
+     "convention": 70
+    },
+    "members": [
+     {
+      "name": "孙健凯",
+      "commits": 4
+     },
+     {
+      "name": "Sokach（待映射）",
+      "commits": 1
+     }
+    ],
+    "branches": [],
+    "quality": {
+     "todo": 85,
+     "bigCommits": 0,
+     "reworkRatio": 0.438,
+     "largeFiles": 5
+    }
+   },
+   "windowAnalysis": {
+    "classification": {
+     "other": 3
+    },
+    "merges": 0,
+    "effectiveCommits": 3,
+    "trivial": []
+   },
+   "lifetime": {
+    "first": "2024-06-11",
+    "last": "2026-11-02",
+    "totalCommits": 800,
+    "authors": 10,
+    "monthly": {
+     "2024-06": 36,
+     "2024-07": 101,
+     "2024-08": 68,
+     "2024-09": 24,
+     "2024-10": 37,
+     "2024-11": 37,
+     "2024-12": 29,
+     "2025-01": 19,
+     "2025-02": 12,
+     "2025-03": 7,
+     "2025-04": 3,
+     "2025-05": 7,
+     "2025-06": 11,
+     "2025-07": 79,
+     "2025-08": 21,
+     "2025-09": 55,
+     "2025-10": 39,
+     "2025-12": 8,
+     "2026-01": 8,
+     "2026-02": 5,
+     "2026-03": 4,
+     "2026-04": 6,
+     "2026-05": 46,
+     "2026-06": 71,
+     "2026-07": 31,
+     "2026-08": 5,
+     "2026-09": 14,
+     "2026-10": 16,
+     "2026-11": 1
+    },
+    "topAuthors": [
+     {
+      "who": "tangxiefeng（待映射）",
+      "commits": 316
+     },
+     {
+      "who": "孙健凯",
+      "commits": 190
+     },
+     {
+      "who": "许志奇",
+      "commits": 113
+     },
+     {
+      "who": "wanglei（待映射）",
+      "commits": 60
+     },
+     {
+      "who": "lujitang（待映射）",
+      "commits": 34
+     }
+    ]
+   }
+  },
+  {
+   "name": "nuaa-ip-transformation-platform",
+   "total": 41.0,
+   "level": "中",
+   "delta": 0.6,
+   "scores": {
+    "progress": 44,
+    "people": 40,
+    "quality": 50,
+    "integration": 30,
+    "convention": 35
+   },
+   "topRisk": "R22 前端面提测已过 4 个工作日零推进（第 3 期）",
+   "narrative": {
+    "progress": "窗口 0 提交；R22（维护人变更）前端面逾期 4 个工作日零推进（第 3 期）。",
+    "people": "统计期 3 笔单人 Sokach（待映射第 3 期）；历史主力 4 人持续淡出——移交/收尾形态。",
+    "quality": "TODO 188 与 29 万行 zip 构建产物存量持平；窗口零变更。",
+    "integration": "master 单分支（10-26 活跃），无分支问题；活跃度尾期。",
+    "convention": "窗口无提交，规范信号无从产生；尾期形态延续。",
+    "rhythm": "统计期 3 笔（10-08 ×2、10-26 ×1）——尾期节奏，11-04 空窗。",
+    "modules": "窗口期无变更。",
+    "plans": "R21/R27 按文档完成维持；R22 延期风险（第 3 期）。",
+    "testing": "不适用（窗口无变更）；存量 0 测试。"
+   },
+   "testing": {
+    "testCommitShare": 0,
+    "syncRate": 0,
+    "syncDenom": 0,
+    "testRatio": 0,
+    "stockTestFiles": 0,
+    "stockNote": "5349 个 tracked 文件中 0 个测试文件",
+    "sitTraces": 0,
+    "aiReview": "窗口零变更，测试信号不适用；南航前台无自动化保护——R22 前端修复落地时将无回归保护；5349 文件体量与当前 1~3 笔/月维护投入形成落差。"
+   },
+   "members": [],
+   "branches": [],
+   "quality": {
+    "todo": 188,
+    "todoThreshold": 20,
+    "bigCommits": 0,
+    "reworkRatio": 0.0,
+    "reworkThreshold": 0.5,
+    "largeFiles": 5
+   },
+   "rhythm": [
+    {
+     "date": "09-30",
+     "commits": 0
+    },
+    {
+     "date": "10-01",
+     "commits": 0
+    },
+    {
+     "date": "10-02",
+     "commits": 0
+    },
+    {
+     "date": "10-03",
+     "commits": 0
+    },
+    {
+     "date": "10-04",
+     "commits": 0
+    },
+    {
+     "date": "10-05",
+     "commits": 0
+    },
+    {
+     "date": "10-06",
+     "commits": 0
+    },
+    {
+     "date": "10-07",
+     "commits": 0
+    },
+    {
+     "date": "10-08",
+     "commits": 2
+    },
+    {
+     "date": "10-09",
+     "commits": 0
+    },
+    {
+     "date": "10-10",
+     "commits": 0
+    },
+    {
+     "date": "10-11",
+     "commits": 0
+    },
+    {
+     "date": "10-12",
+     "commits": 0
+    },
+    {
+     "date": "10-13",
+     "commits": 0
+    },
+    {
+     "date": "10-14",
+     "commits": 0
+    },
+    {
+     "date": "10-15",
+     "commits": 0
+    },
+    {
+     "date": "10-16",
+     "commits": 0
+    },
+    {
+     "date": "10-17",
+     "commits": 0
+    },
+    {
+     "date": "10-18",
+     "commits": 0
+    },
+    {
+     "date": "10-19",
+     "commits": 0
+    },
+    {
+     "date": "10-20",
+     "commits": 0
+    },
+    {
+     "date": "10-21",
+     "commits": 0
+    },
+    {
+     "date": "10-22",
+     "commits": 0
+    },
+    {
+     "date": "10-23",
+     "commits": 0
+    },
+    {
+     "date": "10-24",
+     "commits": 0
+    },
+    {
+     "date": "10-25",
+     "commits": 0
+    },
+    {
+     "date": "10-26",
+     "commits": 1
+    },
+    {
+     "date": "10-27",
+     "commits": 0
+    },
+    {
+     "date": "10-28",
+     "commits": 0
+    },
+    {
+     "date": "10-29",
+     "commits": 0
+    },
+    {
+     "date": "10-30",
+     "commits": 0
+    },
+    {
+     "date": "10-31",
+     "commits": 0
+    },
+    {
+     "date": "11-01",
+     "commits": 0
+    },
+    {
+     "date": "11-02",
+     "commits": 0
+    },
+    {
+     "date": "11-03",
+     "commits": 0
+    },
+    {
+     "date": "11-04",
+     "commits": 0
+    }
+   ],
+   "weekly": [
+    {
+     "label": "09-30",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-07",
+     "commits": 2,
+     "effective": 2,
+     "authors": 1,
+     "insertions": 138,
+     "deletions": 22
+    },
+    {
+     "label": "10-14",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-21",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "insertions": 1,
+     "deletions": 0
+    },
+    {
+     "label": "10-28",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "11-04",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    }
+   ],
+   "moduleActivity": [],
+   "peopleProfile": [
+    {
+     "name": "Sokach（待映射）",
+     "role": "南航前台当前唯一活跃者（本期窗口零提交）",
+     "intent": "统计期：专利提案申请国别字段小步演进（ebcb74c0）+ 10-08 两笔维护",
+     "workload": "统计期有效 3 笔（本仓份额 100%），+139/−22",
+     "intensity": "2 活跃天，无深夜/周末",
+     "engagement": "跨 wx/ip/nuaa 三仓活动，身份待映射（第 3 期）",
+     "risk": "身份待登记；历史主力（yangweifan/yuyanjie 等 1386 笔）全部淡出——知识转移依赖单人",
+     "riskLevel": "中",
+     "activeDays": 2,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "10-08",
+     "peakN": 2,
+     "modulesTouched": 1,
+     "testCommits": 0,
+     "share": 1.0
+    }
+   ],
+   "plans": [
+    {
+     "id": "R21",
+     "name": "南航-认领提示补充申请 bug（前端面，bug 1148201782001006722）",
+     "owner": "许志奇",
+     "start": "10-26",
+     "due": "10-26",
+     "status": "已完成",
+     "note": "每期复核：文档维持已完成；窗口 ebcb74c0（10-26）为认领链路相邻国别字段，沿用 done=10-26",
+     "prevStatus": "已完成",
+     "done": "10-26"
+    },
+    {
+     "id": "R22",
+     "name": "南航-「维护人变更」功能异常（前端面，bug 1148201782001006660）",
+     "owner": "许志奇",
+     "start": "10-29",
+     "due": "10-29",
+     "status": "延期风险",
+     "note": "文档未开始、提测 10-29 已过 4 个工作日、本仓窗口 0 提交；后端 10-19 50dd6e348 落差需人工核对（第 3 期，建议升级核对）",
+     "prevStatus": "延期风险",
+     "done": null
+    },
+    {
+     "id": "R27",
+     "name": "广州开发区-信创方案（前端面）",
+     "owner": "许志奇",
+     "start": "10-28",
+     "due": "10-28",
+     "status": "已完成",
+     "note": "非代码交付（现场方案），git 盲区；文档确认完成，沿用 done=10-28",
+     "prevStatus": "已完成",
+     "done": "10-28"
+    }
+   ],
+   "risks": [
+    {
+     "title": "R22 前端面逾期 4 个工作日零推进（第 3 期）",
+     "plain": "「维护人变更」的页面修复没有任何提交，提测时间已过 4 个工作日。",
+     "dimension": "progress",
+     "level": "中",
+     "evidence": "文档未开始；本仓窗口 0 提交、统计期 3 笔（均与 R22 无关）；后端 10-19 50dd6e348 与文档落差",
+     "advice": "升级处理：与许志奇核对 TAPD 1148201782001006660 状态并呈报项目组；连续 3 期需复盘计划状态维护流程",
+     "agePeriods": 3
+    },
+    {
+     "title": "尾期形态：统计期 3 笔，历史主力全部淡出",
+     "plain": "这个南航前台仓库现在每月只有几笔提交，原来挑大梁的 4 位开发今年都没再出现。",
+     "dimension": "people",
+     "level": "中",
+     "evidence": "统计期 3 笔（10-08 ×2、10-26 ×1）；历史 top4（403/366/337/280 笔）统计期 0 笔",
+     "advice": "确认项目状态（移交/收尾）并登记项目上下文；知识转移文档化",
+     "agePeriods": 3
+    },
+    {
+     "title": "TODO 188 处 + 29 万行 zip 构建产物入库",
+     "plain": "代码里积了 188 处待办标记；仓库里还打包了一份 29 万行的前端工程 zip。",
+     "dimension": "quality",
+     "level": "中",
+     "evidence": "TODO 188>20；nuaa-fvue-pro.zip 293,674 行；largeFiles 5（存量持平）",
+     "advice": "zip 移出版本库（发布物走制品库）；TODO 分批清理",
+     "agePeriods": 3
+    },
+    {
+     "title": "Sokach 身份待映射（第 3 期）",
+     "plain": "贡献最多的人至今不知道真实姓名，跨三仓活跃但身份未登记。",
+     "dimension": "people",
+     "level": "低",
+     "evidence": "1594574183@qq.com 统计期跨三仓 23 笔、本仓唯一活跃者；本期窗口 0 笔",
+     "advice": "请用户交代身份后按 B 类流程登记成员映射（连续 3 期，建议升级为项目组沟通事项）",
+     "agePeriods": 3
+    }
+   ],
+   "dayDiff": {
+    "todayCommits": 0,
+    "todayEffective": 0,
+    "todayIns": 0,
+    "todayDel": 0,
+    "prevDayCommits": 0,
+    "prevDayEffective": 0,
+    "prevDayIns": 0,
+    "prevDayDel": 0,
+    "newAuthors": [],
+    "goneAuthors": [],
+    "aheadDelta": "+0",
+    "note": "本仓代码最后提交 10-26（ebcb74c0）；上一变动日取 10-30（项目文档 W44 归档整理日，git 零提交），间隔 5 天（10-31/11-01 周末、11-02/11-03 无提交与文档更新，已跳过）；今日截至 08:43 零提交（非整日）"
+   },
+   "roundDiff": null,
+   "roundSnapshots": [
+    {
+     "period": 3,
+     "at": "08:43",
+     "commits": 0,
+     "effective": 0,
+     "ins": 0,
+     "del": 0,
+     "authors": 0,
+     "big": 0,
+     "todos": 188,
+     "scores": {
+      "progress": 44,
+      "people": 40,
+      "quality": 50,
+      "integration": 30,
+      "standard": 35
+     },
+     "total": 41.0,
+     "level": "中",
+     "topRisk": "R22 前端面提测已过 4 个工作日零推进（第 3 期）"
+    }
+   ],
+   "insights": [
+    "nuaa-ip-transformation-platform@ebcb74c0 src/views/PatentProcess/pages/patentProposalApplication/_configs/PCTCountryData.js —— 统计期唯一实质提交（10-26）：PCT 国别数据新增 1 行，纯数据配置增补。",
+    "nuaa-ip-transformation-platform@HEAD nuaa-fvue-pro.zip —— 293,674 行前端工程 zip 仍在库（存量，无恶化）。",
+    "历史主力 yangweifan/yuyanjie/huangzesong/chenweizhi（合计 1386 笔）统计期零提交——移交/收尾形态持续；R22 前端面逾期为本仓唯一活动性缺口。"
+   ],
+   "prev": {
+    "total": 40.4,
+    "scores": {
+     "progress": 42,
+     "people": 40,
+     "quality": 50,
+     "integration": 30,
+     "convention": 35
+    },
+    "members": [
+     {
+      "name": "Sokach（待映射）",
+      "commits": 1
+     }
+    ],
+    "branches": [],
+    "quality": {
+     "todo": 188,
+     "bigCommits": 0,
+     "reworkRatio": 0.0,
+     "largeFiles": 5
+    }
+   },
+   "windowAnalysis": {
+    "classification": {},
+    "merges": 0,
+    "effectiveCommits": 0,
+    "trivial": []
+   },
+   "lifetime": {
+    "first": "2023-03-01",
+    "last": "2026-10-26",
+    "totalCommits": 1740,
+    "authors": 14,
+    "monthly": {
+     "2023-03": 3,
+     "2023-06": 1,
+     "2023-07": 13,
+     "2023-08": 19,
+     "2023-09": 9,
+     "2023-10": 3,
+     "2023-11": 2,
+     "2023-12": 4,
+     "2024-02": 1,
+     "2024-05": 2,
+     "2024-06": 1,
+     "2024-07": 91,
+     "2024-08": 166,
+     "2024-09": 575,
+     "2024-10": 14,
+     "2024-11": 135,
+     "2024-12": 140,
+     "2025-01": 12,
+     "2025-03": 158,
+     "2025-04": 104,
+     "2025-05": 118,
+     "2025-06": 14,
+     "2025-07": 2,
+     "2025-08": 12,
+     "2025-09": 1,
+     "2025-10": 9,
+     "2025-11": 49,
+     "2025-12": 45,
+     "2026-01": 11,
+     "2026-03": 7,
+     "2026-04": 4,
+     "2026-05": 1,
+     "2026-06": 3,
+     "2026-07": 5,
+     "2026-09": 3,
+     "2026-10": 3
+    },
+    "topAuthors": [
+     {
+      "who": "yangweifan（待映射）",
+      "commits": 403
+     },
+     {
+      "who": "yuyanjie（待映射）",
+      "commits": 366
+     },
+     {
+      "who": "huangzesong（待映射）",
+      "commits": 337
+     },
+     {
+      "who": "chenweizhi（待映射）",
+      "commits": 280
+     },
+     {
+      "who": "suguangluan（待映射）",
+      "commits": 116
+     }
+    ]
+   }
+  },
+  {
+   "name": "cms",
+   "total": 38.7,
+   "level": "中",
+   "delta": 0.6,
+   "scores": {
+    "progress": 49,
+    "people": 35,
+    "quality": 40,
+    "integration": 40,
+    "convention": 20
+   },
+   "topRisk": "R23 运维任务零 git 证据（第 3 期）+ 休眠 685 天",
+   "narrative": {
+    "progress": "R23（北化院补丁）提测已过 3 个工作日仍无证据（第 3 期）；运维工作天然在 git 盲区。",
+    "people": "统计期无活跃成员；历史作者 maikec/songyongren/outens 均待映射。",
+    "quality": "TODO 29 处与 5 个超大文件存量持平；窗口无变更。",
+    "integration": "master 单分支休眠 685 天；无分支问题。",
+    "convention": "窗口无提交，规范信号无从产生。",
+    "rhythm": "统计期全零（休眠仓）。",
+    "modules": "窗口期无变更。",
+    "plans": "R23 延期风险（第 3 期，运维盲区）。",
+    "testing": "不适用（无代码变更）。"
+   },
+   "testing": {
+    "testCommitShare": 0,
+    "syncRate": 0,
+    "syncDenom": 0,
+    "testRatio": 0,
+    "stockTestFiles": 13,
+    "stockNote": "13 个命中测试命名的文件均为 2019~2020 建仓期脚手架自带（Hello/Article/Column 等示例与生成测试）",
+    "sitTraces": 0,
+    "aiReview": "窗口无代码变更，规范缺口不适用；R23 为服务器运维（补丁/漏洞修复），交付在服务器侧、git 不可见——需结合运维记录核对。"
+   },
+   "members": [],
+   "branches": [],
+   "quality": {
+    "todo": 29,
+    "todoThreshold": 20,
+    "bigCommits": 0,
+    "reworkRatio": 0,
+    "reworkThreshold": 0.5,
+    "largeFiles": 5
+   },
+   "rhythm": [
+    {
+     "date": "09-30",
+     "commits": 0
+    },
+    {
+     "date": "10-01",
+     "commits": 0
+    },
+    {
+     "date": "10-02",
+     "commits": 0
+    },
+    {
+     "date": "10-03",
+     "commits": 0
+    },
+    {
+     "date": "10-04",
+     "commits": 0
+    },
+    {
+     "date": "10-05",
+     "commits": 0
+    },
+    {
+     "date": "10-06",
+     "commits": 0
+    },
+    {
+     "date": "10-07",
+     "commits": 0
+    },
+    {
+     "date": "10-08",
+     "commits": 0
+    },
+    {
+     "date": "10-09",
+     "commits": 0
+    },
+    {
+     "date": "10-10",
+     "commits": 0
+    },
+    {
+     "date": "10-11",
+     "commits": 0
+    },
+    {
+     "date": "10-12",
+     "commits": 0
+    },
+    {
+     "date": "10-13",
+     "commits": 0
+    },
+    {
+     "date": "10-14",
+     "commits": 0
+    },
+    {
+     "date": "10-15",
+     "commits": 0
+    },
+    {
+     "date": "10-16",
+     "commits": 0
+    },
+    {
+     "date": "10-17",
+     "commits": 0
+    },
+    {
+     "date": "10-18",
+     "commits": 0
+    },
+    {
+     "date": "10-19",
+     "commits": 0
+    },
+    {
+     "date": "10-20",
+     "commits": 0
+    },
+    {
+     "date": "10-21",
+     "commits": 0
+    },
+    {
+     "date": "10-22",
+     "commits": 0
+    },
+    {
+     "date": "10-23",
+     "commits": 0
+    },
+    {
+     "date": "10-24",
+     "commits": 0
+    },
+    {
+     "date": "10-25",
+     "commits": 0
+    },
+    {
+     "date": "10-26",
+     "commits": 0
+    },
+    {
+     "date": "10-27",
+     "commits": 0
+    },
+    {
+     "date": "10-28",
+     "commits": 0
+    },
+    {
+     "date": "10-29",
+     "commits": 0
+    },
+    {
+     "date": "10-30",
+     "commits": 0
+    },
+    {
+     "date": "10-31",
+     "commits": 0
+    },
+    {
+     "date": "11-01",
+     "commits": 0
+    },
+    {
+     "date": "11-02",
+     "commits": 0
+    },
+    {
+     "date": "11-03",
+     "commits": 0
+    },
+    {
+     "date": "11-04",
+     "commits": 0
+    }
+   ],
+   "weekly": [
+    {
+     "label": "09-30",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-07",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-14",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-21",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-28",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "11-04",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    }
+   ],
+   "moduleActivity": [],
+   "peopleProfile": [],
+   "plans": [
+    {
+     "id": "R23",
+     "name": "北化院-服务器系统补丁安装及漏洞修复",
+     "owner": "许志奇",
+     "start": "10-27",
+     "due": "10-30",
+     "status": "延期风险",
+     "note": "文档开发中 0.1、提测 10-30 已过 3 个工作日、cms 窗口 0 提交；运维工作在 git 盲区（补丁在服务器执行），按六值保守判延期风险并留盲区声明（第 3 期，建议升级核对运维记录）",
+     "prevStatus": "延期风险",
+     "done": null
+    }
+   ],
+   "risks": [
+    {
+     "title": "R23 运维任务逾期加深、零 git 证据（第 3 期）",
+     "plain": "服务器补丁任务提测时间已过 3 个工作日，代码仓看不到任何动静——可能已在服务器侧执行（git 看不见），需要运维记录佐证。",
+     "dimension": "progress",
+     "level": "中",
+     "evidence": "cms 窗口/统计期 0 提交；文档开发中 0.1；提测 10-30 已过 3 个工作日（11-02/11-03/11-04）",
+     "advice": "升级处理：与许志奇核对补丁执行与漏洞扫描结果（以运维记录为证据源）；如已完成请更新周计划状态；连续 3 期需复盘盲区任务的进度承载方式",
+     "agePeriods": 3
+    },
+    {
+     "title": "仓库休眠 685 天（最后提交 2024-12-19）",
+     "plain": "北化院 cms 仓库快两年没有任何提交了。",
+     "dimension": "progress",
+     "level": "低",
+     "evidence": "全分支最后提交 2024-12-19；统计期/窗口 0 笔",
+     "advice": "确认 cms 在北化院的运行状态（纯运维托管？），登记项目上下文调整监测预期",
+     "agePeriods": 3
+    },
+    {
+     "title": "TODO 29 处 + 超大文件存量（休眠仓）",
+     "plain": "代码里积了 29 处待办标记，仓库已休眠所以无人清理。",
+     "dimension": "quality",
+     "level": "低",
+     "evidence": "TODO 29>20（17 处来自 bootstrap.js 第三方库）；largeFiles 5",
+     "advice": "如项目重启再纳入清理计划；休眠期不作行动项",
+     "agePeriods": 3
+    }
+   ],
+   "dayDiff": {
+    "todayCommits": 0,
+    "todayEffective": 0,
+    "todayIns": 0,
+    "todayDel": 0,
+    "prevDayCommits": 0,
+    "prevDayEffective": 0,
+    "prevDayIns": 0,
+    "prevDayDel": 0,
+    "newAuthors": [],
+    "goneAuthors": [],
+    "aheadDelta": "+0",
+    "note": "连续休眠（最后提交 2024-12-19）；上一变动日取 10-30（项目文档 W44 归档整理日），间隔 5 天；今日截至 08:43 零提交（非整日）"
+   },
+   "roundDiff": null,
+   "roundSnapshots": [
+    {
+     "period": 3,
+     "at": "08:43",
+     "commits": 0,
+     "effective": 0,
+     "ins": 0,
+     "del": 0,
+     "authors": 0,
+     "big": 0,
+     "todos": 29,
+     "scores": {
+      "progress": 49,
+      "people": 35,
+      "quality": 40,
+      "integration": 40,
+      "standard": 20
+     },
+     "total": 38.7,
+     "level": "中",
+     "topRisk": "R23 运维任务零 git 证据（第 3 期）+ 休眠 685 天"
+    }
+   ],
+   "insights": [
+    "cms 窗口期无变更，无 diff 可读。结构性观察（与上期一致）：2019-12 建仓、167 笔提交、5 位历史作者；13 个存量测试均为建仓期脚手架。",
+    "任务映射口径：R23 的「代码地址」指向 cms.git，但任务实质是服务器补丁/漏洞修复——属 git 盲区任务，代码仓零提交不构成停滞反证。"
+   ],
+   "prev": {
+    "total": 38.1,
+    "scores": {
+     "progress": 47,
+     "people": 35,
+     "quality": 40,
+     "integration": 40,
+     "convention": 20
+    },
+    "members": [],
+    "branches": [],
+    "quality": {
+     "todo": 29,
+     "bigCommits": 0,
+     "reworkRatio": 0,
+     "largeFiles": 5
+    }
+   },
+   "windowAnalysis": {
+    "classification": {},
+    "merges": 0,
+    "effectiveCommits": 0,
+    "trivial": []
+   },
+   "lifetime": {
+    "first": "2019-12-26",
+    "last": "2024-12-19",
+    "totalCommits": 167,
+    "authors": 5,
+    "monthly": {
+     "2019-12": 14,
+     "2020-01": 104,
+     "2020-02": 7,
+     "2020-03": 9,
+     "2020-04": 4,
+     "2020-05": 1,
+     "2021-02": 2,
+     "2021-03": 1,
+     "2021-04": 5,
+     "2021-05": 1,
+     "2022-04": 2,
+     "2022-06": 1,
+     "2022-07": 1,
+     "2022-12": 2,
+     "2023-04": 1,
+     "2023-05": 1,
+     "2023-07": 2,
+     "2023-08": 2,
+     "2024-01": 1,
+     "2024-05": 1,
+     "2024-11": 2,
+     "2024-12": 3
+    },
+    "topAuthors": [
+     {
+      "who": "maikec（待映射）",
+      "commits": 92
+     },
+     {
+      "who": "songyongren（待映射）",
+      "commits": 48
+     },
+     {
+      "who": "outens（待映射）",
+      "commits": 23
+     },
+     {
+      "who": "19920107pd（待映射）",
+      "commits": 3
+     },
+     {
+      "who": "chenshenhong",
+      "commits": 1
+     }
+    ]
+   }
+  }
+ ],
+ "saturationTrend": {
+  "scope": "统计期 2026-09-30 ~ 2026-11-04（按 7 天窗口）",
+  "unit": "窗口 = 统计期内按 7 天切分的连续区间（W1~W5 各 5 个工作日，W6 = 11-04 截断单日 1 个工作日）。W1~W4 沿用上期发布值；W5 补满为 10-28~11-03 按本期 %ad 口径重算（上期发布值为 10-28~11-02 旧口径）；W6 为 11-04 空窗。团队 7 人 = W44 计划 4 人 + 缺陷覆盖 2 人 + git 活跃待映射 1 人；活跃成员 ≤3 时 top3 恒 100%，集中度判级退化（见项目上下文）。统计期全期定级（5.2 个人表，分母 26 工作日）与窗口定级（本图）口径分离，可能不同",
+  "team": [
+   {
+    "period": 1,
+    "label": "09-30~10-06",
+    "load": 0,
+    "focus": 2,
+    "composite": 2,
+    "loadLevel": "低",
+    "focusLevel": "高",
+    "coverage": 0.029,
+    "nonWork": 0.0,
+    "top1": 1.0,
+    "top3": 1.0,
+    "commits": 1,
+    "workdays": 5
+   },
+   {
+    "period": 2,
+    "label": "10-07~10-13",
+    "load": 1,
+    "focus": 2,
+    "composite": 3,
+    "loadLevel": "中",
+    "focusLevel": "高",
+    "coverage": 0.114,
+    "nonWork": 0.143,
+    "top1": 0.571,
+    "top3": 1.0,
+    "commits": 7,
+    "workdays": 5
+   },
+   {
+    "period": 3,
+    "label": "10-14~10-20",
+    "load": 1,
+    "focus": 2,
+    "composite": 3,
+    "loadLevel": "中",
+    "focusLevel": "高",
+    "coverage": 0.429,
+    "nonWork": 0.0,
+    "top1": 0.462,
+    "top3": 0.872,
+    "commits": 39,
+    "workdays": 5
+   },
+   {
+    "period": 4,
+    "label": "10-21~10-27",
+    "load": 2,
+    "focus": 2,
+    "composite": 4,
+    "loadLevel": "高",
+    "focusLevel": "高",
+    "coverage": 0.543,
+    "nonWork": 0.157,
+    "top1": 0.549,
+    "top3": 0.902,
+    "commits": 51,
+    "workdays": 5
+   },
+   {
+    "period": 5,
+    "label": "10-28~11-03",
+    "load": 1,
+    "focus": 2,
+    "composite": 3,
+    "loadLevel": "中",
+    "focusLevel": "高",
+    "coverage": 0.371,
+    "nonWork": 0.0,
+    "top1": 0.667,
+    "top3": 1.0,
+    "commits": 39,
+    "workdays": 5
+   },
+   {
+    "period": 6,
+    "label": "11-04~11-04",
+    "load": 0,
+    "focus": 0,
+    "composite": 0,
+    "loadLevel": "低",
+    "focusLevel": "低",
+    "coverage": 0.0,
+    "nonWork": 0.0,
+    "top1": 0,
+    "top3": 0,
+    "commits": 0,
+    "workdays": 1
+   }
+  ],
+  "people": [
+   {
+    "name": "肖作志",
+    "points": [
+     {
+      "period": 1,
+      "label": "09-30~10-06",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 2,
+      "label": "10-07~10-13",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 2,
+      "coverage": 0.4,
+      "commits": 2,
+      "per": 1.0,
+      "lpd": 194
+     },
+     {
+      "period": 3,
+      "label": "10-14~10-20",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 5,
+      "coverage": 1.0,
+      "commits": 18,
+      "per": 3.6,
+      "lpd": 113
+     },
+     {
+      "period": 4,
+      "label": "10-21~10-27",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 6,
+      "coverage": 1.2,
+      "commits": 28,
+      "per": 4.67,
+      "lpd": 488
+     },
+     {
+      "period": 5,
+      "label": "10-28~11-03",
+      "level": 2,
+      "levelName": "高",
+      "note": "",
+      "activeDays": 5,
+      "coverage": 1.0,
+      "commits": 22,
+      "per": 4.4,
+      "lpd": 644
+     },
+     {
+      "period": 6,
+      "label": "11-04~11-04",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     }
+    ]
+   },
+   {
+    "name": "黄振豪",
+    "points": [
+     {
+      "period": 1,
+      "label": "09-30~10-06",
+      "level": 0,
+      "levelName": "低",
+      "note": "间歇高强度",
+      "activeDays": 1,
+      "coverage": 0.2,
+      "commits": 1,
+      "per": 1.0,
+      "lpd": 333
+     },
+     {
+      "period": 2,
+      "label": "10-07~10-13",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 3,
+      "label": "10-14~10-20",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 4,
+      "coverage": 0.8,
+      "commits": 7,
+      "per": 1.75,
+      "lpd": 209
+     },
+     {
+      "period": 4,
+      "label": "10-21~10-27",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 5,
+      "coverage": 1.0,
+      "commits": 8,
+      "per": 1.6,
+      "lpd": 162
+     },
+     {
+      "period": 5,
+      "label": "10-28~11-03",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 5,
+      "coverage": 1.0,
+      "commits": 8,
+      "per": 1.6,
+      "lpd": 269
+     },
+     {
+      "period": 6,
+      "label": "11-04~11-04",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     }
+    ]
+   },
+   {
+    "name": "孙健凯",
+    "points": [
+     {
+      "period": 1,
+      "label": "09-30~10-06",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 2,
+      "label": "10-07~10-13",
+      "level": 0,
+      "levelName": "低",
+      "note": "间歇高强度",
+      "activeDays": 1,
+      "coverage": 0.2,
+      "commits": 1,
+      "per": 1.0,
+      "lpd": 756
+     },
+     {
+      "period": 3,
+      "label": "10-14~10-20",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 3,
+      "coverage": 0.6,
+      "commits": 5,
+      "per": 1.67,
+      "lpd": 393
+     },
+     {
+      "period": 4,
+      "label": "10-21~10-27",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 4,
+      "coverage": 0.8,
+      "commits": 5,
+      "per": 1.25,
+      "lpd": 257
+     },
+     {
+      "period": 5,
+      "label": "10-28~11-03",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 3,
+      "coverage": 0.6,
+      "commits": 3,
+      "per": 1.0,
+      "lpd": 247
+     },
+     {
+      "period": 6,
+      "label": "11-04~11-04",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     }
+    ]
+   },
+   {
+    "name": "许志奇",
+    "points": [
+     {
+      "period": 1,
+      "label": "09-30~10-06",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 2,
+      "label": "10-07~10-13",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 3,
+      "label": "10-14~10-20",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 4,
+      "label": "10-21~10-27",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 5,
+      "label": "10-28~11-03",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交（git 盲区：TAPD/现场/运维投入不可见）",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 6,
+      "label": "11-04~11-04",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     }
+    ]
+   },
+   {
+    "name": "豆满囤",
+    "points": [
+     {
+      "period": 1,
+      "label": "09-30~10-06",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 2,
+      "label": "10-07~10-13",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 3,
+      "label": "10-14~10-20",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 4,
+      "label": "10-21~10-27",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 5,
+      "label": "10-28~11-03",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 6,
+      "label": "11-04~11-04",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     }
+    ]
+   },
+   {
+    "name": "黄凯杰",
+    "points": [
+     {
+      "period": 1,
+      "label": "09-30~10-06",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 2,
+      "label": "10-07~10-13",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 3,
+      "label": "10-14~10-20",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 4,
+      "label": "10-21~10-27",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 5,
+      "label": "10-28~11-03",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 6,
+      "label": "11-04~11-04",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     }
+    ]
+   },
+   {
+    "name": "Sokach（待映射）",
+    "points": [
+     {
+      "period": 1,
+      "label": "09-30~10-06",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 2,
+      "label": "10-07~10-13",
+      "level": 0,
+      "levelName": "低",
+      "note": "间歇高强度",
+      "activeDays": 1,
+      "coverage": 0.2,
+      "commits": 4,
+      "per": 4.0,
+      "lpd": 540
+     },
+     {
+      "period": 3,
+      "label": "10-14~10-20",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 3,
+      "coverage": 0.6,
+      "commits": 9,
+      "per": 3.0,
+      "lpd": 297
+     },
+     {
+      "period": 4,
+      "label": "10-21~10-27",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 4,
+      "coverage": 0.8,
+      "commits": 10,
+      "per": 2.5,
+      "lpd": 530
+     },
+     {
+      "period": 5,
+      "label": "10-28~11-03",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 6,
+      "label": "11-04~11-04",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     }
+    ]
+   }
+  ]
+ },
+ "history": [
+  {
+   "label": "10-31 P1",
+   "repos": {
+    "wx-public-service-platform": {
+     "total": 41.5
+    },
+    "ip-online": {
+     "total": 43.3
+    },
+    "nuaa-ip-transformation-platform": {
+     "total": 39.8
+    },
+    "cms": {
+     "total": 37.5
+    }
+   }
+  },
+  {
+   "label": "11-02 P2",
+   "repos": {
+    "wx-public-service-platform": {
+     "total": 44.1
+    },
+    "ip-online": {
+     "total": 43.5
+    },
+    "nuaa-ip-transformation-platform": {
+     "total": 40.4
+    },
+    "cms": {
+     "total": 38.1
+    }
+   }
+  },
+  {
+   "label": "11-04 P3",
+   "repos": {
+    "wx-public-service-platform": {
+     "total": 43.9
+    },
+    "ip-online": {
+     "total": 44.4
+    },
+    "nuaa-ip-transformation-platform": {
+     "total": 41.0
+    },
+    "cms": {
+     "total": 38.7
+    }
+   }
+  }
+ ]
+}

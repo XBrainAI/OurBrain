@@ -1,0 +1,20 @@
+COMMIT@50dd6e34843a2e1be948a0a0d1c24bf3d5224100
+49	1	nuaa-integrated-bus/nuaa-integrated-biz/src/main/java/com/ourchem/bus/service/impl/ProcessFlowServiceImpl.java
+
+COMMIT@3ebac35c1262e23cdce2e91e589345172ccd514c
+15	8	nuaa-integrated-bus/nuaa-integrated-biz/src/main/java/com/ourchem/bus/service/impl/PatentApplicationServiceImpl.java
+
+COMMIT@4de82350dfad483c24ce654a0fe5eda01becb160
+258	0	nuaa-integrated-bus/nuaa-integrated-biz/src/main/java/com/ourchem/bus/ienum/ParisConventionEnum.java
+19	0	nuaa-integrated-bus/nuaa-integrated-biz/src/main/java/com/ourchem/bus/query/PatentApplicationClaimQuery.java
+30	1	nuaa-integrated-bus/nuaa-integrated-biz/src/main/java/com/ourchem/bus/service/impl/PatentClaimInfoServiceImpl.java
+44	0	nuaa-integrated-bus/nuaa-integrated-biz/src/main/java/com/ourchem/bus/vo/PatentClaimVO.java
+12	0	nuaa-integrated-bus/nuaa-integrated-biz/src/main/resources/mapper/PatentClaimInfoMapper.xml
+
+COMMIT@8b6884e473322668afd0be87ebef391f17b37677
+12	4	nuaa-integrated-bus/nuaa-integrated-biz/src/main/java/com/ourchem/bus/service/impl/ProcessFlowServiceImpl.java
+
+COMMIT@3c60ed3260eadb4e5cb885153b690ade9f66b59e
+6	0	nuaa-integrated-bus/nuaa-integrated-biz/src/main/java/com/ourchem/bus/mapper/SoftwareWorksMapper.java
+33	0	nuaa-integrated-bus/nuaa-integrated-biz/src/main/java/com/ourchem/bus/service/impl/SoftwareWorksServiceImpl.java
+19	0	nuaa-integrated-bus/nuaa-integrated-biz/src/main/resources/mapper/SoftwareWorksMapper.xml

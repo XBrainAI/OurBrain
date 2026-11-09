@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>研发项目风险监测报告</title>
+<!-- 默认引用工作区本地 ECharts（离线可用）；本地缺失时按 §5.4.2 降级为 CDN，并在 footer 保留留痕行 -->
+<script src="../../../../assets/echarts.min.js"></script>
+<style>
+  :root {
+    --level-low: #52c41a;      /* 低 = 绿 */
+    --level-mid: #faad14;      /* 中 = 黄 */
+    --level-high: #fa8c16;     /* 高 = 橙 */
+    --level-severe: #f5222d;   /* 严重 = 红 */
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 24px 16px 40px;
+    background: #f5f7fa;
+    color: #303133;
+    font-family: -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .page { max-width: 1200px; margin: 0 auto; }
+  .card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+  h1 { font-size: 24px; margin: 0 0 8px; }
+  h2 { font-size: 17px; margin: 0 0 14px; padding-left: 10px; border-left: 4px solid #5470c6; }
+  .meta-line { color: #606266; font-size: 13px; }
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+  }
+  .repo-card { border: 1px solid #ebeef5; border-radius: 8px; padding: 14px 16px; }
+  .repo-name { font-weight: 600; font-size: 15px; margin-right: 8px; }
+  .repo-total { font-size: 30px; font-weight: 700; line-height: 1.2; margin: 4px 0 2px; }
+  .repo-top { color: #606266; margin: 4px 0 10px; }
+  .repo-card a { color: #5470c6; text-decoration: none; font-size: 13px; }
+  .badge {
+    display: inline-block;
+    padding: 1px 10px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+  .chart { width: 100%; }
+  .chart-radar { height: 420px; }
+  .chart-line { height: 360px; }
+  .chart-bar { height: 360px; }
+  .empty { color: #909399; padding: 24px 0; text-align: center; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { border: 1px solid #ebeef5; padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #f5f7fa; font-weight: 600; white-space: nowrap; }
+  tbody tr:nth-child(even) { background: #fafafa; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    border: 1px solid #dcdfe6;
+    border-radius: 6px;
+    padding: 4px 10px;
+    background: #fafafa;
+    white-space: nowrap;
+  }
+  .chip.ok { border-color: var(--level-low); color: var(--level-low); background: #f0f9eb; }
+  .chip.alert { border-color: var(--level-severe); color: var(--level-severe); background: #fef0f0; font-weight: 600; }
+  .q-title { font-weight: 600; margin-bottom: 8px; }
+  .quality-group { margin-bottom: 16px; }
+  .quality-group:last-child { margin-bottom: 0; }
+  .insight-group { margin-bottom: 12px; }
+  .insight-group:last-child { margin-bottom: 0; }
+  .insight-group ul { margin: 4px 0; padding-left: 20px; }
+  .report-footer { color: #909399; font-size: 12px; text-align: center; line-height: 1.8; }
+  .cdn-note { color: #e6a23c; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="card">
+    <h1>研发项目风险监测报告</h1>
+    <div class="meta-line" id="metaLine"></div>
+  </header>
+
+  <section class="card">
+    <h2>风险总览</h2>
+    <div class="overview-grid" id="overviewGrid"></div>
+  </section>
+
+  <section class="card">
+    <h2>五维雷达图</h2>
+    <div class="chart chart-radar" id="chartRadar"></div>
+  </section>
+
+  <section class="card">
+    <h2>跨期趋势</h2>
+    <div class="chart chart-line" id="chartTrend"></div>
+  </section>
+
+  <section class="card">
+    <h2>成员进度</h2>
+    <div class="chart chart-bar" id="chartMember"></div>
+  </section>
+
+  <section class="card">
+    <h2>分支健康对比</h2>
+    <div class="chart" id="chartBranch"></div>
+  </section>
+
+  <section class="card">
+    <h2>质量信号</h2>
+    <div id="qualityCards"></div>
+  </section>
+
+  <section class="card">
+    <h2>风险点清单</h2>
+    <div id="riskTableWrap"></div>
+  </section>
+
+  <section class="card">
+    <h2>里程碑状态</h2>
+    <div id="milestoneTableWrap"></div>
+  </section>
+
+  <section class="card">
+    <h2>深度评估要点</h2>
+    <div id="insightsWrap"></div>
+  </section>
+
+  <footer class="report-footer">
+    <div id="footerMeta"></div>
+    <div>数据来源：git 仓库采集（RUNBOOK 第 1 章）+ state/history.md 历史记录 · 图表库本地化（assets/echarts.min.js），支持离线查看</div>
+    <!-- 仅当按 §5.4.2 降级为 CDN 时，取消下一行注释保留留痕；本地资源正常时保持注释状态 -->
+    <!-- <div class="cdn-note">使用 CDN 渲染（本地资源缺失）</div> -->
+  </footer>
+
+</div>
+
+<script>
+/* ============================================================
+ * 数据区 —— AI 替换此处（唯一允许改动的部分，字段结构见 §5.4.4）
+ * 以下为示意数据，每期生成时整体替换为本期真实结果
+ * ============================================================ */
+window.REPORT_DATA = {
+  meta: { date: "2026-09-04", period: 2, window: "2026-08-28 ~ 2026-09-04", runAt: "2026-09-04 21:17", repoCount: 2 },
+  repos: [
+    {
+      name: "repo-backend",
+      total: 56.8, level: "高",
+      scores: { progress: 70, people: 65, quality: 50, integration: 55, convention: 30 },
+      topRisk: "M1 支付模块明日（09-05）截止，feature-payment 停滞 25 天（落后 25 提交、存活 30 天）、验签未实现、联调未开始，负责人李娜零提交",
+      members: [
+        { name: "张伟", commits: 17, insertions: 1476, deletions: 129 }
+      ],
+      branches: [
+        { name: "develop", ahead: 5, behind: 17, staleDays: 15, lastActive: "09-03" },
+        { name: "feature-payment", ahead: 3, behind: 25, staleDays: 30, lastActive: "08-10" }
+      ],
+      quality: { todo: 28, todoThreshold: 20, bigCommits: 1, reworkRatio: 0.09, reworkThreshold: 0.5, largeFiles: 0 },
+      risks: [
+        { title: "M1 支付模块明日（09-05）截止，feature-payment 已 25 天零提交，验签未实现、联调未开始", dimension: "progress", level: "严重", evidence: "分支最后提交 b6a9014（2026-08-10）；gateway.py verify_callback 直接 return True；_request 返回 mock 应答；计划文档 M1 截止 2026-09-05", advice: "立即在周会/钉群升级：与李娜确认在岗状态与阻塞原因（疑似外部网关沙箱依赖）；若无法交付，正式宣布 M1 延期并给出新联调排期，避免“沉默延期”" },
+        { title: "李娜（支付唯一负责人）本期零提交，活跃骤降且无交接迹象，单点断裂", dimension: "people", level: "严重", evidence: "上期窗口 main 2 次提交（11114f2、36d65f9）→ 本期 0；shortlog 窗口期仅张伟 1 人；计划文档“李娜：支付模块唯一负责人”", advice: "当日联系本人确认状态；若不可用，指定张伟临时接管 feature-payment（先补 verify_callback 与真实网关对接），并安排交接文档" },
+        { title: "feature-payment 长期未合并且偏差持续扩大（落后 23→25，存活 23→30 天）", dimension: "integration", level: "高", evidence: "rev-list --count feature-payment..main = 25 > branch_behind_warn(20)；merge-base 2026-08-05 → 存活 30 天 > 21；上期记录落后 23", advice: "先将 main 合并/rebase 进 feature-payment 消化 25 个提交偏差，再继续支付开发；若 M1 延期决定放弃本迭代，明确归档该分支避免僵尸化" },
+        { title: "大提交 6e7c103 的 18 个报表文件为占位模板（假数据），M3“表面推进”", dimension: "quality", level: "高", evidence: "report_1.py load_rows 返回硬编码假数据、未读取 snapshot；export_csv 上期值=本期值、环比硬编码 0；+1116 行占全仓库 75.6% 新增", advice: "09-08 交付前必须完成真实数据源接入（order_snapshot/traffic_snapshot 查询）与上期值/环比计算；建议抽象公共报表基类消除 18 处复制粘贴" },
+        { title: "热点文件 src/api/orders.py 双分支分叉 + 重复修复，develop 合并冲突风险积聚", dimension: "integration", level: "高", evidence: "git diff main develop -- src/api/orders.py 差异 134 行；金额精度修复在 main(11114f2, 08-26) 与 develop(d820c8e, 09-01) 重复实现", advice: "M3 合并（09-08 前）先做 develop←main 的反向同步；建立“主干修复同步到开发分支”的约定，避免重复修 bug" },
+        { title: "TODO 28 超阈值且较上期增长（18→28）", dimension: "quality", level: "中", evidence: "Select-String 计数 28 > todo_fixme_warn(20)；上期 history 记录 18", advice: "M1 重构时按计划清理 legacy/payments_old.py（25 个 TODO）；feature-payment 分支上另有约 9 个 TODO（验签/缓存/单位校验）需纳入 M1 收尾清单" },
+        { title: "无意义 message（wip/upd/fix）降低可追溯性，“wip”占位代码直接进主干", dimension: "convention", level: "中", evidence: "23dc50a“wip”（orders.py 占位函数入主干）、fba5ad4“upd”（实为版本升级+配置）、d820c8e“fix”（实为金额精度修复）", advice: "约定 message 格式（类型+模块+动机）；禁止 wip 直接落主干，占位代码走开发分支" }
+      ],
+      milestones: [
+        { name: "M1 支付模块开发与联调", owner: "李娜", due: "09-05", status: "延期风险", note: "截止前 1 天核心代码 25 天零推进，验签未实现（verify_callback 直接 return True）、联调未开始（_request 仍 mock），窗口期该分支与该目录零提交" },
+        { name: "M3 后端报表模块", owner: "张伟", due: "09-08", status: "部分推进", note: "18 个报表文件为模板批量生成，load_rows 均为占位假数据（真实数据源 0/18），距截止 4 天，数据接入尚未开始" },
+        { name: "M4 订单接口性能优化", owner: "张伟", due: "09-12", status: "已推进", note: "连接池调优与分页修复已有实质改动，节奏正常" }
+      ],
+      insights: [
+        "repo-backend@6e7c103 src/modules/report_1.py —— load_rows 声明“从 order_snapshot 读取”实际未查询任何数据源，返回硬编码 channel-N 假数据，export_csv“上期值”列写本期值、“环比”列硬编码 0；该提交贡献 75.6% 新增行，构成 M3“表面推进”，且 18 个文件逐行同构属复制粘贴型技术债",
+        "repo-backend@b6a9014 src/payments/gateway.py —— verify_callback 直接 return True（自认联调前必须补上）、_request 返回 {mock: True} 模拟应答、网关地址硬编码 sandbox-pay.example.com；M1 核心模块 25 天零改动，为原型规模且零测试",
+        "表面活跃、核心停滞成立：仓库窗口期 17 次提交、+1476 行高于上期，但 M1 核心路径（feature-payment 分支、src/payments/ 目录）零改动；剔除 6e7c103 模板提交后实质新增仅 360 行",
+        "repo-backend@d820c8e src/api/orders.py —— develop 上的金额分单位修复与 main 上李娜 08-26 的 11114f2 为同一缺陷重复实现；main 已演化出状态筛选/CSV 导出/状态机等 134 行新逻辑而 develop 停留旧版，合并冲突面大"
+      ]
+    },
+    {
+      name: "repo-frontend",
+      total: 12.0, level: "低",
+      scores: { progress: 10, people: 20, quality: 10, integration: 10, convention: 10 },
+      topRisk: "M2 前端改版按节奏推进，仅剩暗色模式细化与 feature-ui 合并收尾（09-10 截止）",
+      members: [
+        { name: "王强", commits: 10, insertions: 321, deletions: 26 }
+      ],
+      branches: [
+        { name: "feature-ui", ahead: 4, behind: 6, staleDays: 10, lastActive: "09-03" }
+      ],
+      quality: { todo: 3, todoThreshold: 20, bigCommits: 0, reworkRatio: 0.08, reworkThreshold: 0.5, largeFiles: 0 },
+      risks: [
+        { title: "M2 剩余 6 天，feature-ui 尚余暗色模式细化与主干合并未完成", dimension: "progress", level: "低", evidence: "dark.css 为“初版”（提交 2a9ffcc 自述）；feature-ui 领先 4 提交未合并，落后 main 6 提交", advice: "09-08 前完成暗色模式补齐与 main→feature-ui 同步，预留 2 天合并验证窗口" },
+        { title: "前端无测试基建，10 次功能改动零测试覆盖", dimension: "quality", level: "低", evidence: "窗口期 numstat 无任何测试文件；工作副本无测试目录（ls-files 证实）", advice: "M2 收尾后引入最小测试（组件冒烟 + 筛选/分页逻辑单测），修复类提交先行补回归用例" },
+        { title: "前端单人负责（既定分工），存在 bus factor", dimension: "people", level: "低", evidence: "计划文档“王强：前端全部页面与组件”；shortlog 窗口期仅王强 1 人（10/10）", advice: "低成本缓解：关键组件补 README/注释，M2 验收时做一次代码走读留档" }
+      ],
+      milestones: [
+        { name: "M2 前端 UI 改版", owner: "王强", due: "09-10", status: "已推进", note: "R3 四个子项（设计令牌/导航重构/暗色模式/页脚）全部有实质改动，节奏与截止日（剩 6 天）匹配" }
+      ],
+      insights: [
+        "repo-frontend@cd11aff src/styles/tokens.css —— 设计令牌体系完整（品牌色阶/中性色/语义色/字体与间距阶梯/圆角阴影/过渡），为暗色模式与组件统一提供基座",
+        "repo-frontend@1a4b737 src/components/OrderList.jsx —— 滚动优化用 requestAnimationFrame 节流 + VISIBLE_STEP 增量渲染，filter 变化时重置可见数，边界处理完备；e8efea3 导航重构主动补 aria-current/aria-hidden 无障碍语义",
+        "M2 无“表面活跃”迹象：四个子项全部实质落地且为真实实现；无跨分支热点文件；10 次提交均为小步实质改动（单提交 1~2 文件、9~51 行）",
+        "轻微观察项：前端无测试基建（10 次功能改动零测试覆盖）；3 个 TODO 均为跨仓库依赖标注（服务端分页待后端 M4、导出联调依赖收敛中），非堆积"
+      ]
+    }
+  ],
+  history: [
+    { label: "08-28 P1", repos: { "repo-backend": { total: 36.5 }, "repo-frontend": { total: 20.8 } } },
+    { label: "09-04 P2", repos: { "repo-backend": { total: 56.8 }, "repo-frontend": { total: 12.0 } } }
+  ]
+};
+</script>
+
+<script>
+/* ============================================================
+ * 渲染区 —— 严禁改动：以下逻辑全部由 REPORT_DATA 驱动，不得硬编码数据
+ * ============================================================ */
+(function () {
+  'use strict';
+  var DATA = window.REPORT_DATA || { meta: {}, repos: [], history: [] };
+  var PALETTE = ['#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272'];
+  var LEVEL_COLOR = { '低': '#52c41a', '中': '#faad14', '高': '#fa8c16', '严重': '#f5222d' };
+  var LEVEL_ORDER = { '严重': 0, '高': 1, '中': 2, '低': 3 };
+  var charts = [];
+
+  function el(id) { return document.getElementById(id); }
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function levelColor(level) { return LEVEL_COLOR[level] || '#909399'; }
+  function emptyBox(text) { return '<div class="empty">' + esc(text) + '</div>'; }
+  function chartUnavailable() { return emptyBox('ECharts 未加载，图表不可用（其余模块不受影响）'); }
+
+  /* 模块 1：header meta 行 */
+  (function () {
+    var m = DATA.meta || {};
+    var parts = [];
+    if (m.period != null) parts.push('第 ' + m.period + ' 期');
+    if (m.date) parts.push(m.date);
+    if (m.window) parts.push('窗口期 ' + m.window);
+    if (m.repoCount != null) parts.push('仓库数 ' + m.repoCount);
+    el('metaLine').textContent = parts.join(' · ');
+  })();
+
+  /* 模块 2：风险总览卡片 */
+  (function () {
+    var box = el('overviewGrid');
+    var repos = DATA.repos || [];
+    if (!repos.length) { box.innerHTML = emptyBox('无仓库数据'); return; }
+    box.innerHTML = repos.map(function (r) {
+      return '<div class="repo-card">'
+        + '<div><span class="repo-name">' + esc(r.name) + '</span>'
+        + '<span class="badge" style="background:' + levelColor(r.level) + '">' + esc(r.level) + '</span></div>'
+        + '<div class="repo-total" style="color:' + levelColor(r.level) + '">' + esc(r.total) + '</div>'
+        + '<div class="repo-top">' + esc(r.topRisk || '—') + '</div>'
+        + '<a href="' + esc(r.name) + '/report.md">查看详情</a>'
+        + '</div>';
+    }).join('');
+  })();
+
+  /* 模块 3：五维雷达图 */
+  (function () {
+    var box = el('chartRadar');
+    var repos = DATA.repos || [];
+    if (!repos.length) { box.innerHTML = emptyBox('无仓库数据'); return; }
+    if (window.echarts) {
+      var chart = echarts.init(box);
+      chart.setOption({
+        color: PALETTE,
+        tooltip: {},
+        legend: { bottom: 0, type: 'scroll' },
+        radar: {
+          indicator: [
+            { name: '进度', max: 100 },
+            { name: '人员', max: 100 },
+            { name: '质量', max: 100 },
+            { name: '集成', max: 100 },
+            { name: '规范', max: 100 }
+          ],
+          radius: '62%'
+        },
+        series: [{
+          type: 'radar',
+          symbolSize: 4,
+          data: repos.map(function (r) {
+            var s = r.scores || {};
+            return {
+              name: r.name,
+              value: [s.progress, s.people, s.quality, s.integration, s.convention]
+            };
+          })
+        }]
+      });
+      charts.push(chart);
+    } else {
+      box.innerHTML = chartUnavailable();
+    }
+  })();
+
+  /* 模块 4：跨期趋势折线图 */
+  (function () {
+    var box = el('chartTrend');
+    var history = DATA.history || [];
+    var repos = DATA.repos || [];
+    if (!history.length || !repos.length) { box.innerHTML = emptyBox('无历史数据'); return; }
+    var labels = history.map(function (h) { return h.label; });
+    if (window.echarts) {
+      var chart = echarts.init(box);
+      chart.setOption({
+        tooltip: { trigger: 'axis' },
+        legend: { bottom: 0, type: 'scroll' },
+        grid: { left: 16, right: 24, top: 24, bottom: 56, containLabel: true },
+        xAxis: { type: 'category', boundaryGap: false, data: labels },
+        yAxis: { type: 'value', min: 0, max: 100 },
+        series: repos.map(function (r) {
+          var values = history.map(function (h) {
+            var rec = h.repos && h.repos[r.name];
+            return rec ? rec.total : null;
+          });
+          var lastIndex = -1;
+          for (var i = values.length - 1; i >= 0; i--) {
+            if (values[i] != null) { lastIndex = i; break; }
+          }
+          return {
+            name: r.name,
+            type: 'line',
+            connectNulls: true,
+            itemStyle: { color: levelColor(r.level) },
+            lineStyle: { color: levelColor(r.level), width: 2 },
+            data: values,
+            markPoint: lastIndex > -1 ? {
+              symbolSize: 42,
+              label: { show: false },
+              data: [{ coord: [labels[lastIndex], values[lastIndex]] }]
+            } : undefined
+          };
+        })
+      });
+      charts.push(chart);
+    } else {
+      box.innerHTML = chartUnavailable();
+    }
+  })();
+
+  /* 模块 5：成员进度条形图 */
+  (function () {
+    var box = el('chartMember');
+    var repos = DATA.repos || [];
+    var memberNames = [];
+    var lookup = {};
+    repos.forEach(function (r) {
+      lookup[r.name] = {};
+      (r.members || []).forEach(function (m) {
+        if (memberNames.indexOf(m.name) < 0) memberNames.push(m.name);
+        lookup[r.name][m.name] = m;
+      });
+    });
+    if (!memberNames.length) { box.innerHTML = emptyBox('无成员提交数据'); return; }
+    if (window.echarts) {
+      var chart = echarts.init(box);
+      chart.setOption({
+        color: PALETTE,
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: { type: 'shadow' },
+          formatter: function (params) {
+            var out = [esc(params[0].name)];
+            params.forEach(function (p) {
+              var m = lookup[p.seriesName] && lookup[p.seriesName][p.name];
+              if (m && m.commits > 0) {
+                out.push(p.marker + ' ' + esc(p.seriesName) + '：' + m.commits + ' 次提交（+' + m.insertions + ' / -' + m.deletions + ' 行）');
+              }
+            });
+            return out.join('<br>');
+          }
+        },
+        legend: { bottom: 0, type: 'scroll' },
+        grid: { left: 16, right: 24, top: 24, bottom: 56, containLabel: true },
+        xAxis: { type: 'category', data: memberNames },
+        yAxis: { type: 'value', name: '提交数', minInterval: 1 },
+        series: repos.map(function (r) {
+          return {
+            name: r.name,
+            type: 'bar',
+            data: memberNames.map(function (n) {
+              var m = lookup[r.name][n];
+              return m ? m.commits : 0;
+            })
+          };
+        })
+      });
+      charts.push(chart);
+    } else {
+      box.innerHTML = chartUnavailable();
+    }
+  })();
+
+  /* 模块 6：分支健康对比（diverging bar） */
+  (function () {
+    var box = el('chartBranch');
+    var repos = DATA.repos || [];
+    var rowKeys = [];
+    var branchMap = {};
+    repos.forEach(function (r) {
+      (r.branches || []).forEach(function (b) {
+        var key = r.name + '/' + b.name;
+        branchMap[key] = b;
+        rowKeys.push(key);
+      });
+    });
+    if (!rowKeys.length) { box.innerHTML = emptyBox('无分支数据'); return; }
+    box.style.height = Math.max(240, rowKeys.length * 40) + 'px';
+    if (window.echarts) {
+      var chart = echarts.init(box);
+      chart.setOption({
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: { type: 'shadow' },
+          formatter: function (params) {
+            var key = params[0].name;
+            var b = branchMap[key] || {};
+            var ahead = 0;
+            var behind = 0;
+            params.forEach(function (p) {
+              if (p.seriesName === '领先主干') ahead = p.value || 0;
+              if (p.seriesName === '落后主干') behind = Math.abs(p.value || 0);
+            });
+            return esc(key) + '<br>领先 +' + ahead + ' / 落后 -' + behind
+              + '<br>存活 ' + (b.staleDays != null ? b.staleDays + ' 天' : '—')
+              + ' · 最后活跃 ' + (b.lastActive || '—');
+          }
+        },
+        legend: { bottom: 0 },
+        grid: { left: 16, right: 24, top: 24, bottom: 56, containLabel: true },
+        xAxis: {
+          type: 'value',
+          axisLabel: { formatter: function (v) { return Math.abs(v); } }
+        },
+        yAxis: { type: 'category', data: rowKeys },
+        series: [
+          {
+            name: '领先主干',
+            type: 'bar',
+            stack: 'branch',
+            barWidth: 14,
+            itemStyle: { color: '#5470c6' },
+            data: rowKeys.map(function (k) { return branchMap[k].ahead || 0; })
+          },
+          {
+            name: '落后主干',
+            type: 'bar',
+            stack: 'branch',
+            barWidth: 14,
+            itemStyle: { color: '#ee6666' },
+            data: rowKeys.map(function (k) { return -(branchMap[k].behind || 0); })
+          }
+        ]
+      });
+      charts.push(chart);
+    } else {
+      box.innerHTML = chartUnavailable();
+    }
+  })();
+
+  /* 模块 7：质量信号卡片 */
+  (function () {
+    var box = el('qualityCards');
+    var repos = DATA.repos || [];
+    if (!repos.length) { box.innerHTML = emptyBox('无仓库数据'); return; }
+    box.innerHTML = repos.map(function (r) {
+      var q = r.quality || {};
+      var todoOver = q.todo != null && q.todoThreshold != null && q.todo > q.todoThreshold;
+      var reworkOver = q.reworkRatio != null && q.reworkThreshold != null && q.reworkRatio > q.reworkThreshold;
+      var bigOver = (q.bigCommits || 0) > 0;
+      var largeOver = (q.largeFiles || 0) > 0;
+      return '<div class="quality-group">'
+        + '<div class="q-title">' + esc(r.name) + '</div>'
+        + '<div class="chips">'
+        + '<span class="chip ' + (todoOver ? 'alert' : 'ok') + '">TODO/FIXME：' + esc(q.todo) + ' / 阈值 ' + esc(q.todoThreshold) + '</span>'
+        + '<span class="chip' + (bigOver ? ' alert' : '') + '">大提交：' + esc(q.bigCommits) + ' 个</span>'
+        + '<span class="chip ' + (reworkOver ? 'alert' : 'ok') + '">返工比：' + esc(q.reworkRatio) + ' / 阈值 ' + esc(q.reworkThreshold) + '</span>'
+        + '<span class="chip' + (largeOver ? ' alert' : '') + '">超大文件：' + esc(q.largeFiles) + ' 个</span>'
+        + '</div></div>';
+    }).join('');
+  })();
+
+  /* 模块 8：风险点清单表 */
+  (function () {
+    var box = el('riskTableWrap');
+    var all = [];
+    (DATA.repos || []).forEach(function (r) {
+      (r.risks || []).forEach(function (k) { all.push({ repo: r.name, risk: k }); });
+    });
+    if (!all.length) { box.innerHTML = emptyBox('无风险点'); return; }
+    all.sort(function (a, b) {
+      var la = LEVEL_ORDER[a.risk.level] != null ? LEVEL_ORDER[a.risk.level] : 9;
+      var lb = LEVEL_ORDER[b.risk.level] != null ? LEVEL_ORDER[b.risk.level] : 9;
+      return la - lb;
+    });
+    var rows = all.map(function (item) {
+      var k = item.risk;
+      return '<tr>'
+        + '<td title="' + esc(k.evidence || '') + '">' + esc(k.title) + '</td>'
+        + '<td>' + esc(item.repo) + '</td>'
+        + '<td>' + esc(k.dimension) + '</td>'
+        + '<td><span class="badge" style="background:' + levelColor(k.level) + '">' + esc(k.level) + '</span></td>'
+        + '<td>' + esc(k.advice || '') + '</td>'
+        + '</tr>';
+    }).join('');
+    box.innerHTML = '<table><thead><tr><th>风险点</th><th>仓库</th><th>维度</th><th>等级</th><th>建议</th></tr></thead><tbody>' + rows + '</tbody></table>';
+  })();
+
+  /* 模块 9：里程碑状态表 */
+  (function () {
+    var box = el('milestoneTableWrap');
+    var all = [];
+    (DATA.repos || []).forEach(function (r) {
+      (r.milestones || []).forEach(function (ms) { all.push({ repo: r.name, ms: ms }); });
+    });
+    if (!all.length) { box.innerHTML = emptyBox('无项目文档/里程碑数据'); return; }
+    function statusColor(s) {
+      if (!s) return '#909399';
+      if (s.indexOf('延期') > -1) return '#f5222d';
+      if (s.indexOf('部分推进') > -1) return '#faad14';
+      if (s.indexOf('停滞') > -1) return '#fa8c16';
+      if (s.indexOf('推进') > -1 || s.indexOf('按计划') > -1 || s.indexOf('完成') > -1) return '#52c41a';
+      return '#909399';
+    }
+    var rows = all.map(function (item) {
+      var ms = item.ms;
+      var color = statusColor(ms.status);
+      return '<tr>'
+        + '<td>' + esc(ms.name) + '</td>'
+        + '<td>' + esc(item.repo) + '</td>'
+        + '<td>' + esc(ms.owner || '—') + '</td>'
+        + '<td>' + esc(ms.due || '—') + '</td>'
+        + '<td style="color:' + color + '; font-weight:600; white-space:nowrap;">' + esc(ms.status || '—') + '</td>'
+        + '<td>' + esc(ms.note || '') + '</td>'
+        + '</tr>';
+    }).join('');
+    box.innerHTML = '<table><thead><tr><th>里程碑</th><th>仓库</th><th>负责人</th><th>截止</th><th>状态</th><th>摘要</th></tr></thead><tbody>' + rows + '</tbody></table>';
+  })();
+
+  /* 模块 10：深度评估要点 */
+  (function () {
+    var box = el('insightsWrap');
+    var repos = DATA.repos || [];
+    var hasAny = repos.some(function (r) { return r.insights && r.insights.length; });
+    if (!hasAny) { box.innerHTML = emptyBox('无深度评估要点'); return; }
+    box.innerHTML = repos.map(function (r) {
+      if (!r.insights || !r.insights.length) return '';
+      return '<div class="insight-group"><div class="q-title">' + esc(r.name) + '</div><ul>'
+        + r.insights.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('')
+        + '</ul></div>';
+    }).join('');
+  })();
+
+  /* 模块 11：footer 生成时间 */
+  (function () {
+    var m = DATA.meta || {};
+    el('footerMeta').textContent = '生成时间：' + (m.runAt || m.date || '—');
+  })();
+
+  /* 统一响应窗口尺寸变化 */
+  window.addEventListener('resize', function () {
+    charts.forEach(function (c) { c.resize(); });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+### public-service agg (run 2026-11-05 23:05, win 2026-10-29~2026-11-05)
+
+== wx-public-service-platform (检出:master, 有远端:True)
+  窗口: total=34 eff=28 merge=6 ins=3968 del=479 authors=2 big=1 trivial=3
+  分类: {'feat': 1, 'fix': 6, 'refactor': 0, 'docs': 0, 'test': 0, 'chore': 0, 'style': 0, 'perf': 0, 'build': 0, 'ci': 0, 'revert': 0, '其他': 21}
+  短msg: [('54b8395ed3', '接口转大写'), ('44450d0ab0', 'fix:报告'), ('28c5a58bc6', 'fix:图谱数据')]
+  成员 ['xiaozuozhi']/27809633@qq.com: eff=21 +2788/-324 天=5 深夜=0 周末=0 分支={'knowledge_online_dm_jl': 21} 测=0 peak=2026-11-03x6
+  成员 ['huangzhenhao']/huangzhenhao@ourchem.com: eff=7 +1180/-155 天=4 深夜=0 周末=0 分支={'knowledge_online_dm_jl': 7} 测=0 peak=2026-10-30x3
+  大提交 b7f0bb3efa 5f 2353行 产业链创新主体：专利数据对不上bug修复
+  碎提交 5440f4bbd9 1行     // 雪花ID超过JS安全整数(2^53-1),以数
+  碎提交 f1520b2a9c 1行 产业链图谱过滤掉个人类型企业
+  碎提交 9a57716cc5 2行 电子档案对接生产地址修复
+  分支 knowledge_online_dm_jl: ahead=2105 behind=0 fork=2022-04-01 stale=1679d last=2026-11-04
+  分支 nuaa_integrated: ahead=2437 behind=0 fork=2022-04-01 stale=1679d last=2026-10-19
+  分支 gzkfq_service_platform: ahead=669 behind=0 fork=2022-04-01 stale=1679d last=2026-07-03
+  主干 master: last=2022-04-01; TODO=11 大文件=0 测试文件=3 文件数=734 模式=工作副本（当前检出分支口径 §1.6）
+  生命周期: 2022-01-24~2026-11-04 total=6329 authors=39 top=[('zjy@ourchem.com', 713), ('huangzhenhao@ourchem.com', 626), ('outens@163.com', 548), ('2423244747@qq.com', 490), ('wensicong@ourchem.com', 468)]
+  今日: 0 commits; 上一变动日候选=2026-11-04
+    2026-10-30: c=9 e=9 +520/-172 a=['27809633@qq.com', 'huangzhenhao@ourchem.com']
+    2026-11-02: c=3 e=2 +614/-24 a=['27809633@qq.com', 'huangzhenhao@ourchem.com']
+    2026-11-03: c=10 e=7 +159/-37 a=['27809633@qq.com', 'huangzhenhao@ourchem.com']
+    2026-11-04: c=2 e=2 +18/-5 a=['27809633@qq.com']
+  饱和末窗 2026-11-04~2026-11-05 (wd2): [('27809633@qq.com', 'xiaozuozhi', 2, 1)]
+  饱和前窗 2026-10-28~2026-11-03 (wd5): [('27809633@qq.com', 'xiaozuozhi', 22, 5), ('huangzhenhao@ourchem.com', 'huangzhenhao', 8, 5)]
+  周尾: [('2026-10-14', 39, 34, 3), ('2026-10-21', 51, 44, 3), ('2026-10-28', 36, 30, 2), ('2026-11-04', 2, 2, 1)]
+
+== ip-online (检出:master, 有远端:True)
+  窗口: total=2 eff=2 merge=0 ins=475 del=107 authors=1 big=1 trivial=0
+  分类: {'feat': 0, 'fix': 0, 'refactor': 0, 'docs': 0, 'test': 0, 'chore': 0, 'style': 0, 'perf': 0, 'build': 0, 'ci': 0, 'revert': 0, '其他': 2}
+  短msg: [('3a46cbe27e', '修改代码'), ('d7de5a12c1', '修改bug')]
+  成员 ['孙健凯']/sunjiankai@ourchem.com: eff=2 +475/-107 天=2 深夜=0 周末=0 分支={'master': 2} 测=0 peak=2026-11-02x1
+  大提交 3a46cbe27e 18f 371行 修改代码
+  主干 master: last=2026-11-02; TODO=85 大文件=5 测试文件=0 文件数=3004 模式=工作副本（当前检出分支口径 §1.6）
+    大文件: [('static/plugins/pdf/pdf.worker.js', 41274), ('static/plugins/pdf/build/pdf.worker.js', 36904), ('nt/enterpriseSmartSearch/config/_city.js', 17088), ('esearchList/config/_cityenterOrUniver.js', 17088), ('package-lock.json', 16798)]
+  生命周期: 2024-06-11~2026-11-02 total=800 authors=10 top=[('tangxiefeng@ourchem.com', 316), ('sunjiankai@ourchem.com', 190), ('xuzhiqi@ourchem.com', 113), ('wanglei@ourchem.com', 60), ('lujitang@liangyizaixian.com', 34)]
+  今日: 0 commits; 上一变动日候选=2026-11-02
+    2026-10-27: c=1 e=1 +3/-6 a=['sunjiankai@ourchem.com']
+    2026-10-28: c=1 e=1 +128/-30 a=['sunjiankai@ourchem.com']
+    2026-10-30: c=1 e=1 +158/-53 a=['sunjiankai@ourchem.com']
+    2026-11-02: c=1 e=1 +317/-54 a=['sunjiankai@ourchem.com']
+  饱和末窗 2026-11-04~2026-11-05 (wd2): []
+  饱和前窗 2026-10-28~2026-11-03 (wd5): [('sunjiankai@ourchem.com', '孙健凯', 3, 3)]
+  周尾: [('2026-10-14', 5, 5, 1), ('2026-10-21', 8, 7, 2), ('2026-10-28', 3, 3, 1), ('2026-11-04', 0, 0, 0)]
+
+== nuaa-ip-transformation-platform (检出:master, 有远端:True)
+  窗口: total=0 eff=0 merge=0 ins=0 del=0 authors=0 big=0 trivial=0
+  分类: {'feat': 0, 'fix': 0, 'refactor': 0, 'docs': 0, 'test': 0, 'chore': 0, 'style': 0, 'perf': 0, 'build': 0, 'ci': 0, 'revert': 0, '其他': 0}
+  主干 master: last=2026-10-26; TODO=188 大文件=5 测试文件=0 文件数=5349 模式=工作副本（当前检出分支口径 §1.6）
+    大文件: [('static/plugins/pdf/pdf.worker.js', 41274), ('static/plugins/pdf/build/pdf.worker.js', 36904), ('sunlight/views/Patyee/Report/district.js', 29122), ('package-lock.json', 15642), ('static/plugins/pdf/pdf.js', 13715)]
+  生命周期: 2023-03-01~2026-10-26 total=1740 authors=14 top=[('yangweifan@ourchem.com', 403), ('yuyanjie@ourchem.com', 366), ('huangzesong@ourchem.com', 337), ('chenweizhi@ourchem.com', 280), ('suguangluan@ourchem.com', 116)]
+  今日: 0 commits; 上一变动日候选=2026-10-26
+    2026-10-08: c=2 e=2 +138/-22 a=['1594574183@qq.com']
+    2026-10-26: c=1 e=1 +1/-0 a=['1594574183@qq.com']
+  饱和末窗 2026-11-04~2026-11-05 (wd2): []
+  饱和前窗 2026-10-28~2026-11-03 (wd5): []
+  周尾: [('2026-10-14', 0, 0, 0), ('2026-10-21', 1, 1, 1), ('2026-10-28', 0, 0, 0), ('2026-11-04', 0, 0, 0)]
+
+== cms (检出:master, 有远端:True)
+  窗口: total=0 eff=0 merge=0 ins=0 del=0 authors=0 big=0 trivial=0
+  分类: {'feat': 0, 'fix': 0, 'refactor': 0, 'docs': 0, 'test': 0, 'chore': 0, 'style': 0, 'perf': 0, 'build': 0, 'ci': 0, 'revert': 0, '其他': 0}
+  主干 master: last=2024-12-19; TODO=29 大文件=5 测试文件=13 文件数=741 模式=工作副本（当前检出分支口径 §1.6）
+    大文件: [('c/main/resources/static/js/pdf.worker.js', 41274), ('src/main/resources/static/js/pdf.js', 13715), ('gins/kindeditor-4.1.11/kindeditor-all.js', 9773), ('atic/plugins/bootstrap/css/bootstrap.css', 6750), ('static/img/fonts/materialdesignicons.svg', 6150)]
+  生命周期: 2019-12-26~2024-12-19 total=167 authors=5 top=[('a6259272', 92), ('1193390646@qq.com', 48), ('outens@163.com', 23), ('19920107pd', 3), ('chenshenhong@ourchem.com', 1)]
+  今日: 0 commits; 上一变动日候选=None
+  饱和末窗 2026-11-04~2026-11-05 (wd2): []
+  饱和前窗 2026-10-28~2026-11-03 (wd5): []
+  周尾: [('2026-10-14', 0, 0, 0), ('2026-10-21', 0, 0, 0), ('2026-10-28', 0, 0, 0), ('2026-11-04', 0, 0, 0)]
+
+  项目文档mtimes: [('README.md', '2026-10-30'), ('README.md', '2026-10-30'), ('README.md', '2026-10-30')]
+  全局文档mtimes: [('README.md', '2026-10-30'), ('原始文件覆盖核对-2026W44.md', '2026-10-30'), ('任务明细-2026W44.md', '2026-10-30'), ('任务明细-2026W44.md', '2026-10-30'), ('任务明细-2026W44.md', '2026-10-30')]
+
+### PREV public-service: period=3 runAt=2026-11-04 08:43 window=2026-10-28 ~ 2026-11-04 statsRange=2026-09-30 ~ 2026-11-04
+  headline: 在线二期修复与新功能持续推进（wx 30 笔有效 + 索引重建/缓存预热），但生产口令明文第 2 期仍未轮换，R22/R23 连续第 3 期逾期无证据，四仓测试同步仍为零。
+  keyPoints: ['平台仓 10-28「生产配置提交」把生产库口令明文更新进配置文件并推到客户分支远端——第 2 期逐文', 'R22（南航维护人变更）提测已过 4 个工作日、R23（北化院补丁）已过 3 个工作日，连续第 3 ', '四仓窗口 33 笔有效提交零测试同步连续 3 期；缺陷基线（快照 10-29：存量 59、未关闭 1', '平台仓双胞胎重复入库从 1 对回升到 3 对（20%）、单人集中度回升到 73%（超阈值）；Soka', 'R20 在线二期前后端持续实质推进：新增转入转出专利索引重建与图谱缓存预热能力，返工比 0.502→']
+  wx-public-service-platform: total=43.9 level=中 delta=-0.2 scores={'progress': 36, 'people': 45, 'quality': 62, 'integration': 50, 'convention': 28}
+    topRisk: 生产口令明文第 2 期未轮换 + 双胞胎 3 对回升
+    risks(age): [('生产库口令明文写入版本库（第 2 期未处置）', 2), ('双胞胎重复入库回升至 3 对（20%）', 3), ('窗口 30 笔有效修复零测试同步（连续 3 期）', 3), ('大提交 b7f0bb3efa（2353 行）评审面大', 1), ('在线二期后端单人集中回升至 73%', 3), ('主干 master 死亡 4 年半，3 条客户分支脱节', 3), ('R22 逾期 4 个工作日零推进（后端面）', 3), ('碎提交与同秒拆分', 1), ('个人工作分支 dm_jl_xiaozz 未纳管', 3), ('Sokach 身份待映射（第 3 期）', 3)]
+    plans: [('R20', '已推进', '已推进', None), ('R21', '已完成', '已完成', '10-26'), ('R22', '延期风险', '延期风险', None), ('R27', '已完成', '已完成', '10-28')]
+    members: [('肖作志', 22), ('黄振豪', 8)]
+    prev: total=44.1
+  ip-online: total=44.4 level=中 delta=0.9 scores={'progress': 32, 'people': 48, 'quality': 53, 'integration': 25, 'convention': 72}
+    topRisk: message 100% 过短连续 3 期 + 前端单人化 100% 触顶
+    risks(age): [('message 100% 过短且无信息量（连续 3 期）', 3), ('前端提交单人化触顶（孙健凯 100%）', 3), ('TODO 85 处 + 5 个超大文件存量', 3), ('大提交 3a46cbe27e（18 文件）', 1), ('零测试：存量 0 个测试文件（连续 3 期）', 3)]
+    plans: [('R20', '已推进', '已推进', None)]
+    members: [('孙健凯', 3)]
+    prev: total=43.5
+  nuaa-ip-transformation-platform: total=41.0 level=中 delta=0.6 scores={'progress': 44, 'people': 40, 'quality': 50, 'integration': 30, 'convention': 35}
+    topRisk: R22 前端面提测已过 4 个工作日零推进（第 3 期）
+    risks(age): [('R22 前端面逾期 4 个工作日零推进（第 3 期）', 3), ('尾期形态：统计期 3 笔，历史主力全部淡出', 3), ('TODO 188 处 + 29 万行 zip 构建产物入库', 3), ('Sokach 身份待映射（第 3 期）', 3)]
+    plans: [('R21', '已完成', '已完成', '10-26'), ('R22', '延期风险', '延期风险', None), ('R27', '已完成', '已完成', '10-28')]
+    members: []
+    prev: total=40.4
+  cms: total=38.7 level=中 delta=0.6 scores={'progress': 49, 'people': 35, 'quality': 40, 'integration': 40, 'convention': 20}
+    topRisk: R23 运维任务零 git 证据（第 3 期）+ 休眠 685 天
+    risks(age): [('R23 运维任务逾期加深、零 git 证据（第 3 期）', 3), ('仓库休眠 685 天（最后提交 2024-12-19）', 3), ('TODO 29 处 + 超大文件存量（休眠仓）', 3)]
+    plans: [('R23', '延期风险', '延期风险', None)]
+    members: []
+    prev: total=38.1
+  饱和Trend team: [('09-30~10-06', 0, 2, 2, '低', '高'), ('10-07~10-13', 1, 2, 3, '中', '高'), ('10-14~10-20', 1, 2, 3, '中', '高'), ('10-21~10-27', 2, 2, 4, '高', '高'), ('10-28~11-03', 1, 2, 3, '中', '高'), ('11-04~11-04', 0, 0, 0, '低', '低')]
+    肖作志: [('10-14~10-20', 1), ('10-21~10-27', 1), ('10-28~11-03', 2), ('11-04~11-04', 0)]
+    黄振豪: [('10-14~10-20', 1), ('10-21~10-27', 1), ('10-28~11-03', 1), ('11-04~11-04', 0)]
+    孙健凯: [('10-14~10-20', 1), ('10-21~10-27', 1), ('10-28~11-03', 1), ('11-04~11-04', 0)]
+    许志奇: [('10-14~10-20', 0), ('10-21~10-27', 0), ('10-28~11-03', 0), ('11-04~11-04', 0)]
+    豆满囤: [('10-14~10-20', 0), ('10-21~10-27', 0), ('10-28~11-03', 0), ('11-04~11-04', 0)]
+    黄凯杰: [('10-14~10-20', 0), ('10-21~10-27', 0), ('10-28~11-03', 0), ('11-04~11-04', 0)]
+    Sokach（待映射）: [('10-14~10-20', 1), ('10-21~10-27', 1), ('10-28~11-03', 0), ('11-04~11-04', 0)]
+  history: [('10-31 P1', [{'total': 41.5}, {'total': 43.3}, {'total': 39.8}, {'total': 37.5}]), ('11-02 P2', [{'total': 44.1}, {'total': 43.5}, {'total': 40.4}, {'total': 38.1}]), ('11-04 P3', [{'total': 43.9}, {'total': 44.4}, {'total': 41.0}, {'total': 38.7}])]

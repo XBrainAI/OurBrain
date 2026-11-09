@@ -1,0 +1,1825 @@
+COMMIT@3892e1e8460b39c5edfa3ab2cb06a9c0ff839ecc
+1	1	knowledge-online-admin/src/main/java/com/ourchem/web/controller/bus/ProjectBasicController.java
+7	12	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeModelServiceImpl.java
+
+COMMIT@144d11fdb5d3bf17f3f050af1cea6b6f8da2ebcf
+5	4	knowledge-online-admin/src/main/java/com/ourchem/web/controller/sbpt/DataStandard.java
+19	5	knowledge-online-framework/src/main/java/com/ourchem/framework/config/SecurityConfig.java
+
+COMMIT@4087f26b26fe5c26ddeb429c405a1fc686e48f1f
+1	1	knowledge-online-admin/src/main/resources/application-devDmPro.yml
+29	0	knowledge-online-admin/src/main/resources/bootstrap.yml
+8	8	knowledge-online-dataserver/knowledge-online-data-server/conf/bootstrap.yml
+1	1	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/商标数据模型dsl.json
+1	1	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/generatorConfig.xml
+15	0	knowledge-online-dataserver/xiaozz.sql
+
+COMMIT@92d6df56ce31a7b3b6129407c9d8c98984d26310
+COMMIT@61e8dd5f279eea6fce556a612a484bc546dc1e65
+2	0	knowledge-online-admin/src/main/resources/application-devDmPro.yml
+1	1	knowledge-online-admin/src/main/resources/application.yml
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeModelServiceImpl.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/KeyTechNodeModelServiceImpl.java
+11	11	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/application-dataserverPro.yml
+
+COMMIT@cc9e857ce0521b8039424b10650545eeaa83d9ee
+2	2	knowledge-online-admin/pom.xml
+18	18	knowledge-online-admin/src/main/resources/application-cfg.properties
+30	30	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/util/UrlConfig.java
+
+COMMIT@62bb2670a031e3f2112c99be3243604d2c01bb28
+2	2	knowledge-online-admin/pom.xml
+18	18	knowledge-online-admin/src/main/resources/application-cfg.properties
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/KeyTechNodeModelMapper.java
+9	9	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeModelServiceImpl.java
+29	21	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/KeyTechNodeModelServiceImpl.java
+14	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/KeyTechNodeModelMapper.xml
+30	30	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/util/UrlConfig.java
+
+COMMIT@564900161b64f8822d0e6cca1fbfc2f55a60a76a
+COMMIT@343a6a1eb0ae4ee32bb1ddc1bfbd5223567ae081
+21	35	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/EnterpriseInformationServiceImpl.java
+9	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainModelAsyncService.java
+67	71	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeModelServiceImpl.java
+
+COMMIT@da199e656e1086042e1aebb2b5a22097394f925a
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/EnterpriseBaseInformationMapper.xml
+
+COMMIT@3d0612f6cbb14e1b58f4a094cbe20d7a2163f869
+96	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainModelAsyncService.java
+
+COMMIT@078175e9c4f53b85b8d5ac09a949831cc5ef5b9c
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/IndustryChainNodeModelMapper.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IIndustryChainNodeModelService.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IKeyTechNodeModelService.java
+11	48	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainModelServiceImpl.java
+28	4	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeModelServiceImpl.java
+21	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/KeyTechNodeModelServiceImpl.java
+14	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainNodeModelMapper.xml
+
+COMMIT@0d72e37e3daa18ca879ccc3845866c45d9866755
+13	7	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/report/PatentSubjectReportService.java
+
+COMMIT@4beadb9aea40519ddfa83c7ac06ed66c05674696
+14	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/IndustryChainModelMapper.java
+136	27	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/report/PatentSubjectReportService.java
+27	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainModelMapper.xml
+
+COMMIT@8d33dd44d9c4bb8b8b488bab02b786cf4be4d1b7
+14	2	knowledge-online-admin/src/main/java/com/ourchem/web/controller/sbpt/DataStandard.java
+
+COMMIT@ce2bfc01c2367f0f86fa656c59916ef266817196
+8	5	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/CollegeServiceImpl.java
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeModelServiceImpl.java
+2	2	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/TrademarkInformationMapper.xml
+
+COMMIT@2455ab85b30786764bb33dc939ee1dafc232cf3f
+62	25	knowledge-online-admin/src/main/resources/application-devDmLocal.yml
+
+COMMIT@3aae3713c504fb63119b5eb187edf39e4f09ab7c
+14	2	knowledge-online-admin/src/main/java/com/ourchem/web/controller/sbpt/DataStandard.java
+
+COMMIT@f6e0911df4653897ee8b33e9d2d37860839fcd4a
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/report/PatentSubjectReportService.java
+10	10	knowledge-online-bus/knowledge-online-biz/src/main/resources/subjectReportTemplate/document3.xml
+
+COMMIT@f8e4c5f2f1ee4040472506ceeb30feb000c86853
+3	3	knowledge-online-bus/knowledge-online-biz/src/main/resources/subjectReportTemplate/document3.xml
+
+COMMIT@3fad98257dd7b03c3a5abe2e7306b0add3200f58
+9	3	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainAnalyzeController.java
+2	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/CollegeServiceImpl.java
+9	8	knowledge-online-framework/src/main/java/com/ourchem/framework/service/impl/PatyeeSearchServiceImpl.java
+
+COMMIT@41cb66bafd48c42e72470cf2e9a897067c70313d
+40	1	knowledge-online-dataserver/xiaozz.sql
+
+COMMIT@5e09a2a599878b4fad0f3349bd29464b72524d14
+18	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/sbpt/DeclareController.java
+2	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/sbpt/ProjectConntroller.java
+2	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/mapper/DeclarePublicMapper.java
+3	1	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/service/DeclarePublicService.java
+15	1	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/service/imp/DeclarePublicServiceImp.java
+10	2	knowledge-online-bus/knowledge-online-sbpt/src/main/resources/mybatis/DeclarePublicMapper.xml
+6	1	knowledge-online-bus/knowledge-online-sbpt/src/main/resources/mybatis/SjcjcPublicMapper.xml
+
+COMMIT@1a53f689bda8bea21fc02b56dca9da49e3141bd7
+8	1	knowledge-online-dataserver/xiaozz.sql
+
+COMMIT@658651311c1f5390920561d2fd216e5130af8693
+18	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/sbpt/DeclareController.java
+2	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/sbpt/ProjectConntroller.java
+2	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/mapper/DeclarePublicMapper.java
+3	1	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/service/DeclarePublicService.java
+15	1	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/service/imp/DeclarePublicServiceImp.java
+10	2	knowledge-online-bus/knowledge-online-sbpt/src/main/resources/mybatis/DeclarePublicMapper.xml
+6	1	knowledge-online-bus/knowledge-online-sbpt/src/main/resources/mybatis/SjcjcPublicMapper.xml
+
+COMMIT@55dea33ff33b8217746cf31112510b5421b5357a
+114	2	knowledge-online-framework/src/main/java/com/ourchem/framework/service/impl/ProDataServiceImpl.java
+
+COMMIT@b1755805904ed826f7ec55d0845d04d912f8109b
+12	16	knowledge-online-admin/src/main/java/com/ourchem/web/controller/bus/SearchController.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainModelJobServiceImpl.java
+1	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/QueryControllerService.java
+2	0	knowledge-online-framework/src/main/java/com/ourchem/framework/service/IProDataService.java
+
+COMMIT@a69102f8e10ba8d13823b922125df58446d40df5
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/aggregate/EnterpriseBasicInfoAggregate.java
+9	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/EnterpriseInformation.java
+9	3	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/EnterpriseInformationServiceImpl.java
+6	5	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainModelJobServiceImpl.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/EnterpriseBaseInformationMapper.xml
+12	0	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/工商数据模型dsl.json
+64	1	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ImportHbaseDataServiceImpl.java
+19	0	knowledge-online-dataserver/xiaozz.sql
+
+COMMIT@7957fd18af410f1ff753917413f3279ab004ad52
+1	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/EnterpriseInformationMapper.java
+31	112	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainModelJobServiceImpl.java
+9	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/EnterpriseInformationMapper.xml
+
+COMMIT@8b1fe70fbf84336c3a230ddc42b0bac06218a880
+91	16	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/CollegeServiceImpl.java
+
+COMMIT@9e1aaf88cc5d8e6ccb3f0c165fd2acae5ce3fcbc
+COMMIT@0c791a662bf32f37549c8174a11a150273463395
+86	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/TrademarkListEsQueryService.java
+
+COMMIT@b1948ebf5855c6eeaa77df7c2651c2b2067452e9
+25	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/EnterpriseInformationServiceImpl.java
+
+COMMIT@d897435ead518945eb1e7d1ca65c67fc3629e897
+COMMIT@f5245b27c162d0e834a65534fbcf0e3c88af927d
+6	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/EnterpriseBaseInformationMapper.java
+6	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IEnterpriseInformationService.java
+16	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/EnterpriseInformationServiceImpl.java
+403	235	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+52	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/EnterpriseBaseInformationMapper.xml
+46	5	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/core/ExpreTransfer.java
+9	5	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/model/config/SearchExpCheckConfig.java
+18	51	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/transfer/PositionTransfer.java
+
+COMMIT@a052fc314e287095e0260efffe924ebf2d133d83
+4	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/KeyTechNodeMapper.java
+23	4	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/PatentListEsQueryService.java
+33	45	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/EnterpriseInformationServiceImpl.java
+36	8	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainModelServiceImpl.java
+8	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/KeyTechNodeMapper.xml
+
+COMMIT@d2c42b19c1adc5401503ac58c78e2bab93c91200
+279	195	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+
+COMMIT@c806dd865decb7e17b77abbb05273a97d8c526a9
+COMMIT@60757cb2cf1425061548bf669c66a3829f3a2747
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/ProjectBasicInfoServiceImpl.java
+
+COMMIT@0fd5fafc44fb720f99172f7cdd7094f5f9974d00
+23	15	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/KeyTechNodeModelServiceImpl.java
+
+COMMIT@2046f1c21815429c7a3eaac659ba9229e3a743bf
+11	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainController.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/IndustryChainMapper.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IIndustryChainService.java
+8	4	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeModelServiceImpl.java
+5	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+12	10	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/KeyTechNodeModelServiceImpl.java
+2	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/vo/IndustryChainNodeModelImportVO.java
+2	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/vo/IndustryChainNodeModelVO.java
+11	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainMapper.xml
+
+COMMIT@6afc563b801839fc9e794dad8aa7a778d987cab6
+0	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainModelServiceImpl.java
+7	7	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeModelServiceImpl.java
+7	12	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/KeyTechNodeModelServiceImpl.java
+
+COMMIT@0369adf7241f785fab9ca697926306c6971f0a8d
+COMMIT@367bd552980787b8d1ea8de969599ec180a1be09
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/KeyTechNodeModelMapper.java
+5	3	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeModelServiceImpl.java
+13	4	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+8	10	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/KeyTechNodeModelServiceImpl.java
+16	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/KeyTechNodeModelMapper.xml
+
+COMMIT@9a36dccb7087db5fb2f5230b93204943c5faa8dc
+25	6	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeModelServiceImpl.java
+
+COMMIT@672b22c8c4e172bdace781b5c478f88956ba27b7
+5	0	knowledge-online-dataserver/knowledge-online-data-parser/definition/patyee/Patyee.g4
+3	1	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/Patyee.interp
+26	25	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/Patyee.tokens
+1	1	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/PatyeeBaseListener.java
+1	1	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/PatyeeBaseVisitor.java
+4	1	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/PatyeeLexer.interp
+300	284	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/PatyeeLexer.java
+23	22	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/PatyeeLexer.tokens
+1	1	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/PatyeeListener.java
+121	103	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/PatyeeParser.java
+1	1	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/PatyeeVisitor.java
+1	1	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/application-dataserverPro.yml
+
+COMMIT@6b306c69ab48afa909eb2527e9f133c01bbfed17
+339	77	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/report/PatentSubjectReportService.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/vo/patyee/Patent.java
+
+COMMIT@987f1717c77468769b5140e57284f91e9f2473f8
+18	3	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainAnalyzeController.java
+
+COMMIT@4396045e76585826d2f0973402baced6ad662a85
+4	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/PatentListEsQueryService.java
+
+COMMIT@b5d4f7ee1b21700aabbafc95491e18aa7f9775a2
+4	0	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/专利转让数据模型dsl.json
+
+COMMIT@596312c381bb8990aa4dff54ad4fa6c161877d40
+COMMIT@ba761ae93edd82e39266f5911ce3c93f11bc3236
+6	6	knowledge-online-admin/src/main/resources/application-devDm.yml
+6	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/PatentInformationMapper.java
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/PatentListEsQueryService.java
+56	32	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/EnterpriseInformationServiceImpl.java
+15	18	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/PatentInformationMapper.xml
+3	0	sql/xiaozz.sql
+
+COMMIT@58e5377e485a83292ee97c22f18cdd0c627c5b3d
+15	7	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainAnalyzeController.java
+
+COMMIT@9d29574dfc093e2a2648bdc6eeb53daadd00415e
+160	54	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/report/PatentSubjectReportService.java
+
+COMMIT@1145c7e2483587faeb934edd9e81742e079edefa
+2	2	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainAnalyzeController.java
+2	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IPatentLicenseService.java
+19	9	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/PatentLicenseServiceImpl.java
+3	3	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/vo/PatentLicenseDistrictCountVO.java
+6	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/vo/PatentLicenseInfoVO.java
+6	20	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/PatentLicenseMapper.xml
+
+COMMIT@de99b04e5a5322cb643cf99daaf7b9b601bc8dfd
+156	19	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/CollegeServiceImpl.java
+1	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/EnterpriseService.java
+2	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/TrademarkSearchServiceImpl.java
+1	1	knowledge-online-framework/src/main/java/com/ourchem/framework/service/impl/PatyeeSearchServiceImpl.java
+
+COMMIT@74d6fd6f2aaeb4eae56dd769fb31c114213db5b6
+2	1	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainAnalyzeController.java
+2	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IPatentTransferService.java
+24	6	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/PatentTransferServiceImpl.java
+3	3	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/vo/PatentTransferDistrictCountVO.java
+6	20	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/PatentTransferMapper.xml
+
+COMMIT@c389d18b41ee0203b741e5bdfaae97aaab33f668
+11	11	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainAnalyzeController.java
+
+COMMIT@c3accead0042ec5b8b420828df15cdac51d4e338
+1	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainMapper.xml
+
+COMMIT@bb4fc4b59d828b995da1a7446a345734123c5f70
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/EnterpriseBaseInformationMapper.xml
+
+COMMIT@8de2b3fdfcf699d34e830cfef8a7972a4bc0bf24
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChainModelCount.java
+2	4	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/query/EnterpriseInfoQuery.java
+7	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/EnterpriseInformationServiceImpl.java
+
+COMMIT@fed4be7421e3a84ac38fec1c6a9478089dce0c7e
+225	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/bus/SearchController.java
+13	1	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainAnalyzeController.java
+
+COMMIT@525a85498de531b41ee39b1440e8af7cfa63a0f4
+4	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChainNodeModel.java
+33	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/utils/LenientLongDeserializer.java
+36	10	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/PatentInformationMapper.xml
+6	0	sql/xiaozz.sql
+
+COMMIT@34e99e8bc8e159756449caf840402e61b9541805
+18	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeModelServiceImpl.java
+14	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+
+COMMIT@5723fd813a6c596e9e6ccf3fb93e8c1d32f1f323
+3	1	knowledge-online-admin/src/main/resources/application-devDm.yml
+3	1	knowledge-online-admin/src/main/resources/application-devDmLocal.yml
+9	3	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/CollegeServiceImpl.java
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/EnterpriseService.java
+
+COMMIT@39f3d14324b889ae1e826e848461ab5ab273878b
+34	5	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainAnalyzeController.java
+
+COMMIT@3d4b522cd08b6cfba94dd3c9190c47b0ec1395a3
+35	11	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainAnalyzeController.java
+1	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/vo/patyee/ModelField.java
+
+COMMIT@bfcf4bc158e06fde3ddbce4c02cdac2b6d2c07a4
+2	2	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainNodeMapper.xml
+
+COMMIT@3c0ceff9db784343ac1879900bdc988cdf9089fb
+COMMIT@1987a043ce07c9efbee1cd7a9b5936061822ab0d
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/EnterpriseInformationServiceImpl.java
+2	1	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/EnterpriseBaseInformationMapper.xml
+
+COMMIT@ecd1e2869977d6acee83f3ba2c13a4c3d31b8167
+COMMIT@3555d28fd6380316da8c4bc9426658c37adae1f6
+203	71	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+55	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/report/CompetitiveAnalyService.java
+
+COMMIT@bec1605f0f4c4dcd1d313f1770320c1f17e48a5a
+128	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/ienum/TrademarkClassificationEnum.java
+47	5	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/EnterpriseService.java
+
+COMMIT@743e49173fa2bdbc87b774418b58d6c1a99438ab
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/KeyTechNodeModel.java
+21	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/EnterpriseInformationServiceImpl.java
+
+COMMIT@135427553e43bbf00783b0a51d4b34ebc3eae0f4
+COMMIT@9d86aa3e7a3af66b754f23916a701d74d36afb55
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/IndustryChainNodeModelMapper.java
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/query/EnterpriseInfoQuery.java
+4	11	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeModelServiceImpl.java
+12	1	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainNodeModelMapper.xml
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/KeyTechNodeModelMapper.xml
+
+COMMIT@cde8a9ecbf6c12a874e219d9552b2c0b185f99e2
+11	1	knowledge-online-admin/src/main/java/com/ourchem/KnowLedgeOnlineApplication.java
+0	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+33	0	knowledge-online-framework/src/main/java/com/ourchem/framework/conf/OauthFeignConfig.java
+
+COMMIT@4c1c8244f8b81a70b792cdf2abfc671303f3553b
+6	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChainNodeModel.java
+7	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/KeyTechNodeModel.java
+1	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+2	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/vo/IndustryChainNodeModelVO.java
+2	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/vo/KeyTechNodeModelVO.java
+12	1	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainNodeModelMapper.xml
+10	1	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/KeyTechNodeModelMapper.xml
+
+COMMIT@6e172fb688cabd83a32c778fa7bfbd5f15f9e188
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChainModel.java
+2	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/CollegeServiceImpl.java
+25	23	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainModelJobServiceImpl.java
+9	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainModelServiceImpl.java
+
+COMMIT@be75c00ec0019c9e334a5d3bc58895eefb3a5141
+2	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+
+COMMIT@dfc6a227c087bfc602ecc14de94a2c6e869a9979
+16	6	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeModelServiceImpl.java
+
+COMMIT@b82f9b67091618b7579d47cc7aebad3ec2a83187
+COMMIT@ab69589b8f928d08e5f27f704bb110f843142926
+14	12	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeModelServiceImpl.java
+
+COMMIT@0ea6c43b04455b3626eb2b01369b9000164e6a86
+77	82	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/report/PatentSubjectReportService.java
+18	18	knowledge-online-bus/knowledge-online-biz/src/main/resources/subjectReportTemplate/document3.xml
+
+COMMIT@10c853d15cfe9cb69dc20d7a0b8144938a7efb8a
+3	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/aggregate/EnterpriseBasicInfoAggregate.java
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChainModelCount.java
+10	7	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/EnterpriseInformationServiceImpl.java
+2	3	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/EnterpriseBaseInformationMapper.xml
+4	1	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ImportHbaseDataServiceImpl.java
+7	1	knowledge-online-dataserver/xiaozz.sql
+
+COMMIT@c8e7cf6305bff1865e31b4c7c2ece492c4fe4b78
+COMMIT@9773a6564898d7a6b7bbfd950f27985e571a9dd1
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/query/TrademarkInfoQuery.java
+6	4	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/PatentListEsQueryService.java
+31	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/EnterpriseInformationServiceImpl.java
+3	4	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/PatentInformationMapper.xml
+4	4	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/PatentLicenseMapper.xml
+5	5	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/PatentTransferMapper.xml
+1	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/TrademarkInformationMapper.xml
+26	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ImportHbaseDataServiceImpl.java
+4	6	sql/xiaozz.sql
+
+COMMIT@06417a21f62f77345d66ba90e558035b1b6a56a2
+6	6	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/report/PatentSubjectReportService.java
+
+COMMIT@2d0a738d58698a2e54a5a1ad9f4fe92acb487092
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/EnterpriseService.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/report/PatentSubjectReportService.java
+
+COMMIT@8ca883917d5d392bb99465f7432cd6141008f5ae
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/query/PatentLicenseInfoQuery.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/query/PatentTransferInfoQuery.java
+5	4	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/PatentLicenseMapper.xml
+5	4	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/PatentTransferMapper.xml
+
+COMMIT@6bfd2e6d5257b0f21a87d979d5a847353df05a18
+5	3	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/ITrademarkSearchService.java
+44	43	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/CollegeServiceImpl.java
+1	17	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainGraphTrademarkServiceImpl.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainModelServiceImpl.java
+82	8	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/TrademarkSearchServiceImpl.java
+15	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/utils/BusUtils.java
+34	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/query/QueryVO.java
+8	5	knowledge-online-framework/src/main/java/com/ourchem/framework/service/IPatyeeSearchService.java
+60	19	knowledge-online-framework/src/main/java/com/ourchem/framework/service/impl/PatyeeSearchServiceImpl.java
+1	1	knowledge-online-framework/src/main/java/com/ourchem/framework/service/impl/ProDataServiceImpl.java
+
+COMMIT@5ba93351c207fcebe2d82915ad815e7c89384dae
+20	19	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainNodeModelMapper.xml
+
+COMMIT@a803f3a783cd9dcddcd7a4454b1a4c6da1960b63
+11	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/bus/ProjectInformationController.java
+27	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/ProjectInformationMapper.java
+9	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IProjectInformationService.java
+222	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/ProjectInformationServiceImpl.java
+19	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/vo/ImportDeclarationRequest.java
+44	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/ProjectInformationMapper.xml
+
+COMMIT@e1e2065aa027f41a86dd1fa4f262cf7d8ec1d701
+3	3	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainAnalyzeController.java
+
+COMMIT@9fe83bf57237c14f6d3da15fb2d8ad7532dd93cf
+3	1	knowledge-online-admin/src/main/java/com/ourchem/web/controller/sbpt/AttachmentController.java
+54	18	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/util/CompressDownloadUtil.java
+
+COMMIT@f2f055166d2d40240078bbc1dc8c81701cee17c8
+3	1	knowledge-online-admin/src/main/java/com/ourchem/web/controller/sbpt/AttachmentController.java
+54	18	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/util/CompressDownloadUtil.java
+
+COMMIT@f9e0e989042e011c4719c87c96c439e661de7722
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/PatentListEsQueryService.java
+
+COMMIT@63761959bd31955724422d95ed4dc009155545cf
+32	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/schedule/DataAutoPullSchedule.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/schedule/IndustryChainDataPullSchedule.java
+
+COMMIT@8dc5fcc4443f1dc9c4f5b8b6f4ff7f1240390cd8
+97	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/job/AttachmentRetrySchedule.java
+137	9	knowledge-online-admin/src/main/java/com/ourchem/web/controller/sbpt/DataStandard.java
+81	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/sbpt/SjcjcController.java
+2	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/mapper/AttachmentMapper.java
+11	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/mapper/NoticeRequestLogMapper.java
+2	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/service/AttachmentService.java
+11	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/service/NoticeRequestLogService.java
+4	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/service/imp/AttachmentServiceImp.java
+21	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/service/imp/NoticeRequestLogServiceImpl.java
+18	1	knowledge-online-bus/knowledge-online-sbpt/src/main/resources/mybatis/AttachmentMapper.xml
+46	0	knowledge-online-bus/knowledge-online-sbpt/src/main/resources/mybatis/NoticeRequestLogMapper.xml
+51	0	knowledge-online-dataserver/xiaozz.sql
+
+COMMIT@8d4d9ce9c4542e208a6f0213e2853203ceb69921
+97	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/job/AttachmentRetrySchedule.java
+137	9	knowledge-online-admin/src/main/java/com/ourchem/web/controller/sbpt/DataStandard.java
+81	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/sbpt/SjcjcController.java
+2	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/mapper/AttachmentMapper.java
+11	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/mapper/NoticeRequestLogMapper.java
+2	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/service/AttachmentService.java
+11	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/service/NoticeRequestLogService.java
+4	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/service/imp/AttachmentServiceImp.java
+21	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/service/imp/NoticeRequestLogServiceImpl.java
+18	1	knowledge-online-bus/knowledge-online-sbpt/src/main/resources/mybatis/AttachmentMapper.xml
+46	0	knowledge-online-bus/knowledge-online-sbpt/src/main/resources/mybatis/NoticeRequestLogMapper.xml
+13	0	knowledge-online-dataserver/xiaozz.sql
+
+COMMIT@2d452cfe54e6fdca8bdb14cbf937a14cc1cf4471
+125	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/sbpt/DataStandard.java
+2	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/mapper/AttachmentMapper.java
+2	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/mapper/DeclarePublicMapper.java
+9	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/mapper/NoticeRequestLogMapper.java
+2	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/service/AttachmentService.java
+2	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/service/DeclarePublicService.java
+9	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/service/NoticeRequestLogService.java
+4	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/service/imp/AttachmentServiceImp.java
+4	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/service/imp/DeclarePublicServiceImp.java
+21	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/service/imp/NoticeRequestLogServiceImpl.java
+6	0	knowledge-online-bus/knowledge-online-sbpt/src/main/resources/mybatis/AttachmentMapper.xml
+6	0	knowledge-online-bus/knowledge-online-sbpt/src/main/resources/mybatis/DeclarePublicMapper.xml
+28	0	knowledge-online-bus/knowledge-online-sbpt/src/main/resources/mybatis/NoticeRequestLogMapper.xml
+674	0	knowledge-online-dataserver/xiaozz.sql
+35	0	sql/hzh20260921.sql
+
+COMMIT@786a4e3924155e592f1e9691d75ad9f0be5c93af
+125	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/sbpt/DataStandard.java
+2	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/mapper/AttachmentMapper.java
+2	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/mapper/DeclarePublicMapper.java
+9	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/mapper/NoticeRequestLogMapper.java
+2	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/service/AttachmentService.java
+2	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/service/DeclarePublicService.java
+9	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/service/NoticeRequestLogService.java
+4	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/service/imp/AttachmentServiceImp.java
+4	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/service/imp/DeclarePublicServiceImp.java
+21	0	knowledge-online-bus/knowledge-online-sbpt/src/main/java/com/sbpt/service/imp/NoticeRequestLogServiceImpl.java
+6	0	knowledge-online-bus/knowledge-online-sbpt/src/main/resources/mybatis/AttachmentMapper.xml
+6	0	knowledge-online-bus/knowledge-online-sbpt/src/main/resources/mybatis/DeclarePublicMapper.xml
+28	0	knowledge-online-bus/knowledge-online-sbpt/src/main/resources/mybatis/NoticeRequestLogMapper.xml
+45	0	knowledge-online-dataserver/xiaozz.sql
+35	0	sql/hzh20260921.sql
+
+COMMIT@d855ae35bb4ed1d865dc99db7b72f48bc9b71b56
+2	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/BusinessInfo.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/report/PatentSubjectReportService.java
+
+COMMIT@fa5f549857e37290d94dd0a2b6860616d5beea65
+45	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/TrademarkInformation.java
+19	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/TrademarkInformationMapper.java
+99	10	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/EnterpriseService.java
+89	3	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/TrademarkInformationMapper.xml
+
+COMMIT@f200efd1c508f8c0394907e9e1ba89ce018669df
+34	104	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/专利转让数据模型dsl.json
+2	2	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ImportHbaseDataServiceImpl.java
+
+COMMIT@b7e7beb0ebb9dafa41f4e9f90738e195ca8d1b4d
+32	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/schedule/DataAutoPullSchedule.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/schedule/IndustryChainDataPullSchedule.java
+
+COMMIT@41a6a0c70eb147e0693edd9772bcdb3c4ff6d2a2
+31	9	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ImportHbaseDataServiceImpl.java
+
+COMMIT@1b8b50ddc823513e211606f69d5155446ff28a2b
+1	1	knowledge-online-admin/src/main/java/com/ourchem/web/controller/bus/ProjectBasicController.java
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/ProjectBasicInfo.java
+2	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/ProjectBasicInfoServiceImpl.java
+
+COMMIT@09b069bb8357e749bb144983b272e186777ae6d0
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/ProjectBasicInfoServiceImpl.java
+
+COMMIT@c9226a919924d689bd2c70f8e828d4e0f0e562a5
+COMMIT@48b813a45d2a4edb5e5eb5aef8c698df832df634
+9	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/bus/ProjectBasicController.java
+5	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/ProjectBasicInfo.java
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/ProjectBasicInfoService.java
+36	5	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/ProjectBasicInfoServiceImpl.java
+9	29	knowledge-online-dataserver/xiaozz.sql
+1	0	knowledge-online-framework/src/main/java/com/ourchem/framework/config/SecurityConfig.java
+
+COMMIT@15df69f74bfeeb530b009487e14737c26dcb4dbc
+4	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/jsonobj/BussinessJsonObject.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/CollegeServiceImpl.java
+51	45	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/EnterpriseService.java
+
+COMMIT@31af3d3c8bc3d30c86c2752675726a26465c8ddd
+5	3	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeModelServiceImpl.java
+4	0	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/分词检索分析模型创建dsl.json
+11	1	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ImportHbaseDataServiceImpl.java
+
+COMMIT@d897fa1cdf0fbefde2852f520ab6956feac6d210
+1	1	knowledge-online-admin/src/main/resources/application-devDm.yml
+1	1	knowledge-online-admin/src/main/resources/application-devDmPro.yml
+15	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/ArchivesPushService.java
+152	154	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/ProjectBasicInfoServiceImpl.java
+
+COMMIT@0cb2912b6cbdb8fbc672c56af604a89d4f918be6
+7	7	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/EnterpriseService.java
+
+COMMIT@a6b963ce43ae6092bf1fc96419e9ce44eec85e9b
+45	45	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/EnterpriseService.java
+0	7	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/PatentLicenseServiceImpl.java
+3	3	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/QueryControllerService.java
+
+COMMIT@b8c0e008fffb64bd5555a3cbaec2ff35de523396
+COMMIT@2b88ff2b622ebe00ff13a7b6c3b439289b2ddfa7
+7	1	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainController.java
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/IndustryChainMapper.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IIndustryChainService.java
+84	42	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/EnterpriseService.java
+5	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+12	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainMapper.xml
+4	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/query/QueryColumnVO.java
+
+COMMIT@a52d306ecc47f20a5664bf2518f77a11b35baeee
+26	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/vo/PatentLicenseDistrictCountVO.java
+
+COMMIT@06683c29e18ca76e38574d255920bedac04912f9
+146	23	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainAnalyzeController.java
+9	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/PatentLicenseMapper.java
+10	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IPatentLicenseService.java
+69	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/PatentLicenseServiceImpl.java
+1	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/vo/patyee/ModelField.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/vo/patyee/SecondSieveResult.java
+29	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/PatentLicenseMapper.xml
+
+COMMIT@99395bb70d3e0800175547e55e167779919b3c92
+5	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainCategoryController.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IIndustryChainCategoryService.java
+12	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/EnterpriseInformationServiceImpl.java
+13	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainCategoryServiceImpl.java
+12	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainModelServiceImpl.java
+12	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeModelServiceImpl.java
+13	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/KeyTechNodeModelServiceImpl.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainCategoryMapper.xml
+
+COMMIT@6ed89103e7ba03df404fc6c25986afdaf0ceae2f
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/ArchivesPushService.java
+
+COMMIT@686d54adb3dcf258faed1f5e21b58c3cdbb4223e
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChainCategory.java
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChainModel.java
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChainNodeModel.java
+2	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/KeyTechNodeModel.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/query/EnterpriseInfoQuery.java
+13	4	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/EnterpriseInformationServiceImpl.java
+1	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainCategoryServiceImpl.java
+9	4	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainModelServiceImpl.java
+11	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeModelServiceImpl.java
+12	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/KeyTechNodeModelServiceImpl.java
+1	2	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainNodeModelMapper.xml
+
+COMMIT@93308f654ede968d61271449dd5e7c30ccd16f3a
+1	1	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainController.java
+6	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChainNodeModel.java
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/KeyTechNodeModel.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IIndustryChainService.java
+28	3	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeModelServiceImpl.java
+15	13	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+29	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/KeyTechNodeModelServiceImpl.java
+19	16	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/KeyTechNodeServiceImpl.java
+3	1	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainNodeModelMapper.xml
+
+COMMIT@e3828b8f51c85111aca8488a2508066c0fe4ea91
+7	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainController.java
+1	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/IndustryChainMapper.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IIndustryChainService.java
+5	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+10	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainMapper.xml
+
+COMMIT@6e8ae0cd357c160658da49ea7e8aeffd39a01754
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/KeyTechNode.java
+18	12	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/KeyTechNodeServiceImpl.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/KeyTechNodeModelMapper.xml
+177	1	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/商标数据模型dsl.json
+51	17	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ImportHbaseDataServiceImpl.java
+
+COMMIT@0e363ebfe9bc6ad003cbfafac0bbd1a29dee010d
+5	5	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainController.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/IndustryChainMapper.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IIndustryChainService.java
+42	9	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+18	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainMapper.xml
+
+COMMIT@a6f4ba9313716bdd8946f42245affd499567c4ce
+COMMIT@80658734c6d5e258cc8c9495cdaa0505e5f41d10
+16	6	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainController.java
+1	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/keytechnology/KeyTechNodeModelController.java
+7	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/KeyTechNode.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/KeyTechNodeModel.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/IndustryChainMapper.java
+8	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/KeyTechNodeModelMapper.java
+5	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IIndustryChainService.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IKeyTechNodeModelService.java
+129	73	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+9	8	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/KeyTechNodeModelServiceImpl.java
+3	3	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainMapper.xml
+16	1	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/KeyTechNodeModelMapper.xml
+31	0	knowledge-online-dataserver/xiaozz.sql
+
+COMMIT@a61a6ea91476f6971a49e90c5da9738da7ea1b9e
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChainNodeModel.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/KeyTechNode.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/IndustryChainNodeMapper.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/KeyTechNodeMapper.java
+10	6	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+2	2	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainNodeMapper.xml
+1	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainNodeModelMapper.xml
+2	2	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/KeyTechNodeMapper.xml
+0	2	sql/hzh20260827.sql
+
+COMMIT@6dca8adffb772afac70a2b216f974a880224de20
+2	5	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeServiceImpl.java
+
+COMMIT@0aa1ed716b0d63db23ada364aea13d03684d4544
+3	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+
+COMMIT@86c0a3d0982a7564f4d2f4b8b7e8d3722658841f
+COMMIT@f23cdebb09dd04dc0592e9aab96059c7340951b4
+5	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeModelServiceImpl.java
+28	7	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+2	1	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainNodeModelMapper.xml
+
+COMMIT@180539ae8d4b959df0ad276e163b29873b621a43
+11	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/KeyTechNode.java
+1	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/KeyTechNodeMapper.java
+7	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/KeyTechNodeModelMapper.java
+66	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+7	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/KeyTechNodeMapper.xml
+6	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/KeyTechNodeModelMapper.xml
+7	0	sql/hzh20260827.sql
+
+COMMIT@dc4fbac92238da34942b3c3c1e979c8959ad6d92
+COMMIT@a8060e81671b918a69a367558d95b5bd8d2a9c93
+8	5	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainController.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChainNode.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/IndustryChainMapper.java
+3	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IIndustryChainService.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/CollegeServiceImpl.java
+6	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainModelJobServiceImpl.java
+87	75	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+4	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainMapper.xml
+10	24	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainNodeModelMapper.xml
+4	0	knowledge-online-dataserver/xiaozz.sql
+
+COMMIT@786dbfe18fcfa946cda30d83b07be090a987b2cc
+1	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/IndustryChainMapper.java
+1	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/IndustryChainNodeMapper.java
+1	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/KeyTechMapper.java
+1	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/KeyTechNodeMapper.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/query/EnterpriseInfoQuery.java
+16	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/EnterpriseInformationServiceImpl.java
+4	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainModelServiceImpl.java
+8	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainMapper.xml
+8	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainNodeMapper.xml
+8	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/KeyTechMapper.xml
+8	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/KeyTechNodeMapper.xml
+
+COMMIT@003c7c5179eb2894cdabb7a307441100c2a03f30
+COMMIT@4cafee05c52639bc46cb881d24d7b9cb3a8d7843
+2	1	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainMapper.xml
+
+COMMIT@a7b613b93c22bd60ca269076873956ea07c12487
+4	5	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainAnalyzeController.java
+
+COMMIT@41de04c337dd39388ced65f4203ab9012028a22b
+COMMIT@86180bd788744a2573fac42e036e2568d7eb76f3
+5	4	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainController.java
+2	1	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainNodeController.java
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChainCategory.java
+2	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IIndustryChainNodeService.java
+3	3	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IIndustryChainService.java
+40	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeServiceImpl.java
+40	6	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+88	4	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ImportHbaseDataServiceImpl.java
+
+COMMIT@ca7b2cc2c62d7722f5d475e9e44710fa7f18e475
+219	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainAnalyzeController.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/vo/patyee/ModelField.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/vo/patyee/SecondSieveResult.java
+
+COMMIT@4a738409b9141e97ecb8052eaaf374f85fb57d8e
+9	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainCategoryController.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChain.java
+7	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IIndustryChainCategoryService.java
+14	3	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IIndustryChainService.java
+5	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainCategoryServiceImpl.java
+152	45	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+
+COMMIT@994b17a01cfce9872b5a810fc3ec3abd555c2702
+56	10	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainAnalyzeController.java
+18	9	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/PatentLicenseServiceImpl.java
+31	17	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/PatentTransferServiceImpl.java
+
+COMMIT@0c18b01a486df4a40c3bf5f18fddb1f10f1f7c79
+9	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+
+COMMIT@c8d5267a5c54f12d60712f2917d52432bc871f40
+11	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+
+COMMIT@86e9bf7f253eb3f439d4bc3eefd98c44dfab0104
+9	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainCategoryController.java
+9	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChain.java
+9	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChainCategory.java
+9	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChainNode.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/EnterpriseBaseInformationMapper.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IEnterpriseInformationService.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IIndustryChainService.java
+6	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/EnterpriseInformationServiceImpl.java
+236	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+48	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/EnterpriseBaseInformationMapper.xml
+
+COMMIT@7ea0c371984993ef3919db96c200b469e340fee5
+396	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainAnalyzeController.java
+14	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/constant/SearchConstant.java
+11	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/PatentTransferMapper.java
+12	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IPatentTransferService.java
+4	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/PatentLicenseServiceImpl.java
+67	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/PatentTransferServiceImpl.java
+26	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/vo/PatentTransferDistrictCountVO.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/vo/patyee/ModelField.java
+6	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/vo/patyee/SecondSieveResult.java
+30	1	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/PatentTransferMapper.xml
+8	8	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/ElasticQueryEngine.java
+
+COMMIT@6f7be4a8305ce01dda269096256d94a369c1c95e
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainMapper.xml
+
+COMMIT@61b48c4bcb9dd49415611822219c047729e92376
+COMMIT@d254ba10a75fd899ec7814e58a43dc369fd0833a
+7	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/IndustryChainNodeModelMapper.java
+16	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+7	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainNodeModelMapper.xml
+
+COMMIT@cc9431811f5c9fe382144b749ac704965644a079
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/IndustryChainMapper.java
+4	5	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+11	3	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainMapper.xml
+
+COMMIT@9b88ba12b4dcc51ec3786d63575b945b93980890
+3	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+6	1	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainMapper.xml
+
+COMMIT@91342f51f58fee4e7029eaae10dcca11cdfd10c7
+COMMIT@f68f56cb05effb563a841d2e9b772055a20d9f10
+2	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+6	0	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/分词检索分析模型创建dsl.json
+32	7	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ImportHbaseDataServiceImpl.java
+
+COMMIT@716cceaecaed4d1971fec41803025aef420bd1e7
+COMMIT@024a3f6a38eb1c28362f037c3a13a7474ce5d0d9
+8	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainCategoryController.java
+8	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChain.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChainCategory.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/IndustryChainMapper.java
+1	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/IndustryChainNodeMapper.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IIndustryChainCategoryService.java
+7	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IIndustryChainService.java
+40	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainCategoryServiceImpl.java
+14	4	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeServiceImpl.java
+54	4	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+6	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainMapper.xml
+7	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainNodeMapper.xml
+
+COMMIT@f1be396ebbc1ae60513cf49985059c72a2a01ec5
+1	1	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainController.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChainNode.java
+80	49	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainMapper.xml
+7	0	knowledge-online-dataserver/xiaozz.sql
+
+COMMIT@8d4418a82c7c6658ca05cbc1bb576a920277ee35
+COMMIT@5f3eab2439157aa0bf6f52694f9c84c5db360cee
+18	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainController.java
+1	3	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainModelController.java
+1	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainNodeModelController.java
+9	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/job/DataPullScheduleController.java
+1	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/BaseModel.java
+6	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChain.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChainModel.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChainNodeModel.java
+5	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/IndustryChainMapper.java
+8	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/IndustryChainNodeModelMapper.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/ICollegeService.java
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IIndustryChainModelJobService.java
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IIndustryChainModelService.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IIndustryChainNodeModelService.java
+6	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IIndustryChainService.java
+14	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/CollegeServiceImpl.java
+43	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainModelJobServiceImpl.java
+24	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainModelServiceImpl.java
+11	5	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeModelServiceImpl.java
+107	4	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+43	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainMapper.xml
+38	10	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainNodeModelMapper.xml
+108	12	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ImportHbaseDataServiceImpl.java
+63	0	knowledge-online-dataserver/xiaozz.sql
+15	0	knowledge-online-framework/src/main/java/com/ourchem/framework/domain/HotWordInfo.java
+
+COMMIT@a562faf4c407dc0d48a67e3253d497d4bd19c629
+2	2	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/PatentLicenseMapper.xml
+2	2	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/PatentTransferMapper.xml
+2	2	sql/hzh20260827.sql
+
+COMMIT@ac619f8408eb6d8fc1ffe164b6e759e4788fbb4c
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/BusinessInfo.java
+8	8	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IntellectualPropertyMapServiceImpl.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/report/PatentSubjectReportService.java
+38	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/utils/ListToStringDeserializer.java
+14	0	knowledge-online-common/src/main/java/com/ourchem/common/constant/ModelIdType.java
+
+COMMIT@2a3189361cd533be5ff11551a9d5a92d4efd21fb
+42	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChainModelRefPatent.java
+23	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/IndustryChainModelRefPatentMapper.java
+17	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainModelRefPatentMapper.xml
+
+COMMIT@821958274f22ccd48f2bf0c05cbd08f0e48a0f4a
+5	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapstruct/PatentInfoConvert.java
+30	27	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/PatentListEsQueryService.java
+32	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainModelJobServiceImpl.java
+0	15	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/PatentInformationMapper.xml
+1	1	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/专利许可数据模型dsl.json
+1	1	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/专利转让数据模型dsl.json
+1	18	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/分词检索分析模型创建dsl.json
+1	1	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/商标数据模型dsl.json
+1	1	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/工商数据模型dsl.json
+34	0	knowledge-online-dataserver/xiaozz.sql
+3	0	knowledge-online-framework/src/main/java/com/ourchem/framework/domain/PatentMoreInfo.java
+1	0	knowledge-online-framework/src/main/java/com/ourchem/framework/service/impl/ProDataServiceImpl.java
+
+COMMIT@f63263b15aca7bf530b3d4a128bb21d9e2a26f22
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChainNode.java
+
+COMMIT@3a5d0678ded0b06438f6f151666e49378165bf37
+73	11	knowledge-online-admin/src/main/java/com/ourchem/web/controller/bus/PatentInformationController.java
+2	2	knowledge-online-admin/src/main/java/com/ourchem/web/controller/hbasedata/ImportHbaseDataController.java
+364	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/PatentListEsQueryService.java
+24	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/PatentInformationMapper.xml
+72	17	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/专利许可数据模型dsl.json
+18	0	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/分词检索分析模型创建dsl.json
+2	2	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ImportHbaseDataService.java
+145	2	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ImportHbaseDataServiceImpl.java
+
+COMMIT@c1853f5831c68ab5eb5a46cb8a4de1e0c6ab1b11
+5	1	knowledge-online-admin/src/main/resources/application-devDmLocal.yml
+
+COMMIT@d5c0dbbfb11806eda4a0cc769d3439c60e74f48d
+13	32	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/PatentCountRefreshService.java
+
+COMMIT@7b162961f4f17c4575fddc0729b5cb5fc17cff86
+COMMIT@d3d685d06d52067046e08033e1448308a5f7bd1e
+4	4	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainModelJobServiceImpl.java
+2	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/vo/PatentInfoVO.java
+115	0	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/专利许可数据模型dsl.json
+2	0	knowledge-online-dataserver/xiaozz.sql
+
+COMMIT@4378c7f79b6216d098ec603461223be50e6555f8
+263	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/PatentCountRefreshService.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeModelServiceImpl.java
+
+COMMIT@7884a040655132427bbf5c5a9e241cf88013caf9
+COMMIT@f634d3a731c919848f3baac01ee3e798b396afda
+6	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChainNodeModel.java
+6	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/KeyTechNodeModel.java
+69	41	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeModelServiceImpl.java
+68	41	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/KeyTechNodeModelServiceImpl.java
+
+COMMIT@9837ae636c10b1f21f6cddd56d888d4dd000c373
+4	4	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/utils/LibreOfficeUtils.java
+
+COMMIT@01b1bfe17111f7a72493807acee36ded32f94c64
+0	1	knowledge-online-common/pom.xml
+0	1	knowledge-online-dataserver/knowledge-online-data-file/pom.xml
+24	0	pom.xml
+
+COMMIT@b48072baf3c7f37b446e1eea816d5231a2f63e40
+COMMIT@d3faa1cfc5d59197b5a38ae4902c0f01ed48f626
+9	1	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainNodeController.java
+8	1	knowledge-online-admin/src/main/java/com/ourchem/web/controller/keytechnology/KeyTechNodeController.java
+4	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChainNode.java
+5	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/KeyTechNode.java
+
+COMMIT@e3740b8abc769ef5ad3b527748014ed4301cadf5
+2	2	knowledge-online-admin/src/main/java/com/ourchem/web/controller/bus/PatentLicenseController.java
+2	2	knowledge-online-admin/src/main/java/com/ourchem/web/controller/bus/PatentTransferController.java
+5	2	knowledge-online-admin/src/main/java/com/ourchem/web/controller/bus/ReportManageController.java
+1	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/report/subjectAnaly/HighValuePatentInfo.java
+108	158	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/ReportManageServiceImpl.java
+16	20	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/report/PatentSubjectReportService.java
+9140	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/subjectReportTemplate/document3.xml
+-	-	knowledge-online-bus/knowledge-online-biz/src/main/resources/subjectReportTemplate/企业科研强度评估分析报告.docx
+
+COMMIT@646d95fbfdb8ba3077883d9f957a3de0e3c28e51
+2	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainModelJobServiceImpl.java
+2	2	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/SearchAnalyModel.java
+3	6	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/分词检索分析模型创建dsl.json
+145	12	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ImportHbaseDataServiceImpl.java
+13	1	knowledge-online-dataserver/xiaozz.sql
+
+COMMIT@4f5168c7f4efdad71f87cc939f5234f1a6be9cbb
+9	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ImportHbaseDataServiceImpl.java
+
+COMMIT@512968ca19231093e0571bfc87dcefca4acee716
+COMMIT@e515e84386a1baff19f92c8394550acbd1a01a7f
+10	3	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainModelJobServiceImpl.java
+9	3	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/DefaultQueryService.java
+10	0	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/专利转让数据模型dsl.json
+117	7	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ImportHbaseDataServiceImpl.java
+
+COMMIT@e515080f2823b8344ac133bd18aea1818c432746
+27	4	knowledge-online-admin/src/main/java/com/ourchem/web/controller/bus/ReportManageController.java
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/IndustryChainModel.java
+46	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/ReportManageInfo.java
+10	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/report/subjectAnaly/LayoutOverviewInfo.java
+1	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/report/subjectAnaly/PatentBasicInfo.java
+17	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/ReportManageMapper.java
+30	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/ReportManageService.java
+185	99	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/ReportManageServiceImpl.java
+278	16	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/report/PatentSubjectReportService.java
+23	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/ReportManageMapper.xml
+16	0	sql/hzh20260827.sql
+
+COMMIT@385a6abe2df2ba9a41f52a402c262be4540f026d
+COMMIT@02c397c3d9360bc0a64a165514a17a9c1a239019
+2	2	knowledge-online-admin/src/main/java/com/ourchem/web/controller/hbasedata/ImportHbaseDataController.java
+175	0	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/专利转让数据模型dsl.json
+2	2	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ImportHbaseDataService.java
+273	16	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ImportHbaseDataServiceImpl.java
+
+COMMIT@ae8ff1a468ac6c810095656899a3fd6d3a6135f5
+0	6	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/商标数据模型dsl.json
+
+COMMIT@92d9c1195f36c0ae87cb8d9680de609c002f519b
+2	1	knowledge-online-admin/src/main/java/com/ourchem/data/server/config/DataServerBeansConfiguration.java
+21	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/constant/CompetitiveAnalyConstant.java
+11	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/constant/SearchConstant.java
+63	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/BusinessInfo.java
+105	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/ReportResultParseInfo.java
+57	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/report/competitiveanaly/ClassificationRankInfo.java
+20	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/report/competitiveanaly/CollaborativeInnovationInfo.java
+32	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/report/competitiveanaly/IndustryStatisticsInfo.java
+19	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/report/competitiveanaly/SchoolInfo.java
+22	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/report/competitiveanaly/TechnologyDependenceInfo.java
+18	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/report/subjectAnaly/AgencyAnalyInfo.java
+16	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/report/subjectAnaly/ApplicantCooperationInfo.java
+15	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/report/subjectAnaly/ClusterInfo.java
+19	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/report/subjectAnaly/CorePatentTechnologyCompositionInfo.java
+35	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/report/subjectAnaly/HighValuePatentInfo.java
+16	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/report/subjectAnaly/InventorCooperationInfo.java
+26	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/report/subjectAnaly/LayoutOverviewInfo.java
+21	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/report/subjectAnaly/PatentBasicInfo.java
+17	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/report/subjectAnaly/PatentDurationInfo.java
+20	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/report/subjectAnaly/SubjectReportResultInfo.java
+22	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/report/subjectAnaly/TechnologyOverviewInfo.java
+15	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/handler/AbstractDataHandler.java
+24	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/handler/SearchBusinessDataHandler.java
+22	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/handler/SearchPatentDataHandler.java
+61	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/ienum/BusinessModelField.java
+26	53	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IntellectualPropertyMapServiceImpl.java
+13	33	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/ReportManageServiceImpl.java
+193	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/report/CompetitiveAnalyService.java
+2099	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/report/PatentSubjectReportService.java
+55	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/report/ReportSearchClient.java
+60	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/utils/Result.java
+14956	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/competitiveAnalyTemplate/school.json
+18	5	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/DefaultQueryService.java
+8	8	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/ElasticQueryEngine.java
+2	1	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/EsService.java
+37	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/org/elasticsearch/client/EsRestHighLevelClient.java
+2	1	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/DataApp.java
+2	1	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/EsDataApp.java
+2	1	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/DiffCompareService.java
+16	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/QueryService.java
+
+COMMIT@ad1300e42ab5d05c893a76f2c164ab273b5e4b94
+20	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/bus/PatentInformationController.java
+11	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/hbasedata/ImportHbaseDataController.java
+6	1	knowledge-online-admin/src/main/resources/application-devDm.yml
+3	1	knowledge-online-admin/src/main/resources/application-devDmPro.yml
+222	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/ArchivesPushService.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainModelJobServiceImpl.java
+122	83	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/ProjectBasicInfoServiceImpl.java
+1	1	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/PatentInformationMapper.xml
+48	0	knowledge-online-common/src/main/java/com/ourchem/common/config/WxPublicServiceConfig.java
+40	6	knowledge-online-common/src/main/java/com/ourchem/common/utils/file/FileUploadUtils.java
+4	16	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/分词检索分析模型创建dsl.json
+1	1	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/商标数据模型dsl.json
+1	9	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/工商数据模型dsl.json
+78	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/FileDataControllerService.java
+8	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ImportHbaseDataService.java
+333	12	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ImportHbaseDataServiceImpl.java
+575	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/QueryControllerService.java
+6	0	knowledge-online-framework/pom.xml
+94	81	knowledge-online-framework/src/main/java/com/ourchem/framework/service/impl/ProDataServiceImpl.java
+
+COMMIT@cbf3b7ca2c78f72c1e16b65b65a19ab4621e058b
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/PatentLicense.java
+8	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/PatentLicenseMapper.java
+8	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/query/PatentLicenseInfoQuery.java
+102	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/PatentLicenseServiceImpl.java
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/vo/PatentLicenseInfoVO.java
+12	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/PatentLicenseMapper.xml
+14	0	sql/hzh20260827.sql
+
+COMMIT@be05d6c052a8b28de3cf7a5a5d60f3fb69e6a08d
+18	1	knowledge-online-admin/src/main/java/com/ourchem/web/controller/bus/PatentAwardController.java
+9	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainController.java
+1	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/IndustryChainMapper.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/query/HighValueInventionPatentQuery.java
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/query/PatentAwardQuery.java
+6	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IIndustryChainService.java
+17	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+1	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/HighValueInventionPatentMapper.xml
+7	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainMapper.xml
+5	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/PatentAwardMapper.xml
+
+COMMIT@0fa0d9c4666b4842c9515031444d02c6e05bf45e
+13	85	knowledge-online-admin/src/main/java/com/ourchem/web/controller/chain/IndustryChainCategoryController.java
+4	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/PatentInformation.java
+1	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/IndustryChainMapper.java
+30	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/query/PatentInfoQuery.java
+5	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IIndustryChainNodeService.java
+10	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IIndustryChainService.java
+5	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IKeyTechNodeService.java
+5	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/IKeyTechService.java
+11	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainNodeServiceImpl.java
+18	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/IndustryChainServiceImpl.java
+12	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/KeyTechNodeServiceImpl.java
+12	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/KeyTechServiceImpl.java
+49	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/utils/ChainUtil.java
+8	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/vo/PatentInfoVO.java
+12	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/IndustryChainMapper.xml
+30	2	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/PatentInformationMapper.xml
+6	0	sql/hzh20260827.sql
+
+COMMIT@78a623f0ad6a41dff8e27794a116e1768b3d2297
+2	2	knowledge-online-admin/pom.xml
+
+COMMIT@f5c371b907757b91752a448298f714733c2268eb
+2	2	knowledge-online-admin/pom.xml
+8	2	knowledge-online-admin/src/main/java/com/ourchem/web/controller/hbasedata/ImportHbaseDataController.java
+6	6	knowledge-online-admin/src/main/resources/application.yml
+234	4	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/ProjectBasicInfoServiceImpl.java
+4	0	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/工商数据模型dsl.json
+6	2	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ImportHbaseDataService.java
+601	72	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ImportHbaseDataServiceImpl.java
+4	4	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/application-dataserver.yml
+1	1	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/application-dataserverPro.yml
+50	0	knowledge-online-dataserver/xiaozz.sql
+4	1	knowledge-online-quartz/src/main/java/com/ourchem/quartz/config/ScheduleConfig.java
+
+COMMIT@f8ee1c85ba791465387b726e0aade0f631fa0350
+COMMIT@29a257f7634db3ededcd91ad806bef57954dc471
+214	0	_tmp_read_check/NewFieldsCheck.java
+6	3	knowledge-online-admin/pom.xml
+8	1	knowledge-online-admin/src/main/resources/application.yml
+1	1	knowledge-online-dataserver/knowledge-online-data-server/conf/bootstrap.yml
+2	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ImportHbaseDataServiceImpl.java
+8	2	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/application-dataserver.yml
+4	2	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/{bootstrap.yml => bootstrap.yml01}
+
+COMMIT@d6202e5beab57d98775f6d3f31f418c5a03a581e
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/PatentTransfer.java
+8	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapper/PatentTransferMapper.java
+7	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/query/PatentTransferInfoQuery.java
+102	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/PatentTransferServiceImpl.java
+3	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/vo/PatentTransferInfoVO.java
+13	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/PatentTransferMapper.xml
+5	0	knowledge-online-bus/pom.xml
+26	1	sql/hzh20260827.sql
+
+COMMIT@683c5e24dd09548c691f6e3b0edbfb7530159d4a
+COMMIT@8d0b98ef9770e3642178dea4f7883fb220f29cdb
+1	1	knowledge-online-admin/src/main/java/com/ourchem/KnowLedgeOnlineApplication.java
+40	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/bus/SearchController.java
+6	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/query/PatentInfoQuery.java
+6	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/PatentInformationMapper.xml
+1	1	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/HighValuePatentResultHandler.java
+1	1	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/ListPageLegalStatusResultHandler.java
+38	1	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/QueryService.java
+
+COMMIT@aa5eeb7f5244af2ab4b1a8c96f7e3dda5885fec1
+-	-	knowledge-online-admin/hbasedata/patent/hbase_get_index.xlsx
+-	-	knowledge-online-admin/hbasedata/patent/part_12172489-78c3-4073-ba52-a7b740969c15.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_25b20f32-90e7-4da0-b98c-214e58f714c0.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_313b07a8-b69a-4f9a-b2e4-ac3d501fed91.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_3f25fc2f-5c54-4e6a-93e2-373584ef7380.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_4062c7c8-4397-4b57-9a5c-58706e9ee08f.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_50391f9d-13e4-4fea-95b2-b6c269cc78ba.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_6c5a96b4-64ab-4eba-ae94-93fb264bc7de.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_786be36d-d705-41d9-a047-9ae340aef914.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_97038bdd-751b-464d-a70a-51ceb83d10f6.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_ab5c1400-d550-42d6-a78c-acba40d9b0a3.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_b1ed7311-fc2f-4137-bf06-b63678847753.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_bcf194f7-9e60-4b46-9d70-0e9fcf9090e7.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_c41e43c0-e3af-4d4d-8162-10bbdcd6308f.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_c71ab6fd-40fd-49f8-aed1-8f09aa2cfe8e.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_ca8c64d0-864d-43aa-9c3f-e22e60a6d7c7.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_cd3eb1be-8ee5-4e04-9cc5-4ea337810477.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_db2a946c-719e-48f3-ae23-2b6552b79057.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_dc41c792-bd85-44cc-bbd3-d10363ae9053.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_e3624488-e1a2-444e-9f34-2264353f93c6.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_e5b51199-1532-4c90-b4b4-df40dd879be6.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_e9884a03-9877-40a5-9338-e2e335bb6173.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_f424da45-8abf-4508-b0b9-bc3b82f42935.parquet
+
+COMMIT@c7d28ba4749155bba2968fb202efd11475f72d9c
+COMMIT@71eed88ca3306033642bd1286872a8af30b92829
+-	-	knowledge-online-admin/hbasedata/patent/hbase_get_index.xlsx
+-	-	knowledge-online-admin/hbasedata/patent/part_12172489-78c3-4073-ba52-a7b740969c15.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_25b20f32-90e7-4da0-b98c-214e58f714c0.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_313b07a8-b69a-4f9a-b2e4-ac3d501fed91.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_3f25fc2f-5c54-4e6a-93e2-373584ef7380.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_4062c7c8-4397-4b57-9a5c-58706e9ee08f.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_50391f9d-13e4-4fea-95b2-b6c269cc78ba.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_6c5a96b4-64ab-4eba-ae94-93fb264bc7de.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_786be36d-d705-41d9-a047-9ae340aef914.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_97038bdd-751b-464d-a70a-51ceb83d10f6.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_ab5c1400-d550-42d6-a78c-acba40d9b0a3.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_b1ed7311-fc2f-4137-bf06-b63678847753.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_bcf194f7-9e60-4b46-9d70-0e9fcf9090e7.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_c41e43c0-e3af-4d4d-8162-10bbdcd6308f.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_c71ab6fd-40fd-49f8-aed1-8f09aa2cfe8e.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_ca8c64d0-864d-43aa-9c3f-e22e60a6d7c7.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_cd3eb1be-8ee5-4e04-9cc5-4ea337810477.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_db2a946c-719e-48f3-ae23-2b6552b79057.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_dc41c792-bd85-44cc-bbd3-d10363ae9053.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_e3624488-e1a2-444e-9f34-2264353f93c6.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_e5b51199-1532-4c90-b4b4-df40dd879be6.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_e9884a03-9877-40a5-9338-e2e335bb6173.parquet
+-	-	knowledge-online-admin/hbasedata/patent/part_f424da45-8abf-4508-b0b9-bc3b82f42935.parquet
+24	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/hbasedata/ImportHbaseDataController.java
+1	1	knowledge-online-admin/src/main/resources/application.yml
+26	0	knowledge-online-dataserver/knowledge-online-data-server/pom.xml
+7	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ImportHbaseDataService.java
+759	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ImportHbaseDataServiceImpl.java
+3	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/application-dataserver.yml
+146	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/application-dataserverPro.yml
+37	0	knowledge-online-dataserver/xiaozz.sql
+
+COMMIT@8da3ff20c6b2458f35e222d8ef972f90f4d3f4c1
+COMMIT@b02734307fbc6e957cf83799bda2ee29952062df
+62	3	knowledge-online-admin/pom.xml
+27	2	knowledge-online-admin/src/main/java/com/ourchem/KnowLedgeOnlineApplication.java
+9	2	knowledge-online-admin/src/main/java/com/ourchem/web/core/config/SwaggerConfig.java
+7	1	knowledge-online-admin/src/main/resources/application-devDm.yml
+5	0	knowledge-online-admin/src/main/resources/application.yml
+2	3	knowledge-online-framework/src/main/java/com/ourchem/framework/config/ApplicationConfig.java
+2	1	pom.xml
+
+COMMIT@cb72e90f4847f9090df4074f0e7b937f25220f31
+299	0	knowledge-online-admin/src/main/java/com/ourchem/data/server/config/DataServerBeansConfiguration.java
+4	0	knowledge-online-dataserver/README.md
+1	0	knowledge-online-dataserver/knowledge-online-data-api/.gitignore
+49	0	knowledge-online-dataserver/knowledge-online-data-api/pom.xml
+27	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/collect/CollectDeleteLabelRequest.java
+27	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/collect/CollectLabelRequest.java
+27	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/collect/CollectLabelResponse.java
+27	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/collect/CollectStatRequest.java
+25	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/collect/CollectStatResponse.java
+19	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/exception/NoDataException.java
+47	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/file/FileClient.java
+47	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/file/FileCollection.java
+47	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/file/McFileCollection.java
+47	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/file/McPatentCollection.java
+56	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/file/PatentCollection.java
+36	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/file/PatentFile.java
+42	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/file/PatentFileSizeEnum.java
+13	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/ApplicantQueryReqVO.java
+69	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/BatchQuery.java
+25	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/BatchSearchReqVO.java
+20	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/ClusteringAnalysisParam.java
+39	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/CollectQueryParam.java
+42	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/ConnectAnalyReqVO.java
+9	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/ContentType.java
+125	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/CustomizeFieldParam.java
+10	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/DataType.java
+57	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/EnterpriseReqDTO.java
+40	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/ExpiredYearAnalyReqVO.java
+37	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/ExprTotalHitsParam.java
+14	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/ExpreExtractClient.java
+31	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/ExtractContainer.java
+19	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/FavoritesFamilyPatentQueryVO.java
+37	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/FetchPns.java
+232	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/FieldBase.java
+52	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/ImpactAnalysisCoefficient.java
+74	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/ImpactAnalysisEnum.java
+18	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/ImportIpcJsonDTO.java
+141	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/InternalQueryStat.java
+324	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/LawsuitModel.java
+68	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/LegalStatus.java
+60	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/MatchIndex.java
+25	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/QueryApplicantTreeExtendParam.java
+24	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/QueryApplicantTreeParam.java
+16	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/QueryBusinessTreeParam.java
+22	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/QueryColumRange.java
+109	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/QueryColumn.java
+48	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/QueryColumnGroup.java
+46	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/QueryCondition.java
+50	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/QueryDictReqVO.java
+127	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/QueryParam.java
+472	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/QueryParamBase.java
+5	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/RangeDataType.java
+56	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/RecyclePatentCountQueryVO.java
+7	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/Relation.java
+84	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/RepeatParam.java
+81	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/ResonseData.java
+1667	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/SearchAnalyModel.java
+161	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/SearchClient.java
+79	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/SearchSemanticsParam.java
+17	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/SliceSearchParam.java
+5	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/SortType.java
+56	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/query/UserLabelFieldParam.java
+147	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/statistic/ActionCollect.java
+16	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/statistic/ActionRecodsReqVO.java
+64	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/statistic/ActionRecord.java
+63	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/statistic/ActionStatisticReqVO.java
+16	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/statistic/LoginRecodeReqVO.java
+86	0	knowledge-online-dataserver/knowledge-online-data-api/src/main/java/com/ourchem/data/api/statistic/LoginRecord.java
+1	0	knowledge-online-dataserver/knowledge-online-data-file/.gitignore
+78	0	knowledge-online-dataserver/knowledge-online-data-file/pom.xml
+9	0	knowledge-online-dataserver/knowledge-online-data-file/src/main/java/com/ourchem/data/file/process/service/IFormatTransfer.java
+193	0	knowledge-online-dataserver/knowledge-online-data-file/src/main/java/com/ourchem/data/file/process/service/PicFormatTransfer.java
+104	0	knowledge-online-dataserver/knowledge-online-data-file/src/main/java/com/ourchem/data/file/service/CompositeMapService.java
+12	0	knowledge-online-dataserver/knowledge-online-data-file/src/main/java/com/ourchem/data/file/service/HttpDownloader.java
+9	0	knowledge-online-dataserver/knowledge-online-data-file/src/main/java/com/ourchem/data/file/service/IFileDownloader.java
+16	0	knowledge-online-dataserver/knowledge-online-data-file/src/main/java/com/ourchem/data/file/service/IFileMapService.java
+21	0	knowledge-online-dataserver/knowledge-online-data-file/src/main/java/com/ourchem/data/file/service/IfiRestMapService.java
+139	0	knowledge-online-dataserver/knowledge-online-data-file/src/main/java/com/ourchem/data/file/service/IpddMapService.java
+20	0	knowledge-online-dataserver/knowledge-online-data-file/src/main/java/com/ourchem/data/file/service/IrregularProccesor.java
+232	0	knowledge-online-dataserver/knowledge-online-data-file/src/main/java/com/ourchem/data/file/service/LocalFileMapService.java
+11	0	knowledge-online-dataserver/knowledge-online-data-file/src/main/java/com/ourchem/data/file/service/MapServiceBase.java
+181	0	knowledge-online-dataserver/knowledge-online-data-file/src/main/java/com/ourchem/data/file/service/McOssFileMapService.java
+345	0	knowledge-online-dataserver/knowledge-online-data-file/src/main/java/com/ourchem/data/file/service/OSSClientUtil.java
+26	0	knowledge-online-dataserver/knowledge-online-data-file/src/main/java/com/ourchem/data/file/service/OSSFileDownloader.java
+240	0	knowledge-online-dataserver/knowledge-online-data-file/src/main/java/com/ourchem/data/file/service/Oss0FileMapService.java
+162	0	knowledge-online-dataserver/knowledge-online-data-file/src/main/java/com/ourchem/data/file/service/Oss1FileMapService.java
+303	0	knowledge-online-dataserver/knowledge-online-data-file/src/main/java/com/ourchem/data/file/service/OssFileMapService.java
+7	0	knowledge-online-dataserver/knowledge-online-data-file/src/main/java/com/ourchem/data/file/service/SourceFileSystem.java
+7	0	knowledge-online-dataserver/knowledge-online-data-file/src/main/java/com/ourchem/data/file/service/SourceFileType.java
+86	0	knowledge-online-dataserver/knowledge-online-data-file/src/main/java/com/ourchem/data/file/service/SourceMapping.java
+47	0	knowledge-online-dataserver/knowledge-online-data-file/src/main/java/com/ourchem/data/file/service/SourcePatent.java
+21	0	knowledge-online-dataserver/knowledge-online-data-file/src/test/java/FormatTransferTest.java
+1	0	knowledge-online-dataserver/knowledge-online-data-parser/.gitignore
+13	0	knowledge-online-dataserver/knowledge-online-data-parser/config/IKAnalyzer.cfg.xml
+13	0	knowledge-online-dataserver/knowledge-online-data-parser/config/analysis-ik-ourchem/IKAnalyzer.cfg.xml
+398716	0	knowledge-online-dataserver/knowledge-online-data-parser/config/analysis-ik-ourchem/extra_main.dic
+12638	0	knowledge-online-dataserver/knowledge-online-data-parser/config/analysis-ik-ourchem/extra_single_word.dic
+12638	0	knowledge-online-dataserver/knowledge-online-data-parser/config/analysis-ik-ourchem/extra_single_word_full.dic
+2714	0	knowledge-online-dataserver/knowledge-online-data-parser/config/analysis-ik-ourchem/extra_single_word_low_freq.dic
+31	0	knowledge-online-dataserver/knowledge-online-data-parser/config/analysis-ik-ourchem/extra_stopword.dic
+275909	0	knowledge-online-dataserver/knowledge-online-data-parser/config/analysis-ik-ourchem/main.dic
+25	0	knowledge-online-dataserver/knowledge-online-data-parser/config/analysis-ik-ourchem/preposition.dic
+316	0	knowledge-online-dataserver/knowledge-online-data-parser/config/analysis-ik-ourchem/quantifier.dic
+82	0	knowledge-online-dataserver/knowledge-online-data-parser/config/analysis-ik-ourchem/stopword.dic
+37	0	knowledge-online-dataserver/knowledge-online-data-parser/config/analysis-ik-ourchem/suffix.dic
+131	0	knowledge-online-dataserver/knowledge-online-data-parser/config/analysis-ik-ourchem/surname.dic
+398716	0	knowledge-online-dataserver/knowledge-online-data-parser/config/extra_main.dic
+12638	0	knowledge-online-dataserver/knowledge-online-data-parser/config/extra_single_word.dic
+12638	0	knowledge-online-dataserver/knowledge-online-data-parser/config/extra_single_word_full.dic
+2714	0	knowledge-online-dataserver/knowledge-online-data-parser/config/extra_single_word_low_freq.dic
+31	0	knowledge-online-dataserver/knowledge-online-data-parser/config/extra_stopword.dic
+275909	0	knowledge-online-dataserver/knowledge-online-data-parser/config/main.dic
+25	0	knowledge-online-dataserver/knowledge-online-data-parser/config/preposition.dic
+316	0	knowledge-online-dataserver/knowledge-online-data-parser/config/quantifier.dic
+82	0	knowledge-online-dataserver/knowledge-online-data-parser/config/stopword.dic
+37	0	knowledge-online-dataserver/knowledge-online-data-parser/config/suffix.dic
+131	0	knowledge-online-dataserver/knowledge-online-data-parser/config/surname.dic
+8	0	knowledge-online-dataserver/knowledge-online-data-parser/data/calc.txt
+1	0	knowledge-online-dataserver/knowledge-online-data-parser/data/func.txt
+1	0	knowledge-online-dataserver/knowledge-online-data-parser/data/patyee.txt
+24	0	knowledge-online-dataserver/knowledge-online-data-parser/definition/demo/LabeledExpr.g4
+49	0	knowledge-online-dataserver/knowledge-online-data-parser/definition/func/Func.g4
+171	0	knowledge-online-dataserver/knowledge-online-data-parser/definition/patyee/Patyee.g4
+210	0	knowledge-online-dataserver/knowledge-online-data-parser/pom.xml
+7	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/ElasticExpreDecode.java
+40	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/Func.interp
+17	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/Func.tokens
+45	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/FuncApp.java
+159	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/FuncBaseListener.java
+84	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/FuncBaseVisitor.java
+53	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/FuncLexer.interp
+142	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/FuncLexer.java
+17	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/FuncLexer.tokens
+126	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/FuncListener.java
+627	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/FuncParser.java
+81	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/FuncVisitor.java
+7	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/IExpreDecode.java
+48	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/Patyee.interp
+26	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/Patyee.tokens
+159	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/PatyeeBaseListener.java
+84	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/PatyeeBaseVisitor.java
+68	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/PatyeeLexer.interp
+151	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/PatyeeLexer.java
+26	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/PatyeeLexer.tokens
+128	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/PatyeeListener.java
+557	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/PatyeeParser.java
+82	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/PatyeeVisitor.java
+19	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/consts/ClusteringFieldConstants.java
+36	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/consts/DataDictConstant.java
+19	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/consts/ErrorCodeConstants.java
+40	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/consts/FieldValue.java
+36	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/consts/LitigationConstant.java
+420	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/consts/NormalConstant.java
+11	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/consts/QueryContextConsts.java
+24	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/consts/SpecialSymbol.java
+50	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/consts/SsFieldEnum.java
+42	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/core/ArgConfig.java
+41	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/core/ArgInfo.java
+102	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/core/ClassScanner.java
+18	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/core/ExprFunction.java
+90	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/core/ExpreTransfer.java
+42	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/core/FuncDesc.java
+14	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/core/Handler.java
+6	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/core/HandlerType.java
+144	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/core/MetaInfoHolder.java
+63	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/core/ValueCheckInfo.java
+720	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/decode/ElasticFuncDecoderNew.java
+32	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/decode/IExpression.java
+11	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/decode/IFuncDecoder.java
+317	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/decode/PatyeeExpreDecode.java
+7	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/decode/Relation.java
+729	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/decode/SemanticsFuncDecoderNew.java
+27	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/decode/expre/FixArgExpre.java
+38	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/decode/expre/FlattenExpre.java
+57	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/decode/expre/FunctionExpre.java
+25	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/decode/expre/InValueExpre.java
+29	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/decode/expre/InnerExpre.java
+48	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/decode/expre/PostionExpre.java
+11	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/decode/expre/PostionNExpre.java
+11	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/decode/expre/PostionWExpre.java
+43	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/decode/expre/ValueExpre.java
+36	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/demo/DemoApp.java
+142	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/demo/EvalVisitor.java
+38	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/demo/LabeledExpr.interp
+19	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/demo/LabeledExpr.tokens
+147	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/demo/LabeledExprBaseListener.java
+77	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/demo/LabeledExprBaseVisitor.java
+53	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/demo/LabeledExprLexer.interp
+136	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/demo/LabeledExprLexer.java
+19	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/demo/LabeledExprLexer.tokens
+116	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/demo/LabeledExprListener.java
+558	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/demo/LabeledExprParser.java
+75	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/demo/LabeledExprVisitor.java
+31	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/exception/OverSizeError.java
+14	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/exception/OverSizeException.java
+49	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/exception/ParseError.java
+28	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/exception/ParseException.java
+11	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/exception/ParseExceptionConstant.java
+37	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/exception/QueryError.java
+23	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/exception/QueryException.java
+49	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/exception/RejectError.java
+29	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/exception/RejectException.java
+35	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/exception/ServerError.java
+29	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/exception/ServerException.java
+7	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/model/config/AggType.java
+213	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/model/config/DSLModel.java
+5	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/model/config/EngineType.java
+76	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/model/config/MatchPhraseConfig.java
+25	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/model/config/MeasureField.java
+64	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/model/config/ModelExternalInfo.java
+7	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/model/config/ModelVersion.java
+32	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/model/config/SearchExpCheckConfig.java
+69	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/model/config/SearchParam.java
+114	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/model/config/ThirdPartyLimit.java
+30	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/model/data/HbaseDataSource.java
+248	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/model/parse/DSLParseParam.java
+9	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/model/parse/IDSLEncoder.java
+16	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/model/parse/IntegrationDSLParseParam.java
+87	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/model/parse/ParseColumn.java
+20	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/model/parse/ParseMeasure.java
+141	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/model/query/QueryColumn.java
+171	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/model/query/QueryParam.java
+7	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/model/query/SortType.java
+53	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/FuncLexer.interp
+18	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/FuncLexer.tokens
+44	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/ParseErrorListener.java
+144	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/Patyee.interp
+70	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/Patyee.tokens
+24	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/PatyeeApp.java
+291	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/PatyeeBaseListener.java
+161	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/PatyeeBaseVisitor.java
+34	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/PatyeeBuilder.java
+557	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/PatyeeExpre.java
+11	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/PatyeeHandler.java
+197	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/PatyeeLexer.interp
+428	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/PatyeeLexer.java
+67	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/PatyeeLexer.tokens
+254	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/PatyeeListener.java
+1533	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/PatyeeParser.java
+156	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/PatyeeVisitor.java
+23	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/TermsHandler.java
+24	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/TextHandler.java
+73	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/patyee/ValueInfo.java
+60	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/BuilderHandler.java
+27	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/ChildType.java
+111	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/DataVisualQueryService.java
+670	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/DefaultQueryService.java
+171	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/DefaultRequestDecoder.java
+691	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/ElasticAggEncoder.java
+83	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/ElasticQueryBase.java
+345	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/ElasticQueryEngine.java
+17	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/ElasticQueryHandler.java
+57	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/EsService.java
+30	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/ExpreValueExtractor.java
+47	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/ExpressionHandler.java
+199	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/ExtractValueDecoder.java
+59	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/HandlerBase.java
+898	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/HbaseDetailFetchService.java
+67	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/HbaseService.java
+15	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/IDataSupplementService.java
+17	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/IDetailFetchService.java
+11	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/IHbaseService.java
+9	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/IQueryEncoder.java
+21	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/IQueryEngine.java
+22	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/IQueryService.java
+11	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/IRequestDecoder.java
+13	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/IResultCache.java
+13	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/ISearchExpressionKeyWordService.java
+141	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/IntegrationElasticQueryEngine.java
+186	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/IntegrationQueryService.java
+17	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/InternalQueryStatService.java
+361	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/LimitService.java
+34	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/MockModelService.java
+125	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/ModelService.java
+26	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/NoneResultCache.java
+17	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/ParamHandler.java
+170	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/QueryContext.java
+175	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/RedisResultCache.java
+133	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/ResonseData.java
+15	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/ResultHandler.java
+247	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/RowkeyFormatUtil.java
+123	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/elastic/AggGroupBuilder.java
+167	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/elastic/AggHandlerBase.java
+164	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/elastic/CommonAggHandler.java
+166	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/elastic/CustomizeFieldBuilder.java
+27	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/elastic/ElasticSearchWrapper.java
+92	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/elastic/GlobalAggHandler.java
+187	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/elastic/ImpactAggHandler.java
+195	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/elastic/IntegrationMergeHandler.java
+229	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/elastic/MergeBase.java
+121	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/elastic/MergeDetailHandler.java
+335	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/elastic/MergeStatHandler.java
+230	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/elastic/SearchQueryHandler.java
+284	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/elastic/SingleFieldAggHandler.java
+197	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/elastic/SortAggHandler.java
+99	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/elastic/TwoDimensionalAggBuilder.java
+225	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/elastic/UserLabelAggHandler.java
+43	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/transfer/BetweenTransfer.java
+202	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/transfer/DateTransfer.java
+221	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/transfer/DslTransferUtil.java
+27	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/transfer/ExsistTransfer.java
+46	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/transfer/INQueryTransfer.java
+45	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/transfer/LargeEqualTransfer.java
+46	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/transfer/LargeFuncTransfer.java
+44	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/transfer/LessEqualTransfer.java
+44	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/transfer/LessFuncTransfer.java
+73	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/transfer/MatchPhraseTransfer.java
+28	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/transfer/NotExsistTransfer.java
+367	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/transfer/PositionTransfer.java
+35	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/transfer/PrefixTransfer.java
+37	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/transfer/TermsEqualTransfer.java
+39	0	knowledge-online-dataserver/knowledge-online-data-parser/src/main/java/com/ourchem/data/antlr/parser/transfer/WildCardTransfer.java
+222	0	knowledge-online-dataserver/knowledge-online-data-parser/src/test/java/com/ourchem/data/parser/DslScoreCalculator.java
+392	0	knowledge-online-dataserver/knowledge-online-data-parser/src/test/java/com/ourchem/data/parser/ElasticDslDecodeTest.java
+52	0	knowledge-online-dataserver/knowledge-online-data-parser/src/test/java/com/ourchem/data/parser/ModelBase.java
+10	0	knowledge-online-dataserver/knowledge-online-data-parser/src/test/resources/model.json
+1	0	knowledge-online-dataserver/knowledge-online-data-server/.gitignore
+109	0	knowledge-online-dataserver/knowledge-online-data-server/conf/bin/start.sh
+103	0	knowledge-online-dataserver/knowledge-online-data-server/conf/bootstrap.yml
+77	0	knowledge-online-dataserver/knowledge-online-data-server/conf/build.xml
+2069	0	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/分词检索分析模型创建dsl.json
+208	0	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/商标数据模型dsl.json
+82	0	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/国防解密专利数据scheme-dsl.json
+243	0	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/工商数据模型dsl.json
+94	0	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/数据字典scheme-dsl.json
+283	0	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/横琴商标数据模型dsl.json
+42	0	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/河南大屏Dsl-henan_stat.json
+91	0	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/河南大屏Dsl-henan_visual.json
+92	0	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/法律状态模型创建dsl.json
+133	0	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/诉讼模型创建dsl3.9.0.json
+36	0	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/语义检索模型创建dsl.json
+41	0	knowledge-online-dataserver/knowledge-online-data-server/conf/es-dsl/预警结果dsl.json
+40	0	knowledge-online-dataserver/knowledge-online-data-server/conf/generatorConfig.xml
+420	0	knowledge-online-dataserver/knowledge-online-data-server/conf/mapper/AliasDescMapper.xml
+688	0	knowledge-online-dataserver/knowledge-online-data-server/conf/mapper/ColumnDescMapper.xml
+158	0	knowledge-online-dataserver/knowledge-online-data-server/conf/mapper/HandlerDescMapper.xml
+576	0	knowledge-online-dataserver/knowledge-online-data-server/conf/mapper/ModelDescMapper.xml
+435	0	knowledge-online-dataserver/knowledge-online-data-server/conf/mapper/QueryParamMapper.xml
+505	0	knowledge-online-dataserver/knowledge-online-data-server/conf/mapper/SearchParamMapper.xml
+-	-	knowledge-online-dataserver/knowledge-online-data-server/logs/ourchem-data-server/server0.2021-08-25.gz
+305	0	knowledge-online-dataserver/knowledge-online-data-server/pom-es.xml
+314	0	knowledge-online-dataserver/knowledge-online-data-server/pom.xml
+3	0	knowledge-online-dataserver/knowledge-online-data-server/sql/alter_t_applicants_config_sql.sql
+345	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/DataApp.java
+342	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/EsDataApp.java
+31	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/config/AppConfiguration.java
+48	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/config/AsyncConfig.java
+30	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/config/CosConfiguration.java
+496	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/config/DataJSONConfiguration.java
+49	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/config/Globals.java
+26	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/config/HbaseConfig.java
+78	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/config/RedisCacheStoreConfig.java
+109	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/config/SimpleSSLSocketFactory.java
+21	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/config/WebConfig.java
+28	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/consts/AnalyConsts.java
+24	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/consts/ApiServiceType.java
+17	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/consts/ApplicantTypeConsts.java
+10	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/consts/BatchSearchResultEnum.java
+9	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/consts/CodeConsts.java
+11	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/consts/DateConsts.java
+38	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/consts/EsErrorCode.java
+269	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/consts/FieldValueConsts.java
+30	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/consts/HandlerConsts.java
+28	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/consts/IpcNatDataConsts.java
+17	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/consts/KindCodeValue.java
+34	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/consts/LastLegalStatusValue.java
+254	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/consts/ModelFieldConsts.java
+14	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/consts/PatentStatusValue.java
+20	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/consts/PatentTypeCnValue.java
+20	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/consts/PatentTypeValue.java
+14	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/consts/PublicationTypeValue.java
+16	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/dao/AgentInfoMapper.java
+37	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/dao/AliasDescMapper.java
+25	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/dao/ApiServiceRecordMapper.java
+14	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/dao/ApplicantTreeInfoMapper.java
+51	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/dao/ApplicantsConfigMapper.java
+9	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/dao/CallStatMapper.java
+48	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/dao/ColumnDescMapper.java
+44	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/dao/DsEnterpriseInfoMapper.java
+42	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/dao/EnterprisePersonnelInfoMapper.java
+30	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/dao/HandlerDescMapper.java
+54	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/dao/InternalQueryStatMapper.java
+39	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/dao/ModelDescMapper.java
+21	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/dao/ModelExternalInfoMapper.java
+32	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/dao/QueryParamMapper.java
+32	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/dao/SearchParamMapper.java
+12	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/dao/ThirdPartyLimitMapper.java
+20	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/dto/ImportIpcJsonDTO.java
+14	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/AgencyInfo.java
+14	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/AgentInfo.java
+45	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/AliasDesc.java
+44	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/ApiServiceRecord.java
+32	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/ApplicantDict.java
+14	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/ApplicantTreeInfo.java
+58	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/ApplicantsConfig.java
+95	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/CallStat.java
+751	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/CallStatExample.java
+30	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/ClaimsParseInfo.java
+166	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/ColumnDesc.java
+19	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/DesAndClaimElementInfo.java
+78	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/DescriptionParseInfo.java
+83	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/Dict.java
+96	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/EnterpriseInfo.java
+73	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/EnterprisePersonnelInfo.java
+56	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/HandlerDesc.java
+50	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/ImageInfo.java
+140	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/ModelDesc.java
+37	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/NodeIndexInfo.java
+28	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/NodeInfo.java
+52	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/PatentLegalStatus.java
+55	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/QueryParam.java
+37	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/SearchExpressionHistroy.java
+75	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/entity/SearchParam.java
+150	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/BusinessDataResultHandler.java
+172	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/CfNumberAnalysisResultHandler.java
+65	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/ChangeAliasParamHandler.java
+359	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/ClaimAndDescriptionResultHandler.java
+64	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/CnNameTransferExpressionHandler.java
+49	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/ConnectParamHandler.java
+340	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/ConnectResultHandler.java
+104	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/CountryResultHandler.java
+51	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/CountryTransferParamHandler.java
+157	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/DateFormatBuilderHandler.java
+51	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/DetailIncreParamHandler.java
+224	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/DetailIncreResultHandler.java
+695	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/DetailIpcNatResultHandler.java
+147	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/DetailStatusResultHandler.java
+126	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/DurationResultHandler.java
+80	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/ExpansionParamHandler.java
+78	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/GroupByCheckYearResultHandler.java
+706	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/GroupByRankResultHandler.java
+79	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/GroupByResultHandler.java
+63	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/GroupByToUpperResultHandler.java
+188	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/HighValuePatentResultHandler.java
+59	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/KindCodeResultHandler.java
+112	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/ListPageLegalStatusResultHandler.java
+115	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/MonthFormatBuilderHandler.java
+73	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/NewTrademarkImgResultHandler.java
+83	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/PanelStatisticsResultHandler.java
+75	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/ProvinceResultHandler.java
+74	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/PublicationResultHandler.java
+89	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/TermExtensionResultHandler.java
+70	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/TrademarkImgResultHandler.java
+47	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/TypeSearBuilderHandler.java
+314	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/handler/TypeSearResultHandler.java
+23	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/interceptor/ThreadLocalRemoveInterceptor.java
+372	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/rest/AdminController.java
+37	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/rest/AgentInfoController.java
+39	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/rest/ApplicantQueryController.java
+210	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/rest/ApplicantsConfigController.java
+43	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/rest/DiffQueryController.java
+101	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/rest/EnterpriseInfoController.java
+1613	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/rest/EsController.java
+233	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/rest/FileDataController.java
+113	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/rest/HbaseToolController.java
+58	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/rest/IntegrationQueryController.java
+89	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/rest/MetaInfoController.java
+664	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/rest/QueryController.java
+58	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/rest/RepeatQueryController.java
+197	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/rest/ThirdPartyQueryController.java
+56	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/rest/VisualQueryController.java
+478	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/AdminService.java
+11	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/AgentInfoService.java
+7	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/AliasDataType.java
+965	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/AnalyService.java
+32	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ApiServiceRecordService.java
+64	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ApplicantTreeInfoService.java
+98	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ApplicantsConfigService.java
+235	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/BatchQueryService.java
+475	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/DefaultFileService.java
+156	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/DefaultMcFileService.java
+311	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/DefaultModelService.java
+181	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/DiffCompareService.java
+142	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/EnterpriseInfoService.java
+139	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/EnterprisePersonnelInfoService.java
+21	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/EsIndexService.java
+140	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ExternalEsClientService.java
+67	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ExtractorService.java
+222	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/FileService.java
+540	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/HbaseToolService.java
+211	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/HttpFileService.java
+69	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/InternalQueryStatServiceImpl.java
+222	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/LocalFileService.java
+68	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/MockFileService.java
+1008	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/QueryService.java
+1013	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/RepeatQueryService.java
+43	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/ThirdPartyLimitService.java
+70	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/TrademarkFileService.java
+535	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/UserCollectService.java
+84	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/impl/AgentInfoServiceImpl.java
+138	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/impl/ApplicantsConfigServiceImpl.java
+640	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/impl/EnterpriseInfoServiceImpl.java
+269	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/impl/EnterprisePersonnelInfoServiceImpl.java
+247	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/service/impl/EsIndexServiceImpl.java
+741	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/utils/Base64Utils.java
+83	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/utils/BaseController.java
+188	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/utils/CollectionUtils.java
+64	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/utils/DeflateUtils.java
+33	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/utils/EsRequestUtil.java
+27	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/utils/IDGenerator.java
+76	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/utils/PdfDownloadCommand.java
+76	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/utils/PicDownloadCommand.java
+173	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/utils/ResponseResultList.java
+61	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/utils/ThirdPartyCommand.java
+51	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/admin/AliasDescVO.java
+186	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/admin/ColumnDescVO.java
+58	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/admin/HandlerDescVO.java
+148	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/admin/ModelDescVO.java
+59	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/admin/QueryParamVO.java
+78	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/admin/SearchParamVO.java
+282	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/elastic/DataDictVO.java
+29	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/elastic/DataVO.java
+87	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/elastic/FileStatus.java
+30	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/elastic/IndexVO.java
+163	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/enterprise/EnterpriseInfoVO.java
+196	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/enterprise/EnterprisePatentVO.java
+24	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/query/AllTopRankAnalyVO.java
+27	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/query/AnalyReqVO.java
+13	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/query/ApplicantTreeRespVO.java
+16	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/query/AuthorizeRateVO.java
+20	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/query/BatchSearchReqVO.java
+25	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/query/BatchSearchRespVO.java
+16	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/query/BatctSearchHitVO.java
+109	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/query/ConnectAnalyReqVO.java
+22	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/query/ExpiredYearAnalyReqVO.java
+24	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/query/ExpiredYearAnalyRespVO.java
+19	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/query/FavoritesFamilyPatentQueryVO.java
+53	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/query/ModelSimpleDescVO.java
+120	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/query/QueryColumnVO.java
+129	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/query/QueryVO.java
+61	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/query/VisualQueryVo.java
+100	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/statistic/ActionStatisticReqVO.java
+44	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/statistic/ExportControlStatisticVO.java
+31	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/statistic/export/AccountSelectedExportReqVO.java
+39	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/statistic/export/LoginIPSelectedReqVO.java
+21	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/statistic/export/LoginIpExportReqVO.java
+20	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/statistic/export/StatisticExportReqVO.java
+47	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/tool/DataRangeVo.java
+29	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/tool/FetchDetailVo.java
+59	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/java/com/ourchem/data/server/vo/tool/TableDataInfo.java
+143	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/application-dataserver.yml
+31	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/bootstrap-dev.yml01
+87	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/bootstrap-show.yml
+38	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/bootstrap.yml
+37	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/generatorConfig.xml
+44	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/logback-spring.xml
+67	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/mapper/AgentInfoMapper.xml
+420	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/mapper/AliasDescMapper.xml
+86	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/mapper/ApiServiceRecordMapper.xml
+38	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/mapper/AppliantTreeInfoMapper.xml
+316	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/mapper/ApplicantsConfigMapper.xml
+273	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/mapper/CallStatMapper.xml
+770	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/mapper/ColumnDescMapper.xml
+424	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/mapper/DsEnterpriseInfoMapper.xml
+345	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/mapper/EnterprisePersonnelInfoMapper.xml
+168	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/mapper/HandlerDescMapper.xml
+204	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/mapper/InternalQueryStatMapper.xml
+589	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/mapper/ModelDescMapper.xml
+117	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/mapper/ModelExternalInfoMapper.xml
+435	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/mapper/QueryParamMapper.xml
+505	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/mapper/SearchParamMapper.xml
+37	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/mapper/ThirdPartyLimitMapper.xml
+109	0	knowledge-online-dataserver/knowledge-online-data-server/src/main/resources/start.sh
+171	0	knowledge-online-dataserver/knowledge-online-data-server/src/test/java/com/ourchem/data/server/rest/AdminControllerTest.java
+202	0	knowledge-online-dataserver/knowledge-online-data-server/src/test/java/com/ourchem/data/server/rest/CpcDataDictVO.java
+156	0	knowledge-online-dataserver/knowledge-online-data-server/src/test/java/com/ourchem/data/server/rest/DemoCpcDataListener.java
+64	0	knowledge-online-dataserver/knowledge-online-data-server/src/test/java/com/ourchem/data/server/rest/ExcelWriteDemo.java
+64	0	knowledge-online-dataserver/knowledge-online-data-server/src/test/java/com/ourchem/data/server/rest/FstTest.java
+67	0	knowledge-online-dataserver/knowledge-online-data-server/src/test/java/com/ourchem/data/server/rest/MetaInfoControllerTest.java
+989	0	knowledge-online-dataserver/knowledge-online-data-server/src/test/java/com/ourchem/data/server/rest/PullDataTest.java
+192	0	knowledge-online-dataserver/knowledge-online-data-server/src/test/java/com/ourchem/data/server/rest/QueryControllerTest.java
+15	0	knowledge-online-dataserver/knowledge-online-data-server/src/test/java/com/ourchem/data/server/rest/RegionKeyInfo.java
+311	0	knowledge-online-dataserver/knowledge-online-data-server/src/test/java/com/ourchem/data/server/rest/SubjectTest.java
+497	0	knowledge-online-dataserver/knowledge-online-data-server/src/test/java/com/ourchem/data/server/rest/XlsFileToJsonFile.java
+-	-	knowledge-online-dataserver/logs/ourchem-data-server/server0.2026-08-26-0.gz
+115	0	knowledge-online-dataserver/pom.xml
+454	0	knowledge-online-dataserver/xiaozz.sql
+
+COMMIT@e0a1efa823fa4e39c3dbb52e9dba623ff50f1243
+8	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/domain/PatentInformation.java
+2	0	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/mapstruct/PatentInfoConvert.java
+4	0	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/PatentInformationMapper.xml
+8	0	knowledge-online-framework/src/main/java/com/ourchem/framework/service/impl/ProDataServiceImpl.java
+4	0	sql/hzh20260827.sql
+
+COMMIT@378bc9ba68b2d79108cc223489d75962f6a6ee06
+1	1	knowledge-online-admin/src/main/java/com/ourchem/KnowLedgeOnlineApplication.java
+10	0	knowledge-online-admin/src/main/java/com/ourchem/web/controller/bus/IntegrationController.java
+9	0	knowledge-online-admin/src/main/resources/application.yml
+25	0	knowledge-online-framework/src/main/java/com/ourchem/framework/conf/DataServerFeignConfig.java
+24	0	knowledge-online-framework/src/main/java/com/ourchem/framework/feign/DataServerSearchFeign.java
+149	0	knowledge-online-framework/src/main/java/com/ourchem/framework/service/DataServerTokenService.java
+
+COMMIT@1af6d571c3bb23869e9feed9a41d16c8a54042a9
+4	0	knowledge-online-admin/src/main/resources/application-devDm.yml
+
+COMMIT@98707486a0aeaac949e106db2f5af21961282ad8
+3	1	knowledge-online-admin/src/main/resources/application-devDm.yml
+
+COMMIT@d9524d39733a2387e53d043087177380d8af1343
+1	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/HighValueInventionPatentServiceImpl.java
+2	2	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/HighValueInventionPatentMapper.xml
+
+COMMIT@40ae00ce7ce9b56f40b4ca22a51b687087aa075a
+1	2	knowledge-online-bus/knowledge-online-biz/src/main/java/com/ourchem/bus/service/impl/HighValueInventionPatentServiceImpl.java
+2	2	knowledge-online-bus/knowledge-online-biz/src/main/resources/mapper/HighValueInventionPatentMapper.xml

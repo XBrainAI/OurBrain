@@ -1,0 +1,33 @@
+196984ae9d72d3dd3b78f8be4ab856616fb3a4c41d4a0b8b29dc3c8ddf6954b64d872c9412db056f 54c117b256dae004cb8b2dcebe0b55c3bbc0dd0azhongjianghuazhongjianghua@ourchem.com2026-10-22 14:08:07 +0800Merge branch 'v5.14.5' into v5.17-1016188-登录释放策略优化
+54c117b256dae004cb8b2dcebe0b55c3bbc0dd0af5f46a36ae44695379fa0a776794168820f74e3bzhongjianghuazhongjianghua@ourchem.com2026-10-22 14:03:29 +0800chore(git): 更新.gitignore并删除历史日志文件
+f5f46a36ae44695379fa0a776794168820f74e3bc5477970ff6cb59d4ba9316aeba6be6d9ad2baf3zhongjianghuazhongjianghua@ourchem.com2026-10-22 14:02:28 +0800refactor(token-index-clean): 优化 TokenIndexCleanTask 逻辑及管道批处理
+c5477970ff6cb59d4ba9316aeba6be6d9ad2baf34c966f438a377e0ad1a4d3f5d01cff3defbc0dd5zhongjianghuazhongjianghua@ourchem.com2026-10-22 14:00:39 +0800Revert "refactor(token-index-clean): 优化 TokenIndexCleanTask 逻辑及管道批处理"
+4c966f438a377e0ad1a4d3f5d01cff3defbc0dd580cc3dbd194e1af87c3d85140ff874c82d0fac4fzhongjianghuazhongjianghua@ourchem.com2026-10-22 14:00:12 +0800refactor(token-index-clean): 优化 TokenIndexCleanTask 逻辑及管道批处理
+1d4a0b8b29dc3c8ddf6954b64d872c9412db056f2b07812535612a36b7aa2dc87bfa40bb772e4788 80cc3dbd194e1af87c3d85140ff874c82d0fac4fzhongjianghuazhongjianghua@ourchem.com2026-10-21 15:53:01 +0800Merge branch 'refs/heads/5.14.5' into v5.17-1016188-登录释放策略优化
+80cc3dbd194e1af87c3d85140ff874c82d0fac4f9561e8d8932ee37d628209e8a4da0bfbfcbf15bezhongjianghuazhongjianghua@ourchem.com2026-10-21 12:02:35 +0800fix(token-index): 修复 Redis token 索引清理任务连接管理和性能问题
+2b07812535612a36b7aa2dc87bfa40bb772e4788cd6c37265204a5346730c97d713af58518c5d7a1 9561e8d8932ee37d628209e8a4da0bfbfcbf15bezhongjianghuazhongjianghua@ourchem.com2026-10-21 10:11:20 +0800Merge remote-tracking branch 'origin/5.14.5' into v5.17-1016188-登录释放策略优化
+cd6c37265204a5346730c97d713af58518c5d7a1b37d6fe302cd51122a656fbd43d7ab08338233b8zhongjianghuazhongjianghua@ourchem.com2026-10-20 18:31:15 +0800chore(version): 更新项目版本号至 5.10.2-SNAPSHOT
+9561e8d8932ee37d628209e8a4da0bfbfcbf15bef0d75c6b8aa10920aea45b204ac43e002e942460zhongjianghuazhongjianghua@ourchem.com2026-10-20 11:52:05 +0800fix(task): 调整令牌索引清理任务的调度时间
+f0d75c6b8aa10920aea45b204ac43e002e942460cc3602012ab30b95d19a72cb4b5e75ed254db52bzhongjianghuazhongjianghua@ourchem.com2026-10-19 17:15:58 +0800feat(redis): 实现基于zset的TokenStore索引治理及兼容清理
+cc3602012ab30b95d19a72cb4b5e75ed254db52bc7ae0893e0697a25b8336ce807897e83a371dd37zhongchengyouzcy88836802026-10-15 17:33:21 +0800fix：修复解密失败报错
+c7ae0893e0697a25b8336ce807897e83a371dd374ad84f994905ff5f161df788fed91fe7943438c9zhongchengyouzcy88836802026-10-15 17:10:40 +0800feat:加上stiei_client这个租户的单点登录方式
+b37d6fe302cd51122a656fbd43d7ab08338233b8d5b1fc2629820558ddd19f1be999cd0cd5fa7ed4zhongjianghuazhongjianghua@ourchem.com2026-10-10 11:10:48 +0800fix(oauth): 1016188 优化空闲租约校验条件，区分客户端与用户会话
+d5b1fc2629820558ddd19f1be999cd0cd5fa7ed4b4521ee1fe1a621f6af774649f74a1742df36a45zhongjianghuazhongjianghua@ourchem.com2026-10-09 16:43:24 +0800chore(logs): 删除过时的nacos-oauth-dev日志文件
+b4521ee1fe1a621f6af774649f74a1742df36a454ad84f994905ff5f161df788fed91fe7943438c9zhongjianghuazhongjianghua@ourchem.com2026-10-09 14:27:39 +0800feat(session): 1016188 支持空闲会话租约功能
+4ad84f994905ff5f161df788fed91fe7943438c99d08e30ce0593796cf8f1d8cd1507b880dee1ae1gaojingkaigaojingkai@ourchem.com2026-10-08 16:17:44 +0800fix:修复用户无法使用分析功能的问题
+9d08e30ce0593796cf8f1d8cd1507b880dee1ae1fb8b6876a2c8d68ef984934d3957be775cc0271egaojingkaigaojingkai@ourchem.com2026-09-21 16:54:00 +0800feat:新增中山大学附属第一医院广西医院统一身份认证
+fb8b6876a2c8d68ef984934d3957be775cc0271e9b982f7c7ac5a0090621cc8d804e1a56c73bf68f 962874cada84e38f9306602a5abed00f21dda30d吴嘉明wujm@ourchem.com2026-09-17 17:25:24 +0800Merge remote-tracking branch 'origin/v5.14.2' into master-pro
+9b982f7c7ac5a0090621cc8d804e1a56c73bf68f7d81a83eba87d84daa0ef7f008de36c2e57d77a8 fc31ba2f3005f3d3301631999a87155214551424吴嘉明wujm@ourchem.com2026-09-14 18:31:55 +0800Merge remote-tracking branch 'origin/v5.14.1' into master-pro
+7d81a83eba87d84daa0ef7f008de36c2e57d77a8576c64f4f8e94b58d0e86c6af45de2aa879389b2zhongjianghuazhongjianghua@ourchem.com2026-09-03 17:28:24 +0800fix(oauth): 优化用户挤登会话token管理逻辑
+962874cada84e38f9306602a5abed00f21dda30d576c64f4f8e94b58d0e86c6af45de2aa879389b2zhongchengyouzcy88836802026-08-26 16:57:25 +0800feat：加上北航登陆认证获取token
+fc31ba2f3005f3d3301631999a87155214551424576c64f4f8e94b58d0e86c6af45de2aa879389b2susususuguangluan@ourchem.com2026-08-05 14:57:00 +0800feat(oauth): 新增 Agent 积分限量字段 agentPoints
+576c64f4f8e94b58d0e86c6af45de2aa879389b2c69c5427eeee64ef65c6f50f38d71e3d6da18cb5吴嘉明wujm@ourchem.com2026-07-10 17:53:29 +0800fix(oauth): 修正 ThirdPartyUser 类中字段默认值
+c69c5427eeee64ef65c6f50f38d71e3d6da18cb567975174ebe1934c4cd81ba50f1f4ab67b8d34e3吴嘉明wujm@ourchem.com2026-07-10 16:54:05 +0800fix(oauth): 修复第三方认证用户信息加载问题
+67975174ebe1934c4cd81ba50f1f4ab67b8d34e38f34458496d234ee21b9388f69ec7d39cebd21f7吴嘉明wujm@ourchem.com2026-07-10 16:46:24 +0800refactor(oauth): 优化XZF渠道用户校验逻辑并支持多租户处理
+8f34458496d234ee21b9388f69ec7d39cebd21f7f545d5d7e3741284d866e42523069dd243aade40zhongchengyouzcy88836802026-07-01 11:53:49 +0800fix:优化租户自定义逻辑
+f545d5d7e3741284d866e42523069dd243aade40d9f59ee201a71c8db358405ad0665e46eea9c294zhongchengyouzcy88836802026-07-01 10:58:56 +0800feat：加上创建账号的时候支持账号类型自定义
+d9f59ee201a71c8db358405ad0665e46eea9c2946f558e77ec2caa7d2461846481c6136363a3a2ad 4477be62e6ddb397d36cd225c3e0f2043f51dba3zhongchengyouzcy88836802026-06-29 16:22:40 +0800Merge remote-tracking branch 'origin/v5.12.0-feat-1015928' into v5.13.0
+6f558e77ec2caa7d2461846481c6136363a3a2ad336e6c66165c2a3345120636e2c75b1f026831dezhongchengyouzcy88836802026-06-29 14:30:49 +0800feat：加上辽宁图书馆对接统一认证需求
+4477be62e6ddb397d36cd225c3e0f2043f51dba3c6bbb16ed77d76bcbbe3ff585bae8684d015eb07吴嘉明wujm@ourchem.com2026-06-24 14:36:23 +0800fix(auth): 修复请求上下文错误信息清理逻辑
+c6bbb16ed77d76bcbbe3ff585bae8684d015eb071deb2e860c1435427c75171d9932a32b688a55f8吴嘉明wujm@ourchem.com2026-06-12 17:16:27 +0800fix(oauth): 修复新增第三方认证渠道处理
+1deb2e860c1435427c75171d9932a32b688a55f8336e6c66165c2a3345120636e2c75b1f026831de吴嘉明wujm@ourchem.com2026-06-12 17:12:17 +0800feat(auth): 增加广州市市场监督管理局(浪潮)第三方登录支持

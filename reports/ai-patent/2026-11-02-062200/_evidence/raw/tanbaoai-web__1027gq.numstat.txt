@@ -1,0 +1,1527 @@
+COMMIT@76e39a386771a20d7be9d47a23231c69b0576f6a
+1	1	src/views/v3/oaAnswerGenerate/publicAiComponents/fileListPage.vue
+1	1	src/views/v3/oaAnswerGenerate/publicAiComponents/filePreviewPage.vue
+
+COMMIT@eceeef79a6a5c3e07169aae78c364934f86d59ae
+7	1	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@f070ee0d4581db0496bc2f0fb7b0508dffadbe15
+3	2	src/views/v3/oaAnswerGenerate/publicAiComponents/fileListPage.vue
+3	2	src/views/v3/oaAnswerGenerate/publicAiComponents/filePreviewPage.vue
+3	2	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@10a479ee4ab4477df877c50db6f4ede39f851853
+6	7	src/views/v3/oaAnswerGenerate/publicAiComponents/fileListPage.vue
+6	7	src/views/v3/oaAnswerGenerate/publicAiComponents/filePreviewPage.vue
+1	0	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@08a4c93dd741c05437144ce611d32dd0c91fedd0
+12	4	src/api/gqjOaAnswerWrite.js
+191	55	src/views/v3/oaAnswerGenerate/publicAiComponents/fileListPage.vue
+220	63	src/views/v3/oaAnswerGenerate/publicAiComponents/filePreviewPage.vue
+96	38	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@7c12949cda15ea3e9bcd9a739f28069a84729bed
+75	60	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/dateInfoSupplementDialog.vue
+13	9	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/index.vue
+
+COMMIT@df519007053cf463a7f0ad64cb28afdcabb8c089
+1	1	src/views/v3/oaAnswerGenerate/publicAiComponents/fileListPage.vue
+1	1	src/views/v3/oaAnswerGenerate/publicAiComponents/filePreviewPage.vue
+4	2	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@bcea7bc06341d05272add6832814ce882ddaf6ec
+37	10	src/components/common/DocxPdfRender/index.vue
+
+COMMIT@dc29e16674be29e1f6c50a8183f1880c4a07c89b
+11	5	src/components/common/DocxPdfRender/index.vue
+31	3	src/views/v3/oaAnswerGenerate/publicAiComponents/filePreviewPage.vue
+
+COMMIT@15a190cffb1a09fa7cabf7118c30d1eee8cef727
+5	1	src/components/common/DocxPdfRender/index.vue
+
+COMMIT@aecc071ee93b738a2d5767370486fac403a2ad0c
+37	2	src/components/common/DocxPdfRender/index.vue
+
+COMMIT@e721915de3ef0d3a5ee3eb145f03e031f9dae1d1
+37	12	src/components/common/DocxPdfRender/index.vue
+8	4	src/views/v1/oaAnswerGenerate/components/filePreviewPage.vue
+8	4	src/views/v3/oaAnswerGenerate/publicAiComponents/filePreviewPage.vue
+
+COMMIT@016aa46e425adcc2649b39006fc6fbe179d1858f
+1	1	src/views/v3/oaAnswerGenerate/publicAiComponents/fileListPage.vue
+1	1	src/views/v3/oaAnswerGenerate/publicAiComponents/filePreviewPage.vue
+1	1	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@69228cb159619d1fece92cb49986ece81481fed2
+2	2	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+
+COMMIT@8c895b49bd4019f6d90fa8bc62a92610108fba20
+1	1	src/views/v3/oaAnswerGenerate/publicAiComponents/fileListPage.vue
+1	1	src/views/v3/oaAnswerGenerate/publicAiComponents/filePreviewPage.vue
+1	1	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@59c0d010a99cc34390962e1bda5697796bc0a9e8
+4	4	src/views/v3/oaAnswerGenerate/publicAiComponents/filePreviewPage.vue
+3	3	vue.config.js
+
+COMMIT@56f27e9a04945f166b60f656a0398b7a67356e66
+3	3	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@aa3f42514531d550d7b3563436eafc79d4bb1713
+1	1	src/views/v3/oaAnswerGenerate/publicAiComponents/fileListPage.vue
+2	2	src/views/v3/oaAnswerGenerate/publicAiComponents/filePreviewPage.vue
+2	2	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@ef847f89d0382039f756360c3f2f50dd399563da
+1	1	src/components/common/applicationQuillaTextarea/index.vue
+
+COMMIT@80ae98648fcae46c0085bea7fb3c3660e4186d0c
+6	6	src/views/v1/applicationGenerate/components/aiChat.vue
+7	7	src/views/v1/applicationGenerate/components/paramCheckStreamDialog.vue
+7	7	src/views/v1/applicationGenerate/components/phase1TechnicalExtend.vue
+7	7	src/views/v1/applicationGenerate/components/phase2StandardDisclosure.vue
+7	7	src/views/v1/applicationGenerate/components/phase3ClaimSubject.vue
+7	7	src/views/v1/applicationGenerate/components/phase4ClaimTree.vue
+7	7	src/views/v1/applicationGenerate/components/phase5Claims.vue
+7	7	src/views/v1/applicationGenerate/components/phase6PatentPackage.vue
+6	6	src/views/v1/disclosurePaperGenerate/components/aiChat.vue
+7	7	src/views/v1/disclosurePaperGenerate/components/paramCheckStreamDialog.vue
+7	7	src/views/v1/disclosurePaperGenerate/components/phase1TechnicalExtend.vue
+7	7	src/views/v1/disclosurePaperGenerate/components/phase2StandardDisclosure.vue
+6	6	src/views/v1/oaAnswerReport/components/aiChat.vue
+7	7	src/views/v1/oaAnswerReport/components/phase1ModifyText.vue
+7	7	src/views/v1/oaAnswerReport/components/phase2Statement.vue
+7	7	src/views/v2/applicationPaper/applicaEditPage.vue
+6	6	src/views/v2/applicationPaper/components/aiChat.vue
+6	6	src/views/v2/disclosurePaper/editWrite/components/aiChat.vue
+7	7	src/views/v2/disclosurePaper/editWrite/index.vue
+6	6	src/views/v2/oaResponseReview/oaProblemAnalysis.vue
+6	6	src/views/v3/applicationGenerate/components/aiChat.vue
+7	7	src/views/v3/applicationGenerate/components/paramCheckStreamDialog.vue
+7	7	src/views/v3/applicationGenerate/components/phase1TechnicalExtend.vue
+7	7	src/views/v3/applicationGenerate/components/phase2StandardDisclosure.vue
+7	7	src/views/v3/applicationGenerate/components/phase3ClaimSubject.vue
+7	7	src/views/v3/applicationGenerate/components/phase4ClaimTree.vue
+7	7	src/views/v3/applicationGenerate/components/phase5Claims.vue
+7	7	src/views/v3/applicationGenerate/components/phase6PatentPackage.vue
+6	6	src/views/v3/disclosurePaper/editWrite/components/aiChat.vue
+7	7	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+7	7	src/views/v3/oaAnswerGenerate/phase2AnalyzeReplyStrategy/components/replyStrategy.vue
+7	7	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/components/opinionStatementPage.vue
+6	6	src/views/v3/oaAnswerGenerate/publicAiComponents/aiChat.vue
+
+COMMIT@0b94dc729385051618495f387bcc677c723f2e0d
+COMMIT@36ff5e79223328b2ac5c63d74df18211562abe56
+8	8	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/components/modificationReplacePage.vue
+
+COMMIT@bf36013d03e4eaf8d12f5a771a2132cbd65751dd
+1	1	src/views/v1/applicationWrite/components/uploaderDisclosurePaper.vue
+
+COMMIT@42f727af71225e04d56a8345549f293318a554e8
+COMMIT@81fcf6679a0cbfe7502a02f8c376f27644d62781
+3	3	src/views/v1/applicationGenerate/components/aiChat.vue
+3	3	src/views/v1/applicationGenerate/components/paramCheckStreamDialog.vue
+2	2	src/views/v1/applicationGenerate/components/phase1TechnicalExtend.vue
+2	2	src/views/v1/applicationGenerate/components/phase2StandardDisclosure.vue
+2	2	src/views/v1/applicationGenerate/components/phase3ClaimSubject.vue
+2	2	src/views/v1/applicationGenerate/components/phase4ClaimTree.vue
+3	3	src/views/v1/applicationGenerate/components/phase5Claims.vue
+2	2	src/views/v1/applicationGenerate/components/phase6PatentPackage.vue
+3	3	src/views/v1/disclosurePaperGenerate/components/aiChat.vue
+3	3	src/views/v1/disclosurePaperGenerate/components/paramCheckStreamDialog.vue
+2	2	src/views/v1/disclosurePaperGenerate/components/phase1TechnicalExtend.vue
+2	2	src/views/v1/disclosurePaperGenerate/components/phase2StandardDisclosure.vue
+3	3	src/views/v1/oaAnswerReport/components/aiChat.vue
+2	2	src/views/v1/oaAnswerReport/components/phase1ModifyText.vue
+2	2	src/views/v1/oaAnswerReport/components/phase2Statement.vue
+1	1	src/views/v2/applicationPaper/applicaEditPage.vue
+1	1	src/views/v2/applicationPaper/components/aiChat.vue
+1	1	src/views/v2/disclosurePaper/editWrite/components/aiChat.vue
+1	1	src/views/v2/disclosurePaper/editWrite/index.vue
+1	1	src/views/v2/oaResponseReview/oaProblemAnalysis.vue
+3	3	src/views/v3/applicationGenerate/components/aiChat.vue
+3	3	src/views/v3/applicationGenerate/components/paramCheckStreamDialog.vue
+2	2	src/views/v3/applicationGenerate/components/phase1TechnicalExtend.vue
+2	2	src/views/v3/applicationGenerate/components/phase2StandardDisclosure.vue
+2	2	src/views/v3/applicationGenerate/components/phase3ClaimSubject.vue
+2	2	src/views/v3/applicationGenerate/components/phase4ClaimTree.vue
+3	3	src/views/v3/applicationGenerate/components/phase5Claims.vue
+2	2	src/views/v3/applicationGenerate/components/phase6PatentPackage.vue
+1	1	src/views/v3/disclosurePaper/editWrite/components/aiChat.vue
+2	2	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+2	2	src/views/v3/oaAnswerGenerate/phase2AnalyzeReplyStrategy/components/replyStrategy.vue
+2	2	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/components/modificationReplacePage.vue
+2	2	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/components/opinionStatementPage.vue
+3	3	src/views/v3/oaAnswerGenerate/publicAiComponents/aiChat.vue
+
+COMMIT@46c54d6c5291490f265e0c11168c0bfbf6435561
+1	1	src/views/v1/applicationWrite/index.vue
+
+COMMIT@a8b4a476692aeb10fabf6474493916df355406cb
+3	0	src/views/v1/applicationWrite/index.vue
+
+COMMIT@af5c38524fee66f008a0e2bc652e2adc6cdbfef9
+4	5	src/views/v1/applicationWrite/index.vue
+
+COMMIT@901a5083b85ceaf9deb93a7d2a4a8887ce032132
+1	1	src/views/v1/applicationWrite/index.vue
+2	2	vue.proxy.js
+
+COMMIT@3d15a5cccdab9006a8582d8740bc3350d1e1e398
+0	1	src/views/v1/disclosurePaperGenerate/components/advisorContent.vue
+2	2	vue.proxy.js
+
+COMMIT@2e3a0f8b38dd4e66d358ffeb4b85802bfe110cf5
+4	4	src/components/common/applicationQuillaTextarea/index.vue
+5	11	src/views/v1/applicationGenerate/components/aiChat.vue
+5	11	src/views/v1/disclosurePaperGenerate/components/aiChat.vue
+5	11	src/views/v1/oaAnswerReport/components/aiChat.vue
+4	4	src/views/v2/applicationEvaluate/index.vue
+5	11	src/views/v3/applicationGenerate/components/aiChat.vue
+5	11	src/views/v3/oaAnswerGenerate/publicAiComponents/aiChat.vue
+
+COMMIT@68aa11cf0227bf39416085f313b1f7ff35fe5036
+COMMIT@223ae2f05c76d9f8b2309b15dd5e22260ecb9d4b
+4	4	src/views/v1/applicationEvaluate/index.vue
+
+COMMIT@917186af550520d09ab6b3efbf5573b8b9d95145
+1	1	src/views/v1/applicationGenerate/components/aiChatShortcut.vue
+3	0	src/views/v1/disclosurePaperGenerate/components/advisorContent.vue
+
+COMMIT@f5ccb5eb090bddb9809ca0aeb37f61c5db0d1053
+1	0	src/views/v1/applicationGenerate/components/aiChat.vue
+2	2	src/views/v1/applicationGenerate/components/aiChatShortcut.vue
+
+COMMIT@1f5105f19b839f36fc15a276620d45140b2e4c58
+12	9	src/views/v1/applicationGenerate/components/aiChatShortcut.vue
+
+COMMIT@767d83ec4b73ace5dff418187acdc93be39e7963
+5	2	src/views/v1/applicationGenerate/components/aiChatShortcut.vue
+
+COMMIT@a5544db806b186d51f0b7b0579d4774784b904bd
+9	18	src/api/tbAiChatShortcut.js
+10	0	src/utils/index.js
+6	1	src/views/index/feature1.vue
+6	1	src/views/index/feature2.vue
+6	1	src/views/index/feature3.vue
+1	0	src/views/v1/applicationGenerate/components/aiChat.vue
+36	43	src/views/v1/applicationGenerate/components/aiChatShortcut.vue
+28	3	src/views/v1/disclosurePaperGenerate/components/advisorContent.vue
+1	0	src/views/v1/disclosurePaperGenerate/components/aiChat.vue
+1	0	src/views/v1/oaAnswerReport/components/aiChat.vue
+1	0	src/views/v3/applicationGenerate/components/aiChat.vue
+1	0	src/views/v3/disclosurePaper/editWrite/components/aiChat.vue
+1	0	src/views/v3/oaAnswerGenerate/publicAiComponents/aiChat.vue
+
+COMMIT@d07a9cbd4d3e5e8d2427bcd3bebcac463302249f
+47	0	src/api/tbAiChatShortcut.js
+34	10	src/views/v1/applicationGenerate/components/aiChat.vue
+562	0	src/views/v1/applicationGenerate/components/aiChatShortcut.vue
+
+COMMIT@b6f4e527025406af902d2306600a228a191c58ab
+70	5	src/views/v1/applicationGenerate/components/aiChat.vue
+70	5	src/views/v1/disclosurePaperGenerate/components/aiChat.vue
+70	5	src/views/v1/oaAnswerReport/components/aiChat.vue
+
+COMMIT@9238f5bb8ef26ecd5807a091fb870401bc4571e6
+1	0	src/views/v1/applicationWrite/components/selectDisclosurePaper.vue
+51	3	src/views/v1/applicationWrite/index.vue
+
+COMMIT@313b857c138f4dd9e17fb2eb2901906d46579f63
+COMMIT@54a58b8cddd72cd8da640e1ed0c379c8a28cb178
+2	0	src/views/v3/oaAnswerGenerate/index.vue
+
+COMMIT@b30931ee1f00ec5187bd4ad58ae04184f34a321c
+3	3	vue.config.js
+
+COMMIT@16be2048d74ef401d26a0f0e44880c4e4f8a8146
+8	6	src/components/common/applicationQuillaTextarea/index.vue
+2	3	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/components/modificationReplacePage.vue
+2	3	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/components/opinionStatementPage.vue
+
+COMMIT@8b14fee83e35c5c6a8cfbaed9fb55be5d8e53bc9
+2	1	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/components/modificationReplacePage.vue
+2	1	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/components/opinionStatementPage.vue
+
+COMMIT@7bd0e25c689b5d770b699d5b295f8b1e734ed81a
+12	7	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/index.vue
+
+COMMIT@deed1103bea5120c81ecf1ab3f65581c419e8a29
+0	20	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/components/modificationReplacePage.vue
+
+COMMIT@996e59f2c36819f0b978f58cdf3aca04ef4e0f82
+5	5	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/components/modificationReplacePage.vue
+0	9	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/components/opinionStatementPage.vue
+13	33	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/index.vue
+
+COMMIT@330183a9e33292db12393f4ce28bff03f37c6cda
+1	1	src/views/v3/oaAnswerGenerate/phase2AnalyzeReplyStrategy/components/replyStrategy.vue
+3	6	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/components/modificationReplacePage.vue
+3	6	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/components/opinionStatementPage.vue
+
+COMMIT@091d0263a70246414c5eccda0b995b5084c6b696
+12	4	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/index.vue
+
+COMMIT@83c25d14d89125aae86abec1d5a2d0ffd3b83428
+19	1	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+
+COMMIT@0726cf0d18f9139cd96b9c5d0cadee1d338202c7
+2	27	src/views/v3/oaAnswerGenerate/index.vue
+1	1	src/views/v3/oaAnswerGenerate/phase2AnalyzeReplyStrategy/components/replyStrategy.vue
+1	1	src/views/v3/oaAnswerGenerate/phase2AnalyzeReplyStrategy/index.vue
+65	50	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/index.vue
+
+COMMIT@bef6eb2dc28f1b7f6baa7fcd51cd6cdf7a71e42f
+8	0	src/api/gqjOaAnswerGenerate.js
+26	10	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/index.vue
+
+COMMIT@efccf9d94cb35ff7139cc8add22afefa228e9fb2
+18	9	src/views/v3/oaAnswerGenerate/index.vue
+2	1	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/components/modificationReplacePage.vue
+1	0	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/components/opinionStatementPage.vue
+25	28	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/index.vue
+
+COMMIT@5667a29ca3a3f278ffc7232cca479f1da710ee9c
+2	1	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/components/modificationReplacePage.vue
+3	2	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/components/opinionStatementPage.vue
+1	1	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/index.vue
+
+COMMIT@577151e52c654abb293e47c8bb18feae5114880a
+49	42	src/views/v3/oaAnswerGenerate/index.vue
+
+COMMIT@d5773f113365551b7da8e3fcbe0cb2d29d03300f
+16	3	src/utils/replyStrategyToMarkdown.js
+1	1	src/views/v3/oaAnswerGenerate/phase2AnalyzeReplyStrategy/components/replyStrategy.vue
+
+COMMIT@60d846605863db8a506892011c5e61b4a8cbddf3
+4	17	src/utils/replyStrategyToMarkdown.js
+1	1	src/views/v3/oaAnswerGenerate/phase2AnalyzeReplyStrategy/components/replyStrategy.vue
+
+COMMIT@07f6baf593799d4c6de1c8e77e0e076da073cdb0
+63	42	src/views/v3/oaAnswerGenerate/index.vue
+
+COMMIT@1384876ddf21a46d5b36abad1fff44a3389a3f78
+20	2	src/views/v3/oaAnswerGenerate/phase2AnalyzeReplyStrategy/components/replyStrategy.vue
+
+COMMIT@f974e7608d166d06e2c0deb28b9035c1e67cc267
+6	5	src/views/v3/oaAnswerGenerate/index.vue
+1	1	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+1	1	src/views/v3/oaAnswerGenerate/phase2AnalyzeReplyStrategy/components/replyStrategy.vue
+
+COMMIT@f3f75ea2039d1fb5686ee8460a3ac89d825497d7
+3	3	src/api/gqjOaAnswerGenerate.js
+35	20	src/utils/replyStrategyToMarkdown.js
+3	2	src/views/v3/oaAnswerGenerate/index.vue
+12	26	src/views/v3/oaAnswerGenerate/phase2AnalyzeReplyStrategy/components/replyStrategy.vue
+
+COMMIT@4a0f75e95bd77f856437f8bc5c90047eee2c427b
+31	2	src/api/gqjOaAnswerGenerate.js
+19	8	src/views/v3/oaAnswerGenerate/index.vue
+31	30	src/views/v3/oaAnswerGenerate/phase2AnalyzeReplyStrategy/components/replyStrategy.vue
+585	0	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/components/modificationReplacePage.vue
+575	0	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/components/opinionStatementPage.vue
+846	14	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/index.vue
+
+COMMIT@0ff46406303d9934e532fe7c5aaf592e5b0e0a12
+7	0	src/api/gqjOaAnswerGenerate.js
+0	1	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/index.vue
+10	1	src/views/v3/oaAnswerGenerate/publicAiComponents/aiChat.vue
+1	1	vue.proxy.js
+
+COMMIT@bdef97edb64fb5658f3b5a5f0f0418d621f04aac
+25	2	src/views/v3/oaAnswerGenerate/index.vue
+1	1	src/views/v3/oaAnswerGenerate/phase2AnalyzeReplyStrategy/index.vue
+
+COMMIT@f27141764328ea846742c2b4d105c25e126c92d0
+11	2	src/views/v3/oaAnswerGenerate/phase2AnalyzeReplyStrategy/components/replyStrategy.vue
+1	1	vue.proxy.js
+
+COMMIT@4c8503b3321d53863e74d5a1bb634874d34edb9f
+19	0	src/utils/replyStrategyToMarkdown.js
+19	3	src/views/v3/oaAnswerGenerate/index.vue
+8	1	src/views/v3/oaAnswerGenerate/phase2AnalyzeReplyStrategy/components/replyStrategy.vue
+5	0	src/views/v3/oaAnswerGenerate/phase2AnalyzeReplyStrategy/index.vue
+5	0	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/index.vue
+
+COMMIT@b614fe9323387029a745d229b99160e978ce21e8
+35	13	src/components/common/applicationQuillaTextarea/index.vue
+46	0	src/utils/replyStrategyToMarkdown.js
+221	216	src/views/v3/oaAnswerGenerate/phase2AnalyzeReplyStrategy/components/replyStrategy.vue
+1	1	src/views/v3/oaAnswerGenerate/phase2AnalyzeReplyStrategy/index.vue
+
+COMMIT@1e00205a5c5b86bbe4f4ac1bc710841204282b7e
+30	0	src/api/gqjOaAnswerGenerate.js
+89	12	src/views/v3/oaAnswerGenerate/index.vue
+2	2	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/index.vue
+654	0	src/views/v3/oaAnswerGenerate/phase2AnalyzeReplyStrategy/components/replyStrategy.vue
+675	12	src/views/v3/oaAnswerGenerate/phase2AnalyzeReplyStrategy/index.vue
+7	0	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/index.vue
+7	2	src/views/v3/oaAnswerGenerate/{phase1ProblemIntelligentAnalysis/components => publicAiComponents}/fileListPage.vue
+6	0	src/views/v3/oaAnswerGenerate/{phase1ProblemIntelligentAnalysis/components => publicAiComponents}/filePreviewPage.vue
+3	4	src/views/v3/oaAnswerWrite/index.vue
+3	3	vue.config.js
+
+COMMIT@32036edf7f29408870f7240402ff3257fdedd021
+COMMIT@d54c1b5029c0e3b27fa4596369451fb8bf79cbb1
+28	18	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@49bdda3086b3c6e89d16aa09f22ee51f429f5a58
+3	3	vue.config.js
+
+COMMIT@8a638723952f49046c6e4a8d2402e5c62b604036
+1	1	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@1f6f3e7c2b914d283a10d8c673e0479e516ce6b5
+1	1	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@c5276f24ea442124c501d270c0a3fb9b513b9eca
+6	15	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/filePreviewPage.vue
+
+COMMIT@fee5ab75923540173984a17a2b32420745d3957f
+6	2	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/dateInfoSupplementDialog.vue
+
+COMMIT@a5b2e8d277be3a5029dc13ba60eb9f563c3e1c1b
+1	1	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/fileListPage.vue
+23	5	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@1338785bc877fc028da1eef8bcbeb82564f31232
+1	1	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@b47fcd72cd8a693419d062fefc68f9f491785120
+34	20	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/fileListPage.vue
+1	1	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+5	2	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/index.vue
+3	4	src/views/v3/oaAnswerGenerate/phase2AnalyzeReplyStrategy/index.vue
+3	4	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/index.vue
+
+COMMIT@df81362db3f9d1f791a39b665c66808645a37d5c
+3	3	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@804be3eeda32a23409c9253a90e7edcd91bca71b
+1	2	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@8b5deef3273c4ed229197d1892ac44ee5c857a0b
+13	1	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@299d9ea4cdccd78395d9fbdf3b19d387048f72ef
+1	0	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/fileListPage.vue
+1	0	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/filePreviewPage.vue
+
+COMMIT@e35fc2bfe49fb7acc23b5760bd9e4f55826ba3db
+2	2	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/fileListPage.vue
+
+COMMIT@fef61025afbafc5ea7e801db3693522d45892788
+51	9	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/fileListPage.vue
+
+COMMIT@79c36f96db657164547f67b620ad6b88c3769f05
+9	12	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/fileListPage.vue
+8	13	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/filePreviewPage.vue
+
+COMMIT@7cef3bfd5310dc24a075edb1e7893027d26cee65
+21	11	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/dateInfoSupplementDialog.vue
+
+COMMIT@fbae835574eec2206351772d2ce430802af40f54
+8	10	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+
+COMMIT@0e2910f8a55496eb9d73d5a01976ac604780b880
+31	3	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/fileListPage.vue
+38	7	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/filePreviewPage.vue
+3	1	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+10	3	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@9b7347dadf7aab1fbe5029b00a487303eb1b2b49
+8	0	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+
+COMMIT@7cde64c01508de0cce66a6b94e395393149dc5cf
+1	7	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/dateInfoSupplementDialog.vue
+
+COMMIT@ec87d97e7975d6c60a578026ccb3f35a7c4e341a
+1	1	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/dateInfoSupplementDialog.vue
+
+COMMIT@8a43eaaa20a25ac7224b503a7278c6b0a38d7e8e
+12	6	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/index.vue
+
+COMMIT@a46a802041366c0ecf5572c778dbc56face6bd93
+29	19	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@6ab64bb5c59f5b9477edc80a503893d834a45452
+1	3	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/fileListPage.vue
+6	2	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/index.vue
+
+COMMIT@a7f32f620e9160862abf7fdcaa4387b84fcc7f91
+38	21	src/utils/examinationOpinionToMarkdown.js
+6	7	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+
+COMMIT@5d5c691522a7a56b3b7ed7343f1e3b77d652adca
+1	1	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@433af8fb981d16c5005b105f6f886ce93b4b64bc
+6	4	src/utils/examinationOpinionToMarkdown.js
+2	2	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+3	6	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/index.vue
+8	2	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@43b7ea9a012021b976657d4cdaa638b413200eea
+COMMIT@5da62b6991fdbd9babee2a30b4a98e8d172ac35d
+6	5	src/utils/auth.js
+
+COMMIT@902283f81538787d2c03b5ae87c43034c0b1d8c4
+5	11	src/utils/auth.js
+
+COMMIT@5a02835344293935cdb2b39740829d64fd9347e4
+1	1	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/dateInfoSupplementDialog.vue
+6	7	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+3	3	vue.config.js
+
+COMMIT@9fdd4cfbebb20b9aae61b1328a0f5640a7f3e3af
+16	2	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+
+COMMIT@b915e4a7046a823044d189d3fbe46f68b2269793
+13	4	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+67	4	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/index.vue
+
+COMMIT@5c7f21222a5ccead7fc73c74b9542f64765813d3
+17	1	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/fileListPage.vue
+5	20	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/index.vue
+
+COMMIT@05ba43674d2950556b52f2e14d9ce3198627202b
+21	6	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/index.vue
+
+COMMIT@4ba04eade0ac62549c4429867112ae4f6a61e89e
+3	3	vue.config.js
+
+COMMIT@62f7068acb1c3ed6d64be502bdeb717af4ddefe4
+35	6	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+143	16	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/index.vue
+
+COMMIT@725602527acc188c51a4708a7729dd517b50f092
+6	6	src/views/v3/oaAnswerGenerate/publicAiComponents/aiChat.vue
+
+COMMIT@30e7f7027b72ccce282302420294db7094f300a5
+3	2	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+4	8	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@e4f7d06a5cf3aea9cba5de8806ce677ebab5d59d
+3	6	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+5	5	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/index.vue
+
+COMMIT@95abc60d89f2178808d9928bdadca48e4b5d9202
+9	9	src/utils/examinationOpinionToMarkdown.js
+1	1	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+5	1	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@504c341bb34f2f9a37789dccdb0dadb5edf687f4
+1	6	src/views/v3/oaAnswerGenerate/index.vue
+2	2	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+
+COMMIT@ef8f8262920c66857686613a4df95938f49fba27
+5	17	src/components/common/applicationQuillaTextarea/index.vue
+16	2	src/views/v1/applicationGenerate/components/phase6PatentPackage.vue
+16	2	src/views/v3/applicationGenerate/components/phase6PatentPackage.vue
+55	1	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+25	1	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/index.vue
+
+COMMIT@e8c1f729e814aaec8b8fc852bffd40fd57912933
+4	19	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+1	3	src/views/v3/oaAnswerWrite/index.vue
+
+COMMIT@344396dc4255094263c71e3a39441adeb58529fc
+0	0	src/{views/v1/aiPublicComponents => components/common}/applicationQuillaTextarea/index.vue
+0	0	src/{views/v1/aiPublicComponents => components/common}/applicationQuillaTextarea/quillPasteImagePlain.js
+9	0	src/router/index.js
+0	9	src/router/innovationRoutes/feature1.js
+0	9	src/router/innovationRoutes/feature3.js
+1	1	src/views/{v1/aiPublicComponents/tbMarkdownPreviewDebug => markdownPreviewDebug}/index.vue
+2	2	src/views/v1/aiPublicComponents/workflowThinkingPanel/index.vue
+2	2	src/views/v1/applicationEvaluate/components/InputApplication.vue
+2	2	src/views/v1/applicationGenerate/components/paramCheckStreamDialog.vue
+1	1	src/views/v1/applicationGenerate/components/phase1TechnicalExtend.vue
+1	1	src/views/v1/applicationGenerate/components/phase2StandardDisclosure.vue
+1	1	src/views/v1/applicationGenerate/components/phase3ClaimSubject.vue
+1	1	src/views/v1/applicationGenerate/components/phase4ClaimTree.vue
+1	1	src/views/v1/applicationGenerate/components/phase5Claims.vue
+1	1	src/views/v1/applicationGenerate/components/phase6PatentPackage.vue
+2	2	src/views/v1/disclosureNoveltySearch/coreElementExtraction/index.vue
+2	2	src/views/v1/disclosurePaperGenerate/components/paramCheckStreamDialog.vue
+1	1	src/views/v1/disclosurePaperGenerate/components/phase1TechnicalExtend.vue
+1	1	src/views/v1/disclosurePaperGenerate/components/phase2StandardDisclosure.vue
+2	2	src/views/v1/oaAnswerGenerate/components/filePreviewPage.vue
+1	1	src/views/v1/oaAnswerReport/components/phase1ModifyText.vue
+1	1	src/views/v1/oaAnswerReport/components/phase2Statement.vue
+2	2	src/views/v1/oaAnswerWrite/components/oaResponseReviewInputApplication.vue
+2	2	src/views/v1/smartNoveltyCheckFlow/components/workflowHeaderCard.vue
+0	5662	src/views/v3/aiPublicComponents/applicationQuillaTextarea/index.vue
+0	91	src/views/v3/aiPublicComponents/applicationQuillaTextarea/quillPasteImagePlain.js
+0	198	src/views/v3/aiPublicComponents/gqjMarkdownPreviewDebug/index.vue
+1	1	src/views/v3/applicationGenerate/components/paramCheckStreamDialog.vue
+1	1	src/views/v3/applicationGenerate/components/phase1TechnicalExtend.vue
+1	1	src/views/v3/applicationGenerate/components/phase2StandardDisclosure.vue
+1	1	src/views/v3/applicationGenerate/components/phase3ClaimSubject.vue
+1	1	src/views/v3/applicationGenerate/components/phase4ClaimTree.vue
+1	1	src/views/v3/applicationGenerate/components/phase5Claims.vue
+1	1	src/views/v3/applicationGenerate/components/phase6PatentPackage.vue
+1	1	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/filePreviewPage.vue
+1	1	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+
+COMMIT@24525dcf7ed446af42fe39483d41ebcc1cec8c4b
+89	49	src/views/v3/aiPublicComponents/applicationQuillaTextarea/index.vue
+1	1	src/views/v3/aiPublicComponents/gqjMarkdownPreviewDebug/index.vue
+
+COMMIT@2a7e18552869ce004e366d4a8501d74cc8d1e270
+1	1	src/router/innovationRoutes/feature1.js
+3	3	src/router/innovationRoutes/feature3.js
+1	1	src/views/v1/aiPublicComponents/{markdownPreviewDebug => tbMarkdownPreviewDebug}/index.vue
+0	0	src/views/v3/{applicationGenerate/components/applicationQuillaTextarea.vue => aiPublicComponents/applicationQuillaTextarea/index.vue}
+0	0	src/views/v3/{applicationGenerate/components => aiPublicComponents/applicationQuillaTextarea}/quillPasteImagePlain.js
+0	0	src/views/v3/{applicationGenerate/components/markdownPreviewDebug.vue => aiPublicComponents/gqjMarkdownPreviewDebug/index.vue}
+2	2	src/views/v3/applicationGenerate/components/paramCheckStreamDialog.vue
+1	1	src/views/v3/applicationGenerate/components/phase1TechnicalExtend.vue
+2	2	src/views/v3/applicationGenerate/components/phase2StandardDisclosure.vue
+1	1	src/views/v3/applicationGenerate/components/phase3ClaimSubject.vue
+1	1	src/views/v3/applicationGenerate/components/phase4ClaimTree.vue
+1	1	src/views/v3/applicationGenerate/components/phase5Claims.vue
+1	1	src/views/v3/applicationGenerate/components/phase6PatentPackage.vue
+2	2	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/filePreviewPage.vue
+2	2	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+
+COMMIT@ac4de911a8a38b6fbe556d79c1f28d75cc06e923
+30	14	src/utils/examinationOpinionToMarkdown.js
+2	0	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+2	2	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@64a5cd55bb9338cdd4062d5a7286d39b9c67fbc1
+16	13	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+1	2	src/views/v3/oaAnswerWrite/index.vue
+
+COMMIT@e835e8f59f262d66893ad52cb4a8ff8c9aa2ffd1
+9	52	src/utils/examinationOpinionToMarkdown.js
+0	27	src/views/v3/oaAnswerGenerate/index.vue
+1	0	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+
+COMMIT@d486364e99e5097ac6f347ffe3c4dd387002fdab
+75	9	src/views/v3/oaAnswerGenerate/index.vue
+19	14	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/dateInfoSupplementDialog.vue
+20	11	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/fileListPage.vue
+36	16	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/filePreviewPage.vue
+7	7	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+18	3	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/index.vue
+
+COMMIT@2cfbf87e86d7bf175a38bad5efe337aaa91d76cf
+COMMIT@8798f6eec49d29ea2452ce3b79c373e08f748eb8
+75	9	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+
+COMMIT@fe6601e74b15a3a08e77d73b3b2e0364a06e1f6f
+1	1	src/views/patyee/feature1.vue
+
+COMMIT@710bc8f3de67ade1ee4e34cead0769ed4f65a9e8
+3	3	src/utils/examinationOpinionToMarkdown.js
+90	27	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+
+COMMIT@208c62a06177ae153ed5b5308404e8d5c2ad5df6
+14	13	src/utils/examinationOpinionToMarkdown.js
+19	79	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+8	0	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/index.vue
+
+COMMIT@8dfc6cc3a19b69c6581f070c0c8866886fec7da6
+6	174	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+3	2	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/index.vue
+
+COMMIT@9a24bab3f23c5c96c20b491f9cded91964212cc6
+2	2	src/api/gqjOaAnswerGenerate.js
+47	34	src/utils/examinationOpinionToMarkdown.js
+7	27	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+5	11	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/index.vue
+1	1	src/views/v3/oaAnswerGenerate/publicAiComponents/aiChat.vue
+
+COMMIT@3135ffa3b05a46fa0e709f6b8b7110d3e5856162
+104	25	src/utils/examinationOpinionToMarkdown.js
+0	1	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/fileListPage.vue
+17	4	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/filePreviewPage.vue
+4	11	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+
+COMMIT@d7bf11470949aa1de4f9fc9fdbbf01e6c90ba8a9
+19	11	src/api/gqjOaAnswerGenerate.js
+4	3	src/api/gqjOaAnswerWrite.js
+100	107	src/utils/examinationOpinionToMarkdown.js
+11	9	src/views/v3/oaAnswerGenerate/index.vue
+164	168	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/dateInfoSupplementDialog.vue
+181	44	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/fileListPage.vue
+92	65	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/filePreviewPage.vue
+142	39	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue
+129	89	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/index.vue
+1	1	src/views/v3/oaAnswerGenerate/publicAiComponents/aiChat.vue
+7	1	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+6	5	src/views/v3/oaAnswerWrite/index.vue
+
+COMMIT@56d15376a779a9585e972b75ccb38f1fd103d6ee
+1	2	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+13	8	src/views/v3/oaAnswerWrite/index.vue
+
+COMMIT@930d145a396778ccc9b3ad3b9cc9c340f9948546
+3	3	vue.config.js
+
+COMMIT@83bb9840ce7d148e4dacbb08ea53d7de70c7527c
+50	14	src/views/v3/oaAnswerWrite/components/fileTypePopover.vue
+16	28	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+
+COMMIT@6099635b0fb232148e5194cb1da79c9e7e2f66ff
+43	37	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+15	9	src/views/v3/oaAnswerWrite/index.vue
+
+COMMIT@78af651cf5ecc0a8cd09393d4c6fb5112214631e
+18	17	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+49	3	static/plugins/iconfont/demo_index.html
+11	3	static/plugins/iconfont/iconfont.css
+1	1	static/plugins/iconfont/iconfont.js
+14	0	static/plugins/iconfont/iconfont.json
+-	-	static/plugins/iconfont/iconfont.ttf
+-	-	static/plugins/iconfont/iconfont.woff
+-	-	static/plugins/iconfont/iconfont.woff2
+
+COMMIT@af359006f9c7527cca5c89df48800bf8d218fc7c
+11	13	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+28	25	src/views/v3/oaAnswerWrite/index.vue
+
+COMMIT@81c6d3d6f0ead8ce311706259074fadb0182465c
+9	11	src/api/gqjOaAnswerWrite.js
+4	2	src/views/v3/oaAnswerGenerate/index.vue
+11	0	src/views/v3/oaAnswerWrite/components/editTitleDialog.vue
+54	60	src/views/v3/oaAnswerWrite/components/fileTypePopover.vue
+246	94	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+10	19	src/views/v3/oaAnswerWrite/index.vue
+
+COMMIT@d69e9e12d9ab23f864d685d0e70d6e6400834abe
+18	19	src/api/gqjOaAnswerGenerate.js
+0	572	src/views/v3/oaAnswerGenerate/components/problemAnalysisPanel.vue
+357	499	src/views/v3/oaAnswerGenerate/index.vue
+9	10	src/views/v3/oaAnswerGenerate/{ => phase1ProblemIntelligentAnalysis}/components/dateInfoSupplementDialog.vue
+2	2	src/views/v3/oaAnswerGenerate/{ => phase1ProblemIntelligentAnalysis}/components/fileListPage.vue
+2	2	src/views/v3/oaAnswerGenerate/{ => phase1ProblemIntelligentAnalysis}/components/filePreviewPage.vue
+3	3	src/views/v3/oaAnswerGenerate/{components/phase1ProblemAnalysis.vue => phase1ProblemIntelligentAnalysis/components/problemAnalysis.vue}
+567	0	src/views/v3/oaAnswerGenerate/phase1ProblemIntelligentAnalysis/index.vue
+42	0	src/views/v3/oaAnswerGenerate/phase2AnalyzeReplyStrategy/index.vue
+42	0	src/views/v3/oaAnswerGenerate/phase3GenerateReplyOpinion/index.vue
+0	0	src/views/v3/oaAnswerGenerate/{components => publicAiComponents}/aiChat.vue
+
+COMMIT@3926004efdeb51b998b91f9d92b91d61de20e081
+18	2	src/api/gqjOaAnswerWrite.js
+392	188	src/views/v3/oaAnswerWrite/components/oaFileUploader.vue
+4	4	src/views/v3/oaAnswerWrite/index.vue
+
+COMMIT@4f0edd8aa65ebb38a48f9f57d253bda361ef9d70
+COMMIT@6d67f5714d52fb3b6b802a8282a747ea77c1b8ac
+4	2	src/store/modules/user/feature1.js
+5	3	src/store/modules/user/feature2.js
+5	3	src/store/modules/user/feature3.js
+2	2	src/utils/iframeAuthTransfer.js
+1	1	src/views/index/feature1.vue
+1	1	src/views/index/feature2.vue
+1	1	src/views/index/feature3.vue
+1	1	src/views/patyee/feature1.vue
+1	1	src/views/patyee/feature2.vue
+1	1	src/views/patyee/feature3.vue
+
+COMMIT@24e6c4a1c4449e83dd3e867407c8472fd44d29b1
+3	2	src/store/modules/user/feature1.js
+5	2	src/store/modules/user/feature2.js
+5	2	src/store/modules/user/feature3.js
+5	1	src/views/index/feature2.vue
+5	1	src/views/index/feature3.vue
+1	0	src/views/patyee/feature2.vue
+1	0	src/views/patyee/feature3.vue
+
+COMMIT@f9a0077209df1175abf66e64fff9919f672c152e
+1	1	src/views/index/feature1.vue
+
+COMMIT@d8ca4996ebb405b911fdc8625219416d8eb95e71
+2	0	src/store/modules/user/feature1.js
+1	1	src/utils/iframeAuthTransfer.js
+5	1	src/views/index/feature1.vue
+1	0	src/views/patyee/feature1.vue
+
+COMMIT@3ed3f1fc313962e75dcfe9bdc3b0a118424acfea
+15	0	src/api/gqjOaAnswerGenerate.js
+360	0	src/views/v3/oaAnswerGenerate/components/dateInfoSupplementDialog.vue
+4	0	src/views/v3/oaAnswerGenerate/index.vue
+
+COMMIT@c2835563bc48c0ccd3b79d2f8a7c51a146f03076
+140	0	src/utils/examinationOpinionToMarkdown.js
+12	17	src/views/v3/oaAnswerGenerate/components/phase1ProblemAnalysis.vue
+
+COMMIT@6c79f571f0963c5fcb79bbea1ed8530d1401747f
+2	2	src/views/v3/oaAnswerGenerate/index.vue
+
+COMMIT@612220207c561a6378943b5348cbb7dde95dc0d1
+56	0	src/api/gqjOaAnswerGenerate.js
+6	8	src/api/{gqjOaAnswerReview.js => gqjOaAnswerWrite.js}
+2	2	src/router/innovationRoutes/feature3.js
+1351	0	src/views/v3/oaAnswerGenerate/components/aiChat.vue
+233	0	src/views/v3/oaAnswerGenerate/components/fileListPage.vue
+486	0	src/views/v3/oaAnswerGenerate/components/filePreviewPage.vue
+572	0	src/views/v3/oaAnswerGenerate/components/phase1ProblemAnalysis.vue
+572	0	src/views/v3/oaAnswerGenerate/components/problemAnalysisPanel.vue
+610	0	src/views/v3/oaAnswerGenerate/index.vue
+3	3	src/views/v3/{oaAnswerReview => oaAnswerWrite}/components/editTitleDialog.vue
+0	0	src/views/v3/{oaAnswerReview => oaAnswerWrite}/components/fileTypePopover.vue
+2	2	src/views/v3/{oaAnswerReview => oaAnswerWrite}/components/oaFileUploader.vue
+20	10	src/views/v3/{oaAnswerReview => oaAnswerWrite}/index.vue
+
+COMMIT@9df64121c8f479f1b32efb79420d85b96f34266d
+47	0	src/api/gqjOaAnswerReview.js
+13	4	src/router/innovationRoutes/feature3.js
+80	65	src/views/v3/applicationWrite/components/editTitleDialog.vue
+2	25	src/views/v3/applicationWrite/index.vue
+147	0	src/views/v3/oaAnswerReview/components/editTitleDialog.vue
+192	0	src/views/v3/oaAnswerReview/components/fileTypePopover.vue
+548	0	src/views/v3/oaAnswerReview/components/oaFileUploader.vue
+610	42	src/views/v3/oaAnswerReview/index.vue
+
+COMMIT@2e0d3e88eb92c09d46cc18808a619ad8b46faf06
+4	8	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+4	8	src/views/v1/disclosurePaperGenerate/components/conclusionResult.vue
+4	8	src/views/v1/smartNoveltyCheckFlow/components/phase6Conclusion.vue
+
+COMMIT@e32d743c0ce26217dca3677cdbea10c626a85929
+5	2	src/utils/quillHtmlToMarkdown.js
+
+COMMIT@5847a5ca3a1c1a528665cdb712038f42d87ec09c
+22	4	src/utils/quillMathFormula.js
+48	2	src/views/v1/aiPublicComponents/markdownPreviewDebug/index.vue
+
+COMMIT@68212485967dc5d464dea33661393dc0fb9cdba8
+4	2	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+1	1	src/views/v1/disclosurePaperGenerate/components/conclusionResult.vue
+
+COMMIT@e06da5072d40e357406b36410696e646533d0d87
+2	2	vue.proxy.js
+
+COMMIT@5735481b329e555a455206322e457a7f05f3f3be
+6	1	src/views/v1/disclosureNoveltySearch/components/searchElementsDialog.vue
+1	1	src/views/v1/disclosurePaperGenerate/index.vue
+2	2	vue.proxy.js
+
+COMMIT@4f4e7ac9f7d2d6f08eec8ca3ad0b609178bd98a6
+6	3	src/views/v1/aiPublicComponents/aiAssisted/components/expansionSection.vue
+1	2	src/views/v1/aiPublicComponents/aiAssisted/components/inventionPointsSection.vue
+2	3	src/views/v1/aiPublicComponents/aiAssisted/index.vue
+
+COMMIT@e524b108495dca880691bc2e7f74c051a4a0ebdb
+4	2	src/views/v1/aiPublicComponents/aiAssisted/index.vue
+
+COMMIT@172626ef7081cd4973e381d1178c26968a5344db
+150	133	src/views/v1/aiPublicComponents/aiAssisted/index.vue
+
+COMMIT@a29fbe59b7e01ecfd068acb24d9d5d196a580089
+0	0	src/api/{gqtechFeatureExtract.js => gqjTechFeatureExtract.js}
+1	1	src/views/v3/aiPublicComponents/gqTechFeatureExtract/components/expansionSectionGq.vue
+1	1	src/views/v3/aiPublicComponents/gqTechFeatureExtract/components/inventionPointsSectionGq.vue
+1	1	src/views/v3/aiPublicComponents/gqTechFeatureExtract/components/relatedPersonSectionGq.vue
+1	1	src/views/v3/aiPublicComponents/gqTechFeatureExtract/components/searchExpressionSectionGq.vue
+1	1	src/views/v3/aiPublicComponents/gqTechFeatureExtract/components/tagDialog.vue
+1	1	src/views/v3/disclosureNoveltySearch/newPatentCompare/index.vue
+
+COMMIT@69156930b624206e0ea722b4261421157e611f8c
+0	0	src/api/{techFeatureExtract.js => gqtechFeatureExtract.js}
+0	0	src/views/v3/aiPublicComponents/{techFeatureExtract => gqTechFeatureExtract}/components/expansionSectionGq.vue
+0	0	src/views/v3/aiPublicComponents/{techFeatureExtract => gqTechFeatureExtract}/components/inventionPointsSectionGq.vue
+0	0	src/views/v3/aiPublicComponents/{techFeatureExtract => gqTechFeatureExtract}/components/relatedPersonSectionGq.vue
+0	0	src/views/v3/aiPublicComponents/{techFeatureExtract => gqTechFeatureExtract}/components/searchExpressionSectionGq.vue
+0	0	src/views/v3/aiPublicComponents/{techFeatureExtract => gqTechFeatureExtract}/components/tagDialog.vue
+0	0	src/views/v3/aiPublicComponents/{techFeatureExtract => gqTechFeatureExtract}/index.vue
+
+COMMIT@16bfff5bea4a63f763586027afaee34a710fa75a
+2	2	vue.proxy.js
+
+COMMIT@eee422915dd19761cc9e7527f784a8db2af1187e
+0	1	src/views/v1/aiPublicComponents/aiAssisted/components/expansionSection.vue
+0	609	src/views/v1/aiPublicComponents/claimsAiAssisted/components/expansionSection.vue
+0	265	src/views/v1/aiPublicComponents/claimsAiAssisted/components/inputTechnicalDescription.vue
+0	403	src/views/v1/aiPublicComponents/claimsAiAssisted/components/inventionPointsSection.vue
+0	833	src/views/v1/aiPublicComponents/claimsAiAssisted/components/searchExpressionSection.vue
+0	88	src/views/v1/aiPublicComponents/claimsAiAssisted/components/searchLoding.vue
+0	215	src/views/v1/aiPublicComponents/claimsAiAssisted/components/tagDialog.vue
+0	539	src/views/v1/aiPublicComponents/claimsAiAssisted/index.vue
+0	735	src/views/v1/aiPublicComponents/techFeatureExtract/components/expansionSectionGq.vue
+0	466	src/views/v1/aiPublicComponents/techFeatureExtract/components/inventionPointsSectionGq.vue
+0	430	src/views/v1/aiPublicComponents/techFeatureExtract/components/relatedPersonSectionGq.vue
+0	1350	src/views/v1/aiPublicComponents/techFeatureExtract/components/searchExpressionSectionGq.vue
+0	204	src/views/v1/aiPublicComponents/techFeatureExtract/components/tagDialog.vue
+0	549	src/views/v1/aiPublicComponents/techFeatureExtract/index.vue
+0	696	src/views/v2/aiPublicComponents/newClaimsAiAssisted/components/expansionSection.vue
+0	203	src/views/v2/aiPublicComponents/newClaimsAiAssisted/components/inventionPointsSection.vue
+0	850	src/views/v2/aiPublicComponents/newClaimsAiAssisted/components/searchExpressionSection.vue
+0	204	src/views/v2/aiPublicComponents/newClaimsAiAssisted/components/tagDialog.vue
+0	519	src/views/v2/aiPublicComponents/newClaimsAiAssisted/index.vue
+0	735	src/views/v2/aiPublicComponents/techFeatureExtract/components/expansionSectionGq.vue
+0	466	src/views/v2/aiPublicComponents/techFeatureExtract/components/inventionPointsSectionGq.vue
+0	430	src/views/v2/aiPublicComponents/techFeatureExtract/components/relatedPersonSectionGq.vue
+0	1350	src/views/v2/aiPublicComponents/techFeatureExtract/components/searchExpressionSectionGq.vue
+0	204	src/views/v2/aiPublicComponents/techFeatureExtract/components/tagDialog.vue
+0	549	src/views/v2/aiPublicComponents/techFeatureExtract/index.vue
+0	609	src/views/v3/aiPublicComponents/claimsAiAssisted/components/expansionSection.vue
+0	265	src/views/v3/aiPublicComponents/claimsAiAssisted/components/inputTechnicalDescription.vue
+0	403	src/views/v3/aiPublicComponents/claimsAiAssisted/components/inventionPointsSection.vue
+0	833	src/views/v3/aiPublicComponents/claimsAiAssisted/components/searchExpressionSection.vue
+0	88	src/views/v3/aiPublicComponents/claimsAiAssisted/components/searchLoding.vue
+0	215	src/views/v3/aiPublicComponents/claimsAiAssisted/components/tagDialog.vue
+0	539	src/views/v3/aiPublicComponents/claimsAiAssisted/index.vue
+0	696	src/views/v3/aiPublicComponents/newClaimsAiAssisted/components/expansionSection.vue
+0	203	src/views/v3/aiPublicComponents/newClaimsAiAssisted/components/inventionPointsSection.vue
+0	850	src/views/v3/aiPublicComponents/newClaimsAiAssisted/components/searchExpressionSection.vue
+0	204	src/views/v3/aiPublicComponents/newClaimsAiAssisted/components/tagDialog.vue
+0	519	src/views/v3/aiPublicComponents/newClaimsAiAssisted/index.vue
+1	1	src/views/v3/aiPublicComponents/techFeatureExtract/components/expansionSectionGq.vue
+1	1	src/views/v3/aiPublicComponents/techFeatureExtract/components/inventionPointsSectionGq.vue
+1	1	src/views/v3/aiPublicComponents/techFeatureExtract/components/relatedPersonSectionGq.vue
+1	1	src/views/v3/aiPublicComponents/techFeatureExtract/components/searchExpressionSectionGq.vue
+1	1	src/views/v3/aiPublicComponents/techFeatureExtract/components/tagDialog.vue
+5	5	src/views/v3/disclosureNoveltySearch/newPatentCompare/index.vue
+2	2	vue.proxy.js
+
+COMMIT@81db783bf487b601c91a36c5b86592acba4ec51d
+1	1	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+1	1	src/views/v1/disclosurePaperGenerate/components/conclusionResult.vue
+1	1	src/views/v1/smartNoveltyCheckFlow/components/phase6Conclusion.vue
+
+COMMIT@7febd7f1ebf3129f7142cf39281fd6d175bb288b
+6	8	src/views/v1/disclosureNoveltySearch/components/searchElementsDialog.vue
+16	13	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+15	13	src/views/v1/disclosurePaperGenerate/components/conclusionResult.vue
+16	3	src/views/v1/smartNoveltyCheckFlow/components/phase6Conclusion.vue
+
+COMMIT@52c271d9de8220d43ec6d96ed7e85a001c042ec3
+2	2	src/api/disclosureNoveltySearch.js
+30	26	src/views/v1/disclosureNoveltySearch/components/searchElementsDialog.vue
+15	4	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+14	3	src/views/v1/disclosurePaperGenerate/components/conclusionResult.vue
+15	4	src/views/v1/smartNoveltyCheckFlow/components/phase6Conclusion.vue
+
+COMMIT@ec0d4b9faf3804c605286bb1716840aef66eb3dd
+1	1	src/api/disclosureNoveltySearch.js
+70	70	src/views/v1/disclosureNoveltySearch/components/searchElementsDialog.vue
+4	8	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+2	2	src/views/v1/disclosurePaperGenerate/components/conclusionResult.vue
+2	2	src/views/v1/smartNoveltyCheckFlow/components/phase6Conclusion.vue
+
+COMMIT@ff55d2d62ec7d3d82319441ceb5bd482502ae865
+14	6	src/api/tbApplicationGenerate.js
+4	3	src/api/tbDisclosurePaperGenerate.js
+14	15	src/views/v1/applicationGenerate/index.vue
+2	2	src/views/v1/applicationWrite/index.vue
+4	12	src/views/v1/disclosurePaperGenerate/index.vue
+
+COMMIT@f5e43ec647d9a62bc7b8e6ac9d9579b6e3998752
+84	19	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+
+COMMIT@acd5a37bf1b4621601a950a4b0cf2d64805f1917
+20	21	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+
+COMMIT@f7b8d5f07ea639ff1f5f0b4486a6852e2ef4134c
+79	19	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+76	17	src/views/v1/disclosurePaperGenerate/components/conclusionResult.vue
+66	17	src/views/v1/smartNoveltyCheckFlow/components/phase6Conclusion.vue
+
+COMMIT@a39a57b70aae7f1403faaab7aaa109cdfdefebfa
+1	1	src/api/disclosureNoveltySearch.js
+271	0	src/views/v1/disclosureNoveltySearch/components/searchElementsDialog.vue
+42	7	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+2	2	src/views/v1/disclosurePaperGenerate/components/conclusionResult.vue
+8	9	src/views/v1/smartNoveltyCheckFlow/components/phase6Conclusion.vue
+
+COMMIT@382b4d48240878fad708b58632c0f09ebe285eee
+9	1	src/api/tbApplicationGenerate.js
+7	0	src/api/tbDisclosurePaperGenerate.js
+30	7	src/views/v1/applicationGenerate/index.vue
+25	8	src/views/v1/disclosurePaperGenerate/index.vue
+
+COMMIT@79ff1d495841ce058e2147e667520b594fb374d0
+19	20	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+
+COMMIT@2b6db79af80b5b968849f14c56123a29e7d712cd
+1	1	src/views/index/feature1.vue
+1	1	src/views/index/feature2.vue
+1	1	src/views/index/feature3.vue
+
+COMMIT@a7bc97d939d6492a751d17337dc688a8c843db91
+4	5	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+
+COMMIT@8081580f9d49df6e7fb653b589a7681b08cfc557
+2	2	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+
+COMMIT@231a248d51e932bfa609daec0595307cf37ba43f
+0	3214	src/views/v2/applicationEvaluate/newClaimsCompare/index.vue
+
+COMMIT@b1c537866cbbc2a3368ce69f9d1b3f9aa9afea7e
+3	4	src/views/v1/applicationEvaluate/estimateDetails/index.vue
+9	1	src/views/v1/applicationEvaluate/index.vue
+
+COMMIT@d98944cdd94572279e378cfa3261bb65173590eb
+137	8	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+133	15	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+
+COMMIT@be5312ff77c90a4c985f14d39907373edb3955bb
+1	1	src/views/v1/applicationEvaluate/components/InputApplication.vue
+1	1	src/views/v1/oaAnswerWrite/components/oaResponseReviewInputApplication.vue
+1	1	src/views/v2/applicationEvaluate/components/InputApplication.vue
+1	1	src/views/v2/oaResponseReview/components/oaResponseReviewInputApplication.vue
+-	-	static/files/申请书模板.docx
+
+COMMIT@aa4220919cb70872d26243ba7db9cc5878493d67
+8	1	src/utils/quillHtmlToMarkdown.js
+3	20	src/views/v1/applicationEvaluate/components/InputApplication.vue
+2	2	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+
+COMMIT@b2b9e046984b2934d47efb422d71430362cec19c
+-	-	static/files/申请书word模板.docx
+
+COMMIT@901559050cf7964984a3e809e5c10b191c17d0d1
+8	3	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+8	3	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+
+COMMIT@5106390826a655a3c995a2d84333a854358ba333
+48	22	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+
+COMMIT@cf5ec70f18518abc1caea5e2cfb806e5be9a39ac
+4	4	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+
+COMMIT@445ff9a46e43dee5bf37ca22535a27e9a265e115
+41	10	src/components/ui/upload/index.vue
+65	29	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+
+COMMIT@b83177ed00f43450c3526220408909888eec302e
+9	2	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+
+COMMIT@4885ab57bb8c0fd8b2e67e4b96e48158ec49c948
+11	10	src/views/v1/applicationEvaluate/estimateDetails/innovationReview/index.vue
+56	121	src/views/v1/applicationEvaluate/innovationSearchFeatureExtract/existingCompareDialog.vue
+
+COMMIT@9a653ddf8689edb1c1383d0644d27f5fedd19fad
+16	1	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+24	5	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+
+COMMIT@20f0b8d57c90127963c7d8965d9174b14c241873
+7	1	src/views/v1/applicationEvaluate/estimateDetails/innovationReview/index.vue
+2	2	src/views/v1/applicationEvaluate/innovationSearchFeatureExtract/existingCompareDialog.vue
+34	32	src/views/v1/applicationEvaluate/innovationSearchFeatureExtract/index.vue
+82	40	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+
+COMMIT@2e26efda6f73841aa87e21f73954d428c8b1d04d
+18	20	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+44	24	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+
+COMMIT@824a63171d1c2e08da1d2ecdfd42491ecc7d2fff
+38	18	src/views/v1/applicationEvaluate/estimateDetails/innovationReview/index.vue
+
+COMMIT@e1bbf7b2f46d6ed6ccdd01ad833e6964a376a6e7
+9	0	src/views/v1/applicationEvaluate/estimateDetails/innovationReview/index.vue
+82	16	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+75	23	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+
+COMMIT@a13642efe8c14a4259754f56db31c0e85938584a
+21	15	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+
+COMMIT@b7367d496fa2edbf08ec83fc6bdf6f36f37be874
+2	2	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+
+COMMIT@65aa3b0524d6c498fb0888bba9616ccb5addf374
+18	14	src/views/v1/applicationEvaluate/estimateDetails/innovationReview/index.vue
+
+COMMIT@6a4dce8de951b632012d7886c46a69a1f17026c5
+109	51	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+
+COMMIT@77c62743528b0511aab91287015346193ec1573a
+0	1	src/views/v1/applicationEvaluate/index.vue
+6	6	src/views/v1/applicationEvaluate/innovationSearchFeatureExtract/index.vue
+3	8	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+
+COMMIT@f797825cd713138f4349c5134025c4ddae69f1e9
+1	1	src/api/tbApplicationEvaluate.js
+4	4	src/views/v1/applicationEvaluate/estimateDetails/innovationReview/index.vue
+
+COMMIT@bdc5132f30fa415247c9aa1f01c3489349b3f075
+2	2	src/views/v1/applicationEvaluate/estimateDetails/index.vue
+
+COMMIT@1fee23470574623661507d6a317899d81337b655
+41	3	src/views/v1/applicationEvaluate/estimateDetails/index.vue
+11	7	src/views/v1/applicationEvaluate/index.vue
+
+COMMIT@6ee57ce9049542b1a4db96aa86524b5a49e1b2d6
+24	32	src/views/v1/applicationEvaluate/estimateDetails/innovationReview/index.vue
+6	5	src/views/v1/applicationEvaluate/innovationSearchFeatureExtract/index.vue
+44	52	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+
+COMMIT@9ca906a8414b038d1e91a6d32b07676cf0adeb20
+1	1	src/views/v1/applicationEvaluate/estimateDetails/innovationReview/index.vue
+137	24	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+
+COMMIT@cca30816911341717c42a38ef9b3dc01ae30a358
+31	21	src/api/tbApplicationEvaluate.js
+8	2	src/views/v1/applicationEvaluate/estimateDetails/innovationReview/index.vue
+69	38	src/views/v1/applicationEvaluate/innovationSearchFeatureExtract/existingCompareDialog.vue
+817	505	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+
+COMMIT@9e6c6e7311d7b540a3f636b7fc70ef75fad13889
+28	35	src/views/v1/applicationEvaluate/innovationSearchFeatureExtract/existingCompareDialog.vue
+15	61	src/views/v1/applicationEvaluate/innovationSearchFeatureExtract/index.vue
+112	86	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+
+COMMIT@dd1ce399d6d914d83811bd896541ad5bff926b77
+73	66	src/api/tbApplicationEvaluate.js
+1	0	src/views/v1/{disclosureNoveltySearch/components/compareFormulaEditor.vue => aiPublicComponents/compareFormulaEditor/index.vue}
+290	205	src/views/v1/applicationEvaluate/estimateDetails/innovationReview/index.vue
+294	0	src/views/v1/applicationEvaluate/innovationSearchFeatureExtract/existingCompareDialog.vue
+677	870	src/views/v1/applicationEvaluate/innovationSearchFeatureExtract/index.vue
+427	362	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+1	1	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+
+COMMIT@ddaa679bccb5aaf9a735a33ce2b0562d3d660d1c
+COMMIT@ef0bf4b25174573ece2068d8864a6716bb53ebcb
+1	0	src/components/common/DocxPdfRender/index.vue
+325	0	src/components/common/DocxPdfRender2/index.vue
+1	1	src/views/v2/applicationEvaluate/newClaimsCompare/index.vue
+1	1	src/views/v2/disclosureNoveltySearch/coreElementExtraction/index.vue
+1	1	src/views/v2/disclosurePaper/editWrite/index.vue
+1	1	src/views/v3/disclosureNoveltySearch/coreElementExtraction/index.vue
+1	1	src/views/v3/disclosurePaper/editWrite/index.vue
+
+COMMIT@c3947b079edfe98d14b2a0cb26aaa88beb81481c
+COMMIT@8bf82c7393a609cb3e370da82559c475f896b096
+28	6	src/views/v1/disclosureNoveltySearch/components/compareFormulaEditor.vue
+
+COMMIT@3e158b00c838b0bd6e97d7bb3d52ae4cbede29c5
+COMMIT@bb34b2cefdc761e0023e61874b35dda55dc7fd5a
+75	45	src/views/v1/aiPublicComponents/applicationQuillaTextarea/index.vue
+51	31	src/views/v2/applicationEvaluate/components/quillTextarea.vue
+
+COMMIT@df6c84ac232d0630cf8a062a3a8456db2a26ad96
+COMMIT@c0308fadf20c7b45a00df86e9930d9dbf414f1cc
+1	6	src/views/v1/oaAnswerReport/components/phase1ModifyText.vue
+8	4	src/views/v1/oaAnswerReport/components/phase2Statement.vue
+13	2	src/views/v1/oaAnswerReport/index.vue
+
+COMMIT@3e6a899757e71b05562b43b18255abff7153a6cb
+56	2	src/api/tbApplicationEvaluate.js
+576	116	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+
+COMMIT@632c65f413cee039949f569f426720e3ae0f8905
+1	155	src/api/applicationEvaluate.js
+232	0	src/api/tbApplicationEvaluate.js
+2	2	src/views/v1/applicationEvaluate/estimateDetails/applicationForm/index.vue
+3	3	src/views/v1/applicationEvaluate/estimateDetails/evaluateProgress/index.vue
+2	2	src/views/v1/applicationEvaluate/estimateDetails/formalReviewContent/index.vue
+5	5	src/views/v1/applicationEvaluate/estimateDetails/formalReviewResult/index.vue
+13	14	src/views/v1/applicationEvaluate/estimateDetails/index.vue
+8	8	src/views/v1/applicationEvaluate/estimateDetails/innovationReview/index.vue
+2	2	src/views/v1/applicationEvaluate/estimateDetails/nonstandardResult/components/duplicateCompareDialog.vue
+4	4	src/views/v1/applicationEvaluate/estimateDetails/nonstandardResult/index.vue
+7	8	src/views/v1/applicationEvaluate/index.vue
+7	7	src/views/v1/applicationEvaluate/innovationSearchFeatureExtract/index.vue
+12	12	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+
+COMMIT@76d61035a31a89fb159265338e7e4a24fa7906a0
+0	9	src/api/applicationEvaluate.js
+0	288	src/views/v1/applicationEvaluate/components/FileUploader.vue
+2	38	src/views/v1/applicationEvaluate/index.vue
+
+COMMIT@bd2affcc96721a263aaca3716be023ff26c3b2cf
+0	288	src/views/v2/applicationEvaluate/components/FileUploader.vue
+0	2	src/views/v2/applicationEvaluate/estimateDetails/index.vue
+0	699	src/views/v2/applicationEvaluate/estimateDetails/innovationReview/newIndex.vue
+2	51	src/views/v2/applicationEvaluate/index.vue
+0	1033	src/views/v2/applicationEvaluate/innovationSearchFeatureExtract/index.vue
+0	3214	src/views/v2/applicationEvaluate/newClaimsCompare/index.vue
+
+COMMIT@8755768b7d2a6e4e40ec8e73ee78f6eaea09d881
+3	88	src/router/innovationRoutes/feature1.js
+0	358	src/views/v1/applicationEvaluate/components/oldInputApplication.vue
+0	679	src/views/v1/applicationEvaluate/estimateDetails/innovationReview/old-index.vue
+0	1179	src/views/v1/applicationEvaluate/old-claimsCompare/index.vue
+0	1642	src/views/v1/applicationEvaluate/old-claimsSearch/index.vue
+0	1361	src/views/v1/old-applicationPaper/applicaEditPage.vue
+0	496	src/views/v1/old-applicationPaper/components/aiChat.vue
+0	173	src/views/v1/old-applicationPaper/components/editTitleDialog.vue
+0	321	src/views/v1/old-applicationPaper/components/imgUpload.vue
+0	428	src/views/v1/old-applicationPaper/components/selectDisclosurePaper.vue
+0	381	src/views/v1/old-applicationPaper/components/uploaderDisclosurePaper.vue
+0	1167	src/views/v1/old-applicationPaper/index.vue
+0	195	src/views/v1/old-applicationPaper/publicComponents/quillTextarea.vue
+0	256	src/views/v1/old-applicationPaper/ructingClaims/_claimsStructure.scss
+0	257	src/views/v1/old-applicationPaper/ructingClaims/components/Claim.vue
+0	63	src/views/v1/old-applicationPaper/ructingClaims/components/ClaimsTree.vue
+0	168	src/views/v1/old-applicationPaper/ructingClaims/components/ConfigPanel.vue
+0	197	src/views/v1/old-applicationPaper/ructingClaims/components/ProtectionObject.vue
+0	568	src/views/v1/old-applicationPaper/ructingClaims/index.vue
+0	444	src/views/v1/old-applicationPaper/ructingClaims/mixins/ClaimsDataManager.js
+0	366	src/views/v1/old-disclosurePaper/addWrite/components/fileUploader.vue
+0	193	src/views/v1/old-disclosurePaper/addWrite/components/writeInput.vue
+0	1151	src/views/v1/old-disclosurePaper/addWrite/index.vue
+0	646	src/views/v1/old-disclosurePaper/editWrite/components/advisorContent.vue
+0	606	src/views/v1/old-disclosurePaper/editWrite/components/aiChat.vue
+0	583	src/views/v1/old-disclosurePaper/editWrite/components/conclusionResult.vue
+0	1726	src/views/v1/old-disclosurePaper/editWrite/components/deepOptimizeDisclosure.vue
+0	368	src/views/v1/old-disclosurePaper/editWrite/components/findNew.vue
+0	780	src/views/v1/old-disclosurePaper/editWrite/components/quillTextarea.vue
+0	80	src/views/v1/old-disclosurePaper/editWrite/components/technologyInterpret.vue
+0	46	src/views/v1/old-disclosurePaper/editWrite/components/variables.scss
+0	1511	src/views/v1/old-disclosurePaper/editWrite/index.vue
+0	494	src/views/v1/old-oaResponseReview/components/oaResponseReviewInputApplication.vue
+0	213	src/views/v1/old-oaResponseReview/components/quillTextarea.vue
+0	399	src/views/v1/old-oaResponseReview/components/searchPublicNoApplicationPaper.vue
+0	437	src/views/v1/old-oaResponseReview/components/selectApplicationPaper.vue
+0	318	src/views/v1/old-oaResponseReview/components/uploadExaminationOpinion.vue
+0	337	src/views/v1/old-oaResponseReview/components/uploaderApplicationPaper.vue
+0	1285	src/views/v1/old-oaResponseReview/index.vue
+0	1196	src/views/v1/old-oaResponseReview/oaProblemAnalysis.vue
+0	185	src/views/v1/old-oaResponseReview/publicComponents/quillTextarea.vue
+0	504	src/views/v1/old-oaResponseReview/replyDraftOpinion.vue
+
+COMMIT@efa9024dff448216691e5bddf1163b7085577d3f
+0	0	src/views/v1/{applicationPaper => old-applicationPaper}/applicaEditPage.vue
+0	0	src/views/v1/{applicationPaper => old-applicationPaper}/components/aiChat.vue
+0	0	src/views/v1/{applicationPaper => old-applicationPaper}/components/editTitleDialog.vue
+0	0	src/views/v1/{applicationPaper => old-applicationPaper}/components/imgUpload.vue
+0	0	src/views/v1/{applicationPaper => old-applicationPaper}/components/selectDisclosurePaper.vue
+0	0	src/views/v1/{applicationPaper => old-applicationPaper}/components/uploaderDisclosurePaper.vue
+0	0	src/views/v1/{applicationPaper => old-applicationPaper}/index.vue
+0	0	src/views/v1/{applicationPaper => old-applicationPaper}/publicComponents/quillTextarea.vue
+0	0	src/views/v1/{applicationPaper => old-applicationPaper}/ructingClaims/_claimsStructure.scss
+0	0	src/views/v1/{applicationPaper => old-applicationPaper}/ructingClaims/components/Claim.vue
+0	0	src/views/v1/{applicationPaper => old-applicationPaper}/ructingClaims/components/ClaimsTree.vue
+0	0	src/views/v1/{applicationPaper => old-applicationPaper}/ructingClaims/components/ConfigPanel.vue
+0	0	src/views/v1/{applicationPaper => old-applicationPaper}/ructingClaims/components/ProtectionObject.vue
+0	0	src/views/v1/{applicationPaper => old-applicationPaper}/ructingClaims/index.vue
+0	0	src/views/v1/{applicationPaper => old-applicationPaper}/ructingClaims/mixins/ClaimsDataManager.js
+0	0	src/views/v1/{disclosurePaper => old-disclosurePaper}/addWrite/components/fileUploader.vue
+0	0	src/views/v1/{disclosurePaper => old-disclosurePaper}/addWrite/components/writeInput.vue
+0	0	src/views/v1/{disclosurePaper => old-disclosurePaper}/addWrite/index.vue
+0	0	src/views/v1/{disclosurePaper => old-disclosurePaper}/editWrite/components/advisorContent.vue
+0	0	src/views/v1/{disclosurePaper => old-disclosurePaper}/editWrite/components/aiChat.vue
+0	0	src/views/v1/{disclosurePaper => old-disclosurePaper}/editWrite/components/conclusionResult.vue
+0	0	src/views/v1/{disclosurePaper => old-disclosurePaper}/editWrite/components/deepOptimizeDisclosure.vue
+0	0	src/views/v1/{disclosurePaper => old-disclosurePaper}/editWrite/components/findNew.vue
+0	0	src/views/v1/{disclosurePaper => old-disclosurePaper}/editWrite/components/quillTextarea.vue
+0	0	src/views/v1/{disclosurePaper => old-disclosurePaper}/editWrite/components/technologyInterpret.vue
+0	0	src/views/v1/{disclosurePaper => old-disclosurePaper}/editWrite/components/variables.scss
+0	0	src/views/v1/{disclosurePaper => old-disclosurePaper}/editWrite/index.vue
+0	0	src/views/v1/{oaResponseReview => old-oaResponseReview}/components/oaResponseReviewInputApplication.vue
+0	0	src/views/v1/{oaResponseReview => old-oaResponseReview}/components/quillTextarea.vue
+0	0	src/views/v1/{oaResponseReview => old-oaResponseReview}/components/searchPublicNoApplicationPaper.vue
+0	0	src/views/v1/{oaResponseReview => old-oaResponseReview}/components/selectApplicationPaper.vue
+0	0	src/views/v1/{oaResponseReview => old-oaResponseReview}/components/uploadExaminationOpinion.vue
+0	0	src/views/v1/{oaResponseReview => old-oaResponseReview}/components/uploaderApplicationPaper.vue
+0	0	src/views/v1/{oaResponseReview => old-oaResponseReview}/index.vue
+0	0	src/views/v1/{oaResponseReview => old-oaResponseReview}/oaProblemAnalysis.vue
+0	0	src/views/v1/{oaResponseReview => old-oaResponseReview}/publicComponents/quillTextarea.vue
+0	0	src/views/v1/{oaResponseReview => old-oaResponseReview}/replyDraftOpinion.vue
+
+COMMIT@831559596bdd9fa61adbe986c26dc5d3eff7125f
+25	5	src/router/innovationRoutes/feature1.js
+55	35	src/views/v1/applicationEvaluate/estimateDetails/innovationReview/index.vue
+35	55	src/views/v1/applicationEvaluate/estimateDetails/innovationReview/{newIndex.vue => old-index.vue}
+100	7	src/views/v1/applicationEvaluate/innovationSearchFeatureExtract/index.vue
+434	74	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+0	0	src/views/v1/applicationEvaluate/{claimsCompare => old-claimsCompare}/index.vue
+0	0	src/views/v1/applicationEvaluate/{claimsSearch => old-claimsSearch}/index.vue
+
+COMMIT@9e5f89d361c19a5cbfecaddbc511c76026781b50
+3	4	src/views/v1/oaAnswerGenerate/components/fileListPage.vue
+
+COMMIT@86554d914cc6bad172d4bd04d0a09f58048d02cf
+1	1	src/views/v1/oaAnswerWrite/index.vue
+
+COMMIT@4f9d7abf65788d3e34ce3fa43543fe0393f23013
+6	2	src/views/v1/oaAnswerGenerate/components/fileListPage.vue
+
+COMMIT@39ed0da458a3c31592a005e0e2b472b43a11b248
+2	2	vue.proxy.js
+
+COMMIT@6e750d81b2dfaca60ab437be58f98ff057b242ed
+63	2	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+73	1	src/views/v1/oaAnswerWrite/index.vue
+2	2	vue.proxy.js
+
+COMMIT@541b0e4503c7d336773ed4ef782610d05f046c47
+COMMIT@d76f7c37534ecf6c2a62e128bab5ab369385e507
+72	0	src/views/v1/applicationEvaluate/css/index.scss
+1	1	src/views/v1/applicationEvaluate/index.vue
+70	1	src/views/v1/applicationPaper/index.vue
+70	1	src/views/v1/applicationWrite/index.vue
+72	0	src/views/v1/disclosureNoveltySearch/css/index.scss
+5	1	src/views/v1/disclosureNoveltySearch/index.vue
+70	1	src/views/v1/disclosurePaper/addWrite/index.vue
+70	1	src/views/v1/disclosurePaperWrite/index.vue
+70	1	src/views/v1/oaResponseReview/index.vue
+73	1	src/views/v1/smartDisclosureNoveltySearch/index.vue
+
+COMMIT@071ad6c96f97ef531d3118732a4d5d107494e66e
+26	1	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+
+COMMIT@7811ae184bf6c49ca9b788715b37c6553db49a6b
+88	1	src/views/v1/oaAnswerGenerate/components/fileListPage.vue
+1	1	src/views/v1/oaAnswerGenerate/index.vue
+
+COMMIT@b636ce1a70502a9b7754efc790bf6d3fb7aa0bf9
+57	22	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+
+COMMIT@2e13e1dba1f73c66e0b74db69d361687d2a667cd
+1	1	src/views/v1/oaAnswerGenerate/index.vue
+1	1	src/views/v1/oaAnswerReport/components/aiChat.vue
+1	1	src/views/v1/oaAnswerReport/components/phase1ModifyText.vue
+1	1	src/views/v1/oaAnswerReport/components/phase2Statement.vue
+3	3	src/views/v1/oaAnswerReport/index.vue
+
+COMMIT@66637c7fed95ca06c1352a66cc2d5b15bd1f2dd1
+7	2	src/utils/quillHtmlToMarkdown.js
+3	2	src/views/v1/oaAnswerReport/components/phase1ModifyText.vue
+3	2	src/views/v1/oaAnswerReport/components/phase2Statement.vue
+17	1	src/views/v1/oaAnswerReport/index.vue
+
+COMMIT@f231d29a6fa85592dc12e47312cbbe68a875e101
+20	14	src/views/noveltyPatentDetail/components/getDetail.js
+
+COMMIT@5d3b5a774e0ba14241812ffc89946f65ea99ffc8
+3	3	src/views/v1/oaAnswerWrite/components/searchPublicNoApplicationPaper.vue
+4	2	src/views/v1/oaAnswerWrite/components/uploadExaminationOpinion.vue
+5	2	src/views/v1/oaAnswerWrite/index.vue
+
+COMMIT@839931bef4716558c8d7bdf9afa7c7d7ec679954
+1	1	src/views/v1/oaAnswerWrite/components/uploadExaminationOpinion.vue
+
+COMMIT@3c5c29c0327eaaf16e75a4aa4d95b46b80f317a9
+10	16	src/views/v1/oaAnswerGenerate/components/problemAndStrategyPage.vue
+
+COMMIT@e0bc0adc2168b7ab34b4cd633b972348ee201132
+4	3	src/views/v1/oaAnswerGenerate/components/problemAndStrategyPage.vue
+2	2	src/views/v1/oaAnswerReport/components/phase1ModifyText.vue
+2	2	src/views/v1/oaAnswerReport/components/phase2Statement.vue
+
+COMMIT@6f38cf4d1eb992e2350e26dd87b1fe7346ed9d37
+7	0	src/api/tbOaAnswerReport.js
+1	8	src/views/v1/disclosurePaperWrite/index.vue
+5	6	src/views/v1/oaAnswerReport/index.vue
+7	6	src/views/v1/oaAnswerWrite/index.vue
+
+COMMIT@fc6e452a5257c971b04cb521f193027c0d8f5fd0
+1	1	src/views/v1/oaAnswerGenerate/components/problemAndStrategyPage.vue
+
+COMMIT@203be6b759475102a1126a20481a3ec2f4057afe
+1	1	src/views/v1/oaAnswerGenerate/components/filePreviewPage.vue
+2	2	src/views/v1/oaAnswerReport/components/phase1ModifyText.vue
+2	2	src/views/v1/oaAnswerReport/components/phase2Statement.vue
+1	2	src/views/v1/oaAnswerReport/index.vue
+1	1	src/views/v1/oaAnswerWrite/components/oaResponseReviewInputApplication.vue
+
+COMMIT@513eddd0a729ae5bc112e0de41fcd04378001b09
+3	3	src/views/v1/oaAnswerWrite/components/oaResponseReviewInputApplication.vue
+2	2	src/views/v1/oaAnswerWrite/components/searchPublicNoApplicationPaper.vue
+2	2	src/views/v1/oaAnswerWrite/components/selectApplicationPaper.vue
+
+COMMIT@55e87461f91ef89430266c42ef6866228de88fd5
+9	3	src/views/v1/aiPublicComponents/applicationQuillaTextarea/index.vue
+2	2	src/views/v1/applicationEvaluate/index.vue
+1	10	src/views/v1/oaAnswerWrite/index.vue
+1	1	src/views/v1/oaResponseReview/components/uploaderApplicationPaper.vue
+
+COMMIT@988f6c6299d6da479096ee886cd8f32af3f934d8
+COMMIT@3141dce27346b2ced527955f7209adb344b221ba
+44	0	src/views/v1/aiPublicComponents/applicationQuillaTextarea/index.vue
+44	0	src/views/v3/applicationGenerate/components/applicationQuillaTextarea.vue
+
+COMMIT@2995dedc0b51061d5c38d6e5edb93324756296ae
+0	7	src/api/tbOaAnswerReport.js
+1	1	src/views/v1/oaAnswerGenerate/components/problemAndStrategyPage.vue
+1	1	src/views/v1/oaAnswerReport/components/phase1ModifyText.vue
+1	1	src/views/v1/oaAnswerReport/components/phase2Statement.vue
+60	126	src/views/v1/oaAnswerReport/index.vue
+21	4	src/views/v1/oaAnswerWrite/index.vue
+
+COMMIT@399db88ac50b7d04cfb645c480fd14251ddde126
+6	5	src/views/v1/oaAnswerGenerate/components/problemAndStrategyPage.vue
+2	2	src/views/v1/oaAnswerReport/components/aiChat.vue
+4	2	src/views/v1/oaAnswerReport/index.vue
+
+COMMIT@a5605c40b852d1e04b6eec7f910e800eb1ba019c
+31	13	src/views/v1/oaAnswerReport/index.vue
+
+COMMIT@0303a20d50e830269f4bfe3141088ea006d30c36
+COMMIT@b805bd88ed0f578ba310618748b248d01140a55c
+2	2	src/views/v1/applicationEvaluate/components/InputApplication.vue
+
+COMMIT@7ab2ae2e1ae6df62ae72089e58a5b06371680bd2
+2	2	src/views/v1/applicationEvaluate/components/FileUploader.vue
+1	1	src/views/v1/applicationEvaluate/components/Form.vue
+1	1	src/views/v1/applicationEvaluate/index.vue
+1	1	src/views/v1/applicationWrite/components/uploaderDisclosurePaper.vue
+3	3	src/views/v1/disclosureNoveltySearch/components/addDisclosureList.vue
+1	1	src/views/v1/disclosurePaperWrite/components/uploaderDisclosurePaper.vue
+3	3	src/views/v1/oaResponseReview/components/oaResponseReviewInputApplication.vue
+2	2	src/views/v1/oaResponseReview/components/searchPublicNoApplicationPaper.vue
+2	2	src/views/v1/oaResponseReview/components/selectApplicationPaper.vue
+3	3	src/views/v1/oaResponseReview/components/uploaderApplicationPaper.vue
+3	3	src/views/v1/smartDisclosureNoveltySearch/components/addDisclosureList.vue
+
+COMMIT@69b28adba8ecea195a8393832f40b45331ab4521
+48	14	src/views/v1/oaAnswerGenerate/components/problemAndStrategyPage.vue
+1	1	src/views/v1/oaAnswerGenerate/index.vue
+5	12	src/views/v1/oaAnswerReport/index.vue
+54	42	src/views/v1/oaAnswerWrite/index.vue
+
+COMMIT@4624fec4fbdc24daaa4cdf2b9087185909fc8bf6
+24	6	src/views/v1/oaAnswerGenerate/components/filePreviewPage.vue
+64	44	src/views/v1/oaAnswerGenerate/components/problemAndStrategyPage.vue
+25	3	src/views/v1/oaAnswerGenerate/index.vue
+
+COMMIT@976b32ca8dd55aa9a24c5b0a367a368881cace18
+134	0	src/views/v1/oaAnswerGenerate/components/fileListPage.vue
+120	207	src/views/v1/oaAnswerGenerate/components/{filePreviewPanel.vue => filePreviewPage.vue}
+958	0	src/views/v1/oaAnswerGenerate/components/problemAndStrategyPage.vue
+0	662	src/views/v1/oaAnswerGenerate/components/problemStrategyPanel.vue
+256	27	src/views/v1/oaAnswerGenerate/index.vue
+
+COMMIT@9bf0606ff7ea60e38673bfc6f434d74d691dafbf
+2	2	src/api/tbOaAnswerReport.js
+2	2	src/views/v1/oaAnswerReport/components/aiChat.vue
+1	1	src/views/v1/oaAnswerReport/index.vue
+
+COMMIT@8513e856983f57e4678b6035bcf9bed28d490c5e
+24	28	src/api/tbOaAnswerGenerate.js
+195	47	src/views/v1/oaAnswerGenerate/components/filePreviewPanel.vue
+13	79	src/views/v1/oaAnswerGenerate/components/problemStrategyPanel.vue
+57	133	src/views/v1/oaAnswerGenerate/index.vue
+2	3	src/views/v1/oaAnswerReport/components/aiChat.vue
+1	5	src/views/v1/oaAnswerReport/components/phase1ModifyText.vue
+1	5	src/views/v1/oaAnswerReport/components/phase2Statement.vue
+61	27	src/views/v1/oaAnswerReport/index.vue
+
+COMMIT@8273a44a27de4fe72d9b0e780518af03c1d82488
+31	9	src/api/tbOaAnswerGenerate.js
+69	0	src/api/tbOaAnswerReport.js
+8	0	src/views/v1/disclosurePaperGenerate/components/aiChat.vue
+0	138	src/views/v1/oaAnswerGenerate/components/compareFileUpload.vue
+407	0	src/views/v1/oaAnswerGenerate/components/filePreviewPanel.vue
+728	0	src/views/v1/oaAnswerGenerate/components/problemStrategyPanel.vue
+44	960	src/views/v1/oaAnswerGenerate/index.vue
+1352	0	src/views/v1/oaAnswerReport/components/aiChat.vue
+580	0	src/views/v1/oaAnswerReport/components/phase1ModifyText.vue
+560	0	src/views/v1/oaAnswerReport/components/phase2Statement.vue
+906	4	src/views/v1/oaAnswerReport/index.vue
+
+COMMIT@871b52097e8036cb746c9403087c20f103391c1e
+0	30	src/api/tbOaAnswerGenerate.js
+88	561	src/views/v1/oaAnswerGenerate/index.vue
+
+COMMIT@a6374a36e7721e01dec795a69eb643583acd0963
+54	0	src/api/tbOaAnswerGenerate.js
+17	0	src/components/common/DocxPdfRender/index.vue
+19	1	src/router/innovationRoutes/feature1.js
+138	0	src/views/v1/oaAnswerGenerate/components/compareFileUpload.vue
+1578	0	src/views/v1/oaAnswerGenerate/index.vue
+11	0	src/views/v1/oaAnswerReport/index.vue
+3	3	src/views/v1/oaAnswerWrite/index.vue
+
+COMMIT@6e5868ed652a2c7caedf5f6c4fd7ffbb27bad7e5
+1	1	src/views/index/feature1.vue
+1	1	src/views/index/feature2.vue
+1	1	src/views/index/feature3.vue
+
+COMMIT@a647a5904f96d4df442c6b78f8e71111ad6f5d13
+0	120	src/api/oaAnswerReviewArchive.js
+45	0	src/api/tbOaAnswerWrite.js
+1	1	src/router/innovationRoutes/feature1.js
+0	0	src/views/v1/{oaAnswerReviewArchive => oaAnswerWrite}/components/oaResponseReviewInputApplication.vue
+3	3	src/views/v1/{oaAnswerReviewArchive => oaAnswerWrite}/components/searchPublicNoApplicationPaper.vue
+0	0	src/views/v1/{oaAnswerReviewArchive => oaAnswerWrite}/components/selectApplicationPaper.vue
+2	17	src/views/v1/{oaAnswerReviewArchive => oaAnswerWrite}/components/uploadExaminationOpinion.vue
+4	15	src/views/v1/{oaAnswerReviewArchive => oaAnswerWrite}/index.vue
+
+COMMIT@0463642c55a25c75983c0532531807775df1a7f6
+1	1	src/views/v1/oaAnswerReviewArchive/components/oaResponseReviewInputApplication.vue
+18	12	src/views/v1/oaAnswerReviewArchive/components/uploadExaminationOpinion.vue
+
+COMMIT@7148904ddfba92be1a4b151cd239209935b4f2f4
+COMMIT@a4c6578cf6345376939a3582ae345d1bbf83e5a5
+93	49	src/components/common/DocxPdfRender/index.vue
+
+COMMIT@384c512f5cd65e28ff360b65012f25a207194fe5
+58	0	src/views/v1/applicationEvaluate/claimsSearch/index.vue
+58	0	src/views/v1/applicationEvaluate/newClaimsCompare/index.vue
+36	0	src/views/v1/smartNoveltyCheckFlow/components/workflowPatentCompare/index.vue
+58	0	src/views/v2/applicationEvaluate/claimsSearch/index.vue
+58	0	src/views/v2/applicationEvaluate/newClaimsCompare/index.vue
+36	0	src/views/v2/disclosureNoveltySearch/newPatentCompare/index.vue
+36	0	src/views/v3/disclosureNoveltySearch/newPatentCompare/index.vue
+
+COMMIT@261262d49c82aaeb8331ef2034055d0b08ab617f
+44	1	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+
+COMMIT@360b288dabc82c320038b419a2cc51a045ad9dbd
+2	2	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+
+COMMIT@ad9ebecb9e6cc24e90ec5985af3aaa8bebe41334
+37	1	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+
+COMMIT@6043642cc835017d8412bd412adaa2b75d80072f
+5	4	src/api/publicAiComponents.js
+1	1	src/components/common/DocxPdfRender/index.vue
+24	25	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+
+COMMIT@e485953861cc28d5ceb180b813cfd3a7cb2b0ac0
+120	0	src/api/oaAnswerReviewArchive.js
+30	19	src/router/innovationRoutes/feature1.js
+459	0	src/views/v1/oaAnswerReviewArchive/components/oaResponseReviewInputApplication.vue
+388	0	src/views/v1/oaAnswerReviewArchive/components/searchPublicNoApplicationPaper.vue
+439	0	src/views/v1/oaAnswerReviewArchive/components/selectApplicationPaper.vue
+354	0	src/views/v1/oaAnswerReviewArchive/components/uploadExaminationOpinion.vue
+1281	0	src/views/v1/oaAnswerReviewArchive/index.vue
+
+COMMIT@3570509918fe8260a92e02b58e85f9e08bf7b3db
+7	0	src/api/publicAiComponents.js
+17	8	src/components/common/DocxPdfRender/README.MD
+96	167	src/components/common/DocxPdfRender/index.vue
+
+COMMIT@b13bf2bbab5273ab1cc2a4e940c5c48fe37fa5e2
+9	2	src/views/v1/applicationGenerate/components/aiChat.vue
+9	2	src/views/v1/disclosurePaperGenerate/components/aiChat.vue
+9	2	src/views/v3/applicationGenerate/components/aiChat.vue
+6	3	src/views/v3/applicationGenerate/components/applicationQuillaTextarea.vue
+
+COMMIT@8b09449af16bc26b7a47ca7e63c9ce0f32283552
+92	14	src/utils/quillMathFormula.js
+6	3	src/views/v1/aiPublicComponents/applicationQuillaTextarea/index.vue
+
+COMMIT@e508c872bf7cf49b5de13f0244f7b7dc60a1f4f6
+1	1	src/views/v1/disclosureNoveltySearch/coreElementExtraction/index.vue
+
+COMMIT@b33b2dde8b1d271a3c3f5ca39450770164c577af
+5	4	src/views/v1/applicationEvaluate/estimateDetails/formalReviewContent/index.vue
+
+COMMIT@60e3318b96b71f341e96e91e3a4e9c7cafa21d63
+32	6	src/views/v1/disclosureNoveltySearch/coreElementExtraction/index.vue
+
+COMMIT@8441fd7b1ae4348e247beb431cb8e02f03df1a41
+28	7	src/views/v1/disclosureNoveltySearch/coreElementExtraction/index.vue
+19	14	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+
+COMMIT@88df0379a897e9c94569c0aa758fcae81e20c606
+6	8	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+
+COMMIT@bf934218c38d34f2291bc7075f9749cd211a52a4
+2	2	src/api/disclosureNoveltySearch.js
+16	14	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+
+COMMIT@cbe6500e330768cd04767ebcd8b920a7a9c45ac4
+COMMIT@cff0b6ee129b2b17454687bfa9e5c56e409fb757
+1	1	src/views/v1/aiPublicComponents/applicationQuillaTextarea/index.vue
+2	0	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue
+1	1	src/views/v1/disclosureNoveltySearch/noveltyReport/index.vue
+1	1	vue.proxy.js
+
+COMMIT@e3f88e6d217f75975e53496e53c63611425bf146
+COMMIT@dd8d959294899c0f09405f6d0f6d19afe95507c5
+6	2	src/views/v1/disclosureNoveltySearch/coreElementExtraction/index.vue
+
+COMMIT@2d60dd784428daf42eadd728ba14457146e9687d
+COMMIT@f8190da4bdb5c6230da1962d8d33a0485bef2552
+5	11	src/views/v1/disclosureNoveltySearch/coreElementExtraction/index.vue
+10	16	src/views/v1/disclosureNoveltySearch/newPatentCompare/index.vue

@@ -1,0 +1,1878 @@
+{
+ "meta": {
+  "project": "ai-patent",
+  "date": "2026-11-02",
+  "period": 2,
+  "window": "2026-10-26 ~ 2026-11-02",
+  "runAt": "2026-11-02 06:22",
+  "statsRange": "2026-09-30 ~ 2026-11-02",
+  "repoCount": 3,
+  "template": 19,
+  "planRange": {
+   "start": "2026-10-23",
+   "end": "2026-11-02"
+  },
+  "prev": {
+   "date": "2026-10-31",
+   "period": 1,
+   "label": "10-31 P1"
+  },
+  "dayDiff": {
+   "prevDay": "10-30",
+   "today": "11-02",
+   "todayAsOf": "截至 06:22（非整日）",
+   "gapDays": 3,
+   "skipped": "10-31（周六）、11-01（周日）无提交与文档更新",
+   "docsChangedToday": false,
+   "docsSummary": "今日尚无文档更新（最近一次为 10-30 的 W44 任务明细/缺陷统计整理）",
+   "headline": "间隔 3 天（跳过周末两日）：今日仅后端 1 笔凌晨提交（线程池重构），前端无提交；上一变动日 10-30 双主仓 22 笔是最近主要变动"
+  },
+  "roundDiff": {
+   "roundNo": 1,
+   "roundsToday": 1,
+   "prevRoundAt": null,
+   "headline": "今日首轮（第 1/1 轮），无轮内增量可对比"
+  },
+  "roundChain": {
+   "rounds": [
+    {
+     "period": 2,
+     "at": "06:22",
+     "roundNo": 1
+    }
+   ]
+  }
+ },
+ "headline": "ai-patent 第 2 期：双主仓节奏健康、W44 任务 4 条推进；测试缺口与前端单人依赖连续两期，后端四成提交仍是无信息 message。",
+ "keyPoints": [
+  {
+   "level": "中",
+   "type": "risk",
+   "text": "测试缺口连续两期：前端全仓 0 个测试文件、18 笔提交零测试同步；后端窗口测试文件净删 246 行，三阶段 OCR 与日期提取零存活用例。"
+  },
+  {
+   "level": "中",
+   "type": "risk",
+   "text": "前端 18 笔提交仍 100% 来自 麻腾飞(Afei) 一人（统计期 66/66），bus factor=1 连续两期未缓解。"
+  },
+  {
+   "level": "中",
+   "type": "risk",
+   "text": "R8 日期展示提测已过 3 天且前端展示面零改动；后端 21 笔「feat:代码提交」类无信息 message（44.7%）连续两期未改善。"
+  },
+  {
+   "level": "中",
+   "type": "risk",
+   "text": "主干停摆延续：后端 dev 474 天无提交、双长分支领先 2197/2433；前端 master 115 天未动（已知工作分支形态，回流策略缺失待补）。"
+  },
+  {
+   "level": "低",
+   "type": "positive",
+   "text": "W44 五条任务 4 条持续推进、R7 扫描件识别今日提测；缺陷存量清零（快照 10-29）；后端双人均衡协作（23/24 有效）且深夜冲刺消退（6→1）。"
+  }
+ ],
+ "repos": [
+  {
+   "name": "tanbaoai-web",
+   "total": 49.4,
+   "level": "中",
+   "delta": -0.6,
+   "scores": {
+    "progress": 33,
+    "people": 55,
+    "quality": 60,
+    "integration": 55,
+    "convention": 55
+   },
+   "topRisk": "前端提交 100% 单人（连续两期）且全仓零自动化测试",
+   "narrative": {
+    "progress": "R5/R6/R7 三条任务前端面持续落地；R8 日期展示提测已过 3 天仍无前端改动。",
+    "people": "窗口 18 笔提交仍全部来自 麻腾飞(Afei) 一人，连续两期单点。",
+    "quality": "TODO 73 处持平超标；519 行扫描件对接仍零测试；v1/v3 复制债未动。",
+    "integration": "1027gq 领先 370 笔持平，主干 master 115 天无提交（已知工作分支形态）。",
+    "convention": "18 笔全部无类型前缀，50% 过短，与上期完全一致。",
+    "rhythm": "统计期 71 笔全在前端单人；本周 10-26~10-30 连续 5 天有提交，周末至今零提交。",
+    "modules": "改动集中页面视图与公共组件，均为计划内路径。",
+    "plans": "四条任务 3 条已推进；R8 部分推进且提测过期 3 天。",
+    "testing": "18 笔提交零测试同步，存量测试文件仍为 0。"
+   },
+   "testing": {
+    "testCommitShare": 0,
+    "syncRate": 0,
+    "syncDenom": 18,
+    "testRatio": 0,
+    "stockTestFiles": 0,
+    "stockNote": "前端仓无测试文件（928 个 tracked 文件中 0 个）",
+    "sitTraces": 0,
+    "aiReview": "18 笔功能提交零测试同步（连续两期）；v1/v2/v3 版本目录同名组件并存，无自动化测试基础。建议 v1.9.3 提测后补上传/预览/日期提取三条主链路冒烟。"
+   },
+   "members": [
+    {
+     "name": "麻腾飞",
+     "commits": 18,
+     "insertions": 841,
+     "deletions": 320,
+     "branches": {
+      "1027gq": 18
+     },
+     "activeDays": 16,
+     "deepNight": 0,
+     "weekend": 2,
+     "peakDay": "10-21",
+     "peakN": 8,
+     "modulesTouched": 4,
+     "testCommits": 0
+    }
+   ],
+   "branches": [
+    {
+     "name": "1027gq",
+     "ahead": 370,
+     "behind": 25,
+     "staleDays": 119,
+     "lastActive": "10-30"
+    }
+   ],
+   "quality": {
+    "todo": 73,
+    "todoThreshold": 20,
+    "bigCommits": 0,
+    "reworkRatio": 0.38,
+    "reworkThreshold": 0.5,
+    "largeFiles": 5
+   },
+   "rhythm": [
+    {
+     "date": "09-30",
+     "commits": 0
+    },
+    {
+     "date": "10-01",
+     "commits": 0
+    },
+    {
+     "date": "10-02",
+     "commits": 0
+    },
+    {
+     "date": "10-03",
+     "commits": 0
+    },
+    {
+     "date": "10-04",
+     "commits": 0
+    },
+    {
+     "date": "10-05",
+     "commits": 0
+    },
+    {
+     "date": "10-06",
+     "commits": 0
+    },
+    {
+     "date": "10-07",
+     "commits": 0
+    },
+    {
+     "date": "10-08",
+     "commits": 0
+    },
+    {
+     "date": "10-09",
+     "commits": 7
+    },
+    {
+     "date": "10-10",
+     "commits": 2
+    },
+    {
+     "date": "10-11",
+     "commits": 0
+    },
+    {
+     "date": "10-12",
+     "commits": 6
+    },
+    {
+     "date": "10-13",
+     "commits": 5
+    },
+    {
+     "date": "10-14",
+     "commits": 2
+    },
+    {
+     "date": "10-15",
+     "commits": 5
+    },
+    {
+     "date": "10-16",
+     "commits": 2
+    },
+    {
+     "date": "10-17",
+     "commits": 0
+    },
+    {
+     "date": "10-18",
+     "commits": 0
+    },
+    {
+     "date": "10-19",
+     "commits": 0
+    },
+    {
+     "date": "10-20",
+     "commits": 8
+    },
+    {
+     "date": "10-21",
+     "commits": 9
+    },
+    {
+     "date": "10-22",
+     "commits": 3
+    },
+    {
+     "date": "10-23",
+     "commits": 4
+    },
+    {
+     "date": "10-24",
+     "commits": 0
+    },
+    {
+     "date": "10-25",
+     "commits": 0
+    },
+    {
+     "date": "10-26",
+     "commits": 2
+    },
+    {
+     "date": "10-27",
+     "commits": 3
+    },
+    {
+     "date": "10-28",
+     "commits": 6
+    },
+    {
+     "date": "10-29",
+     "commits": 3
+    },
+    {
+     "date": "10-30",
+     "commits": 4
+    },
+    {
+     "date": "10-31",
+     "commits": 0
+    },
+    {
+     "date": "11-01",
+     "commits": 0
+    },
+    {
+     "date": "11-02",
+     "commits": 0
+    }
+   ],
+   "weekly": [
+    {
+     "label": "09-30",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-07",
+     "commits": 20,
+     "effective": 19,
+     "authors": 1,
+     "insertions": 4367,
+     "deletions": 630
+    },
+    {
+     "label": "10-14",
+     "commits": 17,
+     "effective": 16,
+     "authors": 1,
+     "insertions": 1102,
+     "deletions": 216
+    },
+    {
+     "label": "10-21",
+     "commits": 21,
+     "effective": 18,
+     "authors": 1,
+     "insertions": 378,
+     "deletions": 404
+    },
+    {
+     "label": "10-28",
+     "commits": 13,
+     "effective": 13,
+     "authors": 1,
+     "insertions": 821,
+     "deletions": 300
+    }
+   ],
+   "moduleActivity": [
+    {
+     "module": "src/views",
+     "desc": "页面视图（上传/预览/扫描件对接）",
+     "insertions": 699,
+     "deletions": 283,
+     "commits": 15,
+     "core": true
+    },
+    {
+     "module": "src/components",
+     "desc": "公共组件（文件列表/预览）",
+     "insertions": 127,
+     "deletions": 30,
+     "commits": 5,
+     "core": true
+    },
+    {
+     "module": "src/api",
+     "desc": "接口封装",
+     "insertions": 12,
+     "deletions": 4,
+     "commits": 1,
+     "core": true
+    },
+    {
+     "module": "vue.config.js",
+     "desc": "构建配置",
+     "insertions": 3,
+     "deletions": 3,
+     "commits": 1,
+     "core": false
+    }
+   ],
+   "peopleProfile": [
+    {
+     "name": "麻腾飞",
+     "role": "前端唯一开发·上传/预览/扫描件对接",
+     "intent": "广汽 OA 四条任务的前端主写（上传限制/DOC 支持/预览优化/扫描件对接）",
+     "workload": "有效提交 66 笔（份额 100%），+6668/−1550",
+     "intensity": "16 活跃天/24 工作日，峰值 10-21（有效 8 笔），深夜 0/周末 2",
+     "engagement": "覆盖 4 个前端目录，与后端以接口对接协作",
+     "risk": "bus factor=1 连续两期：全部前端改动无第二人；建议交叉评审",
+     "riskLevel": "高",
+     "activeDays": 16,
+     "deepNight": 0,
+     "weekend": 2,
+     "peakDay": "10-21",
+     "peakN": 8,
+     "modulesTouched": 4,
+     "testCommits": 0,
+     "share": 1.0
+    }
+   ],
+   "plans": [
+    {
+     "id": "R5",
+     "name": "广汽OA-上传文件优化",
+     "owner": "麻腾飞/刘少聪",
+     "start": "10-23",
+     "due": "10-26",
+     "status": "已推进",
+     "note": "sit 通过；字符上限/DOC 支持/提示语等前端改动齐备（56f27e9a、aa3f4251、08a4c93d）",
+     "prevStatus": "已推进",
+     "done": null
+    },
+    {
+     "id": "R6",
+     "name": "广汽OA-文件预览优化",
+     "owner": "麻腾飞/刘少聪",
+     "start": "10-27",
+     "due": "10-29",
+     "status": "已推进",
+     "note": "sit 通过；预览缩放/缓存/加载 5 笔提交对应（59c0d010、aecc071e、e721915d）",
+     "prevStatus": "已推进",
+     "done": null
+    },
+    {
+     "id": "R7",
+     "name": "广汽OA-支持扫描件pdf识别",
+     "owner": "麻腾飞/刘少聪",
+     "start": "10-27",
+     "due": "11-02",
+     "status": "已推进",
+     "note": "扫描件接口对接 +519 行（08a4c93d）；提测日即今日未确认；文档进度 0.2 与代码推进有落差",
+     "prevStatus": "已推进",
+     "done": null
+    },
+    {
+     "id": "R8",
+     "name": "广汽OA-涉及新创性的日期展示优化",
+     "owner": "麻腾飞/谢泽恩",
+     "start": "10-27",
+     "due": "10-30",
+     "status": "部分推进",
+     "note": "前端展示面窗口期零改动；提测已过 3 天（后端提取逻辑见后端分册）",
+     "prevStatus": "部分推进",
+     "done": null
+    }
+   ],
+   "risks": [
+    {
+     "title": "前端提交 100% 集中于 麻腾飞(Afei) 一人",
+     "plain": "这个前端仓库最近 7 天的 18 笔提交全部是同一个人写的，统计期 3 个月也一样，他不在就没人能接手。",
+     "dimension": "people",
+     "level": "中",
+     "evidence": "窗口 18/18；统计期 66/66 有效提交；全生命周期 1649/1740（两邮箱归并）",
+     "advice": "为 OA 定制模块指定第二责任人并交叉评审；核对刘少聪的前后端分工",
+     "agePeriods": 2
+    },
+    {
+     "title": "前端零自动化测试：存量 0 个测试文件",
+     "plain": "整个前端仓库找不到一个测试文件，最近 18 笔功能提交也都没有配套测试。",
+     "dimension": "quality",
+     "level": "高",
+     "evidence": "ls-files 测试文件 0（928 tracked）；窗口 numstat 测试同步率 0/18",
+     "advice": "v1.9.3 提测后为上传/预览/日期提取三条主链路补 E2E 冒烟",
+     "agePeriods": 2
+    },
+    {
+     "title": "v1/v2/v3 版本目录整页复制，大文件成对并存",
+     "plain": "同一个 5538 行的大组件在 v1 和 v3 各放了一份，两份只差 2 行；改一处必须同步改另一处。",
+     "dimension": "quality",
+     "level": "中",
+     "evidence": "blob fee6d704 vs 99697795 仅差 2 行；newPatentCompare 三份 4020/4020/4193 行",
+     "advice": "v3 稳定后冻结 v1/v2 目录改动，公共逻辑抽组件",
+     "agePeriods": 2
+    },
+    {
+     "title": "TODO/FIXME 73 处，超过阈值 20",
+     "plain": "代码里积了 73 处待办标记（其中 57 处在第三方 PDF 插件内，第一方约 16 处）。",
+     "dimension": "quality",
+     "level": "中",
+     "evidence": "§1.6 扫描 73 处（与上期持平）",
+     "advice": "迭代收尾清理 v1/v2 目录内废弃 TODO；关注增长趋势",
+     "agePeriods": 2
+    },
+    {
+     "title": "1027gq 领先主干 370 笔、119 天未回流 master",
+     "plain": "开发分支上已经堆了 370 个没合回主干的提交，主干 3 个多月没动过——需要明确回流策略。",
+     "dimension": "integration",
+     "level": "中",
+     "evidence": "rev-list 领先 370/落后 25；merge-base 2026-07-06；master 最后 2026-07-10（已知工作分支形态，见项目上下文）",
+     "advice": "确认 master 定位并排期回流（v1.9.3 提测后合入）；回流策略缺失需补",
+     "agePeriods": 2
+    },
+    {
+     "title": "过短 message 占比 50%，无类型前缀",
+     "plain": "一半的提交说明少于 10 个字，且全部没有 feat/fix 这类前缀。",
+     "dimension": "convention",
+     "level": "中",
+     "evidence": "9/18 笔 <10 字符（0.50>0.30）；前缀分类其他=18",
+     "advice": "启用 feat/fix 前缀约定，与后端仓对齐",
+     "agePeriods": 2
+    }
+   ],
+   "dayDiff": {
+    "todayCommits": 0,
+    "todayEffective": 0,
+    "todayIns": 0,
+    "todayDel": 0,
+    "prevDayCommits": 4,
+    "prevDayEffective": 4,
+    "prevDayIns": 31,
+    "prevDayDel": 23,
+    "newAuthors": [],
+    "goneAuthors": [],
+    "aheadDelta": "+0",
+    "note": "今日凌晨无提交；上一变动日 10-30 的 4 笔为上传/预览收尾；1027gq 领先数精确回推持平（370）"
+   },
+   "roundDiff": null,
+   "roundSnapshots": [
+    {
+     "period": 2,
+     "at": "06:22",
+     "commits": 18,
+     "effective": 18,
+     "ins": 841,
+     "del": 320,
+     "authors": 1,
+     "big": 0,
+     "todos": 73,
+     "scores": {
+      "progress": 33,
+      "people": 55,
+      "quality": 60,
+      "integration": 55,
+      "standard": 55
+     },
+     "total": 49.4,
+     "level": "中",
+     "topRisk": "前端提交 100% 单人（连续两期）且全仓零自动化测试"
+    }
+   ],
+   "insights": [
+    "tanbaoai-web@08a4c93d src/components/publicAiComponents/fileListPage.vue 等 4 文件 +519/−160 —— 扫描件上传对接集中在前端组件与 API 封装，结构合理；519 行新增无任何配套测试（窗口内最大改动，未达大提交阈）。"
+   ],
+   "prev": {
+    "total": 50.0,
+    "scores": {
+     "progress": 35,
+     "people": 55,
+     "quality": 60,
+     "integration": 55,
+     "convention": 55
+    },
+    "members": [
+     {
+      "name": "麻腾飞",
+      "commits": 18
+     }
+    ],
+    "branches": [
+     {
+      "name": "1027gq",
+      "ahead": 370,
+      "behind": 25
+     }
+    ],
+    "quality": {
+     "todo": 73,
+     "bigCommits": 0,
+     "reworkRatio": 0.38,
+     "largeFiles": 6
+    }
+   },
+   "windowAnalysis": {
+    "classification": {
+     "other": 18
+    },
+    "merges": 0,
+    "effectiveCommits": 18,
+    "trivial": []
+   },
+   "lifetime": {
+    "first": "2025-10-14",
+    "last": "2026-10-30",
+    "totalCommits": 1740,
+    "authors": 3,
+    "monthly": {
+     "2025-10": 46,
+     "2025-11": 208,
+     "2025-12": 188,
+     "2026-01": 156,
+     "2026-02": 27,
+     "2026-03": 79,
+     "2026-04": 154,
+     "2026-05": 172,
+     "2026-06": 228,
+     "2026-07": 127,
+     "2026-08": 106,
+     "2026-09": 150,
+     "2026-10": 99
+    },
+    "topAuthors": [
+     {
+      "who": "麻腾飞（Afei，两邮箱归并）",
+      "commits": 1738
+     },
+     {
+      "who": "雷森（待映射）",
+      "commits": 2
+     }
+    ]
+   }
+  },
+  {
+   "name": "ourchem-ai-patent",
+   "total": 44.9,
+   "level": "中",
+   "delta": -0.4,
+   "scores": {
+    "progress": 30,
+    "people": 38,
+    "quality": 55,
+    "integration": 50,
+    "convention": 65
+   },
+   "topRisk": "核心功能零存活测试（窗口测试净删 246 行）；主干 dev 停滞 474 天",
+   "narrative": {
+    "progress": "R7 三阶段 OCR 10-29~30 集中落地，今日凌晨仍在线程池重构；R8 提测过期 3 天。",
+    "people": "刘少聪/谢泽恩 23/24 笔均衡协作；深夜提交由 6 笔降至新增 1 笔。",
+    "quality": "返工比 0.855 超阈（清理驱动）；窗口测试文件净删 246 行，核心链路仍无用例。",
+    "integration": "双长分支领先 2197/2433，主干 dev 474 天无提交（已知形态）。",
+    "convention": "21 笔「feat:代码提交」类无信息 message 占 44.7%，连续两期未改善。",
+    "rhythm": "统计期 175 笔：10-28~10-30 三天 50 笔，周末零提交、今日凌晨 1 笔。",
+    "modules": "改动几乎全部落在 business-common 核心（OA答审/OCR/线程池）。",
+    "plans": "五条任务 4 条已推进；R8 部分推进（日期展示前端面无改动）。",
+    "testing": "窗口测试净删 246 行，存量仅 1 个脚手架示例，'单测+AI SIT'仍双缺。"
+   },
+   "testing": {
+    "testCommitShare": 0.043,
+    "syncRate": 0.043,
+    "syncDenom": 47,
+    "testRatio": 0.104,
+    "stockTestFiles": 1,
+    "stockNote": "仅 1 个存量测试（OssTest.java，脚手架示例）；窗口内测试文件一加一删（5e7fa16e +246 → beba6136 −246，同日），净 −246 行",
+    "sitTraces": 0,
+    "aiReview": "47 笔有效提交仅 2 笔触碰测试文件且为同一用例的一加一删（10-28），OA答审三阶段 OCR、日期提取、线程池治理零存活用例，'单测 + AI SIT' 双缺口连续两期。建议恢复日期提取用例并补三阶段 OCR 端到端冒烟。"
+   },
+   "members": [
+    {
+     "name": "刘少聪",
+     "commits": 30,
+     "insertions": 1697,
+     "deletions": 1838,
+     "branches": {
+      "1.7.0-guangqi": 30
+     },
+     "activeDays": 15,
+     "deepNight": 7,
+     "weekend": 2,
+     "peakDay": "10-16",
+     "peakN": 19,
+     "modulesTouched": 2,
+     "testCommits": 0
+    },
+    {
+     "name": "谢泽恩",
+     "commits": 30,
+     "insertions": 846,
+     "deletions": 336,
+     "branches": {
+      "1.7.0-guangqi": 26,
+      "1.8.5-release": 4
+     },
+     "activeDays": 14,
+     "deepNight": 0,
+     "weekend": 3,
+     "peakDay": "10-12",
+     "peakN": 19,
+     "modulesTouched": 2,
+     "testCommits": 2
+    }
+   ],
+   "branches": [
+    {
+     "name": "1.7.0-guangqi",
+     "ahead": 2197,
+     "behind": 0,
+     "staleDays": 474,
+     "lastActive": "11-02"
+    },
+    {
+     "name": "1.8.5-release",
+     "ahead": 2433,
+     "behind": 0,
+     "staleDays": 474,
+     "lastActive": "10-27"
+    }
+   ],
+   "quality": {
+    "todo": 45,
+    "todoThreshold": 20,
+    "bigCommits": 1,
+    "reworkRatio": 0.855,
+    "reworkThreshold": 0.5,
+    "largeFiles": 0
+   },
+   "rhythm": [
+    {
+     "date": "09-30",
+     "commits": 0
+    },
+    {
+     "date": "10-01",
+     "commits": 0
+    },
+    {
+     "date": "10-02",
+     "commits": 0
+    },
+    {
+     "date": "10-03",
+     "commits": 0
+    },
+    {
+     "date": "10-04",
+     "commits": 0
+    },
+    {
+     "date": "10-05",
+     "commits": 0
+    },
+    {
+     "date": "10-06",
+     "commits": 0
+    },
+    {
+     "date": "10-07",
+     "commits": 0
+    },
+    {
+     "date": "10-08",
+     "commits": 0
+    },
+    {
+     "date": "10-09",
+     "commits": 0
+    },
+    {
+     "date": "10-10",
+     "commits": 3
+    },
+    {
+     "date": "10-11",
+     "commits": 0
+    },
+    {
+     "date": "10-12",
+     "commits": 25
+    },
+    {
+     "date": "10-13",
+     "commits": 9
+    },
+    {
+     "date": "10-14",
+     "commits": 10
+    },
+    {
+     "date": "10-15",
+     "commits": 7
+    },
+    {
+     "date": "10-16",
+     "commits": 19
+    },
+    {
+     "date": "10-17",
+     "commits": 1
+    },
+    {
+     "date": "10-18",
+     "commits": 1
+    },
+    {
+     "date": "10-19",
+     "commits": 8
+    },
+    {
+     "date": "10-20",
+     "commits": 9
+    },
+    {
+     "date": "10-21",
+     "commits": 11
+    },
+    {
+     "date": "10-22",
+     "commits": 7
+    },
+    {
+     "date": "10-23",
+     "commits": 5
+    },
+    {
+     "date": "10-24",
+     "commits": 0
+    },
+    {
+     "date": "10-25",
+     "commits": 0
+    },
+    {
+     "date": "10-26",
+     "commits": 7
+    },
+    {
+     "date": "10-27",
+     "commits": 2
+    },
+    {
+     "date": "10-28",
+     "commits": 18
+    },
+    {
+     "date": "10-29",
+     "commits": 14
+    },
+    {
+     "date": "10-30",
+     "commits": 18
+    },
+    {
+     "date": "10-31",
+     "commits": 0
+    },
+    {
+     "date": "11-01",
+     "commits": 0
+    },
+    {
+     "date": "11-02",
+     "commits": 1
+    }
+   ],
+   "weekly": [
+    {
+     "label": "09-30",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-07",
+     "commits": 37,
+     "effective": 31,
+     "authors": 2,
+     "insertions": 3281,
+     "deletions": 713
+    },
+    {
+     "label": "10-14",
+     "commits": 55,
+     "effective": 51,
+     "authors": 2,
+     "insertions": 5435,
+     "deletions": 1365
+    },
+    {
+     "label": "10-21",
+     "commits": 32,
+     "effective": 29,
+     "authors": 2,
+     "insertions": 1441,
+     "deletions": 2562
+    },
+    {
+     "label": "10-28",
+     "commits": 51,
+     "effective": 39,
+     "authors": 2,
+     "insertions": 2417,
+     "deletions": 682
+    }
+   ],
+   "moduleActivity": [
+    {
+     "module": "ourchem-ai-patent-business-common/src",
+     "desc": "核心业务（OA答审/OCR/线程池）",
+     "insertions": 2512,
+     "deletions": 2162,
+     "commits": 45,
+     "core": true
+    },
+    {
+     "module": "ourchem-ai-patent-business-api/src",
+     "desc": "API/接口层",
+     "insertions": 31,
+     "deletions": 12,
+     "commits": 3,
+     "core": false
+    }
+   ],
+   "peopleProfile": [
+    {
+     "name": "刘少聪",
+     "role": "OA答审/OCR/上传链路主力",
+     "intent": "R7 三阶段 OCR 重构与线程池治理主写（50c9082c/1cf930c4/c7492247）",
+     "workload": "有效提交 78 笔（份额 52%），+8578/−4042",
+     "intensity": "15 活跃天/24 工作日，峰值 10-16（19 笔），深夜 7/周末 2",
+     "engagement": "覆盖 2 个模块，窗口 13 次互 merge 中 7 次由其执行",
+     "risk": "深夜节奏改善（6→1）但 11-02 仍有凌晨提交；2 人团队 bus factor 偏低",
+     "riskLevel": "中",
+     "activeDays": 15,
+     "deepNight": 7,
+     "weekend": 2,
+     "peakDay": "10-16",
+     "peakN": 19,
+     "modulesTouched": 2,
+     "testCommits": 0,
+     "share": 0.52
+    },
+    {
+     "name": "谢泽恩",
+     "role": "申请书提取/日期提取/release 维护",
+     "intent": "R8 日期提取（5e7fa16e）与 R9 release 分支维护；唯一测试文件的一加一删（5e7fa16e/beba6136）",
+     "workload": "有效提交 72 笔（份额 48%），+3996/−1280",
+     "intensity": "14 活跃天，峰值 10-12（19 笔），深夜 0/周末 3",
+     "engagement": "覆盖 2 个模块，跨 guangqi/release 双分支",
+     "risk": "message 纪律（21 笔「feat:代码提交」）与测试留存（新增当天删）连续两期",
+     "riskLevel": "中",
+     "activeDays": 14,
+     "deepNight": 0,
+     "weekend": 3,
+     "peakDay": "10-12",
+     "peakN": 19,
+     "modulesTouched": 2,
+     "testCommits": 2,
+     "share": 0.48
+    }
+   ],
+   "plans": [
+    {
+     "id": "R5",
+     "name": "广汽OA-上传文件优化",
+     "owner": "麻腾飞/刘少聪",
+     "start": "10-23",
+     "due": "10-26",
+     "status": "已推进",
+     "note": "sit 通过；首尾截断/校验提示落地（e64826be、5f732101、7b06dc7e、d6f37c6e）",
+     "prevStatus": "已推进",
+     "done": null
+    },
+    {
+     "id": "R6",
+     "name": "广汽OA-文件预览优化",
+     "owner": "麻腾飞/刘少聪",
+     "start": "10-27",
+     "due": "10-29",
+     "status": "已推进",
+     "note": "sit 通过；后端无改动需求（主战场在前端仓）",
+     "prevStatus": "已推进",
+     "done": null
+    },
+    {
+     "id": "R7",
+     "name": "广汽OA-支持扫描件pdf识别",
+     "owner": "麻腾飞/刘少聪",
+     "start": "10-27",
+     "due": "11-02",
+     "status": "已推进",
+     "note": "三阶段架构落地（50c9082c/1cf930c4/f7150f5a）；今日 01:05 线程池治理（c7492247）；提测日即今日未确认",
+     "prevStatus": "已推进",
+     "done": null
+    },
+    {
+     "id": "R8",
+     "name": "广汽OA-涉及新创性的日期展示优化",
+     "owner": "麻腾飞/谢泽恩",
+     "start": "10-27",
+     "due": "10-30",
+     "status": "部分推进",
+     "note": "提取逻辑 5e7fa16e +596 落地但关键测试同日被删；前端展示面零改动；提测已过 3 天",
+     "prevStatus": "部分推进",
+     "done": null
+    },
+    {
+     "id": "R9",
+     "name": "钽宝-申请书撰写保护客体加输入类型",
+     "owner": "谢泽恩",
+     "start": "10-26",
+     "due": "10-28",
+     "status": "已推进",
+     "note": "sit 通过；1.8.5-release 4 笔（10-26~27）；dify 配置属 git 盲区",
+     "prevStatus": "已推进",
+     "done": null
+    }
+   ],
+   "risks": [
+    {
+     "title": "核心功能零存活测试：窗口测试文件净删 246 行",
+     "plain": "日期提取功能的自动化测试刚写好就被删掉了，三阶段 OCR 和线程池治理也没有任何用例保护。",
+     "dimension": "quality",
+     "level": "高",
+     "evidence": "5e7fa16e（10-28 11:43 +246）→ beba6136（同日 17:20 −246）；存量仅 OssTest.java（脚手架示例）",
+     "advice": "排查删除原因；恢复日期提取用例（申请日/优先权日解析断言）并补三阶段 OCR 端到端冒烟",
+     "agePeriods": 2
+    },
+    {
+     "title": "主干 dev 停滞 474 天，双长分支领先 2197/2433",
+     "plain": "名义主干一年多没动过，实际开发全在两条长分支上，靠手工 cherry-pick 同步。",
+     "dimension": "integration",
+     "level": "中",
+     "evidence": "dev 最后 2025-07-16；1.7.0-guangqi ahead 2197（今日 +1）、1.8.5-release 2433、落后均 0（已知工作分支形态，见项目上下文）",
+     "advice": "确认实际集成主线，明确 release→主干回流/归档策略",
+     "agePeriods": 2
+    },
+    {
+     "title": "「feat:代码提交」类无信息 message 21 笔（44.7%）",
+     "plain": "接近一半的提交说明只有「代码提交」「修复提交」几个字，出问题回溯时查不到线索。",
+     "dimension": "convention",
+     "level": "中",
+     "evidence": "21/47 笔 <10 字符（0.447>0.30），全部来自谢泽恩",
+     "advice": "推行 conventional commits（刘少聪已在用），评审卡「代码提交/修复提交」字样",
+     "agePeriods": 2
+    },
+    {
+     "title": "返工比 0.855 超阈值（清理提交重复入库）",
+     "plain": "删除行接近新增行——主要是主动清理旧代码，但同一份清理被重复提交了两次，入库过程有混乱。",
+     "dimension": "quality",
+     "level": "中",
+     "evidence": "2174/2543=0.855>0.5；29416619 与 5d30b97a 同父同刻同信息、patch-id 不同（本期窗口仍含）",
+     "advice": "复盘 rebase/合并纪律；后续清理类改动走单笔提交",
+     "agePeriods": 2
+    },
+    {
+     "title": "碎提交 8 笔（1~3 行）且多为「feat:代码提交」",
+     "plain": "8 笔一两行的探针式修复带着无信息的提交说明，回溯时看不出改了什么。",
+     "dimension": "convention",
+     "level": "低",
+     "evidence": "cc8400c2(2 行)、333492a4(1)、d6db55d0(2)、369e072d(2)、ee432d5f(2)、5a641123(2)、d35d0f9f(2)、c2d01a8b(3)",
+     "advice": "碎提交合并推送；message 说明改了什么",
+     "agePeriods": 1
+    },
+    {
+     "title": "TODO/FIXME 45 处，超过阈值 20",
+     "plain": "代码里积了 45 处待办标记（相对 2.3 万行 Java 体量属中等）。",
+     "dimension": "quality",
+     "level": "低",
+     "evidence": "§1.6 扫描 45 处（与上期持平）",
+     "advice": "迭代收尾清理核心服务内 TODO，关注增长",
+     "agePeriods": 2
+    }
+   ],
+   "dayDiff": {
+    "todayCommits": 1,
+    "todayEffective": 1,
+    "todayIns": 104,
+    "todayDel": 14,
+    "prevDayCommits": 18,
+    "prevDayEffective": 13,
+    "prevDayIns": 308,
+    "prevDayDel": 123,
+    "newAuthors": [],
+    "goneAuthors": [],
+    "aheadDelta": "+1",
+    "note": "今日 01:05 一笔线程池重构（刘少聪 c7492247）；1.7.0-guangqi 领先 2196→2197（精确回推）、1.8.5-release 2433 持平"
+   },
+   "roundDiff": null,
+   "roundSnapshots": [
+    {
+     "period": 2,
+     "at": "06:22",
+     "commits": 60,
+     "effective": 47,
+     "ins": 2543,
+     "del": 2174,
+     "authors": 2,
+     "big": 1,
+     "todos": 45,
+     "scores": {
+      "progress": 30,
+      "people": 38,
+      "quality": 55,
+      "integration": 50,
+      "standard": 65
+     },
+     "total": 44.9,
+     "level": "中",
+     "topRisk": "核心功能零存活测试（窗口测试净删 246 行）；主干 dev 停滞 474 天"
+    }
+   ],
+   "insights": [
+    "ourchem-ai-patent@29416619 PatentOaReviewReviseHisService.java（−675）—— git show 复核：清理 pandiff/LibreOffice 对比代码并加文本截断保护（2 文件 +16/−807）；与 5d30b97a 同父同刻同信息重复入库（上期判定，本期窗口仍含）。",
+    "ourchem-ai-patent@c7492247 OaAnswerThreadPoolConfig.java（+89，11-02 01:05）—— 新增两个专用线程池（批任务 20 线程/OCR 页级并发），替换复用池与临时建池写法，并发与 Semaphore 闸门对齐；架构合理、无测试同步。",
+    "ourchem-ai-patent@5e7fa16e → beba6136 —— PatentDateExtractUtilTest（+246 行）10-28 添加、同日 17:20 删除，R8 日期提取核心逻辑失去用例保护（连续两期未恢复）。",
+    "规范亮点：刘少聪的 conventional commits（如 fix(patent-oa): 修复标题行识别口径不一致及全角空格匹配问题）可作为团队 message 基线推广。"
+   ],
+   "prev": {
+    "total": 45.3,
+    "scores": {
+     "progress": 30,
+     "people": 40,
+     "quality": 55,
+     "integration": 50,
+     "convention": 65
+    },
+    "members": [
+     {
+      "name": "刘少聪",
+      "commits": 29
+     },
+     {
+      "name": "谢泽恩",
+      "commits": 30
+     }
+    ],
+    "branches": [
+     {
+      "name": "1.7.0-guangqi",
+      "ahead": 2196,
+      "behind": 0
+     },
+     {
+      "name": "1.8.5-release",
+      "ahead": 2433,
+      "behind": 0
+     }
+    ],
+    "quality": {
+     "todo": 45,
+     "bigCommits": 1,
+     "reworkRatio": 0.886,
+     "largeFiles": 0
+    }
+   },
+   "windowAnalysis": {
+    "classification": {
+     "feat": 33,
+     "fix": 7,
+     "refactor": 6,
+     "chore": 1
+    },
+    "merges": 13,
+    "effectiveCommits": 47,
+    "trivial": [
+     {
+      "h": "cc8400c2",
+      "msg": "feat:代码提交",
+      "lines": 2
+     },
+     {
+      "h": "c2d01a8b",
+      "msg": "feat(ocr): 新增表格还原规则并简化图片识别规则",
+      "lines": 3
+     },
+     {
+      "h": "333492a4",
+      "msg": "feat:修复提交",
+      "lines": 1
+     },
+     {
+      "h": "d6db55d0",
+      "msg": "feat:代码提交",
+      "lines": 2
+     },
+     {
+      "h": "369e072d",
+      "msg": "feat:修复提交",
+      "lines": 2
+     },
+     {
+      "h": "ee432d5f",
+      "msg": "feat:修复提交",
+      "lines": 2
+     },
+     {
+      "h": "5a641123",
+      "msg": "feat:代码提交",
+      "lines": 2
+     },
+     {
+      "h": "d35d0f9f",
+      "msg": "feat:代码提交",
+      "lines": 2
+     }
+    ]
+   },
+   "lifetime": {
+    "first": "2025-07-01",
+    "last": "2026-11-02",
+    "totalCommits": 3946,
+    "authors": 2,
+    "monthly": {
+     "2025-07": 209,
+     "2025-08": 188,
+     "2025-09": 286,
+     "2025-10": 184,
+     "2025-11": 290,
+     "2025-12": 311,
+     "2026-01": 280,
+     "2026-02": 109,
+     "2026-03": 195,
+     "2026-04": 160,
+     "2026-05": 166,
+     "2026-06": 449,
+     "2026-07": 377,
+     "2026-08": 266,
+     "2026-09": 276,
+     "2026-10": 199,
+     "2026-11": 1
+    },
+    "topAuthors": [
+     {
+      "who": "谢泽恩",
+      "commits": 2629
+     },
+     {
+      "who": "刘少聪（liushaocong）",
+      "commits": 1317
+     }
+    ]
+   }
+  },
+  {
+   "name": "ai-patent-prompt",
+   "total": 28.8,
+   "level": "中",
+   "delta": 0,
+   "scores": {
+    "progress": 30,
+    "people": 30,
+    "quality": 20,
+    "integration": 45,
+    "convention": 20
+   },
+   "topRisk": "休眠 139 天且无计划映射（低危观察项）",
+   "narrative": {
+    "progress": "窗口期 0 提交；W44 任务无一映射到本仓，dify 配置疑在平台侧（git 盲区）。",
+    "people": "统计期无活跃成员；历史贡献以邱文宇为主（74/98 笔）。",
+    "quality": "纯提示词文本仓，无质量信号（TODO 0、无大文件）。",
+    "integration": "demo 领先 5 笔未回流 master，分叉 164 天（僵尸分支候选）。",
+    "convention": "窗口无提交，规范信号无从产生。",
+    "rhythm": "统计期全零（休眠仓）。",
+    "modules": "窗口期无变更。",
+    "plans": "无计划条目映射到本仓。",
+    "testing": "不适用（无代码变更）。"
+   },
+   "testing": {
+    "testCommitShare": 0,
+    "syncRate": 0,
+    "syncDenom": 0,
+    "testRatio": 0,
+    "stockTestFiles": 0,
+    "stockNote": "纯提示词文本仓（65 个 txt），无代码与测试概念",
+    "sitTraces": 0,
+    "aiReview": "无代码改动，规范缺口不适用；提示词版本管理缺失（.bak 直接入库，回滚与审计不可追溯）延续两期。"
+   },
+   "members": [],
+   "branches": [
+    {
+     "name": "demo",
+     "ahead": 5,
+     "behind": 1,
+     "staleDays": 164,
+     "lastActive": "06-11"
+    }
+   ],
+   "quality": {
+    "todo": 0,
+    "todoThreshold": 20,
+    "bigCommits": 0,
+    "reworkRatio": 0,
+    "reworkThreshold": 0.5,
+    "largeFiles": 0
+   },
+   "rhythm": [
+    {
+     "date": "09-30",
+     "commits": 0
+    },
+    {
+     "date": "10-01",
+     "commits": 0
+    },
+    {
+     "date": "10-02",
+     "commits": 0
+    },
+    {
+     "date": "10-03",
+     "commits": 0
+    },
+    {
+     "date": "10-04",
+     "commits": 0
+    },
+    {
+     "date": "10-05",
+     "commits": 0
+    },
+    {
+     "date": "10-06",
+     "commits": 0
+    },
+    {
+     "date": "10-07",
+     "commits": 0
+    },
+    {
+     "date": "10-08",
+     "commits": 0
+    },
+    {
+     "date": "10-09",
+     "commits": 0
+    },
+    {
+     "date": "10-10",
+     "commits": 0
+    },
+    {
+     "date": "10-11",
+     "commits": 0
+    },
+    {
+     "date": "10-12",
+     "commits": 0
+    },
+    {
+     "date": "10-13",
+     "commits": 0
+    },
+    {
+     "date": "10-14",
+     "commits": 0
+    },
+    {
+     "date": "10-15",
+     "commits": 0
+    },
+    {
+     "date": "10-16",
+     "commits": 0
+    },
+    {
+     "date": "10-17",
+     "commits": 0
+    },
+    {
+     "date": "10-18",
+     "commits": 0
+    },
+    {
+     "date": "10-19",
+     "commits": 0
+    },
+    {
+     "date": "10-20",
+     "commits": 0
+    },
+    {
+     "date": "10-21",
+     "commits": 0
+    },
+    {
+     "date": "10-22",
+     "commits": 0
+    },
+    {
+     "date": "10-23",
+     "commits": 0
+    },
+    {
+     "date": "10-24",
+     "commits": 0
+    },
+    {
+     "date": "10-25",
+     "commits": 0
+    },
+    {
+     "date": "10-26",
+     "commits": 0
+    },
+    {
+     "date": "10-27",
+     "commits": 0
+    },
+    {
+     "date": "10-28",
+     "commits": 0
+    },
+    {
+     "date": "10-29",
+     "commits": 0
+    },
+    {
+     "date": "10-30",
+     "commits": 0
+    },
+    {
+     "date": "10-31",
+     "commits": 0
+    },
+    {
+     "date": "11-01",
+     "commits": 0
+    },
+    {
+     "date": "11-02",
+     "commits": 0
+    }
+   ],
+   "weekly": [
+    {
+     "label": "09-30",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-07",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-14",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-21",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-28",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    }
+   ],
+   "moduleActivity": [],
+   "peopleProfile": [],
+   "plans": [],
+   "risks": [
+    {
+     "title": "仓库休眠 4 个多月（master 06-16 / demo 06-11）",
+     "plain": "这个提示词仓库四个月没有任何提交，本周任务也都不在这里——需要确认提示词是不是在平台侧直接改、不进 git。",
+     "dimension": "progress",
+     "level": "低",
+     "evidence": "全分支最后提交 2026-06-16（休眠 139 天）；窗口期 0 笔",
+     "advice": "确认本仓定位（若 dify 平台热更，登记项目上下文并调整监测预期）",
+     "agePeriods": 2
+    },
+    {
+     "title": "demo 分支 5 笔领先未回流 master",
+     "plain": "demo 试验分支上的 5 个提交一直没合回主干，分支已 164 天（分叉口径）没动。",
+     "dimension": "integration",
+     "level": "低",
+     "evidence": "rev-list 领先 5/落后 1；demo 最后活跃 2026-06-11；merge-base 2026-05-22",
+     "advice": "确认试验结果是否已并入 master；不活跃分支建议归档",
+     "agePeriods": 2
+    },
+    {
+     "title": "提示词变更靠 .bak 手工备份，版本管理缺失",
+     "plain": "仓库里有直接提交的 .bak 备份文件，说明提示词改动靠手工备份而不是用分支管理。",
+     "dimension": "quality",
+     "level": "低",
+     "evidence": "ai-patent-prompt@HEAD no_inventions_generic_and_specific.txt.bak",
+     "advice": "以 git 分支替代 .bak 习惯；确认生产提示词与仓库的同步机制",
+     "agePeriods": 2
+    }
+   ],
+   "dayDiff": {
+    "todayCommits": 0,
+    "todayEffective": 0,
+    "todayIns": 0,
+    "todayDel": 0,
+    "prevDayCommits": 0,
+    "prevDayEffective": 0,
+    "prevDayIns": 0,
+    "prevDayDel": 0,
+    "newAuthors": [],
+    "goneAuthors": [],
+    "aheadDelta": "+0",
+    "note": "连续休眠（最后提交 2026-06-16）；项目级上一变动日 10-30 的变动与本仓无关"
+   },
+   "roundDiff": null,
+   "roundSnapshots": [
+    {
+     "period": 2,
+     "at": "06:22",
+     "commits": 0,
+     "effective": 0,
+     "ins": 0,
+     "del": 0,
+     "authors": 0,
+     "big": 0,
+     "todos": 0,
+     "scores": {
+      "progress": 30,
+      "people": 30,
+      "quality": 20,
+      "integration": 45,
+      "standard": 20
+     },
+     "total": 28.8,
+     "level": "中",
+     "topRisk": "休眠 139 天且无计划映射（低危观察项）"
+    }
+   ],
+   "insights": [
+    "ai-patent-prompt@HEAD no_inventions_generic_and_specific.txt.bak —— .bak 直接入库，提示词变更靠手工备份；建议 git 分支管理（本次 ls-files 复核仍在）。",
+    "窗口期 0 提交 + R9（dify 输入改造）未落在本仓 —— 支持「dify 配置平台侧直改」假设（AI 推断，待用户确认仓库定位）。"
+   ],
+   "prev": {
+    "total": 28.8,
+    "scores": {
+     "progress": 30,
+     "people": 30,
+     "quality": 20,
+     "integration": 45,
+     "convention": 20
+    },
+    "members": [],
+    "branches": [
+     {
+      "name": "demo",
+      "ahead": 5,
+      "behind": 1
+     }
+    ],
+    "quality": {
+     "todo": 0,
+     "bigCommits": 0,
+     "reworkRatio": 0,
+     "largeFiles": 0
+    }
+   },
+   "windowAnalysis": {
+    "classification": {},
+    "merges": 0,
+    "effectiveCommits": 0,
+    "trivial": []
+   },
+   "lifetime": {
+    "first": "2025-11-20",
+    "last": "2026-06-16",
+    "totalCommits": 98,
+    "authors": 3,
+    "monthly": {
+     "2025-11": 21,
+     "2025-12": 18,
+     "2026-01": 18,
+     "2026-02": 17,
+     "2026-03": 8,
+     "2026-04": 4,
+     "2026-05": 6,
+     "2026-06": 6
+    },
+    "topAuthors": [
+     {
+      "who": "邱文宇（qiuwenyu，两显示名归并）",
+      "commits": 74
+     },
+     {
+      "who": "Li Xilan（待映射）",
+      "commits": 22
+     },
+     {
+      "who": "谢泽恩",
+      "commits": 2
+     }
+    ]
+   }
+  }
+ ],
+ "saturationTrend": {
+  "scope": "统计期 2026-09-30 ~ 2026-11-02（按 7 天窗口）",
+  "unit": "窗口 = 统计期内按 7 天切分的连续区间（最后一个 = 当前窗口期；末窗 10-28~11-02 为 4 个工作日）。注：3 人团队 top3 恒 100%，集中度判级退化（见项目上下文）",
+  "team": [
+   {
+    "period": 1,
+    "label": "09-30~10-06",
+    "load": 0,
+    "focus": 0,
+    "composite": 0,
+    "loadLevel": "低",
+    "focusLevel": "低",
+    "coverage": 0.0,
+    "nonWork": 0.0,
+    "top1": 0.0,
+    "top3": 0.0,
+    "commits": 0,
+    "workdays": 5
+   },
+   {
+    "period": 2,
+    "label": "10-07~10-13",
+    "load": 2,
+    "focus": 2,
+    "composite": 4,
+    "loadLevel": "高",
+    "focusLevel": "高",
+    "coverage": 0.6,
+    "nonWork": 0.1,
+    "top1": 0.46,
+    "top3": 1.0,
+    "commits": 50,
+    "workdays": 5
+   },
+   {
+    "period": 3,
+    "label": "10-14~10-20",
+    "load": 1,
+    "focus": 2,
+    "composite": 3,
+    "loadLevel": "中",
+    "focusLevel": "高",
+    "coverage": 0.933,
+    "nonWork": 0.09,
+    "top1": 0.642,
+    "top3": 1.0,
+    "commits": 67,
+    "workdays": 5
+   },
+   {
+    "period": 4,
+    "label": "10-21~10-27",
+    "load": 1,
+    "focus": 2,
+    "composite": 3,
+    "loadLevel": "中",
+    "focusLevel": "高",
+    "coverage": 0.8,
+    "nonWork": 0.0,
+    "top1": 0.447,
+    "top3": 1.0,
+    "commits": 47,
+    "workdays": 5
+   },
+   {
+    "period": 5,
+    "label": "10-28~11-02",
+    "load": 1,
+    "focus": 2,
+    "composite": 3,
+    "loadLevel": "中",
+    "focusLevel": "高",
+    "coverage": 0.833,
+    "nonWork": 0.02,
+    "top1": 0.385,
+    "top3": 1.0,
+    "commits": 52,
+    "workdays": 4
+   }
+  ],
+  "people": [
+   {
+    "name": "麻腾飞",
+    "points": [
+     {
+      "period": 1,
+      "label": "09-30~10-06",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 2,
+      "label": "10-07~10-13",
+      "level": 2,
+      "levelName": "高",
+      "note": "",
+      "activeDays": 4,
+      "coverage": 0.8,
+      "commits": 19,
+      "per": 4.75,
+      "lpd": 1249
+     },
+     {
+      "period": 3,
+      "label": "10-14~10-20",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 4,
+      "coverage": 0.8,
+      "commits": 16,
+      "per": 4.0,
+      "lpd": 330
+     },
+     {
+      "period": 4,
+      "label": "10-21~10-27",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 5,
+      "coverage": 1.0,
+      "commits": 18,
+      "per": 3.6,
+      "lpd": 156
+     },
+     {
+      "period": 5,
+      "label": "10-28~11-02",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 3,
+      "coverage": 0.75,
+      "commits": 13,
+      "per": 4.33,
+      "lpd": 374
+     }
+    ]
+   },
+   {
+    "name": "刘少聪",
+    "points": [
+     {
+      "period": 1,
+      "label": "09-30~10-06",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 2,
+      "label": "10-07~10-13",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 2,
+      "coverage": 0.4,
+      "commits": 8,
+      "per": 4.0,
+      "lpd": 948
+     },
+     {
+      "period": 3,
+      "label": "10-14~10-20",
+      "level": 2,
+      "levelName": "高",
+      "note": "",
+      "activeDays": 7,
+      "coverage": 1.4,
+      "commits": 43,
+      "per": 6.14,
+      "lpd": 878
+     },
+     {
+      "period": 4,
+      "label": "10-21~10-27",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 2,
+      "coverage": 0.4,
+      "commits": 8,
+      "per": 4.0,
+      "lpd": 1312
+     },
+     {
+      "period": 5,
+      "label": "10-28~11-02",
+      "level": 1,
+      "levelName": "中",
+      "note": "窗口延至 11-02（4 工作日），日均代码量降至 489 退档为中",
+      "activeDays": 4,
+      "coverage": 1.0,
+      "commits": 19,
+      "per": 4.75,
+      "lpd": 489
+     }
+    ]
+   },
+   {
+    "name": "谢泽恩",
+    "points": [
+     {
+      "period": 1,
+      "label": "09-30~10-06",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 2,
+      "label": "10-07~10-13",
+      "level": 2,
+      "levelName": "高",
+      "note": "",
+      "activeDays": 3,
+      "coverage": 0.6,
+      "commits": 23,
+      "per": 7.67,
+      "lpd": 699
+     },
+     {
+      "period": 3,
+      "label": "10-14~10-20",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 3,
+      "coverage": 0.6,
+      "commits": 8,
+      "per": 2.67,
+      "lpd": 219
+     },
+     {
+      "period": 4,
+      "label": "10-21~10-27",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 5,
+      "coverage": 1.0,
+      "commits": 21,
+      "per": 4.2,
+      "lpd": 276
+     },
+     {
+      "period": 5,
+      "label": "10-28~11-02",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 3,
+      "coverage": 0.75,
+      "commits": 20,
+      "per": 6.67,
+      "lpd": 381
+     }
+    ]
+   }
+  ]
+ },
+ "history": [
+  {
+   "label": "10-31 P1",
+   "repos": {
+    "tanbaoai-web": {
+     "total": 50.0
+    },
+    "ourchem-ai-patent": {
+     "total": 45.3
+    },
+    "ai-patent-prompt": {
+     "total": 28.8
+    }
+   }
+  },
+  {
+   "label": "11-02 P2",
+   "repos": {
+    "tanbaoai-web": {
+     "total": 49.4
+    },
+    "ourchem-ai-patent": {
+     "total": 44.9
+    },
+    "ai-patent-prompt": {
+     "total": 28.8
+    }
+   }
+  }
+ ]
+}

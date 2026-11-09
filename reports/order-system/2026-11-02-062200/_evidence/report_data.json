@@ -1,0 +1,219 @@
+{
+ "meta": {
+  "project": "order-system",
+  "date": "2026-11-02",
+  "period": 1,
+  "window": "2026-10-26 ~ 2026-11-02",
+  "runAt": "2026-11-02 06:22",
+  "statsRange": "2026-10-02 ~ 2026-11-02",
+  "repoCount": 1,
+  "template": 19,
+  "planRange": { "start": "2026-09-01", "end": "2026-11-20" },
+  "prev": null,
+  "dayDiff": {
+   "prevDay": null,
+   "today": "11-02",
+   "todayAsOf": "截至 06:22（非整日）",
+   "gapDays": null,
+   "skipped": "",
+   "docsChangedToday": false,
+   "docsSummary": "",
+   "headline": "首期基线，无对照日"
+  },
+  "roundDiff": { "roundNo": 1, "roundsToday": 1, "prevRoundAt": null, "headline": "今日首轮（第 1/1 轮），无轮内增量可对比" },
+  "roundChain": { "rounds": [ { "period": 1, "at": "06:22", "roundNo": 1 } ] }
+ },
+ "headline": "首期基线：order-core 46.1 分（中）——develop 82 天未合并仍接新功能，425 处待办积压",
+ "keyPoints": [
+  { "level": "高", "text": "develop 分支 82 天没合并主干、已落后 27 次提交，而新的消息通知功能还在往这个分支上提交——拖得越久，合并冲突与返工越大。" },
+  { "level": "高", "text": "代码里积了 425 处待办标记（阈值 20 的 21 倍），其中 400 处挤在一个等着退役的旧报表文件里，本期还新增了 5 处。" },
+  { "level": "中", "text": "本期 6 次提交改了支付重试、通知页、权限菜单，没有一次带着测试；存量 3 个测试文件里还有占位断言。" },
+  { "level": "中", "text": "报表导出（M3）11-05 到期只剩 3 天，已合入的多是自动生成的初版文件（自述待校对）；旧导出接口下线已过期 8 天还没排期。" },
+  { "level": "低", "type": "positive", "text": "团队节奏健康：窗口期 3 人 6 次提交、主干持续有产出，并完成 717 行废弃积分规则的一次性清理。" }
+ ],
+ "saturationTrend": {
+  "scope": "统计期 2026-10-02 ~ 2026-11-02（22 个工作日）",
+  "unit": "窗口 = 统计期内按 7 天切分的连续区间（末窗截断至运行日）",
+  "team": [
+   { "period": 1, "label": "10-02~10-08", "load": 0, "focus": 0, "composite": 0, "loadLevel": "低", "focusLevel": "低" },
+   { "period": 2, "label": "10-09~10-15", "load": 1, "focus": 2, "composite": 3, "loadLevel": "中", "focusLevel": "高" },
+   { "period": 3, "label": "10-16~10-22", "load": 1, "focus": 2, "composite": 3, "loadLevel": "中", "focusLevel": "高" },
+   { "period": 4, "label": "10-23~10-29", "load": 2, "focus": 2, "composite": 4, "loadLevel": "高", "focusLevel": "高" },
+   { "period": 5, "label": "10-30~11-02", "load": 0, "focus": 0, "composite": 0, "loadLevel": "低", "focusLevel": "低" }
+  ],
+  "people": [
+   { "name": "张伟", "points": [
+    { "period": 1, "label": "10-02~10-08", "level": 0, "levelName": "低", "note": "无提交" },
+    { "period": 2, "label": "10-09~10-15", "level": 0, "levelName": "低", "note": "样本小" },
+    { "period": 3, "label": "10-16~10-22", "level": 0, "levelName": "低", "note": "样本小" },
+    { "period": 4, "label": "10-23~10-29", "level": 1, "levelName": "中", "note": "覆盖80%≥50%" },
+    { "period": 5, "label": "10-30~11-02", "level": 0, "levelName": "低", "note": "无提交" } ] },
+   { "name": "李娜", "points": [
+    { "period": 1, "label": "10-02~10-08", "level": 0, "levelName": "低", "note": "无提交" },
+    { "period": 2, "label": "10-09~10-15", "level": 0, "levelName": "低", "note": "样本小" },
+    { "period": 3, "label": "10-16~10-22", "level": 0, "levelName": "低", "note": "样本小" },
+    { "period": 4, "label": "10-23~10-29", "level": 0, "levelName": "低", "note": "样本小" },
+    { "period": 5, "label": "10-30~11-02", "level": 0, "levelName": "低", "note": "无提交" } ] },
+   { "name": "王强", "points": [
+    { "period": 1, "label": "10-02~10-08", "level": 0, "levelName": "低", "note": "无提交" },
+    { "period": 2, "label": "10-09~10-15", "level": 0, "levelName": "低", "note": "样本小" },
+    { "period": 3, "label": "10-16~10-22", "level": 0, "levelName": "低", "note": "样本小" },
+    { "period": 4, "label": "10-23~10-29", "level": 1, "levelName": "中", "note": "代码量245≥200" },
+    { "period": 5, "label": "10-30~11-02", "level": 0, "levelName": "低", "note": "无提交" } ] }
+  ]
+ },
+ "repos": [
+  {
+   "name": "order-core",
+   "total": 46.1,
+   "level": "中",
+   "delta": null,
+   "scores": { "progress": 50, "people": 25, "quality": 60, "integration": 62, "convention": 32 },
+   "topRisk": "develop 分支 82 天未合并且落后主干 27 次提交，新功能仍落在该分支上",
+   "narrative": {
+    "progress": "M1/R-1 已完成、M2 按节奏推进；报表导出 3 天后到期且实质增量薄，旧接口下线已过期 8 天。",
+    "people": "三人都有产出、提交负载均衡（top1 50% 以内）；无骤降判定（首期），观察各模块单人负责。",
+    "quality": "待办标记 425 处远超阈值且本期净增；本期功能改动零测试同步。",
+    "integration": "develop 82 天未合并落后 27 次提交还在承接新功能；feature-payment 已搁置 38 天。",
+    "convention": "出现过短 message「update」与混杂生成物的大提交，过短占比未超阈值。",
+    "rhythm": "窗口期 6 次提交、3 人活跃；但 10-30 起连续 4 天零提交。",
+    "modules": "行数大头是用户模块清理（-717）与数据库结构生成物（+601），真实功能增量集中在支付与报表映射。",
+    "plans": "10 个条目：2 完成、4 推进、1 部分推进、2 停滞、1 延期风险。",
+    "testing": "本期 6 次功能提交零测试同步；存量测试有占位断言，SIT 痕迹 0。"
+   },
+   "testing": {
+    "testCommitShare": 0,
+    "syncRate": 0,
+    "syncDenom": 6,
+    "testRatio": 0,
+    "stockTestFiles": 4,
+    "stockNote": "团队自研（非框架自带）：tests/ 下 3 个测试文件 + __init__，抽查 test_query.py 仅断言函数存在、test_orders.py 有 1 处占位断言",
+    "sitTraces": 0,
+    "aiReview": "本期 6 次功能提交（支付重试/通知页/权限菜单/报表映射）零测试同步；存量 3 个测试文件仅覆盖订单状态机与用户角色等少量路径且含占位断言。对照「单测 + AI SIT」规范：单测覆盖薄、SIT 痕迹 0——建议支付重试按错误码分级补用例、占位断言限期补全"
+   },
+   "members": [
+    { "name": "张伟", "commits": 3, "insertions": 626, "deletions": 1, "branches": { "main": 3 }, "activeDays": 3, "deepNight": 1, "weekend": 0, "peakDay": "10-29", "peakN": 1, "modulesTouched": 7, "testCommits": 0 },
+    { "name": "王强", "commits": 2, "insertions": 16, "deletions": 717, "branches": { "main": 1, "develop": 1 }, "activeDays": 2, "deepNight": 0, "weekend": 0, "peakDay": "10-26", "peakN": 1, "modulesTouched": 2, "testCommits": 0 },
+    { "name": "李娜", "commits": 1, "insertions": 12, "deletions": 0, "branches": { "main": 1 }, "activeDays": 1, "deepNight": 0, "weekend": 0, "peakDay": "10-28", "peakN": 1, "modulesTouched": 1, "testCommits": 0 }
+   ],
+   "peopleProfile": [
+    { "name": "张伟", "role": "主干维护 + 报表/订单（M2 负责人）",
+      "intent": "意图：报表导出与订单批量操作（映射初版与生成物落库）+ 主干维护",
+      "workload": "投入度：有效提交占 41%；行数占 92% 但其中 601 行为生成物",
+      "intensity": "工作强度：日均有效 1.0；2 次非工作提交（周日 22:47、深夜 23:52）",
+      "engagement": "参与度：4 组路径、仅 main 分支",
+      "risk": "潜在风险：报表映射单人维护（bus factor 观察项）；M2 临近 11-10 截止",
+      "riskLevel": null,
+      "activeDays": 7, "deepNight": 2, "weekend": 1, "peakDay": "10-27", "peakN": 1, "modulesTouched": 4, "testCommits": 0, "share": 0.41 },
+    { "name": "王强", "role": "用户模块清理 + 报表/通知（M3/M4/R-02/R-04）",
+      "intent": "意图：清理 717 行废弃积分规则、报表单测、通知页骨架",
+      "workload": "投入度：有效提交占 35%；717 删除行为一次性清理",
+      "intensity": "工作强度：日均有效 1.0；2 次周末轻量提交",
+      "engagement": "参与度：main/develop 双分支、4 组路径；在研条目最多",
+      "risk": "潜在风险：新功能落在 82 天未同步的 develop；M3 临期且多线并行",
+      "riskLevel": "中",
+      "activeDays": 6, "deepNight": 0, "weekend": 2, "peakDay": "10-28", "peakN": 1, "modulesTouched": 4, "testCommits": 1, "share": 0.35 },
+    { "name": "李娜", "role": "支付链路（M1/R-03 负责人）",
+      "intent": "意图：报表模板样式、登录态修复、支付重试机制",
+      "workload": "投入度：有效提交占 24%",
+      "intensity": "工作强度：日均有效 1.0；无深夜/周末提交",
+      "engagement": "参与度：4 组路径、main 分支",
+      "risk": "潜在风险：支付网关单人负责；R-03 暂缓期无动作（与文档一致）",
+      "riskLevel": null,
+      "activeDays": 4, "deepNight": 0, "weekend": 0, "peakDay": "10-28", "peakN": 1, "modulesTouched": 4, "testCommits": 0, "share": 0.24 }
+   ],
+   "branches": [
+    { "name": "develop", "ahead": 4, "behind": 27, "staleDays": 82, "lastActive": "10-28" },
+    { "name": "feature-payment", "ahead": 2, "behind": 22, "staleDays": 45, "lastActive": "09-25" }
+   ],
+   "quality": { "todo": 425, "todoThreshold": 20, "bigCommits": 0, "reworkRatio": 1.1, "reworkThreshold": 0.5, "largeFiles": 0 },
+   "rhythm": [
+    { "date": "10-02", "commits": 0 }, { "date": "10-03", "commits": 0 }, { "date": "10-04", "commits": 0 },
+    { "date": "10-05", "commits": 0 }, { "date": "10-06", "commits": 0 }, { "date": "10-07", "commits": 0 },
+    { "date": "10-08", "commits": 0 }, { "date": "10-09", "commits": 1 }, { "date": "10-10", "commits": 0 },
+    { "date": "10-11", "commits": 1 }, { "date": "10-12", "commits": 0 }, { "date": "10-13", "commits": 1 },
+    { "date": "10-14", "commits": 0 }, { "date": "10-15", "commits": 1 }, { "date": "10-16", "commits": 0 },
+    { "date": "10-17", "commits": 1 }, { "date": "10-18", "commits": 0 }, { "date": "10-19", "commits": 1 },
+    { "date": "10-20", "commits": 0 }, { "date": "10-21", "commits": 0 }, { "date": "10-22", "commits": 2 },
+    { "date": "10-23", "commits": 2 }, { "date": "10-24", "commits": 1 }, { "date": "10-25", "commits": 1 },
+    { "date": "10-26", "commits": 1 }, { "date": "10-27", "commits": 1 }, { "date": "10-28", "commits": 3 },
+    { "date": "10-29", "commits": 1 }, { "date": "10-30", "commits": 0 }, { "date": "10-31", "commits": 0 },
+    { "date": "11-01", "commits": 0 }, { "date": "11-02", "commits": 0 }
+   ],
+   "weekly": [
+    { "label": "10-02", "commits": 0, "effective": 0, "authors": 0, "insertions": 0, "deletions": 0 },
+    { "label": "10-09", "commits": 4, "effective": 4, "authors": 3, "insertions": 22, "deletions": 1 },
+    { "label": "10-16", "commits": 4, "effective": 4, "authors": 3, "insertions": 18, "deletions": 2 },
+    { "label": "10-23", "commits": 10, "effective": 9, "authors": 3, "insertions": 679, "deletions": 719 },
+    { "label": "10-30", "commits": 0, "effective": 0, "authors": 0, "insertions": 0, "deletions": 0, "partial": true }
+   ],
+   "moduleActivity": [
+    { "module": "src/api", "desc": "用户/订单接口层", "insertions": 8, "deletions": 717, "commits": 1, "core": true },
+    { "module": "docs/generated", "desc": "数据库结构生成物", "insertions": 604, "deletions": 0, "commits": 1, "core": false },
+    { "module": "src/report", "desc": "报表导出与映射", "insertions": 13, "deletions": 0, "commits": 1, "core": true },
+    { "module": "src/pay", "desc": "支付网关", "insertions": 12, "deletions": 0, "commits": 1, "core": true },
+    { "module": "src/web", "desc": "页面视图与通知", "insertions": 11, "deletions": 0, "commits": 2, "core": true },
+    { "module": "CHANGELOG.md", "desc": "变更记录", "insertions": 3, "deletions": 0, "commits": 1, "core": false },
+    { "module": "config.ini", "desc": "应用配置", "insertions": 1, "deletions": 1, "commits": 1, "core": false },
+    { "module": "README.md", "desc": "项目说明", "insertions": 1, "deletions": 0, "commits": 1, "core": false },
+    { "module": "requirements.txt", "desc": "依赖清单", "insertions": 1, "deletions": 0, "commits": 1, "core": false }
+   ],
+   "plans": [
+    { "id": "M1", "name": "支付网关接入", "owner": "李娜", "start": "09-01", "due": "09-30", "status": "已完成", "note": "文档确认 09-30 验收通过（微信/支付宝渠道接入与回调处理已上线）；10-28 重试机制为后续增强", "prevStatus": null, "done": "09-30" },
+    { "id": "M2", "name": "订单中心重构", "owner": "张伟", "start": "10-10", "due": "11-10", "status": "已推进", "note": "批量状态流转与导出部分已落地（10-25/10-27）；状态机主体推进中", "prevStatus": null, "done": null },
+    { "id": "M3", "name": "报表中心与导出", "owner": "王强", "start": "10-20", "due": "11-05", "status": "部分推进", "note": "报表映射初版已合入（自动生成、待校对）；截止剩 3 天，实质代码增量薄", "prevStatus": null, "done": null },
+    { "id": "M4", "name": "消息通知中心", "owner": "王强", "start": "11-01", "due": "11-20", "status": "已推进", "note": "文档自述未开始，但 develop 已有通知页骨架（10-28）——判已推进并注明文档滞后", "prevStatus": null, "done": null },
+    { "id": "R-01", "name": "用户权限管理", "owner": "王强", "status": "已完成", "note": "文档已上线；交付范围内最后实质提交 10-28（权限位调整）", "prevStatus": null, "done": "10-28" },
+    { "id": "R-02", "name": "操作日志", "owner": "王强", "status": "停滞", "note": "文档「开发中」，窗口期零改动", "prevStatus": null, "done": null },
+    { "id": "R-03", "name": "支付渠道扩展", "owner": "李娜", "status": "停滞", "note": "文档明示暂缓（渠道方原因）；feature-payment 09-25 后无活动——计划内暂停", "prevStatus": null, "done": null },
+    { "id": "R-04", "name": "报表多格式导出", "owner": "王强", "status": "已推进", "note": "export.py 有改动；进度落库与字段一致性校验仍为 TODO", "prevStatus": null, "done": null },
+    { "id": "R-05", "name": "消息通知中心", "owner": "王强", "status": "已推进", "note": "同 M4：文档「未开始」滞后于代码，notify.py 骨架已在 develop", "prevStatus": null, "done": null },
+    { "id": "R-12", "name": "旧版导出接口下线", "owner": "李娜", "due": "10-25", "status": "延期风险", "note": "截止已过 8 天无实质推进；文档解释待 M3 新导出稳定后执行", "prevStatus": null, "done": null }
+   ],
+   "risks": [
+    { "title": "develop 分支长期未合并（存活 82 天、落后主干 27 次提交），且新功能仍在该分支开发", "plain": "消息通知功能在一个 82 天没从主干同步的分支上开发，主干后来的 27 次修改它都没有——越晚合并，冲突和返工越大。", "dimension": "integration", "level": "高", "evidence": "develop ahead 4 / behind 27，merge-base 212dcb1c（08-12），最后活跃 10-28（5c31acd5a7 通知页落此分支）；存活 82 > 21 且落后 27 > 20 双条件成立", "advice": "本周内 develop 与 main 同步一次，通知页尽快提请合并评审；后续新功能改用短生命周期特性分支", "agePeriods": 1 },
+    { "title": "TODO/FIXME 堆积 425 处（阈值 20），集中于 legacy_big.py 的 400 处迁移标记", "plain": "代码里积了 425 处待办标记，是阈值的 21 倍；其中 400 处挤在一个等着退役的旧报表文件里，本期还在净增 5 处。", "dimension": "quality", "level": "高", "evidence": "TODO 总数 425 > 20；src/report/legacy_big.py 400 处（物理行 1602，09-30 迁入）；窗口期净增 5 处", "advice": "将 legacy_big.py 退役排入 M3 报表迁移计划并定完成期限；对新代码设「不新增 TODO」评审卡点", "agePeriods": 1 },
+    { "title": "窗口期功能改动零测试同步（0/6）", "plain": "本期 6 次提交改了支付重试、通知页、权限菜单，没有一次带着测试；存量 3 个测试文件里还有占位断言。", "dimension": "quality", "level": "中", "evidence": "测试同步率 0/6；存量测试 4 文件（3 个含用例），test_query.py 仅断言 callable，test_orders.py 有 assert orders and True 占位", "advice": "为支付重试补可重试/不可重试错误码用例；通知页与权限菜单补骨架断言；占位断言限期补全", "agePeriods": 1 },
+    { "title": "M3 报表中心与导出临期（11-05 截止，剩 3 天），已合入内容以自动生成初版为主", "plain": "报表导出 3 天后到期，目前合入的多是自动生成的初版文件（自述待校对），离能交付还有距离。", "dimension": "progress", "level": "中", "evidence": "M3 起止 10-20~11-05；47f7e4c0 622 行中 601 行为 docs/generated/schema_dump.sql 生成物，export.py 实增 2 条 TODO 注释", "advice": "今日内做 M3 范围重估：聚焦最小可交付集，或提前申请延期并把新截止回写计划文档", "agePeriods": 1 },
+    { "title": "R-12 旧版导出接口下线已过期（截止 10-25，已过 8 天）", "plain": "旧导出接口下线原定 10-25，已过期 8 天还没排期启动（文档解释为等新导出稳定）。", "dimension": "progress", "level": "中", "evidence": "开发计划.md R-12「排期待启动（待 M3 新导出稳定后执行）」，截止 2026-10-25；窗口期无下线相关改动", "advice": "与文档维护人确认新下线日期并回写计划；确依赖 M3 则改判部分推进并更新截止", "agePeriods": 1 },
+    { "title": "feature-payment 分支长期未合并且 38 天无活动（僵尸分支候选）", "plain": "支付扩展分支已搁置 38 天，落后主干 22 次提交；恢复开发时要先消化这些差异。", "dimension": "integration", "level": "中", "evidence": "feature-payment ahead 2 / behind 22，fork 09-18（存活 45 天），最后活跃 09-25（38 天前）；开发计划.md 注明「渠道方原因暂缓」", "advice": "暂缓期间打一次基线（tag/快照）；恢复前先 merge main 消化 22 次落后；在计划文档登记预计恢复时间", "agePeriods": 1 },
+    { "title": "支付重试机制实现缺口：未区分可重试错误码、无退避间隔", "plain": "新加的支付重试会把所有错误都原样重试 3 次、中间不留间隔——不能重试的错误也在白白重试。", "dimension": "quality", "level": "中", "evidence": "order-core@ef35e3dd3e src/pay/gateway.py —— RETRY_MAX=3 硬编码，except Exception 全捕获后重试，TODO 自认「重试策略未区分可重试错误码」", "advice": "按错误码分级（可重试/不可重试）并加退避间隔；重试参数改读配置", "agePeriods": 1 },
+    { "title": "R-02 操作日志「开发中」但窗口期零改动（停滞）", "plain": "操作日志标着开发中，但本期相关代码一行没动。", "dimension": "progress", "level": "低", "evidence": "需求清单.md R-02 状态「开发中」；窗口期无日志模块路径改动", "advice": "确认 R-02 是否在本期范围：不在则状态改暂缓，在则安排排期", "agePeriods": 1 },
+    { "title": "提交规范散点信号：无意义 message「update」与单提交混杂多类内容", "plain": "有一次提交只写了「update」（实际是改端口）；还有一次提交把代码、文档和自动生成文件混在一起。", "dimension": "convention", "level": "低", "evidence": "order-core@910b89522b config.ini 8080→8081，message「update」（6 字符）；47f7e4c0 单提交 12 文件横跨 src/docs/根目录（过短占比 1/6=16.7% 未超阈值）", "advice": "约定 message 前缀与一句话正文；生成物与业务改动分开提交", "agePeriods": 1 }
+   ],
+   "dayDiff": {
+    "todayCommits": 0, "todayEffective": 0, "todayIns": 0, "todayDel": 0,
+    "prevDayCommits": null, "prevDayEffective": null, "prevDayIns": null, "prevDayDel": null,
+    "newAuthors": [], "goneAuthors": [], "aheadDelta": null,
+    "note": "首期基线，无对照日（今日 0 提交，截至 06:22 非整日，不判活跃骤降）"
+   },
+   "roundDiff": null,
+   "roundSnapshots": [
+    { "period": 1, "at": "06:22", "commits": 6, "effective": 6, "ins": 654, "del": 718, "authors": 3, "big": 0, "todos": 425,
+      "scores": { "progress": 50, "people": 25, "quality": 60, "integration": 62, "standard": 32 },
+      "total": 46.1, "level": "中", "topRisk": "develop 分支 82 天未合并且落后主干 27 次提交，新功能仍落在该分支上" }
+   ],
+   "insights": [
+    "order-core@b9a9b8b2c4 src/api/users.py —— 重构删除 717 行废弃积分规则（legacy_point_rule_1~N，注释自述「2025 年遗留，勿新增调用」），属计划内清理；保留代码仍有 FIXME「角色枚举散落各处」与 TODO「分页参数未做上限校验」；users.py 初版 744 行一次性入库、死代码滞留两个余月后一次清除",
+    "order-core@47f7e4c046 docs/generated/schema_dump.sql —— 601 行 schema 生成物（文件头 generated, do not edit）占该提交插入行 96.6%；同提交 export.py 仅新增 2 条 TODO 注释、mappers 四文件为字段字典并自述「自动生成的初版，待校对」——622 行 feat 真实代码增量约 21 行，进度评估已剔除",
+    "order-core@ef35e3dd3e src/pay/gateway.py —— 重试机制 RETRY_MAX=3 硬编码、except Exception 全捕获后原样重试（TODO 自认未区分可重试错误码）、无退避间隔",
+    "order-core@5c31acd5a7 src/web/notify.py —— M4 通知页仅 8 行骨架（notify_list 返回空数组、数据源未定）；mark_read 未做归属校验可标记他人消息（FIXME），落点在 82 天未同步的 develop 分支",
+    "order-core@0fe0ad8888 src/web/views.py —— 角色菜单硬编码（MENU_ADMIN/ROLE_MENUS 写死在视图层），与 users.py「角色枚举散落」FIXME 同源",
+    "测试空壳定性：tests/test_query.py 仅 assert callable；tests/test_orders.py 含 assert orders and True 占位断言（另两用例断言真实）；tests/test_users.py 断言真实——存量测试半实半空",
+    "src/report/legacy_big.py（核心模块抽查）：1602 物理行「历史报表兼容层（待逐步退役）」，400 个 legacy_case_N 各带一条「待迁移至新报表引擎」TODO，迁移进度 0——依赖 M3/R-04 落地，退役时间表缺位",
+    "order-core@910b89522b config.ini —— 端口 8080→8081 的配置改动以 message「update」提交，无前缀无上下文（规范散点信号，未超占比阈值）"
+   ],
+   "lifetime": { "first": "2026-08-10", "last": "2026-10-29", "totalCommits": 35, "authors": 3, "monthly": { "2026-08": 6, "2026-09": 11, "2026-10": 18 }, "topAuthors": [ { "who": "张伟", "commits": 16 }, { "who": "王强", "commits": 10 }, { "who": "李娜", "commits": 9 } ] },
+   "windowAnalysis": {
+    "classification": { "feat": 4, "fix": 0, "refactor": 1, "docs": 0, "test": 0, "chore": 0, "style": 0, "perf": 0, "build": 0, "ci": 0, "revert": 0, "其他": 1 },
+    "merges": 0,
+    "effectiveCommits": 6,
+    "trivial": [ { "h": "910b89522b", "s": "update", "lines": 2 }, { "h": "0fe0ad8888", "s": "feat: 页面菜单与权限位调整", "lines": 3 } ]
+   },
+   "prev": null
+  }
+ ],
+ "history": [
+  { "label": "11-02 P1", "repos": { "order-core": { "total": 46.1 } } }
+ ]
+}

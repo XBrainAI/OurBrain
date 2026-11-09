@@ -1,0 +1,793 @@
+{
+ "meta": {
+  "project": "order-system",
+  "runAt": "2026-11-02 06:22",
+  "today": "2026-11-02",
+  "windowStart": "2026-10-26",
+  "windowEnd": "2026-11-02",
+  "statsStart": "2026-10-02",
+  "traversalSince": "2026-08-03 00:00",
+  "aggCaliber": "作者日期(%ad)分桶 + 跨分支完整哈希去重；遍历按提交日期回看 60 天防回填截断（§1.0 防御条款）；分支引用统一 origin/<branch>（有 remote 时）",
+  "aggregatedBy": "reports/_scripts/pulse_tool.py（机械聚合，RUNBOOK §1.0 口径；判定由分析会话作出）"
+ },
+ "repos": [
+  {
+   "name": "order-core",
+   "path": ".projects/_non-pulse/order-system\\order-core",
+   "branches": {
+    "main": {
+     "ref": "origin/main",
+     "logFile": "_evidence/raw/order-core__main.log.txt",
+     "numstatFile": "_evidence/raw/order-core__main.numstat.txt",
+     "rawLines": 29
+    },
+    "develop": {
+     "ref": "origin/develop",
+     "logFile": "_evidence/raw/order-core__develop.log.txt",
+     "numstatFile": "_evidence/raw/order-core__develop.numstat.txt",
+     "rawLines": 6
+    },
+    "feature-payment": {
+     "ref": "origin/feature-payment",
+     "logFile": "_evidence/raw/order-core__feature-payment.log.txt",
+     "numstatFile": "_evidence/raw/order-core__feature-payment.numstat.txt",
+     "rawLines": 9
+    }
+   },
+   "errors": [],
+   "hasRemote": true,
+   "window": {
+    "total": 6,
+    "effective": 6,
+    "merge": 0,
+    "ins": 654,
+    "del": 718,
+    "authors": 3,
+    "big": [],
+    "trivial": [
+     {
+      "h": "910b89522b",
+      "s": "update",
+      "lines": 2
+     },
+     {
+      "h": "0fe0ad8888",
+      "s": "feat: 页面菜单与权限位调整",
+      "lines": 3
+     }
+    ],
+    "classification": {
+     "feat": 4,
+     "fix": 0,
+     "refactor": 1,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 1
+    },
+    "shortMsgs": [
+     {
+      "h": "910b89522b",
+      "s": "update"
+     }
+    ],
+    "persons": {
+     "zhangwei@demo.com": {
+      "names": [
+       "张伟"
+      ],
+      "commits": 3,
+      "ins": 626,
+      "del": 1,
+      "activeDays": 3,
+      "lateNight": 1,
+      "weekend": 0,
+      "branches": {
+       "main": 3
+      },
+      "modulesTouched": 7,
+      "testCommits": 0,
+      "peakDay": "2026-10-29",
+      "peakN": 1
+     },
+     "lina@demo.com": {
+      "names": [
+       "李娜"
+      ],
+      "commits": 1,
+      "ins": 12,
+      "del": 0,
+      "activeDays": 1,
+      "lateNight": 0,
+      "weekend": 0,
+      "branches": {
+       "main": 1
+      },
+      "modulesTouched": 1,
+      "testCommits": 0,
+      "peakDay": "2026-10-28",
+      "peakN": 1
+     },
+     "wangq@demo.com": {
+      "names": [
+       "王强"
+      ],
+      "commits": 2,
+      "ins": 16,
+      "del": 717,
+      "activeDays": 2,
+      "lateNight": 0,
+      "weekend": 0,
+      "branches": {
+       "main": 1,
+       "develop": 1
+      },
+      "modulesTouched": 2,
+      "testCommits": 0,
+      "peakDay": "2026-10-26",
+      "peakN": 1
+     }
+    },
+    "commits": [
+     {
+      "h": "b9a9b8b2c4",
+      "an": "王强",
+      "ae": "wangq@demo.com",
+      "ad": "2026-10-26 10:15:00",
+      "s": "refactor: 重构用户模块，清理废弃积分规则",
+      "merge": false,
+      "ins": 8,
+      "del": 717,
+      "branches": [
+       "main"
+      ]
+     },
+     {
+      "h": "47f7e4c046",
+      "an": "张伟",
+      "ae": "zhangwei@demo.com",
+      "ad": "2026-10-27 23:52:00",
+      "s": "feat: 订单导出与批量操作完善，合入报表映射初版",
+      "merge": false,
+      "ins": 622,
+      "del": 0,
+      "branches": [
+       "main"
+      ]
+     },
+     {
+      "h": "ef35e3dd3e",
+      "an": "李娜",
+      "ae": "lina@demo.com",
+      "ad": "2026-10-28 11:20:00",
+      "s": "feat: 支付渠道重试机制",
+      "merge": false,
+      "ins": 12,
+      "del": 0,
+      "branches": [
+       "main"
+      ]
+     },
+     {
+      "h": "0fe0ad8888",
+      "an": "张伟",
+      "ae": "zhangwei@demo.com",
+      "ad": "2026-10-28 14:00:00",
+      "s": "feat: 页面菜单与权限位调整",
+      "merge": false,
+      "ins": 3,
+      "del": 0,
+      "branches": [
+       "main"
+      ]
+     },
+     {
+      "h": "5c31acd5a7",
+      "an": "王强",
+      "ae": "wangq@demo.com",
+      "ad": "2026-10-28 16:30:00",
+      "s": "feat: 消息通知中心页",
+      "merge": false,
+      "ins": 8,
+      "del": 0,
+      "branches": [
+       "develop"
+      ]
+     },
+     {
+      "h": "910b89522b",
+      "an": "张伟",
+      "ae": "zhangwei@demo.com",
+      "ad": "2026-10-29 08:10:00",
+      "s": "update",
+      "merge": false,
+      "ins": 1,
+      "del": 1,
+      "branches": [
+       "main"
+      ]
+     }
+    ]
+   },
+   "today": {
+    "total": 0,
+    "effective": 0,
+    "merge": 0,
+    "ins": 0,
+    "del": 0,
+    "authors": 0,
+    "big": [],
+    "trivial": [],
+    "classification": {
+     "feat": 0,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {},
+    "commits": []
+   },
+   "lastCommitDayBeforeToday": "2026-10-29",
+   "daily": {
+    "2026-10-09": 1,
+    "2026-10-11": 1,
+    "2026-10-13": 1,
+    "2026-10-15": 1,
+    "2026-10-17": 1,
+    "2026-10-19": 1,
+    "2026-10-22": 2,
+    "2026-10-23": 2,
+    "2026-10-24": 1,
+    "2026-10-25": 1,
+    "2026-10-26": 1,
+    "2026-10-27": 1,
+    "2026-10-28": 3,
+    "2026-10-29": 1
+   },
+   "dayDetail": {
+    "2026-10-09": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 11,
+     "del": 0,
+     "authors": [
+      "zhangwei@demo.com"
+     ]
+    },
+    "2026-10-11": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 1,
+     "del": 0,
+     "authors": [
+      "wangq@demo.com"
+     ]
+    },
+    "2026-10-13": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 7,
+     "del": 0,
+     "authors": [
+      "lina@demo.com"
+     ]
+    },
+    "2026-10-15": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 3,
+     "del": 1,
+     "authors": [
+      "wangq@demo.com"
+     ]
+    },
+    "2026-10-17": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 6,
+     "del": 0,
+     "authors": [
+      "wangq@demo.com"
+     ]
+    },
+    "2026-10-19": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 4,
+     "del": 1,
+     "authors": [
+      "zhangwei@demo.com"
+     ]
+    },
+    "2026-10-22": {
+     "commits": 2,
+     "effective": 2,
+     "ins": 8,
+     "del": 1,
+     "authors": [
+      "lina@demo.com",
+      "zhangwei@demo.com"
+     ]
+    },
+    "2026-10-23": {
+     "commits": 2,
+     "effective": 2,
+     "ins": 14,
+     "del": 1,
+     "authors": [
+      "lina@demo.com",
+      "wangq@demo.com"
+     ]
+    },
+    "2026-10-24": {
+     "commits": 1,
+     "effective": 0,
+     "ins": 0,
+     "del": 0,
+     "authors": []
+    },
+    "2026-10-25": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 11,
+     "del": 0,
+     "authors": [
+      "zhangwei@demo.com"
+     ]
+    },
+    "2026-10-26": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 8,
+     "del": 717,
+     "authors": [
+      "wangq@demo.com"
+     ]
+    },
+    "2026-10-27": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 622,
+     "del": 0,
+     "authors": [
+      "zhangwei@demo.com"
+     ]
+    },
+    "2026-10-28": {
+     "commits": 3,
+     "effective": 3,
+     "ins": 23,
+     "del": 0,
+     "authors": [
+      "lina@demo.com",
+      "wangq@demo.com",
+      "zhangwei@demo.com"
+     ]
+    },
+    "2026-10-29": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 1,
+     "del": 1,
+     "authors": [
+      "zhangwei@demo.com"
+     ]
+    }
+   },
+   "saturationWindows": [
+    {
+     "idx": 0,
+     "start": "2026-10-02",
+     "end": "2026-10-08",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 1,
+     "start": "2026-10-09",
+     "end": "2026-10-15",
+     "workdays": 5,
+     "persons": {
+      "lina@demo.com": {
+       "names": [
+        "李娜"
+       ],
+       "effective": 1,
+       "ins": 7,
+       "del": 0,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      },
+      "wangq@demo.com": {
+       "names": [
+        "王强"
+       ],
+       "effective": 2,
+       "ins": 4,
+       "del": 1,
+       "activeDays": 2,
+       "nonworkCommits": 1
+      },
+      "zhangwei@demo.com": {
+       "names": [
+        "张伟"
+       ],
+       "effective": 1,
+       "ins": 11,
+       "del": 0,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 2,
+     "start": "2026-10-16",
+     "end": "2026-10-22",
+     "workdays": 5,
+     "persons": {
+      "lina@demo.com": {
+       "names": [
+        "李娜"
+       ],
+       "effective": 1,
+       "ins": 2,
+       "del": 0,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      },
+      "wangq@demo.com": {
+       "names": [
+        "王强"
+       ],
+       "effective": 1,
+       "ins": 6,
+       "del": 0,
+       "activeDays": 1,
+       "nonworkCommits": 1
+      },
+      "zhangwei@demo.com": {
+       "names": [
+        "张伟"
+       ],
+       "effective": 2,
+       "ins": 10,
+       "del": 2,
+       "activeDays": 2,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 3,
+     "start": "2026-10-23",
+     "end": "2026-10-29",
+     "workdays": 5,
+     "persons": {
+      "lina@demo.com": {
+       "names": [
+        "李娜"
+       ],
+       "effective": 2,
+       "ins": 25,
+       "del": 0,
+       "activeDays": 2,
+       "nonworkCommits": 0
+      },
+      "wangq@demo.com": {
+       "names": [
+        "王强"
+       ],
+       "effective": 3,
+       "ins": 17,
+       "del": 718,
+       "activeDays": 3,
+       "nonworkCommits": 0
+      },
+      "zhangwei@demo.com": {
+       "names": [
+        "张伟"
+       ],
+       "effective": 4,
+       "ins": 637,
+       "del": 1,
+       "activeDays": 4,
+       "nonworkCommits": 2
+      }
+     }
+    },
+    {
+     "idx": 4,
+     "start": "2026-10-30",
+     "end": "2026-11-02",
+     "workdays": 2,
+     "persons": {}
+    }
+   ],
+   "weekly": [
+    {
+     "label": "2026-10-02",
+     "start": "2026-10-02",
+     "end": "2026-10-08",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-09",
+     "start": "2026-10-09",
+     "end": "2026-10-15",
+     "commits": 4,
+     "effective": 4,
+     "authors": 3,
+     "ins": 22,
+     "del": 1
+    },
+    {
+     "label": "2026-10-16",
+     "start": "2026-10-16",
+     "end": "2026-10-22",
+     "commits": 4,
+     "effective": 4,
+     "authors": 3,
+     "ins": 18,
+     "del": 2
+    },
+    {
+     "label": "2026-10-23",
+     "start": "2026-10-23",
+     "end": "2026-10-29",
+     "commits": 10,
+     "effective": 9,
+     "authors": 3,
+     "ins": 679,
+     "del": 719
+    },
+    {
+     "label": "2026-10-30",
+     "start": "2026-10-30",
+     "end": "2026-11-02",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    }
+   ],
+   "statsWorkdays": 22,
+   "mainBranch": {
+    "branch": "main",
+    "ref": "origin/main",
+    "lastActive": "2026-10-29"
+   },
+   "branchPos": [
+    {
+     "name": "develop",
+     "ref": "origin/develop",
+     "ahead": 4,
+     "behind": 27,
+     "forkDate": "2026-08-12",
+     "staleDays": 82,
+     "lastActive": "2026-10-28"
+    },
+    {
+     "name": "feature-payment",
+     "ref": "origin/feature-payment",
+     "ahead": 2,
+     "behind": 22,
+     "forkDate": "2026-09-18",
+     "staleDays": 45,
+     "lastActive": "2026-09-25"
+    }
+   ],
+   "checkedOut": "main",
+   "quality": {
+    "mode": "工作副本（当前检出分支口径 §1.6）",
+    "checkedOut": "main",
+    "languages": [
+     {
+      "ext": ".py",
+      "files": 21,
+      "lines": 1368
+     },
+     {
+      "ext": ".sql",
+      "files": 1,
+      "lines": 401
+     },
+     {
+      "ext": ".md",
+      "files": 3,
+      "lines": 12
+     },
+     {
+      "ext": ".txt",
+      "files": 1,
+      "lines": 6
+     },
+     {
+      "ext": ".ini",
+      "files": 1,
+      "lines": 5
+     },
+     {
+      "ext": "(无扩展名)",
+      "files": 1,
+      "lines": 3
+     },
+     {
+      "ext": ".sh",
+      "files": 1,
+      "lines": 3
+     },
+     {
+      "ext": ".html",
+      "files": 1,
+      "lines": 1
+     }
+    ],
+    "largeFiles": [],
+    "todoTotal": 425,
+    "todoTop": [
+     {
+      "path": "src/report/legacy_big.py",
+      "count": 400
+     },
+     {
+      "path": "src/api/orders.py",
+      "count": 7
+     },
+     {
+      "path": "src/pay/gateway.py",
+      "count": 5
+     },
+     {
+      "path": "src/api/users.py",
+      "count": 4
+     },
+     {
+      "path": "src/report/export.py",
+      "count": 4
+     },
+     {
+      "path": "src/report/query.py",
+      "count": 3
+     },
+     {
+      "path": "src/web/auth.py",
+      "count": 1
+     },
+     {
+      "path": "tests/test_orders.py",
+      "count": 1
+     }
+    ],
+    "stockTestFiles": 4,
+    "trackedFiles": 30
+   },
+   "lifetime": {
+    "first": "2026-08-10",
+    "last": "2026-10-29",
+    "totalCommits": 35,
+    "authors": 3,
+    "monthly": {
+     "2026-10": 18,
+     "2026-09": 11,
+     "2026-08": 6
+    },
+    "monthlyCount": 3,
+    "topAuthors": [
+     {
+      "key": "zhangwei@demo.com",
+      "commits": 16
+     },
+     {
+      "key": "wangq@demo.com",
+      "commits": 10
+     },
+     {
+      "key": "lina@demo.com",
+      "commits": 9
+     }
+    ]
+   }
+  }
+ ],
+ "docsMtime": {
+  "project": [
+   {
+    "path": ".projects/_non-pulse/order-system/docs/需求清单.md",
+    "mtime": "2026-10-29 08:58",
+    "date": "2026-10-29"
+   },
+   {
+    "path": ".projects/_non-pulse/order-system/docs/开发计划.md",
+    "mtime": "2026-10-29 08:58",
+    "date": "2026-10-29"
+   },
+   {
+    "path": ".projects/_non-pulse/order-system/order-core/requirements.txt",
+    "mtime": "2026-10-29 08:58",
+    "date": "2026-10-29"
+   },
+   {
+    "path": ".projects/_non-pulse/order-system/order-core/README.md",
+    "mtime": "2026-10-29 08:58",
+    "date": "2026-10-29"
+   },
+   {
+    "path": ".projects/_non-pulse/order-system/order-core/CHANGELOG.md",
+    "mtime": "2026-10-29 08:58",
+    "date": "2026-10-29"
+   }
+  ],
+  "global": [
+   {
+    "path": "docs/README.md",
+    "mtime": "2026-10-30 16:54",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/原始文件覆盖核对-2026W44.md",
+    "mtime": "2026-10-30 16:54",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/xzf-mall/任务明细-2026W44.md",
+    "mtime": "2026-10-30 16:44",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/public-service-公共服务平台项目集/任务明细-2026W44.md",
+    "mtime": "2026-10-30 16:44",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/ip-integration-知识产权一体化产品/任务明细-2026W44.md",
+    "mtime": "2026-10-30 16:44",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/ai-patent-AI预研产品/任务明细-2026W44.md",
+    "mtime": "2026-10-30 16:44",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/patyee-壹专利/任务明细-2026W44.md",
+    "mtime": "2026-10-30 16:44",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/public-service-公共服务平台项目集/缺陷统计-2026-10-29.md",
+    "mtime": "2026-10-30 16:29",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/ai-patent-AI预研产品/缺陷统计-2026-10-29.md",
+    "mtime": "2026-10-30 16:29",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/patyee-壹专利/缺陷统计-2026-10-29.md",
+    "mtime": "2026-10-30 16:29",
+    "date": "2026-10-30"
+   }
+  ]
+ }
+}

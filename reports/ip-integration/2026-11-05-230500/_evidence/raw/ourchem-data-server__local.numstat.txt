@@ -1,0 +1,39 @@
+COMMIT@6c475a1e3e25d09e441b13174818a5aae4419b9f
+5	3	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/DefaultQueryService.java
+
+COMMIT@8685d674eec4410d212636090918182a5b3f7860
+117	0	ourchem-data-server/src/main/resources/application-dev.yml
+
+COMMIT@b11d4569f5fe1bf93c0a1d6781e6bfab2a6db526
+1	1	ourchem-data-file/src/main/java/com/ourchem/data/file/service/CompositeMapService.java
+2	1	ourchem-data-file/src/main/java/com/ourchem/data/file/service/IpddMapService.java
+232	0	ourchem-data-file/src/main/java/com/ourchem/data/file/service/LocalFileMapService.java
+1	1	ourchem-data-server/pom.xml
+11	11	ourchem-data-server/src/main/java/com/ourchem/data/server/DataApp.java
+130	52	ourchem-data-server/src/main/java/com/ourchem/data/server/EsDataApp.java
+24	1	ourchem-data-server/src/main/java/com/ourchem/data/server/config/DataJSONConfiguration.java
+1	1	ourchem-data-server/src/main/java/com/ourchem/data/server/rest/FileController.java
+1	1	ourchem-data-server/src/main/java/com/ourchem/data/server/rest/HbaseToolController.java
+1	1	ourchem-data-server/src/main/java/com/ourchem/data/server/rest/QueryController.java
+1	1	ourchem-data-server/src/main/java/com/ourchem/data/server/service/DefaultFileService.java
+1	1	ourchem-data-server/src/main/java/com/ourchem/data/server/service/DefaultMcFileService.java
+223	0	ourchem-data-server/src/main/java/com/ourchem/data/server/service/LocalFileService.java
+14	3	ourchem-data-server/src/main/java/com/ourchem/data/server/service/QueryService.java
+9	5	ourchem-data-server/src/main/java/com/ourchem/data/server/service/RepeatQueryService.java
+3	3	ourchem-data-server/src/main/resources/mapper/ThirdPartyLimitMapper.xml
+
+COMMIT@699e9b915c57a8001bccf2420f425b484f6cab6f
+COMMIT@d42c16ad216d6f9088339b4ccc67099fc05195ce
+23	12	ourchem-data-server/src/main/java/com/ourchem/data/server/service/RepeatQueryService.java
+
+COMMIT@20503c4a101d1a20a4f5a4c6d954045c0beb8aad
+23	12	ourchem-data-server/src/main/java/com/ourchem/data/server/service/RepeatQueryService.java
+
+COMMIT@01b240b8c37c605727cb2f80a5a8e22727b31af4
+5	5	ourchem-data-server/src/main/java/com/ourchem/data/server/service/RepeatQueryService.java
+
+COMMIT@90324c6abbbecd9ab7eb135e21bc27582630d529
+5	5	ourchem-data-server/src/main/java/com/ourchem/data/server/service/RepeatQueryService.java
+
+COMMIT@78c0576a475e0c970b75eca0d221b375f056c9ed
+115	30	ourchem-data-server/src/main/java/com/ourchem/data/server/service/RepeatQueryService.java

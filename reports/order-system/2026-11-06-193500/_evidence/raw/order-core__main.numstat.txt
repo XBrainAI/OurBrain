@@ -1,0 +1,108 @@
+COMMIT@910b89522bfe8ad2c256a5fe4f2b48ddc24ddc05
+1	1	config.ini
+
+COMMIT@0fe0ad88885e5594596de769b8f9fde92ee1c516
+3	0	src/web/views.py
+
+COMMIT@ef35e3dd3e99d57ccef9e6260da0fd3b726cc52c
+12	0	src/pay/gateway.py
+
+COMMIT@47f7e4c046f714cf693af7fc4ce59d6765121776
+3	0	CHANGELOG.md
+1	0	README.md
+3	0	docs/generated/api_changes.md
+601	0	docs/generated/schema_dump.sql
+1	0	requirements.txt
+3	0	src/report/export.py
+2	0	src/report/mappers/order_map.py
+2	0	src/report/mappers/pay_map.py
+2	0	src/report/mappers/user_map.py
+2	0	src/report/mappers/web_map.py
+2	0	src/report/query.py
+
+COMMIT@b9a9b8b2c473bfbea4c669159889fc7471afc565
+8	717	src/api/users.py
+
+COMMIT@1f00e16ce06ba34ff1b74db1f80e70fc19754c6d
+7	0	src/api/orders.py
+4	0	tests/test_orders.py
+
+COMMIT@8a8f1ad932ccf79ceb406083123e4b2031b36b09
+1	1	src/api/users.py
+
+COMMIT@442503dd0fb40eba2372b050c909450f689bf1c4
+5	0	src/api/orders.py
+1	1	src/report/export.py
+
+COMMIT@93d1caadf180d9de396e1941c9e1861471dad8a0
+COMMIT@f23440b7b0e81fe4eb8ccc3de58cfe7d5e755b19
+13	0	src/web/auth.py
+
+COMMIT@1bbcbc38d3b21839d059f2cb73f62389c92c07ac
+4	1	src/api/orders.py
+
+COMMIT@d3d5506e229c90d6aaefb305ebacb2264871ff1d
+6	0	tests/test_query.py
+
+COMMIT@1ace54072d9ec9c88d3de5d468efc317b09e3a62
+3	1	src/report/export.py
+
+COMMIT@c5a37135aecfc64f4d493313f6dd3d33bd6ab712
+6	0	src/report/export.py
+1	0	src/report/templates/base.html
+
+COMMIT@0fa5ddd1b3f152916b98fbe6f76f1a73c17c9d46
+1	0	build.sh
+
+COMMIT@72e996cca4deae8141a008329ddbd46f7f2344ff
+11	0	src/report/export.py
+
+COMMIT@3d82b9ed70e8bde41ae8d8a537cb0722dfc64425
+12	0	src/report/query.py
+
+COMMIT@7f479e502f538971fada353ce32556d0bb227e88
+1602	0	src/report/legacy_big.py
+
+COMMIT@6a1c3fa62d1deadf81a52bcd5a8dc747bc71ff60
+2	0	requirements.txt
+
+COMMIT@1d841f5c5c69c8b88f23095739d2330285b81d5c
+1	1	src/api/orders.py
+
+COMMIT@1abf21833b4ad7ab3557a0d0dfcaed460daf0afd
+4	0	README.md
+
+COMMIT@43f106c34c0d6db0c271c7825ae19b3b7ed9e168
+9	0	tests/test_users.py
+
+COMMIT@4308a3f427be557cfbb9175ace78085667916371
+6	0	src/pay/gateway.py
+
+COMMIT@8f7e689d20fe246357229b6e8f83201d0a85bfb0
+11	0	src/api/orders.py
+
+COMMIT@5fd2766bb96abb18e655c8e7801bd0c0492e9e11
+9	0	tests/test_orders.py
+
+COMMIT@e7e38a0647f6457247c4d565d6b427519dc98fa4
+19	0	src/api/orders.py
+
+COMMIT@bc84a5b26c10969ee6ea442be426e20512bfc558
+18	0	src/pay/gateway.py
+
+COMMIT@212dcb1c374a0f159a69a051a8fe6b5b8a6ae008
+744	0	src/api/users.py
+
+COMMIT@03dfd706b4ef15c70345dc7298c293905eee55ac
+3	0	.gitignore
+3	0	README.md
+2	0	build.sh
+5	0	config.ini
+3	0	requirements.txt
+0	0	src/__init__.py
+0	0	src/api/__init__.py
+0	0	src/pay/__init__.py
+0	0	src/report/__init__.py
+0	0	src/web/__init__.py
+3	0	src/web/views.py
+0	0	tests/__init__.py

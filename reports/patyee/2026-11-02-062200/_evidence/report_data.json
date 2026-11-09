@@ -1,0 +1,8180 @@
+{
+ "meta": {
+  "project": "patyee",
+  "date": "2026-11-02",
+  "period": 4,
+  "window": "2026-10-26 ~ 2026-11-02",
+  "runAt": "2026-11-02 06:22",
+  "statsRange": "2026-08-01 ~ 2026-11-02",
+  "repoCount": 8,
+  "template": 19,
+  "planRange": {
+   "start": "2026-09-07",
+   "end": "2026-10-30"
+  },
+  "prev": {
+   "date": "2026-10-31",
+   "period": 3,
+   "label": "10-31 P3"
+  },
+  "dayDiff": {
+   "prevDay": "10-30",
+   "today": "11-02",
+   "todayAsOf": "截至 06:22（非整日）",
+   "gapDays": 2,
+   "skipped": "10-31（周六）/11-01（周日）无提交与文档更新",
+   "docsChangedToday": false,
+   "docsSummary": "文档自 10-30 P2 后未更新（docsMtime 最新 10-30 16:54 核验）——计划条目按每期复核沿用",
+   "headline": "上一变动日（10-30）后周末两日无提交与文档更新，今日（周一）截至 06:22 全部 8 仓库无新提交——无日间增量，不判活跃骤降"
+  },
+  "roundDiff": {
+   "roundNo": 1,
+   "roundsToday": 1,
+   "prevRoundAt": null,
+   "headline": "今日首轮（第 1/1 轮），无轮内增量可对比"
+  },
+  "roundChain": {
+   "rounds": [
+    {
+     "period": 4,
+     "at": "06:22",
+     "roundNo": 1
+    }
+   ]
+  }
+ },
+ "headline": "patyee 本期无新增提交：6 仓风险结构持平、middle-service 因口径勘误与主干推进好转（31.5，↓3.75），整体进入静默观察期",
+ "keyPoints": [
+  {
+   "level": "中",
+   "type": "risk",
+   "text": "patyee-next 四条功能分支仍领先 master 870+ 提交、分叉 497 天（连续 3 期，已升级专项治理建议）；郑宜权统计期 94% 单人集中"
+  },
+  {
+   "level": "中",
+   "type": "risk",
+   "text": "R11 已过提测日 9 个工作日、R12 +5、R13/R14 +2——功能交付的验证环节持续滞后且无文档侧确认（docs 自 10-30 未更新）"
+  },
+  {
+   "level": "中",
+   "type": "positive",
+   "text": "middle-service 好转（31.5，↓3.75）：master-pro 已推进至 10-19 吸收秘钥/游客登录三笔，\"143 天未合并\"经勘误③证伪；上期 v5.13.8/v5.14.0 回流与 v5.17 进 test 的收口成果维持"
+  },
+  {
+   "level": "低",
+   "type": "risk",
+   "text": "口径勘误②生效：P3 增删行系按分支重复计数（patyee-next 窗口 1379/627 实为 563/213），提交数/分支 ahead 不受影响；缺陷基线 19 条（未关闭 6）快照 10-29 维持"
+  }
+ ],
+ "repos": [
+  {
+   "name": "patyee-next",
+   "total": 51.7,
+   "level": "高",
+   "delta": 0.0,
+   "scores": {
+    "progress": 48,
+    "people": 70,
+    "quality": 58,
+    "integration": 68,
+    "convention": 10
+   },
+   "topRisk": "4 条功能分支领先 master 870+ 提交、分叉 497 天；94% 提交单人集中",
+   "narrative": {
+    "progress": "风险结构与上期持平：R3 已交付、R13 提测日已过 2 个工作日、R11/R12 滞后（+9/+5 工作日）",
+    "people": "郑宜权窗口期 19 笔独占 100%（统计期 94%），单点依赖连续第 3 期在案",
+    "quality": "19 笔零测试同步（连续 3 期）；TODO 自有 26 处；Office 锁文件仍被追踪（卫生信号）",
+    "integration": "四条功能分支 497 天未合并、领先 870+；behind 仅 8（主干停滞所致）",
+    "convention": "message 规范带类型前缀；日期错位在案（无新增）",
+    "rhythm": "10-26 起连续 5 天活跃（6/5/3/3/2），10-30 晚两笔缺陷修复后周末静止",
+    "modules": "改动集中在检索与分析页面（src/views 408 行，勘误②修正口径），含 10 笔缺陷修复",
+    "plans": "R3 已交付沿用；R13 提测日已过 2 个工作日；R11/R12 滞后（+9/+5 工作日）",
+    "testing": "连续第 3 期零测试：19 笔（含 10 笔 fix）无任何测试同步，存量 0"
+   },
+   "testing": {
+    "testCommitShare": 0.053,
+    "syncRate": 0,
+    "syncDenom": 19,
+    "testRatio": 0,
+    "stockTestFiles": 0,
+    "stockNote": "无存量测试文件（前端仓未建测试基建）",
+    "sitTraces": 0,
+    "aiReview": "功能-测试配套：检索、收藏夹、技术生命周期、session 均无对应测试路径——零配套；连续 3 期零同步，本期建议升级为专项治理（最小回归清单）"
+   },
+   "members": [
+    {
+     "name": "郑宜权",
+     "commits": 19,
+     "insertions": 563,
+     "deletions": 213,
+     "branches": {
+      "图像检索优化-支持多张图片同时检索": 14,
+      "feat-1016010-收藏夹支持检索": 14,
+      "feat-1016189-专利分析-技术生命周期优化": 14,
+      "1016188-登录释放策略优化": 13
+     },
+     "activeDays": 5,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "2026-10-26",
+     "peakN": 6,
+     "modulesTouched": 11,
+     "testCommits": 0
+    }
+   ],
+   "branches": [
+    {
+     "name": "图像检索优化-支持多张图片同时检索",
+     "ahead": 872,
+     "behind": 8,
+     "staleDays": 497,
+     "lastActive": "10-28"
+    },
+    {
+     "name": "1016188-登录释放策略优化",
+     "ahead": 874,
+     "behind": 8,
+     "staleDays": 497,
+     "lastActive": "10-29"
+    },
+    {
+     "name": "feat-1016010-收藏夹支持检索",
+     "ahead": 873,
+     "behind": 8,
+     "staleDays": 497,
+     "lastActive": "10-30"
+    },
+    {
+     "name": "feat-1016189-专利分析-技术生命周期优化",
+     "ahead": 872,
+     "behind": 8,
+     "staleDays": 497,
+     "lastActive": "10-30"
+    }
+   ],
+   "quality": {
+    "todo": 97,
+    "todoThreshold": 20,
+    "bigCommits": 0,
+    "reworkRatio": 0.378,
+    "reworkThreshold": 0.5,
+    "largeFiles": 0
+   },
+   "rhythm": [
+    {
+     "date": "08-01",
+     "commits": 0
+    },
+    {
+     "date": "08-02",
+     "commits": 0
+    },
+    {
+     "date": "08-03",
+     "commits": 3
+    },
+    {
+     "date": "08-04",
+     "commits": 0
+    },
+    {
+     "date": "08-05",
+     "commits": 1
+    },
+    {
+     "date": "08-06",
+     "commits": 0
+    },
+    {
+     "date": "08-07",
+     "commits": 0
+    },
+    {
+     "date": "08-08",
+     "commits": 0
+    },
+    {
+     "date": "08-09",
+     "commits": 0
+    },
+    {
+     "date": "08-10",
+     "commits": 0
+    },
+    {
+     "date": "08-11",
+     "commits": 2
+    },
+    {
+     "date": "08-12",
+     "commits": 4
+    },
+    {
+     "date": "08-13",
+     "commits": 1
+    },
+    {
+     "date": "08-14",
+     "commits": 1
+    },
+    {
+     "date": "08-15",
+     "commits": 0
+    },
+    {
+     "date": "08-16",
+     "commits": 0
+    },
+    {
+     "date": "08-17",
+     "commits": 3
+    },
+    {
+     "date": "08-18",
+     "commits": 4
+    },
+    {
+     "date": "08-19",
+     "commits": 3
+    },
+    {
+     "date": "08-20",
+     "commits": 1
+    },
+    {
+     "date": "08-21",
+     "commits": 1
+    },
+    {
+     "date": "08-22",
+     "commits": 0
+    },
+    {
+     "date": "08-23",
+     "commits": 0
+    },
+    {
+     "date": "08-24",
+     "commits": 0
+    },
+    {
+     "date": "08-25",
+     "commits": 0
+    },
+    {
+     "date": "08-26",
+     "commits": 1
+    },
+    {
+     "date": "08-27",
+     "commits": 0
+    },
+    {
+     "date": "08-28",
+     "commits": 0
+    },
+    {
+     "date": "08-29",
+     "commits": 0
+    },
+    {
+     "date": "08-30",
+     "commits": 0
+    },
+    {
+     "date": "08-31",
+     "commits": 0
+    },
+    {
+     "date": "09-01",
+     "commits": 0
+    },
+    {
+     "date": "09-02",
+     "commits": 0
+    },
+    {
+     "date": "09-03",
+     "commits": 0
+    },
+    {
+     "date": "09-04",
+     "commits": 0
+    },
+    {
+     "date": "09-05",
+     "commits": 0
+    },
+    {
+     "date": "09-06",
+     "commits": 0
+    },
+    {
+     "date": "09-07",
+     "commits": 0
+    },
+    {
+     "date": "09-08",
+     "commits": 0
+    },
+    {
+     "date": "09-09",
+     "commits": 0
+    },
+    {
+     "date": "09-10",
+     "commits": 0
+    },
+    {
+     "date": "09-11",
+     "commits": 0
+    },
+    {
+     "date": "09-12",
+     "commits": 0
+    },
+    {
+     "date": "09-13",
+     "commits": 0
+    },
+    {
+     "date": "09-14",
+     "commits": 1
+    },
+    {
+     "date": "09-15",
+     "commits": 0
+    },
+    {
+     "date": "09-16",
+     "commits": 0
+    },
+    {
+     "date": "09-17",
+     "commits": 1
+    },
+    {
+     "date": "09-18",
+     "commits": 2
+    },
+    {
+     "date": "09-19",
+     "commits": 0
+    },
+    {
+     "date": "09-20",
+     "commits": 0
+    },
+    {
+     "date": "09-21",
+     "commits": 1
+    },
+    {
+     "date": "09-22",
+     "commits": 0
+    },
+    {
+     "date": "09-23",
+     "commits": 3
+    },
+    {
+     "date": "09-24",
+     "commits": 0
+    },
+    {
+     "date": "09-25",
+     "commits": 0
+    },
+    {
+     "date": "09-26",
+     "commits": 0
+    },
+    {
+     "date": "09-27",
+     "commits": 0
+    },
+    {
+     "date": "09-28",
+     "commits": 2
+    },
+    {
+     "date": "09-29",
+     "commits": 0
+    },
+    {
+     "date": "09-30",
+     "commits": 0
+    },
+    {
+     "date": "10-01",
+     "commits": 0
+    },
+    {
+     "date": "10-02",
+     "commits": 0
+    },
+    {
+     "date": "10-03",
+     "commits": 0
+    },
+    {
+     "date": "10-04",
+     "commits": 0
+    },
+    {
+     "date": "10-05",
+     "commits": 0
+    },
+    {
+     "date": "10-06",
+     "commits": 0
+    },
+    {
+     "date": "10-07",
+     "commits": 0
+    },
+    {
+     "date": "10-08",
+     "commits": 0
+    },
+    {
+     "date": "10-09",
+     "commits": 3
+    },
+    {
+     "date": "10-10",
+     "commits": 0
+    },
+    {
+     "date": "10-11",
+     "commits": 0
+    },
+    {
+     "date": "10-12",
+     "commits": 3
+    },
+    {
+     "date": "10-13",
+     "commits": 2
+    },
+    {
+     "date": "10-14",
+     "commits": 0
+    },
+    {
+     "date": "10-15",
+     "commits": 0
+    },
+    {
+     "date": "10-16",
+     "commits": 0
+    },
+    {
+     "date": "10-17",
+     "commits": 0
+    },
+    {
+     "date": "10-18",
+     "commits": 0
+    },
+    {
+     "date": "10-19",
+     "commits": 0
+    },
+    {
+     "date": "10-20",
+     "commits": 2
+    },
+    {
+     "date": "10-21",
+     "commits": 1
+    },
+    {
+     "date": "10-22",
+     "commits": 1
+    },
+    {
+     "date": "10-23",
+     "commits": 1
+    },
+    {
+     "date": "10-24",
+     "commits": 0
+    },
+    {
+     "date": "10-25",
+     "commits": 0
+    },
+    {
+     "date": "10-26",
+     "commits": 6
+    },
+    {
+     "date": "10-27",
+     "commits": 5
+    },
+    {
+     "date": "10-28",
+     "commits": 3
+    },
+    {
+     "date": "10-29",
+     "commits": 3
+    },
+    {
+     "date": "10-30",
+     "commits": 2
+    },
+    {
+     "date": "10-31",
+     "commits": 0
+    },
+    {
+     "date": "11-01",
+     "commits": 0
+    },
+    {
+     "date": "11-02",
+     "commits": 0
+    }
+   ],
+   "weekly": [
+    {
+     "label": "08-01",
+     "commits": 4,
+     "effective": 4,
+     "authors": 1,
+     "insertions": 154,
+     "deletions": 42
+    },
+    {
+     "label": "08-08",
+     "commits": 8,
+     "effective": 7,
+     "authors": 1,
+     "insertions": 217,
+     "deletions": 52
+    },
+    {
+     "label": "08-15",
+     "commits": 12,
+     "effective": 12,
+     "authors": 1,
+     "insertions": 396,
+     "deletions": 227
+    },
+    {
+     "label": "08-22",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "insertions": 2,
+     "deletions": 9
+    },
+    {
+     "label": "08-29",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-05",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-12",
+     "commits": 4,
+     "effective": 4,
+     "authors": 1,
+     "insertions": 483,
+     "deletions": 17
+    },
+    {
+     "label": "09-19",
+     "commits": 4,
+     "effective": 4,
+     "authors": 1,
+     "insertions": 8683,
+     "deletions": 179
+    },
+    {
+     "label": "09-26",
+     "commits": 2,
+     "effective": 2,
+     "authors": 1,
+     "insertions": 999,
+     "deletions": 137
+    },
+    {
+     "label": "10-03",
+     "commits": 3,
+     "effective": 3,
+     "authors": 2,
+     "insertions": 628,
+     "deletions": 917
+    },
+    {
+     "label": "10-10",
+     "commits": 5,
+     "effective": 5,
+     "authors": 2,
+     "insertions": 185,
+     "deletions": 31
+    },
+    {
+     "label": "10-17",
+     "commits": 5,
+     "effective": 5,
+     "authors": 1,
+     "insertions": 382,
+     "deletions": 171
+    },
+    {
+     "label": "10-24",
+     "commits": 19,
+     "effective": 19,
+     "authors": 1,
+     "insertions": 563,
+     "deletions": 213
+    },
+    {
+     "label": "10-31",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    }
+   ],
+   "moduleActivity": [
+    {
+     "module": "src/views",
+     "desc": "检索/分析页面（缺陷修复与 UI 调整）",
+     "insertions": 408,
+     "deletions": 186,
+     "commits": 14,
+     "core": true
+    },
+    {
+     "module": "src/directive",
+     "desc": "图片查看指令（viewer 懒加载修复）",
+     "insertions": 80,
+     "deletions": 9,
+     "commits": 1,
+     "core": false
+    },
+    {
+     "module": "src/utils",
+     "desc": "工具",
+     "insertions": 38,
+     "deletions": 5,
+     "commits": 1,
+     "core": false
+    },
+    {
+     "module": "src/components",
+     "desc": "组件（收藏夹树选择、页面头等）",
+     "insertions": 16,
+     "deletions": 6,
+     "commits": 5,
+     "core": true
+    },
+    {
+     "module": "src/App.vue",
+     "desc": "应用入口",
+     "insertions": 10,
+     "deletions": 4,
+     "commits": 1,
+     "core": false
+    },
+    {
+     "module": "src/styles",
+     "desc": "样式",
+     "insertions": 5,
+     "deletions": 0,
+     "commits": 2,
+     "core": false
+    },
+    {
+     "module": "src/version.js",
+     "desc": "版本号（5.15.0）",
+     "insertions": 3,
+     "deletions": 2,
+     "commits": 1,
+     "core": false
+    },
+    {
+     "module": "src/main.js",
+     "desc": "入口",
+     "insertions": 3,
+     "deletions": 1,
+     "commits": 1,
+     "core": false
+    },
+    {
+     "module": "public/VersionDescription.docx",
+     "desc": "5.15.0 公告（二进制）",
+     "insertions": 0,
+     "deletions": 0,
+     "commits": 1,
+     "core": false
+    },
+    {
+     "module": "public/~$rsionDescription.docx",
+     "desc": "Office 编辑锁文件（卫生信号）",
+     "insertions": 0,
+     "deletions": 0,
+     "commits": 1,
+     "core": false
+    },
+    {
+     "module": "static/img",
+     "desc": "公告图片（二进制）",
+     "insertions": 0,
+     "deletions": 0,
+     "commits": 1,
+     "core": false
+    }
+   ],
+   "peopleProfile": [
+    {
+     "name": "郑宜权",
+     "role": "前端主力·检索/会话/收藏夹/分析",
+     "intent": "四类功能前端主写 + 上期 2 笔 TAPD 缺陷修复",
+     "workload": "统计期 62 笔（份额 94%）",
+     "intensity": "29 个活跃日，峰值 10-26（6 笔），深夜 0/周末 0",
+     "engagement": "覆盖 19 个模块、4 分支全覆盖",
+     "risk": "bus factor=1（连续 3 期在案）——已升级为专项治理建议（第二责任人）",
+     "riskLevel": "高",
+     "activeDays": 29,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "2026-10-26",
+     "peakN": 6,
+     "modulesTouched": 19,
+     "testCommits": 0,
+     "share": 0.939
+    },
+    {
+     "name": "苏广銮",
+     "role": "检索字段配合（10-12）",
+     "intent": "检索字段小改动",
+     "workload": "统计期 3 笔（份额 5%）",
+     "intensity": "1 个活跃日",
+     "engagement": "覆盖 3 模块",
+     "risk": "样本小",
+     "riskLevel": null,
+     "activeDays": 1,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "2026-10-12",
+     "peakN": 3,
+     "modulesTouched": 3,
+     "testCommits": 0,
+     "share": 0.045
+    },
+    {
+     "name": "钟江华",
+     "role": "session 重写（10-09）",
+     "intent": "session 模块 −908 行二次实现",
+     "workload": "统计期 1 笔（份额 2%）",
+     "intensity": "1 个活跃日",
+     "engagement": "覆盖 6 模块",
+     "risk": "重写原因待确认（返工或重构）",
+     "riskLevel": "中",
+     "activeDays": 1,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "2026-10-09",
+     "peakN": 1,
+     "modulesTouched": 6,
+     "testCommits": 0,
+     "share": 0.015
+    }
+   ],
+   "plans": [
+    {
+     "id": "R3",
+     "name": "图像检索优化-多图同时检索",
+     "owner": "郑宜权/钟江华",
+     "start": "09-07",
+     "due": "09-11",
+     "status": "已完成",
+     "note": "复核沿用：文档维持已完成 ∧ 交付期内（770e71d 10-26 P2 核证）",
+     "prevStatus": "已完成",
+     "done": "10-26"
+    },
+    {
+     "id": "R11",
+     "name": "登录释放策略优化",
+     "owner": "郑宜权/钟江华",
+     "start": "09-30",
+     "due": "10-21",
+     "status": "部分推进",
+     "note": "文档\"测试中\"；提测日已过 9 个工作日；窗口 1016188 分支 10-29 多 tab 同步改动（1068be69）",
+     "prevStatus": "部分推进",
+     "done": null
+    },
+    {
+     "id": "R12",
+     "name": "收藏夹支持检索",
+     "owner": "高鲸凱/郑宜权",
+     "start": "10-16",
+     "due": "10-27",
+     "status": "部分推进",
+     "note": "提测日已过 5 个工作日；窗口 feat-1016010 10-26/10-30 改动（含 8cf662a3 收藏夹树选择修复）",
+     "prevStatus": "部分推进",
+     "done": null
+    },
+    {
+     "id": "R13",
+     "name": "专利分析-技术生命周期优化",
+     "owner": "郑宜权",
+     "start": "10-16",
+     "due": "10-30",
+     "status": "已推进",
+     "note": "文档\"开发完毕\"；提测日已过 2 个工作日（82025cf4 10-29 后无新提交）——不作已完成",
+     "prevStatus": "已推进",
+     "done": null
+    }
+   ],
+   "risks": [
+    {
+     "title": "4 条功能分支相对 master 各领先 872~874 提交、分叉 497 天",
+     "plain": "四条功能分支都是一年多前从 master 拉出来的，各自领先约 870 个提交，master 已 16 个月没动",
+     "dimension": "integration",
+     "level": "高",
+     "evidence": "ahead 872/874/873/872，behind 8，merge-base 2025-06-23",
+     "advice": "专项治理：立项评审\"master 是否仍为活主干\"，制定四分支合并/发版路线图并明确责任人",
+     "agePeriods": 3
+    },
+    {
+     "title": "统计期本仓 94% 提交集中在郑宜权一人（窗口期 19/19）",
+     "plain": "这个仓库最近三个月的活基本是一个人干的，他不在就没人接手",
+     "dimension": "people",
+     "level": "高",
+     "evidence": "§1.4/§1.19：62/66 有效提交；窗口期 19/19",
+     "advice": "专项治理：四类功能各指定第二责任人并做一次代码走查交接",
+     "agePeriods": 3
+    },
+    {
+     "title": "前端零单测 + 自有代码 TODO 26 处",
+     "plain": "前端功能改动没有任何配套测试，代码里还积了 26 处待办标记",
+     "dimension": "quality",
+     "level": "高",
+     "evidence": "§1.18：存量测试 0、窗口 19 笔零测试同步；TODO 97（第三方插件 71 + 自有 26）",
+     "advice": "专项治理：建立最小前端回归清单（检索主链路 + 收藏夹 + 技术生命周期），随 R12/R13 收口执行",
+     "agePeriods": 3
+    },
+    {
+     "title": "session 模块统计期内二次实现（−908 行重写）",
+     "plain": "登录会话模块在统计期内被整块重写过一次，原因需要确认",
+     "dimension": "quality",
+     "level": "中",
+     "evidence": "§1.3：钟江华 10-09 提交 −908 行（统计期在案）",
+     "advice": "复盘确认重写原因（返工或重构），评估是否需要回归测试",
+     "agePeriods": 3
+    },
+    {
+     "title": "R11/R12 已过提测日仍在测试、R13 提测日已过",
+     "plain": "三个功能过了计划提交测试的时间还没确认交付，滞后在累积",
+     "dimension": "progress",
+     "level": "中",
+     "evidence": "任务明细：R11 提测 10-21（+9 工作日）、R12 10-27（+5）、R13 10-30（+2）；窗口内无状态更新",
+     "advice": "与文档维护人核对提测/交付状态；R11 优先",
+     "agePeriods": 3
+    },
+    {
+     "title": "部分提交作者日期与提交日期错位（历史在案）",
+     "plain": "有些提交的\"发生时间\"和\"入库时间\"对不上，统计时已按发生时间口径处理",
+     "dimension": "convention",
+     "level": "低",
+     "evidence": "§1.0 防御条款：窗口按作者日期聚合（19 笔）；本期无新增错位提交",
+     "advice": "维持作者日期口径（勘误②）；cherry-pick/合并提交注明来源",
+     "agePeriods": 3
+    }
+   ],
+   "insights": [
+    "patyee-next@0bf67cf3 public/VersionDescription.docx —— git show --stat 核实 9 文件 +17/−10（勘误②：上期\"36 文件 +68/−40\"系 4 分支重复计数）；含 ~$rsionDescription.docx Office 锁文件被追踪——建议 .gitignore 增补 ~$*",
+    "patyee-next@876af5ff src/directive/viewer/index.js —— viewer 懒加载竞态修复（10-28，3 文件 +188/−31）：el._viewer 实例隔离 + unbind 清理 + 失败重触发 replaceImageUrl——逻辑正确，未配测试；全局 viewerEls 依赖 unbind 调用，建议长列表页切换冒烟",
+    "patyee-next@9139ecf1 LifeLine.vue —— 合并数据穿透修复（+3/−2，TAPD …017536）；patyee-next@8cf662a3 FavoriteSearchTreeSelect.vue —— PF 字段数量不一致修复（+1/−1，TAPD …017542）——与缺陷基线闭环方向一致（正面）",
+    "patyee-next@82025cf4 —— R13 技术生命周期前端（10-29，5 文件 +12/−10），与 ourchem-data@f456df5 前后端配套",
+    "热点文件 18 个均为同哈希跨分支可达（版本同步合并），非真实冲突（口径注记）",
+    "口径勘误②见 summary.md 说明区与本分册附录 1——增删行类数值跨期对比以本期口径为准"
+   ],
+   "lifetime": {
+    "first": "2024-03-01",
+    "last": "2026-10-30",
+    "totalCommits": 3587,
+    "authors": 14,
+    "monthly": {
+     "2026-10": 71,
+     "2026-09": 27,
+     "2026-08": 30,
+     "2026-07": 29,
+     "2026-06": 37,
+     "2026-05": 162,
+     "2026-04": 169,
+     "2026-03": 108,
+     "2026-02": 17,
+     "2026-01": 53,
+     "2025-12": 39,
+     "2025-11": 27,
+     "2025-10": 24,
+     "2025-09": 38,
+     "2025-08": 113,
+     "2025-07": 281,
+     "2025-06": 19,
+     "2025-05": 78,
+     "2025-04": 69,
+     "2025-03": 11,
+     "2025-02": 10,
+     "2024-12": 7,
+     "2024-11": 15,
+     "2024-10": 59,
+     "2024-09": 79,
+     "2024-08": 147,
+     "2024-07": 71,
+     "2024-06": 123,
+     "2024-05": 264,
+     "2024-04": 835,
+     "2024-03": 575
+    },
+    "topAuthors": [
+     {
+      "who": "郑宜权",
+      "commits": 988
+     },
+     {
+      "who": "linjingmiao@ourchem.com（待映射）",
+      "commits": 699
+     },
+     {
+      "who": "zhengzengping@ourchem.com（待映射）",
+      "commits": 456
+     },
+     {
+      "who": "wanglei@ourchem.com（待映射）",
+      "commits": 331
+     },
+     {
+      "who": "苏广銮",
+      "commits": 227
+     }
+    ]
+   },
+   "windowAnalysis": {
+    "classification": {
+     "feat": 4,
+     "fix": 10,
+     "refactor": 1,
+     "test": 1,
+     "style": 3
+    },
+    "merges": 0,
+    "effectiveCommits": 19,
+    "trivial": [
+     {
+      "h": "090ae9f67a",
+      "msg": "style: 分页浏览详情时覆盖--page-search-h（对应searchDetail的顶部查询输入框高度）为0像",
+      "lines": 3
+     },
+     {
+      "h": "aa1492cea5",
+      "msg": "fix: replaceImageUrl后“检索此图相似专利”用的还是旧图",
+      "lines": 2
+     },
+     {
+      "h": "d78d6ee403",
+      "msg": "style: 【图像结果页专利信息显示不全】 https://www.tapd.cn/tapd_fe/61451497/",
+      "lines": 2
+     },
+     {
+      "h": "a9fd3b9c28",
+      "msg": "fix: 修复图片上传错误时的状态重置逻辑",
+      "lines": 2
+     },
+     {
+      "h": "8cf662a31b",
+      "msg": "fix: 【高级检索PF字段专利数量和收藏夹数量对不上】 https://www.tapd.cn/tapd_fe/614",
+      "lines": 2
+     }
+    ]
+   },
+   "dayDiff": {
+    "todayCommits": 0,
+    "todayEffective": 0,
+    "todayIns": 0,
+    "todayDel": 0,
+    "prevDayCommits": 2,
+    "prevDayEffective": 2,
+    "prevDayIns": 4,
+    "prevDayDel": 3,
+    "newAuthors": [],
+    "goneAuthors": [
+     "郑宜权"
+    ],
+    "aheadDelta": "0",
+    "note": "上一变动日（10-30）17:31/18:40 两笔缺陷修复（郑宜权，+4/−3）后周末两日无提交；今日（周一）截至 06:22 无新提交——非整日不判骤降（git 盲区声明：非编码投入不可见，不以当日零提交贬低成员）"
+   },
+   "roundDiff": null,
+   "roundSnapshots": [
+    {
+     "period": 4,
+     "at": "06:22",
+     "commits": 19,
+     "effective": 19,
+     "ins": 563,
+     "del": 213,
+     "authors": 1,
+     "big": 0,
+     "todos": 97,
+     "scores": {
+      "progress": 48,
+      "people": 70,
+      "quality": 58,
+      "integration": 68,
+      "standard": 10
+     },
+     "total": 51.7,
+     "level": "高",
+     "topRisk": "4 条功能分支领先 master 870+ 提交、分叉 497 天；94% 提交单人集中"
+    }
+   ],
+   "prev": {
+    "total": 51.7,
+    "scores": {
+     "progress": 48,
+     "people": 70,
+     "quality": 58,
+     "integration": 68,
+     "convention": 10
+    },
+    "members": [
+     {
+      "name": "郑宜权",
+      "commits": 19
+     }
+    ],
+    "branches": [
+     {
+      "name": "图像检索优化-支持多张图片同时检索",
+      "ahead": 872,
+      "behind": 8
+     },
+     {
+      "name": "1016188-登录释放策略优化",
+      "ahead": 874,
+      "behind": 8
+     },
+     {
+      "name": "feat-1016010-收藏夹支持检索",
+      "ahead": 873,
+      "behind": 8
+     },
+     {
+      "name": "feat-1016189-专利分析-技术生命周期优化",
+      "ahead": 872,
+      "behind": 8
+     }
+    ],
+    "quality": {
+     "todo": 97,
+     "bigCommits": 1,
+     "reworkRatio": 0.454,
+     "largeFiles": 0
+    }
+   }
+  },
+  {
+   "name": "ourchem-patyee",
+   "total": 33.0,
+   "level": "中",
+   "delta": 0.0,
+   "scores": {
+    "progress": 45,
+    "people": 25,
+    "quality": 50,
+    "integration": 20,
+    "convention": 10
+   },
+   "topRisk": "TODO 300 处；R12 已过提测日 5 个工作日",
+   "narrative": {
+    "progress": "R3 已交付沿用；R12 滞后（+5 工作日）；窗口 1 笔有效重构 + 2 笔版本合并",
+    "people": "钟江华 49%/高鲸凱 46% 双主力均衡（勘误②修正口径），节奏健康",
+    "quality": "TODO 300 持续超标；窗口重构零测试同步；返工比 0.466 临界",
+    "integration": "v5.13.8 已合并回流（ahead 0）；feat-1016010 落后 19（关注级）",
+    "convention": "message 规范；无碎提交",
+    "rhythm": "窗口非零日 10-26（重构+合并）、10-30（v5.13.8 回流）",
+    "modules": "改动集中在收藏夹检索服务（core/src，R12 重构）",
+    "plans": "R12 部分推进（重构已回流主干，交付确认待文档）",
+    "testing": "重构零测试同步；存量 31 个测试为框架/脚手架为主"
+   },
+   "testing": {
+    "testCommitShare": 0,
+    "syncRate": 0,
+    "syncDenom": 1,
+    "testRatio": 0,
+    "stockTestFiles": 31,
+    "stockNote": "31 个测试文件以框架/脚手架为主（P2 抽查口径沿用）",
+    "sitTraces": 0,
+    "aiReview": "SearchServiceImpl 路径规则重构无测试同步；建议补服务层单测（与前端 R12 联动）——已列入专项治理建议"
+   },
+   "members": [
+    {
+     "name": "高鲸凱",
+     "commits": 1,
+     "insertions": 73,
+     "deletions": 34,
+     "branches": {
+      "feat-1016010-收藏夹支持检索": 1
+     },
+     "activeDays": 1,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "2026-10-26",
+     "peakN": 1,
+     "modulesTouched": 1,
+     "testCommits": 0
+    },
+    {
+     "name": "钟江华",
+     "commits": 2,
+     "insertions": 0,
+     "deletions": 0,
+     "branches": {
+      "master-pro": 2,
+      "v5.13.8": 1
+     },
+     "activeDays": 2,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "2026-10-30",
+     "peakN": 1,
+     "modulesTouched": 0,
+     "testCommits": 0
+    }
+   ],
+   "branches": [
+    {
+     "name": "v5.13.8",
+     "ahead": 0,
+     "behind": 4,
+     "staleDays": 7,
+     "lastActive": "10-26"
+    },
+    {
+     "name": "feat-1016010-收藏夹支持检索",
+     "ahead": 9,
+     "behind": 19,
+     "staleDays": 19,
+     "lastActive": "10-26"
+    }
+   ],
+   "quality": {
+    "todo": 300,
+    "todoThreshold": 20,
+    "bigCommits": 0,
+    "reworkRatio": 0.466,
+    "reworkThreshold": 0.5,
+    "largeFiles": 0
+   },
+   "rhythm": [
+    {
+     "date": "08-01",
+     "commits": 0
+    },
+    {
+     "date": "08-02",
+     "commits": 0
+    },
+    {
+     "date": "08-03",
+     "commits": 3
+    },
+    {
+     "date": "08-04",
+     "commits": 0
+    },
+    {
+     "date": "08-05",
+     "commits": 0
+    },
+    {
+     "date": "08-06",
+     "commits": 1
+    },
+    {
+     "date": "08-07",
+     "commits": 0
+    },
+    {
+     "date": "08-08",
+     "commits": 0
+    },
+    {
+     "date": "08-09",
+     "commits": 0
+    },
+    {
+     "date": "08-10",
+     "commits": 0
+    },
+    {
+     "date": "08-11",
+     "commits": 0
+    },
+    {
+     "date": "08-12",
+     "commits": 0
+    },
+    {
+     "date": "08-13",
+     "commits": 1
+    },
+    {
+     "date": "08-14",
+     "commits": 0
+    },
+    {
+     "date": "08-15",
+     "commits": 0
+    },
+    {
+     "date": "08-16",
+     "commits": 0
+    },
+    {
+     "date": "08-17",
+     "commits": 0
+    },
+    {
+     "date": "08-18",
+     "commits": 0
+    },
+    {
+     "date": "08-19",
+     "commits": 0
+    },
+    {
+     "date": "08-20",
+     "commits": 0
+    },
+    {
+     "date": "08-21",
+     "commits": 0
+    },
+    {
+     "date": "08-22",
+     "commits": 0
+    },
+    {
+     "date": "08-23",
+     "commits": 0
+    },
+    {
+     "date": "08-24",
+     "commits": 0
+    },
+    {
+     "date": "08-25",
+     "commits": 0
+    },
+    {
+     "date": "08-26",
+     "commits": 0
+    },
+    {
+     "date": "08-27",
+     "commits": 0
+    },
+    {
+     "date": "08-28",
+     "commits": 0
+    },
+    {
+     "date": "08-29",
+     "commits": 0
+    },
+    {
+     "date": "08-30",
+     "commits": 0
+    },
+    {
+     "date": "08-31",
+     "commits": 0
+    },
+    {
+     "date": "09-01",
+     "commits": 0
+    },
+    {
+     "date": "09-02",
+     "commits": 0
+    },
+    {
+     "date": "09-03",
+     "commits": 0
+    },
+    {
+     "date": "09-04",
+     "commits": 1
+    },
+    {
+     "date": "09-05",
+     "commits": 0
+    },
+    {
+     "date": "09-06",
+     "commits": 0
+    },
+    {
+     "date": "09-07",
+     "commits": 1
+    },
+    {
+     "date": "09-08",
+     "commits": 1
+    },
+    {
+     "date": "09-09",
+     "commits": 0
+    },
+    {
+     "date": "09-10",
+     "commits": 2
+    },
+    {
+     "date": "09-11",
+     "commits": 0
+    },
+    {
+     "date": "09-12",
+     "commits": 0
+    },
+    {
+     "date": "09-13",
+     "commits": 0
+    },
+    {
+     "date": "09-14",
+     "commits": 0
+    },
+    {
+     "date": "09-15",
+     "commits": 0
+    },
+    {
+     "date": "09-16",
+     "commits": 0
+    },
+    {
+     "date": "09-17",
+     "commits": 0
+    },
+    {
+     "date": "09-18",
+     "commits": 0
+    },
+    {
+     "date": "09-19",
+     "commits": 0
+    },
+    {
+     "date": "09-20",
+     "commits": 2
+    },
+    {
+     "date": "09-21",
+     "commits": 2
+    },
+    {
+     "date": "09-22",
+     "commits": 0
+    },
+    {
+     "date": "09-23",
+     "commits": 1
+    },
+    {
+     "date": "09-24",
+     "commits": 0
+    },
+    {
+     "date": "09-25",
+     "commits": 0
+    },
+    {
+     "date": "09-26",
+     "commits": 0
+    },
+    {
+     "date": "09-27",
+     "commits": 0
+    },
+    {
+     "date": "09-28",
+     "commits": 1
+    },
+    {
+     "date": "09-29",
+     "commits": 0
+    },
+    {
+     "date": "09-30",
+     "commits": 1
+    },
+    {
+     "date": "10-01",
+     "commits": 0
+    },
+    {
+     "date": "10-02",
+     "commits": 0
+    },
+    {
+     "date": "10-03",
+     "commits": 0
+    },
+    {
+     "date": "10-04",
+     "commits": 0
+    },
+    {
+     "date": "10-05",
+     "commits": 0
+    },
+    {
+     "date": "10-06",
+     "commits": 0
+    },
+    {
+     "date": "10-07",
+     "commits": 0
+    },
+    {
+     "date": "10-08",
+     "commits": 1
+    },
+    {
+     "date": "10-09",
+     "commits": 1
+    },
+    {
+     "date": "10-10",
+     "commits": 1
+    },
+    {
+     "date": "10-11",
+     "commits": 0
+    },
+    {
+     "date": "10-12",
+     "commits": 2
+    },
+    {
+     "date": "10-13",
+     "commits": 1
+    },
+    {
+     "date": "10-14",
+     "commits": 1
+    },
+    {
+     "date": "10-15",
+     "commits": 0
+    },
+    {
+     "date": "10-16",
+     "commits": 4
+    },
+    {
+     "date": "10-17",
+     "commits": 0
+    },
+    {
+     "date": "10-18",
+     "commits": 0
+    },
+    {
+     "date": "10-19",
+     "commits": 1
+    },
+    {
+     "date": "10-20",
+     "commits": 2
+    },
+    {
+     "date": "10-21",
+     "commits": 6
+    },
+    {
+     "date": "10-22",
+     "commits": 0
+    },
+    {
+     "date": "10-23",
+     "commits": 0
+    },
+    {
+     "date": "10-24",
+     "commits": 0
+    },
+    {
+     "date": "10-25",
+     "commits": 0
+    },
+    {
+     "date": "10-26",
+     "commits": 2
+    },
+    {
+     "date": "10-27",
+     "commits": 0
+    },
+    {
+     "date": "10-28",
+     "commits": 0
+    },
+    {
+     "date": "10-29",
+     "commits": 0
+    },
+    {
+     "date": "10-30",
+     "commits": 1
+    },
+    {
+     "date": "10-31",
+     "commits": 0
+    },
+    {
+     "date": "11-01",
+     "commits": 0
+    },
+    {
+     "date": "11-02",
+     "commits": 0
+    }
+   ],
+   "weekly": [
+    {
+     "label": "08-01",
+     "commits": 4,
+     "effective": 4,
+     "authors": 1,
+     "insertions": 5,
+     "deletions": 3
+    },
+    {
+     "label": "08-08",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "insertions": 3,
+     "deletions": 3
+    },
+    {
+     "label": "08-15",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "08-22",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "08-29",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "insertions": 0,
+     "deletions": 1
+    },
+    {
+     "label": "09-05",
+     "commits": 4,
+     "effective": 4,
+     "authors": 1,
+     "insertions": 2731,
+     "deletions": 512
+    },
+    {
+     "label": "09-12",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-19",
+     "commits": 5,
+     "effective": 5,
+     "authors": 2,
+     "insertions": 3899,
+     "deletions": 818
+    },
+    {
+     "label": "09-26",
+     "commits": 2,
+     "effective": 2,
+     "authors": 1,
+     "insertions": 1197,
+     "deletions": 141
+    },
+    {
+     "label": "10-03",
+     "commits": 2,
+     "effective": 2,
+     "authors": 1,
+     "insertions": 14,
+     "deletions": 14
+    },
+    {
+     "label": "10-10",
+     "commits": 9,
+     "effective": 8,
+     "authors": 2,
+     "insertions": 839,
+     "deletions": 135
+    },
+    {
+     "label": "10-17",
+     "commits": 9,
+     "effective": 7,
+     "authors": 2,
+     "insertions": 191,
+     "deletions": 63
+    },
+    {
+     "label": "10-24",
+     "commits": 3,
+     "effective": 1,
+     "authors": 1,
+     "insertions": 73,
+     "deletions": 34
+    },
+    {
+     "label": "10-31",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    }
+   ],
+   "moduleActivity": [
+    {
+     "module": "core/src",
+     "desc": "收藏夹检索服务（R12 重构）",
+     "insertions": 73,
+     "deletions": 34,
+     "commits": 1,
+     "core": true
+    }
+   ],
+   "peopleProfile": [
+    {
+     "name": "钟江华",
+     "role": "后端·session/服务重构",
+     "intent": "session/服务重写与版本合并收口",
+     "workload": "统计期 17 笔（份额 49%）",
+     "intensity": "14 个活跃日，峰值 10-20（2 笔），深夜 0/周末 2",
+     "engagement": "覆盖 4 模块、2 笔测试产出",
+     "risk": "样本小；周末 2 笔为合并收口形态",
+     "riskLevel": null,
+     "activeDays": 14,
+     "deepNight": 0,
+     "weekend": 2,
+     "peakDay": "2026-10-20",
+     "peakN": 2,
+     "modulesTouched": 4,
+     "testCommits": 2,
+     "share": 0.486
+    },
+    {
+     "name": "高鲸凱",
+     "role": "后端·收藏夹",
+     "intent": "收藏夹检索路径规则重构（R12）",
+     "workload": "统计期 16 笔（份额 46%）",
+     "intensity": "9 个活跃日，峰值 10-21（6 笔），深夜 0/周末 0",
+     "engagement": "覆盖 1 模块",
+     "risk": "本仓单模块集中",
+     "riskLevel": null,
+     "activeDays": 9,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "2026-10-21",
+     "peakN": 6,
+     "modulesTouched": 1,
+     "testCommits": 0,
+     "share": 0.457
+    },
+    {
+     "name": "苏广銮",
+     "role": "检索字段配合（9 月）",
+     "intent": "检索字段配合",
+     "workload": "统计期 2 笔（份额 6%）",
+     "intensity": "2 个活跃日",
+     "engagement": "覆盖 1 模块",
+     "risk": "样本小",
+     "riskLevel": null,
+     "activeDays": 2,
+     "deepNight": 0,
+     "weekend": 1,
+     "peakDay": "2026-09-21",
+     "peakN": 1,
+     "modulesTouched": 1,
+     "testCommits": 0,
+     "share": 0.057
+    }
+   ],
+   "plans": [
+    {
+     "id": "R3",
+     "name": "图像检索优化-多图同时检索",
+     "owner": "郑宜权/钟江华",
+     "start": "09-07",
+     "due": "09-11",
+     "status": "已完成",
+     "note": "复核沿用（交付证据在 patyee-next，P2 核证）",
+     "prevStatus": "已完成",
+     "done": "10-26"
+    },
+    {
+     "id": "R12",
+     "name": "收藏夹支持检索",
+     "owner": "高鲸凱/郑宜权",
+     "start": "10-16",
+     "due": "10-27",
+     "status": "部分推进",
+     "note": "提测日已过 5 个工作日；7096193 重构已随 v5.13.8 回流主干（9b976cef 10-30 14:45）——交付确认待文档",
+     "prevStatus": "部分推进",
+     "done": null
+    }
+   ],
+   "risks": [
+    {
+     "title": "TODO 300 处（收藏夹服务单文件 14 处）",
+     "plain": "代码里积了 300 处待办标记，光收藏夹服务一个文件就有 14 处",
+     "dimension": "quality",
+     "level": "中",
+     "evidence": "§1.6：300 > 20（环比持平）",
+     "advice": "专项治理：收藏夹服务 TODO 随 R12 收口一次性清理并列入迭代验收项",
+     "agePeriods": 3
+    },
+    {
+     "title": "R12 已过提测日，窗口仅 1 笔有效重构",
+     "plain": "收藏夹检索功能过了提测时间还没确认交付",
+     "dimension": "progress",
+     "level": "中",
+     "evidence": "任务明细 R12 提测 10-27（+5 工作日）；7096193（10-26）重构",
+     "advice": "与文档维护人核对 R12 状态；提测确认后关闭",
+     "agePeriods": 3
+    },
+    {
+     "title": "窗口改动无测试同步（存量测试 31 个为框架/脚手架为主）",
+     "plain": "本期唯一的代码重构没有配套测试",
+     "dimension": "quality",
+     "level": "中",
+     "evidence": "§1.18：同步率 0/1",
+     "advice": "专项治理：SearchServiceImpl 重构补服务层单测（与前端 R12 联动回归）",
+     "agePeriods": 3
+    },
+    {
+     "title": "feat-1016010 落后主干 19 提交（v5.13.8 已合并回流——改善维持）",
+     "plain": "收藏夹分支还没合并回主干，但版本分支已经合过了，属收尾事项",
+     "dimension": "integration",
+     "level": "低",
+     "evidence": "§1.5：feat-1016010 ahead 9 / behind 19；v5.13.8 ahead 0 / behind 4",
+     "advice": "feat-1016010 随 R12 收口合并；已回流的 v5.13.8 可归档",
+     "agePeriods": 3
+    }
+   ],
+   "insights": [
+    "ourchem-patyee@7096193 core/src/.../SearchServiceImpl.java —— 收藏夹检索路径规则重构（10-26，单文件 +73/−34，git show --stat 本期复核）；10-30 v5.13.8 合并回 master-pro（9b976cef）——重构已进主干（正面）",
+    "合并链核验（P3 核证沿用）：ea528a9f（10-26，v5.13.7→feat，钟江华）→ 0bf67cf3 公告 → v5.13.8 → 9b976cef（10-30）回流——版本线收口路径清晰",
+    "统计期人员增删行按勘误②修正（钟江华 15319/3341→7471/1599、高鲸凱 462/169→393/122、苏广銮 3264/9→1088/3）；高鲸凱 17→16 笔以 weekly/饱和度同源复核为准（上期人员表 1 笔内部不一致）",
+    "测试缺失（aging 3 期）：重构无测试同步"
+   ],
+   "lifetime": {
+    "first": "2020-04-27",
+    "last": "2026-10-30",
+    "totalCommits": 4288,
+    "authors": 23,
+    "monthly": {
+     "2026-10": 76,
+     "2026-09": 71,
+     "2026-08": 42,
+     "2026-07": 63,
+     "2026-06": 85,
+     "2026-05": 64,
+     "2026-04": 151,
+     "2026-02": 33,
+     "2026-03": 136,
+     "2026-01": 14,
+     "2025-12": 4,
+     "2025-11": 9,
+     "2025-10": 39,
+     "2025-09": 87,
+     "2025-08": 35,
+     "2025-07": 17,
+     "2025-06": 46,
+     "2025-05": 13,
+     "2025-04": 20,
+     "2025-03": 4,
+     "2025-01": 6,
+     "2024-12": 12,
+     "2024-11": 18,
+     "2024-10": 5,
+     "2024-09": 28,
+     "2024-08": 95,
+     "2024-07": 63,
+     "2024-06": 40,
+     "2024-05": 55,
+     "2024-04": 51,
+     "2024-03": 28,
+     "2024-02": 66,
+     "2024-01": 64,
+     "2023-12": 69,
+     "2023-11": 30,
+     "2023-10": 42,
+     "2023-09": 85,
+     "2023-08": 105,
+     "2023-07": 188,
+     "2023-06": 10,
+     "2023-05": 50,
+     "2023-04": 51,
+     "2023-03": 40,
+     "2023-02": 27,
+     "2023-01": 29,
+     "2022-12": 46,
+     "2022-11": 62,
+     "2022-10": 29,
+     "2022-09": 29,
+     "2022-08": 40,
+     "2022-07": 104,
+     "2022-06": 32,
+     "2022-05": 34,
+     "2022-04": 80,
+     "2022-03": 43,
+     "2022-02": 14,
+     "2022-01": 71,
+     "2021-12": 92,
+     "2021-11": 47,
+     "2021-10": 18,
+     "2021-09": 27,
+     "2021-08": 49,
+     "2021-07": 34,
+     "2021-06": 53,
+     "2021-05": 65,
+     "2021-04": 56,
+     "2021-03": 38,
+     "2021-02": 60,
+     "2021-01": 70,
+     "2020-12": 31,
+     "2020-11": 65,
+     "2020-10": 24,
+     "2020-09": 75,
+     "2020-08": 91,
+     "2020-07": 31,
+     "2020-06": 226,
+     "2020-05": 282,
+     "2020-04": 4
+    },
+    "topAuthors": [
+     {
+      "who": "huangjunjie@ourchem.com（待映射）",
+      "commits": 1305
+     },
+     {
+      "who": "吴嘉明",
+      "commits": 456
+     },
+     {
+      "who": "zhouzhaokang@ourchem.com（待映射）",
+      "commits": 429
+     },
+     {
+      "who": "Qyw123456（待映射）",
+      "commits": 352
+     },
+     {
+      "who": "高鲸凱",
+      "commits": 307
+     }
+    ]
+   },
+   "windowAnalysis": {
+    "classification": {
+     "refactor": 1,
+     "合并": 2
+    },
+    "merges": 2,
+    "effectiveCommits": 1,
+    "trivial": []
+   },
+   "dayDiff": {
+    "todayCommits": 0,
+    "todayEffective": 0,
+    "todayIns": 0,
+    "todayDel": 0,
+    "prevDayCommits": 1,
+    "prevDayEffective": 0,
+    "prevDayIns": 0,
+    "prevDayDel": 0,
+    "newAuthors": [],
+    "goneAuthors": [],
+    "aheadDelta": "0",
+    "note": "上一变动日（10-30）14:45 v5.13.8 合并回 master-pro（9b976cef）后周末两日无提交；今日无新提交"
+   },
+   "roundDiff": null,
+   "roundSnapshots": [
+    {
+     "period": 4,
+     "at": "06:22",
+     "commits": 3,
+     "effective": 1,
+     "ins": 73,
+     "del": 34,
+     "authors": 2,
+     "big": 0,
+     "todos": 300,
+     "scores": {
+      "progress": 45,
+      "people": 25,
+      "quality": 50,
+      "integration": 20,
+      "standard": 10
+     },
+     "total": 33.0,
+     "level": "中",
+     "topRisk": "TODO 300 处；R12 已过提测日 5 个工作日"
+    }
+   ],
+   "prev": {
+    "total": 33.0,
+    "scores": {
+     "progress": 45,
+     "people": 25,
+     "quality": 50,
+     "integration": 20,
+     "convention": 10
+    },
+    "members": [
+     {
+      "name": "高鲸凱",
+      "commits": 1
+     },
+     {
+      "name": "钟江华",
+      "commits": 2
+     }
+    ],
+    "branches": [
+     {
+      "name": "v5.13.8",
+      "ahead": 0,
+      "behind": 4
+     },
+     {
+      "name": "feat-1016010-收藏夹支持检索",
+      "ahead": 9,
+      "behind": 19
+     }
+    ],
+    "quality": {
+     "todo": 300,
+     "bigCommits": 0,
+     "reworkRatio": 0.466,
+     "largeFiles": 0
+    }
+   }
+  },
+  {
+   "name": "ourchem-data",
+   "total": 38.35,
+   "level": "中",
+   "delta": 0.0,
+   "scores": {
+    "progress": 42,
+    "people": 60,
+    "quality": 50,
+    "integration": 15,
+    "convention": 10
+   },
+   "topRisk": "TODO 174 处；79% 提交单人集中",
+   "narrative": {
+    "progress": "R13 已推进（提测日已过 2 个工作日）；R12 本仓停滞；窗口 1 笔实质提交",
+    "people": "高鲸凱 79% 主导（>60% 阈值），钟江华 21% 配合",
+    "quality": "TODO 174 持续超标；窗口功能提交零测试同步；存量测试 17（自研为主，正面）",
+    "integration": "v5.14.0 同点维持；两条 feat 各领先 1（关注级以下）",
+    "convention": "message 规范；无碎提交",
+    "rhythm": "窗口非零日仅 10-27（1 笔）",
+    "modules": "改动集中在专利数据分析（ourchem-data-parser，R13）",
+    "plans": "R13 已推进待提测确认；R12 本仓停滞待核对",
+    "testing": "窗口功能零测试同步；存量 17 个自研测试"
+   },
+   "testing": {
+    "testCommitShare": 0,
+    "syncRate": 0,
+    "syncDenom": 1,
+    "testRatio": 0,
+    "stockTestFiles": 17,
+    "stockNote": "17 个测试自研为主（DSL/管理接口，P2 抽查口径沿用）",
+    "sitTraces": 0,
+    "aiReview": "合并后专利数据分析（f456df5）无测试同步；建议数据分析链路补最小用例——已列入专项治理建议"
+   },
+   "members": [
+    {
+     "name": "高鲸凱",
+     "commits": 1,
+     "insertions": 97,
+     "deletions": 1,
+     "branches": {
+      "feat-1016189-专利分析技术生命周期优化": 1
+     },
+     "activeDays": 1,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "2026-10-27",
+     "peakN": 1,
+     "modulesTouched": 1,
+     "testCommits": 0
+    }
+   ],
+   "branches": [
+    {
+     "name": "v5.14.0",
+     "ahead": 0,
+     "behind": 0,
+     "staleDays": 11,
+     "lastActive": "10-22"
+    },
+    {
+     "name": "feat-1016010-收藏夹支持检索",
+     "ahead": 1,
+     "behind": 1,
+     "staleDays": 24,
+     "lastActive": "10-16"
+    },
+    {
+     "name": "feat-1016189-专利分析技术生命周期优化",
+     "ahead": 1,
+     "behind": 1,
+     "staleDays": 24,
+     "lastActive": "10-27"
+    }
+   ],
+   "quality": {
+    "todo": 174,
+    "todoThreshold": 20,
+    "bigCommits": 0,
+    "reworkRatio": 0.01,
+    "reworkThreshold": 0.5,
+    "largeFiles": 0
+   },
+   "rhythm": [
+    {
+     "date": "08-01",
+     "commits": 0
+    },
+    {
+     "date": "08-02",
+     "commits": 0
+    },
+    {
+     "date": "08-03",
+     "commits": 1
+    },
+    {
+     "date": "08-04",
+     "commits": 0
+    },
+    {
+     "date": "08-05",
+     "commits": 0
+    },
+    {
+     "date": "08-06",
+     "commits": 0
+    },
+    {
+     "date": "08-07",
+     "commits": 0
+    },
+    {
+     "date": "08-08",
+     "commits": 0
+    },
+    {
+     "date": "08-09",
+     "commits": 0
+    },
+    {
+     "date": "08-10",
+     "commits": 0
+    },
+    {
+     "date": "08-11",
+     "commits": 3
+    },
+    {
+     "date": "08-12",
+     "commits": 0
+    },
+    {
+     "date": "08-13",
+     "commits": 3
+    },
+    {
+     "date": "08-14",
+     "commits": 0
+    },
+    {
+     "date": "08-15",
+     "commits": 0
+    },
+    {
+     "date": "08-16",
+     "commits": 0
+    },
+    {
+     "date": "08-17",
+     "commits": 0
+    },
+    {
+     "date": "08-18",
+     "commits": 0
+    },
+    {
+     "date": "08-19",
+     "commits": 0
+    },
+    {
+     "date": "08-20",
+     "commits": 0
+    },
+    {
+     "date": "08-21",
+     "commits": 0
+    },
+    {
+     "date": "08-22",
+     "commits": 0
+    },
+    {
+     "date": "08-23",
+     "commits": 0
+    },
+    {
+     "date": "08-24",
+     "commits": 0
+    },
+    {
+     "date": "08-25",
+     "commits": 0
+    },
+    {
+     "date": "08-26",
+     "commits": 0
+    },
+    {
+     "date": "08-27",
+     "commits": 0
+    },
+    {
+     "date": "08-28",
+     "commits": 0
+    },
+    {
+     "date": "08-29",
+     "commits": 0
+    },
+    {
+     "date": "08-30",
+     "commits": 0
+    },
+    {
+     "date": "08-31",
+     "commits": 0
+    },
+    {
+     "date": "09-01",
+     "commits": 0
+    },
+    {
+     "date": "09-02",
+     "commits": 0
+    },
+    {
+     "date": "09-03",
+     "commits": 0
+    },
+    {
+     "date": "09-04",
+     "commits": 0
+    },
+    {
+     "date": "09-05",
+     "commits": 0
+    },
+    {
+     "date": "09-06",
+     "commits": 0
+    },
+    {
+     "date": "09-07",
+     "commits": 0
+    },
+    {
+     "date": "09-08",
+     "commits": 0
+    },
+    {
+     "date": "09-09",
+     "commits": 0
+    },
+    {
+     "date": "09-10",
+     "commits": 0
+    },
+    {
+     "date": "09-11",
+     "commits": 0
+    },
+    {
+     "date": "09-12",
+     "commits": 0
+    },
+    {
+     "date": "09-13",
+     "commits": 0
+    },
+    {
+     "date": "09-14",
+     "commits": 0
+    },
+    {
+     "date": "09-15",
+     "commits": 0
+    },
+    {
+     "date": "09-16",
+     "commits": 0
+    },
+    {
+     "date": "09-17",
+     "commits": 0
+    },
+    {
+     "date": "09-18",
+     "commits": 0
+    },
+    {
+     "date": "09-19",
+     "commits": 0
+    },
+    {
+     "date": "09-20",
+     "commits": 0
+    },
+    {
+     "date": "09-21",
+     "commits": 0
+    },
+    {
+     "date": "09-22",
+     "commits": 0
+    },
+    {
+     "date": "09-23",
+     "commits": 0
+    },
+    {
+     "date": "09-24",
+     "commits": 0
+    },
+    {
+     "date": "09-25",
+     "commits": 0
+    },
+    {
+     "date": "09-26",
+     "commits": 0
+    },
+    {
+     "date": "09-27",
+     "commits": 0
+    },
+    {
+     "date": "09-28",
+     "commits": 0
+    },
+    {
+     "date": "09-29",
+     "commits": 3
+    },
+    {
+     "date": "09-30",
+     "commits": 0
+    },
+    {
+     "date": "10-01",
+     "commits": 0
+    },
+    {
+     "date": "10-02",
+     "commits": 0
+    },
+    {
+     "date": "10-03",
+     "commits": 0
+    },
+    {
+     "date": "10-04",
+     "commits": 0
+    },
+    {
+     "date": "10-05",
+     "commits": 0
+    },
+    {
+     "date": "10-06",
+     "commits": 0
+    },
+    {
+     "date": "10-07",
+     "commits": 0
+    },
+    {
+     "date": "10-08",
+     "commits": 0
+    },
+    {
+     "date": "10-09",
+     "commits": 3
+    },
+    {
+     "date": "10-10",
+     "commits": 0
+    },
+    {
+     "date": "10-11",
+     "commits": 0
+    },
+    {
+     "date": "10-12",
+     "commits": 0
+    },
+    {
+     "date": "10-13",
+     "commits": 0
+    },
+    {
+     "date": "10-14",
+     "commits": 0
+    },
+    {
+     "date": "10-15",
+     "commits": 0
+    },
+    {
+     "date": "10-16",
+     "commits": 1
+    },
+    {
+     "date": "10-17",
+     "commits": 0
+    },
+    {
+     "date": "10-18",
+     "commits": 0
+    },
+    {
+     "date": "10-19",
+     "commits": 0
+    },
+    {
+     "date": "10-20",
+     "commits": 0
+    },
+    {
+     "date": "10-21",
+     "commits": 0
+    },
+    {
+     "date": "10-22",
+     "commits": 1
+    },
+    {
+     "date": "10-23",
+     "commits": 0
+    },
+    {
+     "date": "10-24",
+     "commits": 0
+    },
+    {
+     "date": "10-25",
+     "commits": 0
+    },
+    {
+     "date": "10-26",
+     "commits": 0
+    },
+    {
+     "date": "10-27",
+     "commits": 1
+    },
+    {
+     "date": "10-28",
+     "commits": 0
+    },
+    {
+     "date": "10-29",
+     "commits": 0
+    },
+    {
+     "date": "10-30",
+     "commits": 0
+    },
+    {
+     "date": "10-31",
+     "commits": 0
+    },
+    {
+     "date": "11-01",
+     "commits": 0
+    },
+    {
+     "date": "11-02",
+     "commits": 0
+    }
+   ],
+   "weekly": [
+    {
+     "label": "08-01",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "insertions": 115,
+     "deletions": 30
+    },
+    {
+     "label": "08-08",
+     "commits": 6,
+     "effective": 5,
+     "authors": 1,
+     "insertions": 247,
+     "deletions": 10
+    },
+    {
+     "label": "08-15",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "08-22",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "08-29",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-05",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-12",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-19",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-26",
+     "commits": 3,
+     "effective": 2,
+     "authors": 1,
+     "insertions": 181,
+     "deletions": 36
+    },
+    {
+     "label": "10-03",
+     "commits": 3,
+     "effective": 3,
+     "authors": 1,
+     "insertions": 133,
+     "deletions": 102
+    },
+    {
+     "label": "10-10",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "insertions": 34,
+     "deletions": 0
+    },
+    {
+     "label": "10-17",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "insertions": 32,
+     "deletions": 31
+    },
+    {
+     "label": "10-24",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "insertions": 97,
+     "deletions": 1
+    },
+    {
+     "label": "10-31",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    }
+   ],
+   "moduleActivity": [
+    {
+     "module": "ourchem-data-parser/src",
+     "desc": "专利数据分析（R13）",
+     "insertions": 97,
+     "deletions": 1,
+     "commits": 1,
+     "core": true
+    }
+   ],
+   "peopleProfile": [
+    {
+     "name": "高鲸凱",
+     "role": "数据服务·分析/收藏夹",
+     "intent": "feat 分支数据分析与收藏夹配合",
+     "workload": "统计期 11 笔（份额 79%）",
+     "intensity": "6 个活跃日，峰值 10-09（3 笔），深夜 0/周末 0",
+     "engagement": "覆盖 2 模块",
+     "risk": "本仓单人集中（79%）——已升级为交叉复核专项建议",
+     "riskLevel": "中",
+     "activeDays": 6,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "2026-10-09",
+     "peakN": 3,
+     "modulesTouched": 2,
+     "testCommits": 0,
+     "share": 0.786
+    },
+    {
+     "name": "钟江华",
+     "role": "配置/服务配合",
+     "intent": "配置与服务配合改动",
+     "workload": "统计期 3 笔（份额 21%）",
+     "intensity": "2 个活跃日，峰值 09-29（3 笔）",
+     "engagement": "覆盖 4 模块",
+     "risk": "样本小",
+     "riskLevel": null,
+     "activeDays": 2,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "2026-09-29",
+     "peakN": 3,
+     "modulesTouched": 4,
+     "testCommits": 0,
+     "share": 0.214
+    }
+   ],
+   "plans": [
+    {
+     "id": "R3",
+     "name": "图像检索优化-多图同时检索",
+     "owner": "郑宜权/钟江华",
+     "start": "09-07",
+     "due": "09-11",
+     "status": "已完成",
+     "note": "复核沿用（交付证据在 patyee-next）",
+     "prevStatus": "已完成",
+     "done": "10-26"
+    },
+    {
+     "id": "R12",
+     "name": "收藏夹支持检索",
+     "owner": "高鲸凱/郑宜权",
+     "start": "10-16",
+     "due": "10-27",
+     "status": "部分推进",
+     "note": "本仓窗口零提交；feat-1016010 最后 10-16；提测日已过 5 个工作日",
+     "prevStatus": "部分推进",
+     "done": null
+    },
+    {
+     "id": "R13",
+     "name": "专利分析-技术生命周期优化",
+     "owner": "郑宜权",
+     "start": "10-16",
+     "due": "10-30",
+     "status": "已推进",
+     "note": "f456df5（10-27）合并后专利数据分析；提测日已过 2 个工作日——不作已完成",
+     "prevStatus": "已推进",
+     "done": null
+    }
+   ],
+   "risks": [
+    {
+     "title": "TODO 174 处",
+     "plain": "代码里积了 174 处待办标记",
+     "dimension": "quality",
+     "level": "中",
+     "evidence": "§1.6：174 > 20（环比持平）",
+     "advice": "专项治理：纳入例行清理排期并设季度回收目标",
+     "agePeriods": 3
+    },
+    {
+     "title": "统计期 79% 提交来自高鲸凱",
+     "plain": "这个仓库最近三个月基本是一个人在改",
+     "dimension": "people",
+     "level": "中",
+     "evidence": "§1.4/§1.19：11/14 有效提交",
+     "advice": "专项治理：feat 分支任务交叉复核机制落地（第二复核人）",
+     "agePeriods": 3
+    },
+    {
+     "title": "R12 本仓停滞，已过提测日",
+     "plain": "收藏夹功能在本仓库的部分一直没动，也过了提测时间",
+     "dimension": "progress",
+     "level": "中",
+     "evidence": "feat-1016010 最后 10-16；提测 10-27 已过 5 个工作日",
+     "advice": "R12 本仓部分若已由其他仓覆盖请核对文档",
+     "agePeriods": 3
+    },
+    {
+     "title": "v5.14.0 已与主干同点（改善维持）",
+     "plain": "版本分支和主干已经一致，没有积压",
+     "dimension": "integration",
+     "level": "低",
+     "evidence": "§1.5：v5.14.0 ahead 0 / behind 0；两条 feat 各领先 1、分叉 24 天",
+     "advice": "v5.14.0 可归档；feat 分支随任务收口合并",
+     "agePeriods": 3
+    }
+   ],
+   "insights": [
+    "ourchem-data@f456df5 ourchem-data-parser/src —— 合并后专利数据分析（10-27，+97/−1，git show --stat 本期复核）；与 patyee-next@82025cf4 前后端配套（R13）",
+    "统计期人员增删行按勘误②修正（高鲸凱 2111/569→626/143、钟江华 788/206→213/67）",
+    "测试缺失（aging 3 期）：窗口功能零测试同步"
+   ],
+   "lifetime": {
+    "first": "2020-05-12",
+    "last": "2026-10-27",
+    "totalCommits": 2158,
+    "authors": 16,
+    "monthly": {
+     "2026-10": 33,
+     "2026-09": 47,
+     "2026-07": 45,
+     "2026-08": 16,
+     "2026-06": 24,
+     "2026-05": 13,
+     "2026-04": 4,
+     "2026-03": 16,
+     "2026-02": 2,
+     "2026-01": 4,
+     "2025-12": 17,
+     "2025-11": 15,
+     "2025-10": 12,
+     "2025-09": 4,
+     "2025-08": 15,
+     "2025-07": 5,
+     "2025-06": 5,
+     "2025-05": 27,
+     "2025-04": 8,
+     "2025-03": 2,
+     "2025-02": 12,
+     "2025-01": 4,
+     "2024-12": 5,
+     "2024-11": 21,
+     "2024-10": 1,
+     "2024-09": 3,
+     "2024-08": 8,
+     "2024-07": 17,
+     "2024-06": 5,
+     "2024-05": 7,
+     "2024-03": 1,
+     "2024-02": 11,
+     "2024-01": 10,
+     "2023-12": 12,
+     "2023-11": 14,
+     "2023-10": 6,
+     "2023-09": 22,
+     "2023-08": 14,
+     "2023-07": 12,
+     "2023-06": 15,
+     "2023-05": 19,
+     "2023-04": 13,
+     "2023-03": 55,
+     "2023-02": 16,
+     "2023-01": 15,
+     "2022-12": 14,
+     "2022-11": 18,
+     "2022-10": 9,
+     "2022-09": 14,
+     "2022-08": 27,
+     "2022-07": 23,
+     "2022-06": 26,
+     "2022-05": 34,
+     "2022-04": 38,
+     "2022-03": 59,
+     "2022-02": 15,
+     "2022-01": 32,
+     "2021-12": 54,
+     "2021-11": 52,
+     "2021-10": 32,
+     "2021-09": 27,
+     "2021-08": 16,
+     "2021-07": 45,
+     "2021-06": 37,
+     "2021-05": 110,
+     "2021-04": 66,
+     "2021-03": 46,
+     "2021-02": 28,
+     "2021-01": 34,
+     "2020-12": 77,
+     "2020-11": 107,
+     "2020-10": 68,
+     "2020-09": 116,
+     "2020-08": 101,
+     "2020-07": 94,
+     "2020-06": 87,
+     "2020-05": 20
+    },
+    "topAuthors": [
+     {
+      "who": "zhouzhaokang@ourchem.com（待映射）",
+      "commits": 506
+     },
+     {
+      "who": "frankkun02@sina.com（待映射）",
+      "commits": 454
+     },
+     {
+      "who": "578038303@qq.com（待映射）",
+      "commits": 414
+     },
+     {
+      "who": "huangjunjie@ourchem.com（待映射）",
+      "commits": 349
+     },
+     {
+      "who": "高鲸凱",
+      "commits": 166
+     }
+    ]
+   },
+   "windowAnalysis": {
+    "classification": {
+     "feat": 1
+    },
+    "merges": 0,
+    "effectiveCommits": 1,
+    "trivial": []
+   },
+   "dayDiff": {
+    "todayCommits": 0,
+    "todayEffective": 0,
+    "todayIns": 0,
+    "todayDel": 0,
+    "prevDayCommits": 0,
+    "prevDayEffective": 0,
+    "prevDayIns": 0,
+    "prevDayDel": 0,
+    "newAuthors": [],
+    "goneAuthors": [],
+    "aheadDelta": "0",
+    "note": "上一变动日（10-30）本仓无提交（最近 10-27）；周末两日与今日均无新提交"
+   },
+   "roundDiff": null,
+   "roundSnapshots": [
+    {
+     "period": 4,
+     "at": "06:22",
+     "commits": 1,
+     "effective": 1,
+     "ins": 97,
+     "del": 1,
+     "authors": 1,
+     "big": 0,
+     "todos": 174,
+     "scores": {
+      "progress": 42,
+      "people": 60,
+      "quality": 50,
+      "integration": 15,
+      "standard": 10
+     },
+     "total": 38.35,
+     "level": "中",
+     "topRisk": "TODO 174 处；79% 提交单人集中"
+    }
+   ],
+   "prev": {
+    "total": 38.35,
+    "scores": {
+     "progress": 42,
+     "people": 60,
+     "quality": 50,
+     "integration": 15,
+     "convention": 10
+    },
+    "members": [
+     {
+      "name": "高鲸凱",
+      "commits": 1
+     }
+    ],
+    "branches": [
+     {
+      "name": "v5.14.0",
+      "ahead": 0,
+      "behind": 0
+     },
+     {
+      "name": "feat-1016010-收藏夹支持检索",
+      "ahead": 1,
+      "behind": 1
+     },
+     {
+      "name": "feat-1016189-专利分析技术生命周期优化",
+      "ahead": 1,
+      "behind": 1
+     }
+    ],
+    "quality": {
+     "todo": 174,
+     "bigCommits": 0,
+     "reworkRatio": 0.01,
+     "largeFiles": 0
+    }
+   }
+  },
+  {
+   "name": "ourchem-middle-service",
+   "total": 31.5,
+   "level": "中",
+   "delta": -3.75,
+   "scores": {
+    "progress": 50,
+    "people": 30,
+    "quality": 30,
+    "integration": 20,
+    "convention": 10
+   },
+   "topRisk": "R11 4 笔提交未合并主干（分叉 14 天——勘误③修正上期 143 天口径）",
+   "narrative": {
+    "progress": "窗口 0 提交 + R11 滞后（提测 +9 工作日）——交付依赖盲区外验证环节",
+    "people": "统计期钟承佑/钟江华各 50%（样本小）；钟承佑 10-19 三笔已上主干",
+    "quality": "TODO 12 未超标；窗口无功能改动；存量测试 3",
+    "integration": "改善：master-pro 已推进至 10-19，分支存活 14 天、behind 0——长期未合并判定不再成立（勘误③）",
+    "convention": "窗口无样本，保守低档",
+    "rhythm": "窗口 7 天全部 0 提交；统计期非零日集中 10-09~10-21",
+    "modules": "窗口期无提交",
+    "plans": "R11 部分推进（提测 +9 工作日，验证中）",
+    "testing": "窗口无功能改动；存量 3 个测试"
+   },
+   "testing": {
+    "testCommitShare": 0,
+    "syncRate": 0,
+    "syncDenom": 0,
+    "testRatio": 0,
+    "stockTestFiles": 3,
+    "stockNote": "存量 3 个测试（少量）",
+    "sitTraces": 0,
+    "aiReview": "窗口无功能改动；R11 若主干化建议随合并补接口用例"
+   },
+   "members": [],
+   "branches": [
+    {
+     "name": "feat-1016188-登录释放策略优化",
+     "ahead": 4,
+     "behind": 0,
+     "staleDays": 14,
+     "lastActive": "10-21"
+    }
+   ],
+   "quality": {
+    "todo": 12,
+    "todoThreshold": 20,
+    "bigCommits": 0,
+    "reworkRatio": 0,
+    "reworkThreshold": 0.5,
+    "largeFiles": 1
+   },
+   "rhythm": [
+    {
+     "date": "08-01",
+     "commits": 0
+    },
+    {
+     "date": "08-02",
+     "commits": 0
+    },
+    {
+     "date": "08-03",
+     "commits": 0
+    },
+    {
+     "date": "08-04",
+     "commits": 0
+    },
+    {
+     "date": "08-05",
+     "commits": 0
+    },
+    {
+     "date": "08-06",
+     "commits": 0
+    },
+    {
+     "date": "08-07",
+     "commits": 0
+    },
+    {
+     "date": "08-08",
+     "commits": 0
+    },
+    {
+     "date": "08-09",
+     "commits": 0
+    },
+    {
+     "date": "08-10",
+     "commits": 0
+    },
+    {
+     "date": "08-11",
+     "commits": 0
+    },
+    {
+     "date": "08-12",
+     "commits": 0
+    },
+    {
+     "date": "08-13",
+     "commits": 0
+    },
+    {
+     "date": "08-14",
+     "commits": 0
+    },
+    {
+     "date": "08-15",
+     "commits": 0
+    },
+    {
+     "date": "08-16",
+     "commits": 0
+    },
+    {
+     "date": "08-17",
+     "commits": 0
+    },
+    {
+     "date": "08-18",
+     "commits": 0
+    },
+    {
+     "date": "08-19",
+     "commits": 0
+    },
+    {
+     "date": "08-20",
+     "commits": 0
+    },
+    {
+     "date": "08-21",
+     "commits": 0
+    },
+    {
+     "date": "08-22",
+     "commits": 0
+    },
+    {
+     "date": "08-23",
+     "commits": 0
+    },
+    {
+     "date": "08-24",
+     "commits": 0
+    },
+    {
+     "date": "08-25",
+     "commits": 0
+    },
+    {
+     "date": "08-26",
+     "commits": 0
+    },
+    {
+     "date": "08-27",
+     "commits": 0
+    },
+    {
+     "date": "08-28",
+     "commits": 0
+    },
+    {
+     "date": "08-29",
+     "commits": 0
+    },
+    {
+     "date": "08-30",
+     "commits": 0
+    },
+    {
+     "date": "08-31",
+     "commits": 0
+    },
+    {
+     "date": "09-01",
+     "commits": 0
+    },
+    {
+     "date": "09-02",
+     "commits": 0
+    },
+    {
+     "date": "09-03",
+     "commits": 0
+    },
+    {
+     "date": "09-04",
+     "commits": 0
+    },
+    {
+     "date": "09-05",
+     "commits": 0
+    },
+    {
+     "date": "09-06",
+     "commits": 0
+    },
+    {
+     "date": "09-07",
+     "commits": 0
+    },
+    {
+     "date": "09-08",
+     "commits": 0
+    },
+    {
+     "date": "09-09",
+     "commits": 0
+    },
+    {
+     "date": "09-10",
+     "commits": 0
+    },
+    {
+     "date": "09-11",
+     "commits": 0
+    },
+    {
+     "date": "09-12",
+     "commits": 0
+    },
+    {
+     "date": "09-13",
+     "commits": 0
+    },
+    {
+     "date": "09-14",
+     "commits": 0
+    },
+    {
+     "date": "09-15",
+     "commits": 0
+    },
+    {
+     "date": "09-16",
+     "commits": 0
+    },
+    {
+     "date": "09-17",
+     "commits": 0
+    },
+    {
+     "date": "09-18",
+     "commits": 0
+    },
+    {
+     "date": "09-19",
+     "commits": 0
+    },
+    {
+     "date": "09-20",
+     "commits": 0
+    },
+    {
+     "date": "09-21",
+     "commits": 0
+    },
+    {
+     "date": "09-22",
+     "commits": 0
+    },
+    {
+     "date": "09-23",
+     "commits": 0
+    },
+    {
+     "date": "09-24",
+     "commits": 0
+    },
+    {
+     "date": "09-25",
+     "commits": 0
+    },
+    {
+     "date": "09-26",
+     "commits": 0
+    },
+    {
+     "date": "09-27",
+     "commits": 0
+    },
+    {
+     "date": "09-28",
+     "commits": 0
+    },
+    {
+     "date": "09-29",
+     "commits": 0
+    },
+    {
+     "date": "09-30",
+     "commits": 0
+    },
+    {
+     "date": "10-01",
+     "commits": 0
+    },
+    {
+     "date": "10-02",
+     "commits": 0
+    },
+    {
+     "date": "10-03",
+     "commits": 0
+    },
+    {
+     "date": "10-04",
+     "commits": 0
+    },
+    {
+     "date": "10-05",
+     "commits": 0
+    },
+    {
+     "date": "10-06",
+     "commits": 0
+    },
+    {
+     "date": "10-07",
+     "commits": 0
+    },
+    {
+     "date": "10-08",
+     "commits": 0
+    },
+    {
+     "date": "10-09",
+     "commits": 1
+    },
+    {
+     "date": "10-10",
+     "commits": 0
+    },
+    {
+     "date": "10-11",
+     "commits": 0
+    },
+    {
+     "date": "10-12",
+     "commits": 0
+    },
+    {
+     "date": "10-13",
+     "commits": 0
+    },
+    {
+     "date": "10-14",
+     "commits": 0
+    },
+    {
+     "date": "10-15",
+     "commits": 0
+    },
+    {
+     "date": "10-16",
+     "commits": 0
+    },
+    {
+     "date": "10-17",
+     "commits": 0
+    },
+    {
+     "date": "10-18",
+     "commits": 0
+    },
+    {
+     "date": "10-19",
+     "commits": 3
+    },
+    {
+     "date": "10-20",
+     "commits": 1
+    },
+    {
+     "date": "10-21",
+     "commits": 2
+    },
+    {
+     "date": "10-22",
+     "commits": 0
+    },
+    {
+     "date": "10-23",
+     "commits": 0
+    },
+    {
+     "date": "10-24",
+     "commits": 0
+    },
+    {
+     "date": "10-25",
+     "commits": 0
+    },
+    {
+     "date": "10-26",
+     "commits": 0
+    },
+    {
+     "date": "10-27",
+     "commits": 0
+    },
+    {
+     "date": "10-28",
+     "commits": 0
+    },
+    {
+     "date": "10-29",
+     "commits": 0
+    },
+    {
+     "date": "10-30",
+     "commits": 0
+    },
+    {
+     "date": "10-31",
+     "commits": 0
+    },
+    {
+     "date": "11-01",
+     "commits": 0
+    },
+    {
+     "date": "11-02",
+     "commits": 0
+    }
+   ],
+   "weekly": [
+    {
+     "label": "08-01",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "08-08",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "08-15",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "08-22",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "08-29",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-05",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-12",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-19",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-26",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-03",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "insertions": 28,
+     "deletions": 13
+    },
+    {
+     "label": "10-10",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-17",
+     "commits": 6,
+     "effective": 5,
+     "authors": 2,
+     "insertions": 41,
+     "deletions": 3
+    },
+    {
+     "label": "10-24",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-31",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    }
+   ],
+   "moduleActivity": [],
+   "peopleProfile": [
+    {
+     "name": "钟承佑",
+     "role": "中间层服务",
+     "intent": "游客登录接口/AES 秘钥/秘钥返回结构（10-19 三笔，已上主干）",
+     "workload": "统计期 3 笔（份额 50%）",
+     "intensity": "1 个活跃日，深夜 0/周末 0",
+     "engagement": "覆盖 1 模块",
+     "risk": "样本小",
+     "riskLevel": null,
+     "activeDays": 1,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "2026-10-19",
+     "peakN": 3,
+     "modulesTouched": 1,
+     "testCommits": 0,
+     "share": 0.5
+    },
+    {
+     "name": "钟江华",
+     "role": "中间层服务",
+     "intent": "R11 登录释放（10-09/10-20/10-21）",
+     "workload": "统计期 3 笔（份额 50%）",
+     "intensity": "3 个活跃日，峰值 10-21（2 笔）",
+     "engagement": "覆盖 3 模块",
+     "risk": "R11 4 笔待合并（与 oauth 对齐）",
+     "riskLevel": "低",
+     "activeDays": 3,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "2026-10-21",
+     "peakN": 2,
+     "modulesTouched": 3,
+     "testCommits": 0,
+     "share": 0.5
+    }
+   ],
+   "plans": [
+    {
+     "id": "R11",
+     "name": "登录释放策略优化",
+     "owner": "钟江华/钟承佑",
+     "start": "09-30",
+     "due": "10-21",
+     "status": "部分推进",
+     "note": "窗口 0 提交；feat-1016188 最后 10-21、领先 4；提测日已过 9 个工作日（测试执行属盲区，滞后以分支未合并佐证）",
+     "prevStatus": "部分推进",
+     "done": null
+    }
+   ],
+   "risks": [
+    {
+     "title": "R11 登录释放 4 笔提交未合并主干（分支领先 4、分叉 14 天）",
+     "plain": "登录释放功能还有 4 个提交没合回主干，好在分支只分叉了两周，量级不大",
+     "dimension": "integration",
+     "level": "低",
+     "evidence": "§1.5：feat-1016188 ahead 4 / behind 0 / 分叉 2026-10-19（存活 14 天 <21 判定不成立）；上期\"143 天未合并\"系勘误③（分叉日期误用本地陈旧引用）",
+     "advice": "R11 收口时合并；与 ourchem-oauth v5.17 的合并节奏对齐",
+     "agePeriods": 3
+    },
+    {
+     "title": "窗口 0 提交，R11 已过提测日 9 个工作日",
+     "plain": "登录释放过了提测时间 9 个工作日还没确认交付，仓库也一周没动静",
+     "dimension": "progress",
+     "level": "中",
+     "evidence": "任务明细 R11 提测 10-21；分支最后活跃 10-21",
+     "advice": "专项治理：与文档维护人核对 R11 状态（测试中→提测确认），为验证环节设明确时限",
+     "agePeriods": 3
+    }
+   ],
+   "insights": [
+    "勘误③实证：git merge-base origin/master-pro origin/feat-1016188 = ab5d02a（2026-10-19，钟承佑\"feat:修改秘钥返回结构\"）——master-pro tip 与分叉点重合；reflog 留痕 fetch fast-forward（P3 fetch 时点）",
+    "feat 领先 4 笔 = 2b926b8（10-09 idle_session 租约）+ 906e0b5（10-20 版本号）+ 2b0d45d（10-21 合并 v5.13.3）+ f90626f（10-21 登录接口参数修复）——R11 剩余待合并内容",
+    "统计期人员增删行按勘误②修正（钟承佑 78/2→39/1）",
+    "R11 与 oauth v5.17 跨仓同任务——合并节奏应对齐（维持观察）"
+   ],
+   "lifetime": {
+    "first": "2020-06-23",
+    "last": "2026-10-30",
+    "totalCommits": 262,
+    "authors": 15,
+    "monthly": {
+     "2026-10": 12,
+     "2026-06": 1,
+     "2026-05": 2,
+     "2026-04": 4,
+     "2026-03": 3,
+     "2025-12": 9,
+     "2025-11": 4,
+     "2025-10": 4,
+     "2025-09": 2,
+     "2025-08": 3,
+     "2025-07": 1,
+     "2025-06": 4,
+     "2025-05": 7,
+     "2025-04": 6,
+     "2025-03": 3,
+     "2025-02": 3,
+     "2024-11": 11,
+     "2024-07": 12,
+     "2024-06": 7,
+     "2024-05": 1,
+     "2024-04": 1,
+     "2024-02": 12,
+     "2024-01": 8,
+     "2023-12": 1,
+     "2023-11": 1,
+     "2023-07": 1,
+     "2023-06": 1,
+     "2023-03": 7,
+     "2023-04": 1,
+     "2023-01": 2,
+     "2022-12": 1,
+     "2022-11": 9,
+     "2022-10": 9,
+     "2022-09": 10,
+     "2022-08": 4,
+     "2022-06": 2,
+     "2022-01": 2,
+     "2021-12": 10,
+     "2021-11": 2,
+     "2021-09": 1,
+     "2021-08": 10,
+     "2021-06": 4,
+     "2021-05": 7,
+     "2021-04": 2,
+     "2021-03": 6,
+     "2021-02": 1,
+     "2021-01": 4,
+     "2020-12": 17,
+     "2020-11": 3,
+     "2020-09": 4,
+     "2020-08": 4,
+     "2020-07": 10,
+     "2020-06": 6
+    },
+    "topAuthors": [
+     {
+      "who": "zhouzhaokang@ourchem.com（待映射）",
+      "commits": 54
+     },
+     {
+      "who": "zengdong@ourchem.com（待映射）",
+      "commits": 46
+     },
+     {
+      "who": "huangjunjie@ourchem.com（待映射）",
+      "commits": 42
+     },
+     {
+      "who": "zjy@ourchem.com（待映射）",
+      "commits": 41
+     },
+     {
+      "who": "578038303@qq.com（待映射）",
+      "commits": 21
+     }
+    ]
+   },
+   "windowAnalysis": {
+    "classification": {},
+    "merges": 0,
+    "effectiveCommits": 0,
+    "trivial": []
+   },
+   "dayDiff": {
+    "todayCommits": 0,
+    "todayEffective": 0,
+    "todayIns": 0,
+    "todayDel": 0,
+    "prevDayCommits": 0,
+    "prevDayEffective": 0,
+    "prevDayIns": 0,
+    "prevDayDel": 0,
+    "newAuthors": [],
+    "goneAuthors": [],
+    "aheadDelta": "0",
+    "note": "上一变动日（10-30）本仓无提交（最近 10-21）；周末两日与今日均无新提交"
+   },
+   "roundDiff": null,
+   "roundSnapshots": [
+    {
+     "period": 4,
+     "at": "06:22",
+     "commits": 0,
+     "effective": 0,
+     "ins": 0,
+     "del": 0,
+     "authors": 0,
+     "big": 0,
+     "todos": 12,
+     "scores": {
+      "progress": 50,
+      "people": 30,
+      "quality": 30,
+      "integration": 20,
+      "standard": 10
+     },
+     "total": 31.5,
+     "level": "中",
+     "topRisk": "R11 4 笔提交未合并主干（分叉 14 天——勘误③修正上期 143 天口径）"
+    }
+   ],
+   "prev": {
+    "total": 35.25,
+    "scores": {
+     "progress": 50,
+     "people": 30,
+     "quality": 30,
+     "integration": 45,
+     "convention": 10
+    },
+    "members": [],
+    "branches": [
+     {
+      "name": "feat-1016188-登录释放策略优化",
+      "ahead": 4,
+      "behind": 0
+     }
+    ],
+    "quality": {
+     "todo": 12,
+     "bigCommits": 0,
+     "reworkRatio": 0,
+     "largeFiles": 1
+    }
+   }
+  },
+  {
+   "name": "ourchem-oauth",
+   "total": 40.65,
+   "level": "中",
+   "delta": 0.0,
+   "scores": {
+    "progress": 48,
+    "people": 55,
+    "quality": 50,
+    "integration": 25,
+    "convention": 10
+   },
+   "topRisk": "66.7% 提交单人集中；TODO 140 + 超大类（v5.17 已进 test）",
+   "narrative": {
+    "progress": "窗口 0 提交 + R11 滞后（+9 工作日）；v5.17 已进 test——推进在验证侧",
+    "people": "钟江华 66.7% 主导登录释放（10 模块、3 笔测试产出）",
+    "quality": "TODO 140 持续；1941 行超大类（自有）；统计期测试产出 3 笔（正面）",
+    "integration": "v5.17 ahead 14（关注级：存活 18 天 <21）；test 侧已合并（未监测面）",
+    "convention": "窗口无样本，保守低档",
+    "rhythm": "窗口 7 天全部 0 提交（监测分支）",
+    "modules": "窗口期无提交",
+    "plans": "R11 部分推进（代码侧已进 test，主干合并待验证）",
+    "testing": "统计期 3 笔测试产出（正面）；存量 11 个测试"
+   },
+   "testing": {
+    "testCommitShare": 0,
+    "syncRate": 0,
+    "syncDenom": 0,
+    "testRatio": 0,
+    "stockTestFiles": 11,
+    "stockNote": "存量 11 个测试（少量）",
+    "sitTraces": 0,
+    "aiReview": "统计期钟江华 3 笔测试产出（登录释放配套）——本仓是项目内测试跟进最好的功能线之一（正面）"
+   },
+   "members": [],
+   "branches": [
+    {
+     "name": "v5.17-1016188-登录释放策略优化",
+     "ahead": 14,
+     "behind": 0,
+     "staleDays": 18,
+     "lastActive": "10-22"
+    }
+   ],
+   "quality": {
+    "todo": 140,
+    "todoThreshold": 20,
+    "bigCommits": 0,
+    "reworkRatio": 0,
+    "reworkThreshold": 0.5,
+    "largeFiles": 1
+   },
+   "rhythm": [
+    {
+     "date": "08-01",
+     "commits": 0
+    },
+    {
+     "date": "08-02",
+     "commits": 0
+    },
+    {
+     "date": "08-03",
+     "commits": 0
+    },
+    {
+     "date": "08-04",
+     "commits": 0
+    },
+    {
+     "date": "08-05",
+     "commits": 1
+    },
+    {
+     "date": "08-06",
+     "commits": 0
+    },
+    {
+     "date": "08-07",
+     "commits": 0
+    },
+    {
+     "date": "08-08",
+     "commits": 0
+    },
+    {
+     "date": "08-09",
+     "commits": 0
+    },
+    {
+     "date": "08-10",
+     "commits": 0
+    },
+    {
+     "date": "08-11",
+     "commits": 0
+    },
+    {
+     "date": "08-12",
+     "commits": 0
+    },
+    {
+     "date": "08-13",
+     "commits": 0
+    },
+    {
+     "date": "08-14",
+     "commits": 0
+    },
+    {
+     "date": "08-15",
+     "commits": 0
+    },
+    {
+     "date": "08-16",
+     "commits": 0
+    },
+    {
+     "date": "08-17",
+     "commits": 0
+    },
+    {
+     "date": "08-18",
+     "commits": 0
+    },
+    {
+     "date": "08-19",
+     "commits": 0
+    },
+    {
+     "date": "08-20",
+     "commits": 0
+    },
+    {
+     "date": "08-21",
+     "commits": 0
+    },
+    {
+     "date": "08-22",
+     "commits": 0
+    },
+    {
+     "date": "08-23",
+     "commits": 0
+    },
+    {
+     "date": "08-24",
+     "commits": 0
+    },
+    {
+     "date": "08-25",
+     "commits": 0
+    },
+    {
+     "date": "08-26",
+     "commits": 1
+    },
+    {
+     "date": "08-27",
+     "commits": 0
+    },
+    {
+     "date": "08-28",
+     "commits": 0
+    },
+    {
+     "date": "08-29",
+     "commits": 0
+    },
+    {
+     "date": "08-30",
+     "commits": 0
+    },
+    {
+     "date": "08-31",
+     "commits": 0
+    },
+    {
+     "date": "09-01",
+     "commits": 0
+    },
+    {
+     "date": "09-02",
+     "commits": 0
+    },
+    {
+     "date": "09-03",
+     "commits": 1
+    },
+    {
+     "date": "09-04",
+     "commits": 0
+    },
+    {
+     "date": "09-05",
+     "commits": 0
+    },
+    {
+     "date": "09-06",
+     "commits": 0
+    },
+    {
+     "date": "09-07",
+     "commits": 0
+    },
+    {
+     "date": "09-08",
+     "commits": 0
+    },
+    {
+     "date": "09-09",
+     "commits": 0
+    },
+    {
+     "date": "09-10",
+     "commits": 0
+    },
+    {
+     "date": "09-11",
+     "commits": 0
+    },
+    {
+     "date": "09-12",
+     "commits": 0
+    },
+    {
+     "date": "09-13",
+     "commits": 0
+    },
+    {
+     "date": "09-14",
+     "commits": 1
+    },
+    {
+     "date": "09-15",
+     "commits": 0
+    },
+    {
+     "date": "09-16",
+     "commits": 0
+    },
+    {
+     "date": "09-17",
+     "commits": 1
+    },
+    {
+     "date": "09-18",
+     "commits": 0
+    },
+    {
+     "date": "09-19",
+     "commits": 0
+    },
+    {
+     "date": "09-20",
+     "commits": 0
+    },
+    {
+     "date": "09-21",
+     "commits": 1
+    },
+    {
+     "date": "09-22",
+     "commits": 0
+    },
+    {
+     "date": "09-23",
+     "commits": 0
+    },
+    {
+     "date": "09-24",
+     "commits": 0
+    },
+    {
+     "date": "09-25",
+     "commits": 0
+    },
+    {
+     "date": "09-26",
+     "commits": 0
+    },
+    {
+     "date": "09-27",
+     "commits": 0
+    },
+    {
+     "date": "09-28",
+     "commits": 0
+    },
+    {
+     "date": "09-29",
+     "commits": 0
+    },
+    {
+     "date": "09-30",
+     "commits": 0
+    },
+    {
+     "date": "10-01",
+     "commits": 0
+    },
+    {
+     "date": "10-02",
+     "commits": 0
+    },
+    {
+     "date": "10-03",
+     "commits": 0
+    },
+    {
+     "date": "10-04",
+     "commits": 0
+    },
+    {
+     "date": "10-05",
+     "commits": 0
+    },
+    {
+     "date": "10-06",
+     "commits": 0
+    },
+    {
+     "date": "10-07",
+     "commits": 0
+    },
+    {
+     "date": "10-08",
+     "commits": 1
+    },
+    {
+     "date": "10-09",
+     "commits": 2
+    },
+    {
+     "date": "10-10",
+     "commits": 1
+    },
+    {
+     "date": "10-11",
+     "commits": 0
+    },
+    {
+     "date": "10-12",
+     "commits": 0
+    },
+    {
+     "date": "10-13",
+     "commits": 0
+    },
+    {
+     "date": "10-14",
+     "commits": 0
+    },
+    {
+     "date": "10-15",
+     "commits": 2
+    },
+    {
+     "date": "10-16",
+     "commits": 0
+    },
+    {
+     "date": "10-17",
+     "commits": 0
+    },
+    {
+     "date": "10-18",
+     "commits": 0
+    },
+    {
+     "date": "10-19",
+     "commits": 1
+    },
+    {
+     "date": "10-20",
+     "commits": 2
+    },
+    {
+     "date": "10-21",
+     "commits": 3
+    },
+    {
+     "date": "10-22",
+     "commits": 5
+    },
+    {
+     "date": "10-23",
+     "commits": 0
+    },
+    {
+     "date": "10-24",
+     "commits": 0
+    },
+    {
+     "date": "10-25",
+     "commits": 0
+    },
+    {
+     "date": "10-26",
+     "commits": 0
+    },
+    {
+     "date": "10-27",
+     "commits": 0
+    },
+    {
+     "date": "10-28",
+     "commits": 0
+    },
+    {
+     "date": "10-29",
+     "commits": 0
+    },
+    {
+     "date": "10-30",
+     "commits": 0
+    },
+    {
+     "date": "10-31",
+     "commits": 0
+    },
+    {
+     "date": "11-01",
+     "commits": 0
+    },
+    {
+     "date": "11-02",
+     "commits": 0
+    }
+   ],
+   "weekly": [
+    {
+     "label": "08-01",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "insertions": 101,
+     "deletions": 10
+    },
+    {
+     "label": "08-08",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "08-15",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "08-22",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "insertions": 86,
+     "deletions": 0
+    },
+    {
+     "label": "08-29",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "insertions": 53,
+     "deletions": 19
+    },
+    {
+     "label": "09-05",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-12",
+     "commits": 2,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-19",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "insertions": 71,
+     "deletions": 0
+    },
+    {
+     "label": "09-26",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-03",
+     "commits": 3,
+     "effective": 3,
+     "authors": 2,
+     "insertions": 1648,
+     "deletions": 115
+    },
+    {
+     "label": "10-10",
+     "commits": 3,
+     "effective": 3,
+     "authors": 2,
+     "insertions": 142,
+     "deletions": 31
+    },
+    {
+     "label": "10-17",
+     "commits": 11,
+     "effective": 8,
+     "authors": 1,
+     "insertions": 2282,
+     "deletions": 626
+    },
+    {
+     "label": "10-24",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-31",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    }
+   ],
+   "moduleActivity": [],
+   "peopleProfile": [
+    {
+     "name": "钟江华",
+     "role": "认证服务·登录释放主写",
+     "intent": "登录释放策略主写 + test 侧合并（86424c45，未监测面）",
+     "workload": "统计期 12 笔（份额 67%）",
+     "intensity": "7 个活跃日，峰值 10-22（5 笔），深夜 0/周末 1",
+     "engagement": "覆盖 10 模块、3 笔测试产出",
+     "risk": "bus factor=1——已升级为交叉复核专项建议",
+     "riskLevel": "中",
+     "activeDays": 7,
+     "deepNight": 0,
+     "weekend": 1,
+     "peakDay": "2026-10-22",
+     "peakN": 5,
+     "modulesTouched": 10,
+     "testCommits": 3,
+     "share": 0.667
+    },
+    {
+     "name": "钟承佑",
+     "role": "配合",
+     "intent": "配合改动",
+     "workload": "统计期 3 笔（份额 17%）",
+     "intensity": "2 个活跃日",
+     "engagement": "覆盖 1 模块",
+     "risk": "样本小",
+     "riskLevel": null,
+     "activeDays": 2,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "2026-10-15",
+     "peakN": 2,
+     "modulesTouched": 1,
+     "testCommits": 0,
+     "share": 0.167
+    },
+    {
+     "name": "高鲸凱",
+     "role": "配合",
+     "intent": "配合改动",
+     "workload": "统计期 2 笔（份额 11%）",
+     "intensity": "2 个活跃日",
+     "engagement": "覆盖 1 模块",
+     "risk": "样本小",
+     "riskLevel": null,
+     "activeDays": 2,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "2026-10-08",
+     "peakN": 1,
+     "modulesTouched": 1,
+     "testCommits": 0,
+     "share": 0.111
+    },
+    {
+     "name": "苏广銮",
+     "role": "配合（8 月）",
+     "intent": "配合改动",
+     "workload": "统计期 1 笔（份额 6%）",
+     "intensity": "1 个活跃日",
+     "engagement": "覆盖 2 模块、1 笔测试产出",
+     "risk": "样本小",
+     "riskLevel": null,
+     "activeDays": 1,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "2026-08-05",
+     "peakN": 1,
+     "modulesTouched": 2,
+     "testCommits": 1,
+     "share": 0.056
+    }
+   ],
+   "plans": [
+    {
+     "id": "R11",
+     "name": "登录释放策略优化",
+     "owner": "钟江华/钟承佑",
+     "start": "09-30",
+     "due": "10-21",
+     "status": "部分推进",
+     "note": "监测分支窗口 0 提交；86424c45（10-30 18:08）v5.17 已合并至 test（未监测分支）——验证后主干合并；提测日已过 9 个工作日",
+     "prevStatus": "部分推进",
+     "done": null
+    }
+   ],
+   "risks": [
+    {
+     "title": "统计期 66.7% 提交集中在钟江华",
+     "plain": "认证服务的活基本是一个人干的",
+     "dimension": "people",
+     "level": "中",
+     "evidence": "§1.4/§1.19：12/18 有效提交（10 模块）",
+     "advice": "专项治理：登录释放功能交叉复核机制落地（第二复核人）",
+     "agePeriods": 3
+    },
+    {
+     "title": "TODO 140 处 + 超大类（UserDetailsServiceImpl）",
+     "plain": "代码里积了 140 处待办，认证核心类快 2000 行需要拆",
+     "dimension": "quality",
+     "level": "中",
+     "evidence": "§1.6：140 > 20；UserDetailsServiceImpl 1689 非空行（物理行 1941 口径注记）",
+     "advice": "专项治理：认证服务拆分评估列入技术债专项",
+     "agePeriods": 3
+    },
+    {
+     "title": "窗口 0 提交，R11 已过提测日 9 个工作日",
+     "plain": "登录释放过了提测时间还没确认交付，好在代码已进测试环境验证",
+     "dimension": "progress",
+     "level": "中",
+     "evidence": "任务明细 R11 提测 10-21；v5.17 最后活跃 10-22；86424c45（10-30）已合并 test（未监测面）",
+     "advice": "与文档维护人核对状态；建议设定主干合并时限",
+     "agePeriods": 3
+    },
+    {
+     "title": "v5.17 领先主干 14 未合并",
+     "plain": "登录释放的代码还有 14 个提交没合回主干",
+     "dimension": "integration",
+     "level": "低",
+     "evidence": "§1.5：ahead 14 / behind 0 / 分叉 10-15（存活 18 天，<21 仅关注级）",
+     "advice": "验证通过后随 R11 收口合并",
+     "agePeriods": 3
+    }
+   ],
+   "insights": [
+    "ourchem-oauth@86424c45（origin/test）—— v5.17 合并入 test（10-30 18:08，钟江华）——test 为未监测分支（口径注记：R11 进入验证阶段，按\"部分推进+验证中\"呈现）",
+    "统计期人员增删行按勘误②修正（钟承佑 370/10→185/5、高鲸凱 148/6→74/3、苏广銮 202/20→101/10、钟江华 4076/802→4023/783）",
+    "超大文件行数口径：非空行 1689 与物理行 1941 差异已注记，不作恶化解读"
+   ],
+   "lifetime": {
+    "first": "2020-04-27",
+    "last": "2026-10-30",
+    "totalCommits": 1231,
+    "authors": 25,
+    "monthly": {
+     "2026-10": 33,
+     "2026-09": 6,
+     "2026-07": 7,
+     "2026-08": 4,
+     "2026-06": 5,
+     "2026-05": 3,
+     "2026-04": 7,
+     "2026-03": 6,
+     "2026-02": 2,
+     "2026-01": 17,
+     "2025-12": 20,
+     "2024-08": 5,
+     "2025-11": 11,
+     "2025-10": 4,
+     "2025-09": 2,
+     "2025-08": 3,
+     "2025-07": 3,
+     "2025-06": 2,
+     "2025-05": 4,
+     "2025-04": 7,
+     "2025-03": 10,
+     "2025-02": 8,
+     "2025-01": 3,
+     "2024-12": 11,
+     "2024-11": 4,
+     "2024-10": 1,
+     "2024-09": 2,
+     "2024-07": 10,
+     "2024-06": 5,
+     "2023-05": 23,
+     "2024-05": 6,
+     "2024-04": 14,
+     "2024-03": 9,
+     "2024-02": 15,
+     "2024-01": 34,
+     "2023-12": 5,
+     "2023-11": 5,
+     "2023-10": 1,
+     "2023-09": 6,
+     "2023-08": 13,
+     "2023-07": 18,
+     "2023-06": 6,
+     "2023-03": 56,
+     "2023-04": 27,
+     "2023-02": 10,
+     "2023-01": 9,
+     "2022-12": 27,
+     "2022-11": 86,
+     "2022-10": 17,
+     "2022-09": 29,
+     "2022-08": 48,
+     "2022-07": 6,
+     "2022-06": 16,
+     "2022-03": 5,
+     "2022-02": 2,
+     "2022-01": 4,
+     "2021-12": 11,
+     "2021-11": 1,
+     "2021-10": 11,
+     "2021-08": 9,
+     "2021-07": 11,
+     "2021-06": 16,
+     "2021-05": 28,
+     "2021-04": 2,
+     "2021-03": 66,
+     "2021-02": 15,
+     "2021-01": 16,
+     "2020-12": 37,
+     "2020-11": 33,
+     "2020-10": 54,
+     "2020-09": 32,
+     "2020-08": 17,
+     "2020-07": 82,
+     "2020-06": 59,
+     "2020-05": 24,
+     "2020-04": 5
+    },
+    "topAuthors": [
+     {
+      "who": "zhouzhaokang@ourchem.com（待映射）",
+      "commits": 277
+     },
+     {
+      "who": "zengdong@ourchem.com（待映射）",
+      "commits": 266
+     },
+     {
+      "who": "578038303@qq.com（待映射）",
+      "commits": 153
+     },
+     {
+      "who": "zjy@ourchem.com（待映射）",
+      "commits": 142
+     },
+     {
+      "who": "huangjunjie@ourchem.com（待映射）",
+      "commits": 97
+     }
+    ]
+   },
+   "windowAnalysis": {
+    "classification": {},
+    "merges": 0,
+    "effectiveCommits": 0,
+    "trivial": []
+   },
+   "dayDiff": {
+    "todayCommits": 0,
+    "todayEffective": 0,
+    "todayIns": 0,
+    "todayDel": 0,
+    "prevDayCommits": 0,
+    "prevDayEffective": 0,
+    "prevDayIns": 0,
+    "prevDayDel": 0,
+    "newAuthors": [],
+    "goneAuthors": [],
+    "aheadDelta": "0",
+    "note": "上一变动日（10-30）监测分支无提交（test 合并不在监测面）；周末两日与今日均无新提交"
+   },
+   "roundDiff": null,
+   "roundSnapshots": [
+    {
+     "period": 4,
+     "at": "06:22",
+     "commits": 0,
+     "effective": 0,
+     "ins": 0,
+     "del": 0,
+     "authors": 0,
+     "big": 0,
+     "todos": 140,
+     "scores": {
+      "progress": 48,
+      "people": 55,
+      "quality": 50,
+      "integration": 25,
+      "standard": 10
+     },
+     "total": 40.65,
+     "level": "中",
+     "topRisk": "66.7% 提交单人集中；TODO 140 + 超大类（v5.17 已进 test）"
+    }
+   ],
+   "prev": {
+    "total": 40.65,
+    "scores": {
+     "progress": 48,
+     "people": 55,
+     "quality": 50,
+     "integration": 25,
+     "convention": 10
+    },
+    "members": [],
+    "branches": [
+     {
+      "name": "v5.17-1016188-登录释放策略优化",
+      "ahead": 14,
+      "behind": 0
+     }
+    ],
+    "quality": {
+     "todo": 140,
+     "bigCommits": 0,
+     "reworkRatio": 0,
+     "largeFiles": 1
+    }
+   }
+  },
+  {
+   "name": "lucene",
+   "total": 39.0,
+   "level": "中",
+   "delta": 0.0,
+   "scores": {
+    "progress": 40,
+    "people": 40,
+    "quality": 35,
+    "integration": 55,
+    "convention": 25
+   },
+   "topRisk": "事实主干错位（master 停在 2020，实际工作在 v4.2.0）",
+   "narrative": {
+    "progress": "R14 已推进（提测日已过 2 个工作日）；窗口 1 笔实质修复",
+    "people": "吴嘉明 100%（fork 维护形态即单人）",
+    "quality": "9 行修复零测试；上游基线不可比（口径注记）",
+    "integration": "事实主干错位（master 2020 vs v4.2.0 2026）——口径风险为主",
+    "convention": "0f3bcea message 无类型前缀；上游基线不评判",
+    "rhythm": "窗口非零日仅 10-29（1 笔）",
+    "modules": "改动集中在分词内核（core/src，R14）",
+    "plans": "R14 已推进待验证确认",
+    "testing": "存量 1898 个测试为上游自带；修复零同步"
+   },
+   "testing": {
+    "testCommitShare": 0,
+    "syncRate": 0,
+    "syncDenom": 1,
+    "testRatio": 0,
+    "stockTestFiles": 1898,
+    "stockNote": "全部为上游 Lucene 测试体系；团队未新增",
+    "sitTraces": 0,
+    "aiReview": "TermSpans/CharacterUtil 修复 → 上游 lucene core 测试可覆盖但未运行证据不可见（盲区）；建议修复附带最小回归说明——已列入专项治理建议"
+   },
+   "members": [
+    {
+     "name": "吴嘉明",
+     "commits": 1,
+     "insertions": 9,
+     "deletions": 1,
+     "branches": {
+      "v4.2.0": 1
+     },
+     "activeDays": 1,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "2026-10-29",
+     "peakN": 1,
+     "modulesTouched": 1,
+     "testCommits": 0
+    }
+   ],
+   "branches": [
+    {
+     "name": "v4.2.0",
+     "ahead": 4,
+     "behind": 0,
+     "staleDays": 2261,
+     "lastActive": "10-29"
+    }
+   ],
+   "quality": {
+    "todo": 1762,
+    "todoThreshold": 20,
+    "bigCommits": 0,
+    "reworkRatio": 0.11,
+    "reworkThreshold": 0.5,
+    "largeFiles": 0
+   },
+   "rhythm": [
+    {
+     "date": "08-01",
+     "commits": 0
+    },
+    {
+     "date": "08-02",
+     "commits": 0
+    },
+    {
+     "date": "08-03",
+     "commits": 0
+    },
+    {
+     "date": "08-04",
+     "commits": 0
+    },
+    {
+     "date": "08-05",
+     "commits": 0
+    },
+    {
+     "date": "08-06",
+     "commits": 0
+    },
+    {
+     "date": "08-07",
+     "commits": 0
+    },
+    {
+     "date": "08-08",
+     "commits": 0
+    },
+    {
+     "date": "08-09",
+     "commits": 0
+    },
+    {
+     "date": "08-10",
+     "commits": 0
+    },
+    {
+     "date": "08-11",
+     "commits": 0
+    },
+    {
+     "date": "08-12",
+     "commits": 0
+    },
+    {
+     "date": "08-13",
+     "commits": 0
+    },
+    {
+     "date": "08-14",
+     "commits": 0
+    },
+    {
+     "date": "08-15",
+     "commits": 0
+    },
+    {
+     "date": "08-16",
+     "commits": 0
+    },
+    {
+     "date": "08-17",
+     "commits": 0
+    },
+    {
+     "date": "08-18",
+     "commits": 0
+    },
+    {
+     "date": "08-19",
+     "commits": 0
+    },
+    {
+     "date": "08-20",
+     "commits": 0
+    },
+    {
+     "date": "08-21",
+     "commits": 0
+    },
+    {
+     "date": "08-22",
+     "commits": 0
+    },
+    {
+     "date": "08-23",
+     "commits": 0
+    },
+    {
+     "date": "08-24",
+     "commits": 0
+    },
+    {
+     "date": "08-25",
+     "commits": 0
+    },
+    {
+     "date": "08-26",
+     "commits": 0
+    },
+    {
+     "date": "08-27",
+     "commits": 0
+    },
+    {
+     "date": "08-28",
+     "commits": 0
+    },
+    {
+     "date": "08-29",
+     "commits": 0
+    },
+    {
+     "date": "08-30",
+     "commits": 0
+    },
+    {
+     "date": "08-31",
+     "commits": 0
+    },
+    {
+     "date": "09-01",
+     "commits": 0
+    },
+    {
+     "date": "09-02",
+     "commits": 0
+    },
+    {
+     "date": "09-03",
+     "commits": 0
+    },
+    {
+     "date": "09-04",
+     "commits": 0
+    },
+    {
+     "date": "09-05",
+     "commits": 0
+    },
+    {
+     "date": "09-06",
+     "commits": 0
+    },
+    {
+     "date": "09-07",
+     "commits": 0
+    },
+    {
+     "date": "09-08",
+     "commits": 0
+    },
+    {
+     "date": "09-09",
+     "commits": 0
+    },
+    {
+     "date": "09-10",
+     "commits": 0
+    },
+    {
+     "date": "09-11",
+     "commits": 0
+    },
+    {
+     "date": "09-12",
+     "commits": 0
+    },
+    {
+     "date": "09-13",
+     "commits": 0
+    },
+    {
+     "date": "09-14",
+     "commits": 0
+    },
+    {
+     "date": "09-15",
+     "commits": 0
+    },
+    {
+     "date": "09-16",
+     "commits": 0
+    },
+    {
+     "date": "09-17",
+     "commits": 0
+    },
+    {
+     "date": "09-18",
+     "commits": 0
+    },
+    {
+     "date": "09-19",
+     "commits": 0
+    },
+    {
+     "date": "09-20",
+     "commits": 0
+    },
+    {
+     "date": "09-21",
+     "commits": 0
+    },
+    {
+     "date": "09-22",
+     "commits": 0
+    },
+    {
+     "date": "09-23",
+     "commits": 0
+    },
+    {
+     "date": "09-24",
+     "commits": 0
+    },
+    {
+     "date": "09-25",
+     "commits": 0
+    },
+    {
+     "date": "09-26",
+     "commits": 0
+    },
+    {
+     "date": "09-27",
+     "commits": 0
+    },
+    {
+     "date": "09-28",
+     "commits": 0
+    },
+    {
+     "date": "09-29",
+     "commits": 0
+    },
+    {
+     "date": "09-30",
+     "commits": 0
+    },
+    {
+     "date": "10-01",
+     "commits": 0
+    },
+    {
+     "date": "10-02",
+     "commits": 0
+    },
+    {
+     "date": "10-03",
+     "commits": 0
+    },
+    {
+     "date": "10-04",
+     "commits": 0
+    },
+    {
+     "date": "10-05",
+     "commits": 0
+    },
+    {
+     "date": "10-06",
+     "commits": 0
+    },
+    {
+     "date": "10-07",
+     "commits": 0
+    },
+    {
+     "date": "10-08",
+     "commits": 0
+    },
+    {
+     "date": "10-09",
+     "commits": 0
+    },
+    {
+     "date": "10-10",
+     "commits": 0
+    },
+    {
+     "date": "10-11",
+     "commits": 0
+    },
+    {
+     "date": "10-12",
+     "commits": 0
+    },
+    {
+     "date": "10-13",
+     "commits": 0
+    },
+    {
+     "date": "10-14",
+     "commits": 0
+    },
+    {
+     "date": "10-15",
+     "commits": 0
+    },
+    {
+     "date": "10-16",
+     "commits": 0
+    },
+    {
+     "date": "10-17",
+     "commits": 0
+    },
+    {
+     "date": "10-18",
+     "commits": 0
+    },
+    {
+     "date": "10-19",
+     "commits": 0
+    },
+    {
+     "date": "10-20",
+     "commits": 0
+    },
+    {
+     "date": "10-21",
+     "commits": 0
+    },
+    {
+     "date": "10-22",
+     "commits": 0
+    },
+    {
+     "date": "10-23",
+     "commits": 0
+    },
+    {
+     "date": "10-24",
+     "commits": 0
+    },
+    {
+     "date": "10-25",
+     "commits": 0
+    },
+    {
+     "date": "10-26",
+     "commits": 0
+    },
+    {
+     "date": "10-27",
+     "commits": 0
+    },
+    {
+     "date": "10-28",
+     "commits": 0
+    },
+    {
+     "date": "10-29",
+     "commits": 1
+    },
+    {
+     "date": "10-30",
+     "commits": 0
+    },
+    {
+     "date": "10-31",
+     "commits": 0
+    },
+    {
+     "date": "11-01",
+     "commits": 0
+    },
+    {
+     "date": "11-02",
+     "commits": 0
+    }
+   ],
+   "weekly": [
+    {
+     "label": "08-01",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "08-08",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "08-15",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "08-22",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "08-29",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-05",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-12",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-19",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-26",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-03",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-10",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-17",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-24",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "insertions": 9,
+     "deletions": 1
+    },
+    {
+     "label": "10-31",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    }
+   ],
+   "moduleActivity": [
+    {
+     "module": "core/src",
+     "desc": "分词内核（R14 修复）",
+     "insertions": 9,
+     "deletions": 1,
+     "commits": 1,
+     "core": true
+    }
+   ],
+   "peopleProfile": [
+    {
+     "name": "吴嘉明",
+     "role": "检索内核维护",
+     "intent": "R14 小语种短语检索修复（TermSpans/CharacterUtil）",
+     "workload": "统计期 1 笔（份额 100%）",
+     "intensity": "1 个活跃日，深夜 0/周末 0",
+     "engagement": "覆盖 1 模块",
+     "risk": "fork 单人维护形态；内核验证不可见（盲区）",
+     "riskLevel": "低",
+     "activeDays": 1,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "2026-10-29",
+     "peakN": 1,
+     "modulesTouched": 1,
+     "testCommits": 0,
+     "share": 1.0
+    }
+   ],
+   "plans": [
+    {
+     "id": "R14",
+     "name": "外文/小语种非标准英文检索 bug",
+     "owner": "吴嘉明",
+     "start": "10-16",
+     "due": "10-30",
+     "status": "已推进",
+     "note": "0f3bcea（10-29）TermSpans/CharacterUtil 修复；提测日已过 2 个工作日——待验证确认",
+     "prevStatus": "已推进",
+     "done": null
+    }
+   ],
+   "risks": [
+    {
+     "title": "实际工作在 6 年历史的 v4.2.0 分支（master 停在 2020-08）",
+     "plain": "真正的开发都发生在一条 6 年前拉出的老分支上，名义主干早就没人用了",
+     "dimension": "integration",
+     "level": "中",
+     "evidence": "§1.5：v4.2.0 ahead 4 / behind 0 / 分叉 2020-08-24（存活 2261 天）",
+     "advice": "专项治理：确认 v4.2.0 为事实主干并走监测范围确认流程变更 config",
+     "agePeriods": 3
+    },
+    {
+     "title": "9 行修复无测试",
+     "plain": "检索内核的修复没有配套测试",
+     "dimension": "quality",
+     "level": "中",
+     "evidence": "§1.18：0f3bcea TermSpans/CharacterUtil 修复，零测试同步",
+     "advice": "专项治理：修复附带最小回归说明（分词/词元生命周期用例清单），随 R14 验证执行",
+     "agePeriods": 3
+    },
+    {
+     "title": "上游 TODO/测试基线不可比",
+     "plain": "框架自带的待办标记和测试很多，不能按业务仓库的标准衡量",
+     "dimension": "quality",
+     "level": "低",
+     "evidence": "§1.6：TODO 1762、存量测试 1898——均为上游 Lucene 框架自带",
+     "advice": "口径注记：不按业务仓阈值评判（连续期保持此口径）",
+     "agePeriods": 3
+    }
+   ],
+   "insights": [
+    "lucene@0f3bcea core/src/.../TermSpans.java、CharacterUtil.java —— 小语种短语检索相邻位置计算修复（10-29，2 文件 +9/−1，git show --stat 本期复核）",
+    "上游基线口径（P3 偏差记录④沿用）：TODO/测试/大文件不按业务阈值评判"
+   ],
+   "lifetime": {
+    "first": "2020-08-24",
+    "last": "2026-10-29",
+    "totalCommits": 8,
+    "authors": 4,
+    "monthly": {
+     "2026-10": 1,
+     "2022-05": 3,
+     "2020-08": 4
+    },
+    "topAuthors": [
+     {
+      "who": "zhouzhaokang@ourchem.com（待映射）",
+      "commits": 3
+     },
+     {
+      "who": "578038303@qq.com（待映射）",
+      "commits": 3
+     },
+     {
+      "who": "吴嘉明",
+      "commits": 1
+     },
+     {
+      "who": "moxuqiang@ourchem.com（待映射）",
+      "commits": 1
+     }
+    ]
+   },
+   "windowAnalysis": {
+    "classification": {
+     "其他": 1
+    },
+    "merges": 0,
+    "effectiveCommits": 1,
+    "trivial": []
+   },
+   "dayDiff": {
+    "todayCommits": 0,
+    "todayEffective": 0,
+    "todayIns": 0,
+    "todayDel": 0,
+    "prevDayCommits": 0,
+    "prevDayEffective": 0,
+    "prevDayIns": 0,
+    "prevDayDel": 0,
+    "newAuthors": [],
+    "goneAuthors": [],
+    "aheadDelta": "0",
+    "note": "上一变动日（10-30）本仓无提交（最近 10-29）；周末两日与今日均无新提交"
+   },
+   "roundDiff": null,
+   "roundSnapshots": [
+    {
+     "period": 4,
+     "at": "06:22",
+     "commits": 1,
+     "effective": 1,
+     "ins": 9,
+     "del": 1,
+     "authors": 1,
+     "big": 0,
+     "todos": 1762,
+     "scores": {
+      "progress": 40,
+      "people": 40,
+      "quality": 35,
+      "integration": 55,
+      "standard": 25
+     },
+     "total": 39.0,
+     "level": "中",
+     "topRisk": "事实主干错位（master 停在 2020，实际工作在 v4.2.0）"
+    }
+   ],
+   "prev": {
+    "total": 39.0,
+    "scores": {
+     "progress": 40,
+     "people": 40,
+     "quality": 35,
+     "integration": 55,
+     "convention": 25
+    },
+    "members": [
+     {
+      "name": "吴嘉明",
+      "commits": 1
+     }
+    ],
+    "branches": [
+     {
+      "name": "v4.2.0",
+      "ahead": 4,
+      "behind": 0
+     }
+    ],
+    "quality": {
+     "todo": 1762,
+     "bigCommits": 0,
+     "reworkRatio": 0.11,
+     "largeFiles": 0
+    }
+   }
+  },
+  {
+   "name": "image-search-v2",
+   "total": 23.25,
+   "level": "低",
+   "delta": 0.0,
+   "scores": {
+    "progress": 25,
+    "people": 30,
+    "quality": 30,
+    "integration": 5,
+    "convention": 20
+   },
+   "topRisk": "初次提交 1921 行无测试；单人维护",
+   "narrative": {
+    "progress": "R2 已完成（复核沿用）；窗口无新提交——交付后静止属新仓常态",
+    "people": "吴嘉明单人（形态一致）；深夜 0/周末 0",
+    "quality": "1921 行主体零测试；TODO 以口径注记呈现；大提交 1（Initial 形态）",
+    "integration": "单分支新仓，无信号",
+    "convention": "Initial commit；锁定文件入库属依赖管理常态",
+    "rhythm": "非零日仅 10-29（Initial）",
+    "modules": "检索服务骨架（app/search/filters/encoder/import_lance）",
+    "plans": "R2 已完成复核沿用（done=10-28）",
+    "testing": "1921 行零测试（aging 3 期）"
+   },
+   "testing": {
+    "testCommitShare": 0,
+    "syncRate": 0,
+    "syncDenom": 1,
+    "testRatio": 0,
+    "stockTestFiles": 0,
+    "stockNote": "无存量测试文件",
+    "sitTraces": 0,
+    "aiReview": "功能-测试配套：app/search/filters/encoder/import_lance → 无测试（零配套）；建议检索主链路先补冒烟用例（服务可启动 + 查询返回结构）——已列入专项治理建议"
+   },
+   "members": [
+    {
+     "name": "吴嘉明",
+     "commits": 1,
+     "insertions": 1921,
+     "deletions": 0,
+     "branches": {
+      "master": 1
+     },
+     "activeDays": 1,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "2026-10-29",
+     "peakN": 1,
+     "modulesTouched": 14,
+     "testCommits": 0
+    }
+   ],
+   "branches": [],
+   "quality": {
+    "todo": 16,
+    "todoThreshold": 20,
+    "bigCommits": 1,
+    "reworkRatio": 0,
+    "reworkThreshold": 0.5,
+    "largeFiles": 1
+   },
+   "rhythm": [
+    {
+     "date": "08-01",
+     "commits": 0
+    },
+    {
+     "date": "08-02",
+     "commits": 0
+    },
+    {
+     "date": "08-03",
+     "commits": 0
+    },
+    {
+     "date": "08-04",
+     "commits": 0
+    },
+    {
+     "date": "08-05",
+     "commits": 0
+    },
+    {
+     "date": "08-06",
+     "commits": 0
+    },
+    {
+     "date": "08-07",
+     "commits": 0
+    },
+    {
+     "date": "08-08",
+     "commits": 0
+    },
+    {
+     "date": "08-09",
+     "commits": 0
+    },
+    {
+     "date": "08-10",
+     "commits": 0
+    },
+    {
+     "date": "08-11",
+     "commits": 0
+    },
+    {
+     "date": "08-12",
+     "commits": 0
+    },
+    {
+     "date": "08-13",
+     "commits": 0
+    },
+    {
+     "date": "08-14",
+     "commits": 0
+    },
+    {
+     "date": "08-15",
+     "commits": 0
+    },
+    {
+     "date": "08-16",
+     "commits": 0
+    },
+    {
+     "date": "08-17",
+     "commits": 0
+    },
+    {
+     "date": "08-18",
+     "commits": 0
+    },
+    {
+     "date": "08-19",
+     "commits": 0
+    },
+    {
+     "date": "08-20",
+     "commits": 0
+    },
+    {
+     "date": "08-21",
+     "commits": 0
+    },
+    {
+     "date": "08-22",
+     "commits": 0
+    },
+    {
+     "date": "08-23",
+     "commits": 0
+    },
+    {
+     "date": "08-24",
+     "commits": 0
+    },
+    {
+     "date": "08-25",
+     "commits": 0
+    },
+    {
+     "date": "08-26",
+     "commits": 0
+    },
+    {
+     "date": "08-27",
+     "commits": 0
+    },
+    {
+     "date": "08-28",
+     "commits": 0
+    },
+    {
+     "date": "08-29",
+     "commits": 0
+    },
+    {
+     "date": "08-30",
+     "commits": 0
+    },
+    {
+     "date": "08-31",
+     "commits": 0
+    },
+    {
+     "date": "09-01",
+     "commits": 0
+    },
+    {
+     "date": "09-02",
+     "commits": 0
+    },
+    {
+     "date": "09-03",
+     "commits": 0
+    },
+    {
+     "date": "09-04",
+     "commits": 0
+    },
+    {
+     "date": "09-05",
+     "commits": 0
+    },
+    {
+     "date": "09-06",
+     "commits": 0
+    },
+    {
+     "date": "09-07",
+     "commits": 0
+    },
+    {
+     "date": "09-08",
+     "commits": 0
+    },
+    {
+     "date": "09-09",
+     "commits": 0
+    },
+    {
+     "date": "09-10",
+     "commits": 0
+    },
+    {
+     "date": "09-11",
+     "commits": 0
+    },
+    {
+     "date": "09-12",
+     "commits": 0
+    },
+    {
+     "date": "09-13",
+     "commits": 0
+    },
+    {
+     "date": "09-14",
+     "commits": 0
+    },
+    {
+     "date": "09-15",
+     "commits": 0
+    },
+    {
+     "date": "09-16",
+     "commits": 0
+    },
+    {
+     "date": "09-17",
+     "commits": 0
+    },
+    {
+     "date": "09-18",
+     "commits": 0
+    },
+    {
+     "date": "09-19",
+     "commits": 0
+    },
+    {
+     "date": "09-20",
+     "commits": 0
+    },
+    {
+     "date": "09-21",
+     "commits": 0
+    },
+    {
+     "date": "09-22",
+     "commits": 0
+    },
+    {
+     "date": "09-23",
+     "commits": 0
+    },
+    {
+     "date": "09-24",
+     "commits": 0
+    },
+    {
+     "date": "09-25",
+     "commits": 0
+    },
+    {
+     "date": "09-26",
+     "commits": 0
+    },
+    {
+     "date": "09-27",
+     "commits": 0
+    },
+    {
+     "date": "09-28",
+     "commits": 0
+    },
+    {
+     "date": "09-29",
+     "commits": 0
+    },
+    {
+     "date": "09-30",
+     "commits": 0
+    },
+    {
+     "date": "10-01",
+     "commits": 0
+    },
+    {
+     "date": "10-02",
+     "commits": 0
+    },
+    {
+     "date": "10-03",
+     "commits": 0
+    },
+    {
+     "date": "10-04",
+     "commits": 0
+    },
+    {
+     "date": "10-05",
+     "commits": 0
+    },
+    {
+     "date": "10-06",
+     "commits": 0
+    },
+    {
+     "date": "10-07",
+     "commits": 0
+    },
+    {
+     "date": "10-08",
+     "commits": 0
+    },
+    {
+     "date": "10-09",
+     "commits": 0
+    },
+    {
+     "date": "10-10",
+     "commits": 0
+    },
+    {
+     "date": "10-11",
+     "commits": 0
+    },
+    {
+     "date": "10-12",
+     "commits": 0
+    },
+    {
+     "date": "10-13",
+     "commits": 0
+    },
+    {
+     "date": "10-14",
+     "commits": 0
+    },
+    {
+     "date": "10-15",
+     "commits": 0
+    },
+    {
+     "date": "10-16",
+     "commits": 0
+    },
+    {
+     "date": "10-17",
+     "commits": 0
+    },
+    {
+     "date": "10-18",
+     "commits": 0
+    },
+    {
+     "date": "10-19",
+     "commits": 0
+    },
+    {
+     "date": "10-20",
+     "commits": 0
+    },
+    {
+     "date": "10-21",
+     "commits": 0
+    },
+    {
+     "date": "10-22",
+     "commits": 0
+    },
+    {
+     "date": "10-23",
+     "commits": 0
+    },
+    {
+     "date": "10-24",
+     "commits": 0
+    },
+    {
+     "date": "10-25",
+     "commits": 0
+    },
+    {
+     "date": "10-26",
+     "commits": 0
+    },
+    {
+     "date": "10-27",
+     "commits": 0
+    },
+    {
+     "date": "10-28",
+     "commits": 0
+    },
+    {
+     "date": "10-29",
+     "commits": 1
+    },
+    {
+     "date": "10-30",
+     "commits": 0
+    },
+    {
+     "date": "10-31",
+     "commits": 0
+    },
+    {
+     "date": "11-01",
+     "commits": 0
+    },
+    {
+     "date": "11-02",
+     "commits": 0
+    }
+   ],
+   "weekly": [
+    {
+     "label": "08-01",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "08-08",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "08-15",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "08-22",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "08-29",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-05",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-12",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-19",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-26",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-03",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-10",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-17",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-24",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "insertions": 1921,
+     "deletions": 0
+    },
+    {
+     "label": "10-31",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    }
+   ],
+   "moduleActivity": [
+    {
+     "module": "app.py",
+     "desc": "服务入口",
+     "insertions": 478,
+     "deletions": 0,
+     "commits": 1,
+     "core": true
+    },
+    {
+     "module": "search.py",
+     "desc": "检索逻辑",
+     "insertions": 327,
+     "deletions": 0,
+     "commits": 1,
+     "core": true
+    },
+    {
+     "module": "filters.py",
+     "desc": "过滤器",
+     "insertions": 322,
+     "deletions": 0,
+     "commits": 1,
+     "core": true
+    },
+    {
+     "module": "import_lance.py",
+     "desc": "Lance 数据导入",
+     "insertions": 207,
+     "deletions": 0,
+     "commits": 1,
+     "core": true
+    },
+    {
+     "module": "encoder.py",
+     "desc": "向量编码",
+     "insertions": 155,
+     "deletions": 0,
+     "commits": 1,
+     "core": true
+    },
+    {
+     "module": "pixi.toml",
+     "desc": "依赖与配置",
+     "insertions": 110,
+     "deletions": 0,
+     "commits": 1,
+     "core": false
+    }
+   ],
+   "peopleProfile": [
+    {
+     "name": "吴嘉明",
+     "role": "图像检索算法/服务",
+     "intent": "检索服务骨架（Initial，1921 行/14 文件）",
+     "workload": "统计期 1 笔（份额 100%）",
+     "intensity": "1 个活跃日，深夜 0/周末 0",
+     "engagement": "覆盖 14 文件",
+     "risk": "算法仓单人为常态；模型训练/评测不可见（盲区）",
+     "riskLevel": "低",
+     "activeDays": 1,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "2026-10-29",
+     "peakN": 1,
+     "modulesTouched": 14,
+     "testCommits": 0,
+     "share": 1.0
+    }
+   ],
+   "plans": [
+    {
+     "id": "R2",
+     "name": "图像检索模型调整及全库向量化",
+     "owner": "吴嘉明",
+     "start": "10-16",
+     "due": "10-28",
+     "status": "已完成",
+     "note": "复核沿用：文档确认 10-28 数据入库 ∧ 截止已过（数据操作 git 不可见，P2 核证口径）",
+     "prevStatus": "已完成",
+     "done": "10-28"
+    }
+   ],
+   "risks": [
+    {
+     "title": "初次提交 1921 行无测试（检索服务主体）",
+     "plain": "检索服务主体代码没有任何测试",
+     "dimension": "quality",
+     "level": "中",
+     "evidence": "§1.18：app/search/filters/encoder 等 14 文件零测试",
+     "advice": "专项治理：检索主链路补最小回归（查询→过滤→编码冒烟用例），随服务联调落地",
+     "agePeriods": 3
+    },
+    {
+     "title": "单人维护（吴嘉明）",
+     "plain": "这个仓库只有一个人在维护",
+     "dimension": "people",
+     "level": "低",
+     "evidence": "§1.4：1/1",
+     "advice": "算法仓单人为常态；关键参数变更建议同行评审",
+     "agePeriods": 3
+    },
+    {
+     "title": "TODO 16 处（pixi.lock 15——锁定文件计数，口径注记）",
+     "plain": "待办标记大部分来自依赖锁定文件，不是业务代码欠账",
+     "dimension": "quality",
+     "level": "低",
+     "evidence": "§1.6：pixi.lock 含 15 处标记（上游依赖清单自带）；自有代码 1 处",
+     "advice": "口径注记：不按业务阈值评判（P3 偏差记录③④沿用）",
+     "agePeriods": 3
+    }
+   ],
+   "insights": [
+    "image-search-v2@c821b195 Initial commit —— 检索服务骨架（git show --stat 本期复核：14 文件 +1921）——app.py/search.py/filters.py/import_lance.py/encoder.py 五主模块 + pixi 依赖锁定；与 R2 交付口径一致",
+    "TODO 口径基线（P3 偏差记录③沿用）：全 tracked 口径 16 为基线，TODO 数变化不作恶化解读"
+   ],
+   "lifetime": {
+    "first": "2026-10-29",
+    "last": "2026-10-29",
+    "totalCommits": 1,
+    "authors": 1,
+    "monthly": {
+     "2026-10": 1
+    },
+    "topAuthors": [
+     {
+      "who": "吴嘉明",
+      "commits": 1
+     }
+    ]
+   },
+   "windowAnalysis": {
+    "classification": {
+     "其他": 1
+    },
+    "merges": 0,
+    "effectiveCommits": 1,
+    "trivial": []
+   },
+   "dayDiff": {
+    "todayCommits": 0,
+    "todayEffective": 0,
+    "todayIns": 0,
+    "todayDel": 0,
+    "prevDayCommits": 0,
+    "prevDayEffective": 0,
+    "prevDayIns": 0,
+    "prevDayDel": 0,
+    "newAuthors": [],
+    "goneAuthors": [],
+    "aheadDelta": "0",
+    "note": "上一变动日（10-30）本仓无提交（Initial 在 10-29）；周末两日与今日均无新提交"
+   },
+   "roundDiff": null,
+   "roundSnapshots": [
+    {
+     "period": 4,
+     "at": "06:22",
+     "commits": 1,
+     "effective": 1,
+     "ins": 1921,
+     "del": 0,
+     "authors": 1,
+     "big": 1,
+     "todos": 16,
+     "scores": {
+      "progress": 25,
+      "people": 30,
+      "quality": 30,
+      "integration": 5,
+      "standard": 20
+     },
+     "total": 23.25,
+     "level": "低",
+     "topRisk": "初次提交 1921 行无测试；单人维护"
+    }
+   ],
+   "prev": {
+    "total": 23.25,
+    "scores": {
+     "progress": 25,
+     "people": 30,
+     "quality": 30,
+     "integration": 5,
+     "convention": 20
+    },
+    "members": [
+     {
+      "name": "吴嘉明",
+      "commits": 1
+     }
+    ],
+    "branches": [],
+    "quality": {
+     "todo": 16,
+     "bigCommits": 1,
+     "reworkRatio": 0,
+     "largeFiles": 1
+    }
+   }
+  },
+  {
+   "name": "image-search-process-v2",
+   "total": 23.65,
+   "level": "低",
+   "delta": 0.0,
+   "scores": {
+    "progress": 25,
+    "people": 30,
+    "quality": 32,
+    "integration": 5,
+    "convention": 20
+   },
+   "topRisk": "初次提交 6152 行无测试；单人维护",
+   "narrative": {
+    "progress": "R2 已完成（复核沿用）；窗口无新提交——交付后静止属新仓常态",
+    "people": "吴嘉明单人（形态一致）；深夜 0/周末 0",
+    "quality": "6152 行主体零测试；TODO 计数按口径注记；大提交 1（Initial 形态）",
+    "integration": "单分支新仓，无信号",
+    "convention": "Initial commit；锁定文件入库属依赖管理常态",
+    "rhythm": "非零日仅 10-29（Initial）",
+    "modules": "向量化流水线（增量/导出修复/键扫描/错误报告）",
+    "plans": "R2 已完成复核沿用（done=10-28）",
+    "testing": "6152 行零测试（aging 3 期）"
+   },
+   "testing": {
+    "testCommitShare": 0,
+    "syncRate": 0,
+    "syncDenom": 1,
+    "testRatio": 0,
+    "stockTestFiles": 0,
+    "stockNote": "无存量测试文件",
+    "sitTraces": 0,
+    "aiReview": "功能-测试配套：vectorize 全链路 → 无测试（零配套）；建议增量导入/错误恢复路径先补冒烟用例——已列入专项治理建议"
+   },
+   "members": [
+    {
+     "name": "吴嘉明",
+     "commits": 1,
+     "insertions": 6152,
+     "deletions": 0,
+     "branches": {
+      "master": 1
+     },
+     "activeDays": 1,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "2026-10-29",
+     "peakN": 1,
+     "modulesTouched": 25,
+     "testCommits": 0
+    }
+   ],
+   "branches": [],
+   "quality": {
+    "todo": 29,
+    "todoThreshold": 20,
+    "bigCommits": 1,
+    "reworkRatio": 0,
+    "reworkThreshold": 0.5,
+    "largeFiles": 1
+   },
+   "rhythm": [
+    {
+     "date": "08-01",
+     "commits": 0
+    },
+    {
+     "date": "08-02",
+     "commits": 0
+    },
+    {
+     "date": "08-03",
+     "commits": 0
+    },
+    {
+     "date": "08-04",
+     "commits": 0
+    },
+    {
+     "date": "08-05",
+     "commits": 0
+    },
+    {
+     "date": "08-06",
+     "commits": 0
+    },
+    {
+     "date": "08-07",
+     "commits": 0
+    },
+    {
+     "date": "08-08",
+     "commits": 0
+    },
+    {
+     "date": "08-09",
+     "commits": 0
+    },
+    {
+     "date": "08-10",
+     "commits": 0
+    },
+    {
+     "date": "08-11",
+     "commits": 0
+    },
+    {
+     "date": "08-12",
+     "commits": 0
+    },
+    {
+     "date": "08-13",
+     "commits": 0
+    },
+    {
+     "date": "08-14",
+     "commits": 0
+    },
+    {
+     "date": "08-15",
+     "commits": 0
+    },
+    {
+     "date": "08-16",
+     "commits": 0
+    },
+    {
+     "date": "08-17",
+     "commits": 0
+    },
+    {
+     "date": "08-18",
+     "commits": 0
+    },
+    {
+     "date": "08-19",
+     "commits": 0
+    },
+    {
+     "date": "08-20",
+     "commits": 0
+    },
+    {
+     "date": "08-21",
+     "commits": 0
+    },
+    {
+     "date": "08-22",
+     "commits": 0
+    },
+    {
+     "date": "08-23",
+     "commits": 0
+    },
+    {
+     "date": "08-24",
+     "commits": 0
+    },
+    {
+     "date": "08-25",
+     "commits": 0
+    },
+    {
+     "date": "08-26",
+     "commits": 0
+    },
+    {
+     "date": "08-27",
+     "commits": 0
+    },
+    {
+     "date": "08-28",
+     "commits": 0
+    },
+    {
+     "date": "08-29",
+     "commits": 0
+    },
+    {
+     "date": "08-30",
+     "commits": 0
+    },
+    {
+     "date": "08-31",
+     "commits": 0
+    },
+    {
+     "date": "09-01",
+     "commits": 0
+    },
+    {
+     "date": "09-02",
+     "commits": 0
+    },
+    {
+     "date": "09-03",
+     "commits": 0
+    },
+    {
+     "date": "09-04",
+     "commits": 0
+    },
+    {
+     "date": "09-05",
+     "commits": 0
+    },
+    {
+     "date": "09-06",
+     "commits": 0
+    },
+    {
+     "date": "09-07",
+     "commits": 0
+    },
+    {
+     "date": "09-08",
+     "commits": 0
+    },
+    {
+     "date": "09-09",
+     "commits": 0
+    },
+    {
+     "date": "09-10",
+     "commits": 0
+    },
+    {
+     "date": "09-11",
+     "commits": 0
+    },
+    {
+     "date": "09-12",
+     "commits": 0
+    },
+    {
+     "date": "09-13",
+     "commits": 0
+    },
+    {
+     "date": "09-14",
+     "commits": 0
+    },
+    {
+     "date": "09-15",
+     "commits": 0
+    },
+    {
+     "date": "09-16",
+     "commits": 0
+    },
+    {
+     "date": "09-17",
+     "commits": 0
+    },
+    {
+     "date": "09-18",
+     "commits": 0
+    },
+    {
+     "date": "09-19",
+     "commits": 0
+    },
+    {
+     "date": "09-20",
+     "commits": 0
+    },
+    {
+     "date": "09-21",
+     "commits": 0
+    },
+    {
+     "date": "09-22",
+     "commits": 0
+    },
+    {
+     "date": "09-23",
+     "commits": 0
+    },
+    {
+     "date": "09-24",
+     "commits": 0
+    },
+    {
+     "date": "09-25",
+     "commits": 0
+    },
+    {
+     "date": "09-26",
+     "commits": 0
+    },
+    {
+     "date": "09-27",
+     "commits": 0
+    },
+    {
+     "date": "09-28",
+     "commits": 0
+    },
+    {
+     "date": "09-29",
+     "commits": 0
+    },
+    {
+     "date": "09-30",
+     "commits": 0
+    },
+    {
+     "date": "10-01",
+     "commits": 0
+    },
+    {
+     "date": "10-02",
+     "commits": 0
+    },
+    {
+     "date": "10-03",
+     "commits": 0
+    },
+    {
+     "date": "10-04",
+     "commits": 0
+    },
+    {
+     "date": "10-05",
+     "commits": 0
+    },
+    {
+     "date": "10-06",
+     "commits": 0
+    },
+    {
+     "date": "10-07",
+     "commits": 0
+    },
+    {
+     "date": "10-08",
+     "commits": 0
+    },
+    {
+     "date": "10-09",
+     "commits": 0
+    },
+    {
+     "date": "10-10",
+     "commits": 0
+    },
+    {
+     "date": "10-11",
+     "commits": 0
+    },
+    {
+     "date": "10-12",
+     "commits": 0
+    },
+    {
+     "date": "10-13",
+     "commits": 0
+    },
+    {
+     "date": "10-14",
+     "commits": 0
+    },
+    {
+     "date": "10-15",
+     "commits": 0
+    },
+    {
+     "date": "10-16",
+     "commits": 0
+    },
+    {
+     "date": "10-17",
+     "commits": 0
+    },
+    {
+     "date": "10-18",
+     "commits": 0
+    },
+    {
+     "date": "10-19",
+     "commits": 0
+    },
+    {
+     "date": "10-20",
+     "commits": 0
+    },
+    {
+     "date": "10-21",
+     "commits": 0
+    },
+    {
+     "date": "10-22",
+     "commits": 0
+    },
+    {
+     "date": "10-23",
+     "commits": 0
+    },
+    {
+     "date": "10-24",
+     "commits": 0
+    },
+    {
+     "date": "10-25",
+     "commits": 0
+    },
+    {
+     "date": "10-26",
+     "commits": 0
+    },
+    {
+     "date": "10-27",
+     "commits": 0
+    },
+    {
+     "date": "10-28",
+     "commits": 0
+    },
+    {
+     "date": "10-29",
+     "commits": 1
+    },
+    {
+     "date": "10-30",
+     "commits": 0
+    },
+    {
+     "date": "10-31",
+     "commits": 0
+    },
+    {
+     "date": "11-01",
+     "commits": 0
+    },
+    {
+     "date": "11-02",
+     "commits": 0
+    }
+   ],
+   "weekly": [
+    {
+     "label": "08-01",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "08-08",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "08-15",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "08-22",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "08-29",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-05",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-12",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-19",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "09-26",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-03",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-10",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-17",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-24",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "insertions": 6152,
+     "deletions": 0
+    },
+    {
+     "label": "10-31",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    }
+   ],
+   "moduleActivity": [
+    {
+     "module": "vectorize/incremental.py",
+     "desc": "增量向量化",
+     "insertions": 637,
+     "deletions": 0,
+     "commits": 1,
+     "core": true
+    },
+    {
+     "module": "vectorize/doris_export_fix.py",
+     "desc": "Doris 导出修复",
+     "insertions": 540,
+     "deletions": 0,
+     "commits": 1,
+     "core": true
+    },
+    {
+     "module": "vectorize/vectorize.py",
+     "desc": "向量化主流程",
+     "insertions": 498,
+     "deletions": 0,
+     "commits": 1,
+     "core": true
+    },
+    {
+     "module": "vectorize/keyscan_repair.py",
+     "desc": "键扫描修复",
+     "insertions": 470,
+     "deletions": 0,
+     "commits": 1,
+     "core": true
+    },
+    {
+     "module": "vectorize/error_report.py",
+     "desc": "错误报告",
+     "insertions": 395,
+     "deletions": 0,
+     "commits": 1,
+     "core": true
+    },
+    {
+     "module": "vectorize/keyscan.py",
+     "desc": "键扫描",
+     "insertions": 379,
+     "deletions": 0,
+     "commits": 1,
+     "core": false
+    },
+    {
+     "module": "vectorize/common.py",
+     "desc": "公共",
+     "insertions": 359,
+     "deletions": 0,
+     "commits": 1,
+     "core": false
+    },
+    {
+     "module": "vectorize/model_loader.py",
+     "desc": "模型加载",
+     "insertions": 315,
+     "deletions": 0,
+     "commits": 1,
+     "core": false
+    }
+   ],
+   "peopleProfile": [
+    {
+     "name": "吴嘉明",
+     "role": "向量化流水线",
+     "intent": "向量化流水线骨架（Initial，6152 行/28 文件，含运维修复工具链）",
+     "workload": "统计期 1 笔（份额 100%）",
+     "intensity": "1 个活跃日，深夜 0/周末 0",
+     "engagement": "覆盖 25 模块",
+     "risk": "算法仓单人为常态；数据构建/跑数不可见（盲区）",
+     "riskLevel": "低",
+     "activeDays": 1,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "2026-10-29",
+     "peakN": 1,
+     "modulesTouched": 25,
+     "testCommits": 0,
+     "share": 1.0
+    }
+   ],
+   "plans": [
+    {
+     "id": "R2",
+     "name": "图像检索模型调整及全库向量化",
+     "owner": "吴嘉明",
+     "start": "10-16",
+     "due": "10-28",
+     "status": "已完成",
+     "note": "复核沿用：文档确认 10-28 数据入库 ∧ 截止已过（数据操作 git 不可见，P2 核证口径）",
+     "prevStatus": "已完成",
+     "done": "10-28"
+    }
+   ],
+   "risks": [
+    {
+     "title": "初次提交 6152 行无测试（向量化流水线主体）",
+     "plain": "向量化流水线主体代码没有任何测试",
+     "dimension": "quality",
+     "level": "中",
+     "evidence": "§1.18：incremental/vectorize/doris_export_fix/keyscan_repair/error_report 等 28 文件零测试",
+     "advice": "专项治理：流水线主链路补最小回归（增量→导出→修复路径冒烟用例）",
+     "agePeriods": 3
+    },
+    {
+     "title": "单人维护（吴嘉明）",
+     "plain": "这个仓库只有一个人在维护",
+     "dimension": "people",
+     "level": "低",
+     "evidence": "§1.4：1/1",
+     "advice": "算法仓单人为常态；流水线参数变更建议同行评审",
+     "agePeriods": 3
+    },
+    {
+     "title": "TODO 29 处（pixi.lock 14——锁定文件计数，口径注记）",
+     "plain": "待办标记近半来自依赖锁定文件，自有代码约 15 处",
+     "dimension": "quality",
+     "level": "低",
+     "evidence": "§1.6：pixi.lock 10732 行含 14 处标记；自有代码约 15 处",
+     "advice": "口径注记呈现；自有 TODO 随迭代清理（P3 偏差记录③④沿用）",
+     "agePeriods": 3
+    }
+   ],
+   "insights": [
+    "image-search-process-v2@af8f00c2 Initial commit —— 向量化流水线（git show --stat 本期复核：28 文件 +6152，pixi.lock 二进制属性）——增量/导出修复/键扫描/错误报告工具链；含运维修复脚本为流水线已运行的间接证据",
+    "TODO 口径基线（P3 偏差记录③沿用）：全 tracked 口径 29 为基线"
+   ],
+   "lifetime": {
+    "first": "2026-10-29",
+    "last": "2026-10-29",
+    "totalCommits": 1,
+    "authors": 1,
+    "monthly": {
+     "2026-10": 1
+    },
+    "topAuthors": [
+     {
+      "who": "吴嘉明",
+      "commits": 1
+     }
+    ]
+   },
+   "windowAnalysis": {
+    "classification": {
+     "其他": 1
+    },
+    "merges": 0,
+    "effectiveCommits": 1,
+    "trivial": []
+   },
+   "dayDiff": {
+    "todayCommits": 0,
+    "todayEffective": 0,
+    "todayIns": 0,
+    "todayDel": 0,
+    "prevDayCommits": 0,
+    "prevDayEffective": 0,
+    "prevDayIns": 0,
+    "prevDayDel": 0,
+    "newAuthors": [],
+    "goneAuthors": [],
+    "aheadDelta": "0",
+    "note": "上一变动日（10-30）本仓无提交（Initial 在 10-29）；周末两日与今日均无新提交"
+   },
+   "roundDiff": null,
+   "roundSnapshots": [
+    {
+     "period": 4,
+     "at": "06:22",
+     "commits": 1,
+     "effective": 1,
+     "ins": 6152,
+     "del": 0,
+     "authors": 1,
+     "big": 1,
+     "todos": 29,
+     "scores": {
+      "progress": 25,
+      "people": 30,
+      "quality": 32,
+      "integration": 5,
+      "standard": 20
+     },
+     "total": 23.65,
+     "level": "低",
+     "topRisk": "初次提交 6152 行无测试；单人维护"
+    }
+   ],
+   "prev": {
+    "total": 23.65,
+    "scores": {
+     "progress": 25,
+     "people": 30,
+     "quality": 32,
+     "integration": 5,
+     "convention": 20
+    },
+    "members": [
+     {
+      "name": "吴嘉明",
+      "commits": 1
+     }
+    ],
+    "branches": [],
+    "quality": {
+     "todo": 29,
+     "bigCommits": 1,
+     "reworkRatio": 0,
+     "largeFiles": 1
+    }
+   }
+  }
+ ],
+ "history": [
+  {
+   "label": "10-30 P1",
+   "repos": {
+    "patyee-next": {
+     "total": 51.7
+    },
+    "ourchem-patyee": {
+     "total": 33.75
+    },
+    "ourchem-data": {
+     "total": 39.85
+    },
+    "ourchem-middle-service": {
+     "total": 35.25
+    },
+    "ourchem-oauth": {
+     "total": 40.65
+    },
+    "lucene": {
+     "total": 39.0
+    },
+    "image-search-v2": {
+     "total": 23.25
+    },
+    "image-search-process-v2": {
+     "total": 23.65
+    }
+   }
+  },
+  {
+   "label": "10-30 P2",
+   "repos": {
+    "patyee-next": {
+     "total": 51.7
+    },
+    "ourchem-patyee": {
+     "total": 33.75
+    },
+    "ourchem-data": {
+     "total": 39.85
+    },
+    "ourchem-middle-service": {
+     "total": 35.25
+    },
+    "ourchem-oauth": {
+     "total": 40.65
+    },
+    "lucene": {
+     "total": 39.0
+    },
+    "image-search-v2": {
+     "total": 23.25
+    },
+    "image-search-process-v2": {
+     "total": 23.65
+    }
+   }
+  },
+  {
+   "label": "10-31 P3",
+   "repos": {
+    "patyee-next": {
+     "total": 51.7
+    },
+    "ourchem-patyee": {
+     "total": 33.0
+    },
+    "ourchem-data": {
+     "total": 38.35
+    },
+    "ourchem-middle-service": {
+     "total": 35.25
+    },
+    "ourchem-oauth": {
+     "total": 40.65
+    },
+    "lucene": {
+     "total": 39.0
+    },
+    "image-search-v2": {
+     "total": 23.25
+    },
+    "image-search-process-v2": {
+     "total": 23.65
+    }
+   }
+  },
+  {
+   "label": "11-02 P4",
+   "repos": {
+    "patyee-next": 51.7,
+    "ourchem-patyee": 33.0,
+    "ourchem-data": 38.35,
+    "ourchem-middle-service": 31.5,
+    "ourchem-oauth": 40.65,
+    "lucene": 39.0,
+    "image-search-v2": 23.25,
+    "image-search-process-v2": 23.65
+   },
+   "note": "口径勘误②（numstat 哈希去重：增删行/大提交/模块行数/人员增删行修正）与勘误③（middle-service 分叉日期 origin 口径）自本期生效——跨期对比增删行以本期口径为准；总分除 middle-service（实际状态改善）外不受影响"
+  }
+ ],
+ "saturationTrend": {
+  "scope": "统计期 2026-08-01 ~ 2026-11-02（按 7 天窗口；跨 8 仓库关注分支按邮箱合并）",
+  "unit": "窗口 = 统计期内按 7 天切分的连续区间（最后一个 10-31~11-02 为截断窗口，无提交记 0）",
+  "team": [
+   {
+    "period": 1,
+    "label": "08-01~08-07",
+    "load": 1,
+    "focus": 2,
+    "composite": 3,
+    "loadLevel": "中",
+    "focusLevel": "高",
+    "coverage": 0.3333,
+    "nonWork": 0.0,
+    "top1": 0.5,
+    "top3": 1.0,
+    "commits": 10,
+    "workdays": 5
+   },
+   {
+    "period": 2,
+    "label": "08-08~08-14",
+    "load": 1,
+    "focus": 2,
+    "composite": 3,
+    "loadLevel": "中",
+    "focusLevel": "高",
+    "coverage": 0.6,
+    "nonWork": 0.0,
+    "top1": 0.5385,
+    "top3": 1.0,
+    "commits": 13,
+    "workdays": 5
+   },
+   {
+    "period": 3,
+    "label": "08-15~08-21",
+    "load": 1,
+    "focus": 2,
+    "composite": 3,
+    "loadLevel": "中",
+    "focusLevel": "高",
+    "coverage": 1.0,
+    "nonWork": 0.0,
+    "top1": 1.0,
+    "top3": 1.0,
+    "commits": 12,
+    "workdays": 5
+   },
+   {
+    "period": 4,
+    "label": "08-22~08-28",
+    "load": 0,
+    "focus": 2,
+    "composite": 2,
+    "loadLevel": "低",
+    "focusLevel": "高",
+    "coverage": 0.2,
+    "nonWork": 0.0,
+    "top1": 0.5,
+    "top3": 1.0,
+    "commits": 2,
+    "workdays": 5
+   },
+   {
+    "period": 5,
+    "label": "08-29~09-04",
+    "load": 1,
+    "focus": 2,
+    "composite": 3,
+    "loadLevel": "中",
+    "focusLevel": "高",
+    "coverage": 0.4,
+    "nonWork": 0.0,
+    "top1": 1.0,
+    "top3": 1.0,
+    "commits": 2,
+    "workdays": 5
+   },
+   {
+    "period": 6,
+    "label": "09-05~09-11",
+    "load": 1,
+    "focus": 2,
+    "composite": 3,
+    "loadLevel": "中",
+    "focusLevel": "高",
+    "coverage": 0.6,
+    "nonWork": 0.0,
+    "top1": 1.0,
+    "top3": 1.0,
+    "commits": 4,
+    "workdays": 5
+   },
+   {
+    "period": 7,
+    "label": "09-12~09-18",
+    "load": 1,
+    "focus": 2,
+    "composite": 3,
+    "loadLevel": "中",
+    "focusLevel": "高",
+    "coverage": 0.5,
+    "nonWork": 0.0,
+    "top1": 1.0,
+    "top3": 1.0,
+    "commits": 4,
+    "workdays": 5
+   },
+   {
+    "period": 8,
+    "label": "09-19~09-25",
+    "load": 1,
+    "focus": 2,
+    "composite": 3,
+    "loadLevel": "中",
+    "focusLevel": "高",
+    "coverage": 0.4,
+    "nonWork": 0.2,
+    "top1": 0.4,
+    "top3": 0.9,
+    "commits": 10,
+    "workdays": 5
+   },
+   {
+    "period": 9,
+    "label": "09-26~10-02",
+    "load": 1,
+    "focus": 2,
+    "composite": 3,
+    "loadLevel": "中",
+    "focusLevel": "高",
+    "coverage": 0.4,
+    "nonWork": 0.0,
+    "top1": 0.6667,
+    "top3": 1.0,
+    "commits": 6,
+    "workdays": 5
+   },
+   {
+    "period": 10,
+    "label": "10-03~10-09",
+    "load": 0,
+    "focus": 2,
+    "composite": 2,
+    "loadLevel": "低",
+    "focusLevel": "高",
+    "coverage": 0.2667,
+    "nonWork": 0.0,
+    "top1": 0.5,
+    "top3": 1.0,
+    "commits": 12,
+    "workdays": 5
+   },
+   {
+    "period": 11,
+    "label": "10-10~10-16",
+    "load": 1,
+    "focus": 1,
+    "composite": 2,
+    "loadLevel": "中",
+    "focusLevel": "中",
+    "coverage": 0.36,
+    "nonWork": 0.1176,
+    "top1": 0.4118,
+    "top3": 0.7647,
+    "commits": 17,
+    "workdays": 5
+   },
+   {
+    "period": 12,
+    "label": "10-17~10-23",
+    "load": 1,
+    "focus": 2,
+    "composite": 3,
+    "loadLevel": "中",
+    "focusLevel": "高",
+    "coverage": 0.55,
+    "nonWork": 0.0,
+    "top1": 0.4615,
+    "top3": 0.8846,
+    "commits": 26,
+    "workdays": 5
+   },
+   {
+    "period": 13,
+    "label": "10-24~10-30",
+    "load": 1,
+    "focus": 2,
+    "composite": 3,
+    "loadLevel": "中",
+    "focusLevel": "高",
+    "coverage": 0.5,
+    "nonWork": 0.0,
+    "top1": 0.7917,
+    "top3": 1.0,
+    "commits": 24,
+    "workdays": 5
+   },
+   {
+    "period": 14,
+    "label": "10-31~11-02",
+    "load": 0,
+    "loadLevel": "低",
+    "focus": 0,
+    "focusLevel": "低",
+    "composite": 0
+   }
+  ],
+  "people": [
+   {
+    "name": "郑宜权",
+    "points": [
+     {
+      "period": 1,
+      "label": "08-01~08-07",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 2,
+      "eff": 4,
+      "lines": 784,
+      "coverage": 0.4,
+      "per": 2.0,
+      "lpd": 392.0
+     },
+     {
+      "period": 2,
+      "label": "08-08~08-14",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 4,
+      "eff": 7,
+      "lines": 1076,
+      "coverage": 0.8,
+      "per": 1.75,
+      "lpd": 269.0
+     },
+     {
+      "period": 3,
+      "label": "08-15~08-21",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 5,
+      "eff": 12,
+      "lines": 2492,
+      "coverage": 1.0,
+      "per": 2.4,
+      "lpd": 498.4
+     },
+     {
+      "period": 4,
+      "label": "08-22~08-28",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 1,
+      "eff": 1,
+      "lines": 44,
+      "coverage": 0.2,
+      "per": 1.0,
+      "lpd": 44.0
+     },
+     {
+      "period": 5,
+      "label": "08-29~09-04",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 6,
+      "label": "09-05~09-11",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 7,
+      "label": "09-12~09-18",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 3,
+      "eff": 4,
+      "lines": 2000,
+      "coverage": 0.6,
+      "per": 1.33,
+      "lpd": 666.7
+     },
+     {
+      "period": 8,
+      "label": "09-19~09-25",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 2,
+      "eff": 4,
+      "lines": 35448,
+      "coverage": 0.4,
+      "per": 2.0,
+      "lpd": 17724.0
+     },
+     {
+      "period": 9,
+      "label": "09-26~10-02",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 1,
+      "eff": 2,
+      "lines": 1172,
+      "coverage": 0.2,
+      "per": 2.0,
+      "lpd": 1172.0
+     },
+     {
+      "period": 10,
+      "label": "10-03~10-09",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 1,
+      "eff": 2,
+      "lines": 72,
+      "coverage": 0.2,
+      "per": 2.0,
+      "lpd": 72.0
+     },
+     {
+      "period": 11,
+      "label": "10-10~10-16",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 1,
+      "eff": 2,
+      "lines": 768,
+      "coverage": 0.2,
+      "per": 2.0,
+      "lpd": 768.0
+     },
+     {
+      "period": 12,
+      "label": "10-17~10-23",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 4,
+      "eff": 5,
+      "lines": 1222,
+      "coverage": 0.8,
+      "per": 1.25,
+      "lpd": 305.5
+     },
+     {
+      "period": 13,
+      "label": "10-24~10-30",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 5,
+      "eff": 19,
+      "lines": 2006,
+      "coverage": 1.0,
+      "per": 3.8,
+      "lpd": 401.2
+     },
+     {
+      "period": 14,
+      "label": "10-31~11-02",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     }
+    ]
+   },
+   {
+    "name": "高鲸凱",
+    "points": [
+     {
+      "period": 1,
+      "label": "08-01~08-07",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 2,
+      "eff": 5,
+      "lines": 604,
+      "coverage": 0.4,
+      "per": 2.5,
+      "lpd": 302.0
+     },
+     {
+      "period": 2,
+      "label": "08-08~08-14",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 2,
+      "eff": 6,
+      "lines": 1046,
+      "coverage": 0.4,
+      "per": 3.0,
+      "lpd": 523.0
+     },
+     {
+      "period": 3,
+      "label": "08-15~08-21",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 4,
+      "label": "08-22~08-28",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 5,
+      "label": "08-29~09-04",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 6,
+      "label": "09-05~09-11",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 7,
+      "label": "09-12~09-18",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 8,
+      "label": "09-19~09-25",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 1,
+      "eff": 1,
+      "lines": 142,
+      "coverage": 0.2,
+      "per": 1.0,
+      "lpd": 142.0
+     },
+     {
+      "period": 9,
+      "label": "09-26~10-02",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 10,
+      "label": "10-03~10-09",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 2,
+      "eff": 6,
+      "lines": 1036,
+      "coverage": 0.4,
+      "per": 3.0,
+      "lpd": 518.0
+     },
+     {
+      "period": 11,
+      "label": "10-10~10-16",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 1,
+      "eff": 3,
+      "lines": 230,
+      "coverage": 0.2,
+      "per": 3.0,
+      "lpd": 230.0
+     },
+     {
+      "period": 12,
+      "label": "10-17~10-23",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 2,
+      "eff": 6,
+      "lines": 175,
+      "coverage": 0.4,
+      "per": 3.0,
+      "lpd": 87.5
+     },
+     {
+      "period": 13,
+      "label": "10-24~10-30",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 2,
+      "eff": 2,
+      "lines": 205,
+      "coverage": 0.4,
+      "per": 1.0,
+      "lpd": 102.5
+     },
+     {
+      "period": 14,
+      "label": "10-31~11-02",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     }
+    ]
+   },
+   {
+    "name": "苏广銮",
+    "points": [
+     {
+      "period": 1,
+      "label": "08-01~08-07",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 1,
+      "eff": 1,
+      "lines": 222,
+      "coverage": 0.2,
+      "per": 1.0,
+      "lpd": 222.0
+     },
+     {
+      "period": 2,
+      "label": "08-08~08-14",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 3,
+      "label": "08-15~08-21",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 4,
+      "label": "08-22~08-28",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 5,
+      "label": "08-29~09-04",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 6,
+      "label": "09-05~09-11",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 7,
+      "label": "09-12~09-18",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 8,
+      "label": "09-19~09-25",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 2,
+      "eff": 2,
+      "lines": 3273,
+      "coverage": 0.4,
+      "per": 1.0,
+      "lpd": 1636.5
+     },
+     {
+      "period": 9,
+      "label": "09-26~10-02",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 10,
+      "label": "10-03~10-09",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 11,
+      "label": "10-10~10-16",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 1,
+      "eff": 3,
+      "lines": 96,
+      "coverage": 0.2,
+      "per": 3.0,
+      "lpd": 96.0
+     },
+     {
+      "period": 12,
+      "label": "10-17~10-23",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 13,
+      "label": "10-24~10-30",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 14,
+      "label": "10-31~11-02",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     }
+    ]
+   },
+   {
+    "name": "钟承佑",
+    "points": [
+     {
+      "period": 1,
+      "label": "08-01~08-07",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 2,
+      "label": "08-08~08-14",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 3,
+      "label": "08-15~08-21",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 4,
+      "label": "08-22~08-28",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 1,
+      "eff": 1,
+      "lines": 172,
+      "coverage": 0.2,
+      "per": 1.0,
+      "lpd": 172.0
+     },
+     {
+      "period": 5,
+      "label": "08-29~09-04",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 6,
+      "label": "09-05~09-11",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 7,
+      "label": "09-12~09-18",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 8,
+      "label": "09-19~09-25",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 9,
+      "label": "09-26~10-02",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 10,
+      "label": "10-03~10-09",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 11,
+      "label": "10-10~10-16",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 1,
+      "eff": 2,
+      "lines": 208,
+      "coverage": 0.2,
+      "per": 2.0,
+      "lpd": 208.0
+     },
+     {
+      "period": 12,
+      "label": "10-17~10-23",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 1,
+      "eff": 3,
+      "lines": 80,
+      "coverage": 0.2,
+      "per": 3.0,
+      "lpd": 80.0
+     },
+     {
+      "period": 13,
+      "label": "10-24~10-30",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 14,
+      "label": "10-31~11-02",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     }
+    ]
+   },
+   {
+    "name": "钟江华",
+    "points": [
+     {
+      "period": 1,
+      "label": "08-01~08-07",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 2,
+      "label": "08-08~08-14",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 3,
+      "label": "08-15~08-21",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 4,
+      "label": "08-22~08-28",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 5,
+      "label": "08-29~09-04",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 2,
+      "eff": 2,
+      "lines": 147,
+      "coverage": 0.4,
+      "per": 1.0,
+      "lpd": 73.5
+     },
+     {
+      "period": 6,
+      "label": "09-05~09-11",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 3,
+      "eff": 4,
+      "lines": 6486,
+      "coverage": 0.6,
+      "per": 1.33,
+      "lpd": 2162.0
+     },
+     {
+      "period": 7,
+      "label": "09-12~09-18",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 8,
+      "label": "09-19~09-25",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 3,
+      "eff": 3,
+      "lines": 7711,
+      "coverage": 0.6,
+      "per": 1.0,
+      "lpd": 2570.3
+     },
+     {
+      "period": 9,
+      "label": "09-26~10-02",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 3,
+      "eff": 4,
+      "lines": 3598,
+      "coverage": 0.6,
+      "per": 1.33,
+      "lpd": 1199.3
+     },
+     {
+      "period": 10,
+      "label": "10-03~10-09",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 1,
+      "eff": 4,
+      "lines": 3325,
+      "coverage": 0.2,
+      "per": 4.0,
+      "lpd": 3325.0
+     },
+     {
+      "period": 11,
+      "label": "10-10~10-16",
+      "level": 1,
+      "levelName": "中",
+      "note": "",
+      "activeDays": 5,
+      "eff": 7,
+      "lines": 1631,
+      "coverage": 1.0,
+      "per": 1.4,
+      "lpd": 326.2
+     },
+     {
+      "period": 12,
+      "label": "10-17~10-23",
+      "level": 2,
+      "levelName": "高",
+      "note": "",
+      "activeDays": 4,
+      "eff": 12,
+      "lines": 3206,
+      "coverage": 0.8,
+      "per": 3.0,
+      "lpd": 801.5
+     },
+     {
+      "period": 13,
+      "label": "10-24~10-30",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 2,
+      "eff": 0,
+      "lines": 0,
+      "coverage": 0.4,
+      "per": 0.0,
+      "lpd": 0.0
+     },
+     {
+      "period": 14,
+      "label": "10-31~11-02",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     }
+    ]
+   },
+   {
+    "name": "吴嘉明",
+    "points": [
+     {
+      "period": 1,
+      "label": "08-01~08-07",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 2,
+      "label": "08-08~08-14",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 3,
+      "label": "08-15~08-21",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 4,
+      "label": "08-22~08-28",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 5,
+      "label": "08-29~09-04",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 6,
+      "label": "09-05~09-11",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 7,
+      "label": "09-12~09-18",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 2,
+      "eff": 0,
+      "lines": 0,
+      "coverage": 0.4,
+      "per": 0.0,
+      "lpd": 0.0
+     },
+     {
+      "period": 8,
+      "label": "09-19~09-25",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 9,
+      "label": "09-26~10-02",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 10,
+      "label": "10-03~10-09",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 11,
+      "label": "10-10~10-16",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 12,
+      "label": "10-17~10-23",
+      "level": 0,
+      "levelName": "低",
+      "note": "",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     },
+     {
+      "period": 13,
+      "label": "10-24~10-30",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小",
+      "activeDays": 1,
+      "eff": 3,
+      "lines": 8083,
+      "coverage": 0.2,
+      "per": 3.0,
+      "lpd": 8083.0
+     },
+     {
+      "period": 14,
+      "label": "10-31~11-02",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交",
+      "activeDays": 0,
+      "coverage": 0,
+      "commits": 0,
+      "per": 0,
+      "lpd": 0
+     }
+    ]
+   }
+  ]
+ }
+}

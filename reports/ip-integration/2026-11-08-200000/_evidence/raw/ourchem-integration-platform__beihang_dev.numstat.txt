@@ -1,0 +1,141 @@
+COMMIT@ebe1501ad756f00044f7833658c62ca83a215bc5
+1	0	ourchem-integration-platform-common/src/main/java/com/ourchem/integration/common/config/ResourceServerConfigurer.java
+7	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/ThirdPartTokenService.java
+92	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/impl/AnalysisReportJobServiceImpl.java
+13	2	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/impl/ThirdPartTokenServiceImpl.java
+20	12	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/utils/BuaaBriefingDataBuilder.java
+
+COMMIT@19a87e552a8d7bd20ec6bd9d091f97fb5ede86af
+0	5	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/AnalysisReportJobService.java
+1	8	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/impl/AnalysisReportJobServiceImpl.java
+
+COMMIT@cb8d951c02c72803db6f7fb856a66426e0578fa4
+14	15	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/utils/BuaaBriefingDataBuilder.java
+
+COMMIT@efd81d6b19a67972ee255125386e7022106ea2c5
+0	10	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/controller/bus/GenerateReportController.java
+0	7	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/job/AnalysisReportJobHandler.java
+50	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/job/BuaaBriefingJobHandler.java
+36	2	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/utils/BuaaBriefingDataBuilder.java
+
+COMMIT@74481836396d413d01a09bad7547dd29794e11d8
+22	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/controller/bus/GenerateReportController.java
+7	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/job/AnalysisReportJobHandler.java
+13	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/AnalysisReportJobService.java
+110	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/impl/AnalysisReportJobServiceImpl.java
+4	1	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/impl/IpThematicDatabaseServiceImpl.java
+480	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/utils/BuaaBriefingChartBuilder.java
+1709	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/utils/BuaaBriefingDataBuilder.java
+807	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/utils/BuaaBriefingTemplateGenerator.java
+-	-	ourchem-integration-platform-core/src/main/resources/word/北航专利信息简报模板.docx
+4	0	ourchem-integration-platform-searchClient/src/main/java/com/ourchem/integration/searchClient/model/PatyeeStaticsModel.java
+37	0	ourchem-integration-platform-searchClient/src/main/java/com/ourchem/integration/searchClient/model/SyncStaticsModel.java
+
+COMMIT@a0e1199f5be924ef538273dbd06c6ef1e028446e
+45	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/impl/PullDataEsDataServiceImpl.java
+1	1	ourchem-integration-platform-core/src/main/resources/es_index.json
+
+COMMIT@caa9d0e5d821cab9596727d96c8652659d9c5426
+0	509	ourchem-integration-platform-core/src/main/resources/es_index.json
+
+COMMIT@3a2fa9fc6868a53c6daa1325584a260215d89bdc
+2655	0	ourchem-integration-platform-core/src/main/resources/es_index.json
+
+COMMIT@b945d2e18eaf13608bd68478a728d607bf8ce5bb
+11	6	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/impl/ThirdPartTokenServiceImpl.java
+
+COMMIT@cf01aaa379b62e3bf1389ce65b415044a309cbca
+2	11	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/controller/InventorMatchController.java
+
+COMMIT@0b93d2ade36d3c5927c1ee9cc342e2e1768bfc80
+17	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/controller/InventorMatchController.java
+
+COMMIT@620f2e1f2487adcfab25d5c7a9d3e38653ffca09
+1	0	ourchem-integration-platform-common/src/main/java/com/ourchem/integration/common/constants/RedisKey.java
+1	2	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/controller/bus/DigitalScreenController.java
+5	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/DigitalMapService.java
+50	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/impl/DigitalMapServiceImpl.java
+8	6	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/impl/DigitalScreenServiceImpl.java
+
+COMMIT@671842a980bd40281bc4e5489a36198f035cafc4
+40	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/controller/bus/ThirdPartController.java
+28	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/pojo/dto/ThridPartTokenRespDTO.java
+21	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/ThirdPartTokenService.java
+91	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/impl/ThirdPartTokenServiceImpl.java
+
+COMMIT@a145eb73d915f98b59832c119402738998017d4b
+64	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/controller/InventorMatchController.java
+10	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/InventorMatchHandlerService.java
+566	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/impl/InventorMatchHandlerServiceImpl.java
+
+COMMIT@3032942f740abf2add0f8d0fe66f2675f72cdb4c
+15	0	ourchem-integration-platform-common/src/main/java/com/ourchem/integration/common/feign/PullFeignClient.java
+62	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/controller/PullDataController.java
+11	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/data/reader/DataReader.java
+77	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/data/reader/EsDataReader.java
+64	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/data/reader/JsonlGzipDataReader.java
+33	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/data/reader/MockDataReader.java
+32	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/data/writer/DataWriter.java
+88	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/data/writer/EsDataWriter.java
+51	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/data/writer/JsonlGzipDataWriter.java
+7	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/ExportEsDataService.java
+7	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/ImportEsDataService.java
+7	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/UpdateEsDataService.java
+70	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/impl/JsonExportEsDataServiceImpl.java
+63	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/impl/JsonImportEsDataServiceImpl.java
+308	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/impl/PullDataEsDataServiceImpl.java
+64	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/utils/ColumnParseUtil.java
+
+COMMIT@5c4e7d4a571331678a444901b814de472643b5d0
+7	1	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/impl/system/OrgServiceImpl.java
+106	80	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/impl/system/UserSerivceImpl.java
+
+COMMIT@121da5501a4ff68699b8440de4f06da123bdcac5
+12	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/pojo/IpNavContent.java
+15	0	ourchem-integration-platform-core/src/main/resources/mapper/IpNavContentMapper.xml
+
+COMMIT@9586f8969c66506ae282b75fe355aa0302a8be71
+2	2	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/controller/bus/DigitalScreenController.java
+1	1	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/impl/DigitalScreenServiceImpl.java
+
+COMMIT@9fd44582de75e4dc21b83793602b6dd1338cfb6d
+1	1	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/controller/bus/DigitalScreenController.java
+
+COMMIT@93cf755cecf1a30ce2411b5866a8c0b44a7dda4b
+2	2	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/impl/DigitalScreenServiceImpl.java
+
+COMMIT@59db29bf681e44242f4c1f65f9cd1566e98eb3c6
+5	0	ourchem-integration-platform-common/src/main/java/com/ourchem/integration/common/constants/RedisKey.java
+5	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/constants/QueryParamConstants.java
+49	1	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/controller/bus/DigitalScreenController.java
+26	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/DigitalScreenService.java
+352	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/service/impl/DigitalScreenServiceImpl.java
+2	0	ourchem-integration-platform-searchClient/src/main/java/com/ourchem/integration/searchClient/model/PatyeeStaticsModel.java
+19	0	ourchem-integration-platform-searchClient/src/main/java/com/ourchem/integration/searchClient/model/SyncStaticsModel.java
+
+COMMIT@7fa6f1d2357ddf2a7f0fbe69af9e92b308ef9665
+6	0	ourchem-integration-platform-core/pom.xml
+2	2	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/IntegrationApplication.java
+10	1	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/controller/bus/DataSearchController.java
+33	0	ourchem-integration-platform-patyee/pom.xml
+34	0	ourchem-integration-platform-patyee/src/main/java/com/ourchem/integration/patyee/controller/AnalyChartCustomizeConfController.java
+30	0	ourchem-integration-platform-patyee/src/main/java/com/ourchem/integration/patyee/controller/ApplicantGroupController.java
+17	0	ourchem-integration-platform-patyee/src/main/java/com/ourchem/integration/patyee/controller/BaseController.java
+33	0	ourchem-integration-platform-patyee/src/main/java/com/ourchem/integration/patyee/controller/CustomAnalysisChartController.java
+35	0	ourchem-integration-platform-patyee/src/main/java/com/ourchem/integration/patyee/controller/CustomizeColorController.java
+29	0	ourchem-integration-platform-patyee/src/main/java/com/ourchem/integration/patyee/controller/DataEventTrackingController.java
+32	0	ourchem-integration-platform-patyee/src/main/java/com/ourchem/integration/patyee/controller/LabelManageController.java
+31	0	ourchem-integration-platform-patyee/src/main/java/com/ourchem/integration/patyee/controller/LegalController.java
+33	0	ourchem-integration-platform-patyee/src/main/java/com/ourchem/integration/patyee/controller/MultidimensionalFavoritesController.java
+30	0	ourchem-integration-platform-patyee/src/main/java/com/ourchem/integration/patyee/controller/PatentCollectionInfoController.java
+32	0	ourchem-integration-platform-patyee/src/main/java/com/ourchem/integration/patyee/controller/PatyeeUserController.java
+81	0	ourchem-integration-platform-patyee/src/main/java/com/ourchem/integration/patyee/controller/SearchController.java
+35	0	ourchem-integration-platform-patyee/src/main/java/com/ourchem/integration/patyee/pojo/response/DataResponse.java
+125	0	ourchem-integration-platform-patyee/src/main/java/com/ourchem/integration/patyee/pojo/response/UserLimitRespDTO.java
+15	0	ourchem-integration-platform-patyee/src/main/java/com/ourchem/integration/patyee/service/UserLimitService.java
+51	0	ourchem-integration-platform-patyee/src/main/java/com/ourchem/integration/patyee/service/impl/UserLimitServiceImpl.java
+1	0	pom.xml
+
+COMMIT@880e33e8251fb867bbfdc6667b27333552779762
+11	0	ourchem-integration-platform-core/src/main/java/com/ourchem/integration/core/pojo/IpNavContent.java
+6	0	ourchem-integration-platform-core/src/main/resources/mapper/IpNavContentMapper.xml

@@ -1,0 +1,45 @@
+COMMIT@97307a95b261fe450b16115e0aef952052408382
+1	1	robot_server.py
+
+COMMIT@7ce63d4ccf1b864f3ba924e625783b62ce7c017b
+2	0	.gitignore
+-	-	2024.9.12知识产权百问百答（修改稿）.docx
+-	-	__pycache__/config.cpython-311.pyc
+-	-	__pycache__/import_qa.cpython-311.pyc
+-	-	__pycache__/main.cpython-311.pyc
+-	-	__pycache__/robot_server.cpython-311.pyc
+20	0	config.py
+-	-	data/indexs/INDEX_ID
+-	-	data/indexs/INDEX_IVF_PQ8
+-	-	data/indexs/INDEX_IVF_PQ8.bak-20261026
+-	-	data/indexs/backup_20261013/INDEX_ID
+-	-	data/indexs/backup_20261013/INDEX_IVF_PQ8
+-	-	data/indexs/v2/INDEX_ID
+-	-	data/indexs/v2/INDEX_IVF_PQ8
+-	-	data/vectors/backup_20261013/part-00000-5b46182f-86e4-11ef-882f-b42e99c0011a.snappy.parquet
+1027	0	data/vectors/backup_20261013/vectors.txt
+-	-	data/vectors/backup_20261026/part-00000-92ac4945-c6aa-11f1-b617-1c1b0dcd1cf6.snappy.parquet
+1027	0	data/vectors/keyword_vector.txt
+-	-	data/vectors/part-00000-92ac4945-c6aa-11f1-b617-1c1b0dcd1cf6.snappy.parquet
+1027	0	data/vectors/qk_vectors.txt
+-	-	data/vectors/v2/part-00000-f2160e19-8861-11ef-9af5-b42e99c0011a.snappy.parquet
+1152	0	data/vectors/vectors.txt
+1148	0	data/vectors/vectors.txt.bak-20261026
+352	0	html/chat.js
+262	0	html/download.html
+176	0	html/robot.html
+59	0	html/robot1.html
+255	0	html/robot2.html
+98	0	import_qa.py
+38	0	index_builder.py
+23	0	index_factory.py
+1148	0	keywords.jsonl
+142	0	main.py
+1152	0	qa_pairs.jsonl
+1148	0	qa_pairs.jsonl.bak-20261023
+1148	0	qa_pairs.jsonl.bak-20261026
+85	0	questions.py
+1028	0	questions.txt
+11	0	requirements.txt
+216	0	robot_server.py
+258	0	vector_test.py

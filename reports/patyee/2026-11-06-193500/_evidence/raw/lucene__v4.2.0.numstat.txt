@@ -1,0 +1,3 @@
+COMMIT@0f3bcea9f358ca48cae09c3579de2b913a7f8f31
+2	1	core/src/java/org/apache/lucene/search/spans/TermSpans.java
+7	0	core/src/java/org/apache/lucene/util/CharacterUtil.java

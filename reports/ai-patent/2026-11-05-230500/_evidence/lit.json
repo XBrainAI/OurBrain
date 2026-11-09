@@ -1,0 +1,127 @@
+{
+  "period": 4,
+  "planRange": {"start": "2026-10-26", "end": "2026-10-30"},
+  "historyNote": "W45 周计划仍未入库（docs/ 最近 2026-10-30），计划对照沿用 W44；tanbaoai-web 1027gq 分支 11-05 合并入 test 后删除（61dd6df5），广汽前端工作迁移至 config 外分支（test/gqjt-release/release/1.9.4）——监测范围待用户裁定",
+  "memberMap": {
+    "xiezeen@ourchem.com": "谢泽恩", "liushaocong@ourchem.com": "刘少聪",
+    "matengfei@ourchem.com": "麻腾飞", "872691087@qq.com": "麻腾飞",
+    "lixilan@ourchem.com": "Li Xilan（待映射）", "1282728477@qq.com": "雷森（待映射）",
+    "qiuwenyu@ourchem.com": "邱文宇"
+  },
+  "dayDiff": {
+    "prevDay": "2026-11-04", "gapDays": 1, "skipped": "",
+    "docsChangedToday": false, "docsSummary": "项目路径与全局 docs/ 今日无更新（最近 2026-10-30）",
+    "headline": "项目级：后端 11-04/05 连续两日提交（2→2 笔，pandoc 兼容收尾）；前端监测面零提交（工作已迁移至监测外分支）"
+  },
+  "aheadDelta": {"tanbaoai-web": "—（1027gq 已删除）", "ourchem-ai-patent": "+4", "ai-patent-prompt": "0"},
+  "dayDiffNote": {
+    "tanbaoai-web": "1027gq 11-04 基线 372（history 留痕）；11-05 被合并入 test 后删除（61dd6df5 Afei「合并1027gq到test」）",
+    "ourchem-ai-patent": "1.7.0-guangqi 2217→2221（+4）"
+  },
+  "headline": "ai-patent：后端 41 笔继续深耕 OCR 边界处理；前端 1027gq 已合并删除、工作迁至监测外分支，监测面零提交",
+  "keyPoints": [
+    {"level": "中", "text": "前端 1027gq 分支 11-05 合并入 test 后删除，广汽工作迁移至 test/gqjt-release/release/1.9.4（均 config 外）——监测盲区，待用户裁定接替分支改 config"},
+    {"level": "中", "type": "positive", "text": "后端窗口 41 笔有效（刘少聪 25/谢泽恩 16）持续 R7 三阶段 OCR：边界截断、markdown 剥离、pandoc 兼容——815745a1bd 的 694 行为带 Javadoc 的实质新逻辑"},
+    {"level": "中", "text": "零存活测试连续第 4 期（41 笔功能提交测试同步 0）；「feat:代码提交」无信息 message 8 笔（19.5%，较上期约 47% 减半）"},
+    {"level": "低", "text": "R7 提测日 11-02 已过 3 个工作日、文档仍「开发中 0.2」；R9 线（1.8.5-release）10-27 后静止；W45 计划未入库，对照沿用 W44"}
+  ],
+  "repos": {
+    "tanbaoai-web": {
+      "total": 47.0, "scores": {"progress": 35, "people": 55, "quality": 60, "integration": 45, "convention": 45},
+      "topRisk": "监测分支 1027gq 已删除，前端工作迁移至 config 外分支——监测盲区待 config 更新",
+      "narrative": {
+        "progress": "监测面零提交，但工作实际迁移：1027gq 11-05 合并入 test，Afei 当日仍活跃",
+        "people": "前端仍 100% 依赖麻腾飞(Afei) 一人（监测外分支 11-05 有提交）",
+        "quality": "零测试、TODO 73、版本目录整页复制等存量信号维持",
+        "integration": "1027gq 回流以 test→gqjt-release/release 方式落地；master 仍 07-10 停滞（形态已知）",
+        "convention": "监测面无新提交，存量过短 message 形态未再触发",
+        "rhythm": "监测面窗口 0 笔（口径效应，非停工）",
+        "modules": "监测面无改动",
+        "plans": "R5/R6 文档 sit 通过、上线口径未确认；R8 前端面迁移监测外",
+        "testing": "存量测试 0（连续 4 期）"
+      },
+      "peopleProfile": [],
+      "testing": {"stockNote": "前端仓无测试框架，存量 0（连续 4 期）", "sitTraces": 0, "aiReview": "监测分支窗口零提交；1027gq（上期 15 笔的唯一载体）已删除——测试缺口随工作线迁移延续，建议在新接替分支确认后补前端最小用例"},
+      "plans": [
+        {"id": "R5", "name": "行5 广汽OA·上传文件优化", "owner": "麻腾飞, 刘少聪", "start": "10-23", "due": "10-26", "status": "已推进", "note": "文档自述测试中×进度1、sit 通过（10-26 已确认测试）；上线/验收口径未确认，保守维持已推进", "prevStatus": "已推进", "done": null},
+        {"id": "R6", "name": "行6 广汽OA·文件预览优化", "owner": "麻腾飞, 刘少聪", "start": "10-27", "due": "10-29", "status": "已推进", "note": "sit 通过（文档确认）；release 线 11-05 有「1105更新预览文件」（监测外，d7fad27a）——上线口径未确认", "prevStatus": "已推进", "done": null},
+        {"id": "R8", "name": "行8 广汽OA·新创性日期展示优化", "owner": "麻腾飞, 谢泽恩", "start": "10-27", "due": "10-30", "status": "部分推进", "note": "前端交付分支 1027gq 已删除（工作迁移监测外）；后端有对照基线类改动（间接）——提测超期 4 个工作日未收口", "prevStatus": "部分推进", "done": null}
+      ],
+      "risks": [
+        {"title": "监测分支 1027gq 已删除，广汽前端工作迁移至 config 外分支（test/gqjt-release/release/1.9.4）", "plain": "我们盯的那条前端分支被合并后删掉了，活儿搬到了我们没盯的分支上", "dimension": "progress", "level": "中", "evidence": "ls-remote 无 1027gq；61dd6df5「合并1027gq到test」(11-05, Afei)；gqjt-release/release tip 11-05", "advice": "请用户裁定接替分支（建议 gqjt-release 或 test）后按 A 类流程更新 config", "agePeriods": 1},
+        {"title": "前端提交 100% 集中 麻腾飞(Afei) 一人（连续 4 期，含监测外分支）", "plain": "前端一直只有一个人在做，他不在就停", "dimension": "people", "level": "中", "evidence": "监测外分支 11-05 提交均为 Afei；统计期监测面 68/68", "advice": "安排第二前端备份；确认 Afei→麻腾飞 映射（AI 推断待确认）", "agePeriods": 4},
+        {"title": "前端零自动化测试：存量 0 个测试文件", "plain": "整个前端仓一行测试都没有", "dimension": "quality", "level": "中", "evidence": "ls-files 测试文件 0（连续 4 期）", "advice": "接替分支确定后，为上传/预览两个核心链路补最小用例", "agePeriods": 4},
+        {"title": "v1/v2/v3 版本目录整页复制，大文件成对并存", "plain": "三个版本目录整页复制粘贴，同样的巨型文件存了两三份", "dimension": "quality", "level": "低", "evidence": "pdf.worker.js 41274/36904 行成对等（P1 起登记）", "advice": "借版本收敛做目录归并", "agePeriods": 4},
+        {"title": "TODO/FIXME 73 处，超过阈值 20", "plain": "代码里积了 73 处待办标记", "dimension": "quality", "level": "低", "evidence": "TODO=73（持平）", "advice": "V1.9.3 收尾集中清理一轮", "agePeriods": 4}
+      ],
+      "moduleDesc": {}, "coreModules": [],
+      "insights": [
+        "tanbaoai@61dd6df5 —— 1027gq 合并入 test（11-05）：上期 15 笔前端提交的载体分支生命周期结束，回流走 test→gqjt-release/release 线，master 未动（形态已知）",
+        "监测外分支 1.9.4（2465e84c/467639ef 优化限量与 tooltip 显示）与 release（d7fad27a 1105 更新预览文件）11-05 仍活跃——本仓「窗口零提交」为监测口径效应而非停工"
+      ]
+    },
+    "ourchem-ai-patent": {
+      "total": 42.4, "scores": {"progress": 30, "people": 38, "quality": 50, "integration": 50, "convention": 55},
+      "topRisk": "核心功能零存活测试（连续 4 期）；R7 提测超期未收口",
+      "narrative": {
+        "progress": "41 笔有效持续 R7 深化（边界/pandoc 兼容），但提测日已过 3 个工作日文档未更新",
+        "people": "刘少聪 25 / 谢泽恩 16 双人协作（61%/39%）",
+        "quality": "零测试同步第 4 期；「feat:代码提交」无信息 message 减半至 19.5%",
+        "integration": "dev 停滞 477 天、双长分支领先 2221/2433（形态已知）",
+        "convention": "8 笔无信息 message + 7 笔碎提交（改善中）",
+        "rhythm": "10-29~11-05 每个工作日都有提交（6 天 41 笔有效）",
+        "modules": "OCR 识别/文档解析与权利要求服务为主体",
+        "plans": "R7 持续推进未提测收口；R9 线静止；R8 后端间接",
+        "testing": "窗口 41 笔功能提交测试同步 0，存量测试 1"
+      },
+      "peopleProfile": [
+        {"name": "刘少聪", "role": "后端主力（OA 识别链路）", "intent": "意图：R7 三阶段 OCR 深化——边界截断、markdown 剥离、pandoc 兼容、线程池治理", "workload": "投入度：窗口 25/41 有效（61%），+2229 行", "intensity": "工作强度：峰值 10-30×8，11-02 有 01:05 深夜 1 笔", "engagement": "参与度：1.7.0-guangqi 单线深耕", "risk": "潜在风险：识别链路知识集中于一人", "riskLevel": "低"},
+        {"name": "谢泽恩", "role": "后端（排版/格式链路）", "intent": "意图：专利文档排版样式规则改进 + OA 识别调整", "workload": "投入度：窗口 16/41（39%），多笔「feat:代码提交」", "intensity": "工作强度：峰值 11-02×8", "engagement": "参与度：与刘少聪同分支协作", "risk": "潜在风险：无信息提交习惯影响回溯（改善中）", "riskLevel": null}
+      ],
+      "testing": {"stockNote": "1 个测试文件（脚手架残留）", "sitTraces": 0, "aiReview": "窗口 41 笔功能提交零测试文件变更（连续第 4 期）——OCR 三阶段重构属高回归风险区，边界截断/正则匹配类改动尤其需要用例兜底；建议至少为权利要求识别与对照页生成补golden-file 用例"},
+      "plans": [
+        {"id": "R7", "name": "行7 广汽OA·支持扫描件 pdf 识别（三阶段）", "owner": "麻腾飞, 刘少聪", "start": "10-27", "due": "11-02", "status": "已推进", "note": "窗口持续深化（三阶段流程/边界截断/pandoc 兼容，1cf930c4/50c9082c/815745a1b 等）；文档仍「开发中 0.2」未更新，提测超期 3 个工作日", "prevStatus": "已推进", "done": null},
+        {"id": "R8", "name": "行8 广汽OA·新创性日期展示优化", "owner": "麻腾飞, 谢泽恩", "start": "10-27", "due": "10-30", "status": "部分推进", "note": "后端对照基线类改动（044e802a 间接证据）；申请日自动获取未见明确提交；前端面迁移监测外", "prevStatus": "部分推进", "done": null},
+        {"id": "R9", "name": "行9 钽宝·申请书撰写保护客体加输入类型", "owner": "谢泽恩", "start": "10-26", "due": "10-28", "status": "已推进", "note": "文档自述测试中×进度1、sit 通过；1.8.5-release 10-27 后静止——上线口径未确认，维持已推进", "prevStatus": "已推进", "done": null}
+      ],
+      "risks": [
+        {"title": "核心功能零存活测试（连续 4 期）：窗口 41 笔功能提交测试同步 0", "plain": "连着四周改核心识别逻辑，一行测试都没加", "dimension": "quality", "level": "中", "evidence": "窗口测试文件变更 0/41；存量 1（脚手架）", "advice": "升级动作：为权利要求识别与对照页生成补 golden-file 用例（OCR 重构高回归风险区）", "agePeriods": 4},
+        {"title": "主干 dev 停滞 477 天，双长分支领先 2221/2433（已知形态）", "plain": "主干一年半没动，活都在两条长分支上", "dimension": "integration", "level": "低", "evidence": "dev last=2025-07-16；1.7.0-guangqi ahead=2221（+4）、1.8.5-release ahead=2433", "advice": "形态豁免维持；回流策略缺失随版本发布计划处理", "agePeriods": 4},
+        {"title": "「feat:代码提交」类无信息 message 8 笔（19.5%，环比约减半）", "plain": "还有 8 笔提交只写了「代码提交」四个字，看不出改了啥", "dimension": "convention", "level": "中", "evidence": "短信息清单 f100e534e9 等 8 笔（谢泽恩）；上期 25 笔/47.2%", "advice": "改善中——补齐 message 模板（类型+对象+意图）后可消项", "agePeriods": 4},
+        {"title": "碎提交 7 笔（1~3 行）且多为「feat:代码提交」", "plain": "7 笔一二行的小改动，说明也都没写", "dimension": "convention", "level": "低", "evidence": "trivial 清单（e963e45b83 等）", "advice": "与上一项合并治理", "agePeriods": 3},
+        {"title": "TODO/FIXME 45 处，超过阈值 20", "plain": "代码里积了 45 处待办标记", "dimension": "quality", "level": "低", "evidence": "TODO=45（持平）", "advice": "V1.9.3 收尾清理", "agePeriods": 4}
+      ],
+      "moduleDesc": {"src/main/java": "后端服务（识别/解析）", "oa-review": "OA 答审识别链路"}, "coreModules": ["src/main/java"],
+      "insights": [
+        "ourchem-ai-patent@815745a1bd PatentOaReviewReviseHisService.java —— +694 行为实质新逻辑：stripMarkdownDecor（markdown 修饰剥离）与 trimClaimSectionAtSpecBoundary（权要章节说明书边界截断）均带完整 Javadoc 边界条件说明——message「调整 put 顺序」低估了变更范围（粒度偏窄，建议 message 如实覆盖）",
+        "ourchem-ai-patent@c74922474c —— OA 答审识别链路重构为专用线程池管理（11-02 01:05 深夜提交，+104/−14）：并发治理属 R7 配套，非临时补丁",
+        "ourchem-ai-patent@d6898161be/4e4efc9492 —— 11-05 pandoc 转换产物兼容与块引用噪声剥离：R7 收尾性质持续小步修复"
+      ]
+    },
+    "ai-patent-prompt": {
+      "total": 28.8, "scores": {"progress": 30, "people": 30, "quality": 20, "integration": 45, "convention": 20},
+      "topRisk": "休眠 147 天且无计划映射（低危观察项）",
+      "narrative": {
+        "progress": "零提交延续（master 06-16 / demo 06-11 后休眠）",
+        "people": "无活跃成员",
+        "quality": "提示词 .bak 手工备份形态维持",
+        "integration": "demo 5 笔领先未回流（167 天）",
+        "convention": "无提交无信号",
+        "rhythm": "统计期全零",
+        "modules": "无改动",
+        "plans": "无 W44 计划映射条目",
+        "testing": "无测试概念（提示词仓）"
+      },
+      "peopleProfile": [],
+      "testing": {"stockNote": "提示词仓库，无测试概念", "sitTraces": 0, "aiReview": "不适用（提示词资产仓）"},
+      "plans": [],
+      "risks": [
+        {"title": "仓库休眠 4 个多月（master 06-16 / demo 06-11）", "plain": "这个提示词仓四个多月没人动过", "dimension": "progress", "level": "低", "evidence": "lifetime last=2026-06-16；统计期零提交", "advice": "确认资产去向（已归档/待迁移）；如废弃建议移出监测", "agePeriods": 4},
+        {"title": "demo 分支 5 笔领先未回流 master（167 天）", "plain": "5 笔实验改动一直没并回", "dimension": "integration", "level": "低", "evidence": "ahead=5/behind=1/stale=167d", "advice": "确认去留后合并或删除", "agePeriods": 4},
+        {"title": "提示词变更靠 .bak 手工备份，版本管理缺失", "plain": "改提示词靠手动备份文件，没有版本历史", "dimension": "quality", "level": "低", "evidence": "P1 起登记（.bak 文件在库）", "advice": "若仓复活，改 git 分支/tag 管理版本", "agePeriods": 4}
+      ],
+      "moduleDesc": {}, "coreModules": [],
+      "insights": ["零提交仓库，与上期判定一致"]
+    }
+  }
+}

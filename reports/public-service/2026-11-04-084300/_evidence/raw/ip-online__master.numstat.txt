@@ -1,0 +1,521 @@
+COMMIT@3a46cbe27e250c1678680cee68624601f4c04aed
+4	0	src/utils/request.js
+1	1	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/components/migrateLicenseInfo.vue
+9	0	src/views/BackstageManage/basicDataManage/applyIntellectualManage/WGSManage/config/_filterConfig.js
+32	6	src/views/BackstageManage/basicDataManage/applyIntellectualManage/WGSManage/index.vue
+33	6	src/views/BackstageManage/basicDataManage/applyIntellectualManage/ZYRZManage/components/patent.vue
+33	6	src/views/BackstageManage/basicDataManage/applyIntellectualManage/ZYRZManage/components/trademark.vue
+9	0	src/views/BackstageManage/basicDataManage/applyIntellectualManage/ZYRZManage/config/patentFilter.js
+38	9	src/views/BackstageManage/basicDataManage/applyIntellectualManage/patentAwardManage/components/cnAward.vue
+32	6	src/views/BackstageManage/basicDataManage/applyIntellectualManage/patentAwardManage/components/gdAward.vue
+9	0	src/views/BackstageManage/basicDataManage/applyIntellectualManage/patentAwardManage/config/_filterConfigCn.js
+9	0	src/views/BackstageManage/basicDataManage/applyIntellectualManage/patentAwardManage/config/_filterConfigGd.js
+10	0	src/views/BackstageManage/basicDataManage/serviceIntellectualManage/keyKnowledgeManage/config/_filterConfig.js
+36	8	src/views/BackstageManage/basicDataManage/serviceIntellectualManage/keyKnowledgeManage/index.vue
+11	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechNode/index.vue
+1	0	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/index.vue
+9	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/index.vue
+7	4	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/apis/index.js
+34	5	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/index.vue
+
+COMMIT@d7de5a12c16b5df38088bd819dedd2616bb5e287
+9	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/details/instagency.vue
+10	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/details/institutes.vue
+9	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/details/univ.vue
+48	18	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/index.vue
+2	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/index.vue
+2	1	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/index.vue
+51	6	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/intellectualAnalysis.vue
+3	3	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patentCharts.vue
+8	4	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/subjectDetail.vue
+15	14	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/subjectManagement.vue
+1	1	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/treeEcharts.vue
+
+COMMIT@9fffa4b07d993a0c455a4e54e3b344f914f2d990
+3	2	src/views/BackstageManage/IntelligentDataSpace/MyReport/apis/index.js
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/components/budgetTree.vue
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/components/intellectual.vue
+6	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/detail.vue
+27	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/details/instagency.vue
+30	5	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/details/institutes.vue
+30	5	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/details/univ.vue
+3	1	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/index.vue
+1	1	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/intellectualAnalysis.vue
+1	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patentCharts.vue
+25	11	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/subjectDetail.vue
+
+COMMIT@b9fb02de2cf96a453ca9886669774ed3bf360c80
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/config/_tableConfig.js
+1	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/index.vue
+1	5	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patentCharts.vue
+
+COMMIT@c4dc0ab6301a1d6ab7b2d76946dff77ed5f8179b
+COMMIT@6e0448e051b93ded49b1793c14c35037e0d538ca
+1	1	src/router/_backstage/IndustryChainGraph/index.js
+6	4	src/views/BackstageManage/basicDataManage/themeLibraryManage/components/patentPage/config/_config.js
+16	8	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/components/echart/reseaHorizTrend.vue
+2	7	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/components/inventorDetail.vue
+32	24	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/details/instagency.vue
+35	26	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/details/institutes.vue
+34	26	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/details/univ.vue
+6	4	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/config/_config.js
+11	3	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patentCharts.vue
+
+COMMIT@35a2477aaf0054d4ccc7c58ae51b0309ffc7f725
+12	2	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/apis/index.js
+10	5	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patentKeyPoint.vue
+
+COMMIT@fe3e6ea99b51e567c9768eed2b1afe8576ffaf67
+22	14	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/details/instagency.vue
+136	128	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/details/institutes.vue
+136	128	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/details/univ.vue
+
+COMMIT@4ed2c53dd1f90fea89dccbe299e4170558dcf6a6
+57	96	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/components/echart/influeEchart.vue
+2	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/components/patentDetail.vue
+114	114	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/details/institutes.vue
+114	114	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/details/univ.vue
+
+COMMIT@85060c905bb748d2e6d13b0c55940510a922c0ec
+0	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/components/echart/trendEchart.vue
+14	14	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/config/_tableConfig.js
+1	1	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/apis/index.js
+
+COMMIT@81b38a9300dab823fb9fc0f366f9f3f7b25edb87
+16	1	src/views/BackstageManage/basicDataManage/themeLibraryManage/components/patentPage/index.vue
+10	4	src/views/BackstageManage/industrialChain/fullProcessModelManagement/chainManagement/index.vue
+2	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/components/budgetTree.vue
+4	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/informationManagement/components/modelClassificationDialog.vue
+8	3	src/views/BackstageManage/industrialChain/fullProcessModelManagement/informationManagement/index.vue
+4	4	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechNode/edit.vue
+4	4	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechNode/issue.vue
+14	3	src/views/BackstageManage/industrialChain/fullProcessModelManagement/modelClassification/components/modelClassificationDialog.vue
+4	4	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/edit.vue
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/index.vue
+4	4	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/issue.vue
+20	10	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patentCharts.vue
+
+COMMIT@fd9e4fd76aaa7504963d78943d260a7170e59b96
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/components/echart/annularEchaet.vue
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/config/tableInfo.js
+8	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/details/instagency.vue
+8	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/details/institutes.vue
+9	3	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/details/univ.vue
+
+COMMIT@90759da8fff2e327829c70ef985f63e7429e7e3e
+13	3	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patentCharts.vue
+
+COMMIT@9b49ad734c3952260908db82e944eda2a2592ee8
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechNode/config/_tableConfig.js
+2	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/components/echart/trendEchart.vue
+14	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/config/_tableConfig.js
+23	8	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/index.vue
+3	13	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patentCharts.vue
+
+COMMIT@a45a0c53584007e4ce15062fa74189310a689cb1
+3	3	src/router/_backstage/industrialChain/index.js
+3	2	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/components/highValuePatentInfo.vue
+2	2	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/components/layoutOverviewInfo.vue
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/_menu.js
+32	0	src/views/BackstageManage/industrialChain/fullProcessModelManagement/chainManagement/config/_btnConfig.js
+174	0	src/views/BackstageManage/industrialChain/fullProcessModelManagement/chainManagement/config/_tableConfig.js
+2	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/chainManagement/index.vue
+4	3	src/views/BackstageManage/industrialChain/fullProcessModelManagement/chainManagement/issue.vue
+8	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/modelClassification/components/modelClassificationDialog.vue
+13	0	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/apis/index.js
+1	9	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/components/intellectual.vue
+9	0	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/components/tradmarkDetail.vue
+4	28	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/config/_filterConfig.js
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/config/tableInfo.js
+174	190	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/detail.vue
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/details/instagency.vue
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/details/institutes.vue
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/details/univ.vue
+74	37	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/index.vue
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/config/_tableConfig.js
+1	1	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/index.vue
+1	1	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patentCharts.vue
+
+COMMIT@500a5c5928fcdd46fe6dec2a8dd19217c5a3d007
+17	1	src/components/ui/tableSlots/tableSlots.vue
+1	1	src/styles/components/_virtualSelect.scss
+12	2	src/views/BackstageManage/IntelligentDataSpace/IndustrialChainMap/brandList/sideBar.vue
+2	2	src/views/BackstageManage/basicDataManage/applyIntellectualManage/patentPermitManage/config/_filterConfig.js
+2	2	src/views/BackstageManage/basicDataManage/applyIntellectualManage/patentPermitManage/config/_tableConfig.js
+2	2	src/views/BackstageManage/basicDataManage/applyIntellectualManage/patentTransferManage/config/_filterConfig.js
+2	2	src/views/BackstageManage/basicDataManage/applyIntellectualManage/patentTransferManage/config/_tableConfig.js
+2	1	src/views/BackstageManage/basicDataManage/creatingIntellectualManage/wellKnownManage/index.vue
+3	0	src/views/BackstageManage/basicDataManage/themeLibraryManage/patentKeyPointManage/config/_tableConfig.js
+11	1	src/views/BackstageManage/basicDataManage/themeLibraryManage/patentKeyPointManage/index.vue
+8	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/chainManagement/issue.vue
+4	0	src/views/BackstageManage/industrialChain/fullProcessModelManagement/components/budgetTree.vue
+3	0	src/views/BackstageManage/industrialChain/fullProcessModelManagement/informationManagement/index.vue
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/components/echart/analysisEchart.vue
+1	0	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/config/_filterConfig.js
+11	9	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/detail.vue
+0	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/index.vue
+1	1	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/_menu.js
+3	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/config/_tableConfig.js
+18	7	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/index.vue
+11	1	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/intellectualAnalysis.vue
+72	14	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patentCharts.vue
+11	1	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patentKeyPoint.vue
+6	6	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/treeEcharts.vue
+
+COMMIT@e44e87d7d74cdb5a4a06a42ce414cd2a48d4da2e
+1	1	src/components/proCommon/Breadcrumb/_hooks.js
+1	1	src/components/ui/upload/index.vue
+6	0	src/views/BackstageManage/declarationOfSpecialFunds/bureauApprovalFacilitate/declareTrial/config/_btnConfig.js
+21	0	src/views/BackstageManage/declarationOfSpecialFunds/bureauApprovalFacilitate/declareTrial/config/_tableConfig.js
+37	1	src/views/BackstageManage/declarationOfSpecialFunds/bureauApprovalFacilitate/declareTrial/index.vue
+6	0	src/views/BackstageManage/declarationOfSpecialFunds/bureauApprovalPriceMon/declareTrial/config/_btnConfig.js
+21	0	src/views/BackstageManage/declarationOfSpecialFunds/bureauApprovalPriceMon/declareTrial/config/_tableConfig.js
+22	0	src/views/BackstageManage/declarationOfSpecialFunds/bureauApprovalPriceMon/declareTrial/index.vue
+6	0	src/views/BackstageManage/declarationOfSpecialFunds/bureauApprovalProtect/declareTrial/config/_btnConfig.js
+21	0	src/views/BackstageManage/declarationOfSpecialFunds/bureauApprovalProtect/declareTrial/config/_tableConfig.js
+24	2	src/views/BackstageManage/declarationOfSpecialFunds/bureauApprovalProtect/declareTrial/index.vue
+9	0	src/views/BackstageManage/declarationOfSpecialFunds/components/api/index.js
+7	1	src/views/BackstageManage/declarationOfSpecialFunds/districtApprovalProject/declaratonDeclareView/config/_btnConfig.js
+21	0	src/views/BackstageManage/declarationOfSpecialFunds/districtApprovalProject/declaratonDeclareView/config/_tableConfig.js
+22	0	src/views/BackstageManage/declarationOfSpecialFunds/districtApprovalProject/declaratonDeclareView/index.vue
+6	0	src/views/BackstageManage/declarationOfSpecialFunds/districtApprovalProject/declaratonPTDeclareView/config/_btnConfig.js
+21	0	src/views/BackstageManage/declarationOfSpecialFunds/districtApprovalProject/declaratonPTDeclareView/config/_tableConfig.js
+22	2	src/views/BackstageManage/declarationOfSpecialFunds/districtApprovalProject/declaratonPTDeclareView/index.vue
+1	1	src/views/BackstageManage/fundingProjextManage/archiveManage/_menu.js
+38	2	src/views/BackstageManage/fundingProjextManage/archiveManage/preArchive/config/_filterConfig.js
+34	1	src/views/BackstageManage/fundingProjextManage/archiveManage/preArchive/config/_tableConfig.js
+18	0	src/views/BackstageManage/fundingProjextManage/archiveManage/preArchive/config/pro.js
+45	35	src/views/BackstageManage/fundingProjextManage/archiveManage/preArchive/index.vue
+6	0	src/views/BackstageManage/fundingProjextManage/projectManage/projectImplementationManage/config/_btnConfig.js
+15	0	src/views/BackstageManage/fundingProjextManage/projectManage/projectImplementationManage/config/_tableConfig.js
+19	0	src/views/BackstageManage/fundingProjextManage/projectManage/projectImplementationManage/index.vue
+16	5	src/views/BackstageManage/industrialChain/fullProcessModelManagement/chainManagement/index.vue
+5	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/components/budgetTree.vue
+32	7	src/views/BackstageManage/industrialChain/fullProcessModelManagement/informationManagement/index.vue
+15	6	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechNode/index.vue
+22	14	src/views/BackstageManage/industrialChain/fullProcessModelManagement/modelClassification/index.vue
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/components/echart/analysisEchart.vue
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/components/echart/typeRankEchart.vue
+24	7	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/index.vue
+16	11	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/index.vue
+32	5	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/components/sideBar.vue
+15	3	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/index.vue
+2	2	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patentCharts.vue
+3	11	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/treeEcharts.vue
+
+COMMIT@c18a06f5c6bb3a59bf0e8d449ea74aef81d5c4e4
+8	13	src/views/BackstageManage/fundingProjextManage/archiveManage/preArchive/index.vue
+4	4	src/views/BackstageManage/industrialChain/fullProcessModelManagement/components/budgetTree.vue
+7	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/components/echart/hotWords.vue
+7	7	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/components/patentDetail.vue
+9	5	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/index.vue
+48	79	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patentCharts.vue
+15	8	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/treeEcharts.vue
+
+COMMIT@59c954be1940bbd935a83ead7d4a598ee366639b
+65	71	src/views/BackstageManage/IntelligentDataSpace/IndustrialChainMap/brandList/sideBar.vue
+2	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/chainManagement/index.vue
+3	5	src/views/BackstageManage/industrialChain/fullProcessModelManagement/informationManagement/index.vue
+2	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechNode/index.vue
+8	0	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/apis/index.js
+5	19	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/config/tableList.js
+13	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/detail.vue
+2	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/index.vue
+2	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/index.vue
+6	2	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/components/sideBar.vue
+24	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/apis/index.js
+6	6	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/index.vue
+1	1	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/intellectualAnalysis.vue
+208	70	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patentCharts.vue
+
+COMMIT@7688e3c76718df396093947a571ee1cb9cbaad46
+5	5	src/components/proCommon/Breadcrumb/_hooks.js
+5	5	src/router/_backstage/industrialChain/index.js
+12	1	src/views/BackstageManage/components/rowMenu/index.vue
+43	1	src/views/BackstageManage/components/rowMenu/style/index.scss
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/_menu.js
+62	35	src/views/BackstageManage/industrialChain/fullProcessModelManagement/chainManagement/index.vue
+30	0	src/views/BackstageManage/industrialChain/fullProcessModelManagement/chainManagement/issue.vue
+3	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/components/budgetTree.vue
+20	0	src/views/BackstageManage/industrialChain/fullProcessModelManagement/informationManagement/apis/index.js
+13	15	src/views/BackstageManage/industrialChain/fullProcessModelManagement/informationManagement/index.vue
+2	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechNode/apis/index.js
+15	13	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechNode/edit.vue
+13	16	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechNode/index.vue
+15	11	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechNode/issue.vue
+6	0	src/views/BackstageManage/industrialChain/fullProcessModelManagement/modelClassification/apis/index.js
+8	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/modelClassification/components/modelClassificationDialog.vue
+14	0	src/views/BackstageManage/industrialChain/fullProcessModelManagement/modelClassification/config/_tableConfig.js
+12	7	src/views/BackstageManage/industrialChain/fullProcessModelManagement/modelClassification/index.vue
+2	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/apis/index.js
+2	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/config/_filterConfig.js
+8	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/index.vue
+13	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/apis/index.js
+6	6	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/config/_btnConfig.js
+15	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/config/_tableConfig.js
+24	18	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/edit.vue
+43	17	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/index.vue
+21	16	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/issue.vue
+14	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/components/sideBar.vue
+100	8	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/index.vue
+48	11	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patentCharts.vue
+44	18	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/subjectManagement.vue
+2	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/treeEcharts.vue
+
+COMMIT@ba2d9f64cfa95de708efa5d82d1138e9195780ce
+2	1	src/components/proCommon/Breadcrumb/_hooks.js
+6	3	src/views/BackstageManage/industrialChain/fullProcessModelManagement/chainManagement/index.vue
+238	55	src/views/BackstageManage/industrialChain/fullProcessModelManagement/chainManagement/issue.vue
+52	10	src/views/BackstageManage/industrialChain/fullProcessModelManagement/components/budgetTree.vue
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/informationManagement/index.vue
+14	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechNode/apis/index.js
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechNode/config/_tableConfig.js
+3	6	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechNode/index.vue
+3	7	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/index.vue
+15	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/apis/index.js
+10	7	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/components/addToChainNodeDialog.vue
+20	15	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/index.vue
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/issue.vue
+30	46	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/modelClassificationDialog.vue
+58	24	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/index.vue
+7	5	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patentCharts.vue
+4	1	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/subjectManagement.vue
+22	3	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/treeEcharts.vue
+2	2	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industryChainIpGraph/page.vue
+
+COMMIT@9edc76a393c85a75ace4d30dacd8fe5640a273c5
+28	0	src/router/_backstage/industrialChain/index.js
+8	0	src/views/BackstageManage/industrialChain/fullProcessModelManagement/_menu.js
+750	0	src/views/BackstageManage/industrialChain/fullProcessModelManagement/chainManagement/edit.vue
+441	0	src/views/BackstageManage/industrialChain/fullProcessModelManagement/chainManagement/index.vue
+714	0	src/views/BackstageManage/industrialChain/fullProcessModelManagement/chainManagement/issue.vue
+48	11	src/views/BackstageManage/industrialChain/fullProcessModelManagement/components/budgetTree.vue
+2	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/informationManagement/index.vue
+7	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/components/intellectual.vue
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/config/_filterConfig.js
+9	3	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/detail.vue
+2	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/index.vue
+2	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/components/addToChainNodeDialog.vue
+2	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/index.vue
+77	12	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/components/sideBar.vue
+49	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/apis/index.js
+39	16	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/index.vue
+217	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/intellectualAnalysis.vue
+233	22	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patentCharts.vue
+68	7	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/subjectManagement.vue
+0	3	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/treeEcharts.vue
+
+COMMIT@03f2a040bb9e68502d11138b321243412f16c172
+58	67	src/components/proCommon/backstage/filterForm/index.vue
+2	2	src/components/proCommon/backstage/filterForm/style/index.scss
+28	26	src/styles/components/_cascadePanel.scss
+2	4	src/styles/components/_cascadeSelect.scss
+20	10	src/styles/components/_virtualSelect.scss
+1	1	src/styles/proCommon/backstage.scss
+4	3	src/views/BackstageManage/industrialChain/fullProcessModelManagement/components/budgetTree.scss
+58	11	src/views/BackstageManage/industrialChain/fullProcessModelManagement/components/budgetTree.vue
+40	40	src/views/BackstageManage/industrialChain/fullProcessModelManagement/informationManagement/config/_filterConfig.js
+71	71	src/views/BackstageManage/industrialChain/fullProcessModelManagement/informationManagement/config/_tableConfig.js
+6	5	src/views/BackstageManage/industrialChain/fullProcessModelManagement/informationManagement/edit.vue
+3	3	src/views/BackstageManage/industrialChain/fullProcessModelManagement/informationManagement/index.vue
+6	5	src/views/BackstageManage/industrialChain/fullProcessModelManagement/informationManagement/issue.vue
+2	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechClassification/index.vue
+7	5	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechInfo/edit.vue
+3	3	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechInfo/index.vue
+6	5	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechInfo/issue.vue
+40	40	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechNode/config/_filterConfig.js
+56	56	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechNode/config/_tableConfig.js
+6	5	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechNode/edit.vue
+5	5	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechNode/index.vue
+6	5	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechNode/issue.vue
+2	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/modelClassification/index.vue
+41	0	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/config/_filterConfig.js
+77	11	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/index.vue
+2	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/components/addToChainNodeDialog.vue
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/config/_btnConfig.js
+40	40	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/config/_filterConfig.js
+56	56	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/config/_tableConfig.js
+6	5	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/edit.vue
+12	15	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/index.vue
+6	5	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/issue.vue
+
+COMMIT@5406c0ab9f102e629daf0967ad7a6df403e779a7
+2	1	src/components/proCommon/Breadcrumb/_hooks.js
+1	1	src/router/_backstage/IndustryChainGraph/index.js
+1	3	src/views/BackstageManage/basicDataManage/applyIntellectualManage/patentPermitManage/index.vue
+1	3	src/views/BackstageManage/basicDataManage/applyIntellectualManage/patentTransferManage/index.vue
+1	0	src/views/BackstageManage/components/rowMenu/style/index.scss
+1	1	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/_menu.js
+69	36	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/IndustrialChainMap.vue
+17	30	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/index.vue
+24	8	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patentCharts.vue
+88	28	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/treeEcharts.vue
+2	2	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industryChainIpGraph/page.vue
+
+COMMIT@7d3e4d13104173dedbdbe53e175d2ce42c53f7c4
+15	9	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/detail.vue
+228	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/IndustrialChainMap.vue
+8	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/apis/index.js
+132	232	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/index.vue
+169	130	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patentCharts.vue
+54	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/subjectDetail.vue
+12	47	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/subjectManagement.vue
+52	22	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/treeEcharts.vue
+
+COMMIT@13f5c52f7a1a94c9a0dddf190435fd8d6f1e0a3b
+420	0	src/views/BackstageManage/IntelligentDataSpace/patentAnalysis/components/patentCharts.vue
+24	11	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/detail.vue
+16	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/apis/index.js
+3	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patendetail.vue
+65	30	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patentCharts.vue
+9	30	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/subjectManagement.vue
+
+COMMIT@46edc6dc8a5516a31bb3aed5d6302512accf6ab8
+3	2	src/views/BackstageManage/basicDataManage/applyIntellectualManage/patentPermitManage/apis/index.js
+1	1	src/views/BackstageManage/basicDataManage/applyIntellectualManage/patentPermitManage/index.vue
+3	2	src/views/BackstageManage/basicDataManage/applyIntellectualManage/patentTransferManage/apis/index.js
+1	1	src/views/BackstageManage/basicDataManage/applyIntellectualManage/patentTransferManage/index.vue
+72	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/apis/index.js
+20	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/components/ClassInfo.vue
+75	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/components/Infos.vue
+38	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/components/LawInfo.vue
+161	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/config/_config.js
+79	23	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/index.vue
+142	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patendetail.vue
+71	28	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patentCharts.vue
+23	20	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patentKeyPoint.vue
+189	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/subjectManagement.vue
+20	2	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/treeEcharts.vue
+
+COMMIT@cbe6e01f50bf3ccd4052cd7ae49554563cd19f3c
+124	0	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/components/addToChainNodeDialog.vue
+
+COMMIT@3f0a1b398309351152bb324ce4c83f386dc06acc
+9	0	src/router/_backstage/IndustryChainGraph/index.js
+1	1	src/styles/myReport.scss
+5	4	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/index.vue
+1	1	src/views/BackstageManage/IntelligentDataSpace/onlineExamination/index.vue
+64	16	src/views/BackstageManage/IntelligentDataSpace/patentAnalysis/index.vue
+2	2	src/views/BackstageManage/basicDataManage/themeLibraryManage/components/patentPage/config/_config.js
+26	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/apis/index.js
+115	13	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/components/modelClassificationDialog.vue
+7	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/config/_btnConfig.js
+30	18	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/index.vue
+8	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/_menu.js
+78	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/apis/index.js
+72	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/config/_config.js
+200	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/config/_tableConfig.js
+51	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/config/index.js
+56	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/config/maps.js
+604	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/index.vue
+531	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patentCharts.vue
+107	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/patentKeyPoint.vue
+227	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industrialChainTechnologyMap/treeEcharts.vue
+
+COMMIT@91491836680cf77ff3d934b16bc983efb1f05477
+24	0	src/views/BackstageManage/IntelligentDataSpace/MyReport/apis/index.js
+1	1	src/views/BackstageManage/IntelligentDataSpace/MyReport/configs/_tableConfig.js
+1	1	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/components/baseInfo.vue
+6	5	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/components/description.vue
+48	86	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/components/enterpriseTalents.vue
+5	4	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/components/highValuePatentInfo.vue
+40	32	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/components/inventorCooperationInfo.vue
+11	5	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/components/layoutOverviewInfo.vue
+20	20	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/components/migrateTransformInfo.vue
+4	5	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/components/patentPledge.vue
+11	11	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/components/supplyChain.vue
+2	2	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/components/technologyOverviewInfo.vue
+23	16	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/index.js
+4	9	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/index.vue
+33	64	src/views/BackstageManage/IntelligentDataSpace/MyReport/index.vue
+16	0	src/views/BackstageManage/IntelligentDataSpace/onlineExamination/api.js
+14	40	src/views/BackstageManage/IntelligentDataSpace/onlineExamination/index.vue
+3	3	src/views/BackstageManage/basicDataManage/applyIntellectualManage/patentPermitManage/apis/index.js
+3	3	src/views/BackstageManage/basicDataManage/applyIntellectualManage/patentTransferManage/apis/index.js
+7	2	src/views/BackstageManage/basicDataManage/themeLibraryManage/components/patentPage/index.vue
+10	3	src/views/BackstageManage/industrialChain/fullProcessModelManagement/components/budgetTree.vue
+15	0	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechNode/config/_tableConfig.js
+21	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechNode/index.vue
+9	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/subjectManagement/components/echart/hotWords.vue
+6	0	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/config/_btnConfig.js
+15	0	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/config/_tableConfig.js
+25	2	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/index.vue
+370	0	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/modelClassificationDialog.vue
+1	1	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industryChainIpGraph/config/index.js
+1	0	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industryChainIpGraph/page.vue
+17	2	src/views/_mixin/reportCommon.js
+
+COMMIT@0f8db88c4c6bc130a038c4df121b0823d98ac760
+155	0	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/components/enterpriseTalents.vue
+47	47	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/components/highValuePatentInfo.vue
+62	0	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/components/patentPledge.vue
+69	0	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/components/supplyChain.vue
+10	10	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/components/technologyOverviewInfo.vue
+153	113	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/index.js
+7	7	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/index.vue
+19	19	src/views/BackstageManage/IntelligentDataSpace/onlineExamination/index.vue
+13	7	src/views/BackstageManage/basicDataManage/themeLibraryManage/components/patentPage/config/_filterConfig.js
+14	8	src/views/BackstageManage/basicDataManage/themeLibraryManage/patentKeyPointManage/config/_filterConfig.js
+0	1	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industryChainIpGraph/page.vue
+
+COMMIT@ff2fc55f131a464a8fcb963ed17b0872d1c4d53c
+2	1	src/components/proCommon/Breadcrumb/_hooks.js
+170	2	src/components/proCommon/backstage/filterForm/index.vue
+10	0	src/components/proCommon/backstage/filterForm/style/index.scss
+7	1	src/components/ui/virtualSelectTree/virtual-select-tree.jsx
+18	0	src/router/_backstage/basicDataManage/themeLibrary.js
+13	13	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/index.js
+6	1	src/views/BackstageManage/basicDataManage/applyIntellectualManage/patentAwardManage/index.vue
+18	0	src/views/BackstageManage/basicDataManage/applyIntellectualManage/patentPermitManage/apis/index.js
+43	0	src/views/BackstageManage/basicDataManage/applyIntellectualManage/patentPermitManage/config/_filterConfig.js
+95	3	src/views/BackstageManage/basicDataManage/applyIntellectualManage/patentPermitManage/index.vue
+17	0	src/views/BackstageManage/basicDataManage/applyIntellectualManage/patentTransferManage/apis/index.js
+43	0	src/views/BackstageManage/basicDataManage/applyIntellectualManage/patentTransferManage/config/_filterConfig.js
+92	3	src/views/BackstageManage/basicDataManage/applyIntellectualManage/patentTransferManage/index.vue
+11	1	src/views/BackstageManage/basicDataManage/creatingIntellectualManage/highValuePatentManage/config/_filterConfig.js
+14	0	src/views/BackstageManage/basicDataManage/creatingIntellectualManage/highValuePatentManage/config/_tableConfig.js
+2	1	src/views/BackstageManage/basicDataManage/creatingIntellectualManage/highValuePatentManage/index.vue
+7	0	src/views/BackstageManage/basicDataManage/themeLibraryManage/_menu.js
+3	2	src/views/BackstageManage/basicDataManage/themeLibraryManage/components/patentPage/apis/index.js
+194	0	src/views/BackstageManage/basicDataManage/themeLibraryManage/components/patentPage/config/_filterConfig.js
+32	3	src/views/BackstageManage/basicDataManage/themeLibraryManage/components/patentPage/config/_tableConfig.js
+2	5	src/views/BackstageManage/basicDataManage/themeLibraryManage/components/patentPage/detail.vue
+38	20	src/views/BackstageManage/basicDataManage/themeLibraryManage/components/patentPage/index.vue
+89	0	src/views/BackstageManage/basicDataManage/themeLibraryManage/patentKeyPointManage/apis/index.js
+20	0	src/views/BackstageManage/basicDataManage/themeLibraryManage/patentKeyPointManage/components/ClassInfo.vue
+75	0	src/views/BackstageManage/basicDataManage/themeLibraryManage/patentKeyPointManage/components/Infos.vue
+38	0	src/views/BackstageManage/basicDataManage/themeLibraryManage/patentKeyPointManage/components/LawInfo.vue
+233	0	src/views/BackstageManage/basicDataManage/themeLibraryManage/patentKeyPointManage/config/_config.js
+239	0	src/views/BackstageManage/basicDataManage/themeLibraryManage/patentKeyPointManage/config/_filterConfig.js
+200	0	src/views/BackstageManage/basicDataManage/themeLibraryManage/patentKeyPointManage/config/_tableConfig.js
+12	0	src/views/BackstageManage/basicDataManage/themeLibraryManage/patentKeyPointManage/config/multipleImportConfig.js
+34	0	src/views/BackstageManage/basicDataManage/themeLibraryManage/patentKeyPointManage/config/searchParams.js
+172	0	src/views/BackstageManage/basicDataManage/themeLibraryManage/patentKeyPointManage/exportFile.vue
+369	0	src/views/BackstageManage/basicDataManage/themeLibraryManage/patentKeyPointManage/index.vue
+1	1	src/views/BackstageManage/declarationOfSpecialFunds/components/queryShenhe.vue
+1	1	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industryChainIpGraph/config/index.js
+33	40	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industryChainIpGraph/page.vue
+9	5	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/industryChainIpGraph/treeEcharts.vue
+
+COMMIT@7fa3accc781c8ea845d2901a530ef4b90f07cd02
+COMMIT@dff461e423d06f8ecb9c6221f1a5fe2b57a10ca7
+1	1	src/views/BackstageManage/IntelligentDataSpace/MyReport/components/detailHeader.vue
+6	6	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/components/highValuePatentInfo.vue
+14	14	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/components/layoutOverviewInfo.vue
+7	7	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/components/patentBasicInfo.vue
+4	4	src/views/BackstageManage/IntelligentDataSpace/MyReport/detail/components/technologyOverviewInfo.vue
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/components/budgetTree.vue
+502	502	static/plugins/iconfont2/iconfont.css
+
+COMMIT@314dba9b6bf2464a6a14ba80c123258376bd7f4f
+COMMIT@d47c501ebd975537610481d2c1f2a6c997652dbe
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/informationManagement/edit.vue
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/informationManagement/issue.vue
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechInfo/edit.vue
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechInfo/issue.vue
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechNode/edit.vue
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/keyTechNode/issue.vue
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/edit.vue
+1	1	src/views/BackstageManage/industrialChain/fullProcessModelManagement/techNode/issue.vue
+1	1	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/enterpriseSmartSearch/index.vue
+1	1	src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/universityResearchList/index.vue

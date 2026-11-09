@@ -1,0 +1,15 @@
+COMMIT@c821b1954f5ae80044cfdca71a83ed93ecd62afe
+38	0	.env.example
+2	0	.gitattributes
+9	0	.gitignore
+478	0	app.py
+87	0	collection.py
+155	0	encoder.py
+322	0	filters.py
+207	0	import_lance.py
+84	0	lance_store.py
+41	0	logging_setup.py
+-	-	pixi.lock
+110	0	pixi.toml
+327	0	search.py
+61	0	settings.py

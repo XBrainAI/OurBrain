@@ -1,0 +1,16 @@
+40d43efc775530e7aa5793b656d30d498f975daad5ef656588bdab8ff38105164a91d17f47491caeyuyanjieyuyanjie@ourchem.com2026-11-02 18:34:11 +0800fix：检索翻译问题修复
+d5ef656588bdab8ff38105164a91d17f47491cae203b34b2a84053b28a7da258cba44dc812aca1c1susuguangluan@ourchem.com2026-10-29 17:24:49 +0800fix: 修复诉讼信息显示和加载更多的逻辑错误
+203b34b2a84053b28a7da258cba44dc812aca1c1b4ac9b6f30ac93f311d03198752d334f044408bfsusuguangluan@ourchem.com2026-10-14 14:57:18 +0800build: 添加壹专利智能体生产环境地址并切换生产代理
+b4ac9b6f30ac93f311d03198752d334f044408bff1af4c9b8ed8fd350a2387c36720f6b46aa602ebsusuguangluan@ourchem.com2026-10-13 18:30:40 +0800feat: 未登录用户也可查看智能体入口，点击后弹窗提示登录
+f1af4c9b8ed8fd350a2387c36720f6b46aa602eb207f241e1a96b09d32de265218c6cb768ba7f7f4susuguangluan@ourchem.com2026-10-13 16:53:04 +0800fix(AdvancedSearch): 修复专利奖接口异常时下拉选项未正确加载的问题
+207f241e1a96b09d32de265218c6cb768ba7f7f4bcb3d58e97178c550e8e4d724d6668d9d32385b0susuguangluan@ourchem.com2026-10-10 11:38:07 +0800refactor: 统一使用新版，移除新旧版切换逻辑
+bcb3d58e97178c550e8e4d724d6668d9d32385b041a494874d2b03eaf496fee2b734a5a4674ea70fsusuguangluan@ourchem.com2026-10-09 14:55:35 +0800fix(trainingReport): 修复图片显示和标题行高问题
+41a494874d2b03eaf496fee2b734a5a4674ea70f8d70a0ca6ceccfc03f3f1ccc7d6a2da5ef9182ecsusuguangluan@ourchem.com2026-10-09 11:31:10 +0800refactor: 注释课程时间显示并调整培训报告底部内边距
+8d70a0ca6ceccfc03f3f1ccc7d6a2da5ef9182ecc8f42a4e0f2b7696ec90a9ff764a9ab829244782susuguangluan@ourchem.com2026-09-24 13:52:12 +0800style(agentEntrance): 更新入口文案和位置层级适配
+c8f42a4e0f2b7696ec90a9ff764a9ab8292447825fd53c89cd3032fbc6694ea02876293d63b2c81esusuguangluan@ourchem.com2026-09-28 15:05:34 +0800docs: 修复全国高校专利描述中的重复“专利”字样
+5fd53c89cd3032fbc6694ea02876293d63b2c81ea6bf77af1f13f46f6a2401db8eccab2da6d15d5c 099396d4c50c8588f353bbfb7abfc974de07b164张应zhangying1@ourchem.com2026-09-17 17:48:26 +0800合并分支 'feta-同步壹专利双五星' 到 'master'
+099396d4c50c8588f353bbfb7abfc974de07b1646f000b5e15df3f11688ca0b14f2bea97af5544f4Zzhangying1@ourchem.com2026-09-16 11:09:03 +0800feat：筛选字段“专利标签”下加双五星选项
+6f000b5e15df3f11688ca0b14f2bea97af5544f400c73638842c16b2ff6e6f0417e30c1023e6c393Zzhangying1@ourchem.com2026-09-16 09:36:08 +0800feat：标签公共组件针对“双五星”做特殊处理
+a6bf77af1f13f46f6a2401db8eccab2da6d15d5c00c73638842c16b2ff6e6f0417e30c1023e6c393susuguangluan@ourchem.com2026-09-16 09:06:25 +0800feat: add 壹专利智能体入口并补全buildPro环境变量
+00c73638842c16b2ff6e6f0417e30c1023e6c3931866b3e35087888e46561f3af7b5d55ea8da7f83susususuguangluan@ourchem.com2026-08-18 16:19:42 +0800fix(检索式): 协同空间二次检索 not 表达式拼接问题
+1866b3e35087888e46561f3af7b5d55ea8da7f839a7e71d2ffe70290a9604d5a0b2e5e3738c69d7dsusususuguangluan@ourchem.com2026-08-18 15:46:30 +0800fix(检索式): 二次检索后未自动给原检索式加括号

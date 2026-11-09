@@ -1,0 +1,1238 @@
+COMMIT@84244a2ba1de0f04081fd3fcc3c3c47f93af2012
+1	1	core/src/main/java/com/ourchem/ms/patyee/enums/ResponseCodeEnum.java
+
+COMMIT@cafdad2e6aab7c33ffb763f32fd774a3f8828597
+6	1	core/src/main/java/com/ourchem/ms/patyee/controller/MultidimensionalFavoritesController.java
+2	0	core/src/main/java/com/ourchem/ms/patyee/dao/FavoritesRecordMapper.java
+1	0	core/src/main/java/com/ourchem/ms/patyee/enums/ResponseCodeEnum.java
+2	0	core/src/main/java/com/ourchem/ms/patyee/service/IFavoritesService.java
+4	0	core/src/main/java/com/ourchem/ms/patyee/service/collection/FavoritesServiceImpl.java
+17	0	core/src/main/resources/mapping/FavoritesRecordMapper.xml
+
+COMMIT@35cf1df1fa4aaa4ea32f7c78d1ef116ad079cc62
+20	16	core/src/main/java/com/ourchem/ms/patyee/service/impl/SearchServiceImpl.java
+
+COMMIT@5e9527d1e9ca4a40b174fc0477807b8cdb3622a8
+14	5	core/src/main/java/com/ourchem/ms/patyee/controller/MultidimensionalFavoritesController.java
+5	1	core/src/main/java/com/ourchem/ms/patyee/controller/MultidimensionalFavoritesV2Controller.java
+120	12	core/src/main/java/com/ourchem/ms/patyee/service/collection/MultidimensionalFavoritesV2ServiceImpl.java
+41	0	core/src/main/java/com/ourchem/ms/patyee/service/handler/UserHandler.java
+
+COMMIT@7096193f781878fae680c2c0b0a2efe2533dc0f9
+73	34	core/src/main/java/com/ourchem/ms/patyee/service/impl/SearchServiceImpl.java
+
+COMMIT@cae7640060aea3a60576d8d77802183b5a4852a8
+50	19	core/src/main/java/com/ourchem/ms/patyee/service/impl/SearchServiceImpl.java
+
+COMMIT@75de136294b8f00e2c209336b9b4135c1582c19a
+COMMIT@bc126f7d4b83739d6e637f2378626535defe34a3
+21	10	core/src/main/java/com/ourchem/ms/patyee/service/impl/SearchServiceImpl.java
+
+COMMIT@ffadc0d38b6c46a2f8b300e2d55b8ae9bdc2cdab
+14	3	core/src/main/java/com/ourchem/ms/patyee/service/impl/SearchServiceImpl.java
+
+COMMIT@f309c6f93c4f1a59b779f9bd97196803df80496d
+21	10	core/src/main/java/com/ourchem/ms/patyee/service/impl/SearchServiceImpl.java
+
+COMMIT@59c9adbc002c154a9a3371821007872c2f1a9718
+14	3	core/src/main/java/com/ourchem/ms/patyee/service/impl/SearchServiceImpl.java
+
+COMMIT@f960f9b6b0a72e2ad963989f0a686ce0c0235044
+6	7	core/src/main/java/com/ourchem/ms/patyee/controller/SearchController.java
+
+COMMIT@db9e917c8be51ba1c921132a079014134fe6a50a
+22	11	core/src/main/java/com/ourchem/ms/patyee/controller/SearchController.java
+2	0	core/src/main/java/com/ourchem/ms/patyee/controller/SearchService.java
+11	0	core/src/main/java/com/ourchem/ms/patyee/exception/FavoritesLimitException.java
+136	1	core/src/main/java/com/ourchem/ms/patyee/service/impl/SearchServiceImpl.java
+
+COMMIT@fb9dd6f8f98c7733da10ede69010d6478ffb7c40
+COMMIT@b9eee461f1e37e0bfa0ac118cdc3a51fd305a61d
+3	1	core/src/main/java/com/ourchem/ms/patyee/service/impl/KeywordExpandService.java
+1	1	core/src/main/java/com/ourchem/ms/patyee/service/impl/OcrResultServiceImpl.java
+
+COMMIT@91986fe498e12f72d824b53bd19ca908325bcafa
+7	7	core/src/main/java/com/ourchem/ms/patyee/service/handler/UserHandler.java
+
+COMMIT@2cb231b6dc786e4a54b26a644fa0e346a7d5e1ab
+7	7	core/src/main/java/com/ourchem/ms/patyee/service/handler/UserHandler.java
+
+COMMIT@62479817f8b2a6d04291a54d0e0ce0e010b1a9b9
+36	18	core/src/main/java/com/ourchem/ms/patyee/service/collection/MultidimensionalFavoritesServiceImpl.java
+
+COMMIT@69bb826b498aa08bf1f6adb088775dec93fa777d
+37	0	core/src/main/java/com/ourchem/ms/patyee/config/SchedulingConfig.java
+12	0	core/src/main/java/com/ourchem/ms/patyee/config/ThreadPoolConfig.java
+129	91	core/src/main/java/com/ourchem/ms/patyee/service/impl/IndexBulletinBoardService.java
+118	31	core/src/main/java/com/ourchem/ms/patyee/service/job/PanelDataScheduledTask.java
+41	0	core/src/main/java/com/ourchem/ms/patyee/service/report/CompetitiveAnalyService.java
+
+COMMIT@7bffd37db37ccbdb2aa14318983d43e5fba30d37
+6	2	core/src/main/java/com/ourchem/ms/patyee/service/impl/AgentUserFeedbackServiceImpl.java
+
+COMMIT@3e8403814c3c47aca8954cdc847d4dbf1fc2956b
+4	1	core/src/main/java/com/ourchem/ms/patyee/constants/RedisKey.java
+74	0	core/src/main/java/com/ourchem/ms/patyee/controller/AgentUserFeedbackController.java
+40	0	core/src/main/java/com/ourchem/ms/patyee/dao/AgentUserFeedbackAttachmentMapper.java
+13	0	core/src/main/java/com/ourchem/ms/patyee/dao/AgentUserFeedbackMapper.java
+114	0	core/src/main/java/com/ourchem/ms/patyee/domain/AgentUserFeedback.java
+72	0	core/src/main/java/com/ourchem/ms/patyee/domain/AgentUserFeedbackAttachment.java
+44	0	core/src/main/java/com/ourchem/ms/patyee/enums/AgentFeedbackTypeEnum.java
+15	0	core/src/main/java/com/ourchem/ms/patyee/enums/ResponseCodeEnum.java
+32	0	core/src/main/java/com/ourchem/ms/patyee/service/AgentUserFeedbackService.java
+507	0	core/src/main/java/com/ourchem/ms/patyee/service/impl/AgentUserFeedbackServiceImpl.java
+95	0	core/src/main/resources/mapping/AgentUserFeedbackAttachmentMapper.xml
+72	0	core/src/main/resources/mapping/AgentUserFeedbackMapper.xml
+
+COMMIT@1e539a17f8058b7cfa21a67d601a85d436a3fb53
+-	-	data/dataset/20260304_V03041631/images/6RGINDRFBS7ISDHVGG7X84W3DRVSHNMGQZ3JQ0C2.png
+-	-	data/dataset/20260304_V03041631/images/9YUGE4ACTJL8KRRUNW2HGOC88QP2EQGZQHEOAXU0.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00001.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00002.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00003.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00004.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00005.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00006.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00008.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00009.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00010.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00011.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00012.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00013.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00014.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00015.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00016.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00017.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00018.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00019.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00020.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00021.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00022.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00023.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00024.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00025.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00026.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00027.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00028.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00029.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00030.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00031.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00032.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00033.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00034.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00035.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00036.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00037.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00038.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00039.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00040.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00041.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00042.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00043.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00044.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00045.png
+-	-	data/dataset/20260304_V03041631/images/AU2023327778A1_00046.png
+-	-	data/dataset/20260304_V03041631/images/B6HB38FBOLSCSP8XZYL2ZVTVLSAYC2K2UIZQSQU3.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004856581800000041.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000041.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000051.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000081.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000091.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000092.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000093.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000111.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000112.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000113.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000114.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000115.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000116.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000117.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000118.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000119.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000121.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000122.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000123.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000124.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000125.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000131.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000132.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000133.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000134.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000135.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000136.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000137.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000141.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004899647840000142.png
+-	-	data/dataset/20260304_V03041631/images/BDA0004996565460000041.png
+-	-	data/dataset/20260304_V03041631/images/BDA0005144515670000091.png
+-	-	data/dataset/20260304_V03041631/images/C9ZS0LMJQMSBEFHVKK3O7SHFYNYNAAVTF4HVJDPY.png
+-	-	data/dataset/20260304_V03041631/images/CSOGABMRMB0CUEDIVDGWF5F79AVEZHLRMWUXJAXX.png
+-	-	data/dataset/20260304_V03041631/images/DBQV5IOK86G6URCJ80DY1ISXJXVFCTBF2WT5PFBF.png
+-	-	data/dataset/20260304_V03041631/images/DE102020129508B4_00001.png
+-	-	data/dataset/20260304_V03041631/images/DE102020129508B4_00002.png
+-	-	data/dataset/20260304_V03041631/images/DE102020129508B4_00003.png
+-	-	data/dataset/20260304_V03041631/images/DE102020129508B4_00004.png
+-	-	data/dataset/20260304_V03041631/images/DE102020129508B4_00005.png
+-	-	data/dataset/20260304_V03041631/images/DE102023133306A1_00001.png
+-	-	data/dataset/20260304_V03041631/images/DE102023133306A1_00002.png
+-	-	data/dataset/20260304_V03041631/images/DE102023133306A1_00003.png
+-	-	data/dataset/20260304_V03041631/images/DE102023133306A1_00004.png
+-	-	data/dataset/20260304_V03041631/images/DE102023133306A1_00005.png
+-	-	data/dataset/20260304_V03041631/images/DE102023133306A1_00006.png
+-	-	data/dataset/20260304_V03041631/images/DE102023133306A1_00007.png
+-	-	data/dataset/20260304_V03041631/images/DE102023133306A1_00008.png
+-	-	data/dataset/20260304_V03041631/images/DE102024110739A1_00001.png
+-	-	data/dataset/20260304_V03041631/images/DE102024110739A1_00002.png
+-	-	data/dataset/20260304_V03041631/images/DE102024110739A1_00003.png
+-	-	data/dataset/20260304_V03041631/images/DE102024110739A1_00004.png
+-	-	data/dataset/20260304_V03041631/images/EP4191090B1_00001.png
+-	-	data/dataset/20260304_V03041631/images/EP4191090B1_00002.png
+-	-	data/dataset/20260304_V03041631/images/EP4191090B1_00003.png
+-	-	data/dataset/20260304_V03041631/images/EP4191090B1_00004.png
+-	-	data/dataset/20260304_V03041631/images/EP4191090B1_00005.png
+-	-	data/dataset/20260304_V03041631/images/EP4191090B1_00006.png
+-	-	data/dataset/20260304_V03041631/images/EP4191090B1_00007.png
+-	-	data/dataset/20260304_V03041631/images/EP4263285B1_00001.png
+-	-	data/dataset/20260304_V03041631/images/EP4263285B1_00002.png
+-	-	data/dataset/20260304_V03041631/images/EP4263285B1_00003.png
+-	-	data/dataset/20260304_V03041631/images/EP4513639A1_00001.png
+-	-	data/dataset/20260304_V03041631/images/EP4513639A1_00002.png
+-	-	data/dataset/20260304_V03041631/images/EP4513639A1_00003.png
+-	-	data/dataset/20260304_V03041631/images/EP4513639A1_00004.png
+-	-	data/dataset/20260304_V03041631/images/EP4513639A1_00005.png
+-	-	data/dataset/20260304_V03041631/images/EP4513639A1_00006.png
+-	-	data/dataset/20260304_V03041631/images/FR3152007A1_00001.png
+-	-	data/dataset/20260304_V03041631/images/FR3152007A1_00002.png
+-	-	data/dataset/20260304_V03041631/images/FR3152007A1_00003.png
+-	-	data/dataset/20260304_V03041631/images/FR3152007A1_00004.png
+-	-	data/dataset/20260304_V03041631/images/FR3152007A1_00005.png
+-	-	data/dataset/20260304_V03041631/images/FR3152007A1_00006.png
+-	-	data/dataset/20260304_V03041631/images/FR3152007A1_00007.png
+-	-	data/dataset/20260304_V03041631/images/FR3152007A1_00008.png
+-	-	data/dataset/20260304_V03041631/images/FR3152007A1_00009.png
+-	-	data/dataset/20260304_V03041631/images/FR3152007A1_00010.png
+-	-	data/dataset/20260304_V03041631/images/FR3152257A1_00001.png
+-	-	data/dataset/20260304_V03041631/images/FR3152257A1_00002.png
+-	-	data/dataset/20260304_V03041631/images/FR3152257A1_00003.png
+-	-	data/dataset/20260304_V03041631/images/FR3152257A1_00004.png
+-	-	data/dataset/20260304_V03041631/images/FR3152257A1_00005.png
+-	-	data/dataset/20260304_V03041631/images/FR3152300A1_00001.png
+-	-	data/dataset/20260304_V03041631/images/FR3152300A1_00002.png
+-	-	data/dataset/20260304_V03041631/images/FR3152300A1_00003.png
+-	-	data/dataset/20260304_V03041631/images/FT_1.png
+-	-	data/dataset/20260304_V03041631/images/FT_10.png
+-	-	data/dataset/20260304_V03041631/images/FT_11.png
+-	-	data/dataset/20260304_V03041631/images/FT_12.png
+-	-	data/dataset/20260304_V03041631/images/FT_13.png
+-	-	data/dataset/20260304_V03041631/images/FT_14.png
+-	-	data/dataset/20260304_V03041631/images/FT_15.png
+-	-	data/dataset/20260304_V03041631/images/FT_16.png
+-	-	data/dataset/20260304_V03041631/images/FT_17.png
+-	-	data/dataset/20260304_V03041631/images/FT_18.png
+-	-	data/dataset/20260304_V03041631/images/FT_19.png
+-	-	data/dataset/20260304_V03041631/images/FT_2.png
+-	-	data/dataset/20260304_V03041631/images/FT_3.png
+-	-	data/dataset/20260304_V03041631/images/FT_4.png
+-	-	data/dataset/20260304_V03041631/images/FT_5.png
+-	-	data/dataset/20260304_V03041631/images/FT_6.png
+-	-	data/dataset/20260304_V03041631/images/FT_7.png
+-	-	data/dataset/20260304_V03041631/images/FT_8.png
+-	-	data/dataset/20260304_V03041631/images/FT_9.png
+-	-	data/dataset/20260304_V03041631/images/GMLIF2TZQVBDHG2QW0D8LWTZWS345GE5X2JBEMFP.png
+-	-	data/dataset/20260304_V03041631/images/HDA0001584995900000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0001584995900000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0001584995900000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0002354990860000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0002354990860000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0002354990860000013.png
+-	-	data/dataset/20260304_V03041631/images/HDA0002354990860000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0002354990860000022.png
+-	-	data/dataset/20260304_V03041631/images/HDA0002354990860000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0002354990860000032.png
+-	-	data/dataset/20260304_V03041631/images/HDA0002354990860000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0002354990860000042.png
+-	-	data/dataset/20260304_V03041631/images/HDA0002354990860000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0002354990860000052.png
+-	-	data/dataset/20260304_V03041631/images/HDA0002354990860000053.png
+-	-	data/dataset/20260304_V03041631/images/HDA0002354990860000061.png
+-	-	data/dataset/20260304_V03041631/images/HDA0002354990860000062.png
+-	-	data/dataset/20260304_V03041631/images/HDA0002354990860000063.png
+-	-	data/dataset/20260304_V03041631/images/HDA0002354990860000071.png
+-	-	data/dataset/20260304_V03041631/images/HDA0002354990860000072.png
+-	-	data/dataset/20260304_V03041631/images/HDA0002354990860000073.png
+-	-	data/dataset/20260304_V03041631/images/HDA0002354990860000081.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003186936200000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003186936200000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003186936200000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003186936200000022.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003186936200000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003198568240000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003198568240000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003198568240000022.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003198568240000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003280497230000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003280497230000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003280497230000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003280497230000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003280497230000042.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003280497230000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003280497230000061.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003280497230000071.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003285247340000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003285247340000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003285247340000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003285247340000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003285247340000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003285247340000061.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003698140210000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003698140210000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003698140210000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003698140210000022.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003698140210000023.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003698140210000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003698140210000032.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003698140210000033.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003698140210000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003698140210000042.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003698140210000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003698140210000052.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003698140210000053.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000022.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000032.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000042.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000043.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000052.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000053.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000054.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000061.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000062.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000071.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000072.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000081.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000082.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000083.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000084.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000091.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000092.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000093.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000094.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000101.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003772410640000111.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003794828040000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003794828040000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003794828040000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003794828040000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003794828040000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003794828040000061.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003794828040000071.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003794828040000081.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003794828040000091.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003794828040000111.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003794828040000121.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003794828040000131.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003794828040000132.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003794828040000141.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003822205340000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003822205340000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003822205340000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003822205340000022.png
+-	-	data/dataset/20260304_V03041631/images/HDA0003822205340000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004359508850000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004359508850000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004359508850000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004359508850000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004359508850000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004359508850000061.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004359508850000071.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004359508850000081.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004359508850000091.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004359508850000092.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004359508850000101.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004359508850000102.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004359508850000111.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004429003900000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004429003900000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004429003900000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004429003900000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004429003900000042.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004429003900000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004429003900000061.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004429003900000062.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004429003900000071.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004429003900000072.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004429003900000081.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004429003900000091.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004429003900000101.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004429003900000102.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004582015940000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004582015940000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004582015940000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004582015940000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004582015940000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004640582930000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004640582930000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004640582930000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004640582930000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004640582930000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004640582930000042.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004640582930000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004640582930000061.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004640582930000071.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004640582930000072.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004640582930000081.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004647200280000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004647200280000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004647200280000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004647200280000022.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004647200280000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004647200280000032.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004647200280000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004647200280000042.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004647200280000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004667814440000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004667814440000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004667814440000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004667814440000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004667814440000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004667814440000052.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004667814440000061.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004667814440000062.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004700755440000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004700755440000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004700755440000022.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004700755440000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004700755440000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004700755440000042.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004700755440000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004700755440000052.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004700755440000061.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004713970770000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004713970770000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004713970770000013.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004713970770000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004715157440000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004715157440000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004715157440000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004715157440000022.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004715157440000023.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004715157440000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004722679080000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004722679080000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004722679080000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004722679080000022.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004722679080000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004722679080000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004750197620000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004750197620000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004750197620000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004750197620000022.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004750197620000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004750197620000032.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004797061740000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004797061740000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004797061740000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004797061740000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004811193740000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004811193740000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004811193740000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004811193740000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004837204380000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004837204380000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004837204380000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004853665980000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004853665980000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004856581810000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004861350540000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004861350540000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004861350540000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004861350540000022.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004861350540000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004861350540000032.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004861350540000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004863336950000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004863336950000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004863336950000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004863336950000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004863336950000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004863336950000052.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004863336950000061.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004863336950000062.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004863336950000071.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004890373320000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004890373320000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004890373320000022.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004890373320000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004890373320000032.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004895786920000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004895786920000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004895786920000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004895786920000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004895786920000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004899403440000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004899403440000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004899403440000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004899403440000022.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004899403440000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004899403440000032.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004899647860000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004899647860000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004899647860000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004899647860000022.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004899647860000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004899647860000032.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004950388760000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004950388760000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004950388760000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004950388760000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004950388760000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004950388760000071.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004950388760000081.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004953610160000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004953610160000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004953610160000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004953610160000022.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004953610160000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004953610160000032.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004953610160000033.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004953610160000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004953610160000042.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004953610160000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004953610160000052.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004953610160000061.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004953610160000071.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004953610160000072.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004962836190000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004962836190000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004962836190000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004962836190000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004962836190000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004962836190000061.png
+-	-	data/dataset/20260304_V03041631/images/HDA0004962836190000071.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005014156830000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005014156830000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005014156830000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005014156830000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005014156830000042.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005014156830000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005014156830000061.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005047535870000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005134448890000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005134448890000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005134448890000022.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005134448890000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005134448890000032.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005134448890000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005134448890000042.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005134448890000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005134448890000052.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005134448890000061.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005134448890000062.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005136501320000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005136501320000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005136501320000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005136501320000022.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005136501320000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005136501320000032.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005139349480000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005139349480000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005139349480000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005139451950000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005139451950000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005139451950000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005139451950000022.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005144515680000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005144515680000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005144515680000022.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005144515680000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005144515680000032.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005144515680000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005144515680000042.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005144515680000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005144515680000052.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005144515680000061.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005144515680000062.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005147319970000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005147319970000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005147319970000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005147319970000022.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005147319970000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005147705780000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005147705780000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005147705780000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005147705780000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005147705780000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005147705780000061.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005147705780000071.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005147705780000081.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005147705780000091.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005147705780000101.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005147705780000111.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005147705780000121.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005147705780000131.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005147705780000141.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005147705780000151.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005147705780000161.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005147705780000171.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005147705780000181.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005147705780000191.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005150639770000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005150639770000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005150639770000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005150639770000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005150639770000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005150639770000061.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005150639770000071.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005150639770000072.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005150639770000081.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005150639770000091.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005150639770000092.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005150639770000101.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005150639770000111.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005150639770000121.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005150639770000131.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005150639770000141.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005150639770000151.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005150639770000161.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005150639770000171.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005150639770000181.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005151008340000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005151008340000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005151008340000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005151008340000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005151008340000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005151008340000061.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005151008340000071.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005151008340000081.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005151008340000082.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005151008340000091.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005151008340000101.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005151008340000111.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005151008340000121.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005151008340000131.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005151008340000141.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005151008340000142.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005151008340000151.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005151008340000152.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005151008340000171.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005151008340000181.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005155035540000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005155035540000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005155035540000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005155035540000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005155035540000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005155035540000061.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005155035540000071.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005155035540000081.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005155035540000091.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005157241520000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005157241520000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005157241520000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005157241520000022.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005157241520000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005157241520000032.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005157241520000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005157241520000042.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005183806670000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005183806670000012.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005183806670000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005235090260000011.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005235090260000021.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005235090260000031.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005235090260000041.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005235090260000051.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005235090260000061.png
+-	-	data/dataset/20260304_V03041631/images/HDA0005235090260000071.png
+-	-	data/dataset/20260304_V03041631/images/IN202414050620A_00001.png
+-	-	data/dataset/20260304_V03041631/images/IN202414050620A_00002.png
+-	-	data/dataset/20260304_V03041631/images/IN202414050620A_00003.png
+-	-	data/dataset/20260304_V03041631/images/IN202414050620A_00004.png
+-	-	data/dataset/20260304_V03041631/images/IN202414050620A_00005.png
+-	-	data/dataset/20260304_V03041631/images/IN202414050620A_00006.png
+-	-	data/dataset/20260304_V03041631/images/IN202414050620A_00007.png
+-	-	data/dataset/20260304_V03041631/images/IN202414050620A_00008.png
+-	-	data/dataset/20260304_V03041631/images/IN202414050620A_00009.png
+-	-	data/dataset/20260304_V03041631/images/IN202414050620A_00010.png
+-	-	data/dataset/20260304_V03041631/images/IN202414050620A_00011.png
+-	-	data/dataset/20260304_V03041631/images/IN202414050620A_00012.png
+-	-	data/dataset/20260304_V03041631/images/IN202414050620A_00013.png
+-	-	data/dataset/20260304_V03041631/images/JP2025018426A_00001.png
+-	-	data/dataset/20260304_V03041631/images/JP2025018426A_00002.png
+-	-	data/dataset/20260304_V03041631/images/JP2025018426A_00003.png
+-	-	data/dataset/20260304_V03041631/images/JP2025018426A_00004.png
+-	-	data/dataset/20260304_V03041631/images/JP2025018426A_00005.png
+-	-	data/dataset/20260304_V03041631/images/JP7625945B2_00001.png
+-	-	data/dataset/20260304_V03041631/images/JP7625945B2_00002.png
+-	-	data/dataset/20260304_V03041631/images/JP7625945B2_00003.png
+-	-	data/dataset/20260304_V03041631/images/JP7625945B2_00004.png
+-	-	data/dataset/20260304_V03041631/images/JP7625945B2_00005.png
+-	-	data/dataset/20260304_V03041631/images/JP7625945B2_00006.png
+-	-	data/dataset/20260304_V03041631/images/JP7625945B2_00007.png
+-	-	data/dataset/20260304_V03041631/images/JP7625945B2_00008.png
+-	-	data/dataset/20260304_V03041631/images/JP7625945B2_00009.png
+-	-	data/dataset/20260304_V03041631/images/JP7625945B2_00010.png
+-	-	data/dataset/20260304_V03041631/images/JP7625945B2_00011.png
+-	-	data/dataset/20260304_V03041631/images/JP7625945B2_00012.png
+-	-	data/dataset/20260304_V03041631/images/JP7625945B2_00013.png
+-	-	data/dataset/20260304_V03041631/images/JP7633922B2_00001.png
+-	-	data/dataset/20260304_V03041631/images/JP7633922B2_00002.png
+-	-	data/dataset/20260304_V03041631/images/JP7633922B2_00003.png
+-	-	data/dataset/20260304_V03041631/images/JP7633922B2_00004.png
+-	-	data/dataset/20260304_V03041631/images/JP7633922B2_00005.png
+-	-	data/dataset/20260304_V03041631/images/JP7633922B2_00006.png
+-	-	data/dataset/20260304_V03041631/images/JP7633922B2_00007.png
+-	-	data/dataset/20260304_V03041631/images/JP7633922B2_00008.png
+-	-	data/dataset/20260304_V03041631/images/JP7633922B2_00009.png
+-	-	data/dataset/20260304_V03041631/images/JP7633922B2_00010.png
+-	-	data/dataset/20260304_V03041631/images/JP7633922B2_00011.png
+-	-	data/dataset/20260304_V03041631/images/JP7633922B2_00012.png
+-	-	data/dataset/20260304_V03041631/images/JP7633922B2_00013.png
+-	-	data/dataset/20260304_V03041631/images/JP7633922B2_00014.png
+-	-	data/dataset/20260304_V03041631/images/JP7633922B2_00015.png
+-	-	data/dataset/20260304_V03041631/images/JP7633922B2_00016.png
+-	-	data/dataset/20260304_V03041631/images/JP7633922B2_00017.png
+-	-	data/dataset/20260304_V03041631/images/JP7633922B2_00018.png
+-	-	data/dataset/20260304_V03041631/images/JP7633922B2_00019.png
+-	-	data/dataset/20260304_V03041631/images/JP7635343B2_00001.png
+-	-	data/dataset/20260304_V03041631/images/JP7635343B2_00002.png
+-	-	data/dataset/20260304_V03041631/images/JP7635343B2_00003.png
+-	-	data/dataset/20260304_V03041631/images/JP7635343B2_00004.png
+-	-	data/dataset/20260304_V03041631/images/JP7635343B2_00005.png
+-	-	data/dataset/20260304_V03041631/images/JP7635343B2_00006.png
+-	-	data/dataset/20260304_V03041631/images/JP7635343B2_00007.png
+-	-	data/dataset/20260304_V03041631/images/JP7635343B2_00008.png
+-	-	data/dataset/20260304_V03041631/images/JP7635343B2_00009.png
+-	-	data/dataset/20260304_V03041631/images/JP7635343B2_00010.png
+-	-	data/dataset/20260304_V03041631/images/JP7635343B2_00011.png
+-	-	data/dataset/20260304_V03041631/images/JP7635343B2_00012.png
+-	-	data/dataset/20260304_V03041631/images/JP7635343B2_00013.png
+-	-	data/dataset/20260304_V03041631/images/JP7635343B2_00014.png
+-	-	data/dataset/20260304_V03041631/images/JP7635343B2_00015.png
+-	-	data/dataset/20260304_V03041631/images/JP7635343B2_00016.png
+-	-	data/dataset/20260304_V03041631/images/JP7637174B2_00001.png
+-	-	data/dataset/20260304_V03041631/images/JP7637174B2_00003.png
+-	-	data/dataset/20260304_V03041631/images/JP7637174B2_00004.png
+-	-	data/dataset/20260304_V03041631/images/JP7637174B2_00005.png
+-	-	data/dataset/20260304_V03041631/images/JP7637174B2_00006.png
+-	-	data/dataset/20260304_V03041631/images/JP7637174B2_00007.png
+-	-	data/dataset/20260304_V03041631/images/JP7637174B2_00008.png
+-	-	data/dataset/20260304_V03041631/images/JP7637174B2_00009.png
+-	-	data/dataset/20260304_V03041631/images/JP7637174B2_00010.png
+-	-	data/dataset/20260304_V03041631/images/JP7637174B2_00011.png
+-	-	data/dataset/20260304_V03041631/images/JP7637174B2_00012.png
+-	-	data/dataset/20260304_V03041631/images/JP7637174B2_00013.png
+-	-	data/dataset/20260304_V03041631/images/JP7637174B2_00014.png
+-	-	data/dataset/20260304_V03041631/images/JP7637174B2_00015.png
+-	-	data/dataset/20260304_V03041631/images/JP7637174B2_00016.png
+-	-	data/dataset/20260304_V03041631/images/JP7637551B2_00001.png
+-	-	data/dataset/20260304_V03041631/images/JP7637551B2_00002.png
+-	-	data/dataset/20260304_V03041631/images/JP7637551B2_00003.png
+-	-	data/dataset/20260304_V03041631/images/JP7637551B2_00004.png
+-	-	data/dataset/20260304_V03041631/images/JP7637551B2_00005.png
+-	-	data/dataset/20260304_V03041631/images/JP7637551B2_00006.png
+-	-	data/dataset/20260304_V03041631/images/JP7637551B2_00007.png
+-	-	data/dataset/20260304_V03041631/images/KR1020250026003A_00001.png
+-	-	data/dataset/20260304_V03041631/images/KR1020250026003A_00002.png
+-	-	data/dataset/20260304_V03041631/images/KR1020250026003A_00003.png
+-	-	data/dataset/20260304_V03041631/images/KR1020250026003A_00004.png
+-	-	data/dataset/20260304_V03041631/images/KR1020250026003A_00005.png
+-	-	data/dataset/20260304_V03041631/images/KR1020250026003A_00006.png
+-	-	data/dataset/20260304_V03041631/images/KR1020250026003A_00007.png
+-	-	data/dataset/20260304_V03041631/images/KR1020250026003A_00008.png
+-	-	data/dataset/20260304_V03041631/images/KR1020250026003A_00009.png
+-	-	data/dataset/20260304_V03041631/images/KR1020250026003A_00010.png
+-	-	data/dataset/20260304_V03041631/images/KR1020250026003A_00011.png
+-	-	data/dataset/20260304_V03041631/images/KR1020250026003A_00012.png
+-	-	data/dataset/20260304_V03041631/images/KR1020250026003A_00013.png
+-	-	data/dataset/20260304_V03041631/images/KR1020250026003A_00014.png
+-	-	data/dataset/20260304_V03041631/images/KR102772268B1_00001.png
+-	-	data/dataset/20260304_V03041631/images/KR102772268B1_00002.png
+-	-	data/dataset/20260304_V03041631/images/KR102772268B1_00003.png
+-	-	data/dataset/20260304_V03041631/images/KR102772268B1_00004.png
+-	-	data/dataset/20260304_V03041631/images/KR102772268B1_00005.png
+-	-	data/dataset/20260304_V03041631/images/KR102772268B1_00006.png
+-	-	data/dataset/20260304_V03041631/images/KR102772268B1_00007.png
+-	-	data/dataset/20260304_V03041631/images/KR102772268B1_00008.png
+-	-	data/dataset/20260304_V03041631/images/KR102772268B1_00009.png
+-	-	data/dataset/20260304_V03041631/images/KR102772268B1_00010.png
+-	-	data/dataset/20260304_V03041631/images/KR102772268B1_00011.png
+-	-	data/dataset/20260304_V03041631/images/KR102772268B1_00012.png
+-	-	data/dataset/20260304_V03041631/images/KR102772268B1_00013.png
+-	-	data/dataset/20260304_V03041631/images/KR102772268B1_00014.png
+-	-	data/dataset/20260304_V03041631/images/KR102772268B1_00015.png
+-	-	data/dataset/20260304_V03041631/images/L56X3Y8CMEBXOSR8QYMJBMWBUFE2EJ9LAT2T4MOD.png
+-	-	data/dataset/20260304_V03041631/images/NY3LFR6DRLIQAY9HL10JZO1UDEXI3BDPG0QGB80M.png
+-	-	data/dataset/20260304_V03041631/images/NZ0SNZZ86NOJAWHYSNGGJQRMMOYK305MB0VQKLEJ.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000001.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000002.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000003.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000004.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000005.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000006.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000007.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000008.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000009.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000010.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000011.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000012.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000013.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000014.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000015.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000016.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000017.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000018.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000019.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000020.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000021.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000022.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000023.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000024.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000025.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000026.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000027.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000028.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000029.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000030.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000031.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000032.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000033.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000034.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000035.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000036.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000037.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000038.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000039.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000040.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000041.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000042.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000043.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000044.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000045.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000046.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000047.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000048.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000049.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000050.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000051.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000052.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000053.png
+-	-	data/dataset/20260304_V03041631/images/PCTCN2023079689-FTAPPB-D000054.png
+-	-	data/dataset/20260304_V03041631/images/PCY7VIFRLWZKBQKZFKV74EM4LU0SEU4ZFWP1ET2Z.png
+-	-	data/dataset/20260304_V03041631/images/R691WMKP5SVLVNGDVJYSY2LZLJ2NYYH3POBZRCRP.png
+-	-	data/dataset/20260304_V03041631/images/UP5YXGFS11LEF58QGVLHUUJL9O5LFHJLAUJIXBNR.png
+-	-	data/dataset/20260304_V03041631/images/US12233706B2_00001.png
+-	-	data/dataset/20260304_V03041631/images/US12233706B2_00002.png
+-	-	data/dataset/20260304_V03041631/images/US12233706B2_00003.png
+-	-	data/dataset/20260304_V03041631/images/US12233706B2_00004.png
+-	-	data/dataset/20260304_V03041631/images/US12233706B2_00005.png
+-	-	data/dataset/20260304_V03041631/images/US12233706B2_00006.png
+-	-	data/dataset/20260304_V03041631/images/US12233706B2_00007.png
+-	-	data/dataset/20260304_V03041631/images/US12233706B2_00008.png
+-	-	data/dataset/20260304_V03041631/images/US12233778B2_00001.png
+-	-	data/dataset/20260304_V03041631/images/US12233778B2_00002.png
+-	-	data/dataset/20260304_V03041631/images/US12233778B2_00003.png
+-	-	data/dataset/20260304_V03041631/images/US12233778B2_00004.png
+-	-	data/dataset/20260304_V03041631/images/US12233778B2_00005.png
+-	-	data/dataset/20260304_V03041631/images/US12233778B2_00006.png
+-	-	data/dataset/20260304_V03041631/images/US12233778B2_00007.png
+-	-	data/dataset/20260304_V03041631/images/US12233946B2_00001.png
+-	-	data/dataset/20260304_V03041631/images/US12233946B2_00002.png
+-	-	data/dataset/20260304_V03041631/images/US12233946B2_00003.png
+-	-	data/dataset/20260304_V03041631/images/US12233946B2_00004.png
+-	-	data/dataset/20260304_V03041631/images/US12233946B2_00005.png
+-	-	data/dataset/20260304_V03041631/images/US12233946B2_00007.png
+-	-	data/dataset/20260304_V03041631/images/US12233946B2_00008.png
+-	-	data/dataset/20260304_V03041631/images/US12233946B2_00009.png
+-	-	data/dataset/20260304_V03041631/images/US12233946B2_00010.png
+-	-	data/dataset/20260304_V03041631/images/US12233946B2_00011.png
+-	-	data/dataset/20260304_V03041631/images/US12233946B2_00012.png
+-	-	data/dataset/20260304_V03041631/images/US12233946B2_00013.png
+-	-	data/dataset/20260304_V03041631/images/US12233946B2_00014.png
+-	-	data/dataset/20260304_V03041631/images/US12233946B2_00015.png
+-	-	data/dataset/20260304_V03041631/images/US12233946B2_00016.png
+-	-	data/dataset/20260304_V03041631/images/US12233946B2_00017.png
+-	-	data/dataset/20260304_V03041631/images/US12233946B2_00018.png
+-	-	data/dataset/20260304_V03041631/images/US12233946B2_00019.png
+-	-	data/dataset/20260304_V03041631/images/US12233946B2_00020.png
+-	-	data/dataset/20260304_V03041631/images/US12233946B2_00021.png
+-	-	data/dataset/20260304_V03041631/images/US12233946B2_00022.png
+-	-	data/dataset/20260304_V03041631/images/US12233946B2_00023.png
+-	-	data/dataset/20260304_V03041631/images/US12233946B2_00024.png
+-	-	data/dataset/20260304_V03041631/images/US12233947B2_00001.png
+-	-	data/dataset/20260304_V03041631/images/US12233947B2_00002.png
+-	-	data/dataset/20260304_V03041631/images/US12233947B2_00003.png
+-	-	data/dataset/20260304_V03041631/images/US12233947B2_00004.png
+-	-	data/dataset/20260304_V03041631/images/US20250050953A1_00001.png
+-	-	data/dataset/20260304_V03041631/images/US20250050953A1_00002.png
+-	-	data/dataset/20260304_V03041631/images/US20250050953A1_00003.png
+-	-	data/dataset/20260304_V03041631/images/US20250050953A1_00004.png
+-	-	data/dataset/20260304_V03041631/images/US20250050953A1_00005.png
+-	-	data/dataset/20260304_V03041631/images/US20250050953A1_00006.png
+-	-	data/dataset/20260304_V03041631/images/US20250050953A1_00007.png
+-	-	data/dataset/20260304_V03041631/images/US20250050953A1_00008.png
+-	-	data/dataset/20260304_V03041631/images/US20250055071A1_00001.png
+-	-	data/dataset/20260304_V03041631/images/US20250055071A1_00002.png
+-	-	data/dataset/20260304_V03041631/images/US20250055071A1_00003.png
+-	-	data/dataset/20260304_V03041631/images/US20250055071A1_00004.png
+-	-	data/dataset/20260304_V03041631/images/US20250055071A1_00005.png
+-	-	data/dataset/20260304_V03041631/images/US20250055071A1_00006.png
+-	-	data/dataset/20260304_V03041631/images/US20250055071A1_00007.png
+-	-	data/dataset/20260304_V03041631/images/US20250055071A1_00008.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00001.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00002.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00003.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00004.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00005.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00006.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00007.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00008.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00009.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00010.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00011.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00012.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00013.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00014.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00015.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00016.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00017.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00018.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00019.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00020.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00021.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00022.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00023.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00024.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00025.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00026.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00027.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00028.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00029.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00030.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00031.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00032.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00033.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00034.png
+-	-	data/dataset/20260304_V03041631/images/US20250058704A1_00035.png
+-	-	data/dataset/20260304_V03041631/images/US20250058729A1_00001.png
+-	-	data/dataset/20260304_V03041631/images/US20250058729A1_00002.png
+-	-	data/dataset/20260304_V03041631/images/US20250058729A1_00003.png
+-	-	data/dataset/20260304_V03041631/images/US20250058729A1_00004.png
+-	-	data/dataset/20260304_V03041631/images/US20250058729A1_00005.png
+-	-	data/dataset/20260304_V03041631/images/US20250058729A1_00006.png
+-	-	data/dataset/20260304_V03041631/images/US20250058729A1_00007.png
+-	-	data/dataset/20260304_V03041631/images/US20250058729A1_00008.png
+-	-	data/dataset/20260304_V03041631/images/US20250058729A1_00009.png
+-	-	data/dataset/20260304_V03041631/images/US20250058729A1_00010.png
+-	-	data/dataset/20260304_V03041631/images/US20250058729A1_00011.png
+-	-	data/dataset/20260304_V03041631/images/US20250058729A1_00012.png
+-	-	data/dataset/20260304_V03041631/images/US20250070314A1_00001.png
+-	-	data/dataset/20260304_V03041631/images/US20250070314A1_00002.png
+-	-	data/dataset/20260304_V03041631/images/US20250070314A1_00003.png
+-	-	data/dataset/20260304_V03041631/images/US20250070314A1_00004.png
+-	-	data/dataset/20260304_V03041631/images/US20250070314A1_00005.png
+-	-	data/dataset/20260304_V03041631/images/US20250070314A1_00006.png
+-	-	data/dataset/20260304_V03041631/images/V18DO7Z3YAHBEILAEOTVVINLLYK6VP1UWFIBAEAW.png
+-	-	data/dataset/20260304_V03041631/images/WO2025042265A1_00001.png
+-	-	data/dataset/20260304_V03041631/images/WO2025042265A1_00002.png
+-	-	data/dataset/20260304_V03041631/images/WO2025042265A1_00003.png
+-	-	data/dataset/20260304_V03041631/images/WO2025042265A1_00004.png
+-	-	data/dataset/20260304_V03041631/images/WO2025042265A1_00005.png
+-	-	data/dataset/20260304_V03041631/images/WO2025042265A1_00006.png
+-	-	data/dataset/20260304_V03041631/images/WO2025042265A1_00007.png
+-	-	data/dataset/20260304_V03041631/images/X7EKQIPZUYCHZKMFBDIZHYGQYKQSX00HH7UUPXPW.png
+-	-	data/dataset/20260304_V03041631/images/XPHVKHILL7UVQLVJFP2MGGA0QPTGM4RNHB0OOSQM.png
+-	-	data/dataset/20260304_V03041631/images/XSSHWKN7VZDU2NPNBO6JOUFGXCMLJZCNGGCZJBCP.png
+-	-	data/dataset/20260304_V03041631/images/Y8I15887HJFVUTU2NF4MVUSKK7PWK3JBP9WBLC1I.png
+0	1	data/dataset/20260304_V03041631/json/ocr_result.json
+
+COMMIT@4f7197e75f0607b07295f43ca4cb5ef3b6921612
+1	1	core/src/main/java/com/ourchem/ms/patyee/utils/SearchExpressionParser.java
+
+COMMIT@96931bf6f8ae233847c16e1dd42c8b97540e9387
+1	1	core/src/main/resources/docxTemplate/competitive/document.xml
+1	1	core/src/main/resources/subjectReportTemplate/document.xml
+1	1	core/src/main/resources/technologyPanoramaReportTemplate/document.xml
+
+COMMIT@ca37557f10446d0d417aa17e766a9d759a9848d3
+1	0	core/src/main/java/com/ourchem/ms/patyee/service/impl/PatentRepeatServiceImpl.java
+
+COMMIT@583acfd84bb9c96890fc54df73d92a4787e835a2
+1	0	core/src/main/resources/mapping/SingleSimilarityMapper.xml
+
+COMMIT@96cd21570587b2110b602bb6c39b0ea5fb4430d5
+2	2	core/src/main/java/com/ourchem/ms/patyee/controller/PatentRepeatController.java
+
+COMMIT@5d925fa8d2007ca04441b7bdb18ad518aa94f04d
+8	1	core/src/main/java/com/ourchem/ms/patyee/service/impl/PatentRepeatServiceImpl.java
+
+COMMIT@5d97af1ad3fe80094b328bf8e592eda4f42d2b70
+2	1	core/src/main/java/com/ourchem/ms/patyee/service/export/PatentReportExportManager.java
+
+COMMIT@3d6517e9f805efb38d6e18fa4c12c34b9f47fddd
+2	0	core/src/main/java/com/ourchem/ms/patyee/domain/PatentRepeatInfo.java
+2	0	core/src/main/java/com/ourchem/ms/patyee/dto/response/SingleSimilarityDTO.java
+
+COMMIT@429a07d603eb9886957de983bd1467eb481df49f
+1	1	core/src/main/java/com/ourchem/ms/patyee/enums/ResponseCodeEnum.java
+
+COMMIT@f9a70cb6cf08488be35cc58a709b3f660d26ba17
+1	1	core/src/main/java/com/ourchem/ms/patyee/enums/ResponseCodeEnum.java
+
+COMMIT@f821033810cb3c52f89c9980043462cdd1b23f3f
+25	25	core/src/main/java/com/ourchem/ms/patyee/service/impl/PatentRepeatServiceImpl.java
+
+COMMIT@45dc9b358d0e10a8b7d413be64217bb0596462c6
+-	-	core/config/template/patent_repeat_template.docx
+
+COMMIT@4d41c3213dff46f7ebf29efedf18e235b954d6ed
+8	8	core/src/main/java/com/ourchem/ms/patyee/service/export/PatentReportExportManager.java
+
+COMMIT@406998d8e5eb81192c4735d97b491a850466024b
+2	2	core/src/main/java/com/ourchem/ms/patyee/service/export/PatentReportExportManager.java
+
+COMMIT@c96782c13928bcb14b6a99f65d689cf917eae9aa
+1	1	core/src/main/java/com/ourchem/ms/patyee/service/export/PatentReportExportManager.java
+
+COMMIT@a40dba0a77c9d5a733fc5371fbca1dd82fb83726
+2	2	core/src/main/java/com/ourchem/ms/patyee/service/impl/PatentRepeatServiceImpl.java
+
+COMMIT@cc8ad0e413d2b6f90c379d4b0f48121b07ccff44
+-	-	core/config/template/patent_repeat_template.docx
+
+COMMIT@15eb91fcc2fd9d8407de7c69e863118812d929fc
+47	29	core/src/main/java/com/ourchem/ms/patyee/service/translation/TranslationRedisManager.java
+
+COMMIT@fcba1a5db6eee49659d12337b7b3be759830f9a3
+8	4	core/src/main/java/com/ourchem/ms/patyee/service/translation/TranslationRedisManager.java
+
+COMMIT@de0688ac0ff1edafa194ddd12716e184ee6953f2
+21	7	core/src/main/java/com/ourchem/ms/patyee/service/translation/TranslationRedisManager.java
+
+COMMIT@89a14c234a36c17aa48fcb6e2f6f1bd3fd2a5c82
+3	3	core/src/main/java/com/ourchem/ms/patyee/service/translation/TranslationRedisManager.java
+
+COMMIT@85675c8eee9aebd7d96886f63a7be5984f4e7eaf
+28	25	core/src/main/java/com/ourchem/ms/patyee/service/translation/TranslationRedisManager.java
+
+COMMIT@64451a9ecb86252481631249dca45d46e27143fc
+2	2	core/src/main/java/com/ourchem/ms/patyee/service/translation/TranslationRedisManager.java
+
+COMMIT@d5778cb41b72e58f98f421c6888dc4e7f42a8b06
+1	1	core/src/main/java/com/ourchem/ms/patyee/service/translation/TranslationRedisManager.java
+
+COMMIT@47c3208fbaa09f99521cd0ea4a0402dd1b6b2817
+1	1	core/src/main/java/com/ourchem/ms/patyee/service/translation/TencentTranslationRoundRobin.java
+20	9	core/src/main/java/com/ourchem/ms/patyee/service/translation/TranslationRedisManager.java
+
+COMMIT@7a668a97c8da0eaa5984d3880865ad8476500f14
+1	1	core/src/main/java/com/ourchem/ms/patyee/service/translation/TranslationRedisManager.java
+
+COMMIT@90c2b2a94b0319a328cd433483d0ba6f68969ff9
+4	0	core/src/main/java/com/ourchem/ms/patyee/service/translation/TencentTranslationRoundRobin.java
+187	0	core/src/main/java/com/ourchem/ms/patyee/service/translation/TranslationRedisManager.java
+
+COMMIT@f5b74354a373ba1cc34b69a70c27a2a04839983f
+14	12	core/src/main/java/com/ourchem/ms/patyee/service/translation/SearchTranslationManager.java
+
+COMMIT@d621ccc5846d6da0774810bcba9032e328ee0f86
+1	1	core/src/main/java/com/ourchem/ms/patyee/controller/ApplicantGroupController.java
+1	1	core/src/main/java/com/ourchem/ms/patyee/dao/ShareApplicantGroupMapper.java
+1	0	core/src/main/java/com/ourchem/ms/patyee/dto/request/ShareApplicantGroupReqDTO.java
+2	2	core/src/main/java/com/ourchem/ms/patyee/service/ApplicantGroupService.java
+2	2	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+1	1	core/src/main/resources/mapping/ShareApplicantGroupMapper.xml
+
+COMMIT@fe598a8452e93e9cf851df3021ac4c417d7a40f6
+3	4	core/src/main/java/com/ourchem/ms/patyee/controller/ApplicantGroupController.java
+
+COMMIT@c479dd9642f0ad0e61ee8d879e0ddd8cf7ccab72
+15	6	core/src/main/java/com/ourchem/ms/patyee/controller/ApplicantGroupController.java
+2	0	core/src/main/java/com/ourchem/ms/patyee/dao/ShareApplicantGroupMapper.java
+2	0	core/src/main/java/com/ourchem/ms/patyee/enums/ResponseCodeEnum.java
+9	0	core/src/main/java/com/ourchem/ms/patyee/service/ApplicantGroupService.java
+5	0	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+10	0	core/src/main/resources/mapping/ShareApplicantGroupMapper.xml
+
+COMMIT@ffc81aad957cfc72b716d2799c0e7f4d941c81c1
+-	-	core/src/main/resources/subjectReportTemplate/backup/企业知识产权体检报告.docx
+-	-	core/src/main/resources/subjectReportTemplate/企业知识产权体检报告.docx
+
+COMMIT@9fb5537a677e14bd5313d976fd01a0523ab4fe7d
+1	1	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+
+COMMIT@5ae5cda604c86762a0a692bb1df3d52e2373d0af
+1	1	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+
+COMMIT@c1199ec5da653ca79782673926be730aa2e42cd8
+46	40	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+
+COMMIT@e494341010fcd71751c2ec854199a60005d62a7c
+55	0	core/src/main/java/com/ourchem/ms/patyee/utils/SearchExpressionParser.java
+
+COMMIT@5191f95ecc299db73b4000a83546858131f2e189
+1	1	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+
+COMMIT@ca0b18a8451a61148b3d28c70e26a114e580ab7a
+2	2	core/src/main/java/com/ourchem/ms/patyee/controller/SearchController.java
+
+COMMIT@fe391b757672d11eeb4fce9f9488e08d4b2ceb65
+213	4	core/src/main/java/com/ourchem/ms/patyee/controller/SearchController.java
+2	0	core/src/main/java/com/ourchem/ms/patyee/dao/ApplicantGroupMapper.java
+3	0	core/src/main/java/com/ourchem/ms/patyee/dao/ShareApplicantGroupMapper.java
+15	0	core/src/main/java/com/ourchem/ms/patyee/dto/MatchItem.java
+140	3	core/src/main/java/com/ourchem/ms/patyee/utils/SearchExpressionParser.java
+10	0	core/src/main/resources/mapping/ApplicantGroupMapper.xml
+10	0	core/src/main/resources/mapping/ShareApplicantGroupMapper.xml
+
+COMMIT@35dd086bf26e8c277967a242c4c65ae19fefd7fe
+1	0	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+
+COMMIT@7202dd1ed1c5143f49dbb83120508a6598e736de
+7	2	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+
+COMMIT@a88c31eab018ac8e3673811f87b35faab8eb9711
+1	1	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+
+COMMIT@d6e451082e8a39b56219a57bae1e9d167561a0f3
+10	6	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+
+COMMIT@1f6662c17fea42ad2e4b43bd0117dad9c9fb5320
+57	27	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+
+COMMIT@213ed216baac8853e7d0a9951a0d9dce4c54dee1
+1	1	core/src/main/java/com/ourchem/ms/patyee/constants/ApplicantGroupConstant.java
+2	2	core/src/main/java/com/ourchem/ms/patyee/controller/ApplicantGroupController.java
+
+COMMIT@e66022ff29942b8c3c35db52fa8bef54b7f7c02e
+9	0	core/src/main/java/com/ourchem/ms/patyee/controller/ApplicantGroupController.java
+2	0	core/src/main/java/com/ourchem/ms/patyee/service/ApplicantGroupService.java
+85	25	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+
+COMMIT@8372caf19f1d9de4f9c5ca3a369990466c3a27e1
+5	5	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+
+COMMIT@247abc5fc1298a93c500da2fd37b2a77974e1af3
+2	2	core/src/main/java/com/ourchem/ms/patyee/clients/SearchClient.java
+3	4	core/src/main/java/com/ourchem/ms/patyee/controller/ApplicantGroupController.java
+1	2	core/src/main/java/com/ourchem/ms/patyee/service/ApplicantGroupService.java
+7	7	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+
+COMMIT@450ed0b57332e99a109b40113ee3ef6f8df028b7
+4	2	core/src/main/java/com/ourchem/ms/patyee/clients/SemanticsSearchClient.java
+
+COMMIT@7b2139814ed5f94d82faef2855336c90b1245f9d
+3	3	core/src/main/java/com/ourchem/ms/patyee/clients/SemanticsSearchClient.java
+
+COMMIT@f9bc5f89f01b81c257968c0e90bbed8af787dc34
+1	0	core/src/main/java/com/ourchem/ms/patyee/clients/SemanticsSearchClient.java
+
+COMMIT@d580b93db4066811b0a6f0f9de6c4bc3abe5ea2c
+6	0	core/src/main/java/com/ourchem/ms/patyee/clients/SearchClient.java
+11	4	core/src/main/java/com/ourchem/ms/patyee/controller/ApplicantGroupController.java
+4	4	core/src/main/java/com/ourchem/ms/patyee/service/ApplicantGroupService.java
+20	0	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+
+COMMIT@b65895a695efa08c2a0f9da390eb51e9257bcab8
+42	459	core/src/main/java/com/ourchem/ms/patyee/controller/SearchController.java
+0	2	core/src/main/java/com/ourchem/ms/patyee/dao/ApplicantGroupMapper.java
+0	10	core/src/main/java/com/ourchem/ms/patyee/dao/FavoritesRecordMapper.java
+0	121	core/src/main/java/com/ourchem/ms/patyee/utils/FavoritesPathResolver.java
+3	305	core/src/main/java/com/ourchem/ms/patyee/utils/SearchExpressionParser.java
+0	10	core/src/main/resources/mapping/ApplicantGroupMapper.xml
+0	26	core/src/main/resources/mapping/FavoritesRecordMapper.xml
+
+COMMIT@9fdd139d1127c9e023678d99581ff1233e7b60e6
+459	42	core/src/main/java/com/ourchem/ms/patyee/controller/SearchController.java
+2	0	core/src/main/java/com/ourchem/ms/patyee/dao/ApplicantGroupMapper.java
+10	0	core/src/main/java/com/ourchem/ms/patyee/dao/FavoritesRecordMapper.java
+121	0	core/src/main/java/com/ourchem/ms/patyee/utils/FavoritesPathResolver.java
+305	3	core/src/main/java/com/ourchem/ms/patyee/utils/SearchExpressionParser.java
+10	0	core/src/main/resources/mapping/ApplicantGroupMapper.xml
+26	0	core/src/main/resources/mapping/FavoritesRecordMapper.xml
+
+COMMIT@d90e20062381c61f4daeea99c25f72faa0c6ee88
+12	0	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+
+COMMIT@967a3502d01d50b28d757b1f54448ec0e5a1036a
+5	2	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+
+COMMIT@db5b9831cf4c1b4960e3abdd30a47154db2abcb9
+4	4	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+
+COMMIT@13d85c33cf76b04ebf870eb037cf17ecc2d24eb9
+18	2	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+
+COMMIT@74e8fd51160afc8fcafb1fcea6acb4aee45c4318
+1	1	core/src/main/java/com/ourchem/ms/patyee/service/impl/KeywordExpandService.java
+
+COMMIT@f7f0ec7581f325452831c93904f5055f17ec32ae
+1	1	core/src/main/java/com/ourchem/ms/patyee/service/impl/KeywordExpandService.java
+
+COMMIT@ad81a2d623a3d1a338e9d67f5f6c3335384488c1
+3	1	core/src/main/java/com/ourchem/ms/patyee/service/impl/KeywordExpandService.java
+
+COMMIT@bef8a4782fda373770da3431a55808c4e41be388
+4	3	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+
+COMMIT@75970224ed70481e1a3cd013547d39af834d5460
+3	3	core/src/main/java/com/ourchem/ms/patyee/controller/ApplicantGroupController.java
+3	1	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+
+COMMIT@8c1244620970693d496ff0fd0b348f521e1a40af
+3	4	core/src/main/java/com/ourchem/ms/patyee/controller/ApplicantGroupController.java
+2	0	core/src/main/java/com/ourchem/ms/patyee/dao/ApplicantGroupMapper.java
+1	1	core/src/main/java/com/ourchem/ms/patyee/service/ApplicantGroupService.java
+3	1	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+6	0	core/src/main/resources/mapping/ApplicantGroupMapper.xml
+
+COMMIT@7581227c3ecb9624e76ce7292d5fef1817a7591d
+1	1	core/src/main/java/com/ourchem/ms/patyee/controller/ApplicantGroupController.java
+1	1	core/src/main/java/com/ourchem/ms/patyee/service/ApplicantGroupService.java
+24	1	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+
+COMMIT@dca517952003b0c59425c69928700071b9082fe2
+5	0	core/pom.xml
+11	0	core/src/main/java/com/ourchem/ms/patyee/controller/ApplicantGroupController.java
+3	0	core/src/main/java/com/ourchem/ms/patyee/service/ApplicantGroupService.java
+74	0	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+
+COMMIT@da2f60d4220b839119018d77ecc99e5895532fd3
+6	0	core/src/main/java/com/ourchem/ms/patyee/clients/SearchClient.java
+2	1	core/src/main/java/com/ourchem/ms/patyee/constants/RedisKey.java
+9	0	core/src/main/java/com/ourchem/ms/patyee/controller/ApplicantGroupController.java
+2	0	core/src/main/java/com/ourchem/ms/patyee/service/ApplicantGroupService.java
+79	4	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+
+COMMIT@f2e488274af2059703acdf3479e86d0ad1777935
+29	14	core/src/main/java/com/ourchem/ms/patyee/service/impl/ReportExportServiceImpl.java
+19	5	core/src/main/java/com/ourchem/ms/patyee/utils/ReadImageUtil.java
+
+COMMIT@4e091e70f9867e22b1d1605f619684e19d7d4cfc
+0	26	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+
+COMMIT@ab102cd6047f38ae185b7098686e7e3af99e055d
+6	0	core/src/main/java/com/ourchem/ms/patyee/clients/SearchClient.java
+2	1	core/src/main/java/com/ourchem/ms/patyee/constants/RedisKey.java
+10	5	core/src/main/java/com/ourchem/ms/patyee/controller/ApplicantGroupController.java
+2	2	core/src/main/java/com/ourchem/ms/patyee/service/ApplicantGroupService.java
+51	3	core/src/main/java/com/ourchem/ms/patyee/service/impl/ApplicantGroupServiceImpl.java
+
+COMMIT@2290bb0d40164f7d790471cf176b7c2c8de5bcc3
+14	4	core/src/main/java/com/ourchem/ms/patyee/service/impl/DownloadServiceImpl.java
+
+COMMIT@f4d8ca4c7dc5221086c3fee1d4f40ef5a84c0c2a
+9	6	core/src/main/java/com/ourchem/ms/patyee/controller/DownloadController.java
+6	3	core/src/main/java/com/ourchem/ms/patyee/dao/DownloadTemplateMapper.java
+2	0	core/src/main/java/com/ourchem/ms/patyee/domain/DownloadTemplate.java
+1	0	core/src/main/java/com/ourchem/ms/patyee/dto/request/DownloadTemplateReqDTO.java
+1	0	core/src/main/java/com/ourchem/ms/patyee/dto/response/DownloadTemplateRespDTO.java
+27	0	core/src/main/java/com/ourchem/ms/patyee/enums/DownloadTemplateProductTypeEnum.java
+6	6	core/src/main/java/com/ourchem/ms/patyee/service/DownloadService.java
+52	21	core/src/main/java/com/ourchem/ms/patyee/service/impl/DownloadServiceImpl.java
+32	0	core/src/main/java/com/ourchem/ms/patyee/utils/DownloadTemplateProductUtil.java
+31	7	core/src/main/resources/mapping/DownloadTemplateMapper.xml

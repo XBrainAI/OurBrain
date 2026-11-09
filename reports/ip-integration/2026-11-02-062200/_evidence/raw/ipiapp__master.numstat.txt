@@ -1,0 +1,61 @@
+COMMIT@d5ef656588bdab8ff38105164a91d17f47491cae
+2	5	src/components/common/DetailTabs/components/LawInfo.vue
+
+COMMIT@203b34b2a84053b28a7da258cba44dc812aca1c1
+8	5	vue.config.js
+
+COMMIT@b4ac9b6f30ac93f311d03198752d334f044408bf
+2	4	src/components/common/agentEntrance.vue
+3	1	src/views/Patyee/HomePage/index.vue
+
+COMMIT@f1af4c9b8ed8fd350a2387c36720f6b46aa602eb
+37	36	src/views/Patyee/AdvancedSearch/index.vue
+
+COMMIT@207f241e1a96b09d32de265218c6cb768ba7f7f4
+1	40	src/App.vue
+14	34	src/router/index.js
+
+COMMIT@bcb3d58e97178c550e8e4d724d6668d9d32385b0
+5	1	src/views/Work/trainingReport/index.vue
+
+COMMIT@41a494874d2b03eaf496fee2b734a5a4674ea70f
+1	1	src/views/TrainingServices/components/detail.vue
+2	1	src/views/TrainingServices/components/searchList.vue
+2	1	src/views/TrainingServices/index.vue
+6	1	src/views/Work/trainingReport/index.vue
+
+COMMIT@8d70a0ca6ceccfc03f3f1ccc7d6a2da5ef9182ec
+6	4	src/components/common/agentEntrance.vue
+
+COMMIT@c8f42a4e0f2b7696ec90a9ff764a9ab829244782
+1	1	src/views/Help/about.js
+1	1	src/views/Index/components/Header.vue
+1	1	src/views/Index/components/NoAccess.vue
+1	1	src/views/Index/components/customHeader/sxauHeader.vue
+
+COMMIT@5fd53c89cd3032fbc6694ea02876293d63b2c81e
+COMMIT@099396d4c50c8588f353bbfb7abfc974de07b164
+1	1	src/views/CoInnovationSpace/Collect/guidePage/Description/index.js
+1	1	src/views/Help/fieldExplain.js
+2	1	src/views/Patyee/AdvancedSearch/components/dataArr.js
+
+COMMIT@6f000b5e15df3f11688ca0b14f2bea97af5544f4
+37	16	src/components/common/PatentStatus.vue
+12	0	src/styles/patyee.scss
+-	-	static/img/双五星.png
+
+COMMIT@a6bf77af1f13f46f6a2401db8eccab2da6d15d5c
+13087	13200	package-lock.json
+134	0	src/components/common/agentEntrance.vue
+4	1	src/views/Patyee/HomePage/index.vue
+-	-	static/img/agentEntrance.png
+6	3	vue.config.js
+
+COMMIT@00c73638842c16b2ff6e6f0417e30c1023e6c393
+10	5	src/views/Patyee/PatResults/index.vue
+3	1	src/views/Patyee/mixins/expression.js
+
+COMMIT@1866b3e35087888e46561f3af7b5d55ea8da7f83
+0	3	src/styles/patyee.scss
+2	2	src/utils/utils.js
+3	1	src/views/Patyee/mixins/expression.js

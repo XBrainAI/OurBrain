@@ -1,0 +1,6159 @@
+{
+ "meta": {
+  "project": "patyee",
+  "runAt": "2026-11-06 19:35",
+  "today": "2026-11-06",
+  "windowStart": "2026-10-30",
+  "windowEnd": "2026-11-06",
+  "statsStart": "2026-08-01",
+  "traversalSince": "2026-06-02 00:00",
+  "aggCaliber": "作者日期(%ad)分桶 + 跨分支完整哈希去重；遍历按提交日期回看 60 天防回填截断（§1.0 防御条款）；分支引用统一 origin/<branch>（有 remote 时）",
+  "aggregatedBy": "reports/_scripts/pulse_tool.py（机械聚合，RUNBOOK §1.0 口径；判定由分析会话作出）"
+ },
+ "repos": [
+  {
+   "name": "patyee-next",
+   "path": ".projects/patyee\\patyee-next",
+   "branches": {
+    "master": {
+     "ref": "origin/master",
+     "logFile": "_evidence/raw/patyee-next__master.log.txt",
+     "numstatFile": "_evidence/raw/patyee-next__master.numstat.txt",
+     "rawLines": 0
+    },
+    "图像检索优化-支持多张图片同时检索": {
+     "ref": "origin/图像检索优化-支持多张图片同时检索",
+     "logFile": "_evidence/raw/patyee-next__图像检索优化-支持多张图片同时检索.log.txt",
+     "numstatFile": "_evidence/raw/patyee-next__图像检索优化-支持多张图片同时检索.numstat.txt",
+     "rawLines": 105
+    },
+    "1016188-登录释放策略优化": {
+     "ref": "origin/1016188-登录释放策略优化",
+     "logFile": "_evidence/raw/patyee-next__1016188-登录释放策略优化.log.txt",
+     "numstatFile": "_evidence/raw/patyee-next__1016188-登录释放策略优化.numstat.txt",
+     "rawLines": 111
+    },
+    "feat-1016010-收藏夹支持检索": {
+     "ref": "origin/feat-1016010-收藏夹支持检索",
+     "logFile": "_evidence/raw/patyee-next__feat-1016010-收藏夹支持检索.log.txt",
+     "numstatFile": "_evidence/raw/patyee-next__feat-1016010-收藏夹支持检索.numstat.txt",
+     "rawLines": 114
+    },
+    "feat-1016189-专利分析-技术生命周期优化": {
+     "ref": "origin/feat-1016189-专利分析-技术生命周期优化",
+     "logFile": "_evidence/raw/patyee-next__feat-1016189-专利分析-技术生命周期优化.log.txt",
+     "numstatFile": "_evidence/raw/patyee-next__feat-1016189-专利分析-技术生命周期优化.numstat.txt",
+     "rawLines": 108
+    }
+   },
+   "errors": [],
+   "hasRemote": true,
+   "window": {
+    "total": 17,
+    "effective": 17,
+    "merge": 0,
+    "ins": 1190,
+    "del": 466,
+    "authors": 1,
+    "big": [
+     {
+      "h": "7c20182302",
+      "s": "[*]: 1016188 登录释放策略优化 - 修复混入中还原现场的判断取值错误 - dialog增加不需要动画时，an",
+      "files": 5,
+      "churn": 1043
+     }
+    ],
+    "trivial": [
+     {
+      "h": "76b7fc82a1",
+      "s": "refactor: 登录过期后登录别的账号后跳转首页时增加时间戳，防止本来就在首页",
+      "lines": 3
+     },
+     {
+      "h": "8cf662a31b",
+      "s": "fix: 【高级检索PF字段专利数量和收藏夹数量对不上】 https://www.tapd.cn/tapd_fe/614",
+      "lines": 2
+     },
+     {
+      "h": "097ffe0f73",
+      "s": "fix: 【合并数据穿透前后专利数量结果不一致】(点击的是图标时) https://www.tapd.cn/tapd_f",
+      "lines": 2
+     }
+    ],
+    "classification": {
+     "feat": 0,
+     "fix": 13,
+     "refactor": 1,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 1,
+     "其他": 2
+    },
+    "shortMsgs": [],
+    "persons": {
+     "zhengyiquan@ourchem.com": {
+      "names": [
+       "zyq"
+      ],
+      "commits": 17,
+      "ins": 1190,
+      "del": 466,
+      "activeDays": 6,
+      "lateNight": 0,
+      "weekend": 0,
+      "branches": {
+       "1016188-登录释放策略优化": 4,
+       "feat-1016010-收藏夹支持检索": 9,
+       "feat-1016189-专利分析-技术生命周期优化": 4
+      },
+      "modulesTouched": 5,
+      "testCommits": 0,
+      "peakDay": "2026-11-02",
+      "peakN": 6
+     }
+    },
+    "commits": [
+     {
+      "h": "955d484a48",
+      "an": "zyq",
+      "ae": "zhengyiquan@ourchem.com",
+      "ad": "2026-10-30 17:31:45",
+      "s": "fix: 【合并数据穿透前后专利数量结果不一致】(点击的是表格时) https://www.tapd.cn/tapd_fe/61451497/bug/detail/1161451497001017536",
+      "merge": false,
+      "ins": 3,
+      "del": 2,
+      "branches": [
+       "feat-1016189-专利分析-技术生命周期优化"
+      ]
+     },
+     {
+      "h": "8cf662a31b",
+      "an": "zyq",
+      "ae": "zhengyiquan@ourchem.com",
+      "ad": "2026-10-30 18:40:54",
+      "s": "fix: 【高级检索PF字段专利数量和收藏夹数量对不上】 https://www.tapd.cn/tapd_fe/61451497/bug/detail/1161451497001017542",
+      "merge": false,
+      "ins": 1,
+      "del": 1,
+      "branches": [
+       "feat-1016010-收藏夹支持检索"
+      ]
+     },
+     {
+      "h": "ef04ccbd4f",
+      "an": "zyq",
+      "ae": "zhengyiquan@ourchem.com",
+      "ad": "2026-11-02 09:31:26",
+      "s": "fix: 恢复“feat: 按新设计进行完善“中的一些修改 - 恢复setChildrenSelected，修复【PF字段勾选父文件夹不会选中子文件夹】 https://www.tapd.cn/tapd_fe/61451497/bug/detail/1161451497001017544 - 恢复loadSelectableDescendants，修复【我的专利收藏夹未展开至最底层文件夹】 https://www.tapd.cn/tapd_fe/61451497/bug/detail/1161451497001017540",
+      "merge": false,
+      "ins": 16,
+      "del": 17,
+      "branches": [
+       "feat-1016010-收藏夹支持检索"
+      ]
+     },
+     {
+      "h": "935b647af8",
+      "an": "zyq",
+      "ae": "zhengyiquan@ourchem.com",
+      "ad": "2026-11-02 09:39:28",
+      "s": "fix: 【PF专利收藏文件夹顺序建议与我的专利库文件夹顺序保持一致】 https://www.tapd.cn/tapd_fe/61451497/bug/detail/1161451497001017539",
+      "merge": false,
+      "ins": 3,
+      "del": 3,
+      "branches": [
+       "feat-1016010-收藏夹支持检索"
+      ]
+     },
+     {
+      "h": "7c20182302",
+      "an": "zyq",
+      "ae": "zhengyiquan@ourchem.com",
+      "ad": "2026-11-02 10:17:29",
+      "s": "[*]: 1016188 登录释放策略优化 - 修复混入中还原现场的判断取值错误 - dialog增加不需要动画时，animation传入空字符串 - 完善多tab处理，多tab时只留一个session维护相关状态，广播通知其他tab",
+      "merge": false,
+      "ins": 800,
+      "del": 243,
+      "branches": [
+       "1016188-登录释放策略优化"
+      ]
+     },
+     {
+      "h": "097ffe0f73",
+      "an": "zyq",
+      "ae": "zhengyiquan@ourchem.com",
+      "ad": "2026-11-02 14:36:59",
+      "s": "fix: 【合并数据穿透前后专利数量结果不一致】(点击的是图标时) https://www.tapd.cn/tapd_fe/61451497/bug/detail/1161451497001017536",
+      "merge": false,
+      "ins": 1,
+      "del": 1,
+      "branches": [
+       "feat-1016189-专利分析-技术生命周期优化"
+      ]
+     },
+     {
+      "h": "c1229432e7",
+      "an": "zyq",
+      "ae": "zhengyiquan@ourchem.com",
+      "ad": "2026-11-02 16:29:18",
+      "s": "fix: 【登录：已经在登录页面，还提示“登录状态已过期，请重新登录/访问”】 https://www.tapd.cn/tapd_fe/61451497/bug/detail/1161451497001017566",
+      "merge": false,
+      "ins": 44,
+      "del": 57,
+      "branches": [
+       "1016188-登录释放策略优化"
+      ]
+     },
+     {
+      "h": "902dcea027",
+      "an": "zyq",
+      "ae": "zhengyiquan@ourchem.com",
+      "ad": "2026-11-02 17:22:49",
+      "s": "fix: 【登录：点击【退出登录】已回到登录页，其他几个标签页仍停留在倒计时页。】 https://www.tapd.cn/tapd_fe/61451497/bug/detail/1161451497001017575 - 倒计时弹窗，点击“退出登录”和“继续使用”需要广播",
+      "merge": false,
+      "ins": 24,
+      "del": 4,
+      "branches": [
+       "1016188-登录释放策略优化"
+      ]
+     },
+     {
+      "h": "5a1d7b22e9",
+      "an": "zyq",
+      "ae": "zhengyiquan@ourchem.com",
+      "ad": "2026-11-03 10:36:40",
+      "s": "[*]: 搜索功能暂时先不上",
+      "merge": false,
+      "ins": 2,
+      "del": 2,
+      "branches": [
+       "feat-1016010-收藏夹支持检索"
+      ]
+     },
+     {
+      "h": "13c85783ea",
+      "an": "zyq",
+      "ae": "zhengyiquan@ourchem.com",
+      "ad": "2026-11-03 18:27:47",
+      "s": "fix: 【检索式生成规则有误】 https://www.tapd.cn/tapd_fe/61451497/bug/detail/1161451497001017584 - 取消父子节点的联动。选择父节点不自动选择子节点（setChildrenSelected），父节点的选中不受子节点影响（updateParents），去掉updateAllIndeterminate调用（已经没有indeterminate） - 收集节点和检索式映射不再只限isExpressionNode - 加载根节点时增加回显功能",
+      "merge": false,
+      "ins": 36,
+      "del": 26,
+      "branches": [
+       "feat-1016010-收藏夹支持检索"
+      ]
+     },
+     {
+      "h": "76b7fc82a1",
+      "an": "zyq",
+      "ae": "zhengyiquan@ourchem.com",
+      "ad": "2026-11-04 10:45:41",
+      "s": "refactor: 登录过期后登录别的账号后跳转首页时增加时间戳，防止本来就在首页",
+      "merge": false,
+      "ins": 2,
+      "del": 1,
+      "branches": [
+       "1016188-登录释放策略优化"
+      ]
+     },
+     {
+      "h": "5a9aacadb7",
+      "an": "zyq",
+      "ae": "zhengyiquan@ourchem.com",
+      "ad": "2026-11-04 13:43:30",
+      "s": "fix: 【合并后的分析结果时间过长建议优化】 https://www.tapd.cn/tapd_fe/61451497/bug/detail/1161451497001017545 - 对于分析跳过来查询结果页的取消调用analysisJump",
+      "merge": false,
+      "ins": 12,
+      "del": 2,
+      "branches": [
+       "feat-1016189-专利分析-技术生命周期优化"
+      ]
+     },
+     {
+      "h": "94d360d255",
+      "an": "zyq",
+      "ae": "zhengyiquan@ourchem.com",
+      "ad": "2026-11-04 13:48:22",
+      "s": "fix: 【专利收藏/协同创新文本框提示调整】 https://www.tapd.cn/tapd_fe/61451497/bug/detail/1161451497001017592 - 因搜索功能暂时先不上，同步修改placeholder文案",
+      "merge": false,
+      "ins": 3,
+      "del": 3,
+      "branches": [
+       "feat-1016010-收藏夹支持检索"
+      ]
+     },
+     {
+      "h": "ef9e21b962",
+      "an": "zyq",
+      "ae": "zhengyiquan@ourchem.com",
+      "ad": "2026-11-04 14:41:28",
+      "s": "Revert \"fix: 【合并后的分析结果时间过长建议优化】\" - 因二筛有问题导致跳转前后数量对不上，先回滚改动，待二筛问题修复后再应用改动",
+      "merge": false,
+      "ins": 2,
+      "del": 12,
+      "branches": [
+       "feat-1016189-专利分析-技术生命周期优化"
+      ]
+     },
+     {
+      "h": "2891ad3555",
+      "an": "zyq",
+      "ae": "zhengyiquan@ourchem.com",
+      "ad": "2026-11-04 17:32:12",
+      "s": "fix: 【预检索可以检索，检索结果页却提示一次支持20个收藏夹】 https://www.tapd.cn/tapd_fe/61451497/bug/detail/1161451497001017594",
+      "merge": false,
+      "ins": 64,
+      "del": 16,
+      "branches": [
+       "feat-1016010-收藏夹支持检索"
+      ]
+     },
+     {
+      "h": "491d27ce60",
+      "an": "zyq",
+      "ae": "zhengyiquan@ourchem.com",
+      "ad": "2026-11-05 15:58:00",
+      "s": "fix: 【预检索可以检索，检索结果页却提示一次支持20个收藏夹】 https://www.tapd.cn/tapd_fe/61451497/bug/detail/1161451497001017594 - 完善removeRedundantChildren，根据id去重 - watch由selectedPaths.length改为selectedPaths（树是异步的，如何准确计算是否超过20个子文件夹） - 清理indeterminate相关代码 - restorePendingSelections完善检索式回显选中逻辑",
+      "merge": false,
+      "ins": 106,
+      "del": 64,
+      "branches": [
+       "feat-1016010-收藏夹支持检索"
+      ]
+     },
+     {
+      "h": "e74b30bd27",
+      "an": "zyq",
+      "ae": "zhengyiquan@ourchem.com",
+      "ad": "2026-11-06 10:14:11",
+      "s": "fix: 【预检索可以检索，检索结果页却提示一次支持20个收藏夹】 https://www.tapd.cn/tapd_fe/61451497/bug/detail/1161451497001017594 - 修改说明文案 - 使用nextLevelChildFolderCount计算下级子文件夹数量 - PF/CI被添加多次时通过ref区分",
+      "merge": false,
+      "ins": 71,
+      "del": 12,
+      "branches": [
+       "feat-1016010-收藏夹支持检索"
+      ]
+     }
+    ]
+   },
+   "today": {
+    "total": 1,
+    "effective": 1,
+    "merge": 0,
+    "ins": 71,
+    "del": 12,
+    "authors": 1,
+    "big": [],
+    "trivial": [],
+    "classification": {
+     "feat": 0,
+     "fix": 1,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {
+     "zhengyiquan@ourchem.com": {
+      "names": [
+       "zyq"
+      ],
+      "commits": 1,
+      "ins": 71,
+      "del": 12,
+      "activeDays": 1,
+      "lateNight": 0,
+      "weekend": 0,
+      "branches": {
+       "feat-1016010-收藏夹支持检索": 1
+      },
+      "modulesTouched": 1,
+      "testCommits": 0,
+      "peakDay": "2026-11-06",
+      "peakN": 1
+     }
+    },
+    "commits": [
+     {
+      "h": "e74b30bd27",
+      "an": "zyq",
+      "ad": "2026-11-06 10:14:11",
+      "s": "fix: 【预检索可以检索，检索结果页却提示一次支持20个收藏夹】 https://www.tapd.cn/tapd_fe/61451497/bug/detail/1161451497001017594 - 修改说明文案 - 使用nextLevelChildFolderCount计算下级子文件夹数量 - PF/CI被添加多次时通过ref区分"
+     }
+    ]
+   },
+   "lastCommitDayBeforeToday": "2026-11-05",
+   "daily": {
+    "2026-08-03": 3,
+    "2026-08-05": 1,
+    "2026-08-11": 2,
+    "2026-08-12": 4,
+    "2026-08-13": 1,
+    "2026-08-14": 1,
+    "2026-08-17": 3,
+    "2026-08-18": 4,
+    "2026-08-19": 3,
+    "2026-08-20": 1,
+    "2026-08-21": 1,
+    "2026-08-26": 1,
+    "2026-09-14": 1,
+    "2026-09-17": 1,
+    "2026-09-18": 2,
+    "2026-09-21": 1,
+    "2026-09-23": 3,
+    "2026-09-28": 2,
+    "2026-10-09": 3,
+    "2026-10-12": 3,
+    "2026-10-13": 2,
+    "2026-10-20": 2,
+    "2026-10-21": 1,
+    "2026-10-22": 1,
+    "2026-10-23": 1,
+    "2026-10-26": 6,
+    "2026-10-27": 5,
+    "2026-10-28": 3,
+    "2026-10-29": 3,
+    "2026-10-30": 2,
+    "2026-11-02": 6,
+    "2026-11-03": 2,
+    "2026-11-04": 5,
+    "2026-11-05": 1,
+    "2026-11-06": 1
+   },
+   "dayDetail": {
+    "2026-08-03": {
+     "commits": 3,
+     "effective": 3,
+     "ins": 143,
+     "del": 31,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-08-05": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 11,
+     "del": 11,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-08-11": {
+     "commits": 2,
+     "effective": 2,
+     "ins": 26,
+     "del": 4,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-08-12": {
+     "commits": 4,
+     "effective": 3,
+     "ins": 187,
+     "del": 46,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-08-13": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 2,
+     "del": 1,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-08-14": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 2,
+     "del": 1,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-08-17": {
+     "commits": 3,
+     "effective": 3,
+     "ins": 253,
+     "del": 125,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-08-18": {
+     "commits": 4,
+     "effective": 4,
+     "ins": 50,
+     "del": 54,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-08-19": {
+     "commits": 3,
+     "effective": 3,
+     "ins": 41,
+     "del": 33,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-08-20": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 43,
+     "del": 13,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-08-21": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 9,
+     "del": 2,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-08-26": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 2,
+     "del": 9,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-09-14": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 172,
+     "del": 10,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-09-17": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 1,
+     "del": 1,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-09-18": {
+     "commits": 2,
+     "effective": 2,
+     "ins": 310,
+     "del": 6,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-09-21": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 820,
+     "del": 164,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-09-23": {
+     "commits": 3,
+     "effective": 3,
+     "ins": 7863,
+     "del": 15,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-09-28": {
+     "commits": 2,
+     "effective": 2,
+     "ins": 999,
+     "del": 137,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-10-09": {
+     "commits": 3,
+     "effective": 3,
+     "ins": 628,
+     "del": 917,
+     "authors": [
+      "zhengyiquan@ourchem.com",
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-10-12": {
+     "commits": 3,
+     "effective": 3,
+     "ins": 19,
+     "del": 5,
+     "authors": [
+      "suguangluan@ourchem.com"
+     ]
+    },
+    "2026-10-13": {
+     "commits": 2,
+     "effective": 2,
+     "ins": 166,
+     "del": 26,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-10-20": {
+     "commits": 2,
+     "effective": 2,
+     "ins": 156,
+     "del": 36,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-10-21": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 90,
+     "del": 51,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-10-22": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 116,
+     "del": 35,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-10-23": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 20,
+     "del": 49,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-10-26": {
+     "commits": 6,
+     "effective": 6,
+     "ins": 142,
+     "del": 104,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-10-27": {
+     "commits": 5,
+     "effective": 5,
+     "ins": 129,
+     "del": 33,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-10-28": {
+     "commits": 3,
+     "effective": 3,
+     "ins": 192,
+     "del": 32,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-10-29": {
+     "commits": 3,
+     "effective": 3,
+     "ins": 96,
+     "del": 41,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-10-30": {
+     "commits": 2,
+     "effective": 2,
+     "ins": 4,
+     "del": 3,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-11-02": {
+     "commits": 6,
+     "effective": 6,
+     "ins": 888,
+     "del": 325,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-11-03": {
+     "commits": 2,
+     "effective": 2,
+     "ins": 38,
+     "del": 28,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-11-04": {
+     "commits": 5,
+     "effective": 5,
+     "ins": 83,
+     "del": 34,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-11-05": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 106,
+     "del": 64,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    },
+    "2026-11-06": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 71,
+     "del": 12,
+     "authors": [
+      "zhengyiquan@ourchem.com"
+     ]
+    }
+   },
+   "saturationWindows": [
+    {
+     "idx": 0,
+     "start": "2026-08-01",
+     "end": "2026-08-07",
+     "workdays": 5,
+     "persons": {
+      "zhengyiquan@ourchem.com": {
+       "names": [
+        "zyq"
+       ],
+       "effective": 4,
+       "ins": 154,
+       "del": 42,
+       "activeDays": 2,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 1,
+     "start": "2026-08-08",
+     "end": "2026-08-14",
+     "workdays": 5,
+     "persons": {
+      "zhengyiquan@ourchem.com": {
+       "names": [
+        "zyq"
+       ],
+       "effective": 7,
+       "ins": 217,
+       "del": 52,
+       "activeDays": 4,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 2,
+     "start": "2026-08-15",
+     "end": "2026-08-21",
+     "workdays": 5,
+     "persons": {
+      "zhengyiquan@ourchem.com": {
+       "names": [
+        "zyq"
+       ],
+       "effective": 12,
+       "ins": 396,
+       "del": 227,
+       "activeDays": 5,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 3,
+     "start": "2026-08-22",
+     "end": "2026-08-28",
+     "workdays": 5,
+     "persons": {
+      "zhengyiquan@ourchem.com": {
+       "names": [
+        "zyq"
+       ],
+       "effective": 1,
+       "ins": 2,
+       "del": 9,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 4,
+     "start": "2026-08-29",
+     "end": "2026-09-04",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 5,
+     "start": "2026-09-05",
+     "end": "2026-09-11",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 6,
+     "start": "2026-09-12",
+     "end": "2026-09-18",
+     "workdays": 5,
+     "persons": {
+      "zhengyiquan@ourchem.com": {
+       "names": [
+        "zyq"
+       ],
+       "effective": 4,
+       "ins": 483,
+       "del": 17,
+       "activeDays": 3,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 7,
+     "start": "2026-09-19",
+     "end": "2026-09-25",
+     "workdays": 5,
+     "persons": {
+      "zhengyiquan@ourchem.com": {
+       "names": [
+        "zyq"
+       ],
+       "effective": 4,
+       "ins": 8683,
+       "del": 179,
+       "activeDays": 2,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 8,
+     "start": "2026-09-26",
+     "end": "2026-10-02",
+     "workdays": 5,
+     "persons": {
+      "zhengyiquan@ourchem.com": {
+       "names": [
+        "zyq"
+       ],
+       "effective": 2,
+       "ins": 999,
+       "del": 137,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 9,
+     "start": "2026-10-03",
+     "end": "2026-10-09",
+     "workdays": 5,
+     "persons": {
+      "zhengyiquan@ourchem.com": {
+       "names": [
+        "zyq"
+       ],
+       "effective": 2,
+       "ins": 9,
+       "del": 9,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      },
+      "zhongjianghua@ourchem.com": {
+       "names": [
+        "zhongjianghua"
+       ],
+       "effective": 1,
+       "ins": 619,
+       "del": 908,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 10,
+     "start": "2026-10-10",
+     "end": "2026-10-16",
+     "workdays": 5,
+     "persons": {
+      "suguangluan@ourchem.com": {
+       "names": [
+        "su"
+       ],
+       "effective": 3,
+       "ins": 19,
+       "del": 5,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      },
+      "zhengyiquan@ourchem.com": {
+       "names": [
+        "zyq"
+       ],
+       "effective": 2,
+       "ins": 166,
+       "del": 26,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 11,
+     "start": "2026-10-17",
+     "end": "2026-10-23",
+     "workdays": 5,
+     "persons": {
+      "zhengyiquan@ourchem.com": {
+       "names": [
+        "zyq"
+       ],
+       "effective": 5,
+       "ins": 382,
+       "del": 171,
+       "activeDays": 4,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 12,
+     "start": "2026-10-24",
+     "end": "2026-10-30",
+     "workdays": 5,
+     "persons": {
+      "zhengyiquan@ourchem.com": {
+       "names": [
+        "zyq"
+       ],
+       "effective": 19,
+       "ins": 563,
+       "del": 213,
+       "activeDays": 5,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 13,
+     "start": "2026-10-31",
+     "end": "2026-11-06",
+     "workdays": 5,
+     "persons": {
+      "zhengyiquan@ourchem.com": {
+       "names": [
+        "zyq"
+       ],
+       "effective": 15,
+       "ins": 1186,
+       "del": 463,
+       "activeDays": 5,
+       "nonworkCommits": 0
+      }
+     }
+    }
+   ],
+   "weekly": [
+    {
+     "label": "2026-08-01",
+     "start": "2026-08-01",
+     "end": "2026-08-07",
+     "commits": 4,
+     "effective": 4,
+     "authors": 1,
+     "ins": 154,
+     "del": 42
+    },
+    {
+     "label": "2026-08-08",
+     "start": "2026-08-08",
+     "end": "2026-08-14",
+     "commits": 8,
+     "effective": 7,
+     "authors": 1,
+     "ins": 217,
+     "del": 52
+    },
+    {
+     "label": "2026-08-15",
+     "start": "2026-08-15",
+     "end": "2026-08-21",
+     "commits": 12,
+     "effective": 12,
+     "authors": 1,
+     "ins": 396,
+     "del": 227
+    },
+    {
+     "label": "2026-08-22",
+     "start": "2026-08-22",
+     "end": "2026-08-28",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "ins": 2,
+     "del": 9
+    },
+    {
+     "label": "2026-08-29",
+     "start": "2026-08-29",
+     "end": "2026-09-04",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-05",
+     "start": "2026-09-05",
+     "end": "2026-09-11",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-12",
+     "start": "2026-09-12",
+     "end": "2026-09-18",
+     "commits": 4,
+     "effective": 4,
+     "authors": 1,
+     "ins": 483,
+     "del": 17
+    },
+    {
+     "label": "2026-09-19",
+     "start": "2026-09-19",
+     "end": "2026-09-25",
+     "commits": 4,
+     "effective": 4,
+     "authors": 1,
+     "ins": 8683,
+     "del": 179
+    },
+    {
+     "label": "2026-09-26",
+     "start": "2026-09-26",
+     "end": "2026-10-02",
+     "commits": 2,
+     "effective": 2,
+     "authors": 1,
+     "ins": 999,
+     "del": 137
+    },
+    {
+     "label": "2026-10-03",
+     "start": "2026-10-03",
+     "end": "2026-10-09",
+     "commits": 3,
+     "effective": 3,
+     "authors": 2,
+     "ins": 628,
+     "del": 917
+    },
+    {
+     "label": "2026-10-10",
+     "start": "2026-10-10",
+     "end": "2026-10-16",
+     "commits": 5,
+     "effective": 5,
+     "authors": 2,
+     "ins": 185,
+     "del": 31
+    },
+    {
+     "label": "2026-10-17",
+     "start": "2026-10-17",
+     "end": "2026-10-23",
+     "commits": 5,
+     "effective": 5,
+     "authors": 1,
+     "ins": 382,
+     "del": 171
+    },
+    {
+     "label": "2026-10-24",
+     "start": "2026-10-24",
+     "end": "2026-10-30",
+     "commits": 19,
+     "effective": 19,
+     "authors": 1,
+     "ins": 563,
+     "del": 213
+    },
+    {
+     "label": "2026-10-31",
+     "start": "2026-10-31",
+     "end": "2026-11-06",
+     "commits": 15,
+     "effective": 15,
+     "authors": 1,
+     "ins": 1186,
+     "del": 463
+    }
+   ],
+   "statsWorkdays": 70,
+   "mainBranch": {
+    "branch": "master",
+    "ref": "origin/master",
+    "lastActive": "2025-06-27"
+   },
+   "branchPos": [
+    {
+     "name": "图像检索优化-支持多张图片同时检索",
+     "ref": "origin/图像检索优化-支持多张图片同时检索",
+     "ahead": 872,
+     "behind": 8,
+     "forkDate": "2025-06-23",
+     "staleDays": 501,
+     "lastActive": "2026-10-28"
+    },
+    {
+     "name": "1016188-登录释放策略优化",
+     "ref": "origin/1016188-登录释放策略优化",
+     "ahead": 878,
+     "behind": 8,
+     "forkDate": "2025-06-23",
+     "staleDays": 501,
+     "lastActive": "2026-11-04"
+    },
+    {
+     "name": "feat-1016010-收藏夹支持检索",
+     "ref": "origin/feat-1016010-收藏夹支持检索",
+     "ahead": 881,
+     "behind": 8,
+     "forkDate": "2025-06-23",
+     "staleDays": 501,
+     "lastActive": "2026-11-06"
+    },
+    {
+     "name": "feat-1016189-专利分析-技术生命周期优化",
+     "ref": "origin/feat-1016189-专利分析-技术生命周期优化",
+     "ahead": 875,
+     "behind": 8,
+     "forkDate": "2025-06-23",
+     "staleDays": 501,
+     "lastActive": "2026-11-04"
+    }
+   ],
+   "checkedOut": "master",
+   "quality": {
+    "mode": "工作副本（当前检出分支口径 §1.6）",
+    "checkedOut": "master",
+    "languages": [
+     {
+      "ext": ".js",
+      "files": 277,
+      "lines": 189527
+     },
+     {
+      "ext": ".vue",
+      "files": 756,
+      "lines": 156184
+     },
+     {
+      "ext": ".json",
+      "files": 437,
+      "lines": 141526
+     },
+     {
+      "ext": ".scss",
+      "files": 155,
+      "lines": 36850
+     },
+     {
+      "ext": ".lock",
+      "files": 1,
+      "lines": 7797
+     },
+     {
+      "ext": ".html",
+      "files": 4,
+      "lines": 6719
+     },
+     {
+      "ext": ".css",
+      "files": 4,
+      "lines": 3290
+     },
+     {
+      "ext": ".svg",
+      "files": 30,
+      "lines": 1722
+     },
+     {
+      "ext": ".md",
+      "files": 24,
+      "lines": 1416
+     },
+     {
+      "ext": ".properties",
+      "files": 5,
+      "lines": 616
+     },
+     {
+      "ext": ".jsx",
+      "files": 3,
+      "lines": 500
+     },
+     {
+      "ext": ".bak",
+      "files": 2,
+      "lines": 86
+     }
+    ],
+    "largeFiles": [
+     {
+      "path": "static/plugins/echarts/map/worldOrigin.json",
+      "lines": 111599
+     },
+     {
+      "path": "static/plugins/pdf/pdf.worker.js",
+      "lines": 41274
+     },
+     {
+      "path": "static/plugins/pdf/build/pdf.worker.js",
+      "lines": 36904
+     },
+     {
+      "path": "src/views/Workbench/Report/district.js",
+      "lines": 29122
+     },
+     {
+      "path": "static/plugins/pdf/pdf.js",
+      "lines": 13715
+     }
+    ],
+    "todoTotal": 96,
+    "todoTop": [
+     {
+      "path": "static/plugins/pdf/build/pdf.worker.js",
+      "count": 34
+     },
+     {
+      "path": "static/plugins/pdf/build/pdf.js",
+      "count": 20
+     },
+     {
+      "path": "static/plugins/pdf/web/l10n.js",
+      "count": 5
+     },
+     {
+      "path": "static/plugins/pdf/web/viewer.js",
+      "count": 4
+     },
+     {
+      "path": "static/plugins/pdf/pdf.js",
+      "count": 3
+     },
+     {
+      "path": "src/views/CoInnovationSpace/AssistedWriting/WriteResult/Confession/resultRender.vue",
+      "count": 2
+     },
+     {
+      "path": "src/views/CoInnovationSpace/AssistedWriting/WriteResult/OldConfession/resultRender.vue",
+      "count": 2
+     },
+     {
+      "path": "src/components/common/Collect/DialogSuccess.vue",
+      "count": 1
+     },
+     {
+      "path": "src/components/common/ContentEditTable/index.vue",
+      "count": 1
+     },
+     {
+      "path": "src/components/common/VueZoomer/index.vue",
+      "count": 1
+     }
+    ],
+    "stockTestFiles": 0,
+    "trackedFiles": 2393
+   },
+   "lifetime": {
+    "first": "2024-03-01",
+    "last": "2026-11-06",
+    "totalCommits": 3633,
+    "authors": 14,
+    "monthly": {
+     "2026-11": 45,
+     "2026-10": 72,
+     "2026-09": 27,
+     "2026-08": 30,
+     "2026-07": 29,
+     "2026-06": 37,
+     "2026-05": 162,
+     "2026-04": 169,
+     "2026-03": 108,
+     "2026-02": 17,
+     "2026-01": 53,
+     "2025-12": 39,
+     "2025-11": 27,
+     "2025-10": 24,
+     "2025-09": 38,
+     "2025-08": 113,
+     "2025-07": 281,
+     "2025-06": 19,
+     "2025-05": 78,
+     "2025-04": 69,
+     "2025-03": 11,
+     "2025-02": 10,
+     "2024-12": 7,
+     "2024-11": 15,
+     "2024-10": 59,
+     "2024-09": 79,
+     "2024-08": 147,
+     "2024-07": 71,
+     "2024-06": 123,
+     "2024-05": 264,
+     "2024-04": 835,
+     "2024-03": 575
+    },
+    "monthlyCount": 32,
+    "topAuthors": [
+     {
+      "key": "zhengyiquan@ourchem.com",
+      "commits": 1034
+     },
+     {
+      "key": "linjingmiao@ourchem.com",
+      "commits": 699
+     },
+     {
+      "key": "zhengzengping@ourchem.com",
+      "commits": 456
+     },
+     {
+      "key": "wanglei@ourchem.com",
+      "commits": 331
+     },
+     {
+      "key": "suguangluan@ourchem.com",
+      "commits": 227
+     }
+    ]
+   }
+  },
+  {
+   "name": "ourchem-patyee",
+   "path": ".projects/patyee\\ourchem-patyee",
+   "branches": {
+    "master-pro": {
+     "ref": "origin/master-pro",
+     "logFile": "_evidence/raw/ourchem-patyee__master-pro.log.txt",
+     "numstatFile": "_evidence/raw/ourchem-patyee__master-pro.numstat.txt",
+     "rawLines": 99
+    },
+    "v5.13.8": {
+     "ref": "origin/v5.13.8",
+     "logFile": "_evidence/raw/ourchem-patyee__v5.13.8.log.txt",
+     "numstatFile": "_evidence/raw/ourchem-patyee__v5.13.8.numstat.txt",
+     "rawLines": 96
+    },
+    "feat-1016010-收藏夹支持检索": {
+     "ref": "origin/feat-1016010-收藏夹支持检索",
+     "logFile": "_evidence/raw/ourchem-patyee__feat-1016010-收藏夹支持检索.log.txt",
+     "numstatFile": "_evidence/raw/ourchem-patyee__feat-1016010-收藏夹支持检索.numstat.txt",
+     "rawLines": 95
+    }
+   },
+   "errors": [],
+   "hasRemote": true,
+   "window": {
+    "total": 6,
+    "effective": 5,
+    "merge": 1,
+    "ins": 257,
+    "del": 39,
+    "authors": 2,
+    "big": [],
+    "trivial": [
+     {
+      "h": "84244a2ba1",
+      "s": "refactor(favorite): 1017569 修改拒绝分享同名收藏夹提示文案",
+      "lines": 2
+     }
+    ],
+    "classification": {
+     "feat": 0,
+     "fix": 1,
+     "refactor": 4,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {
+     "gaojingkai@ourchem.com": {
+      "names": [
+       "gaojingkai"
+      ],
+      "commits": 4,
+      "ins": 77,
+      "del": 21,
+      "activeDays": 3,
+      "lateNight": 0,
+      "weekend": 0,
+      "branches": {
+       "feat-1016010-收藏夹支持检索": 4
+      },
+      "modulesTouched": 1,
+      "testCommits": 0,
+      "peakDay": "2026-11-04",
+      "peakN": 2
+     },
+     "zhongjianghua@ourchem.com": {
+      "names": [
+       "zhongjianghua"
+      ],
+      "commits": 1,
+      "ins": 180,
+      "del": 18,
+      "activeDays": 1,
+      "lateNight": 0,
+      "weekend": 0,
+      "branches": {
+       "feat-1016010-收藏夹支持检索": 1
+      },
+      "modulesTouched": 1,
+      "testCommits": 0,
+      "peakDay": "2026-11-02",
+      "peakN": 1
+     }
+    },
+    "commits": [
+     {
+      "h": "9b976cef4a",
+      "an": "zhongjianghua",
+      "ae": "zhongjianghua@ourchem.com",
+      "ad": "2026-10-30 14:45:51",
+      "s": "Merge branch 'v5.13.8' into master-pro",
+      "merge": true,
+      "ins": 0,
+      "del": 0,
+      "branches": [
+       "master-pro"
+      ]
+     },
+     {
+      "h": "5e9527d1e9",
+      "an": "zhongjianghua",
+      "ae": "zhongjianghua@ourchem.com",
+      "ad": "2026-11-02 15:58:05",
+      "s": "fix(share): 1017557-【专利收藏：分享专利，提示“不存在该邮箱”（实际存在）】             https://www.tapd.cn/tapd_fe/61451497/bug/detail/1161451497001017557",
+      "merge": false,
+      "ins": 180,
+      "del": 18,
+      "branches": [
+       "feat-1016010-收藏夹支持检索"
+      ]
+     },
+     {
+      "h": "35cf1df1fa",
+      "an": "gaojingkai",
+      "ae": "gaojingkai@ourchem.com",
+      "ad": "2026-11-03 17:21:10",
+      "s": "refactor(search): 1017569 协同创新存在同名文件夹时返回所有",
+      "merge": false,
+      "ins": 20,
+      "del": 16,
+      "branches": [
+       "feat-1016010-收藏夹支持检索"
+      ]
+     },
+     {
+      "h": "cafdad2e6a",
+      "an": "gaojingkai",
+      "ae": "gaojingkai@ourchem.com",
+      "ad": "2026-11-04 10:17:52",
+      "s": "refactor(favorite): 1017569 被分享者有同名收藏夹时拒绝分享",
+      "merge": false,
+      "ins": 32,
+      "del": 1,
+      "branches": [
+       "feat-1016010-收藏夹支持检索"
+      ]
+     },
+     {
+      "h": "84244a2ba1",
+      "an": "gaojingkai",
+      "ae": "gaojingkai@ourchem.com",
+      "ad": "2026-11-04 10:21:46",
+      "s": "refactor(favorite): 1017569 修改拒绝分享同名收藏夹提示文案",
+      "merge": false,
+      "ins": 1,
+      "del": 1,
+      "branches": [
+       "feat-1016010-收藏夹支持检索"
+      ]
+     },
+     {
+      "h": "a481da58f7",
+      "an": "gaojingkai",
+      "ae": "gaojingkai@ourchem.com",
+      "ad": "2026-11-06 14:14:42",
+      "s": "refactor(download): 导出专利前的收藏夹字段解析",
+      "merge": false,
+      "ins": 24,
+      "del": 3,
+      "branches": [
+       "feat-1016010-收藏夹支持检索"
+      ]
+     }
+    ]
+   },
+   "today": {
+    "total": 1,
+    "effective": 1,
+    "merge": 0,
+    "ins": 24,
+    "del": 3,
+    "authors": 1,
+    "big": [],
+    "trivial": [],
+    "classification": {
+     "feat": 0,
+     "fix": 0,
+     "refactor": 1,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {
+     "gaojingkai@ourchem.com": {
+      "names": [
+       "gaojingkai"
+      ],
+      "commits": 1,
+      "ins": 24,
+      "del": 3,
+      "activeDays": 1,
+      "lateNight": 0,
+      "weekend": 0,
+      "branches": {
+       "feat-1016010-收藏夹支持检索": 1
+      },
+      "modulesTouched": 1,
+      "testCommits": 0,
+      "peakDay": "2026-11-06",
+      "peakN": 1
+     }
+    },
+    "commits": [
+     {
+      "h": "a481da58f7",
+      "an": "gaojingkai",
+      "ad": "2026-11-06 14:14:42",
+      "s": "refactor(download): 导出专利前的收藏夹字段解析"
+     }
+    ]
+   },
+   "lastCommitDayBeforeToday": "2026-11-04",
+   "daily": {
+    "2026-08-03": 3,
+    "2026-08-06": 1,
+    "2026-08-13": 1,
+    "2026-09-04": 1,
+    "2026-09-07": 1,
+    "2026-09-08": 1,
+    "2026-09-10": 2,
+    "2026-09-20": 2,
+    "2026-09-21": 2,
+    "2026-09-23": 1,
+    "2026-09-28": 1,
+    "2026-09-30": 1,
+    "2026-10-08": 1,
+    "2026-10-09": 1,
+    "2026-10-10": 1,
+    "2026-10-12": 2,
+    "2026-10-13": 1,
+    "2026-10-14": 1,
+    "2026-10-16": 4,
+    "2026-10-19": 1,
+    "2026-10-20": 2,
+    "2026-10-21": 6,
+    "2026-10-26": 2,
+    "2026-10-30": 1,
+    "2026-11-02": 1,
+    "2026-11-03": 1,
+    "2026-11-04": 2,
+    "2026-11-06": 1
+   },
+   "dayDetail": {
+    "2026-08-03": {
+     "commits": 3,
+     "effective": 3,
+     "ins": 4,
+     "del": 2,
+     "authors": [
+      "gaojingkai@ourchem.com"
+     ]
+    },
+    "2026-08-06": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 1,
+     "del": 1,
+     "authors": [
+      "gaojingkai@ourchem.com"
+     ]
+    },
+    "2026-08-13": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 3,
+     "del": 3,
+     "authors": [
+      "gaojingkai@ourchem.com"
+     ]
+    },
+    "2026-09-04": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 0,
+     "del": 1,
+     "authors": [
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-09-07": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 1641,
+     "del": 148,
+     "authors": [
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-09-08": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 664,
+     "del": 254,
+     "authors": [
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-09-10": {
+     "commits": 2,
+     "effective": 2,
+     "ins": 426,
+     "del": 110,
+     "authors": [
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-09-20": {
+     "commits": 2,
+     "effective": 2,
+     "ins": 1093,
+     "del": 3,
+     "authors": [
+      "suguangluan@ourchem.com",
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-09-21": {
+     "commits": 2,
+     "effective": 2,
+     "ins": 2469,
+     "del": 693,
+     "authors": [
+      "suguangluan@ourchem.com",
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-09-23": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 337,
+     "del": 122,
+     "authors": [
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-09-28": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 36,
+     "del": 18,
+     "authors": [
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-09-30": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 1161,
+     "del": 123,
+     "authors": [
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-10-08": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 7,
+     "del": 7,
+     "authors": [
+      "gaojingkai@ourchem.com"
+     ]
+    },
+    "2026-10-09": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 7,
+     "del": 7,
+     "authors": [
+      "gaojingkai@ourchem.com"
+     ]
+    },
+    "2026-10-10": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 473,
+     "del": 69,
+     "authors": [
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-10-12": {
+     "commits": 2,
+     "effective": 2,
+     "ins": 71,
+     "del": 27,
+     "authors": [
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-10-13": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 4,
+     "del": 2,
+     "authors": [
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-10-14": {
+     "commits": 1,
+     "effective": 0,
+     "ins": 0,
+     "del": 0,
+     "authors": []
+    },
+    "2026-10-16": {
+     "commits": 4,
+     "effective": 4,
+     "ins": 291,
+     "del": 37,
+     "authors": [
+      "gaojingkai@ourchem.com",
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-10-19": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 1,
+     "del": 4,
+     "authors": [
+      "gaojingkai@ourchem.com"
+     ]
+    },
+    "2026-10-20": {
+     "commits": 2,
+     "effective": 1,
+     "ins": 70,
+     "del": 14,
+     "authors": [
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-10-21": {
+     "commits": 6,
+     "effective": 5,
+     "ins": 120,
+     "del": 45,
+     "authors": [
+      "gaojingkai@ourchem.com"
+     ]
+    },
+    "2026-10-26": {
+     "commits": 2,
+     "effective": 1,
+     "ins": 73,
+     "del": 34,
+     "authors": [
+      "gaojingkai@ourchem.com"
+     ]
+    },
+    "2026-10-30": {
+     "commits": 1,
+     "effective": 0,
+     "ins": 0,
+     "del": 0,
+     "authors": []
+    },
+    "2026-11-02": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 180,
+     "del": 18,
+     "authors": [
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-11-03": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 20,
+     "del": 16,
+     "authors": [
+      "gaojingkai@ourchem.com"
+     ]
+    },
+    "2026-11-04": {
+     "commits": 2,
+     "effective": 2,
+     "ins": 33,
+     "del": 2,
+     "authors": [
+      "gaojingkai@ourchem.com"
+     ]
+    },
+    "2026-11-06": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 24,
+     "del": 3,
+     "authors": [
+      "gaojingkai@ourchem.com"
+     ]
+    }
+   },
+   "saturationWindows": [
+    {
+     "idx": 0,
+     "start": "2026-08-01",
+     "end": "2026-08-07",
+     "workdays": 5,
+     "persons": {
+      "gaojingkai@ourchem.com": {
+       "names": [
+        "gaojingkai"
+       ],
+       "effective": 4,
+       "ins": 5,
+       "del": 3,
+       "activeDays": 2,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 1,
+     "start": "2026-08-08",
+     "end": "2026-08-14",
+     "workdays": 5,
+     "persons": {
+      "gaojingkai@ourchem.com": {
+       "names": [
+        "gaojingkai"
+       ],
+       "effective": 1,
+       "ins": 3,
+       "del": 3,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 2,
+     "start": "2026-08-15",
+     "end": "2026-08-21",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 3,
+     "start": "2026-08-22",
+     "end": "2026-08-28",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 4,
+     "start": "2026-08-29",
+     "end": "2026-09-04",
+     "workdays": 5,
+     "persons": {
+      "zhongjianghua@ourchem.com": {
+       "names": [
+        "zhongjianghua"
+       ],
+       "effective": 1,
+       "ins": 0,
+       "del": 1,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 5,
+     "start": "2026-09-05",
+     "end": "2026-09-11",
+     "workdays": 5,
+     "persons": {
+      "zhongjianghua@ourchem.com": {
+       "names": [
+        "zhongjianghua"
+       ],
+       "effective": 4,
+       "ins": 2731,
+       "del": 512,
+       "activeDays": 3,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 6,
+     "start": "2026-09-12",
+     "end": "2026-09-18",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 7,
+     "start": "2026-09-19",
+     "end": "2026-09-25",
+     "workdays": 5,
+     "persons": {
+      "suguangluan@ourchem.com": {
+       "names": [
+        "su"
+       ],
+       "effective": 2,
+       "ins": 1088,
+       "del": 3,
+       "activeDays": 2,
+       "nonworkCommits": 1
+      },
+      "zhongjianghua@ourchem.com": {
+       "names": [
+        "zhongjianghua"
+       ],
+       "effective": 3,
+       "ins": 2811,
+       "del": 815,
+       "activeDays": 3,
+       "nonworkCommits": 1
+      }
+     }
+    },
+    {
+     "idx": 8,
+     "start": "2026-09-26",
+     "end": "2026-10-02",
+     "workdays": 5,
+     "persons": {
+      "zhongjianghua@ourchem.com": {
+       "names": [
+        "zhongjianghua"
+       ],
+       "effective": 2,
+       "ins": 1197,
+       "del": 141,
+       "activeDays": 2,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 9,
+     "start": "2026-10-03",
+     "end": "2026-10-09",
+     "workdays": 5,
+     "persons": {
+      "gaojingkai@ourchem.com": {
+       "names": [
+        "gaojingkai"
+       ],
+       "effective": 2,
+       "ins": 14,
+       "del": 14,
+       "activeDays": 2,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 10,
+     "start": "2026-10-10",
+     "end": "2026-10-16",
+     "workdays": 5,
+     "persons": {
+      "gaojingkai@ourchem.com": {
+       "names": [
+        "gaojingkai"
+       ],
+       "effective": 2,
+       "ins": 177,
+       "del": 19,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      },
+      "zhongjianghua@ourchem.com": {
+       "names": [
+        "zhongjianghua"
+       ],
+       "effective": 6,
+       "ins": 662,
+       "del": 116,
+       "activeDays": 4,
+       "nonworkCommits": 1
+      }
+     }
+    },
+    {
+     "idx": 11,
+     "start": "2026-10-17",
+     "end": "2026-10-23",
+     "workdays": 5,
+     "persons": {
+      "gaojingkai@ourchem.com": {
+       "names": [
+        "gaojingkai"
+       ],
+       "effective": 6,
+       "ins": 121,
+       "del": 49,
+       "activeDays": 2,
+       "nonworkCommits": 0
+      },
+      "zhongjianghua@ourchem.com": {
+       "names": [
+        "zhongjianghua"
+       ],
+       "effective": 1,
+       "ins": 70,
+       "del": 14,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 12,
+     "start": "2026-10-24",
+     "end": "2026-10-30",
+     "workdays": 5,
+     "persons": {
+      "gaojingkai@ourchem.com": {
+       "names": [
+        "gaojingkai"
+       ],
+       "effective": 1,
+       "ins": 73,
+       "del": 34,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 13,
+     "start": "2026-10-31",
+     "end": "2026-11-06",
+     "workdays": 5,
+     "persons": {
+      "gaojingkai@ourchem.com": {
+       "names": [
+        "gaojingkai"
+       ],
+       "effective": 4,
+       "ins": 77,
+       "del": 21,
+       "activeDays": 3,
+       "nonworkCommits": 0
+      },
+      "zhongjianghua@ourchem.com": {
+       "names": [
+        "zhongjianghua"
+       ],
+       "effective": 1,
+       "ins": 180,
+       "del": 18,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    }
+   ],
+   "weekly": [
+    {
+     "label": "2026-08-01",
+     "start": "2026-08-01",
+     "end": "2026-08-07",
+     "commits": 4,
+     "effective": 4,
+     "authors": 1,
+     "ins": 5,
+     "del": 3
+    },
+    {
+     "label": "2026-08-08",
+     "start": "2026-08-08",
+     "end": "2026-08-14",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "ins": 3,
+     "del": 3
+    },
+    {
+     "label": "2026-08-15",
+     "start": "2026-08-15",
+     "end": "2026-08-21",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-08-22",
+     "start": "2026-08-22",
+     "end": "2026-08-28",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-08-29",
+     "start": "2026-08-29",
+     "end": "2026-09-04",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "ins": 0,
+     "del": 1
+    },
+    {
+     "label": "2026-09-05",
+     "start": "2026-09-05",
+     "end": "2026-09-11",
+     "commits": 4,
+     "effective": 4,
+     "authors": 1,
+     "ins": 2731,
+     "del": 512
+    },
+    {
+     "label": "2026-09-12",
+     "start": "2026-09-12",
+     "end": "2026-09-18",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-19",
+     "start": "2026-09-19",
+     "end": "2026-09-25",
+     "commits": 5,
+     "effective": 5,
+     "authors": 2,
+     "ins": 3899,
+     "del": 818
+    },
+    {
+     "label": "2026-09-26",
+     "start": "2026-09-26",
+     "end": "2026-10-02",
+     "commits": 2,
+     "effective": 2,
+     "authors": 1,
+     "ins": 1197,
+     "del": 141
+    },
+    {
+     "label": "2026-10-03",
+     "start": "2026-10-03",
+     "end": "2026-10-09",
+     "commits": 2,
+     "effective": 2,
+     "authors": 1,
+     "ins": 14,
+     "del": 14
+    },
+    {
+     "label": "2026-10-10",
+     "start": "2026-10-10",
+     "end": "2026-10-16",
+     "commits": 9,
+     "effective": 8,
+     "authors": 2,
+     "ins": 839,
+     "del": 135
+    },
+    {
+     "label": "2026-10-17",
+     "start": "2026-10-17",
+     "end": "2026-10-23",
+     "commits": 9,
+     "effective": 7,
+     "authors": 2,
+     "ins": 191,
+     "del": 63
+    },
+    {
+     "label": "2026-10-24",
+     "start": "2026-10-24",
+     "end": "2026-10-30",
+     "commits": 3,
+     "effective": 1,
+     "authors": 1,
+     "ins": 73,
+     "del": 34
+    },
+    {
+     "label": "2026-10-31",
+     "start": "2026-10-31",
+     "end": "2026-11-06",
+     "commits": 5,
+     "effective": 5,
+     "authors": 2,
+     "ins": 257,
+     "del": 39
+    }
+   ],
+   "statsWorkdays": 70,
+   "mainBranch": {
+    "branch": "master-pro",
+    "ref": "origin/master-pro",
+    "lastActive": "2026-10-30"
+   },
+   "branchPos": [
+    {
+     "name": "v5.13.8",
+     "ref": "origin/v5.13.8",
+     "ahead": 0,
+     "behind": 4,
+     "forkDate": "2026-10-26",
+     "staleDays": 11,
+     "lastActive": "2026-10-26"
+    },
+    {
+     "name": "feat-1016010-收藏夹支持检索",
+     "ref": "origin/feat-1016010-收藏夹支持检索",
+     "ahead": 14,
+     "behind": 19,
+     "forkDate": "2026-10-14",
+     "staleDays": 23,
+     "lastActive": "2026-11-06"
+    }
+   ],
+   "checkedOut": "master-pro",
+   "quality": {
+    "mode": "工作副本（当前检出分支口径 §1.6）",
+    "checkedOut": "master-pro",
+    "languages": [
+     {
+      "ext": ".dic",
+      "files": 22,
+      "lines": 1160567
+     },
+     {
+      "ext": ".dic_back",
+      "files": 1,
+      "lines": 275909
+     },
+     {
+      "ext": ".xml",
+      "files": 97,
+      "lines": 175227
+     },
+     {
+      "ext": ".java",
+      "files": 1014,
+      "lines": 105286
+     },
+     {
+      "ext": ".ftl",
+      "files": 4,
+      "lines": 60870
+     },
+     {
+      "ext": ".json",
+      "files": 3,
+      "lines": 43638
+     },
+     {
+      "ext": ".jetx",
+      "files": 2,
+      "lines": 346
+     },
+     {
+      "ext": ".sh",
+      "files": 1,
+      "lines": 98
+     },
+     {
+      "ext": ".yml",
+      "files": 4,
+      "lines": 95
+     },
+     {
+      "ext": ".txt",
+      "files": 2,
+      "lines": 54
+     },
+     {
+      "ext": "(无扩展名)",
+      "files": 1,
+      "lines": 25
+     }
+    ],
+    "largeFiles": [
+     {
+      "path": "core/config/analysis-ik-ourchem/extra_main.dic",
+      "lines": 398716
+     },
+     {
+      "path": "core/config/extra_main.dic",
+      "lines": 398716
+     },
+     {
+      "path": "core/config/analysis-ik-ourchem/main.dic_back",
+      "lines": 275909
+     },
+     {
+      "path": "core/config/main.dic",
+      "lines": 275909
+     },
+     {
+      "path": "core/src/main/resources/technologyPanoramaReportTemplate/document.xml",
+      "lines": 30741
+     }
+    ],
+    "todoTotal": 300,
+    "todoTop": [
+     {
+      "path": "core/src/main/java/com/ourchem/ms/patyee/service/collection/MultidimensionalFavoritesV2ServiceImpl.java",
+      "count": 14
+     },
+     {
+      "path": "core/src/main/java/com/ourchem/ms/patyee/controller/SearchController.java",
+      "count": 5
+     },
+     {
+      "path": "core/src/main/java/com/ourchem/ms/patyee/service/handler/DocumentHandler.java",
+      "count": 4
+     },
+     {
+      "path": "core/src/main/java/com/ourchem/ms/patyee/service/translation/TencentTranslationRoundRobin.java",
+      "count": 3
+     },
+     {
+      "path": "core/src/main/java/com/ourchem/ms/patyee/service/impl/KeywordExpandService.java",
+      "count": 2
+     },
+     {
+      "path": "core/src/main/java/com/ourchem/ms/patyee/service/impl/PatentRewriteServiceImpl.java",
+      "count": 2
+     },
+     {
+      "path": "core/src/main/java/com/ourchem/ms/patyee/service/impl/ReportExportServiceImpl.java",
+      "count": 2
+     },
+     {
+      "path": "core/src/main/java/com/ourchem/ms/patyee/utils/RedisUtils.java",
+      "count": 2
+     },
+     {
+      "path": "core/src/main/java/com/ourchem/ms/patyee/aspectj/AddWaterMarkConfAspect.java",
+      "count": 1
+     },
+     {
+      "path": "core/src/main/java/com/ourchem/ms/patyee/aspectj/CallApiRecordAspect.java",
+      "count": 1
+     }
+    ],
+    "stockTestFiles": 31,
+    "trackedFiles": 1182
+   },
+   "lifetime": {
+    "first": "2020-04-27",
+    "last": "2026-11-06",
+    "totalCommits": 4311,
+    "authors": 23,
+    "monthly": {
+     "2026-11": 23,
+     "2026-10": 76,
+     "2026-09": 71,
+     "2026-08": 42,
+     "2026-07": 63,
+     "2026-06": 85,
+     "2026-05": 64,
+     "2026-04": 151,
+     "2026-02": 33,
+     "2026-03": 136,
+     "2026-01": 14,
+     "2025-12": 4,
+     "2025-11": 9,
+     "2025-10": 39,
+     "2025-09": 87,
+     "2025-08": 35,
+     "2025-07": 17,
+     "2025-06": 46,
+     "2025-05": 13,
+     "2025-04": 20,
+     "2025-03": 4,
+     "2025-01": 6,
+     "2024-12": 12,
+     "2024-11": 18,
+     "2024-10": 5,
+     "2024-09": 28,
+     "2024-08": 95,
+     "2024-07": 63,
+     "2024-06": 40,
+     "2024-05": 55,
+     "2024-04": 51,
+     "2024-03": 28,
+     "2024-02": 66,
+     "2024-01": 64,
+     "2023-12": 69,
+     "2023-11": 30,
+     "2023-10": 42,
+     "2023-09": 85,
+     "2023-08": 105,
+     "2023-07": 188,
+     "2023-06": 10,
+     "2023-05": 50,
+     "2023-04": 51,
+     "2023-03": 40,
+     "2023-02": 27,
+     "2023-01": 29,
+     "2022-12": 46,
+     "2022-11": 62,
+     "2022-10": 29,
+     "2022-09": 29,
+     "2022-08": 40,
+     "2022-07": 104,
+     "2022-06": 32,
+     "2022-05": 34,
+     "2022-04": 80,
+     "2022-03": 43,
+     "2022-02": 14,
+     "2022-01": 71,
+     "2021-12": 92,
+     "2021-11": 47,
+     "2021-10": 18,
+     "2021-09": 27,
+     "2021-08": 49,
+     "2021-07": 34,
+     "2021-06": 53,
+     "2021-05": 65,
+     "2021-04": 56,
+     "2021-03": 38,
+     "2021-02": 60,
+     "2021-01": 70,
+     "2020-12": 31,
+     "2020-11": 65,
+     "2020-10": 24,
+     "2020-09": 75,
+     "2020-08": 91,
+     "2020-07": 31,
+     "2020-06": 226,
+     "2020-05": 282,
+     "2020-04": 4
+    },
+    "monthlyCount": 79,
+    "topAuthors": [
+     {
+      "key": "huangjunjie@ourchem.com",
+      "commits": 1305
+     },
+     {
+      "key": "wujm@ourchem.com",
+      "commits": 457
+     },
+     {
+      "key": "zhouzhaokang@ourchem.com",
+      "commits": 429
+     },
+     {
+      "key": "Qyw123456",
+      "commits": 352
+     },
+     {
+      "key": "gaojingkai@ourchem.com",
+      "commits": 325
+     }
+    ]
+   }
+  },
+  {
+   "name": "ourchem-data",
+   "path": ".projects/patyee\\ourchem-data",
+   "branches": {
+    "master-pro": {
+     "ref": "origin/master-pro",
+     "logFile": "_evidence/raw/ourchem-data__master-pro.log.txt",
+     "numstatFile": "_evidence/raw/ourchem-data__master-pro.numstat.txt",
+     "rawLines": 54
+    },
+    "v5.14.0": {
+     "ref": "origin/v5.14.0",
+     "logFile": "_evidence/raw/ourchem-data__v5.14.0.log.txt",
+     "numstatFile": "_evidence/raw/ourchem-data__v5.14.0.numstat.txt",
+     "rawLines": 54
+    },
+    "feat-1016010-收藏夹支持检索": {
+     "ref": "origin/feat-1016010-收藏夹支持检索",
+     "logFile": "_evidence/raw/ourchem-data__feat-1016010-收藏夹支持检索.log.txt",
+     "numstatFile": "_evidence/raw/ourchem-data__feat-1016010-收藏夹支持检索.numstat.txt",
+     "rawLines": 54
+    },
+    "feat-1016189-专利分析技术生命周期优化": {
+     "ref": "origin/feat-1016189-专利分析技术生命周期优化",
+     "logFile": "_evidence/raw/ourchem-data__feat-1016189-专利分析技术生命周期优化.log.txt",
+     "numstatFile": "_evidence/raw/ourchem-data__feat-1016189-专利分析技术生命周期优化.numstat.txt",
+     "rawLines": 54
+    }
+   },
+   "errors": [],
+   "hasRemote": true,
+   "window": {
+    "total": 0,
+    "effective": 0,
+    "merge": 0,
+    "ins": 0,
+    "del": 0,
+    "authors": 0,
+    "big": [],
+    "trivial": [],
+    "classification": {
+     "feat": 0,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {},
+    "commits": []
+   },
+   "today": {
+    "total": 0,
+    "effective": 0,
+    "merge": 0,
+    "ins": 0,
+    "del": 0,
+    "authors": 0,
+    "big": [],
+    "trivial": [],
+    "classification": {
+     "feat": 0,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {},
+    "commits": []
+   },
+   "lastCommitDayBeforeToday": "2026-10-27",
+   "daily": {
+    "2026-08-03": 1,
+    "2026-08-11": 3,
+    "2026-08-13": 3,
+    "2026-09-29": 3,
+    "2026-10-09": 3,
+    "2026-10-16": 1,
+    "2026-10-22": 1,
+    "2026-10-27": 1
+   },
+   "dayDetail": {
+    "2026-08-03": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 115,
+     "del": 30,
+     "authors": [
+      "gaojingkai@ourchem.com"
+     ]
+    },
+    "2026-08-11": {
+     "commits": 3,
+     "effective": 2,
+     "ins": 2,
+     "del": 2,
+     "authors": [
+      "gaojingkai@ourchem.com"
+     ]
+    },
+    "2026-08-13": {
+     "commits": 3,
+     "effective": 3,
+     "ins": 245,
+     "del": 8,
+     "authors": [
+      "gaojingkai@ourchem.com"
+     ]
+    },
+    "2026-09-29": {
+     "commits": 3,
+     "effective": 2,
+     "ins": 181,
+     "del": 36,
+     "authors": [
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-10-09": {
+     "commits": 3,
+     "effective": 3,
+     "ins": 133,
+     "del": 102,
+     "authors": [
+      "gaojingkai@ourchem.com"
+     ]
+    },
+    "2026-10-16": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 34,
+     "del": 0,
+     "authors": [
+      "gaojingkai@ourchem.com"
+     ]
+    },
+    "2026-10-22": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 32,
+     "del": 31,
+     "authors": [
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-10-27": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 97,
+     "del": 1,
+     "authors": [
+      "gaojingkai@ourchem.com"
+     ]
+    }
+   },
+   "saturationWindows": [
+    {
+     "idx": 0,
+     "start": "2026-08-01",
+     "end": "2026-08-07",
+     "workdays": 5,
+     "persons": {
+      "gaojingkai@ourchem.com": {
+       "names": [
+        "gaojingkai"
+       ],
+       "effective": 1,
+       "ins": 115,
+       "del": 30,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 1,
+     "start": "2026-08-08",
+     "end": "2026-08-14",
+     "workdays": 5,
+     "persons": {
+      "gaojingkai@ourchem.com": {
+       "names": [
+        "gaojingkai"
+       ],
+       "effective": 5,
+       "ins": 247,
+       "del": 10,
+       "activeDays": 2,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 2,
+     "start": "2026-08-15",
+     "end": "2026-08-21",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 3,
+     "start": "2026-08-22",
+     "end": "2026-08-28",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 4,
+     "start": "2026-08-29",
+     "end": "2026-09-04",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 5,
+     "start": "2026-09-05",
+     "end": "2026-09-11",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 6,
+     "start": "2026-09-12",
+     "end": "2026-09-18",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 7,
+     "start": "2026-09-19",
+     "end": "2026-09-25",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 8,
+     "start": "2026-09-26",
+     "end": "2026-10-02",
+     "workdays": 5,
+     "persons": {
+      "zhongjianghua@ourchem.com": {
+       "names": [
+        "zhongjianghua"
+       ],
+       "effective": 2,
+       "ins": 181,
+       "del": 36,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 9,
+     "start": "2026-10-03",
+     "end": "2026-10-09",
+     "workdays": 5,
+     "persons": {
+      "gaojingkai@ourchem.com": {
+       "names": [
+        "gaojingkai"
+       ],
+       "effective": 3,
+       "ins": 133,
+       "del": 102,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 10,
+     "start": "2026-10-10",
+     "end": "2026-10-16",
+     "workdays": 5,
+     "persons": {
+      "gaojingkai@ourchem.com": {
+       "names": [
+        "gaojingkai"
+       ],
+       "effective": 1,
+       "ins": 34,
+       "del": 0,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 11,
+     "start": "2026-10-17",
+     "end": "2026-10-23",
+     "workdays": 5,
+     "persons": {
+      "zhongjianghua@ourchem.com": {
+       "names": [
+        "zhongjianghua"
+       ],
+       "effective": 1,
+       "ins": 32,
+       "del": 31,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 12,
+     "start": "2026-10-24",
+     "end": "2026-10-30",
+     "workdays": 5,
+     "persons": {
+      "gaojingkai@ourchem.com": {
+       "names": [
+        "gaojingkai"
+       ],
+       "effective": 1,
+       "ins": 97,
+       "del": 1,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 13,
+     "start": "2026-10-31",
+     "end": "2026-11-06",
+     "workdays": 5,
+     "persons": {}
+    }
+   ],
+   "weekly": [
+    {
+     "label": "2026-08-01",
+     "start": "2026-08-01",
+     "end": "2026-08-07",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "ins": 115,
+     "del": 30
+    },
+    {
+     "label": "2026-08-08",
+     "start": "2026-08-08",
+     "end": "2026-08-14",
+     "commits": 6,
+     "effective": 5,
+     "authors": 1,
+     "ins": 247,
+     "del": 10
+    },
+    {
+     "label": "2026-08-15",
+     "start": "2026-08-15",
+     "end": "2026-08-21",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-08-22",
+     "start": "2026-08-22",
+     "end": "2026-08-28",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-08-29",
+     "start": "2026-08-29",
+     "end": "2026-09-04",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-05",
+     "start": "2026-09-05",
+     "end": "2026-09-11",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-12",
+     "start": "2026-09-12",
+     "end": "2026-09-18",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-19",
+     "start": "2026-09-19",
+     "end": "2026-09-25",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-26",
+     "start": "2026-09-26",
+     "end": "2026-10-02",
+     "commits": 3,
+     "effective": 2,
+     "authors": 1,
+     "ins": 181,
+     "del": 36
+    },
+    {
+     "label": "2026-10-03",
+     "start": "2026-10-03",
+     "end": "2026-10-09",
+     "commits": 3,
+     "effective": 3,
+     "authors": 1,
+     "ins": 133,
+     "del": 102
+    },
+    {
+     "label": "2026-10-10",
+     "start": "2026-10-10",
+     "end": "2026-10-16",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "ins": 34,
+     "del": 0
+    },
+    {
+     "label": "2026-10-17",
+     "start": "2026-10-17",
+     "end": "2026-10-23",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "ins": 32,
+     "del": 31
+    },
+    {
+     "label": "2026-10-24",
+     "start": "2026-10-24",
+     "end": "2026-10-30",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "ins": 97,
+     "del": 1
+    },
+    {
+     "label": "2026-10-31",
+     "start": "2026-10-31",
+     "end": "2026-11-06",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    }
+   ],
+   "statsWorkdays": 70,
+   "mainBranch": {
+    "branch": "master-pro",
+    "ref": "origin/master-pro",
+    "lastActive": "2026-10-22"
+   },
+   "branchPos": [
+    {
+     "name": "v5.14.0",
+     "ref": "origin/v5.14.0",
+     "ahead": 0,
+     "behind": 0,
+     "forkDate": "2026-10-22",
+     "staleDays": 15,
+     "lastActive": "2026-10-22"
+    },
+    {
+     "name": "feat-1016010-收藏夹支持检索",
+     "ref": "origin/feat-1016010-收藏夹支持检索",
+     "ahead": 1,
+     "behind": 1,
+     "forkDate": "2026-10-09",
+     "staleDays": 28,
+     "lastActive": "2026-10-16"
+    },
+    {
+     "name": "feat-1016189-专利分析技术生命周期优化",
+     "ref": "origin/feat-1016189-专利分析技术生命周期优化",
+     "ahead": 1,
+     "behind": 1,
+     "forkDate": "2026-10-09",
+     "staleDays": 28,
+     "lastActive": "2026-10-27"
+    }
+   ],
+   "checkedOut": "master-pro",
+   "quality": {
+    "mode": "工作副本（当前检出分支口径 §1.6）",
+    "checkedOut": "master-pro",
+    "languages": [
+     {
+      "ext": ".dic",
+      "files": 22,
+      "lines": 1406474
+     },
+     {
+      "ext": ".java",
+      "files": 466,
+      "lines": 49845
+     },
+     {
+      "ext": ".xml",
+      "files": 34,
+      "lines": 8635
+     },
+     {
+      "ext": ".json",
+      "files": 13,
+      "lines": 3423
+     },
+     {
+      "ext": ".interp",
+      "files": 9,
+      "lines": 653
+     },
+     {
+      "ext": ".versionsbackup",
+      "files": 5,
+      "lines": 626
+     },
+     {
+      "ext": ".tokens",
+      "files": 9,
+      "lines": 279
+     },
+     {
+      "ext": ".g4",
+      "files": 3,
+      "lines": 208
+     },
+     {
+      "ext": ".sh",
+      "files": 2,
+      "lines": 196
+     },
+     {
+      "ext": ".yml",
+      "files": 4,
+      "lines": 191
+     },
+     {
+      "ext": "(无扩展名)",
+      "files": 5,
+      "lines": 55
+     },
+     {
+      "ext": ".txt",
+      "files": 3,
+      "lines": 10
+     }
+    ],
+    "largeFiles": [
+     {
+      "path": "ourchem-data-parser/config/analysis-ik-ourchem/extra_main.dic",
+      "lines": 398716
+     },
+     {
+      "path": "ourchem-data-parser/config/extra_main.dic",
+      "lines": 398716
+     },
+     {
+      "path": "ourchem-data-parser/config/analysis-ik-ourchem/main.dic",
+      "lines": 275909
+     },
+     {
+      "path": "ourchem-data-parser/config/main.dic",
+      "lines": 275909
+     },
+     {
+      "path": "ourchem-data-parser/config/analysis-ik-ourchem/extra_single_word.dic",
+      "lines": 12638
+     }
+    ],
+    "todoTotal": 174,
+    "todoTop": [
+     {
+      "path": "ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/HbaseDetailFetchService.java",
+      "count": 9
+     },
+     {
+      "path": "ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/ModelService.java",
+      "count": 7
+     },
+     {
+      "path": "ourchem-data-server/src/main/java/com/ourchem/data/server/service/HbaseToolService.java",
+      "count": 5
+     },
+     {
+      "path": "ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/ElasticQueryEngine.java",
+      "count": 4
+     },
+     {
+      "path": "ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/IntegrationElasticQueryEngine.java",
+      "count": 4
+     },
+     {
+      "path": "ourchem-data-server/src/main/java/com/ourchem/data/server/service/DefaultFileService.java",
+      "count": 4
+     },
+     {
+      "path": "ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/exception/ParseError.java",
+      "count": 3
+     },
+     {
+      "path": "ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/exception/ParseException.java",
+      "count": 3
+     },
+     {
+      "path": "ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/exception/QueryError.java",
+      "count": 3
+     },
+     {
+      "path": "ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/exception/RejectError.java",
+      "count": 3
+     }
+    ],
+    "stockTestFiles": 16,
+    "trackedFiles": 578
+   },
+   "lifetime": {
+    "first": "2020-05-12",
+    "last": "2026-11-05",
+    "totalCommits": 2171,
+    "authors": 16,
+    "monthly": {
+     "2026-11": 13,
+     "2026-10": 33,
+     "2026-09": 47,
+     "2026-07": 45,
+     "2026-08": 16,
+     "2026-06": 24,
+     "2026-05": 13,
+     "2026-04": 4,
+     "2026-03": 16,
+     "2026-02": 2,
+     "2026-01": 4,
+     "2025-12": 17,
+     "2025-11": 15,
+     "2025-10": 12,
+     "2025-09": 4,
+     "2025-08": 15,
+     "2025-07": 5,
+     "2025-06": 5,
+     "2025-05": 27,
+     "2025-04": 8,
+     "2025-03": 2,
+     "2025-02": 12,
+     "2025-01": 4,
+     "2024-12": 5,
+     "2024-11": 21,
+     "2024-10": 1,
+     "2024-09": 3,
+     "2024-08": 8,
+     "2024-07": 17,
+     "2024-06": 5,
+     "2024-05": 7,
+     "2024-03": 1,
+     "2024-02": 11,
+     "2024-01": 10,
+     "2023-12": 12,
+     "2023-11": 14,
+     "2023-10": 6,
+     "2023-09": 22,
+     "2023-08": 14,
+     "2023-07": 12,
+     "2023-06": 15,
+     "2023-05": 19,
+     "2023-04": 13,
+     "2023-03": 55,
+     "2023-02": 16,
+     "2023-01": 15,
+     "2022-12": 14,
+     "2022-11": 18,
+     "2022-10": 9,
+     "2022-09": 14,
+     "2022-08": 27,
+     "2022-07": 23,
+     "2022-06": 26,
+     "2022-05": 34,
+     "2022-04": 38,
+     "2022-03": 59,
+     "2022-02": 15,
+     "2022-01": 32,
+     "2021-12": 54,
+     "2021-11": 52,
+     "2021-10": 32,
+     "2021-09": 27,
+     "2021-08": 16,
+     "2021-07": 45,
+     "2021-06": 37,
+     "2021-05": 110,
+     "2021-04": 66,
+     "2021-03": 46,
+     "2021-02": 28,
+     "2021-01": 34,
+     "2020-12": 77,
+     "2020-11": 107,
+     "2020-10": 68,
+     "2020-09": 116,
+     "2020-08": 101,
+     "2020-07": 94,
+     "2020-06": 87,
+     "2020-05": 20
+    },
+    "monthlyCount": 78,
+    "topAuthors": [
+     {
+      "key": "zhouzhaokang@ourchem.com",
+      "commits": 506
+     },
+     {
+      "key": "frankkun02@sina.com",
+      "commits": 454
+     },
+     {
+      "key": "578038303@qq.com",
+      "commits": 414
+     },
+     {
+      "key": "huangjunjie@ourchem.com",
+      "commits": 349
+     },
+     {
+      "key": "gaojingkai@ourchem.com",
+      "commits": 177
+     }
+    ]
+   }
+  },
+  {
+   "name": "ourchem-middle-service",
+   "path": ".projects/patyee\\ourchem-middle-service",
+   "branches": {
+    "master-pro": {
+     "ref": "origin/master-pro",
+     "logFile": "_evidence/raw/ourchem-middle-service__master-pro.log.txt",
+     "numstatFile": "_evidence/raw/ourchem-middle-service__master-pro.numstat.txt",
+     "rawLines": 4
+    },
+    "feat-1016188-登录释放策略优化": {
+     "ref": "origin/feat-1016188-登录释放策略优化",
+     "logFile": "_evidence/raw/ourchem-middle-service__feat-1016188-登录释放策略优化.log.txt",
+     "numstatFile": "_evidence/raw/ourchem-middle-service__feat-1016188-登录释放策略优化.numstat.txt",
+     "rawLines": 8
+    }
+   },
+   "errors": [],
+   "hasRemote": true,
+   "window": {
+    "total": 0,
+    "effective": 0,
+    "merge": 0,
+    "ins": 0,
+    "del": 0,
+    "authors": 0,
+    "big": [],
+    "trivial": [],
+    "classification": {
+     "feat": 0,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {},
+    "commits": []
+   },
+   "today": {
+    "total": 0,
+    "effective": 0,
+    "merge": 0,
+    "ins": 0,
+    "del": 0,
+    "authors": 0,
+    "big": [],
+    "trivial": [],
+    "classification": {
+     "feat": 0,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {},
+    "commits": []
+   },
+   "lastCommitDayBeforeToday": "2026-10-21",
+   "daily": {
+    "2026-10-09": 1,
+    "2026-10-19": 3,
+    "2026-10-20": 1,
+    "2026-10-21": 2
+   },
+   "dayDetail": {
+    "2026-10-09": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 28,
+     "del": 13,
+     "authors": [
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-10-19": {
+     "commits": 3,
+     "effective": 3,
+     "ins": 39,
+     "del": 1,
+     "authors": [
+      "zcy8883680"
+     ]
+    },
+    "2026-10-20": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 1,
+     "del": 1,
+     "authors": [
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-10-21": {
+     "commits": 2,
+     "effective": 1,
+     "ins": 1,
+     "del": 1,
+     "authors": [
+      "zhongjianghua@ourchem.com"
+     ]
+    }
+   },
+   "saturationWindows": [
+    {
+     "idx": 0,
+     "start": "2026-08-01",
+     "end": "2026-08-07",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 1,
+     "start": "2026-08-08",
+     "end": "2026-08-14",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 2,
+     "start": "2026-08-15",
+     "end": "2026-08-21",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 3,
+     "start": "2026-08-22",
+     "end": "2026-08-28",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 4,
+     "start": "2026-08-29",
+     "end": "2026-09-04",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 5,
+     "start": "2026-09-05",
+     "end": "2026-09-11",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 6,
+     "start": "2026-09-12",
+     "end": "2026-09-18",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 7,
+     "start": "2026-09-19",
+     "end": "2026-09-25",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 8,
+     "start": "2026-09-26",
+     "end": "2026-10-02",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 9,
+     "start": "2026-10-03",
+     "end": "2026-10-09",
+     "workdays": 5,
+     "persons": {
+      "zhongjianghua@ourchem.com": {
+       "names": [
+        "zhongjianghua"
+       ],
+       "effective": 1,
+       "ins": 28,
+       "del": 13,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 10,
+     "start": "2026-10-10",
+     "end": "2026-10-16",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 11,
+     "start": "2026-10-17",
+     "end": "2026-10-23",
+     "workdays": 5,
+     "persons": {
+      "zcy8883680": {
+       "names": [
+        "zhongchengyou"
+       ],
+       "effective": 3,
+       "ins": 39,
+       "del": 1,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      },
+      "zhongjianghua@ourchem.com": {
+       "names": [
+        "zhongjianghua"
+       ],
+       "effective": 2,
+       "ins": 2,
+       "del": 2,
+       "activeDays": 2,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 12,
+     "start": "2026-10-24",
+     "end": "2026-10-30",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 13,
+     "start": "2026-10-31",
+     "end": "2026-11-06",
+     "workdays": 5,
+     "persons": {}
+    }
+   ],
+   "weekly": [
+    {
+     "label": "2026-08-01",
+     "start": "2026-08-01",
+     "end": "2026-08-07",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-08-08",
+     "start": "2026-08-08",
+     "end": "2026-08-14",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-08-15",
+     "start": "2026-08-15",
+     "end": "2026-08-21",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-08-22",
+     "start": "2026-08-22",
+     "end": "2026-08-28",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-08-29",
+     "start": "2026-08-29",
+     "end": "2026-09-04",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-05",
+     "start": "2026-09-05",
+     "end": "2026-09-11",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-12",
+     "start": "2026-09-12",
+     "end": "2026-09-18",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-19",
+     "start": "2026-09-19",
+     "end": "2026-09-25",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-26",
+     "start": "2026-09-26",
+     "end": "2026-10-02",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-03",
+     "start": "2026-10-03",
+     "end": "2026-10-09",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "ins": 28,
+     "del": 13
+    },
+    {
+     "label": "2026-10-10",
+     "start": "2026-10-10",
+     "end": "2026-10-16",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-17",
+     "start": "2026-10-17",
+     "end": "2026-10-23",
+     "commits": 6,
+     "effective": 5,
+     "authors": 2,
+     "ins": 41,
+     "del": 3
+    },
+    {
+     "label": "2026-10-24",
+     "start": "2026-10-24",
+     "end": "2026-10-30",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-31",
+     "start": "2026-10-31",
+     "end": "2026-11-06",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    }
+   ],
+   "statsWorkdays": 70,
+   "mainBranch": {
+    "branch": "master-pro",
+    "ref": "origin/master-pro",
+    "lastActive": "2026-10-19"
+   },
+   "branchPos": [
+    {
+     "name": "feat-1016188-登录释放策略优化",
+     "ref": "origin/feat-1016188-登录释放策略优化",
+     "ahead": 4,
+     "behind": 0,
+     "forkDate": "2026-10-19",
+     "staleDays": 18,
+     "lastActive": "2026-10-21"
+    }
+   ],
+   "checkedOut": "master-pro",
+   "quality": {
+    "mode": "工作副本（当前检出分支口径 §1.6）",
+    "checkedOut": "master-pro",
+    "languages": [
+     {
+      "ext": ".java",
+      "files": 65,
+      "lines": 5447
+     },
+     {
+      "ext": ".json",
+      "files": 1,
+      "lines": 3077
+     },
+     {
+      "ext": ".xml",
+      "files": 2,
+      "lines": 224
+     },
+     {
+      "ext": ".sh",
+      "files": 1,
+      "lines": 98
+     },
+     {
+      "ext": ".yml",
+      "files": 3,
+      "lines": 83
+     },
+     {
+      "ext": "(无扩展名)",
+      "files": 1,
+      "lines": 52
+     },
+     {
+      "ext": ".md",
+      "files": 1,
+      "lines": 1
+     }
+    ],
+    "largeFiles": [
+     {
+      "path": "src/main/resources/highSchool/school.json",
+      "lines": 3077
+     }
+    ],
+    "todoTotal": 12,
+    "todoTop": [
+     {
+      "path": "src/main/java/com/ourchem/middle/service/util/RedisUtils.java",
+      "count": 2
+     },
+     {
+      "path": "src/main/java/com/ourchem/middle/service/component/CallApiRecordAspect.java",
+      "count": 1
+     },
+     {
+      "path": "src/main/java/com/ourchem/middle/service/config/JsonInitConfig.java",
+      "count": 1
+     },
+     {
+      "path": "src/main/java/com/ourchem/middle/service/constants/SchoolConstant.java",
+      "count": 1
+     },
+     {
+      "path": "src/main/java/com/ourchem/middle/service/dto/AnalyWordCloudRespDTO.java",
+      "count": 1
+     },
+     {
+      "path": "src/main/java/com/ourchem/middle/service/dto/TryoutAccountReqDTO.java",
+      "count": 1
+     },
+     {
+      "path": "src/main/java/com/ourchem/middle/service/req/dto/BusinessQueryParam.java",
+      "count": 1
+     },
+     {
+      "path": "src/main/java/com/ourchem/middle/service/req/dto/DocumentPathDto.java",
+      "count": 1
+     },
+     {
+      "path": "src/main/java/com/ourchem/middle/service/req/dto/HighSchoolQueryParam.java",
+      "count": 1
+     },
+     {
+      "path": "src/main/java/com/ourchem/middle/service/rest/CustomOauthController.java",
+      "count": 1
+     }
+    ],
+    "stockTestFiles": 2,
+    "trackedFiles": 74
+   },
+   "lifetime": {
+    "first": "2020-06-23",
+    "last": "2026-10-30",
+    "totalCommits": 262,
+    "authors": 15,
+    "monthly": {
+     "2026-10": 12,
+     "2026-06": 1,
+     "2026-05": 2,
+     "2026-04": 4,
+     "2026-03": 3,
+     "2025-12": 9,
+     "2025-11": 4,
+     "2025-10": 4,
+     "2025-09": 2,
+     "2025-08": 3,
+     "2025-07": 1,
+     "2025-06": 4,
+     "2025-05": 7,
+     "2025-04": 6,
+     "2025-03": 3,
+     "2025-02": 3,
+     "2024-11": 11,
+     "2024-07": 12,
+     "2024-06": 7,
+     "2024-05": 1,
+     "2024-04": 1,
+     "2024-02": 12,
+     "2024-01": 8,
+     "2023-12": 1,
+     "2023-11": 1,
+     "2023-07": 1,
+     "2023-06": 1,
+     "2023-03": 7,
+     "2023-04": 1,
+     "2023-01": 2,
+     "2022-12": 1,
+     "2022-11": 9,
+     "2022-10": 9,
+     "2022-09": 10,
+     "2022-08": 4,
+     "2022-06": 2,
+     "2022-01": 2,
+     "2021-12": 10,
+     "2021-11": 2,
+     "2021-09": 1,
+     "2021-08": 10,
+     "2021-06": 4,
+     "2021-05": 7,
+     "2021-04": 2,
+     "2021-03": 6,
+     "2021-02": 1,
+     "2021-01": 4,
+     "2020-12": 17,
+     "2020-11": 3,
+     "2020-09": 4,
+     "2020-08": 4,
+     "2020-07": 10,
+     "2020-06": 6
+    },
+    "monthlyCount": 53,
+    "topAuthors": [
+     {
+      "key": "zhouzhaokang@ourchem.com",
+      "commits": 54
+     },
+     {
+      "key": "zengdong@ourchem.com",
+      "commits": 46
+     },
+     {
+      "key": "huangjunjie@ourchem.com",
+      "commits": 42
+     },
+     {
+      "key": "zjy@ourchem.com",
+      "commits": 41
+     },
+     {
+      "key": "578038303@qq.com",
+      "commits": 21
+     }
+    ]
+   }
+  },
+  {
+   "name": "ourchem-oauth",
+   "path": ".projects/patyee\\ourchem-oauth",
+   "branches": {
+    "master-pro": {
+     "ref": "origin/master-pro",
+     "logFile": "_evidence/raw/ourchem-oauth__master-pro.log.txt",
+     "numstatFile": "_evidence/raw/ourchem-oauth__master-pro.numstat.txt",
+     "rawLines": 19
+    },
+    "v5.17-1016188-登录释放策略优化": {
+     "ref": "origin/v5.17-1016188-登录释放策略优化",
+     "logFile": "_evidence/raw/ourchem-oauth__v5.17-1016188-登录释放策略优化.log.txt",
+     "numstatFile": "_evidence/raw/ourchem-oauth__v5.17-1016188-登录释放策略优化.numstat.txt",
+     "rawLines": 33
+    }
+   },
+   "errors": [],
+   "hasRemote": true,
+   "window": {
+    "total": 0,
+    "effective": 0,
+    "merge": 0,
+    "ins": 0,
+    "del": 0,
+    "authors": 0,
+    "big": [],
+    "trivial": [],
+    "classification": {
+     "feat": 0,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {},
+    "commits": []
+   },
+   "today": {
+    "total": 0,
+    "effective": 0,
+    "merge": 0,
+    "ins": 0,
+    "del": 0,
+    "authors": 0,
+    "big": [],
+    "trivial": [],
+    "classification": {
+     "feat": 0,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {},
+    "commits": []
+   },
+   "lastCommitDayBeforeToday": "2026-10-22",
+   "daily": {
+    "2026-08-05": 1,
+    "2026-08-26": 1,
+    "2026-09-03": 1,
+    "2026-09-14": 1,
+    "2026-09-17": 1,
+    "2026-09-21": 1,
+    "2026-10-08": 1,
+    "2026-10-09": 2,
+    "2026-10-10": 1,
+    "2026-10-15": 2,
+    "2026-10-19": 1,
+    "2026-10-20": 2,
+    "2026-10-21": 3,
+    "2026-10-22": 5
+   },
+   "dayDetail": {
+    "2026-08-05": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 101,
+     "del": 10,
+     "authors": [
+      "suguangluan@ourchem.com"
+     ]
+    },
+    "2026-08-26": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 86,
+     "del": 0,
+     "authors": [
+      "zcy8883680"
+     ]
+    },
+    "2026-09-03": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 53,
+     "del": 19,
+     "authors": [
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-09-14": {
+     "commits": 1,
+     "effective": 0,
+     "ins": 0,
+     "del": 0,
+     "authors": []
+    },
+    "2026-09-17": {
+     "commits": 1,
+     "effective": 0,
+     "ins": 0,
+     "del": 0,
+     "authors": []
+    },
+    "2026-09-21": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 71,
+     "del": 0,
+     "authors": [
+      "gaojingkai@ourchem.com"
+     ]
+    },
+    "2026-10-08": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 3,
+     "del": 3,
+     "authors": [
+      "gaojingkai@ourchem.com"
+     ]
+    },
+    "2026-10-09": {
+     "commits": 2,
+     "effective": 2,
+     "ins": 1645,
+     "del": 112,
+     "authors": [
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-10-10": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 43,
+     "del": 26,
+     "authors": [
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-10-15": {
+     "commits": 2,
+     "effective": 2,
+     "ins": 99,
+     "del": 5,
+     "authors": [
+      "zcy8883680"
+     ]
+    },
+    "2026-10-19": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 1427,
+     "del": 17,
+     "authors": [
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-10-20": {
+     "commits": 2,
+     "effective": 2,
+     "ins": 5,
+     "del": 5,
+     "authors": [
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-10-21": {
+     "commits": 3,
+     "effective": 1,
+     "ins": 151,
+     "del": 42,
+     "authors": [
+      "zhongjianghua@ourchem.com"
+     ]
+    },
+    "2026-10-22": {
+     "commits": 5,
+     "effective": 4,
+     "ins": 699,
+     "del": 562,
+     "authors": [
+      "zhongjianghua@ourchem.com"
+     ]
+    }
+   },
+   "saturationWindows": [
+    {
+     "idx": 0,
+     "start": "2026-08-01",
+     "end": "2026-08-07",
+     "workdays": 5,
+     "persons": {
+      "suguangluan@ourchem.com": {
+       "names": [
+        "sususu"
+       ],
+       "effective": 1,
+       "ins": 101,
+       "del": 10,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 1,
+     "start": "2026-08-08",
+     "end": "2026-08-14",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 2,
+     "start": "2026-08-15",
+     "end": "2026-08-21",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 3,
+     "start": "2026-08-22",
+     "end": "2026-08-28",
+     "workdays": 5,
+     "persons": {
+      "zcy8883680": {
+       "names": [
+        "zhongchengyou"
+       ],
+       "effective": 1,
+       "ins": 86,
+       "del": 0,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 4,
+     "start": "2026-08-29",
+     "end": "2026-09-04",
+     "workdays": 5,
+     "persons": {
+      "zhongjianghua@ourchem.com": {
+       "names": [
+        "zhongjianghua"
+       ],
+       "effective": 1,
+       "ins": 53,
+       "del": 19,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 5,
+     "start": "2026-09-05",
+     "end": "2026-09-11",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 6,
+     "start": "2026-09-12",
+     "end": "2026-09-18",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 7,
+     "start": "2026-09-19",
+     "end": "2026-09-25",
+     "workdays": 5,
+     "persons": {
+      "gaojingkai@ourchem.com": {
+       "names": [
+        "gaojingkai"
+       ],
+       "effective": 1,
+       "ins": 71,
+       "del": 0,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 8,
+     "start": "2026-09-26",
+     "end": "2026-10-02",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 9,
+     "start": "2026-10-03",
+     "end": "2026-10-09",
+     "workdays": 5,
+     "persons": {
+      "gaojingkai@ourchem.com": {
+       "names": [
+        "gaojingkai"
+       ],
+       "effective": 1,
+       "ins": 3,
+       "del": 3,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      },
+      "zhongjianghua@ourchem.com": {
+       "names": [
+        "zhongjianghua"
+       ],
+       "effective": 2,
+       "ins": 1645,
+       "del": 112,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 10,
+     "start": "2026-10-10",
+     "end": "2026-10-16",
+     "workdays": 5,
+     "persons": {
+      "zcy8883680": {
+       "names": [
+        "zhongchengyou"
+       ],
+       "effective": 2,
+       "ins": 99,
+       "del": 5,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      },
+      "zhongjianghua@ourchem.com": {
+       "names": [
+        "zhongjianghua"
+       ],
+       "effective": 1,
+       "ins": 43,
+       "del": 26,
+       "activeDays": 1,
+       "nonworkCommits": 1
+      }
+     }
+    },
+    {
+     "idx": 11,
+     "start": "2026-10-17",
+     "end": "2026-10-23",
+     "workdays": 5,
+     "persons": {
+      "zhongjianghua@ourchem.com": {
+       "names": [
+        "zhongjianghua"
+       ],
+       "effective": 8,
+       "ins": 2282,
+       "del": 626,
+       "activeDays": 4,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 12,
+     "start": "2026-10-24",
+     "end": "2026-10-30",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 13,
+     "start": "2026-10-31",
+     "end": "2026-11-06",
+     "workdays": 5,
+     "persons": {}
+    }
+   ],
+   "weekly": [
+    {
+     "label": "2026-08-01",
+     "start": "2026-08-01",
+     "end": "2026-08-07",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "ins": 101,
+     "del": 10
+    },
+    {
+     "label": "2026-08-08",
+     "start": "2026-08-08",
+     "end": "2026-08-14",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-08-15",
+     "start": "2026-08-15",
+     "end": "2026-08-21",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-08-22",
+     "start": "2026-08-22",
+     "end": "2026-08-28",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "ins": 86,
+     "del": 0
+    },
+    {
+     "label": "2026-08-29",
+     "start": "2026-08-29",
+     "end": "2026-09-04",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "ins": 53,
+     "del": 19
+    },
+    {
+     "label": "2026-09-05",
+     "start": "2026-09-05",
+     "end": "2026-09-11",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-12",
+     "start": "2026-09-12",
+     "end": "2026-09-18",
+     "commits": 2,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-19",
+     "start": "2026-09-19",
+     "end": "2026-09-25",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "ins": 71,
+     "del": 0
+    },
+    {
+     "label": "2026-09-26",
+     "start": "2026-09-26",
+     "end": "2026-10-02",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-03",
+     "start": "2026-10-03",
+     "end": "2026-10-09",
+     "commits": 3,
+     "effective": 3,
+     "authors": 2,
+     "ins": 1648,
+     "del": 115
+    },
+    {
+     "label": "2026-10-10",
+     "start": "2026-10-10",
+     "end": "2026-10-16",
+     "commits": 3,
+     "effective": 3,
+     "authors": 2,
+     "ins": 142,
+     "del": 31
+    },
+    {
+     "label": "2026-10-17",
+     "start": "2026-10-17",
+     "end": "2026-10-23",
+     "commits": 11,
+     "effective": 8,
+     "authors": 1,
+     "ins": 2282,
+     "del": 626
+    },
+    {
+     "label": "2026-10-24",
+     "start": "2026-10-24",
+     "end": "2026-10-30",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-31",
+     "start": "2026-10-31",
+     "end": "2026-11-06",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    }
+   ],
+   "statsWorkdays": 70,
+   "mainBranch": {
+    "branch": "master-pro",
+    "ref": "origin/master-pro",
+    "lastActive": "2026-10-15"
+   },
+   "branchPos": [
+    {
+     "name": "v5.17-1016188-登录释放策略优化",
+     "ref": "origin/v5.17-1016188-登录释放策略优化",
+     "ahead": 14,
+     "behind": 0,
+     "forkDate": "2026-10-15",
+     "staleDays": 22,
+     "lastActive": "2026-10-22"
+    }
+   ],
+   "checkedOut": "master-pro",
+   "quality": {
+    "mode": "工作副本（当前检出分支口径 §1.6）",
+    "checkedOut": "master-pro",
+    "languages": [
+     {
+      "ext": ".java",
+      "files": 359,
+      "lines": 34347
+     },
+     {
+      "ext": ".xml",
+      "files": 63,
+      "lines": 10362
+     },
+     {
+      "ext": ".versionsbackup",
+      "files": 5,
+      "lines": 317
+     },
+     {
+      "ext": ".yml",
+      "files": 8,
+      "lines": 256
+     },
+     {
+      "ext": ".sh",
+      "files": 2,
+      "lines": 108
+     },
+     {
+      "ext": "(无扩展名)",
+      "files": 6,
+      "lines": 56
+     },
+     {
+      "ext": ".properties",
+      "files": 1,
+      "lines": 5
+     },
+     {
+      "ext": ".md",
+      "files": 1,
+      "lines": 2
+     }
+    ],
+    "largeFiles": [
+     {
+      "path": "ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/service/UserDetailsServiceImpl.java",
+      "lines": 1689
+     }
+    ],
+    "todoTotal": 140,
+    "todoTop": [
+     {
+      "path": "ourchem-oauth-local/src/main/java/com/ourchem/oauth/local/entity/ClientDetailsInfo.java",
+      "count": 13
+     },
+     {
+      "path": "ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/entity/ClientDetailsInfo.java",
+      "count": 13
+     },
+     {
+      "path": "ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/service/UserDetailsServiceImpl.java",
+      "count": 10
+     },
+     {
+      "path": "ourchem-oauth-local/src/main/java/com/ourchem/oauth/local/entity/UserDetailsInfo.java",
+      "count": 7
+     },
+     {
+      "path": "ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/entity/UserDetailsInfo.java",
+      "count": 7
+     },
+     {
+      "path": "ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/provider/OurchemProviderBase.java",
+      "count": 5
+     },
+     {
+      "path": "ourchem-oauth-api/src/main/java/com/ourchem/oauth/api/common/OurchemClientAuthToken.java",
+      "count": 4
+     },
+     {
+      "path": "ourchem-oauth-api/src/main/java/com/ourchem/oauth/api/common/OurchemAuthenticationToken.java",
+      "count": 3
+     },
+     {
+      "path": "ourchem-oauth-config/src/main/java/com/ourchem/oauth/resources/exception/AccessError.java",
+      "count": 3
+     },
+     {
+      "path": "ourchem-oauth-local/src/main/java/com/ourchem/oauth/local/service/UserDetailsServiceImpl.java",
+      "count": 3
+     }
+    ],
+    "stockTestFiles": 10,
+    "trackedFiles": 447
+   },
+   "lifetime": {
+    "first": "2020-04-27",
+    "last": "2026-11-06",
+    "totalCommits": 1233,
+    "authors": 25,
+    "monthly": {
+     "2026-11": 2,
+     "2026-10": 33,
+     "2026-09": 6,
+     "2026-07": 7,
+     "2026-08": 4,
+     "2026-06": 5,
+     "2026-05": 3,
+     "2026-04": 7,
+     "2026-03": 6,
+     "2026-02": 2,
+     "2026-01": 17,
+     "2025-12": 20,
+     "2024-08": 5,
+     "2025-11": 11,
+     "2025-10": 4,
+     "2025-09": 2,
+     "2025-08": 3,
+     "2025-07": 3,
+     "2025-06": 2,
+     "2025-05": 4,
+     "2025-04": 7,
+     "2025-03": 10,
+     "2025-02": 8,
+     "2025-01": 3,
+     "2024-12": 11,
+     "2024-11": 4,
+     "2024-10": 1,
+     "2024-09": 2,
+     "2024-07": 10,
+     "2024-06": 5,
+     "2023-05": 23,
+     "2024-05": 6,
+     "2024-04": 14,
+     "2024-03": 9,
+     "2024-02": 15,
+     "2024-01": 34,
+     "2023-12": 5,
+     "2023-11": 5,
+     "2023-10": 1,
+     "2023-09": 6,
+     "2023-08": 13,
+     "2023-07": 18,
+     "2023-06": 6,
+     "2023-03": 56,
+     "2023-04": 27,
+     "2023-02": 10,
+     "2023-01": 9,
+     "2022-12": 27,
+     "2022-11": 86,
+     "2022-10": 17,
+     "2022-09": 29,
+     "2022-08": 48,
+     "2022-07": 6,
+     "2022-06": 16,
+     "2022-03": 5,
+     "2022-02": 2,
+     "2022-01": 4,
+     "2021-12": 11,
+     "2021-11": 1,
+     "2021-10": 11,
+     "2021-08": 9,
+     "2021-07": 11,
+     "2021-06": 16,
+     "2021-05": 28,
+     "2021-04": 2,
+     "2021-03": 66,
+     "2021-02": 15,
+     "2021-01": 16,
+     "2020-12": 37,
+     "2020-11": 33,
+     "2020-10": 54,
+     "2020-09": 32,
+     "2020-08": 17,
+     "2020-07": 82,
+     "2020-06": 59,
+     "2020-05": 24,
+     "2020-04": 5
+    },
+    "monthlyCount": 77,
+    "topAuthors": [
+     {
+      "key": "zhouzhaokang@ourchem.com",
+      "commits": 277
+     },
+     {
+      "key": "zengdong@ourchem.com",
+      "commits": 266
+     },
+     {
+      "key": "578038303@qq.com",
+      "commits": 153
+     },
+     {
+      "key": "zjy@ourchem.com",
+      "commits": 142
+     },
+     {
+      "key": "huangjunjie@ourchem.com",
+      "commits": 97
+     }
+    ]
+   }
+  },
+  {
+   "name": "lucene",
+   "path": ".projects/patyee\\lucene",
+   "branches": {
+    "master": {
+     "ref": "origin/master",
+     "logFile": "_evidence/raw/lucene__master.log.txt",
+     "numstatFile": "_evidence/raw/lucene__master.numstat.txt",
+     "rawLines": 0
+    },
+    "v4.2.0": {
+     "ref": "origin/v4.2.0",
+     "logFile": "_evidence/raw/lucene__v4.2.0.log.txt",
+     "numstatFile": "_evidence/raw/lucene__v4.2.0.numstat.txt",
+     "rawLines": 1
+    }
+   },
+   "errors": [],
+   "hasRemote": true,
+   "window": {
+    "total": 0,
+    "effective": 0,
+    "merge": 0,
+    "ins": 0,
+    "del": 0,
+    "authors": 0,
+    "big": [],
+    "trivial": [],
+    "classification": {
+     "feat": 0,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {},
+    "commits": []
+   },
+   "today": {
+    "total": 0,
+    "effective": 0,
+    "merge": 0,
+    "ins": 0,
+    "del": 0,
+    "authors": 0,
+    "big": [],
+    "trivial": [],
+    "classification": {
+     "feat": 0,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {},
+    "commits": []
+   },
+   "lastCommitDayBeforeToday": "2026-10-29",
+   "daily": {
+    "2026-10-29": 1
+   },
+   "dayDetail": {
+    "2026-10-29": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 9,
+     "del": 1,
+     "authors": [
+      "wujm@ourchem.com"
+     ]
+    }
+   },
+   "saturationWindows": [
+    {
+     "idx": 0,
+     "start": "2026-08-01",
+     "end": "2026-08-07",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 1,
+     "start": "2026-08-08",
+     "end": "2026-08-14",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 2,
+     "start": "2026-08-15",
+     "end": "2026-08-21",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 3,
+     "start": "2026-08-22",
+     "end": "2026-08-28",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 4,
+     "start": "2026-08-29",
+     "end": "2026-09-04",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 5,
+     "start": "2026-09-05",
+     "end": "2026-09-11",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 6,
+     "start": "2026-09-12",
+     "end": "2026-09-18",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 7,
+     "start": "2026-09-19",
+     "end": "2026-09-25",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 8,
+     "start": "2026-09-26",
+     "end": "2026-10-02",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 9,
+     "start": "2026-10-03",
+     "end": "2026-10-09",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 10,
+     "start": "2026-10-10",
+     "end": "2026-10-16",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 11,
+     "start": "2026-10-17",
+     "end": "2026-10-23",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 12,
+     "start": "2026-10-24",
+     "end": "2026-10-30",
+     "workdays": 5,
+     "persons": {
+      "wujm@ourchem.com": {
+       "names": [
+        "吴嘉明"
+       ],
+       "effective": 1,
+       "ins": 9,
+       "del": 1,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 13,
+     "start": "2026-10-31",
+     "end": "2026-11-06",
+     "workdays": 5,
+     "persons": {}
+    }
+   ],
+   "weekly": [
+    {
+     "label": "2026-08-01",
+     "start": "2026-08-01",
+     "end": "2026-08-07",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-08-08",
+     "start": "2026-08-08",
+     "end": "2026-08-14",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-08-15",
+     "start": "2026-08-15",
+     "end": "2026-08-21",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-08-22",
+     "start": "2026-08-22",
+     "end": "2026-08-28",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-08-29",
+     "start": "2026-08-29",
+     "end": "2026-09-04",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-05",
+     "start": "2026-09-05",
+     "end": "2026-09-11",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-12",
+     "start": "2026-09-12",
+     "end": "2026-09-18",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-19",
+     "start": "2026-09-19",
+     "end": "2026-09-25",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-26",
+     "start": "2026-09-26",
+     "end": "2026-10-02",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-03",
+     "start": "2026-10-03",
+     "end": "2026-10-09",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-10",
+     "start": "2026-10-10",
+     "end": "2026-10-16",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-17",
+     "start": "2026-10-17",
+     "end": "2026-10-23",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-24",
+     "start": "2026-10-24",
+     "end": "2026-10-30",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "ins": 9,
+     "del": 1
+    },
+    {
+     "label": "2026-10-31",
+     "start": "2026-10-31",
+     "end": "2026-11-06",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    }
+   ],
+   "statsWorkdays": 70,
+   "mainBranch": {
+    "branch": "master",
+    "ref": "origin/master",
+    "lastActive": "2020-08-24"
+   },
+   "branchPos": [
+    {
+     "name": "v4.2.0",
+     "ref": "origin/v4.2.0",
+     "ahead": 4,
+     "behind": 0,
+     "forkDate": "2020-08-24",
+     "staleDays": 2265,
+     "lastActive": "2026-10-29"
+    }
+   ],
+   "checkedOut": "master",
+   "quality": {
+    "mode": "工作副本（当前检出分支口径 §1.6）",
+    "checkedOut": "master",
+    "languages": [
+     {
+      "ext": ".java",
+      "files": 4668,
+      "lines": 911215
+     },
+     {
+      "ext": ".txt",
+      "files": 260,
+      "lines": 90006
+     },
+     {
+      "ext": ".utf8",
+      "files": 2,
+      "lines": 50002
+     },
+     {
+      "ext": ".html",
+      "files": 82,
+      "lines": 24840
+     },
+     {
+      "ext": ".xml",
+      "files": 178,
+      "lines": 10486
+     },
+     {
+      "ext": ".py",
+      "files": 9,
+      "lines": 2591
+     },
+     {
+      "ext": ".rslp",
+      "files": 4,
+      "lines": 2178
+     },
+     {
+      "ext": ".jflex",
+      "files": 7,
+      "lines": 2056
+     },
+     {
+      "ext": ".alg",
+      "files": 34,
+      "lines": 1880
+     },
+     {
+      "ext": ".pl",
+      "files": 8,
+      "lines": 1782
+     },
+     {
+      "ext": ".jflex-macro",
+      "files": 1,
+      "lines": 1570
+     },
+     {
+      "ext": ".dtd",
+      "files": 7,
+      "lines": 1404
+     }
+    ],
+    "largeFiles": [
+     {
+      "path": "suggest/src/test/org/apache/lucene/search/suggest/Top50KWiki.utf8",
+      "lines": 50001
+     },
+     {
+      "path": "analysis/common/src/java/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizerImpl.java",
+      "lines": 41050
+     },
+     {
+      "path": "analysis/common/src/java/org/apache/lucene/analysis/charfilter/HTMLStripCharFilter.java",
+      "lines": 30961
+     },
+     {
+      "path": "spatial-extras/src/test-files/data/geonames-IE.txt",
+      "lines": 22929
+     },
+     {
+      "path": "docs/changes/Changes.html",
+      "lines": 17568
+     }
+    ],
+    "todoTotal": 1762,
+    "todoTop": [
+     {
+      "path": "test-framework/src/java/org/apache/lucene/geo/BaseGeoPointTestCase.java",
+      "count": 36
+     },
+     {
+      "path": "test-framework/src/java/org/apache/lucene/geo/BaseXYPointTestCase.java",
+      "count": 30
+     },
+     {
+      "path": "core/src/test/org/apache/lucene/document/TestLatLonShape.java",
+      "count": 21
+     },
+     {
+      "path": "codecs/src/java/org/apache/lucene/codecs/memory/DirectPostingsFormat.java",
+      "count": 19
+     },
+     {
+      "path": "core/src/test/org/apache/lucene/index/TestDemoParallelLeafReader.java",
+      "count": 19
+     },
+     {
+      "path": "analysis/common/src/test/org/apache/lucene/analysis/core/TestRandomChains.java",
+      "count": 18
+     },
+     {
+      "path": "core/src/java/org/apache/lucene/index/IndexWriter.java",
+      "count": 17
+     },
+     {
+      "path": "test-framework/src/java/org/apache/lucene/util/LuceneTestCase.java",
+      "count": 17
+     },
+     {
+      "path": "core/src/java/org/apache/lucene/util/SloppyMath.java",
+      "count": 16
+     },
+     {
+      "path": "core/src/test/org/apache/lucene/util/fst/TestFSTs.java",
+      "count": 14
+     }
+    ],
+    "stockTestFiles": 1894,
+    "trackedFiles": 5908
+   },
+   "lifetime": {
+    "first": "2020-08-24",
+    "last": "2026-10-29",
+    "totalCommits": 8,
+    "authors": 4,
+    "monthly": {
+     "2026-10": 1,
+     "2022-05": 3,
+     "2020-08": 4
+    },
+    "monthlyCount": 3,
+    "topAuthors": [
+     {
+      "key": "zhouzhaokang@ourchem.com",
+      "commits": 3
+     },
+     {
+      "key": "578038303@qq.com",
+      "commits": 3
+     },
+     {
+      "key": "wujm@ourchem.com",
+      "commits": 1
+     },
+     {
+      "key": "moxuqiang@ourchem.com",
+      "commits": 1
+     }
+    ]
+   }
+  },
+  {
+   "name": "image-search-v2",
+   "path": ".projects/patyee\\image-search-v2",
+   "branches": {
+    "master": {
+     "ref": "origin/master",
+     "logFile": "_evidence/raw/image-search-v2__master.log.txt",
+     "numstatFile": "_evidence/raw/image-search-v2__master.numstat.txt",
+     "rawLines": 1
+    }
+   },
+   "errors": [],
+   "hasRemote": true,
+   "window": {
+    "total": 0,
+    "effective": 0,
+    "merge": 0,
+    "ins": 0,
+    "del": 0,
+    "authors": 0,
+    "big": [],
+    "trivial": [],
+    "classification": {
+     "feat": 0,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {},
+    "commits": []
+   },
+   "today": {
+    "total": 0,
+    "effective": 0,
+    "merge": 0,
+    "ins": 0,
+    "del": 0,
+    "authors": 0,
+    "big": [],
+    "trivial": [],
+    "classification": {
+     "feat": 0,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {},
+    "commits": []
+   },
+   "lastCommitDayBeforeToday": "2026-10-29",
+   "daily": {
+    "2026-10-29": 1
+   },
+   "dayDetail": {
+    "2026-10-29": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 1921,
+     "del": 0,
+     "authors": [
+      "wujm@ourchem.com"
+     ]
+    }
+   },
+   "saturationWindows": [
+    {
+     "idx": 0,
+     "start": "2026-08-01",
+     "end": "2026-08-07",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 1,
+     "start": "2026-08-08",
+     "end": "2026-08-14",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 2,
+     "start": "2026-08-15",
+     "end": "2026-08-21",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 3,
+     "start": "2026-08-22",
+     "end": "2026-08-28",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 4,
+     "start": "2026-08-29",
+     "end": "2026-09-04",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 5,
+     "start": "2026-09-05",
+     "end": "2026-09-11",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 6,
+     "start": "2026-09-12",
+     "end": "2026-09-18",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 7,
+     "start": "2026-09-19",
+     "end": "2026-09-25",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 8,
+     "start": "2026-09-26",
+     "end": "2026-10-02",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 9,
+     "start": "2026-10-03",
+     "end": "2026-10-09",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 10,
+     "start": "2026-10-10",
+     "end": "2026-10-16",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 11,
+     "start": "2026-10-17",
+     "end": "2026-10-23",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 12,
+     "start": "2026-10-24",
+     "end": "2026-10-30",
+     "workdays": 5,
+     "persons": {
+      "wujm@ourchem.com": {
+       "names": [
+        "吴嘉明"
+       ],
+       "effective": 1,
+       "ins": 1921,
+       "del": 0,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 13,
+     "start": "2026-10-31",
+     "end": "2026-11-06",
+     "workdays": 5,
+     "persons": {}
+    }
+   ],
+   "weekly": [
+    {
+     "label": "2026-08-01",
+     "start": "2026-08-01",
+     "end": "2026-08-07",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-08-08",
+     "start": "2026-08-08",
+     "end": "2026-08-14",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-08-15",
+     "start": "2026-08-15",
+     "end": "2026-08-21",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-08-22",
+     "start": "2026-08-22",
+     "end": "2026-08-28",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-08-29",
+     "start": "2026-08-29",
+     "end": "2026-09-04",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-05",
+     "start": "2026-09-05",
+     "end": "2026-09-11",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-12",
+     "start": "2026-09-12",
+     "end": "2026-09-18",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-19",
+     "start": "2026-09-19",
+     "end": "2026-09-25",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-26",
+     "start": "2026-09-26",
+     "end": "2026-10-02",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-03",
+     "start": "2026-10-03",
+     "end": "2026-10-09",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-10",
+     "start": "2026-10-10",
+     "end": "2026-10-16",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-17",
+     "start": "2026-10-17",
+     "end": "2026-10-23",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-24",
+     "start": "2026-10-24",
+     "end": "2026-10-30",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "ins": 1921,
+     "del": 0
+    },
+    {
+     "label": "2026-10-31",
+     "start": "2026-10-31",
+     "end": "2026-11-06",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    }
+   ],
+   "statsWorkdays": 70,
+   "mainBranch": {
+    "branch": "master",
+    "ref": "origin/master",
+    "lastActive": "2026-10-29"
+   },
+   "branchPos": [],
+   "checkedOut": "master",
+   "quality": {
+    "mode": "工作副本（当前检出分支口径 §1.6）",
+    "checkedOut": "master",
+    "languages": [
+     {
+      "ext": ".lock",
+      "files": 1,
+      "lines": 6793
+     },
+     {
+      "ext": ".py",
+      "files": 9,
+      "lines": 1548
+     },
+     {
+      "ext": ".toml",
+      "files": 1,
+      "lines": 99
+     },
+     {
+      "ext": ".example",
+      "files": 1,
+      "lines": 34
+     },
+     {
+      "ext": "(无扩展名)",
+      "files": 2,
+      "lines": 10
+     }
+    ],
+    "largeFiles": [
+     {
+      "path": "pixi.lock",
+      "lines": 6793
+     }
+    ],
+    "todoTotal": 16,
+    "todoTop": [
+     {
+      "path": "pixi.lock",
+      "count": 15
+     },
+     {
+      "path": "pixi.toml",
+      "count": 1
+     }
+    ],
+    "stockTestFiles": 0,
+    "trackedFiles": 14
+   },
+   "lifetime": {
+    "first": "2026-10-29",
+    "last": "2026-10-29",
+    "totalCommits": 1,
+    "authors": 1,
+    "monthly": {
+     "2026-10": 1
+    },
+    "monthlyCount": 1,
+    "topAuthors": [
+     {
+      "key": "wujm@ourchem.com",
+      "commits": 1
+     }
+    ]
+   }
+  },
+  {
+   "name": "image-search-process-v2",
+   "path": ".projects/patyee\\image-search-process-v2",
+   "branches": {
+    "master": {
+     "ref": "origin/master",
+     "logFile": "_evidence/raw/image-search-process-v2__master.log.txt",
+     "numstatFile": "_evidence/raw/image-search-process-v2__master.numstat.txt",
+     "rawLines": 1
+    }
+   },
+   "errors": [],
+   "hasRemote": true,
+   "window": {
+    "total": 0,
+    "effective": 0,
+    "merge": 0,
+    "ins": 0,
+    "del": 0,
+    "authors": 0,
+    "big": [],
+    "trivial": [],
+    "classification": {
+     "feat": 0,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {},
+    "commits": []
+   },
+   "today": {
+    "total": 0,
+    "effective": 0,
+    "merge": 0,
+    "ins": 0,
+    "del": 0,
+    "authors": 0,
+    "big": [],
+    "trivial": [],
+    "classification": {
+     "feat": 0,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {},
+    "commits": []
+   },
+   "lastCommitDayBeforeToday": "2026-10-29",
+   "daily": {
+    "2026-10-29": 1
+   },
+   "dayDetail": {
+    "2026-10-29": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 6152,
+     "del": 0,
+     "authors": [
+      "wujm@ourchem.com"
+     ]
+    }
+   },
+   "saturationWindows": [
+    {
+     "idx": 0,
+     "start": "2026-08-01",
+     "end": "2026-08-07",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 1,
+     "start": "2026-08-08",
+     "end": "2026-08-14",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 2,
+     "start": "2026-08-15",
+     "end": "2026-08-21",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 3,
+     "start": "2026-08-22",
+     "end": "2026-08-28",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 4,
+     "start": "2026-08-29",
+     "end": "2026-09-04",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 5,
+     "start": "2026-09-05",
+     "end": "2026-09-11",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 6,
+     "start": "2026-09-12",
+     "end": "2026-09-18",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 7,
+     "start": "2026-09-19",
+     "end": "2026-09-25",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 8,
+     "start": "2026-09-26",
+     "end": "2026-10-02",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 9,
+     "start": "2026-10-03",
+     "end": "2026-10-09",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 10,
+     "start": "2026-10-10",
+     "end": "2026-10-16",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 11,
+     "start": "2026-10-17",
+     "end": "2026-10-23",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 12,
+     "start": "2026-10-24",
+     "end": "2026-10-30",
+     "workdays": 5,
+     "persons": {
+      "wujm@ourchem.com": {
+       "names": [
+        "吴嘉明"
+       ],
+       "effective": 1,
+       "ins": 6152,
+       "del": 0,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 13,
+     "start": "2026-10-31",
+     "end": "2026-11-06",
+     "workdays": 5,
+     "persons": {}
+    }
+   ],
+   "weekly": [
+    {
+     "label": "2026-08-01",
+     "start": "2026-08-01",
+     "end": "2026-08-07",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-08-08",
+     "start": "2026-08-08",
+     "end": "2026-08-14",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-08-15",
+     "start": "2026-08-15",
+     "end": "2026-08-21",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-08-22",
+     "start": "2026-08-22",
+     "end": "2026-08-28",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-08-29",
+     "start": "2026-08-29",
+     "end": "2026-09-04",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-05",
+     "start": "2026-09-05",
+     "end": "2026-09-11",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-12",
+     "start": "2026-09-12",
+     "end": "2026-09-18",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-19",
+     "start": "2026-09-19",
+     "end": "2026-09-25",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-09-26",
+     "start": "2026-09-26",
+     "end": "2026-10-02",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-03",
+     "start": "2026-10-03",
+     "end": "2026-10-09",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-10",
+     "start": "2026-10-10",
+     "end": "2026-10-16",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-17",
+     "start": "2026-10-17",
+     "end": "2026-10-23",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-24",
+     "start": "2026-10-24",
+     "end": "2026-10-30",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "ins": 6152,
+     "del": 0
+    },
+    {
+     "label": "2026-10-31",
+     "start": "2026-10-31",
+     "end": "2026-11-06",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    }
+   ],
+   "statsWorkdays": 70,
+   "mainBranch": {
+    "branch": "master",
+    "ref": "origin/master",
+    "lastActive": "2026-10-29"
+   },
+   "branchPos": [],
+   "checkedOut": "master",
+   "quality": {
+    "mode": "工作副本（当前检出分支口径 §1.6）",
+    "checkedOut": "master",
+    "languages": [
+     {
+      "ext": ".lock",
+      "files": 1,
+      "lines": 10732
+     },
+     {
+      "ext": ".py",
+      "files": 21,
+      "lines": 4983
+     },
+     {
+      "ext": ".sh",
+      "files": 3,
+      "lines": 344
+     },
+     {
+      "ext": ".toml",
+      "files": 1,
+      "lines": 106
+     },
+     {
+      "ext": "(无扩展名)",
+      "files": 2,
+      "lines": 18
+     }
+    ],
+    "largeFiles": [
+     {
+      "path": "pixi.lock",
+      "lines": 10732
+     }
+    ],
+    "todoTotal": 29,
+    "todoTop": [
+     {
+      "path": "pixi.lock",
+      "count": 14
+     },
+     {
+      "path": "vectorize/doris_export_fix.py",
+      "count": 6
+     },
+     {
+      "path": "vectorize/worker.py",
+      "count": 5
+     },
+     {
+      "path": "vectorize/download.py",
+      "count": 4
+     }
+    ],
+    "stockTestFiles": 0,
+    "trackedFiles": 28
+   },
+   "lifetime": {
+    "first": "2026-10-29",
+    "last": "2026-10-29",
+    "totalCommits": 1,
+    "authors": 1,
+    "monthly": {
+     "2026-10": 1
+    },
+    "monthlyCount": 1,
+    "topAuthors": [
+     {
+      "key": "wujm@ourchem.com",
+      "commits": 1
+     }
+    ]
+   }
+  }
+ ],
+ "docsMtime": {
+  "project": [
+   {
+    "path": ".projects/patyee/lucene/SYSTEM_REQUIREMENTS.txt",
+    "mtime": "2026-10-30 10:47",
+    "date": "2026-10-30"
+   },
+   {
+    "path": ".projects/patyee/lucene/README.txt",
+    "mtime": "2026-10-30 10:47",
+    "date": "2026-10-30"
+   },
+   {
+    "path": ".projects/patyee/lucene/README.md",
+    "mtime": "2026-10-30 10:47",
+    "date": "2026-10-30"
+   },
+   {
+    "path": ".projects/patyee/lucene/NOTICE.txt",
+    "mtime": "2026-10-30 10:47",
+    "date": "2026-10-30"
+   },
+   {
+    "path": ".projects/patyee/lucene/MIGRATE.txt",
+    "mtime": "2026-10-30 10:47",
+    "date": "2026-10-30"
+   },
+   {
+    "path": ".projects/patyee/lucene/LICENSE.txt",
+    "mtime": "2026-10-30 10:47",
+    "date": "2026-10-30"
+   },
+   {
+    "path": ".projects/patyee/lucene/JRE_VERSION_MIGRATION.txt",
+    "mtime": "2026-10-30 10:47",
+    "date": "2026-10-30"
+   },
+   {
+    "path": ".projects/patyee/lucene/CHANGES.txt",
+    "mtime": "2026-10-30 10:47",
+    "date": "2026-10-30"
+   },
+   {
+    "path": ".projects/patyee/lucene/BUILD.txt",
+    "mtime": "2026-10-30 10:47",
+    "date": "2026-10-30"
+   },
+   {
+    "path": ".projects/patyee/ourchem-oauth/README.md",
+    "mtime": "2026-10-30 10:47",
+    "date": "2026-10-30"
+   }
+  ],
+  "global": [
+   {
+    "path": "docs/README.md",
+    "mtime": "2026-10-30 16:54",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/原始文件覆盖核对-2026W44.md",
+    "mtime": "2026-10-30 16:54",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/xzf-mall/任务明细-2026W44.md",
+    "mtime": "2026-10-30 16:44",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/public-service-公共服务平台项目集/任务明细-2026W44.md",
+    "mtime": "2026-10-30 16:44",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/ip-integration-知识产权一体化产品/任务明细-2026W44.md",
+    "mtime": "2026-10-30 16:44",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/ai-patent-AI预研产品/任务明细-2026W44.md",
+    "mtime": "2026-10-30 16:44",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/patyee-壹专利/任务明细-2026W44.md",
+    "mtime": "2026-10-30 16:44",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/public-service-公共服务平台项目集/缺陷统计-2026-10-29.md",
+    "mtime": "2026-10-30 16:29",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/ai-patent-AI预研产品/缺陷统计-2026-10-29.md",
+    "mtime": "2026-10-30 16:29",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/patyee-壹专利/缺陷统计-2026-10-29.md",
+    "mtime": "2026-10-30 16:29",
+    "date": "2026-10-30"
+   }
+  ]
+ }
+}

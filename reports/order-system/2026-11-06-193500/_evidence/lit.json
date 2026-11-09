@@ -1,0 +1,67 @@
+{
+  "period": 4,
+  "planRange": {"start": "2026-08-10", "end": "2026-11-06"},
+  "historyNote": "连续 8 天零提交与文档更新（上一变动日 10-29）；M3 报表导出到期日（11-05）已过 1 个工作日零推进维持延期风险；develop 86 天/落后 27 双条件异常第 4 期；W5（10-30~11-05）整周空窗后 W6（11-06）新窗仍空；演示项目（非实际产品线）",
+  "aliases": [
+    {"email_contains": "zhangwei", "canon": "张伟"},
+    {"email_contains": "lina", "canon": "李娜"},
+    {"email_contains": "wangq", "canon": "王强"}
+  ],
+  "memberMap": {},
+  "dayDiff": {
+    "prevDay": "2026-10-29", "gapDays": 8, "skipped": "10-30 ~ 11-05 连续 8 天无提交与文档更新（全局 docs 归属文档不计，口径 P2 登记）",
+    "docsChangedToday": false, "docsSummary": "项目文档（需求清单/开发计划等）最近更新 10-29，今日无更新",
+    "headline": "项目级：连续 8 天零提交与文档更新——M3 到期日已过仍无推进（演示项目形态）"
+  },
+  "aheadDelta": {"order-core": "0"},
+  "dayDiffNote": {"order-core": "develop ahead 4（10-28 后无变化）"},
+  "headline": "order-core 49.1 分（中，环比持平）：连续 8 天零提交，M3 到期已过零推进，develop 双条件异常第 4 期（演示项目）",
+  "keyPoints": [
+    {"level": "中", "text": "M3 报表中心与导出到期日（11-05）已过 1 个工作日：零推进、文档未更新——延期风险维持（第 4 期）"},
+    {"level": "中", "text": "develop 分支 86 天未合并、落后主干 27（双条件异常第 4 期）；feature-payment 50 天无活动（文档明示商务暂缓，豁免口径）"},
+    {"level": "低", "text": "TODO 425 处原样积压（400 在待退役旧报表文件）；窗口零提交故测试同步无新增（连续第 4 期零）；R-12 旧导出下线逾期 12 天未排期；R-02/R-03 停滞维持"}
+  ],
+  "repos": {
+    "order-core": {
+      "total": 49.1, "scores": {"progress": 60, "people": 25, "quality": 60, "integration": 62, "convention": 32},
+      "topRisk": "连续 8 天零提交 + M3 到期已过零推进；develop 双条件异常第 4 期",
+      "narrative": {
+        "progress": "连续 8 天零提交（last=10-29「update」）；M3 到期已过、R-12 逾期 12 天——计划面全面停滞",
+        "people": "无窗口活跃（演示身份：张伟/李娜/王强）",
+        "quality": "TODO 425（400 待退役旧报表）；零测试同步第 4 期",
+        "integration": "develop 86 天/落后 27 双条件异常第 4 期；feature-payment 50 天（文档明示暂缓）",
+        "convention": "窗口无 message（上期「update」已移出）",
+        "rhythm": "10-26~29 四天 6 笔后连续 8 天零",
+        "modules": "无窗口改动",
+        "plans": "M3 延期风险（到期已过）/ R-12 延期风险 / R-02、R-03 停滞维持",
+        "testing": "存量 4 测试文件；窗口零提交无新增"
+      },
+      "peopleProfile": [],
+      "testing": {"stockNote": "存量 4 测试文件（演示固件）", "sitTraces": 0, "aiReview": "窗口零提交，无新增证据（零测试同步连续第 4 期为形态延续）"},
+      "plans": [
+        {"id": "M1", "name": "M1 订单流程核心", "owner": "张伟", "start": "08-10", "due": "09-30", "status": "已完成", "note": "文档维持（done 09-30）", "prevStatus": "已完成", "done": "09-30"},
+        {"id": "M2", "name": "M2 会员积分体系", "owner": "李娜", "start": "09-01", "due": "10-15", "status": "已推进", "note": "维持（文档未更新）", "prevStatus": "已推进"},
+        {"id": "M3", "name": "M3 报表中心与导出", "owner": "王强", "start": "09-15", "due": "11-05", "status": "延期风险", "note": "到期日已过 1 个工作日零推进、文档未更新（第 4 期）", "prevStatus": "延期风险"},
+        {"id": "M4", "name": "M4 多租户支持", "owner": "张伟", "start": "10-20", "due": "11-20", "status": "已推进", "note": "维持", "prevStatus": "已推进"},
+        {"id": "R-01", "name": "R-01 管理端登录", "owner": "李娜", "start": "10-10", "due": "10-24", "status": "已完成", "note": "文档维持（done 10-28）", "prevStatus": "已完成", "done": "10-28"},
+        {"id": "R-02", "name": "R-02 操作日志", "owner": "王强", "start": "10-13", "due": "10-24", "status": "停滞", "note": "连续 4 期零改动（文档自述开发中）", "prevStatus": "停滞"},
+        {"id": "R-03", "name": "R-03 消息通知", "owner": "李娜", "start": "10-15", "due": "10-28", "status": "停滞", "note": "连续 4 期零改动", "prevStatus": "停滞"},
+        {"id": "R-04", "name": "R-04 数据字典", "owner": "张伟", "start": "10-16", "due": "10-30", "status": "已推进", "note": "维持", "prevStatus": "已推进"},
+        {"id": "R-05", "name": "R-05 健康检查", "owner": "王强", "start": "10-17", "due": "10-31", "status": "已推进", "note": "维持", "prevStatus": "已推进"},
+        {"id": "R-12", "name": "R-12 旧导出下线", "owner": "张伟", "start": "10-20", "due": "10-25", "status": "延期风险", "note": "逾期 12 天未排期（第 4 期）", "prevStatus": "延期风险"}
+      ],
+      "risks": [
+        {"title": "develop 分支长期未合并（86 天、落后 27），新功能仍落该分支", "plain": "开发分支三个月没合回主干（第 4 期）", "dimension": "integration", "level": "中", "evidence": "ahead=4、behind=27、fork=08-12", "advice": "合并窗口或明确分支策略", "agePeriods": 4},
+        {"title": "M3 报表导出到期日（11-05）已过零推进", "plain": "报表导出过了期限还是没动（第 4 期）", "dimension": "progress", "level": "中", "evidence": "last=10-29；文档未更新", "advice": "与负责人确认排期", "agePeriods": 4},
+        {"title": "TODO/FIXME 425 处（400 在待退役旧报表文件）", "plain": "四百多处待办积在旧报表文件里（第 4 期）", "dimension": "quality", "level": "低", "evidence": "grep 计数", "advice": "R-12 旧导出下线后退役旧文件", "agePeriods": 4},
+        {"title": "窗口零提交，测试同步连续第 4 期为零", "plain": "没提交也就没测试（形态延续）", "dimension": "quality", "level": "低", "evidence": "窗口 0 笔", "advice": "恢复开发后随改动补测试", "agePeriods": 4},
+        {"title": "R-12 旧导出下线逾期 12 天未排期", "plain": "旧功能下线一拖再拖（第 4 期）", "dimension": "progress", "level": "低", "evidence": "due 10-25", "advice": "排期或明确取消", "agePeriods": 4},
+        {"title": "feature-payment 分支 50 天无活动（僵尸候选），文档明示暂缓（豁免口径）", "plain": "支付分支挂着（文档说了是商务原因暂停）", "dimension": "integration", "level": "低", "evidence": "last=09-25；开发计划.md 风险注记", "advice": "豁免维持（文档原因在案）", "agePeriods": 4},
+        {"title": "交付重试机制实现缺口（本区分放量重试错误码、无退避）", "plain": "重试机制有缺口（第 4 期）", "dimension": "quality", "level": "低", "evidence": "P1 深度阅读在案", "advice": "排期补齐", "agePeriods": 4},
+        {"title": "R-02 操作日志「开发中」但连续 4 期零改动", "plain": "操作日志说在做但一直没动（第 4 期）", "dimension": "progress", "level": "低", "evidence": "文档自述 vs git 零证据", "advice": "状态文档与实际对齐", "agePeriods": 4}
+      ],
+      "moduleDesc": {}, "coreModules": [],
+      "insights": ["窗口零提交（10-29「update」后连续 8 天静默，M3 到期跨过）——演示项目形态：无真实团队压力，计划面停滞为演示数据特性"]
+    }
+  }
+}

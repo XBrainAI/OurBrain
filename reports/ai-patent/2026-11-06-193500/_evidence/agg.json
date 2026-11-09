@@ -1,0 +1,2144 @@
+{
+ "meta": {
+  "project": "ai-patent",
+  "runAt": "2026-11-06 19:35",
+  "today": "2026-11-06",
+  "windowStart": "2026-10-30",
+  "windowEnd": "2026-11-06",
+  "statsStart": "2026-09-30",
+  "traversalSince": "2026-08-01 00:00",
+  "aggCaliber": "作者日期(%ad)分桶 + 跨分支完整哈希去重；遍历按提交日期回看 60 天防回填截断（§1.0 防御条款）；分支引用统一 origin/<branch>（有 remote 时）",
+  "aggregatedBy": "reports/_scripts/pulse_tool.py（机械聚合，RUNBOOK §1.0 口径；判定由分析会话作出）"
+ },
+ "repos": [
+  {
+   "name": "tanbaoai-web",
+   "path": ".projects/ai-patent\\tanbaoai-web",
+   "branches": {
+    "master": {
+     "ref": "origin/master",
+     "logFile": "_evidence/raw/tanbaoai-web__master.log.txt",
+     "numstatFile": "_evidence/raw/tanbaoai-web__master.numstat.txt",
+     "rawLines": 0
+    },
+    "1027gq": {
+     "ref": null,
+     "logFile": null,
+     "error": "分支不存在/无远程跟踪"
+    }
+   },
+   "errors": [],
+   "hasRemote": true,
+   "window": {
+    "total": 0,
+    "effective": 0,
+    "merge": 0,
+    "ins": 0,
+    "del": 0,
+    "authors": 0,
+    "big": [],
+    "trivial": [],
+    "classification": {
+     "feat": 0,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {},
+    "commits": []
+   },
+   "today": {
+    "total": 0,
+    "effective": 0,
+    "merge": 0,
+    "ins": 0,
+    "del": 0,
+    "authors": 0,
+    "big": [],
+    "trivial": [],
+    "classification": {
+     "feat": 0,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {},
+    "commits": []
+   },
+   "lastCommitDayBeforeToday": null,
+   "daily": {},
+   "dayDetail": {},
+   "saturationWindows": [
+    {
+     "idx": 0,
+     "start": "2026-09-30",
+     "end": "2026-10-06",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 1,
+     "start": "2026-10-07",
+     "end": "2026-10-13",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 2,
+     "start": "2026-10-14",
+     "end": "2026-10-20",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 3,
+     "start": "2026-10-21",
+     "end": "2026-10-27",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 4,
+     "start": "2026-10-28",
+     "end": "2026-11-03",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 5,
+     "start": "2026-11-04",
+     "end": "2026-11-06",
+     "workdays": 3,
+     "persons": {}
+    }
+   ],
+   "weekly": [
+    {
+     "label": "2026-09-30",
+     "start": "2026-09-30",
+     "end": "2026-10-06",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-07",
+     "start": "2026-10-07",
+     "end": "2026-10-13",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-14",
+     "start": "2026-10-14",
+     "end": "2026-10-20",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-21",
+     "start": "2026-10-21",
+     "end": "2026-10-27",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-28",
+     "start": "2026-10-28",
+     "end": "2026-11-03",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-11-04",
+     "start": "2026-11-04",
+     "end": "2026-11-06",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    }
+   ],
+   "statsWorkdays": 28,
+   "mainBranch": {
+    "branch": "master",
+    "ref": "origin/master",
+    "lastActive": "2026-07-10"
+   },
+   "branchPos": [
+    {
+     "name": "1027gq",
+     "error": "分支或主干引用不可用"
+    }
+   ],
+   "checkedOut": "master",
+   "quality": {
+    "mode": "工作副本（当前检出分支口径 §1.6）",
+    "checkedOut": "master",
+    "languages": [
+     {
+      "ext": ".vue",
+      "files": 385,
+      "lines": 208835
+     },
+     {
+      "ext": ".js",
+      "files": 141,
+      "lines": 132058
+     },
+     {
+      "ext": ".json",
+      "files": 3,
+      "lines": 15682
+     },
+     {
+      "ext": ".scss",
+      "files": 23,
+      "lines": 7966
+     },
+     {
+      "ext": ".html",
+      "files": 3,
+      "lines": 2711
+     },
+     {
+      "ext": ".css",
+      "files": 4,
+      "lines": 2693
+     },
+     {
+      "ext": ".md",
+      "files": 15,
+      "lines": 1146
+     },
+     {
+      "ext": ".properties",
+      "files": 5,
+      "lines": 616
+     },
+     {
+      "ext": ".svg",
+      "files": 25,
+      "lines": 282
+     },
+     {
+      "ext": "(无扩展名)",
+      "files": 4,
+      "lines": 79
+     },
+     {
+      "ext": ".bcmap",
+      "files": 3,
+      "lines": 20
+     }
+    ],
+    "largeFiles": [
+     {
+      "path": "static/plugins/pdf/pdf.worker.js",
+      "lines": 41274
+     },
+     {
+      "path": "static/plugins/pdf/build/pdf.worker.js",
+      "lines": 36904
+     },
+     {
+      "path": "package-lock.json",
+      "lines": 14867
+     },
+     {
+      "path": "static/plugins/pdf/pdf.js",
+      "lines": 13715
+     },
+     {
+      "path": "static/plugins/pdf/build/pdf.js",
+      "lines": 7127
+     }
+    ],
+    "todoTotal": 73,
+    "todoTop": [
+     {
+      "path": "static/plugins/pdf/build/pdf.worker.js",
+      "count": 34
+     },
+     {
+      "path": "static/plugins/pdf/build/pdf.js",
+      "count": 20
+     },
+     {
+      "path": "static/plugins/pdf/web/l10n.js",
+      "count": 5
+     },
+     {
+      "path": "static/plugins/pdf/web/viewer.js",
+      "count": 4
+     },
+     {
+      "path": "static/plugins/pdf/pdf.js",
+      "count": 3
+     },
+     {
+      "path": "package-lock.json",
+      "count": 1
+     },
+     {
+      "path": "src/components/common/VueZoomer/index.vue",
+      "count": 1
+     },
+     {
+      "path": "src/components/ui/Tabs/Tabs.vue",
+      "count": 1
+     },
+     {
+      "path": "src/views/noveltyPatentDetail/components/getDetail.js",
+      "count": 1
+     },
+     {
+      "path": "static/plugins/pdf/pdf.worker.js",
+      "count": 1
+     }
+    ],
+    "stockTestFiles": 0,
+    "trackedFiles": 928
+   },
+   "lifetime": {
+    "first": "2025-10-14",
+    "last": "2026-11-06",
+    "totalCommits": 1786,
+    "authors": 3,
+    "monthly": {
+     "2026-11": 46,
+     "2026-10": 99,
+     "2026-09": 150,
+     "2026-08": 106,
+     "2026-07": 127,
+     "2026-06": 228,
+     "2026-05": 172,
+     "2026-04": 154,
+     "2026-03": 79,
+     "2026-02": 27,
+     "2026-01": 156,
+     "2025-12": 188,
+     "2025-11": 208,
+     "2025-10": 46
+    },
+    "monthlyCount": 14,
+    "topAuthors": [
+     {
+      "key": "872691087@qq.com",
+      "commits": 1695
+     },
+     {
+      "key": "matengfei@ourchem.com",
+      "commits": 89
+     },
+     {
+      "key": "1282728477@qq.com",
+      "commits": 2
+     }
+    ]
+   }
+  },
+  {
+   "name": "ourchem-ai-patent",
+   "path": ".projects/ai-patent\\ourchem-ai-patent",
+   "branches": {
+    "dev": {
+     "ref": "origin/dev",
+     "logFile": "_evidence/raw/ourchem-ai-patent__dev.log.txt",
+     "numstatFile": "_evidence/raw/ourchem-ai-patent__dev.numstat.txt",
+     "rawLines": 0
+    },
+    "1.7.0-guangqi": {
+     "ref": "origin/1.7.0-guangqi",
+     "logFile": "_evidence/raw/ourchem-ai-patent__1.7.0-guangqi.log.txt",
+     "numstatFile": "_evidence/raw/ourchem-ai-patent__1.7.0-guangqi.numstat.txt",
+     "rawLines": 341
+    },
+    "1.8.5-release": {
+     "ref": "origin/1.8.5-release",
+     "logFile": "_evidence/raw/ourchem-ai-patent__1.8.5-release.log.txt",
+     "numstatFile": "_evidence/raw/ourchem-ai-patent__1.8.5-release.numstat.txt",
+     "rawLines": 374
+    }
+   },
+   "errors": [],
+   "hasRemote": true,
+   "window": {
+    "total": 47,
+    "effective": 36,
+    "merge": 11,
+    "ins": 1814,
+    "del": 301,
+    "authors": 2,
+    "big": [],
+    "trivial": [
+     {
+      "h": "e963e45b83",
+      "s": "refactor(patent): 调整OA审查文件识别结果中键的插入顺序",
+      "lines": 2
+     },
+     {
+      "h": "2c4e074991",
+      "s": "feat：代码提交",
+      "lines": 3
+     },
+     {
+      "h": "f55be21c7b",
+      "s": "fix(patent): 优化OA文件识别状态提示文案",
+      "lines": 2
+     },
+     {
+      "h": "62ba614568",
+      "s": "feat:代码提交",
+      "lines": 1
+     },
+     {
+      "h": "2c09851436",
+      "s": "feat:代码提交",
+      "lines": 2
+     },
+     {
+      "h": "cc8400c2b1",
+      "s": "feat:代码提交",
+      "lines": 2
+     },
+     {
+      "h": "c2d01a8bfe",
+      "s": "feat(ocr): 新增表格还原规则并简化图片识别规则",
+      "lines": 3
+     }
+    ],
+    "classification": {
+     "feat": 19,
+     "fix": 12,
+     "refactor": 4,
+     "docs": 0,
+     "test": 0,
+     "chore": 1,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [
+     {
+      "h": "f100e534e9",
+      "s": "feat:代码提交"
+     },
+     {
+      "h": "2c4e074991",
+      "s": "feat：代码提交"
+     },
+     {
+      "h": "62ba614568",
+      "s": "feat:代码提交"
+     },
+     {
+      "h": "6d872bcfe9",
+      "s": "feat:代码提交"
+     },
+     {
+      "h": "1a35a69c05",
+      "s": "feat:代码提交"
+     },
+     {
+      "h": "45e8bb8e1e",
+      "s": "feat:代码提交"
+     },
+     {
+      "h": "2c09851436",
+      "s": "feat:代码提交"
+     },
+     {
+      "h": "3364e3e7b7",
+      "s": "feat:代码提交"
+     },
+     {
+      "h": "cc8400c2b1",
+      "s": "feat:代码提交"
+     },
+     {
+      "h": "2f8611488f",
+      "s": "feat:代码提交"
+     },
+     {
+      "h": "912ac7f781",
+      "s": "feat:代码提交"
+     },
+     {
+      "h": "bce9f5d89d",
+      "s": "feat:代码提交"
+     },
+     {
+      "h": "3326c9dcd1",
+      "s": "feat:代码提交"
+     }
+    ],
+    "persons": {
+     "liushaocong@ourchem.com": {
+      "names": [
+       "liushaocong"
+      ],
+      "commits": 22,
+      "ins": 1540,
+      "del": 193,
+      "activeDays": 6,
+      "lateNight": 2,
+      "weekend": 0,
+      "branches": {
+       "1.7.0-guangqi": 22
+      },
+      "modulesTouched": 2,
+      "testCommits": 0,
+      "peakDay": "2026-10-30",
+      "peakN": 8
+     },
+     "xiezeen@ourchem.com": {
+      "names": [
+       "谢泽恩"
+      ],
+      "commits": 14,
+      "ins": 274,
+      "del": 108,
+      "activeDays": 3,
+      "lateNight": 0,
+      "weekend": 0,
+      "branches": {
+       "1.7.0-guangqi": 14
+      },
+      "modulesTouched": 2,
+      "testCommits": 0,
+      "peakDay": "2026-11-02",
+      "peakN": 8
+     }
+    },
+    "commits": [
+     {
+      "h": "f879261418",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-10-30 10:38:43",
+      "s": "refactor(oa-review): 移除扫描件转docx逻辑并优化公式图判定与日志",
+      "merge": false,
+      "ins": 30,
+      "del": 71,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "3326c9dcd1",
+      "an": "谢泽恩",
+      "ae": "xiezeen@ourchem.com",
+      "ad": "2026-10-30 10:49:51",
+      "s": "feat:代码提交",
+      "merge": false,
+      "ins": 7,
+      "del": 1,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "97f11ba23d",
+      "an": "谢泽恩",
+      "ae": "xiezeen@ourchem.com",
+      "ad": "2026-10-30 10:50:07",
+      "s": "Merge remote-tracking branch 'origin/1.7.0-guangqi' into 1.7.0-guangqi",
+      "merge": true,
+      "ins": 0,
+      "del": 0,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "c2d01a8bfe",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-10-30 10:53:33",
+      "s": "feat(ocr): 新增表格还原规则并简化图片识别规则",
+      "merge": false,
+      "ins": 1,
+      "del": 2,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "84db58b45e",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-10-30 10:54:37",
+      "s": "Merge branch '1.7.0-guangqi' of 192.168.0.14:xiezeen/ourchem-ai-patent into 1.7.0-guangqi",
+      "merge": true,
+      "ins": 0,
+      "del": 0,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "bce9f5d89d",
+      "an": "谢泽恩",
+      "ae": "xiezeen@ourchem.com",
+      "ad": "2026-10-30 11:36:22",
+      "s": "feat:代码提交",
+      "merge": false,
+      "ins": 7,
+      "del": 26,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "2871ffcca2",
+      "an": "谢泽恩",
+      "ae": "xiezeen@ourchem.com",
+      "ad": "2026-10-30 11:36:29",
+      "s": "Merge remote-tracking branch 'origin/1.7.0-guangqi' into 1.7.0-guangqi",
+      "merge": true,
+      "ins": 0,
+      "del": 0,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "912ac7f781",
+      "an": "谢泽恩",
+      "ae": "xiezeen@ourchem.com",
+      "ad": "2026-10-30 11:43:55",
+      "s": "feat:代码提交",
+      "merge": false,
+      "ins": 35,
+      "del": 0,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "d87a53b5c6",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-10-30 11:53:17",
+      "s": "fix(disclosure): 扫描件PDF文字层为空时回退使用content取文",
+      "merge": false,
+      "ins": 14,
+      "del": 4,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "a6d886fb32",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-10-30 11:53:50",
+      "s": "Merge branch '1.7.0-guangqi' of 192.168.0.14:xiezeen/ourchem-ai-patent into 1.7.0-guangqi",
+      "merge": true,
+      "ins": 0,
+      "del": 0,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "05a3c7ec97",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-10-30 11:59:43",
+      "s": "chore(patent): 注释掉未使用的变量和冗余日志输出",
+      "merge": false,
+      "ins": 2,
+      "del": 2,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "2f8611488f",
+      "an": "谢泽恩",
+      "ae": "xiezeen@ourchem.com",
+      "ad": "2026-10-30 13:37:01",
+      "s": "feat:代码提交",
+      "merge": false,
+      "ins": 5,
+      "del": 0,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "c4b2768630",
+      "an": "谢泽恩",
+      "ae": "xiezeen@ourchem.com",
+      "ad": "2026-10-30 13:37:19",
+      "s": "Merge remote-tracking branch 'origin/1.7.0-guangqi' into 1.7.0-guangqi",
+      "merge": true,
+      "ins": 0,
+      "del": 0,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "cc8400c2b1",
+      "an": "谢泽恩",
+      "ae": "xiezeen@ourchem.com",
+      "ad": "2026-10-30 15:20:09",
+      "s": "feat:代码提交",
+      "merge": false,
+      "ins": 0,
+      "del": 2,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "1237561436",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-10-30 16:08:07",
+      "s": "feat(patent): 各AI对话链路补充modify_text入参",
+      "merge": false,
+      "ins": 50,
+      "del": 4,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "044e802a1f",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-10-30 17:31:40",
+      "s": "feat(patent-oa): 修改对照页对比基线改为最近修改文本",
+      "merge": false,
+      "ins": 118,
+      "del": 7,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "9ca7379fe0",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-10-30 18:01:38",
+      "s": "fix(patent-oa): 修复PDF上传文本编号转义导致的权利要求误判",
+      "merge": false,
+      "ins": 4,
+      "del": 0,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "ed4bb8aa50",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-10-30 18:13:16",
+      "s": "fix(patent-oa): 修复标题行识别口径不一致及全角空格匹配问题",
+      "merge": false,
+      "ins": 35,
+      "del": 4,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "c74922474c",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-11-02 01:05:15",
+      "s": "refactor(oa-review): 重构OA答审识别链路为专用线程池管理",
+      "merge": false,
+      "ins": 104,
+      "del": 14,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "3364e3e7b7",
+      "an": "谢泽恩",
+      "ae": "xiezeen@ourchem.com",
+      "ad": "2026-11-02 11:51:50",
+      "s": "feat:代码提交",
+      "merge": false,
+      "ins": 56,
+      "del": 2,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "2c09851436",
+      "an": "谢泽恩",
+      "ae": "xiezeen@ourchem.com",
+      "ad": "2026-11-02 13:32:22",
+      "s": "feat:代码提交",
+      "merge": false,
+      "ins": 1,
+      "del": 1,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "45e8bb8e1e",
+      "an": "谢泽恩",
+      "ae": "xiezeen@ourchem.com",
+      "ad": "2026-11-02 14:11:07",
+      "s": "feat:代码提交",
+      "merge": false,
+      "ins": 67,
+      "del": 59,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "1a35a69c05",
+      "an": "谢泽恩",
+      "ae": "xiezeen@ourchem.com",
+      "ad": "2026-11-02 14:19:51",
+      "s": "feat:代码提交",
+      "merge": false,
+      "ins": 2,
+      "del": 2,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "e8f06063e0",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-11-02 14:29:03",
+      "s": "feat(docx-formatter): 改进专利文档排版样式规则",
+      "merge": false,
+      "ins": 50,
+      "del": 8,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "69eb468709",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-11-02 14:29:45",
+      "s": "Merge branch '1.7.0-guangqi' of 192.168.0.14:xiezeen/ourchem-ai-patent into 1.7.0-guangqi",
+      "merge": true,
+      "ins": 0,
+      "del": 0,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "6d872bcfe9",
+      "an": "谢泽恩",
+      "ae": "xiezeen@ourchem.com",
+      "ad": "2026-11-02 15:15:14",
+      "s": "feat:代码提交",
+      "merge": false,
+      "ins": 2,
+      "del": 2,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "476634d3fe",
+      "an": "谢泽恩",
+      "ae": "xiezeen@ourchem.com",
+      "ad": "2026-11-02 15:15:37",
+      "s": "Merge remote-tracking branch 'origin/1.7.0-guangqi' into 1.7.0-guangqi",
+      "merge": true,
+      "ins": 0,
+      "del": 0,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "62ba614568",
+      "an": "谢泽恩",
+      "ae": "xiezeen@ourchem.com",
+      "ad": "2026-11-02 15:22:05",
+      "s": "feat:代码提交",
+      "merge": false,
+      "ins": 1,
+      "del": 0,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "14c3f6936a",
+      "an": "谢泽恩",
+      "ae": "xiezeen@ourchem.com",
+      "ad": "2026-11-02 16:08:35",
+      "s": "feat:优化格式访问",
+      "merge": false,
+      "ins": 83,
+      "del": 12,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "85dd531fe8",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-11-02 16:26:53",
+      "s": "feat(docx-formatter): 改进专利文档排版样式规则",
+      "merge": false,
+      "ins": 95,
+      "del": 1,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "02785f43f9",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-11-02 16:27:50",
+      "s": "Merge branch '1.7.0-guangqi' of 192.168.0.14:xiezeen/ourchem-ai-patent into 1.7.0-guangqi",
+      "merge": true,
+      "ins": 0,
+      "del": 0,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "f55be21c7b",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-11-02 17:17:13",
+      "s": "fix(patent): 优化OA文件识别状态提示文案",
+      "merge": false,
+      "ins": 1,
+      "del": 1,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "2c4e074991",
+      "an": "谢泽恩",
+      "ae": "xiezeen@ourchem.com",
+      "ad": "2026-11-02 17:26:04",
+      "s": "feat：代码提交",
+      "merge": false,
+      "ins": 2,
+      "del": 1,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "8f23cc2fc3",
+      "an": "谢泽恩",
+      "ae": "xiezeen@ourchem.com",
+      "ad": "2026-11-02 17:26:24",
+      "s": "Merge remote-tracking branch 'origin/1.7.0-guangqi' into 1.7.0-guangqi",
+      "merge": true,
+      "ins": 0,
+      "del": 0,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "3c63667d2c",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-11-02 18:17:35",
+      "s": "fix(oa-review): 降低短标题判定阈值修复伪块边界问题",
+      "merge": false,
+      "ins": 4,
+      "del": 2,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "3cccee4f30",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-11-02 18:18:14",
+      "s": "Merge branch '1.7.0-guangqi' of 192.168.0.14:xiezeen/ourchem-ai-patent into 1.7.0-guangqi",
+      "merge": true,
+      "ins": 0,
+      "del": 0,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "e963e45b83",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-11-03 13:33:37",
+      "s": "refactor(patent): 调整OA审查文件识别结果中键的插入顺序",
+      "merge": false,
+      "ins": 1,
+      "del": 1,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "f100e534e9",
+      "an": "谢泽恩",
+      "ae": "xiezeen@ourchem.com",
+      "ad": "2026-11-03 14:06:42",
+      "s": "feat:代码提交",
+      "merge": false,
+      "ins": 6,
+      "del": 0,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "25712ef0d5",
+      "an": "谢泽恩",
+      "ae": "xiezeen@ourchem.com",
+      "ad": "2026-11-03 14:07:11",
+      "s": "Merge remote-tracking branch 'origin/1.7.0-guangqi' into 1.7.0-guangqi",
+      "merge": true,
+      "ins": 0,
+      "del": 0,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "815745a1bd",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-11-04 17:59:20",
+      "s": "refactor(patent): 调整OA审查文件识别结果中键的插入顺序",
+      "merge": false,
+      "ins": 689,
+      "del": 48,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "1c63bb300d",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-11-04 18:33:30",
+      "s": "fix(patent): 修复权利要求行正则匹配漏识别问题",
+      "merge": false,
+      "ins": 4,
+      "del": 1,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "d6898161be",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-11-05 10:50:52",
+      "s": "fix(patent-oa-review): 增强专利文档解析对 pandoc 转换产物的兼容性",
+      "merge": false,
+      "ins": 19,
+      "del": 3,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "4e4efc9492",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-11-05 13:00:28",
+      "s": "fix(pandoc): 剥离块引用前缀与图片噪声避免污染对比文本",
+      "merge": false,
+      "ins": 25,
+      "del": 5,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "f5e89a7172",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-11-06 01:03:57",
+      "s": "fix(pandoc): 剥离块引用前缀与图片噪声避免污染对比文本",
+      "merge": false,
+      "ins": 185,
+      "del": 5,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "a29afba0f2",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-11-06 13:32:28",
+      "s": "fix(oa-compare): 修复对比输出中多种伪修订问题",
+      "merge": false,
+      "ins": 75,
+      "del": 10,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "057c236401",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-11-06 15:29:24",
+      "s": "fix(patent): 修复OCR页眉断行碎片导致的伪修订问题",
+      "merge": false,
+      "ins": 15,
+      "del": 0,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     },
+     {
+      "h": "76eebadf7a",
+      "an": "liushaocong",
+      "ae": "liushaocong@ourchem.com",
+      "ad": "2026-11-06 17:49:26",
+      "s": "fix(patent): 修复OCR页眉断行碎片导致的伪修订问题",
+      "merge": false,
+      "ins": 19,
+      "del": 0,
+      "branches": [
+       "1.7.0-guangqi"
+      ]
+     }
+    ]
+   },
+   "today": {
+    "total": 4,
+    "effective": 4,
+    "merge": 0,
+    "ins": 294,
+    "del": 15,
+    "authors": 1,
+    "big": [],
+    "trivial": [],
+    "classification": {
+     "feat": 0,
+     "fix": 4,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {
+     "liushaocong@ourchem.com": {
+      "names": [
+       "liushaocong"
+      ],
+      "commits": 4,
+      "ins": 294,
+      "del": 15,
+      "activeDays": 1,
+      "lateNight": 1,
+      "weekend": 0,
+      "branches": {
+       "1.7.0-guangqi": 4
+      },
+      "modulesTouched": 1,
+      "testCommits": 0,
+      "peakDay": "2026-11-06",
+      "peakN": 4
+     }
+    },
+    "commits": [
+     {
+      "h": "f5e89a7172",
+      "an": "liushaocong",
+      "ad": "2026-11-06 01:03:57",
+      "s": "fix(pandoc): 剥离块引用前缀与图片噪声避免污染对比文本"
+     },
+     {
+      "h": "a29afba0f2",
+      "an": "liushaocong",
+      "ad": "2026-11-06 13:32:28",
+      "s": "fix(oa-compare): 修复对比输出中多种伪修订问题"
+     },
+     {
+      "h": "057c236401",
+      "an": "liushaocong",
+      "ad": "2026-11-06 15:29:24",
+      "s": "fix(patent): 修复OCR页眉断行碎片导致的伪修订问题"
+     },
+     {
+      "h": "76eebadf7a",
+      "an": "liushaocong",
+      "ad": "2026-11-06 17:49:26",
+      "s": "fix(patent): 修复OCR页眉断行碎片导致的伪修订问题"
+     }
+    ]
+   },
+   "lastCommitDayBeforeToday": "2026-11-05",
+   "daily": {
+    "2026-10-10": 3,
+    "2026-10-12": 25,
+    "2026-10-13": 9,
+    "2026-10-14": 10,
+    "2026-10-15": 7,
+    "2026-10-16": 19,
+    "2026-10-17": 1,
+    "2026-10-18": 1,
+    "2026-10-19": 8,
+    "2026-10-20": 9,
+    "2026-10-21": 11,
+    "2026-10-22": 7,
+    "2026-10-23": 5,
+    "2026-10-26": 7,
+    "2026-10-27": 2,
+    "2026-10-28": 18,
+    "2026-10-29": 14,
+    "2026-10-30": 18,
+    "2026-11-02": 18,
+    "2026-11-03": 3,
+    "2026-11-04": 2,
+    "2026-11-05": 2,
+    "2026-11-06": 4
+   },
+   "dayDetail": {
+    "2026-10-10": {
+     "commits": 3,
+     "effective": 3,
+     "ins": 892,
+     "del": 9,
+     "authors": [
+      "xiezeen@ourchem.com"
+     ]
+    },
+    "2026-10-12": {
+     "commits": 25,
+     "effective": 21,
+     "ins": 1921,
+     "del": 303,
+     "authors": [
+      "liushaocong@ourchem.com",
+      "xiezeen@ourchem.com"
+     ]
+    },
+    "2026-10-13": {
+     "commits": 9,
+     "effective": 7,
+     "ins": 468,
+     "del": 401,
+     "authors": [
+      "liushaocong@ourchem.com",
+      "xiezeen@ourchem.com"
+     ]
+    },
+    "2026-10-14": {
+     "commits": 10,
+     "effective": 7,
+     "ins": 436,
+     "del": 43,
+     "authors": [
+      "liushaocong@ourchem.com",
+      "xiezeen@ourchem.com"
+     ]
+    },
+    "2026-10-15": {
+     "commits": 7,
+     "effective": 6,
+     "ins": 1083,
+     "del": 66,
+     "authors": [
+      "liushaocong@ourchem.com",
+      "xiezeen@ourchem.com"
+     ]
+    },
+    "2026-10-16": {
+     "commits": 19,
+     "effective": 19,
+     "ins": 1074,
+     "del": 206,
+     "authors": [
+      "liushaocong@ourchem.com"
+     ]
+    },
+    "2026-10-17": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 199,
+     "del": 8,
+     "authors": [
+      "liushaocong@ourchem.com"
+     ]
+    },
+    "2026-10-18": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 849,
+     "del": 683,
+     "authors": [
+      "liushaocong@ourchem.com"
+     ]
+    },
+    "2026-10-19": {
+     "commits": 8,
+     "effective": 8,
+     "ins": 722,
+     "del": 272,
+     "authors": [
+      "liushaocong@ourchem.com"
+     ]
+    },
+    "2026-10-20": {
+     "commits": 9,
+     "effective": 9,
+     "ins": 1072,
+     "del": 87,
+     "authors": [
+      "liushaocong@ourchem.com",
+      "xiezeen@ourchem.com"
+     ]
+    },
+    "2026-10-21": {
+     "commits": 11,
+     "effective": 10,
+     "ins": 994,
+     "del": 643,
+     "authors": [
+      "liushaocong@ourchem.com",
+      "xiezeen@ourchem.com"
+     ]
+    },
+    "2026-10-22": {
+     "commits": 7,
+     "effective": 6,
+     "ins": 158,
+     "del": 17,
+     "authors": [
+      "xiezeen@ourchem.com"
+     ]
+    },
+    "2026-10-23": {
+     "commits": 5,
+     "effective": 5,
+     "ins": 163,
+     "del": 410,
+     "authors": [
+      "xiezeen@ourchem.com"
+     ]
+    },
+    "2026-10-26": {
+     "commits": 7,
+     "effective": 7,
+     "ins": 117,
+     "del": 1491,
+     "authors": [
+      "liushaocong@ourchem.com",
+      "xiezeen@ourchem.com"
+     ]
+    },
+    "2026-10-27": {
+     "commits": 2,
+     "effective": 1,
+     "ins": 9,
+     "del": 1,
+     "authors": [
+      "xiezeen@ourchem.com"
+     ]
+    },
+    "2026-10-28": {
+     "commits": 18,
+     "effective": 16,
+     "ins": 991,
+     "del": 378,
+     "authors": [
+      "liushaocong@ourchem.com",
+      "xiezeen@ourchem.com"
+     ]
+    },
+    "2026-10-29": {
+     "commits": 14,
+     "effective": 9,
+     "ins": 1014,
+     "del": 167,
+     "authors": [
+      "liushaocong@ourchem.com",
+      "xiezeen@ourchem.com"
+     ]
+    },
+    "2026-10-30": {
+     "commits": 18,
+     "effective": 13,
+     "ins": 308,
+     "del": 123,
+     "authors": [
+      "liushaocong@ourchem.com",
+      "xiezeen@ourchem.com"
+     ]
+    },
+    "2026-11-02": {
+     "commits": 18,
+     "effective": 13,
+     "ins": 468,
+     "del": 105,
+     "authors": [
+      "liushaocong@ourchem.com",
+      "xiezeen@ourchem.com"
+     ]
+    },
+    "2026-11-03": {
+     "commits": 3,
+     "effective": 2,
+     "ins": 7,
+     "del": 1,
+     "authors": [
+      "liushaocong@ourchem.com",
+      "xiezeen@ourchem.com"
+     ]
+    },
+    "2026-11-04": {
+     "commits": 2,
+     "effective": 2,
+     "ins": 693,
+     "del": 49,
+     "authors": [
+      "liushaocong@ourchem.com"
+     ]
+    },
+    "2026-11-05": {
+     "commits": 2,
+     "effective": 2,
+     "ins": 44,
+     "del": 8,
+     "authors": [
+      "liushaocong@ourchem.com"
+     ]
+    },
+    "2026-11-06": {
+     "commits": 4,
+     "effective": 4,
+     "ins": 294,
+     "del": 15,
+     "authors": [
+      "liushaocong@ourchem.com"
+     ]
+    }
+   },
+   "saturationWindows": [
+    {
+     "idx": 0,
+     "start": "2026-09-30",
+     "end": "2026-10-06",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 1,
+     "start": "2026-10-07",
+     "end": "2026-10-13",
+     "workdays": 5,
+     "persons": {
+      "liushaocong@ourchem.com": {
+       "names": [
+        "liushaocong"
+       ],
+       "effective": 8,
+       "ins": 1492,
+       "del": 405,
+       "activeDays": 2,
+       "nonworkCommits": 0
+      },
+      "xiezeen@ourchem.com": {
+       "names": [
+        "谢泽恩"
+       ],
+       "effective": 23,
+       "ins": 1789,
+       "del": 308,
+       "activeDays": 3,
+       "nonworkCommits": 3
+      }
+     }
+    },
+    {
+     "idx": 2,
+     "start": "2026-10-14",
+     "end": "2026-10-20",
+     "workdays": 5,
+     "persons": {
+      "liushaocong@ourchem.com": {
+       "names": [
+        "liushaocong"
+       ],
+       "effective": 43,
+       "ins": 4809,
+       "del": 1335,
+       "activeDays": 7,
+       "nonworkCommits": 6
+      },
+      "xiezeen@ourchem.com": {
+       "names": [
+        "谢泽恩"
+       ],
+       "effective": 8,
+       "ins": 626,
+       "del": 30,
+       "activeDays": 3,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 3,
+     "start": "2026-10-21",
+     "end": "2026-10-27",
+     "workdays": 5,
+     "persons": {
+      "liushaocong@ourchem.com": {
+       "names": [
+        "liushaocong"
+       ],
+       "effective": 8,
+       "ins": 670,
+       "del": 1953,
+       "activeDays": 2,
+       "nonworkCommits": 0
+      },
+      "xiezeen@ourchem.com": {
+       "names": [
+        "谢泽恩"
+       ],
+       "effective": 21,
+       "ins": 771,
+       "del": 609,
+       "activeDays": 5,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 4,
+     "start": "2026-10-28",
+     "end": "2026-11-03",
+     "workdays": 5,
+     "persons": {
+      "liushaocong@ourchem.com": {
+       "names": [
+        "liushaocong"
+       ],
+       "effective": 24,
+       "ins": 1758,
+       "del": 362,
+       "activeDays": 5,
+       "nonworkCommits": 1
+      },
+      "xiezeen@ourchem.com": {
+       "names": [
+        "谢泽恩"
+       ],
+       "effective": 29,
+       "ins": 1030,
+       "del": 412,
+       "activeDays": 5,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 5,
+     "start": "2026-11-04",
+     "end": "2026-11-06",
+     "workdays": 3,
+     "persons": {
+      "liushaocong@ourchem.com": {
+       "names": [
+        "liushaocong"
+       ],
+       "effective": 8,
+       "ins": 1031,
+       "del": 72,
+       "activeDays": 3,
+       "nonworkCommits": 1
+      }
+     }
+    }
+   ],
+   "weekly": [
+    {
+     "label": "2026-09-30",
+     "start": "2026-09-30",
+     "end": "2026-10-06",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-07",
+     "start": "2026-10-07",
+     "end": "2026-10-13",
+     "commits": 37,
+     "effective": 31,
+     "authors": 2,
+     "ins": 3281,
+     "del": 713
+    },
+    {
+     "label": "2026-10-14",
+     "start": "2026-10-14",
+     "end": "2026-10-20",
+     "commits": 55,
+     "effective": 51,
+     "authors": 2,
+     "ins": 5435,
+     "del": 1365
+    },
+    {
+     "label": "2026-10-21",
+     "start": "2026-10-21",
+     "end": "2026-10-27",
+     "commits": 32,
+     "effective": 29,
+     "authors": 2,
+     "ins": 1441,
+     "del": 2562
+    },
+    {
+     "label": "2026-10-28",
+     "start": "2026-10-28",
+     "end": "2026-11-03",
+     "commits": 71,
+     "effective": 53,
+     "authors": 2,
+     "ins": 2788,
+     "del": 774
+    },
+    {
+     "label": "2026-11-04",
+     "start": "2026-11-04",
+     "end": "2026-11-06",
+     "commits": 8,
+     "effective": 8,
+     "authors": 1,
+     "ins": 1031,
+     "del": 72
+    }
+   ],
+   "statsWorkdays": 28,
+   "mainBranch": {
+    "branch": "dev",
+    "ref": "origin/dev",
+    "lastActive": "2025-07-16"
+   },
+   "branchPos": [
+    {
+     "name": "1.7.0-guangqi",
+     "ref": "origin/1.7.0-guangqi",
+     "ahead": 2225,
+     "behind": 0,
+     "forkDate": "2025-07-16",
+     "staleDays": 478,
+     "lastActive": "2026-11-06"
+    },
+    {
+     "name": "1.8.5-release",
+     "ref": "origin/1.8.5-release",
+     "ahead": 2433,
+     "behind": 0,
+     "forkDate": "2025-07-16",
+     "staleDays": 478,
+     "lastActive": "2026-10-27"
+    }
+   ],
+   "checkedOut": "dev",
+   "quality": {
+    "mode": "工作副本（当前检出分支口径 §1.6）",
+    "checkedOut": "dev",
+    "languages": [
+     {
+      "ext": ".java",
+      "files": 256,
+      "lines": 17603
+     },
+     {
+      "ext": ".xml",
+      "files": 20,
+      "lines": 1203
+     },
+     {
+      "ext": ".sql",
+      "files": 1,
+      "lines": 121
+     },
+     {
+      "ext": ".yml",
+      "files": 4,
+      "lines": 92
+     },
+     {
+      "ext": "(无扩展名)",
+      "files": 1,
+      "lines": 28
+     }
+    ],
+    "largeFiles": [],
+    "todoTotal": 45,
+    "todoTop": [
+     {
+      "path": "ourchem-ai-patent-core/src/main/java/com/ourchem/ai/patent/disclosure/util/HtmlToDocConverter.java",
+      "count": 3
+     },
+     {
+      "path": "ourchem-ai-patent-core/src/main/java/com/ourchem/ai/patent/service/DisclosureDocWritingService.java",
+      "count": 2
+     },
+     {
+      "path": "ourchem-ai-patent-core/src/main/java/com/ourchem/writing/core/controller/FileController.java",
+      "count": 2
+     },
+     {
+      "path": "ourchem-ai-patent-core/src/main/java/com/ourchem/ai/patent/client/dto/BigModelRequestDTO.java",
+      "count": 1
+     },
+     {
+      "path": "ourchem-ai-patent-core/src/main/java/com/ourchem/ai/patent/client/dto/Result.java",
+      "count": 1
+     },
+     {
+      "path": "ourchem-ai-patent-core/src/main/java/com/ourchem/ai/patent/client/dto/domain/ChatResponse.java",
+      "count": 1
+     },
+     {
+      "path": "ourchem-ai-patent-core/src/main/java/com/ourchem/ai/patent/client/handler/TongYiQianWenModelHandler.java",
+      "count": 1
+     },
+     {
+      "path": "ourchem-ai-patent-core/src/main/java/com/ourchem/ai/patent/client/limit/TokenBucket.java",
+      "count": 1
+     },
+     {
+      "path": "ourchem-ai-patent-core/src/main/java/com/ourchem/ai/patent/client/utils/ResultUtil.java",
+      "count": 1
+     },
+     {
+      "path": "ourchem-ai-patent-core/src/main/java/com/ourchem/ai/patent/service/PromptMetaDataAdminService.java",
+      "count": 1
+     }
+    ],
+    "stockTestFiles": 1,
+    "trackedFiles": 295
+   },
+   "lifetime": {
+    "first": "2025-07-01",
+    "last": "2026-11-06",
+    "totalCommits": 3988,
+    "authors": 2,
+    "monthly": {
+     "2026-11": 43,
+     "2026-10": 199,
+     "2026-09": 276,
+     "2026-08": 266,
+     "2026-07": 377,
+     "2026-06": 449,
+     "2026-05": 166,
+     "2026-04": 160,
+     "2026-03": 195,
+     "2026-02": 109,
+     "2026-01": 280,
+     "2025-12": 311,
+     "2025-11": 290,
+     "2025-10": 184,
+     "2025-09": 286,
+     "2025-08": 188,
+     "2025-07": 209
+    },
+    "monthlyCount": 17,
+    "topAuthors": [
+     {
+      "key": "xiezeen@ourchem.com",
+      "commits": 2655
+     },
+     {
+      "key": "liushaocong@ourchem.com",
+      "commits": 1333
+     }
+    ]
+   }
+  },
+  {
+   "name": "ai-patent-prompt",
+   "path": ".projects/ai-patent\\ai-patent-prompt",
+   "branches": {
+    "master": {
+     "ref": "origin/master",
+     "logFile": "_evidence/raw/ai-patent-prompt__master.log.txt",
+     "numstatFile": "_evidence/raw/ai-patent-prompt__master.numstat.txt",
+     "rawLines": 0
+    },
+    "demo": {
+     "ref": "origin/demo",
+     "logFile": "_evidence/raw/ai-patent-prompt__demo.log.txt",
+     "numstatFile": "_evidence/raw/ai-patent-prompt__demo.numstat.txt",
+     "rawLines": 0
+    }
+   },
+   "errors": [],
+   "hasRemote": true,
+   "window": {
+    "total": 0,
+    "effective": 0,
+    "merge": 0,
+    "ins": 0,
+    "del": 0,
+    "authors": 0,
+    "big": [],
+    "trivial": [],
+    "classification": {
+     "feat": 0,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {},
+    "commits": []
+   },
+   "today": {
+    "total": 0,
+    "effective": 0,
+    "merge": 0,
+    "ins": 0,
+    "del": 0,
+    "authors": 0,
+    "big": [],
+    "trivial": [],
+    "classification": {
+     "feat": 0,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {},
+    "commits": []
+   },
+   "lastCommitDayBeforeToday": null,
+   "daily": {},
+   "dayDetail": {},
+   "saturationWindows": [
+    {
+     "idx": 0,
+     "start": "2026-09-30",
+     "end": "2026-10-06",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 1,
+     "start": "2026-10-07",
+     "end": "2026-10-13",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 2,
+     "start": "2026-10-14",
+     "end": "2026-10-20",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 3,
+     "start": "2026-10-21",
+     "end": "2026-10-27",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 4,
+     "start": "2026-10-28",
+     "end": "2026-11-03",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 5,
+     "start": "2026-11-04",
+     "end": "2026-11-06",
+     "workdays": 3,
+     "persons": {}
+    }
+   ],
+   "weekly": [
+    {
+     "label": "2026-09-30",
+     "start": "2026-09-30",
+     "end": "2026-10-06",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-07",
+     "start": "2026-10-07",
+     "end": "2026-10-13",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-14",
+     "start": "2026-10-14",
+     "end": "2026-10-20",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-21",
+     "start": "2026-10-21",
+     "end": "2026-10-27",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-28",
+     "start": "2026-10-28",
+     "end": "2026-11-03",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-11-04",
+     "start": "2026-11-04",
+     "end": "2026-11-06",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    }
+   ],
+   "statsWorkdays": 28,
+   "mainBranch": {
+    "branch": "master",
+    "ref": "origin/master",
+    "lastActive": "2026-06-16"
+   },
+   "branchPos": [
+    {
+     "name": "demo",
+     "ref": "origin/demo",
+     "ahead": 5,
+     "behind": 1,
+     "forkDate": "2026-05-22",
+     "staleDays": 168,
+     "lastActive": "2026-06-11"
+    }
+   ],
+   "checkedOut": "master",
+   "quality": {
+    "mode": "工作副本（当前检出分支口径 §1.6）",
+    "checkedOut": "master",
+    "languages": [
+     {
+      "ext": ".txt",
+      "files": 63,
+      "lines": 5757
+     },
+     {
+      "ext": "(无扩展名)",
+      "files": 1,
+      "lines": 110
+     },
+     {
+      "ext": ".bak",
+      "files": 1,
+      "lines": 98
+     }
+    ],
+    "largeFiles": [],
+    "todoTotal": 0,
+    "todoTop": [],
+    "stockTestFiles": 0,
+    "trackedFiles": 65
+   },
+   "lifetime": {
+    "first": "2025-11-20",
+    "last": "2026-06-16",
+    "totalCommits": 98,
+    "authors": 3,
+    "monthly": {
+     "2026-06": 6,
+     "2026-05": 6,
+     "2026-04": 4,
+     "2026-03": 8,
+     "2026-02": 17,
+     "2026-01": 18,
+     "2025-12": 18,
+     "2025-11": 21
+    },
+    "monthlyCount": 8,
+    "topAuthors": [
+     {
+      "key": "qiuwenyu@ourchem.com",
+      "commits": 74
+     },
+     {
+      "key": "lixilan@ourchem.com",
+      "commits": 22
+     },
+     {
+      "key": "xiezeen@ourchem.com",
+      "commits": 2
+     }
+    ]
+   }
+  }
+ ],
+ "docsMtime": {
+  "project": [
+   {
+    "path": ".projects/ai-patent/ai-patent-prompt/初始化.txt",
+    "mtime": "2026-10-30 10:34",
+    "date": "2026-10-30"
+   }
+  ],
+  "global": [
+   {
+    "path": "docs/README.md",
+    "mtime": "2026-10-30 16:54",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/原始文件覆盖核对-2026W44.md",
+    "mtime": "2026-10-30 16:54",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/xzf-mall/任务明细-2026W44.md",
+    "mtime": "2026-10-30 16:44",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/public-service-公共服务平台项目集/任务明细-2026W44.md",
+    "mtime": "2026-10-30 16:44",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/ip-integration-知识产权一体化产品/任务明细-2026W44.md",
+    "mtime": "2026-10-30 16:44",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/ai-patent-AI预研产品/任务明细-2026W44.md",
+    "mtime": "2026-10-30 16:44",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/patyee-壹专利/任务明细-2026W44.md",
+    "mtime": "2026-10-30 16:44",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/public-service-公共服务平台项目集/缺陷统计-2026-10-29.md",
+    "mtime": "2026-10-30 16:29",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/ai-patent-AI预研产品/缺陷统计-2026-10-29.md",
+    "mtime": "2026-10-30 16:29",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/patyee-壹专利/缺陷统计-2026-10-29.md",
+    "mtime": "2026-10-30 16:29",
+    "date": "2026-10-30"
+   }
+  ]
+ }
+}

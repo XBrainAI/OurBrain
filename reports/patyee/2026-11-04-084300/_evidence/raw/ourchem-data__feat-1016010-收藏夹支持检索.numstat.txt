@@ -1,0 +1,196 @@
+COMMIT@985cadb6464eb2f03c2bb2d4b23e1d1775716363
+2	0	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/consts/NormalConstant.java
+32	0	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/decode/ElasticFuncDecoderNew.java
+
+COMMIT@3e4400f7962e9db335cc25d62d2c002052d8e275
+1	0	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/consts/NormalConstant.java
+17	11	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/decode/ElasticFuncDecoderNew.java
+17	10	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/decode/SemanticsFuncDecoderNew.java
+
+COMMIT@98727084b10c1767700a635e1ed85a27e70c8a4c
+3	2	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/consts/NormalConstant.java
+47	39	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/decode/SemanticsFuncDecoderNew.java
+
+COMMIT@a6a88f4b2ea4e9c301e2ab93985d4e236ee08fb8
+48	40	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/decode/ElasticFuncDecoderNew.java
+
+COMMIT@ade4be3556ffb25258fa1ca99dcf3405153a3acc
+6	1	ourchem-data-file/src/main/java/com/ourchem/data/file/service/CompositeMapService.java
+50	11	ourchem-data-file/src/main/java/com/ourchem/data/file/service/Oss0FileMapService.java
+51	11	ourchem-data-file/src/main/java/com/ourchem/data/file/service/Oss1FileMapService.java
+51	13	ourchem-data-file/src/main/java/com/ourchem/data/file/service/OssFileMapService.java
+12	0	ourchem-data-server/src/main/java/com/ourchem/data/server/DataApp.java
+10	0	ourchem-data-server/src/main/java/com/ourchem/data/server/EsDataApp.java
+
+COMMIT@2520e206086142de9c42d1af5efdb1311f786d7d
+1	0	.gitignore
+
+COMMIT@ab2f98bee8e087bd7c68dcec85bd641f64715ec3
+COMMIT@12102c709f38e90a756be88ee28f40cdf1b5614d
+2	2	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/consts/NormalConstant.java
+
+COMMIT@758bf01f13d105a14f67394c27964ed2aed9423f
+9	0	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/model/query/EsQueryParam.java
+6	0	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/DataVisualQueryService.java
+182	3	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/DefaultQueryService.java
+3	0	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/IQueryService.java
+6	0	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/IntegrationQueryService.java
+31	2	ourchem-data-server/src/main/java/com/ourchem/data/server/rest/QueryController.java
+5	0	ourchem-data-server/src/main/java/com/ourchem/data/server/service/QueryService.java
+
+COMMIT@b4a216721c085e3e543ddbe6a0d7981d90584e9f
+1	1	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/consts/NormalConstant.java
+
+COMMIT@60eda22d617d04278b807dc58e2f624235b1b765
+COMMIT@caf5f8cddedf6e3323568bbe54cf0f0903fadcda
+1	1	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/consts/NormalConstant.java
+
+COMMIT@7e723be36f56343c73580f4532566f18841dfbb3
+1	1	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/consts/NormalConstant.java
+
+COMMIT@d9483e73e1f9f60f99932e5ac47cf87ee12d2406
+115	30	ourchem-data-server/src/main/java/com/ourchem/data/server/service/RepeatQueryService.java
+
+COMMIT@4ea220309bf3697a46fca015a181d44c38c0370e
+7	8	ourchem-data-server/src/main/java/com/ourchem/data/server/service/RepeatQueryService.java
+
+COMMIT@f0d8fffe6ea8b0fed2c2f918ca09c0741884753f
+34	4	ourchem-data-server/src/main/java/com/ourchem/data/server/service/RepeatQueryService.java
+
+COMMIT@7ad1c910f256d2cde4b05400e1bd2d36e5984d6f
+17	6	ourchem-data-server/src/main/java/com/ourchem/data/server/service/RepeatQueryService.java
+
+COMMIT@2b67f61980f7e9ac4bb5484010b3ecada008965d
+10	14	ourchem-data-server/src/main/java/com/ourchem/data/server/service/RepeatQueryService.java
+
+COMMIT@bf904c697ee3bd6c96476224fe4005b9fdb5594c
+15	14	ourchem-data-server/src/main/java/com/ourchem/data/server/service/RepeatQueryService.java
+
+COMMIT@53459e365b8f537679a5c08f35e3001c65e96639
+28	19	ourchem-data-server/src/main/java/com/ourchem/data/server/service/RepeatQueryService.java
+
+COMMIT@32f3100422a93d83fb21c3bce0e3254ec307007b
+1	1	ourchem-data-server/src/main/java/com/ourchem/data/server/service/RepeatQueryService.java
+
+COMMIT@5ff0062145ce1ede09ea7500e965c2cb74fe0956
+69	66	ourchem-data-server/src/main/java/com/ourchem/data/server/service/RepeatQueryService.java
+
+COMMIT@9e3db9045d78e6c7e6e1c933ebbb88a76f5a3532
+60	19	ourchem-data-server/src/main/java/com/ourchem/data/server/service/RepeatQueryService.java
+
+COMMIT@a60d75d61ce21a52587c456434b839101198b7f5
+17	1	ourchem-data-server/src/main/java/com/ourchem/data/server/service/RepeatQueryService.java
+
+COMMIT@582e66e932f5cd7cb3b0df7ec280f2c9aa39b6d7
+1	1	ourchem-data-server/src/main/java/com/ourchem/data/server/service/RepeatQueryService.java
+
+COMMIT@9a8b71272712abedb925e3061397a8ca4c714731
+5	5	ourchem-data-server/src/main/java/com/ourchem/data/server/service/RepeatQueryService.java
+
+COMMIT@bd40b6bcd2c12e9701995ac1f4be65f9df49cdfa
+130	5	ourchem-data-server/src/main/java/com/ourchem/data/server/service/RepeatQueryService.java
+
+COMMIT@3eeb40640b98453dc86282eee5e7d36d7a506b0d
+0	3	ourchem-data-server/src/main/java/com/ourchem/data/server/service/RepeatQueryService.java
+
+COMMIT@9ddbdc36a6f94bb5a97364f7e01c77584496fb46
+19	1	ourchem-data-server/src/main/java/com/ourchem/data/server/dao/InternalQueryStatMapper.java
+20	6	ourchem-data-server/src/main/java/com/ourchem/data/server/service/impl/EsIndexServiceImpl.java
+27	3	ourchem-data-server/src/main/resources/mapper/InternalQueryStatMapper.xml
+
+COMMIT@0f5de5431e52d29c18601b4a97dec4b48adabdf8
+1	1	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/service/InternalQueryStatService.java
+2	1	ourchem-data-server/src/main/java/com/ourchem/data/server/rest/ThirdPartyQueryController.java
+1	2	ourchem-data-server/src/main/java/com/ourchem/data/server/service/InternalQueryStatServiceImpl.java
+
+COMMIT@98a81031a03f01308324bda7b04ad4456e19842d
+20	2	ourchem-data-server/src/main/java/com/ourchem/data/server/config/AsyncConfig.java
+5	0	ourchem-data-server/src/main/java/com/ourchem/data/server/dao/InternalQueryStatMapper.java
+9	0	ourchem-data-server/src/main/java/com/ourchem/data/server/rest/EsController.java
+8	0	ourchem-data-server/src/main/java/com/ourchem/data/server/service/EsIndexService.java
+25	21	ourchem-data-server/src/main/java/com/ourchem/data/server/service/InternalQueryStatServiceImpl.java
+111	0	ourchem-data-server/src/main/java/com/ourchem/data/server/service/impl/EsIndexServiceImpl.java
+13	0	ourchem-data-server/src/main/resources/mapper/InternalQueryStatMapper.xml
+
+COMMIT@5657110fe47196e096912bc160e639a311048537
+COMMIT@1a1e3b0227ad1588af45af736f54436b31388cfa
+COMMIT@0a1c4407d4bc48acf0d2fda9ca3abd9e4f6efd01
+2	2	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/model/config/MatchPhraseConfig.java
+
+COMMIT@b7aaaba75b8dcdea3f02d6f7037230f0f37d6694
+5	10	ourchem-data-file/src/main/java/com/ourchem/data/file/service/Oss0FileMapService.java
+5	9	ourchem-data-file/src/main/java/com/ourchem/data/file/service/Oss1FileMapService.java
+5	9	ourchem-data-file/src/main/java/com/ourchem/data/file/service/OssFileMapService.java
+
+COMMIT@1af88dfa28c07e91a410254a22f1d282497a40cf
+1	1	ourchem-data-server/src/main/resources/mapper/ApplicantsConfigMapper.xml
+
+COMMIT@4fcffcf3a172074efa09e597b9875a2115226992
+0	34	ourchem-data-api/src/main/java/com/ourchem/data/api/query/ApplicantAssociating.java
+1	4	ourchem-data-server/src/main/java/com/ourchem/data/server/dao/ApplicantsConfigMapper.java
+4	10	ourchem-data-server/src/main/java/com/ourchem/data/server/rest/ApplicantsConfigController.java
+1	7	ourchem-data-server/src/main/java/com/ourchem/data/server/service/ApplicantsConfigService.java
+2	8	ourchem-data-server/src/main/java/com/ourchem/data/server/service/impl/ApplicantsConfigServiceImpl.java
+2	10	ourchem-data-server/src/main/resources/mapper/ApplicantsConfigMapper.xml
+
+COMMIT@cc425be45de6b191be1d37a994e5475fa59baa4b
+34	0	ourchem-data-api/src/main/java/com/ourchem/data/api/query/ApplicantAssociating.java
+5	0	ourchem-data-server/src/main/java/com/ourchem/data/server/dao/ApplicantsConfigMapper.java
+21	0	ourchem-data-server/src/main/java/com/ourchem/data/server/rest/ApplicantsConfigController.java
+11	0	ourchem-data-server/src/main/java/com/ourchem/data/server/service/ApplicantsConfigService.java
+11	0	ourchem-data-server/src/main/java/com/ourchem/data/server/service/impl/ApplicantsConfigServiceImpl.java
+15	0	ourchem-data-server/src/main/resources/mapper/ApplicantsConfigMapper.xml
+
+COMMIT@cfb165ea3f60e7b4ffe5b82bd65f68084beefb2d
+3	0	ourchem-data-server/sql/alter_t_applicants_config_sql.sql
+
+COMMIT@510ef018efecba141da9912b9c414620e48f24b9
+COMMIT@30d7b4a5e1b69dcfd709c1b8c0f0b68eabada569
+2	0	ourchem-data-server/src/main/java/com/ourchem/data/server/dao/ApplicantsConfigMapper.java
+15	0	ourchem-data-server/src/main/java/com/ourchem/data/server/rest/ApplicantsConfigController.java
+5	0	ourchem-data-server/src/main/java/com/ourchem/data/server/service/ApplicantsConfigService.java
+5	0	ourchem-data-server/src/main/java/com/ourchem/data/server/service/impl/ApplicantsConfigServiceImpl.java
+7	0	ourchem-data-server/src/main/resources/mapper/ApplicantsConfigMapper.xml
+
+COMMIT@b44b74687680f7823064ca5a7e47e8d384f9c09b
+2	2	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/decode/PatyeeExpreDecode.java
+
+COMMIT@db0471dca6c3ce5e19787b7362b99bdf4cc31d98
+COMMIT@228fd798e738270eabc378c4cc7cb01efa3c957b
+COMMIT@7505e3004a409437b31ae7edec4068fe796fc7a6
+COMMIT@225fceafa1a1e7b43c9a873ed3043f1e5f3c74eb
+COMMIT@ae5f87095d01c666d74cfa5f23f8a9f9247dd307
+2	0	ourchem-data-server/src/main/java/com/ourchem/data/server/service/QueryService.java
+
+COMMIT@77e45c7bfd06e07ac2bc29d17c9166b4a486d4ac
+20	10	ourchem-data-server/src/main/java/com/ourchem/data/server/config/DataJSONConfiguration.java
+
+COMMIT@41017dc657c71f3b12ba761ee99d3540ceca7898
+3	0	ourchem-data-api/src/main/java/com/ourchem/data/api/query/SearchClient.java
+5	0	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/consts/DataDictConstant.java
+26	1	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/consts/NormalConstant.java
+4	2	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/decode/PatyeeExpreDecode.java
+47	0	ourchem-data-server/src/main/java/com/ourchem/data/server/dao/ApplicantsConfigMapper.java
+58	0	ourchem-data-server/src/main/java/com/ourchem/data/server/entity/ApplicantsConfig.java
+180	0	ourchem-data-server/src/main/java/com/ourchem/data/server/rest/ApplicantsConfigController.java
+364	0	ourchem-data-server/src/main/java/com/ourchem/data/server/rest/EsController.java
+88	0	ourchem-data-server/src/main/java/com/ourchem/data/server/service/ApplicantsConfigService.java
+128	118	ourchem-data-server/src/main/java/com/ourchem/data/server/service/QueryService.java
+128	0	ourchem-data-server/src/main/java/com/ourchem/data/server/service/impl/ApplicantsConfigServiceImpl.java
+302	0	ourchem-data-server/src/main/resources/mapper/ApplicantsConfigMapper.xml
+
+COMMIT@b4e13305b9d198ec5754fc84344f24c5105edfac
+56	19	ourchem-data-server/src/main/java/com/ourchem/data/server/config/DataJSONConfiguration.java
+
+COMMIT@8ffd2712a0b388c84dd5315a4e5569da79cce1b6
+1	1	ourchem-data-server/src/main/java/com/ourchem/data/server/service/QueryService.java
+
+COMMIT@b6796654a4d700982a49901382f2afda382636cf
+1	1	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/consts/NormalConstant.java
+1	1	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/model/config/MatchPhraseConfig.java
+
+COMMIT@ce6291f768655263453e350b726c3b0300c2f6fd
+1	1	ourchem-data-parser/src/main/java/com/ourchem/data/antlr/parser/model/config/MatchPhraseConfig.java
+
+COMMIT@2fcae6333eb62958dfa21ea858b0b395b1ecfb40
+1	1	ourchem-data-server/src/main/java/com/ourchem/data/server/service/QueryService.java

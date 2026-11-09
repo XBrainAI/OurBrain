@@ -1,0 +1,859 @@
+{
+ "period": 8,
+ "planRange": {
+  "start": "2026-08-01",
+  "end": "2026-11-08"
+ },
+ "historyNote": "三功能线测试期修复延续（前端 15 笔仍 100% 郑宜权三分支 + ourchem-patyee 5 有效两人，均 11-06 前）；四功能分支分叉 503 天（领先 872~881）；oauth v5.17 存活 24 天触线加深；R11 过 12 / R12 过 8 / R13、R14 过 5 个工作日（逢周末维持）未收口；六项老化风险全部进入第 8 期；W14（10-31~11-06）已完整、W15（11-07~11-08 周末）新窗空窗（W1~W14 沿用发布值）",
+ "aliases": [
+  {
+   "email_contains": "zhengyiquan",
+   "canon": "郑宜权"
+  },
+  {
+   "name_in": "zyq",
+   "canon": "郑宜权"
+  },
+  {
+   "email_contains": "zhongjianghua",
+   "canon": "钟江华"
+  },
+  {
+   "name_in": "zhongjianghua",
+   "canon": "钟江华"
+  },
+  {
+   "email_contains": "gaojingkai",
+   "canon": "高鲸凱"
+  },
+  {
+   "name_in": "gaojingkai",
+   "canon": "高鲸凱"
+  },
+  {
+   "email_contains": "suguangluan",
+   "canon": "苏广銮"
+  },
+  {
+   "name_in": "su",
+   "canon": "苏广銮"
+  },
+  {
+   "name_in": "sususu",
+   "canon": "苏广銮"
+  },
+  {
+   "email_contains": "zcy8883680",
+   "canon": "钟承佑"
+  },
+  {
+   "name_in": "zhongchengyou",
+   "canon": "钟承佑"
+  },
+  {
+   "email_contains": "wujm",
+   "canon": "吴嘉明"
+  },
+  {
+   "name_in": "吴嘉明",
+   "canon": "吴嘉明"
+  }
+ ],
+ "memberMap": {},
+ "dayDiff": {
+  "prevDay": "2026-11-06",
+  "gapDays": 2,
+  "skipped": "11-07（周六）无提交与文档更新",
+  "docsChangedToday": false,
+  "docsSummary": "项目路径（SYSTEM_REQUIREMENTS 等 10-30）与全局 docs/（10-30）今日无更新；W45 仍未入库（W45 已过完）",
+  "headline": "项目级：11-06 前端 1 笔 +71/−12（郑宜权，收藏夹修复）+ ourchem-patyee 1 笔 +24/−3（高鲸凱）后，11-07~08（周末）零新增"
+ },
+ "aheadDelta": {
+  "patyee-next": "0",
+  "ourchem-patyee": "0",
+  "ourchem-data": "0",
+  "ourchem-middle-service": "0",
+  "ourchem-oauth": "0",
+  "lucene": "0",
+  "image-search-v2": "0",
+  "image-search-process-v2": "0"
+ },
+ "dayDiffNote": {
+  "patyee-next": "四功能分支领先 872/878/881/875（较 P7 持平，11-06 后无变化）",
+  "ourchem-patyee": "feat-1016010 ahead 14（last 11-06 活跃）",
+  "ourchem-oauth": "v5.17 存活 24 天（触线加深）"
+ },
+ "headline": "壹专利：三功能线测试期修复延续（前端 15 笔仍 100% 单人），四功能分支分叉 503 天，六项老化风险全部第 8 期",
+ "keyPoints": [
+  {
+   "level": "高",
+   "text": "4 条功能分支相对 master 领先 872~881、分叉 503 天（第 8 期）——回流机制持续缺位；oauth v5.17 存活 24 天触线加深未合并（领先 14）"
+  },
+  {
+   "level": "中",
+   "text": "郑宜权窗口 15 笔 100%（三分支：收藏夹 8 / 登录释放 4 / 生命周期 3；含 7c20182302 会话重构大提交 1043 行）——前端单人连续第 8 期"
+  },
+  {
+   "level": "中",
+   "text": "提测收口持续缺确认：R11 过 12 个工作日（middle/oauth 后端零提交）、R12 过 8 个、R13/R14 过 5 个（均逢周末维持）——提测口径 git 盲区，请文档/用户确认收口"
+  },
+  {
+   "level": "中",
+   "text": "六项老化风险全部进入第 8 期（分支分叉/前端单人/零单测/R11-14 提测超期/数据侧停滞/算法仓零跟进）；W45 未入库（第 6 期连续）沿用 W44"
+  },
+  {
+   "level": "低",
+   "type": "positive",
+   "text": "正面：ourchem-patyee 后端两人协作（高鲸凱 4 + 钟江华 1）；W14（10-31~11-06）已完整发布、W15 周末新窗空窗属正常"
+  }
+ ],
+ "repos": {
+  "patyee-next": {
+   "total": 52.3,
+   "scores": {
+    "progress": 50,
+    "people": 70,
+    "quality": 58,
+    "integration": 68,
+    "convention": 10
+   },
+   "topRisk": "4 条功能分支领先 872~881、分叉 503 天；窗口 15 笔 100% 单人（郑宜权）",
+   "narrative": {
+    "progress": "三功能线测试期修复延续（收藏夹 8 / 登录释放 4 / 生命周期 3，均 11-06 前）；R11/R12 提测超期未收口",
+    "people": "郑宜权 15（100%，第 8 期）；无第二前端",
+    "quality": "零单测第 8 期；自有 TODO 26（总计 96）；1 大提交（会话重构 1043 行）",
+    "integration": "四功能分支领先 872~881、分叉 503 天（回流缺位第 8 期）",
+    "convention": "fix 前缀 + 【问题描述】标题（规范好）",
+    "rhythm": "11-02 峰值 6 → 11-03~06 每日 1~5 笔 → 周末零",
+    "modules": "收藏夹检索与登录释放测试修复",
+    "plans": "R11 部分推进（12 个工作日）/ R12 部分推进（8）/ R13 已推进（5）",
+    "testing": "存量 0 测试文件；窗口 fix 类 11 笔零测试同步（第 8 期）"
+   },
+   "peopleProfile": [
+    {
+     "name": "郑宜权",
+     "role": "三功能线前端唯一执行者（测试期修复）",
+     "intent": "意图：三功能线测试期修复（收藏夹 8 / 登录释放 4 / 生命周期 3，含会话重构大提交）",
+     "workload": "投入度：窗口 15/15（100%）",
+     "intensity": "工作强度：峰值 11-02×6；连续 6 天活跃",
+     "engagement": "参与度：三分支并行",
+     "risk": "潜在风险：单人三分支并行（bus factor=1 第 8 期）",
+     "riskLevel": "高"
+    }
+   ],
+   "testing": {
+    "stockNote": "存量 0 测试文件（前端零单测口径）",
+    "sitTraces": 0,
+    "aiReview": "窗口 fix 类 11 笔全部无测试同步（第 8 期）；数量对不上/穿透不一致类修复属回归高发区——建议随修复补最小断言用例"
+   },
+   "plans": [
+    {
+     "id": "R3",
+     "name": "行3 图像检索优化-多图同时检索",
+     "owner": "吴嘉明",
+     "start": "09-04",
+     "due": "09-11",
+     "status": "已完成",
+     "note": "文档维持（done 10-26 沿用）",
+     "prevStatus": "已完成",
+     "done": "10-26"
+    },
+    {
+     "id": "R11",
+     "name": "行11 登录释放策略优化",
+     "owner": "郑宜权/钟江华",
+     "start": "10-15",
+     "due": "10-21",
+     "status": "部分推进",
+     "note": "前端 1016188 分支 4 笔修复（dialog 动画/还原现场判断）；后端 middle/oauth 零提交——提测过 12 个工作日（逢周末维持）未收口",
+     "prevStatus": "部分推进"
+    },
+    {
+     "id": "R12",
+     "name": "行12 收藏夹支持检索",
+     "owner": "郑宜权/高鲸凱",
+     "start": "10-20",
+     "due": "10-27",
+     "status": "部分推进",
+     "note": "前端 feat-1016010 8 笔 + 后端 ourchem-patyee 5 有效——提测过 8 个工作日（逢周末维持）未收口",
+     "prevStatus": "部分推进"
+    },
+    {
+     "id": "R13",
+     "name": "行13 专利分析-技术生命周期优化",
+     "owner": "郑宜权/高鲸凱",
+     "start": "10-22",
+     "due": "10-30",
+     "status": "已推进",
+     "note": "前端 feat-1016189 3 笔；数据仓零提交——提测过 5 个工作日（逢周末维持）",
+     "prevStatus": "已推进"
+    }
+   ],
+   "risks": [
+    {
+     "title": "4 条功能分支相对 master 各领先 872~881 提交、分叉 503 天",
+     "plain": "四条功能分支挂了一年半没回流（第 8 期）",
+     "dimension": "integration",
+     "level": "高",
+     "evidence": "ahead 872/878/881/875；fork=2025-06-23",
+     "advice": "升级动作（连续第 3 期）：专项回流排期——按功能线验收后逐条合并或明确长期分支策略",
+     "agePeriods": 8
+    },
+    {
+     "title": "本仓提交 100% 集中郑宜权一人（窗口 15/15）",
+     "plain": "前端一直是一个人做（第 8 期）",
+     "dimension": "people",
+     "level": "高",
+     "evidence": "shortlog 17/17（上期 19/19）",
+     "advice": "升级动作：测试期修复轮换或结对，缓解单人三分支并行",
+     "agePeriods": 8
+    },
+    {
+     "title": "前端零单测 + 自有代码 TODO 26 处（总计 96）",
+     "plain": "前端零单测、自有代码 26 处待办（第 8 期）",
+     "dimension": "quality",
+     "level": "中",
+     "evidence": "ls-files 0 测试文件；TODO 拆分口径",
+     "advice": "数量一致性类修复优先补断言",
+     "agePeriods": 8
+    },
+    {
+     "title": "session 模块大提交重构（7c20182302 +800/−243，多 tab 会话治理）",
+     "plain": "会话模块千行重构叠多任务（第 8 期，git 可见部分）",
+     "dimension": "quality",
+     "level": "中",
+     "evidence": "1043 行 5 文件",
+     "advice": "回归验证清单确认",
+     "agePeriods": 8
+    },
+    {
+     "title": "R11/R12 已过提测日仍在测试、R13 提测日已过",
+     "plain": "四条功能过了提测日还在修（第 8 期）",
+     "dimension": "progress",
+     "level": "中",
+     "evidence": "R11 过 12 / R12 过 8 / R13 过 5 个工作日；文档未更新收口",
+     "advice": "升级动作：提测收口确认（验证在 git 盲区，需文档/TAPD 更新）",
+     "agePeriods": 8
+    },
+    {
+     "title": "部分提交作者日期与提交日期错位（历史在案）",
+     "plain": "部分提交作者日期与提交日期错位（历史在案，第 8 期）",
+     "dimension": "convention",
+     "level": "低",
+     "evidence": "%ad 与 commit date 错位（P2 勘误在案）",
+     "advice": "口径注记维持",
+     "agePeriods": 8
+    }
+   ],
+   "moduleDesc": {
+    "src/views": "页面（收藏夹/登录/生命周期）",
+    "src/utils": "工具函数",
+    "src/App.vue": "应用入口",
+    "src/components": "公共组件"
+   },
+   "coreModules": [
+    "src/views"
+   ],
+   "insights": [
+    "patyee-next@7c20182302 —— 1016188 登录释放策略优化（5 文件 +1043 行）：会话还原现场判断修复 + dialog 动画开关——R11 测试期主体重构（含 [*] 前缀多任务标记）",
+    "窗口 fix 类 11 笔（数量对不上/穿透不一致等测试期问题）集中在 feat-1016010/1016189 线——测试期修复低强度延续（11-02~06）"
+   ]
+  },
+  "ourchem-patyee": {
+   "total": 33.8,
+   "scores": {
+    "progress": 45,
+    "people": 25,
+    "quality": 50,
+    "integration": 25,
+    "convention": 10
+   },
+   "topRisk": "TODO 300 处；R12 已过提测日 8 个工作日（feat-1016010 落后主干 19）",
+   "narrative": {
+    "progress": "R12 后端测试期修复延续（高鲸凱 4 refactor + 钟江华 1）；master-pro 10-30 后静默",
+    "people": "高鲸凱 4 + 钟江华 1（两人协作，形态健康）",
+    "quality": "TODO 300（收藏夹服务单文件 14）；改动无测试同步",
+    "integration": "feat-1016010 14/19（last 11-06 活跃）；v5.13.8 落后 4",
+    "convention": "refactor(favorite) 前缀规范",
+    "rhythm": "11-02~06 低强度（每日 0~2 笔）→ 周末零",
+    "modules": "收藏夹检索后端",
+    "plans": "R12 部分推进（8 个工作日）",
+    "testing": "存量 31 测试文件（框架为主）；窗口零测试同步（第 8 期）"
+   },
+   "peopleProfile": [
+    {
+     "name": "高鲸凱",
+     "role": "R12 收藏夹检索后端主力",
+     "intent": "意图：favorite 服务 refactor（1017569 等 4 笔）",
+     "workload": "投入度：窗口 4/5",
+     "intensity": "工作强度：11-03/04/06 三天 4 笔",
+     "engagement": "参与度：feat-1016010 单分支",
+     "risk": "潜在风险：无（与郑宜权前后端配合）",
+     "riskLevel": null
+    },
+    {
+     "name": "钟江华",
+     "role": "后端第二人（R12 配套）",
+     "intent": "意图：收藏夹检索配套改动（+180/−18，11-02）",
+     "workload": "投入度：窗口 1/5",
+     "intensity": "工作强度：单笔",
+     "engagement": "参与度：feat-1016010",
+     "risk": "潜在风险：无",
+     "riskLevel": null
+    }
+   ],
+   "testing": {
+    "stockNote": "存量 31 测试文件（框架/脚手架为主，P1 判定延续）",
+    "sitTraces": 0,
+    "aiReview": "窗口 5 笔有效改动无测试同步（第 8 期）；favorite 服务 refactor 类改动建议补服务层用例"
+   },
+   "plans": [
+    {
+     "id": "R3",
+     "name": "行3 图像检索优化-多图同时检索（后端）",
+     "owner": "吴嘉明",
+     "start": "09-04",
+     "due": "09-11",
+     "status": "已完成",
+     "note": "文档维持",
+     "prevStatus": "已完成",
+     "done": "10-26"
+    },
+    {
+     "id": "R12",
+     "name": "行12 收藏夹支持检索（后端）",
+     "owner": "高鲸凱",
+     "start": "10-20",
+     "due": "10-27",
+     "status": "部分推进",
+     "note": "feat-1016010 分支 5 有效（高鲸凱 4 + 钟江华 1，均 11-06 前）；提测过 8 个工作日（逢周末维持）未收口",
+     "prevStatus": "部分推进"
+    }
+   ],
+   "risks": [
+    {
+     "title": "TODO 300 处（收藏夹服务单文件 14 处）",
+     "plain": "后端积了 300 处待办（第 8 期）",
+     "dimension": "quality",
+     "level": "中",
+     "evidence": "grep 计数（工作副本口径）",
+     "advice": "随 R12 收口清理收藏夹服务",
+     "agePeriods": 8
+    },
+    {
+     "title": "R12 已过提测日 8 个工作日，窗口 5 笔测试期修复",
+     "plain": "R12 收藏夹检索过了提测日没下文（第 8 期）",
+     "dimension": "progress",
+     "level": "中",
+     "evidence": "due 10-27；文档未更新收口",
+     "advice": "收口确认（TAPD/文档）",
+     "agePeriods": 8
+    },
+    {
+     "title": "窗口改动无测试同步（存量 31 为框架/脚手架为主）",
+     "plain": "后端改动也没测试同步（第 8 期）",
+     "dimension": "quality",
+     "level": "中",
+     "evidence": "numstat 测试命中 0",
+     "advice": "favorite 服务补用例",
+     "agePeriods": 8
+    },
+    {
+     "title": "feat-1016010 落后主干 19 提交（临界关注级）",
+     "plain": "收藏夹分支落后主干 19 笔（临界，第 8 期）",
+     "dimension": "integration",
+     "level": "低",
+     "evidence": "behind=19（阈值 20）",
+     "advice": "收口前同步主干防冲突",
+     "agePeriods": 8
+    }
+   ],
+   "moduleDesc": {
+    "core/src": "后端核心（favorite 服务）"
+   },
+   "coreModules": [
+    "core/src"
+   ],
+   "insights": [
+    "ourchem-patyee@84244a2ba1 —— refactor(favorite) 1017569 修改（2 行碎提交）：R12 后端持续打磨形态",
+    "ourchem-patyee feat-1016010 ahead 14/behind 19（last 11-06）——R12 后端线仍是全项目唯一活跃后端分支"
+   ]
+  },
+  "ourchem-data": {
+   "total": 38.4,
+   "scores": {
+    "progress": 42,
+    "people": 60,
+    "quality": 50,
+    "integration": 15,
+    "convention": 10
+   },
+   "topRisk": "TODO 174 处；R12/R13 本仓窗口零提交（数据侧停滞第 8 期）",
+   "narrative": {
+    "progress": "窗口 0 提交（last=10-27）；R12/R13 数据侧零证据延续",
+    "people": "无窗口活跃（统计期 79% 高鲸凱）",
+    "quality": "TODO 174",
+    "integration": "v5.14.0 与主干同点（改善维持）；两功能分支各 ahead 1",
+    "convention": "无窗口数据",
+    "rhythm": "10-27 后连续 12 天零",
+    "modules": "无",
+    "plans": "R12 部分推进维持 / R13 已推进维持（零证据不降级——上期同判）",
+    "testing": "存量 16 测试文件"
+   },
+   "peopleProfile": [],
+   "testing": {
+    "stockNote": "存量 16 测试文件（脚本类为主）",
+    "sitTraces": 0,
+    "aiReview": "不适用（零活动）"
+   },
+   "plans": [
+    {
+     "id": "R3",
+     "name": "行3 图像检索优化-多图同时检索（数据侧）",
+     "owner": "吴嘉明",
+     "start": "09-04",
+     "due": "09-11",
+     "status": "已完成",
+     "note": "文档维持",
+     "prevStatus": "已完成",
+     "done": "10-26"
+    },
+    {
+     "id": "R12",
+     "name": "行12 收藏夹支持检索（数据侧）",
+     "owner": "高鲸凱",
+     "start": "10-20",
+     "due": "10-27",
+     "status": "部分推进",
+     "note": "本仓零提交（10-27 后静默）——维持上期判定；提测超期逢周末维持",
+     "prevStatus": "部分推进"
+    },
+    {
+     "id": "R13",
+     "name": "行13 专利分析-技术生命周期优化（数据侧）",
+     "owner": "高鲸凱",
+     "start": "10-22",
+     "due": "10-30",
+     "status": "已推进",
+     "note": "feat-1016189 分支 ahead 1（10-27 后无更新）——维持上期判定；提测超期逢周末维持",
+     "prevStatus": "已推进"
+    }
+   ],
+   "risks": [
+    {
+     "title": "TODO 174 处",
+     "plain": "数据仓积了 174 处待办（第 8 期）",
+     "dimension": "quality",
+     "level": "低",
+     "evidence": "grep 计数",
+     "advice": "观察项维持",
+     "agePeriods": 8
+    },
+    {
+     "title": "统计期 79% 提交来自高鲸凱",
+     "plain": "数据仓主要靠一个人（第 8 期）",
+     "dimension": "people",
+     "level": "中",
+     "evidence": "统计期 shortlog",
+     "advice": "备份安排",
+     "agePeriods": 8
+    },
+    {
+     "title": "R12 本仓停滞，已过提测日（第 8 期）",
+     "plain": "收藏夹检索的数据侧一直没动（第 8 期）",
+     "dimension": "progress",
+     "level": "中",
+     "evidence": "窗口 0 笔；last=10-27",
+     "advice": "与高鲸凱确认数据侧是否有未入库工作",
+     "agePeriods": 8
+    },
+    {
+     "title": "v5.14.0 已与主干同点（改善维持）",
+     "plain": "版本分支已同步（改善维持，第 8 期）",
+     "dimension": "integration",
+     "level": "低",
+     "evidence": "ahead=0/behind=0",
+     "advice": "改善维持",
+     "agePeriods": 8
+    }
+   ],
+   "moduleDesc": {},
+   "coreModules": [],
+   "insights": [
+    "零活动仓（10-27 后静默）；R12/R13 数据侧零证据——建议确认未入库工作或环境侧交付"
+   ]
+  },
+  "ourchem-middle-service": {
+   "total": 30.0,
+   "scores": {
+    "progress": 45,
+    "people": 30,
+    "quality": 30,
+    "integration": 20,
+    "convention": 10
+   },
+   "topRisk": "R11 后端 4 笔未合并（分叉 20 天）且仓已静默 18 天",
+   "narrative": {
+    "progress": "窗口 0 提交（last=10-21）；R11 已过提测日 12 个工作日",
+    "people": "无",
+    "quality": "TODO 12（低）",
+    "integration": "feat-1016188 ahead 4 未合并（分叉 18 天）",
+    "convention": "无窗口数据",
+    "rhythm": "10-21 后连续 18 天零",
+    "modules": "无",
+    "plans": "R11 部分推进（12 个工作日）",
+    "testing": "存量 2 测试文件"
+   },
+   "peopleProfile": [],
+   "testing": {
+    "stockNote": "存量 2 测试文件",
+    "sitTraces": 0,
+    "aiReview": "不适用（零活动）"
+   },
+   "plans": [
+    {
+     "id": "R11",
+     "name": "行11 登录释放策略优化（middle 后端）",
+     "owner": "钟江华",
+     "start": "10-15",
+     "due": "10-21",
+     "status": "部分推进",
+     "note": "feat-1016188 分支 4 笔（10-21 后静默）；提测过 12 个工作日（逢周末维持）未收口",
+     "prevStatus": "部分推进"
+    }
+   ],
+   "risks": [
+    {
+     "title": "R11 后端 4 笔提交未合并主干（分叉 20 天）",
+     "plain": "登录释放的后端改动挂了两周多没合并（第 8 期）",
+     "dimension": "integration",
+     "level": "低",
+     "evidence": "ahead=4、fork=10-19",
+     "advice": "随 R11 收口合并",
+     "agePeriods": 8
+    },
+    {
+     "title": "窗口 0 提交，R11 已过提测日 12 个工作日",
+     "plain": "middle 后端过了提测日两周没动静（第 8 期）",
+     "dimension": "progress",
+     "level": "中",
+     "evidence": "last=10-21；文档未更新",
+     "advice": "升级动作：收口确认或明确暂停原因",
+     "agePeriods": 8
+    }
+   ],
+   "moduleDesc": {},
+   "coreModules": [],
+   "insights": [
+    "零活动仓（10-21 后静默）；R11 后端 4 笔悬挂 18 天——收口与合并双重待办"
+   ]
+  },
+  "ourchem-oauth": {
+   "total": 40.5,
+   "scores": {
+    "progress": 45,
+    "people": 55,
+    "quality": 50,
+    "integration": 30,
+    "convention": 10
+   },
+   "topRisk": "v5.17 登录释放分支存活 24 天触线加深未合并（领先 14）；R11 提测超期 12 个工作日",
+   "narrative": {
+    "progress": "窗口 0 提交（last=10-22）；R11 已过提测日 12 个工作日",
+    "people": "无窗口（统计期 66.7% 钟江华）",
+    "quality": "TODO 140 + UserDetailsServiceImpl 1689 行超大类",
+    "integration": "v5.17 存活 24 天（触线加深，领先 14）",
+    "convention": "无窗口数据",
+    "rhythm": "10-22 后连续 17 天零",
+    "modules": "无",
+    "plans": "R11 部分推进（12 个工作日）",
+    "testing": "存量 10 测试文件"
+   },
+   "peopleProfile": [],
+   "testing": {
+    "stockNote": "存量 10 测试文件",
+    "sitTraces": 0,
+    "aiReview": "不适用（零活动）"
+   },
+   "plans": [
+    {
+     "id": "R11",
+     "name": "行11 登录释放策略优化（oauth 后端）",
+     "owner": "钟江华",
+     "start": "10-15",
+     "due": "10-21",
+     "status": "部分推进",
+     "note": "v5.17 分支 14 笔（10-22 后静默）；提测过 12 个工作日（逢周末维持）未收口",
+     "prevStatus": "部分推进"
+    }
+   ],
+   "risks": [
+    {
+     "title": "统计期 66.7% 提交集中在钟江华",
+     "plain": "oauth 主要靠一个人（第 8 期）",
+     "dimension": "people",
+     "level": "中",
+     "evidence": "统计期 shortlog",
+     "advice": "备份安排",
+     "agePeriods": 8
+    },
+    {
+     "title": "TODO 140 处 + 1689 行超大类（UserDetailsServiceImpl）",
+     "plain": "待办与超大类积着（第 8 期）",
+     "dimension": "quality",
+     "level": "中",
+     "evidence": "grep/ls-files",
+     "advice": "随 R11 收口拆分认证类",
+     "agePeriods": 8
+    },
+    {
+     "title": "窗口 0 提交，R11 已过提测日 12 个工作日",
+     "plain": "oauth 后端过了提测日两周没动静（第 8 期）",
+     "dimension": "progress",
+     "level": "中",
+     "evidence": "last=10-22",
+     "advice": "升级动作：收口确认",
+     "agePeriods": 8
+    },
+    {
+     "title": "v5.17 领先主干 14 未合并（存活 24 天，触线加深）",
+     "plain": "登录释放分支挂着一个月没合（第 8 期）",
+     "dimension": "integration",
+     "level": "低",
+     "evidence": "ahead=14、fork=10-15",
+     "advice": "随 R11 收口合并",
+     "agePeriods": 8
+    }
+   ],
+   "moduleDesc": {},
+   "coreModules": [],
+   "insights": [
+    "零活动仓（10-22 后静默）；v5.17 触线 21→22 天加深——R11 收口后应即合并"
+   ]
+  },
+  "lucene": {
+   "total": 39.0,
+   "scores": {
+    "progress": 40,
+    "people": 40,
+    "quality": 35,
+    "integration": 55,
+    "convention": 25
+   },
+   "topRisk": "事实主干错位（master 停在 2020，实际工作在 v4.2.0）——上游基线仓",
+   "narrative": {
+    "progress": "窗口 0 提交（10-29 的 9 行修复已移出窗口）；R14 已过提测日 5 个工作日",
+    "people": "无窗口（10-29 修复者吴嘉明）",
+    "quality": "上游 TODO/测试基线不可比（豁免口径）",
+    "integration": "v4.2.0 ahead 4（活跃事实主干）",
+    "convention": "上游仓口径",
+    "rhythm": "低频（10-29 一笔）",
+    "modules": "上游基线",
+    "plans": "R14 已推进（5 个工作日）",
+    "testing": "上游测试基线不可比（豁免）"
+   },
+   "peopleProfile": [],
+   "testing": {
+    "stockNote": "存量 1894 测试文件（上游自带——基线不可比，豁免口径）",
+    "sitTraces": 0,
+    "aiReview": "上游仓豁免口径（P2 起）：TODO/测试/大文件不按业务阈值评判"
+   },
+   "plans": [
+    {
+     "id": "R14",
+     "name": "行14 外文/小语种检索不支持（Bug）",
+     "owner": "吴嘉明",
+     "start": "10-23",
+     "due": "10-30",
+     "status": "已推进",
+     "note": "10-29 v4.2.0 9 行修复（+9/−1）后无跟进；提测过 5 个工作日（逢周末维持）",
+     "prevStatus": "已推进"
+    }
+   ],
+   "risks": [
+    {
+     "title": "实际工作在 6 年历史的 v4.2.0 分支（master 停在 2020-08）",
+     "plain": "真正的开发分支是六年前的版本分支（形态已知）",
+     "dimension": "integration",
+     "level": "中",
+     "evidence": "v4.2.0 ahead 4、master last=2020-08-24",
+     "advice": "形态注记维持",
+     "agePeriods": 8
+    },
+    {
+     "title": "9 行修复无测试",
+     "plain": "小语种修复没配测试（第 8 期）",
+     "dimension": "quality",
+     "level": "低",
+     "evidence": "10-29 修复 +9/−1",
+     "advice": "上游仓豁免口径，观察维持",
+     "agePeriods": 8
+    },
+    {
+     "title": "上游 TODO/测试基线不可比",
+     "plain": "上游仓的待办与测试数字不可比（豁免）",
+     "dimension": "quality",
+     "level": "低",
+     "evidence": "TODO 1762 为上游存量",
+     "advice": "豁免口径维持",
+     "agePeriods": 8
+    }
+   ],
+   "moduleDesc": {},
+   "coreModules": [],
+   "insights": [
+    "上游基线仓（10-29 一笔 9 行修复后静默）；R14 收口状态待文档确认"
+   ]
+  },
+  "image-search-v2": {
+   "total": 23.3,
+   "scores": {
+    "progress": 25,
+    "people": 30,
+    "quality": 30,
+    "integration": 5,
+    "convention": 20
+   },
+   "topRisk": "10-29 Initial 后零跟进（1921 行无测试）",
+   "narrative": {
+    "progress": "窗口 0 提交（10-29 Initial 后零跟进第 2 窗）；R2 已完成维持",
+    "people": "吴嘉明单人",
+    "quality": "1921 行无测试（检索服务主体）；TODO 16（pixi.lock 15——锁定文件口径注记）",
+    "integration": "无分支",
+    "convention": "Initial 形态",
+    "rhythm": "静默",
+    "modules": "算法仓",
+    "plans": "R2 已完成（10-28）",
+    "testing": "存量 0 测试文件"
+   },
+   "peopleProfile": [],
+   "testing": {
+    "stockNote": "存量 0 测试文件",
+    "sitTraces": 0,
+    "aiReview": "Initial 1921 行无测试（第 8 期）；算法仓按上游/研究形态解读"
+   },
+   "plans": [
+    {
+     "id": "R2",
+     "name": "行2 图像检索模型调整及全库向量化",
+     "owner": "吴嘉明",
+     "start": "10-20",
+     "due": "10-28",
+     "status": "已完成",
+     "note": "文档自述维持（done 10-28）",
+     "prevStatus": "已完成",
+     "done": "10-28"
+    }
+   ],
+   "risks": [
+    {
+     "title": "初次提交 1921 行无测试（检索服务主体）",
+     "plain": "检索服务整仓一次性入库、零测试（第 8 期）",
+     "dimension": "quality",
+     "level": "低",
+     "evidence": "10-29 Initial +1921",
+     "advice": "检索效果类可补最小评测脚本",
+     "agePeriods": 8
+    },
+    {
+     "title": "单人维护（吴嘉明）",
+     "plain": "算法仓一个人（第 8 期）",
+     "dimension": "people",
+     "level": "低",
+     "evidence": "生命周期 1 笔",
+     "advice": "算法线交接文档",
+     "agePeriods": 8
+    },
+    {
+     "title": "TODO 16 处（pixi.lock 15——锁定文件计数，口径注记）",
+     "plain": "待办计数主要是锁文件（口径注记）",
+     "dimension": "quality",
+     "level": "低",
+     "evidence": "拆分口径（P3 起）",
+     "advice": "口径注记维持",
+     "agePeriods": 8
+    }
+   ],
+   "moduleDesc": {},
+   "coreModules": [],
+   "insights": [
+    "算法仓 Initial 后零跟进（10-29 起静默第 2 窗）；R2 已完成维持——如转维护期属正常形态"
+   ]
+  },
+  "image-search-process-v2": {
+   "total": 23.7,
+   "scores": {
+    "progress": 25,
+    "people": 30,
+    "quality": 32,
+    "integration": 5,
+    "convention": 20
+   },
+   "topRisk": "10-29 Initial 后零跟进（6152 行无测试）",
+   "narrative": {
+    "progress": "窗口 0 提交（10-29 Initial 后零跟进第 2 窗）；R2 已完成维持",
+    "people": "吴嘉明单人",
+    "quality": "6152 行无测试（向量化流水线主体）；TODO 29（pixi.lock 14——口径注记）",
+    "integration": "无分支",
+    "convention": "Initial 形态",
+    "rhythm": "静默",
+    "modules": "算法仓",
+    "plans": "R2 已完成（10-28）",
+    "testing": "存量 0 测试文件"
+   },
+   "peopleProfile": [],
+   "testing": {
+    "stockNote": "存量 0 测试文件",
+    "sitTraces": 0,
+    "aiReview": "Initial 6152 行无测试（第 8 期）；向量化流水线按研究形态解读"
+   },
+   "plans": [
+    {
+     "id": "R2",
+     "name": "行2 图像检索模型调整及全库向量化（流水线）",
+     "owner": "吴嘉明",
+     "start": "10-20",
+     "due": "10-28",
+     "status": "已完成",
+     "note": "文档自述维持（done 10-28）",
+     "prevStatus": "已完成",
+     "done": "10-28"
+    }
+   ],
+   "risks": [
+    {
+     "title": "初次提交 6152 行无测试（向量化流水线主体）",
+     "plain": "向量化流水线一次性入库、零测试（第 8 期）",
+     "dimension": "quality",
+     "level": "低",
+     "evidence": "10-29 Initial +6152",
+     "advice": "流水线可补端到端冒烟",
+     "agePeriods": 8
+    },
+    {
+     "title": "单人维护（吴嘉明）",
+     "plain": "算法仓一个人（第 8 期）",
+     "dimension": "people",
+     "level": "低",
+     "evidence": "生命周期 1 笔",
+     "advice": "算法线交接文档",
+     "agePeriods": 8
+    },
+    {
+     "title": "TODO 29 处（pixi.lock 14——锁定文件计数，口径注记）",
+     "plain": "待办计数含锁文件（口径注记）",
+     "dimension": "quality",
+     "level": "低",
+     "evidence": "拆分口径（P3 起）",
+     "advice": "口径注记维持",
+     "agePeriods": 8
+    }
+   ],
+   "moduleDesc": {},
+   "coreModules": [],
+   "insights": [
+    "算法仓 Initial 后零跟进（10-29 起静默第 2 窗）；与 image-search-v2 同形态"
+   ]
+  }
+ }
+}

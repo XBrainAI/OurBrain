@@ -1,0 +1,38 @@
+COMMIT@86aa051a1fd53317cc5beb9901b7cb9e0d2dd08e
+2	1	src/utils/keys.js
+2	1	src/views/PatentProcess/_config/index.js
+66	22	src/views/PatentProcess/pages/patentApplicationManage/patentApplication/_configs/applicationNumConfig.js
+2	1	src/views/PatentProcess/pages/patentProposalApplication/_configs/detailConfig.js
+2	1	src/views/PatentProcess/pages/patentProposalApplication/_configs/filterConfig.js
+16	6	src/views/PatentProcess/pages/patentProposalApplication/edit.vue
+16	6	src/views/PatentProcess/pages/patentProposalApplication/issue.vue
+469	1	src/views/SystemManage/OperatePlatform/defensePatent/_configs/_issueConfig.js
+67	2	src/views/SystemManage/OperatePlatform/defensePatent/_configs/detailConfig.js
+27	5	src/views/SystemManage/OperatePlatform/defensePatent/components/detail.vue
+84	5	src/views/SystemManage/OperatePlatform/defensePatent/components/edit.vue
+62	6	src/views/SystemManage/OperatePlatform/defensePatent/components/insert.vue
+-	-	static/files/patentNationalDefense.xlsx
+
+COMMIT@ebcb74c03d58fc3cc36e871392e98eb7f4cffd00
+1	0	src/views/PatentProcess/pages/patentProposalApplication/_configs/PCTCountryData.js
+
+COMMIT@eb52f0c7dd6f49810a64e8e962bd9b62220d7b08
+2	2	src/views/Copyright/SoftManage/configs/issueConfig.js
+
+COMMIT@ac0fe76c077c679cddf61d9fa1fa3db3501bc831
+41	1	src/views/PatentProcess/pages/patentApplicationManage/patentClaim/_configs/filterConfig.js
+95	19	src/views/PatentProcess/pages/patentApplicationManage/patentClaim/_configs/tableConfig.js
+
+COMMIT@8ffc637f0dc06ae9ff81ee4073ebff9acf28e815
+14	1	src/views/PatentProcess/pages/patentChangeManage/index.vue
+
+COMMIT@16285b812ed149c10fae3b46a3ef2061e68cc3b5
+5	0	.npmrc
+10	8	package.json
+12043	0	pnpm-lock.yaml
+
+COMMIT@0049601a7b5de54c8f4e82c2d580e40e848b6c50
+-	-	static/template/JointAATemplate-20290917.doc
+-	-	static/template/JointAATemplate.doc
+-	-	static/template/联合申请软件著作权协议书-20260917.doc
+-	-	static/template/联合申请软件著作权协议书.doc

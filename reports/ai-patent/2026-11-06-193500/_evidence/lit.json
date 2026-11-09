@@ -1,0 +1,413 @@
+{
+  "period": 5,
+  "planRange": {
+    "start": "2026-10-26",
+    "end": "2026-11-06"
+  },
+  "historyNote": "后端 36 有效持续广汽 OA 线（1.7.0-guangqi，刘少聪 22/谢泽恩 14）；前端监测面零提交第 2 期（1027gq 已删、工作在 config 外分支，接替分支待裁定）；R7 提测超期 4 个工作日文档未更新；无信息 message 占比回升（8/36=22%）；W45 周计划仍未入库（连续第 5 期，沿用 W44）",
+  "aliases": [
+    {
+      "email_contains": "xiezeen",
+      "canon": "谢泽恩"
+    },
+    {
+      "name_in": "谢泽恩",
+      "canon": "谢泽恩"
+    },
+    {
+      "email_contains": "liushaocong",
+      "canon": "刘少聪"
+    },
+    {
+      "name_in": "liushaocong",
+      "canon": "刘少聪"
+    },
+    {
+      "email_contains": "matengfei",
+      "canon": "麻腾飞"
+    },
+    {
+      "name_in": "麻腾飞",
+      "canon": "麻腾飞"
+    },
+    {
+      "email_contains": "872691087",
+      "canon": "麻腾飞"
+    },
+    {
+      "name_in": "Afei",
+      "canon": "麻腾飞"
+    }
+  ],
+  "memberMap": {},
+  "dayDiff": {
+    "prevDay": "2026-11-05",
+    "gapDays": 1,
+    "skipped": "",
+    "docsChangedToday": false,
+    "docsSummary": "项目路径（初始化.txt 10-30）与全局 docs/（10-30）今日均无更新；W45 仍未入库",
+    "headline": "项目级：11-06 后端 4 笔 +294/−15（刘少聪，OA 识别线）；前端/prompt 零提交；监测范围事件（1027gq 删除）延续待裁定"
+  },
+  "aheadDelta": {
+    "tanbaoai-web": "0",
+    "ourchem-ai-patent": "+4",
+    "ai-patent-prompt": "0"
+  },
+  "dayDiffNote": {
+    "tanbaoai-web": "监测分支已删（config 外 test/gqjt-release 活跃不可见）",
+    "ourchem-ai-patent": "1.7.0-guangqi 2221→2225",
+    "ai-patent-prompt": "休眠无变动"
+  },
+  "headline": "ai-patent：后端 36 笔持续广汽 OA 识别线；前端监测面零提交第 2 期（分支已删待改 config）；无信息 message 回升至 22%",
+  "keyPoints": [
+    {
+      "level": "中",
+      "text": "前端监测面零提交第 2 期：1027gq 已于 11-05 合并删除，广汽前端工作迁移至 config 外分支（test/gqjt-release/release/1.9.4）——接替分支待用户裁定后改 config（TD-006 ⑤），监测区持续空转"
+    },
+    {
+      "level": "中",
+      "text": "后端 36 笔有效持续 R7/R8 广汽 OA 线（扫描件识别与日期展示，刘少聪 22/谢泽恩 14）；R7 提测 11-02 已过 4 个工作日、文档进度仍 0.2 未更新"
+    },
+    {
+      "level": "中",
+      "text": "「feat:代码提交」类无信息 message 8 笔（22%，环比 19.5% 回升）＋碎提交 7 笔——规范信号连续第 5 期，建议行级约束"
+    },
+    {
+      "level": "低",
+      "text": "核心功能零活跃测试连续第 5 期（36 笔功能提交测试同步 0）；prompt 仓休眠 148 天；W45 周计划四产品线连续第 5 期未入库（开工已核查，计划对照沿用 W44）"
+    },
+    {
+      "level": "低",
+      "type": "positive",
+      "text": "缺陷基线健康（2026-10-29 快照：存量 7、未关闭 0）；R5/R6/R9 文档自述 sit 通过维持"
+    }
+  ],
+  "repos": {
+    "tanbaoai-web": {
+      "total": 47.0,
+      "scores": {
+        "progress": 35,
+        "people": 55,
+        "quality": 60,
+        "integration": 45,
+        "convention": 45
+      },
+      "topRisk": "监测分支 1027gq 已删除（第 2 期空转），前端工作迁移至 config 外分支——监测区待 config 更新",
+      "narrative": {
+        "progress": "监测面零提交第 2 期（口径效应：广汽前端在 config 外 test/gqjt-release 线活跃，git 不可见）",
+        "people": "监测面无活跃者；历史 95% 麻腾飞（Afei）",
+        "quality": "存量 0 测试文件；TODO 73；v1/v2/v3 整页复制大文件成对并存",
+        "integration": "1027gq 已删（fetch prune 确认）；master 07-10 起无提交",
+        "convention": "本窗口无 message 可评（历史口径维持）",
+        "rhythm": "监测面连续 2 期零提交",
+        "modules": "无窗口改动",
+        "plans": "R5/R6 sit 通过维持；R8 部分推进（前端证据在监测外分支）",
+        "testing": "存量 0 测试文件（历史判定：无自研测试）"
+      },
+      "peopleProfile": [
+        {
+          "name": "麻腾飞",
+          "role": "广汽前端开发（监测外分支活跃，git 盲区）",
+          "intent": "意图：广汽前端迁移线（test/gqjt-release/release/1.9.4）——监测面不可见，P4 曾见 11-05 合并提交",
+          "workload": "投入度：监测面 0（盲区声明：非编码投入与监测外工作不可见）",
+          "intensity": "工作强度：监测面无数据",
+          "engagement": "参与度：历史仅前端仓",
+          "risk": "潜在风险：前端单人（历史 95%）+ 监测盲区叠加——接替分支裁定后恢复可见性",
+          "riskLevel": "中"
+        }
+      ],
+      "testing": {
+        "stockNote": "存量 0 测试文件（工作副本口径）",
+        "sitTraces": 0,
+        "aiReview": "无自动化测试（历史判定延续）；本窗口零提交，无新增证据"
+      },
+      "plans": [
+        {
+          "id": "R5",
+          "name": "广汽OA-上传文件优化（sit通过）",
+          "owner": "麻腾飞/刘少聪",
+          "start": "10-23",
+          "due": "10-26",
+          "status": "已推进",
+          "note": "文档自述 sit 通过（10-30 快照）；前端分支已合并删除（1027gq→test），收口在监测外",
+          "prevStatus": "已推进"
+        },
+        {
+          "id": "R6",
+          "name": "广汽OA-文件预览优化（sit通过）",
+          "owner": "麻腾飞/刘少聪",
+          "start": "10-27",
+          "due": "10-29",
+          "status": "已推进",
+          "note": "同 R5（sit 通过；分支已删）",
+          "prevStatus": "已推进"
+        },
+        {
+          "id": "R8",
+          "name": "广汽OA-涉及新创性的日期展示优化",
+          "owner": "麻腾飞/谢泽恩",
+          "start": "10-27",
+          "due": "10-30",
+          "status": "部分推进",
+          "note": "文档进度 0.6 未更新；后端谢泽恩 guangqi 线有 OA 识别相关提交，前端证据在监测外分支；提测超期 5 个工作日",
+          "prevStatus": "部分推进"
+        }
+      ],
+      "risks": [
+        {
+          "title": "监测分支 1027gq 已删除，广汽前端工作迁移至 config 外分支（监测区空转）",
+          "plain": "盯梢的分支被删了，前端实际在别的分支干活——监测名单该换了（第 2 期）",
+          "dimension": "integration",
+          "level": "中",
+          "evidence": "fetch --prune 后 1027gq 无远程跟踪（P4 确认 61dd6df5 合并入 test 后删除）；工作迁移 test/gqjt-release/release/1.9.4",
+          "advice": "请用户裁定接替分支后按 A 类流程改 config（TD-006 ⑤）",
+          "agePeriods": 2
+        },
+        {
+          "title": "前端提交历史 100% 集中麻腾飞(Afei) 一人（连续 5 期，现转监测外分支）",
+          "plain": "前端一直是一个人做（第 5 期，现在还看不见了）",
+          "dimension": "people",
+          "level": "中",
+          "evidence": "生命周期 top：872691087@qq.com 1695/1786（94.8%）",
+          "advice": "升级动作：接替分支纳入后核实是否有协作；长期建议前端备份人",
+          "agePeriods": 5
+        },
+        {
+          "title": "前端零自动化测试：存量 0 测试文件",
+          "plain": "前端没有一行自动化测试（第 5 期）",
+          "dimension": "quality",
+          "level": "中",
+          "evidence": "ls-files 测试文件 0（工作副本口径）",
+          "advice": "升级动作：V1.9.3 收口后补最小 E2E 冒烟集",
+          "agePeriods": 5
+        },
+        {
+          "title": "v1/v2/v3 版本目录整页复制，大文件成对并存",
+          "plain": "三个版本目录整页复制，改一处要同步三处（第 5 期）",
+          "dimension": "quality",
+          "level": "低",
+          "evidence": "static/plugins/pdf 双份 4.1 万/3.7 万行等",
+          "advice": "构建期抽公共或收敛旧版本目录",
+          "agePeriods": 5
+        },
+        {
+          "title": "TODO/FIXME 73 处，超过阈值 20",
+          "plain": "代码里积了 73 处待办标记（第 5 期）",
+          "dimension": "quality",
+          "level": "低",
+          "evidence": "grep 计数 73（无窗口变动）",
+          "advice": "随 V1.9.3 收口安排清理",
+          "agePeriods": 5
+        }
+      ],
+      "moduleDesc": {},
+      "coreModules": [],
+      "insights": [
+        "监测面零提交（口径效应）——深度阅读对象在 config 外分支（test/gqjt-release），裁定纳入后恢复；本轮无新增代码证据"
+      ]
+    },
+    "ourchem-ai-patent": {
+      "total": 42.4,
+      "scores": {
+        "progress": 30,
+        "people": 38,
+        "quality": 50,
+        "integration": 50,
+        "convention": 55
+      },
+      "topRisk": "核心功能零活跃测试（连续第 5 期）；R7 提测超期 4 个工作日文档未更新；无信息 message 回升",
+      "narrative": {
+        "progress": "36 笔有效持续广汽 OA 线（OA 审查文件识别调整/状态提示优化）；R7 提测超期 4 个工作日、文档 0.2 未更新",
+        "people": "刘少聪 22 + 谢泽恩 14（guangqi 单分支；双人协作形态良好）",
+        "quality": "0 大提交；测试同步 0（第 5 期）；TODO 45",
+        "integration": "1.7.0-guangqi 领先 2225（2221→2225）；dev 主干停滞 477 天（已知形态）",
+        "convention": "无信息 message 8 笔（22%，环比回升）+ 碎提交 7 笔",
+        "rhythm": "10-30 峰值 8 笔 → 11-02 峰值 8 笔 → 11-03~06 每日 2~4 笔持续",
+        "modules": "OA 识别与审查文件处理",
+        "plans": "R7 已推进（超期）/ R8 部分推进 / R9 已推进（sit 通过维持）",
+        "testing": "36 笔功能提交测试同步 0（第 5 期）；存量 1 测试文件"
+      },
+      "peopleProfile": [
+        {
+          "name": "刘少聪",
+          "role": "广汽 OA 后端主力（R7 扫描件 OCR 线）",
+          "intent": "意图：OA 审查文件识别结果调整、状态提示优化、代码提交流（「feat:代码提交」批次）",
+          "workload": "投入度：窗口 22/36（61%）",
+          "intensity": "工作强度：峰值 10-30×8；深夜 2",
+          "engagement": "参与度：1.7.0-guangqi 单分支",
+          "risk": "潜在风险：与麻腾飞分工清晰；「代码提交」类 message 习惯拉低可追溯性",
+          "riskLevel": "低"
+        },
+        {
+          "name": "谢泽恩",
+          "role": "后端第二人（OA 识别 + 钽宝线 R9）",
+          "intent": "意图：OA 文件识别状态提示（f55be21c7b）、识别结果 refactor（e963e45b83）",
+          "workload": "投入度：窗口 14/36（39%）",
+          "intensity": "工作强度：峰值 11-02×8",
+          "engagement": "参与度：guangqi 单分支（历史跨 1.8.5 线）",
+          "risk": "潜在风险：无明显风险信号",
+          "riskLevel": null
+        }
+      ],
+      "testing": {
+        "stockNote": "存量 1 测试文件（框架期遗留口径）",
+        "sitTraces": 0,
+        "aiReview": "窗口 36 笔功能提交测试同步 0（连续第 5 期）——OA 识别逻辑（判定条件/截断/状态机）属高回归风险区，零测试 + 无信息 message 叠加使变更不可追溯；R7 提测口径在 git 盲区"
+      },
+      "plans": [
+        {
+          "id": "R7",
+          "name": "广汽OA-支持扫描件pdf识别（三阶段 OCR）",
+          "owner": "麻腾飞/刘少聪",
+          "start": "10-27",
+          "due": "11-02",
+          "status": "已推进",
+          "note": "文档进度 0.2 未更新；guangqi 线 36 笔持续（OA 识别相关为主）；提测超期 4 个工作日未收口确认",
+          "prevStatus": "已推进"
+        },
+        {
+          "id": "R8",
+          "name": "广汽OA-涉及新创性的日期展示优化",
+          "owner": "麻腾飞/谢泽恩",
+          "start": "10-27",
+          "due": "10-30",
+          "status": "部分推进",
+          "note": "文档进度 0.6 未更新；后端有 OA 识别相关提交、前端证据在监测外分支；提测超期 5 个工作日",
+          "prevStatus": "部分推进"
+        },
+        {
+          "id": "R9",
+          "name": "钽宝-申请书撰写保护客体加输入类型",
+          "owner": "谢泽恩",
+          "start": "10-26",
+          "due": "10-28",
+          "status": "已推进",
+          "note": "文档自述 sit 通过（1.8.5-release，last=10-27 窗口外）；文档确认维持",
+          "prevStatus": "已推进"
+        }
+      ],
+      "risks": [
+        {
+          "title": "核心功能零活跃测试（连续 5 期）：窗口 36 笔功能提交测试同步 0",
+          "plain": "功能改了一个月，一行配套测试都没有（第 5 期）",
+          "dimension": "quality",
+          "level": "中",
+          "evidence": "numstat 测试文件命中 0；存量 1 测试文件（框架期遗留）",
+          "advice": "升级动作：OA 识别判定条件类改动优先补判定用例（每类文件至少 1 条正反例）",
+          "agePeriods": 5
+        },
+        {
+          "title": "「feat:代码提交」类无信息 message 8 笔（22%，环比回升）",
+          "plain": "五分之一的提交看不出改了什么（环比还涨了）",
+          "dimension": "convention",
+          "level": "中",
+          "evidence": "shortMsgs：f100e534e9/62ba614568/6d872bcfe9 等 8 笔 ≤10 字符",
+          "advice": "升级动作：行内约定 message 模板（改动点+模块），CR 拦截「代码提交」类",
+          "agePeriods": 5
+        },
+        {
+          "title": "主干 dev 停滞 477 天，双长分支领先 2225/2433（已知形态）",
+          "plain": "主干一年多没动，活都在两条长分支上（形态已知）",
+          "dimension": "integration",
+          "level": "低",
+          "evidence": "dev last=2025-07-16；1.7.0-guangqi ahead=2225、1.8.5-release ahead=2433",
+          "advice": "豁免维持；回流策略缺失作为既知风险表述",
+          "agePeriods": 5
+        },
+        {
+          "title": "碎提交 7 笔（1~3 行）且多为「feat:代码提交」",
+          "plain": "一批一行提交叠着无信息标题（第 4 期）",
+          "dimension": "convention",
+          "level": "低",
+          "evidence": "trivial 清单 7 笔",
+          "advice": "与 message 模板同批治理",
+          "agePeriods": 4
+        },
+        {
+          "title": "TODO/FIXME 45 处，超过阈值 20",
+          "plain": "代码里积了 45 处待办标记（第 5 期）",
+          "dimension": "quality",
+          "level": "低",
+          "evidence": "grep 计数 45",
+          "advice": "随 V1.9.3 收口清理",
+          "agePeriods": 5
+        }
+      ],
+      "moduleDesc": {
+        "ourchem-ai-patent-business-common/src": "业务公共模块（OA 识别）",
+        "ourchem-ai-patent-business-api/src": "业务 API 模块"
+      },
+      "coreModules": [
+        "ourchem-ai-patent-business-common/src"
+      ],
+      "insights": [
+        "ourchem-ai-patent@e963e45b83 —— refactor(patent) OA 审查文件识别结果调整：R7/R8 交叠区的判定逻辑持续打磨（2 行碎提交形态）",
+        "ourchem-ai-patent@f55be21c7b —— fix(patent) OA 文件识别状态提示文案优化：面向用户的状态反馈细节",
+        "「feat:代码提交」8 笔集中在 10-30~11-02（刘少聪）——批量提交流形态，message 缺失使内容不可追溯（convention 风险主体）"
+      ]
+    },
+    "ai-patent-prompt": {
+      "total": 28.8,
+      "scores": {
+        "progress": 30,
+        "people": 30,
+        "quality": 20,
+        "integration": 45,
+        "convention": 20
+      },
+      "topRisk": "休眠 148 天且无计划映射（低危观察项）",
+      "narrative": {
+        "progress": "零提交（master 06-16 / demo 06-11 起无活动）",
+        "people": "无",
+        "quality": "提示词变更靠 .bak 手工备份",
+        "integration": "demo 5 笔领先未回流（168 天）",
+        "convention": "无窗口数据",
+        "rhythm": "连续 5 期零",
+        "modules": "无",
+        "plans": "无映射（W44 无 prompt 任务行）",
+        "testing": "不适用（提示词仓）"
+      },
+      "peopleProfile": [],
+      "testing": {
+        "stockNote": "不适用（提示词仓）",
+        "sitTraces": 0,
+        "aiReview": "不适用"
+      },
+      "plans": [],
+      "risks": [
+        {
+          "title": "仓库休眠 148 天（master 06-16 / demo 06-11）且无计划映射",
+          "plain": "提示词仓快五个月没动静（低危观察项）",
+          "dimension": "progress",
+          "level": "低",
+          "evidence": "master last=2026-06-16",
+          "advice": "确认是否随 1.9.x 转入 dify 平台管理；如是可考虑移出监测",
+          "agePeriods": 5
+        },
+        {
+          "title": "demo 分支 5 笔领先未回流（168 天）",
+          "plain": "demo 分支的 5 笔一直没合回去（第 5 期）",
+          "dimension": "integration",
+          "level": "低",
+          "evidence": "ahead=5、fork=2026-05-22",
+          "advice": "确认去留",
+          "agePeriods": 5
+        },
+        {
+          "title": "提示词变更靠 .bak 手工备份，版本管理缺失",
+          "plain": "改提示词靠手动备份文件（第 5 期）",
+          "dimension": "quality",
+          "level": "低",
+          "evidence": "存量 .bak 备份形态（P1 判定）",
+          "advice": "迁移 dify 平台后自然消解",
+          "agePeriods": 5
+        }
+      ],
+      "moduleDesc": {},
+      "coreModules": [],
+      "insights": [
+        "休眠仓，无深度阅读对象；dify 平台迁移方向（R9 任务描述佐证）或改变其定位"
+      ]
+    }
+  }
+}

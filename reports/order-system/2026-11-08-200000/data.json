@@ -1,0 +1,936 @@
+{
+ "meta": {
+  "project": "order-system",
+  "date": "2026-11-08",
+  "period": 5,
+  "window": "2026-11-01 ~ 2026-11-08",
+  "runAt": "2026-11-08 20:00",
+  "statsRange": "2026-10-02 ~ 2026-11-08",
+  "repoCount": 1,
+  "template": 19,
+  "planRange": {
+   "start": "2026-08-10",
+   "end": "2026-11-08"
+  },
+  "prev": {
+   "date": "2026-11-06",
+   "period": 4,
+   "label": "11-06 P4"
+  },
+  "dayDiff": {
+   "prevDay": "10-29",
+   "today": "11-08",
+   "todayAsOf": "截至 20:00（非整日）",
+   "gapDays": 10,
+   "skipped": "10-30 ~ 11-08 连续 10 天无提交与文档更新（全局 docs 归属文档不计，口径 P2 登记）",
+   "docsChangedToday": false,
+   "docsSummary": "项目文档（需求清单/开发计划等）最近更新 10-29，今日无更新",
+   "headline": "项目级：连续 10 天零提交与文档更新——M3 到期日跨过后仍无任何推进（演示项目形态）"
+  },
+  "roundDiff": {
+   "roundNo": 1,
+   "roundsToday": 1,
+   "prevRoundAt": null,
+   "headline": "今日首轮（第 1/1 轮），无轮内增量可对比"
+  },
+  "roundChain": {
+   "rounds": [
+    {
+     "period": 5,
+     "at": "20:00",
+     "roundNo": 1
+    }
+   ]
+  }
+ },
+ "headline": "order-core 49.1 分（中，环比持平）：连续 10 天零提交，M3 到期已过零推进，develop 双条件异常第 5 期（演示项目）",
+ "keyPoints": [
+  {
+   "level": "中",
+   "text": "M3 报表中心与导出到期日（11-05）已过 3 个自然日（1 个工作日，逢周末）：零推进、文档未更新——延期风险维持（第 5 期）"
+  },
+  {
+   "level": "中",
+   "text": "develop 分支 88 天未合并、落后主干 27（双条件异常第 5 期）；feature-payment 51 天无活动（文档明示商务暂缓，豁免口径）"
+  },
+  {
+   "level": "低",
+   "text": "TODO 425 处原样积压（400 在待退役旧报表文件）；窗口零提交故测试同步无新增（连续第 5 期零）；R-12 旧导出下线逾期 14 天未排期；R-02/R-03 停滞维持"
+  }
+ ],
+ "repos": [
+  {
+   "name": "order-core",
+   "total": 49.1,
+   "level": "中",
+   "delta": 0.0,
+   "scores": {
+    "progress": 60,
+    "people": 25,
+    "quality": 60,
+    "integration": 62,
+    "convention": 32
+   },
+   "topRisk": "连续 10 天零提交 + M3 到期已过零推进；develop 双条件异常第 5 期",
+   "narrative": {
+    "progress": "连续 10 天零提交（last=10-29「update」）；M3 到期已过、R-12 逾期 14 天——计划面全面停滞",
+    "people": "无窗口活跃（演示身份：张伟/李娜/王强）",
+    "quality": "TODO 425（400 待退役旧报表）；零测试同步第 5 期",
+    "integration": "develop 88 天/落后 27 双条件异常第 5 期；feature-payment 51 天（文档明示暂缓）",
+    "convention": "窗口无 message（静默延续）",
+    "rhythm": "10-26~29 四天 6 笔后连续 10 天零",
+    "modules": "无窗口改动",
+    "plans": "M3 延期风险（到期已过）/ R-12 延期风险 / R-02、R-03 停滞维持",
+    "testing": "存量 4 测试文件；窗口零提交无新增"
+   },
+   "testing": {
+    "testCommitShare": 0,
+    "syncRate": 0,
+    "syncDenom": 0,
+    "testRatio": 0,
+    "stockTestFiles": 4,
+    "stockNote": "存量 4 测试文件（演示固件）",
+    "sitTraces": 0,
+    "aiReview": "窗口零提交，无新增证据（零测试同步连续第 5 期为形态延续）"
+   },
+   "members": [],
+   "branches": [
+    {
+     "name": "develop",
+     "ahead": 4,
+     "behind": 27,
+     "staleDays": 88,
+     "lastActive": "2026-10-28"
+    },
+    {
+     "name": "feature-payment",
+     "ahead": 2,
+     "behind": 22,
+     "staleDays": 51,
+     "lastActive": "2026-09-25"
+    }
+   ],
+   "quality": {
+    "todo": 425,
+    "todoThreshold": 20,
+    "bigCommits": 0,
+    "reworkRatio": 0,
+    "reworkThreshold": 0.5,
+    "largeFiles": 0
+   },
+   "rhythm": [
+    {
+     "date": "10-02",
+     "commits": 0
+    },
+    {
+     "date": "10-03",
+     "commits": 0
+    },
+    {
+     "date": "10-04",
+     "commits": 0
+    },
+    {
+     "date": "10-05",
+     "commits": 0
+    },
+    {
+     "date": "10-06",
+     "commits": 0
+    },
+    {
+     "date": "10-07",
+     "commits": 0
+    },
+    {
+     "date": "10-08",
+     "commits": 0
+    },
+    {
+     "date": "10-09",
+     "commits": 1
+    },
+    {
+     "date": "10-10",
+     "commits": 0
+    },
+    {
+     "date": "10-11",
+     "commits": 1
+    },
+    {
+     "date": "10-12",
+     "commits": 0
+    },
+    {
+     "date": "10-13",
+     "commits": 1
+    },
+    {
+     "date": "10-14",
+     "commits": 0
+    },
+    {
+     "date": "10-15",
+     "commits": 1
+    },
+    {
+     "date": "10-16",
+     "commits": 0
+    },
+    {
+     "date": "10-17",
+     "commits": 1
+    },
+    {
+     "date": "10-18",
+     "commits": 0
+    },
+    {
+     "date": "10-19",
+     "commits": 1
+    },
+    {
+     "date": "10-20",
+     "commits": 0
+    },
+    {
+     "date": "10-21",
+     "commits": 0
+    },
+    {
+     "date": "10-22",
+     "commits": 2
+    },
+    {
+     "date": "10-23",
+     "commits": 2
+    },
+    {
+     "date": "10-24",
+     "commits": 1
+    },
+    {
+     "date": "10-25",
+     "commits": 1
+    },
+    {
+     "date": "10-26",
+     "commits": 1
+    },
+    {
+     "date": "10-27",
+     "commits": 1
+    },
+    {
+     "date": "10-28",
+     "commits": 3
+    },
+    {
+     "date": "10-29",
+     "commits": 1
+    },
+    {
+     "date": "10-30",
+     "commits": 0
+    },
+    {
+     "date": "10-31",
+     "commits": 0
+    },
+    {
+     "date": "11-01",
+     "commits": 0
+    },
+    {
+     "date": "11-02",
+     "commits": 0
+    },
+    {
+     "date": "11-03",
+     "commits": 0
+    },
+    {
+     "date": "11-04",
+     "commits": 0
+    },
+    {
+     "date": "11-05",
+     "commits": 0
+    },
+    {
+     "date": "11-06",
+     "commits": 0
+    },
+    {
+     "date": "11-07",
+     "commits": 0
+    },
+    {
+     "date": "11-08",
+     "commits": 0
+    }
+   ],
+   "weekly": [
+    {
+     "label": "10-02",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "10-09",
+     "commits": 4,
+     "effective": 4,
+     "authors": 3,
+     "insertions": 22,
+     "deletions": 1
+    },
+    {
+     "label": "10-16",
+     "commits": 4,
+     "effective": 4,
+     "authors": 3,
+     "insertions": 18,
+     "deletions": 2
+    },
+    {
+     "label": "10-23",
+     "commits": 10,
+     "effective": 9,
+     "authors": 3,
+     "insertions": 679,
+     "deletions": 719
+    },
+    {
+     "label": "10-30",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    },
+    {
+     "label": "11-06",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "insertions": 0,
+     "deletions": 0
+    }
+   ],
+   "moduleActivity": [],
+   "peopleProfile": [
+    {
+     "name": "张伟",
+     "role": "",
+     "intent": "",
+     "workload": "",
+     "intensity": "",
+     "engagement": "",
+     "risk": "",
+     "riskLevel": null,
+     "activeDays": 7,
+     "deepNight": 2,
+     "weekend": 1,
+     "peakDay": "10-29",
+     "peakN": 1,
+     "modulesTouched": 9,
+     "testCommits": 1,
+     "share": 0.41
+    },
+    {
+     "name": "王强",
+     "role": "",
+     "intent": "",
+     "workload": "",
+     "intensity": "",
+     "engagement": "",
+     "risk": "",
+     "riskLevel": null,
+     "activeDays": 6,
+     "deepNight": 0,
+     "weekend": 2,
+     "peakDay": "10-26",
+     "peakN": 1,
+     "modulesTouched": 5,
+     "testCommits": 1,
+     "share": 0.35
+    },
+    {
+     "name": "李娜",
+     "role": "",
+     "intent": "",
+     "workload": "",
+     "intensity": "",
+     "engagement": "",
+     "risk": "",
+     "riskLevel": null,
+     "activeDays": 4,
+     "deepNight": 0,
+     "weekend": 0,
+     "peakDay": "10-28",
+     "peakN": 1,
+     "modulesTouched": 3,
+     "testCommits": 0,
+     "share": 0.24
+    }
+   ],
+   "plans": [
+    {
+     "id": "M1",
+     "name": "M1 订单流程核心",
+     "owner": "张伟",
+     "start": "08-10",
+     "due": "09-30",
+     "status": "已完成",
+     "note": "文档维持（done 09-30）",
+     "prevStatus": "已完成",
+     "done": "09-30"
+    },
+    {
+     "id": "M2",
+     "name": "M2 会员积分体系",
+     "owner": "李娜",
+     "start": "09-01",
+     "due": "10-15",
+     "status": "已推进",
+     "note": "维持（文档未更新）",
+     "prevStatus": "已推进"
+    },
+    {
+     "id": "M3",
+     "name": "M3 报表中心与导出",
+     "owner": "王强",
+     "start": "09-15",
+     "due": "11-05",
+     "status": "延期风险",
+     "note": "到期已过 3 个自然日（1 个工作日，逢周末）零推进、文档未更新（第 5 期）",
+     "prevStatus": "延期风险"
+    },
+    {
+     "id": "M4",
+     "name": "M4 多租户支持",
+     "owner": "张伟",
+     "start": "10-20",
+     "due": "11-20",
+     "status": "已推进",
+     "note": "维持",
+     "prevStatus": "已推进"
+    },
+    {
+     "id": "R-01",
+     "name": "R-01 管理端登录",
+     "owner": "李娜",
+     "start": "10-10",
+     "due": "10-24",
+     "status": "已完成",
+     "note": "文档维持（done 10-28）",
+     "prevStatus": "已完成",
+     "done": "10-28"
+    },
+    {
+     "id": "R-02",
+     "name": "R-02 操作日志",
+     "owner": "王强",
+     "start": "10-13",
+     "due": "10-24",
+     "status": "停滞",
+     "note": "连续 5 期零改动（文档自述开发中）",
+     "prevStatus": "停滞"
+    },
+    {
+     "id": "R-03",
+     "name": "R-03 消息通知",
+     "owner": "李娜",
+     "start": "10-15",
+     "due": "10-28",
+     "status": "停滞",
+     "note": "连续 5 期零改动",
+     "prevStatus": "停滞"
+    },
+    {
+     "id": "R-04",
+     "name": "R-04 数据字典",
+     "owner": "张伟",
+     "start": "10-16",
+     "due": "10-30",
+     "status": "已推进",
+     "note": "维持",
+     "prevStatus": "已推进"
+    },
+    {
+     "id": "R-05",
+     "name": "R-05 健康检查",
+     "owner": "王强",
+     "start": "10-17",
+     "due": "10-31",
+     "status": "已推进",
+     "note": "维持",
+     "prevStatus": "已推进"
+    },
+    {
+     "id": "R-12",
+     "name": "R-12 旧导出下线",
+     "owner": "张伟",
+     "start": "10-20",
+     "due": "10-25",
+     "status": "延期风险",
+     "note": "逾期 14 天未排期（第 5 期）",
+     "prevStatus": "延期风险"
+    }
+   ],
+   "risks": [
+    {
+     "title": "develop 分支长期未合并（88 天、落后 27），新功能仍落该分支",
+     "plain": "开发分支近三个月没合回主干（第 5 期）",
+     "dimension": "integration",
+     "level": "中",
+     "evidence": "ahead=4、behind=27、fork=08-12",
+     "advice": "合并窗口或明确分支策略",
+     "agePeriods": 5
+    },
+    {
+     "title": "M3 报表导出到期日（11-05）已过零推进",
+     "plain": "报表导出过了期限还是没动（第 5 期）",
+     "dimension": "progress",
+     "level": "中",
+     "evidence": "last=10-29；文档未更新",
+     "advice": "与负责人确认排期",
+     "agePeriods": 5
+    },
+    {
+     "title": "TODO/FIXME 425 处（400 在待退役旧报表文件）",
+     "plain": "四百多处待办积在旧报表文件里（第 5 期）",
+     "dimension": "quality",
+     "level": "低",
+     "evidence": "grep 计数",
+     "advice": "R-12 旧导出下线后退役旧文件",
+     "agePeriods": 5
+    },
+    {
+     "title": "窗口零提交，测试同步连续第 5 期为零",
+     "plain": "没提交也就没测试（形态延续）",
+     "dimension": "quality",
+     "level": "低",
+     "evidence": "窗口 0 笔",
+     "advice": "恢复开发后随改动补测试",
+     "agePeriods": 5
+    },
+    {
+     "title": "R-12 旧导出下线逾期 14 天未排期",
+     "plain": "旧功能下线一拖再拖（第 5 期）",
+     "dimension": "progress",
+     "level": "低",
+     "evidence": "due 10-25",
+     "advice": "排期或明确取消",
+     "agePeriods": 5
+    },
+    {
+     "title": "feature-payment 分支 51 天无活动（僵尸候选），文档明示暂缓（豁免口径）",
+     "plain": "支付分支挂着（文档说了是商务原因暂停）",
+     "dimension": "integration",
+     "level": "低",
+     "evidence": "last=09-25；开发计划.md 风险注记",
+     "advice": "豁免维持（文档原因在案）",
+     "agePeriods": 5
+    },
+    {
+     "title": "交付重试机制实现缺口（本区分放量重试错误码、无退避）",
+     "plain": "重试机制有缺口（第 5 期）",
+     "dimension": "quality",
+     "level": "低",
+     "evidence": "P1 深度阅读在案",
+     "advice": "排期补齐",
+     "agePeriods": 5
+    },
+    {
+     "title": "R-02 操作日志「开发中」但连续 5 期零改动",
+     "plain": "操作日志说在做但一直没动（第 5 期）",
+     "dimension": "progress",
+     "level": "低",
+     "evidence": "文档自述 vs git 零证据",
+     "advice": "状态文档与实际对齐",
+     "agePeriods": 5
+    }
+   ],
+   "dayDiff": {
+    "todayCommits": 0,
+    "todayEffective": 0,
+    "todayIns": 0,
+    "todayDel": 0,
+    "prevDayCommits": 1,
+    "prevDayEffective": 1,
+    "prevDayIns": 1,
+    "prevDayDel": 1,
+    "newAuthors": [],
+    "goneAuthors": [],
+    "aheadDelta": "0",
+    "note": ""
+   },
+   "roundDiff": null,
+   "roundSnapshots": [
+    {
+     "period": 5,
+     "at": "20:00",
+     "commits": 0,
+     "effective": 0,
+     "ins": 0,
+     "del": 0,
+     "authors": 0,
+     "big": 0,
+     "todos": 425,
+     "scores": {
+      "progress": 60,
+      "people": 25,
+      "quality": 60,
+      "integration": 62,
+      "convention": 32
+     },
+     "total": 49.1,
+     "level": "中",
+     "topRisk": "连续 10 天零提交 + M3 到期已过零推进；develop 双条件异常第 5 期"
+    }
+   ],
+   "windowAnalysis": {
+    "classification": {
+     "feat": 0,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "merges": 0,
+    "effectiveCommits": 0,
+    "trivial": []
+   },
+   "lifetime": {
+    "first": "2026-08-10",
+    "last": "2026-10-29",
+    "totalCommits": 35,
+    "authors": 3,
+    "monthly": [
+     {
+      "month": "2026-08",
+      "commits": 6
+     },
+     {
+      "month": "2026-09",
+      "commits": 11
+     },
+     {
+      "month": "2026-10",
+      "commits": 18
+     }
+    ],
+    "topAuthors": [
+     {
+      "key": "zhangwei@demo.com",
+      "commits": 16
+     },
+     {
+      "key": "wangq@demo.com",
+      "commits": 10
+     },
+     {
+      "key": "lina@demo.com",
+      "commits": 9
+     }
+    ]
+   },
+   "insights": [
+    "窗口零提交（10-29「update」后连续 10 天静默，M3 到期跨过、逢周末无变化）——演示项目形态：无真实团队压力，计划面停滞为演示数据特性"
+   ],
+   "prev": {
+    "total": 49.1,
+    "dailyAvg": null,
+    "scores": {
+     "progress": 60,
+     "people": 25,
+     "quality": 60,
+     "integration": 62,
+     "convention": 32
+    },
+    "members": [],
+    "branches": [
+     {
+      "name": "develop",
+      "ahead": 4,
+      "behind": 27
+     },
+     {
+      "name": "feature-payment",
+      "ahead": 2,
+      "behind": 22
+     }
+    ],
+    "quality": {
+     "todo": 425,
+     "todoThreshold": 20,
+     "bigCommits": 0,
+     "reworkRatio": 0,
+     "reworkThreshold": 0.5,
+     "largeFiles": 0
+    }
+   }
+  }
+ ],
+ "saturationTrend": {
+  "scope": "统计期各 7 天窗口",
+  "unit": "窗口",
+  "team": [
+   {
+    "period": 1,
+    "label": "10-02~10-08",
+    "load": 0,
+    "focus": 0,
+    "composite": 0,
+    "loadLevel": "低",
+    "focusLevel": "低"
+   },
+   {
+    "period": 2,
+    "label": "10-09~10-15",
+    "load": 1,
+    "focus": 2,
+    "composite": 3,
+    "loadLevel": "中",
+    "focusLevel": "高"
+   },
+   {
+    "period": 3,
+    "label": "10-16~10-22",
+    "load": 1,
+    "focus": 2,
+    "composite": 3,
+    "loadLevel": "中",
+    "focusLevel": "高"
+   },
+   {
+    "period": 4,
+    "label": "10-23~10-29",
+    "load": 2,
+    "focus": 2,
+    "composite": 4,
+    "loadLevel": "高",
+    "focusLevel": "高"
+   },
+   {
+    "period": 5,
+    "label": "10-30~11-05",
+    "load": 0,
+    "focus": 0,
+    "composite": 0,
+    "loadLevel": "低",
+    "focusLevel": "低"
+   },
+   {
+    "period": 6,
+    "label": "11-06~11-08",
+    "load": 0,
+    "focus": 0,
+    "composite": 0,
+    "loadLevel": "低",
+    "focusLevel": "低"
+   }
+  ],
+  "people": [
+   {
+    "name": "张伟",
+    "points": [
+     {
+      "period": 1,
+      "label": "10-02~10-08",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交"
+     },
+     {
+      "period": 2,
+      "label": "10-09~10-15",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小"
+     },
+     {
+      "period": 3,
+      "label": "10-16~10-22",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小"
+     },
+     {
+      "period": 4,
+      "label": "10-23~10-29",
+      "level": 1,
+      "levelName": "中",
+      "note": "覆盖80%≥50%"
+     },
+     {
+      "period": 5,
+      "label": "10-30~11-05",
+      "level": 0,
+      "levelName": "低",
+      "note": ""
+     },
+     {
+      "period": 6,
+      "label": "11-06~11-08",
+      "level": 0,
+      "levelName": "低",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "name": "李娜",
+    "points": [
+     {
+      "period": 1,
+      "label": "10-02~10-08",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交"
+     },
+     {
+      "period": 2,
+      "label": "10-09~10-15",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小"
+     },
+     {
+      "period": 3,
+      "label": "10-16~10-22",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小"
+     },
+     {
+      "period": 4,
+      "label": "10-23~10-29",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小"
+     },
+     {
+      "period": 5,
+      "label": "10-30~11-05",
+      "level": 0,
+      "levelName": "低",
+      "note": ""
+     },
+     {
+      "period": 6,
+      "label": "11-06~11-08",
+      "level": 0,
+      "levelName": "低",
+      "note": ""
+     }
+    ]
+   },
+   {
+    "name": "王强",
+    "points": [
+     {
+      "period": 1,
+      "label": "10-02~10-08",
+      "level": 0,
+      "levelName": "低",
+      "note": "无提交"
+     },
+     {
+      "period": 2,
+      "label": "10-09~10-15",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小"
+     },
+     {
+      "period": 3,
+      "label": "10-16~10-22",
+      "level": 0,
+      "levelName": "低",
+      "note": "样本小"
+     },
+     {
+      "period": 4,
+      "label": "10-23~10-29",
+      "level": 1,
+      "levelName": "中",
+      "note": "代码量245≥200"
+     },
+     {
+      "period": 5,
+      "label": "10-30~11-05",
+      "level": 0,
+      "levelName": "低",
+      "note": ""
+     },
+     {
+      "period": 6,
+      "label": "11-06~11-08",
+      "level": 0,
+      "levelName": "低",
+      "note": ""
+     }
+    ]
+   }
+  ]
+ },
+ "history": [
+  {
+   "label": "11-02 P1",
+   "repos": {
+    "order-core": {
+     "total": 46.1
+    }
+   }
+  },
+  {
+   "label": "11-04 P2",
+   "repos": {
+    "order-core": {
+     "total": 47.6
+    }
+   }
+  },
+  {
+   "label": "11-05 P3",
+   "repos": {
+    "order-core": {
+     "total": 49.1
+    }
+   },
+   "note": "演练项目（非实际产品线）；M3 报表导出 11-05 到期日零推进（降延期风险）；10-29 后连续 7 天无提交与文档更新"
+  },
+  {
+   "label": "11-06 P4",
+   "repos": {
+    "order-core": {
+     "total": 49.1
+    }
+   },
+   "note": "连续 8 天零提交与文档更新（上一变动日 10-29）；M3 报表导出到期日（11-05）已过 1 个工作日零推进维持延期风险；develop 86 天/落后 27 双条件异常第 4 期；W5（10-30~11-05）整周空窗后 W6（11-06）新窗仍空；演示项目（非实际产品线）"
+  },
+  {
+   "label": "11-08 P5",
+   "repos": {
+    "order-core": {
+     "total": 49.1
+    }
+   },
+   "note": "连续 10 天零提交与文档更新（上一变动日 10-29）；M3 报表导出到期日（11-05）已过 3 个自然日（1 个工作日，逢周末）零推进维持延期风险；develop 88 天/落后 27 双条件异常第 5 期；W6（11-06~11-08）末窗空窗延续；演示项目（非实际产品线）"
+  }
+ ]
+}

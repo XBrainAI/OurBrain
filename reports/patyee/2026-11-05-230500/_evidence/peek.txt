@@ -1,0 +1,200 @@
+### patyee agg (run 2026-11-05 23:05, win 2026-10-29~2026-11-05)
+
+== patyee-next (检出:master, 有远端:True)
+  窗口: total=19 eff=19 merge=0 ins=1215 del=495 authors=1 big=1 trivial=3
+  分类: {'feat': 3, 'fix': 12, 'refactor': 1, 'docs': 0, 'test': 0, 'chore': 0, 'style': 0, 'perf': 0, 'build': 0, 'ci': 0, 'revert': 1, '其他': 2}
+  成员 ['zyq']/zhengyiquan@ourchem.com: eff=19 +1215/-495 天=6 深夜=0 周末=0 分支={'1016188-登录释放策略优化': 5, 'feat-1016010-收藏夹支持检索': 9, 'feat-1016189-专利分析-技术生命周期优化': 5} 测=0 peak=2026-11-02x6
+  大提交 7c20182302 5f 1043行 [*]: 1016188 登录释放策略优化 - 修复混入中还原现场的判断取值错误 - dialog增加不需要动画时，an
+  碎提交 76b7fc82a1 3行 refactor: 登录过期后登录别的账号后跳转首页时增加时
+  碎提交 8cf662a31b 2行 fix: 【高级检索PF字段专利数量和收藏夹数量对不上】 h
+  碎提交 097ffe0f73 2行 fix: 【合并数据穿透前后专利数量结果不一致】(点击的是图
+  分支 图像检索优化-支持多张图片同时检索: ahead=872 behind=8 fork=2025-06-23 stale=500d last=2026-10-28
+  分支 1016188-登录释放策略优化: ahead=878 behind=8 fork=2025-06-23 stale=500d last=2026-11-04
+  分支 feat-1016010-收藏夹支持检索: ahead=880 behind=8 fork=2025-06-23 stale=500d last=2026-11-05
+  分支 feat-1016189-专利分析-技术生命周期优化: ahead=875 behind=8 fork=2025-06-23 stale=500d last=2026-11-04
+  主干 master: last=2025-06-27; TODO=96 大文件=5 测试文件=0 文件数=2393 模式=工作副本（当前检出分支口径 §1.6）
+    大文件: [('tic/plugins/echarts/map/worldOrigin.json', 111599), ('static/plugins/pdf/pdf.worker.js', 41274), ('static/plugins/pdf/build/pdf.worker.js', 36904), ('src/views/Workbench/Report/district.js', 29122), ('static/plugins/pdf/pdf.js', 13715)]
+  生命周期: 2024-03-01~2026-11-05 total=3628 authors=14 top=[('zhengyiquan@ourchem.com', 1029), ('linjingmiao@ourchem.com', 699), ('zhengzengping@ourchem.com', 456), ('wanglei@ourchem.com', 331), ('suguangluan@ourchem.com', 227)]
+  今日: 1 commits; 上一变动日候选=2026-11-04
+    2026-11-02: c=6 e=6 +888/-325 a=['zhengyiquan@ourchem.com']
+    2026-11-03: c=2 e=2 +38/-28 a=['zhengyiquan@ourchem.com']
+    2026-11-04: c=5 e=5 +83/-34 a=['zhengyiquan@ourchem.com']
+    2026-11-05: c=1 e=1 +106/-64 a=['zhengyiquan@ourchem.com']
+  饱和末窗 2026-10-31~2026-11-05 (wd4): [('zhengyiquan@ourchem.com', 'zyq', 14, 4)]
+  饱和前窗 2026-10-24~2026-10-30 (wd5): [('zhengyiquan@ourchem.com', 'zyq', 19, 5)]
+  周尾: [('2026-10-10', 5, 5, 2), ('2026-10-17', 5, 5, 1), ('2026-10-24', 19, 19, 1), ('2026-10-31', 14, 14, 1)]
+
+== ourchem-patyee (检出:master-pro, 有远端:True)
+  窗口: total=5 eff=4 merge=1 ins=233 del=36 authors=2 big=0 trivial=1
+  分类: {'feat': 0, 'fix': 1, 'refactor': 3, 'docs': 0, 'test': 0, 'chore': 0, 'style': 0, 'perf': 0, 'build': 0, 'ci': 0, 'revert': 0, '其他': 0}
+  成员 ['gaojingkai']/gaojingkai@ourchem.com: eff=3 +53/-18 天=2 深夜=0 周末=0 分支={'feat-1016010-收藏夹支持检索': 3} 测=0 peak=2026-11-04x2
+  成员 ['zhongjianghua']/zhongjianghua@ourchem.com: eff=1 +180/-18 天=1 深夜=0 周末=0 分支={'feat-1016010-收藏夹支持检索': 1} 测=0 peak=2026-11-02x1
+  碎提交 84244a2ba1 2行 refactor(favorite): 1017569 修改
+  分支 v5.13.8: ahead=0 behind=4 fork=2026-10-26 stale=10d last=2026-10-26
+  分支 feat-1016010-收藏夹支持检索: ahead=13 behind=19 fork=2026-10-14 stale=22d last=2026-11-04
+  主干 master-pro: last=2026-10-30; TODO=300 大文件=5 测试文件=31 文件数=1182 模式=工作副本（当前检出分支口径 §1.6）
+    大文件: [('onfig/analysis-ik-ourchem/extra_main.dic', 398716), ('core/config/extra_main.dic', 398716), ('config/analysis-ik-ourchem/main.dic_back', 275909), ('core/config/main.dic', 275909), ('ologyPanoramaReportTemplate/document.xml', 30741)]
+  生命周期: 2020-04-27~2026-11-04 total=4306 authors=23 top=[('huangjunjie@ourchem.com', 1305), ('wujm@ourchem.com', 456), ('zhouzhaokang@ourchem.com', 429), ('Qyw123456', 352), ('gaojingkai@ourchem.com', 321)]
+  今日: 0 commits; 上一变动日候选=2026-11-04
+    2026-10-30: c=1 e=0 +0/-0 a=[]
+    2026-11-02: c=1 e=1 +180/-18 a=['zhongjianghua@ourchem.com']
+    2026-11-03: c=1 e=1 +20/-16 a=['gaojingkai@ourchem.com']
+    2026-11-04: c=2 e=2 +33/-2 a=['gaojingkai@ourchem.com']
+  饱和末窗 2026-10-31~2026-11-05 (wd4): [('gaojingkai@ourchem.com', 'gaojingkai', 3, 2), ('zhongjianghua@ourchem.com', 'zhongjianghua', 1, 1)]
+  饱和前窗 2026-10-24~2026-10-30 (wd5): [('gaojingkai@ourchem.com', 'gaojingkai', 1, 1)]
+  周尾: [('2026-10-10', 9, 8, 2), ('2026-10-17', 9, 7, 2), ('2026-10-24', 3, 1, 1), ('2026-10-31', 4, 4, 2)]
+
+== ourchem-data (检出:master-pro, 有远端:True)
+  窗口: total=0 eff=0 merge=0 ins=0 del=0 authors=0 big=0 trivial=0
+  分类: {'feat': 0, 'fix': 0, 'refactor': 0, 'docs': 0, 'test': 0, 'chore': 0, 'style': 0, 'perf': 0, 'build': 0, 'ci': 0, 'revert': 0, '其他': 0}
+  分支 v5.14.0: ahead=0 behind=0 fork=2026-10-22 stale=14d last=2026-10-22
+  分支 feat-1016010-收藏夹支持检索: ahead=1 behind=1 fork=2026-10-09 stale=27d last=2026-10-16
+  分支 feat-1016189-专利分析技术生命周期优化: ahead=1 behind=1 fork=2026-10-09 stale=27d last=2026-10-27
+  主干 master-pro: last=2026-10-22; TODO=174 大文件=5 测试文件=16 文件数=578 模式=工作副本（当前检出分支口径 §1.6）
+    大文件: [('onfig/analysis-ik-ourchem/extra_main.dic', 398716), ('urchem-data-parser/config/extra_main.dic', 398716), ('rser/config/analysis-ik-ourchem/main.dic', 275909), ('ourchem-data-parser/config/main.dic', 275909), ('nalysis-ik-ourchem/extra_single_word.dic', 12638)]
+  生命周期: 2020-05-12~2026-11-05 total=2171 authors=16 top=[('zhouzhaokang@ourchem.com', 506), ('frankkun02@sina.com', 454), ('578038303@qq.com', 414), ('huangjunjie@ourchem.com', 349), ('gaojingkai@ourchem.com', 177)]
+  今日: 0 commits; 上一变动日候选=2026-10-27
+    2026-10-09: c=3 e=3 +133/-102 a=['gaojingkai@ourchem.com']
+    2026-10-16: c=1 e=1 +34/-0 a=['gaojingkai@ourchem.com']
+    2026-10-22: c=1 e=1 +32/-31 a=['zhongjianghua@ourchem.com']
+    2026-10-27: c=1 e=1 +97/-1 a=['gaojingkai@ourchem.com']
+  饱和末窗 2026-10-31~2026-11-05 (wd4): []
+  饱和前窗 2026-10-24~2026-10-30 (wd5): [('gaojingkai@ourchem.com', 'gaojingkai', 1, 1)]
+  周尾: [('2026-10-10', 1, 1, 1), ('2026-10-17', 1, 1, 1), ('2026-10-24', 1, 1, 1), ('2026-10-31', 0, 0, 0)]
+
+== ourchem-middle-service (检出:master-pro, 有远端:True)
+  窗口: total=0 eff=0 merge=0 ins=0 del=0 authors=0 big=0 trivial=0
+  分类: {'feat': 0, 'fix': 0, 'refactor': 0, 'docs': 0, 'test': 0, 'chore': 0, 'style': 0, 'perf': 0, 'build': 0, 'ci': 0, 'revert': 0, '其他': 0}
+  分支 feat-1016188-登录释放策略优化: ahead=4 behind=0 fork=2026-10-19 stale=17d last=2026-10-21
+  主干 master-pro: last=2026-10-19; TODO=12 大文件=1 测试文件=2 文件数=74 模式=工作副本（当前检出分支口径 §1.6）
+    大文件: [('rc/main/resources/highSchool/school.json', 3077)]
+  生命周期: 2020-06-23~2026-10-30 total=262 authors=15 top=[('zhouzhaokang@ourchem.com', 54), ('zengdong@ourchem.com', 46), ('huangjunjie@ourchem.com', 42), ('zjy@ourchem.com', 41), ('578038303@qq.com', 21)]
+  今日: 0 commits; 上一变动日候选=2026-10-21
+    2026-10-09: c=1 e=1 +28/-13 a=['zhongjianghua@ourchem.com']
+    2026-10-19: c=3 e=3 +39/-1 a=['zcy8883680']
+    2026-10-20: c=1 e=1 +1/-1 a=['zhongjianghua@ourchem.com']
+    2026-10-21: c=2 e=1 +1/-1 a=['zhongjianghua@ourchem.com']
+  饱和末窗 2026-10-31~2026-11-05 (wd4): []
+  饱和前窗 2026-10-24~2026-10-30 (wd5): []
+  周尾: [('2026-10-10', 0, 0, 0), ('2026-10-17', 6, 5, 2), ('2026-10-24', 0, 0, 0), ('2026-10-31', 0, 0, 0)]
+
+== ourchem-oauth (检出:master-pro, 有远端:True)
+  窗口: total=0 eff=0 merge=0 ins=0 del=0 authors=0 big=0 trivial=0
+  分类: {'feat': 0, 'fix': 0, 'refactor': 0, 'docs': 0, 'test': 0, 'chore': 0, 'style': 0, 'perf': 0, 'build': 0, 'ci': 0, 'revert': 0, '其他': 0}
+  分支 v5.17-1016188-登录释放策略优化: ahead=14 behind=0 fork=2026-10-15 stale=21d last=2026-10-22
+  主干 master-pro: last=2026-10-15; TODO=140 大文件=1 测试文件=10 文件数=447 模式=工作副本（当前检出分支口径 §1.6）
+    大文件: [('auth/service/UserDetailsServiceImpl.java', 1689)]
+  生命周期: 2020-04-27~2026-10-30 total=1231 authors=25 top=[('zhouzhaokang@ourchem.com', 277), ('zengdong@ourchem.com', 266), ('578038303@qq.com', 153), ('zjy@ourchem.com', 142), ('huangjunjie@ourchem.com', 97)]
+  今日: 0 commits; 上一变动日候选=2026-10-22
+    2026-10-19: c=1 e=1 +1427/-17 a=['zhongjianghua@ourchem.com']
+    2026-10-20: c=2 e=2 +5/-5 a=['zhongjianghua@ourchem.com']
+    2026-10-21: c=3 e=1 +151/-42 a=['zhongjianghua@ourchem.com']
+    2026-10-22: c=5 e=4 +699/-562 a=['zhongjianghua@ourchem.com']
+  饱和末窗 2026-10-31~2026-11-05 (wd4): []
+  饱和前窗 2026-10-24~2026-10-30 (wd5): []
+  周尾: [('2026-10-10', 3, 3, 2), ('2026-10-17', 11, 8, 1), ('2026-10-24', 0, 0, 0), ('2026-10-31', 0, 0, 0)]
+
+== lucene (检出:master, 有远端:True)
+  窗口: total=1 eff=1 merge=0 ins=9 del=1 authors=1 big=0 trivial=0
+  分类: {'feat': 0, 'fix': 0, 'refactor': 0, 'docs': 0, 'test': 0, 'chore': 0, 'style': 0, 'perf': 0, 'build': 0, 'ci': 0, 'revert': 0, '其他': 1}
+  成员 ['吴嘉明']/wujm@ourchem.com: eff=1 +9/-1 天=1 深夜=0 周末=0 分支={'v4.2.0': 1} 测=0 peak=2026-10-29x1
+  分支 v4.2.0: ahead=4 behind=0 fork=2020-08-24 stale=2264d last=2026-10-29
+  主干 master: last=2020-08-24; TODO=1762 大文件=5 测试文件=1894 文件数=5908 模式=工作副本（当前检出分支口径 §1.6）
+    大文件: [('he/lucene/search/suggest/Top50KWiki.utf8', 50001), ('standard/UAX29URLEmailTokenizerImpl.java', 41050), ('ysis/charfilter/HTMLStripCharFilter.java', 30961), ('tras/src/test-files/data/geonames-IE.txt', 22929), ('docs/changes/Changes.html', 17568)]
+  生命周期: 2020-08-24~2026-10-29 total=8 authors=4 top=[('zhouzhaokang@ourchem.com', 3), ('578038303@qq.com', 3), ('wujm@ourchem.com', 1), ('moxuqiang@ourchem.com', 1)]
+  今日: 0 commits; 上一变动日候选=2026-10-29
+    2026-10-29: c=1 e=1 +9/-1 a=['wujm@ourchem.com']
+  饱和末窗 2026-10-31~2026-11-05 (wd4): []
+  饱和前窗 2026-10-24~2026-10-30 (wd5): [('wujm@ourchem.com', '吴嘉明', 1, 1)]
+  周尾: [('2026-10-10', 0, 0, 0), ('2026-10-17', 0, 0, 0), ('2026-10-24', 1, 1, 1), ('2026-10-31', 0, 0, 0)]
+
+== image-search-v2 (检出:master, 有远端:True)
+  窗口: total=1 eff=1 merge=0 ins=1921 del=0 authors=1 big=1 trivial=0
+  分类: {'feat': 0, 'fix': 0, 'refactor': 0, 'docs': 0, 'test': 0, 'chore': 0, 'style': 0, 'perf': 0, 'build': 0, 'ci': 0, 'revert': 0, '其他': 1}
+  成员 ['吴嘉明']/wujm@ourchem.com: eff=1 +1921/-0 天=1 深夜=0 周末=0 分支={'master': 1} 测=0 peak=2026-10-29x1
+  大提交 c821b1954f 14f 1921行 Initial commit
+  主干 master: last=2026-10-29; TODO=16 大文件=1 测试文件=0 文件数=14 模式=工作副本（当前检出分支口径 §1.6）
+    大文件: [('pixi.lock', 6793)]
+  生命周期: 2026-10-29~2026-10-29 total=1 authors=1 top=[('wujm@ourchem.com', 1)]
+  今日: 0 commits; 上一变动日候选=2026-10-29
+    2026-10-29: c=1 e=1 +1921/-0 a=['wujm@ourchem.com']
+  饱和末窗 2026-10-31~2026-11-05 (wd4): []
+  饱和前窗 2026-10-24~2026-10-30 (wd5): [('wujm@ourchem.com', '吴嘉明', 1, 1)]
+  周尾: [('2026-10-10', 0, 0, 0), ('2026-10-17', 0, 0, 0), ('2026-10-24', 1, 1, 1), ('2026-10-31', 0, 0, 0)]
+
+== image-search-process-v2 (检出:master, 有远端:True)
+  窗口: total=1 eff=1 merge=0 ins=6152 del=0 authors=1 big=1 trivial=0
+  分类: {'feat': 0, 'fix': 0, 'refactor': 0, 'docs': 0, 'test': 0, 'chore': 0, 'style': 0, 'perf': 0, 'build': 0, 'ci': 0, 'revert': 0, '其他': 1}
+  成员 ['吴嘉明']/wujm@ourchem.com: eff=1 +6152/-0 天=1 深夜=0 周末=0 分支={'master': 1} 测=0 peak=2026-10-29x1
+  大提交 af8f00c2ab 28f 6152行 Initial commit
+  主干 master: last=2026-10-29; TODO=29 大文件=1 测试文件=0 文件数=28 模式=工作副本（当前检出分支口径 §1.6）
+    大文件: [('pixi.lock', 10732)]
+  生命周期: 2026-10-29~2026-10-29 total=1 authors=1 top=[('wujm@ourchem.com', 1)]
+  今日: 0 commits; 上一变动日候选=2026-10-29
+    2026-10-29: c=1 e=1 +6152/-0 a=['wujm@ourchem.com']
+  饱和末窗 2026-10-31~2026-11-05 (wd4): []
+  饱和前窗 2026-10-24~2026-10-30 (wd5): [('wujm@ourchem.com', '吴嘉明', 1, 1)]
+  周尾: [('2026-10-10', 0, 0, 0), ('2026-10-17', 0, 0, 0), ('2026-10-24', 1, 1, 1), ('2026-10-31', 0, 0, 0)]
+
+  项目文档mtimes: [('SYSTEM_REQUIREMENTS.txt', '2026-10-30'), ('README.txt', '2026-10-30'), ('README.md', '2026-10-30'), ('NOTICE.txt', '2026-10-30'), ('MIGRATE.txt', '2026-10-30')]
+  全局文档mtimes: [('README.md', '2026-10-30'), ('原始文件覆盖核对-2026W44.md', '2026-10-30'), ('任务明细-2026W44.md', '2026-10-30'), ('任务明细-2026W44.md', '2026-10-30'), ('任务明细-2026W44.md', '2026-10-30')]
+
+### PREV patyee: period=5 runAt=2026-11-04 08:43 window=2026-10-28 ~ 2026-11-04 statsRange=2026-08-01 ~ 2026-11-04
+  headline: 本期前端与后端恢复实质提交（patyee-next 8 笔、ourchem-patyee 两人各 1 笔），但四条功能分支仍未合并、测试仍为零——8 仓风险评分全部持平
+  keyPoints: ['patyee-next 四条功能分支领先 master 872~877、分叉 499 天（持续 5 ', 'R11 已过提测日 10 个工作日、R12 +6、R13/R14 +3——四个功能的验证确认全部压在', 'ourchem-oauth v5.17 分支已 20 天未合并（差 1 天到 21 天阈值）——te', '测试期修复回流：本期 10 笔 TAPD 缺陷修复（收藏夹检索式/登录过期提示/分享邮箱等）；our']
+  patyee-next: total=51.7 level=高 delta=0.0 scores={'progress': 48, 'people': 70, 'quality': 58, 'integration': 68, 'convention': 10}
+    topRisk: 4 条功能分支领先 master 872~877、分叉 499 天；94.6% 提交单人集中
+    risks(age): [('4 条功能分支相对 master 各领先 872~877 提交、分叉 499 天', 5), ('统计期本仓 94.6% 提交集中在郑宜权一人（窗口期 16/16）', 5), ('前端零单测 + 自有代码 TODO 26 处', 5), ('session 模块窗口内大提交重构（+800/−243）', 5), ('R11/R12 已过提测日仍在测试、R13 提测日已过', 5), ('部分提交作者日期与提交日期错位（历史在案）', 5)]
+    plans: [('R3', '已完成', '已完成', '10-26'), ('R11', '部分推进', '部分推进', None), ('R12', '部分推进', '部分推进', None), ('R13', '已推进', '已推进', None)]
+    members: [('郑宜权', 16)]
+    prev: total=51.7
+  ourchem-patyee: total=33.0 level=中 delta=0.0 scores={'progress': 45, 'people': 25, 'quality': 50, 'integration': 20, 'convention': 10}
+    topRisk: TODO 300 处；R12 已过提测日 6 个工作日
+    risks(age): [('TODO 300 处（收藏夹服务单文件 14 处）', 5), ('R12 已过提测日，窗口 2 笔测试期修复', 5), ('窗口改动无测试同步（存量测试 31 个为框架/脚手架为主）', 5), ('feat-1016010 落后主干 19 提交（临界关注级）', 5)]
+    plans: [('R3', '已完成', '已完成', '10-26'), ('R12', '部分推进', '部分推进', None)]
+    members: [('高鲸凱', 1), ('钟江华', 2)]
+    prev: total=33.0
+  ourchem-data: total=38.35 level=中 delta=0.0 scores={'progress': 42, 'people': 60, 'quality': 50, 'integration': 15, 'convention': 10}
+    topRisk: TODO 174 处；79% 提交单人集中
+    risks(age): [('TODO 174 处', 5), ('统计期 79% 提交来自高鲸凱', 5), ('R12 本仓停滞，已过提测日', 5), ('v5.14.0 已与主干同点（改善维持）', 5)]
+    plans: [('R3', '已完成', '已完成', '10-26'), ('R12', '部分推进', '部分推进', None), ('R13', '已推进', '已推进', None)]
+    members: []
+    prev: total=38.35
+  ourchem-middle-service: total=31.5 level=中 delta=0.0 scores={'progress': 50, 'people': 30, 'quality': 30, 'integration': 20, 'convention': 10}
+    topRisk: R11 4 笔提交未合并（分叉 16 天，关注级）
+    risks(age): [('R11 登录释放 4 笔提交未合并主干（分支领先 4、分叉 16 天）', 5), ('窗口 0 提交，R11 已过提测日 10 个工作日', 5)]
+    plans: [('R11', '部分推进', '部分推进', None)]
+    members: []
+    prev: total=35.25
+  ourchem-oauth: total=40.65 level=中 delta=0.0 scores={'progress': 48, 'people': 55, 'quality': 50, 'integration': 25, 'convention': 10}
+    topRisk: 66.7% 提交单人集中；TODO 140 + 1941 行超大类
+    risks(age): [('统计期 66.7% 提交集中在钟江华', 5), ('TODO 140 处 + 1941 行超大类（UserDetailsServic', 5), ('窗口 0 提交，R11 已过提测日 10 个工作日', 5), ('v5.17 领先主干 14 未合并（存活 20 天，临界）', 5)]
+    plans: [('R11', '部分推进', '部分推进', None)]
+    members: []
+    prev: total=40.65
+  lucene: total=39.0 level=中 delta=0.0 scores={'progress': 40, 'people': 40, 'quality': 35, 'integration': 55, 'convention': 25}
+    topRisk: 事实主干错位（master 停在 2020，实际工作在 v4.2.0）
+    risks(age): [('实际工作在 6 年历史的 v4.2.0 分支（master 停在 2020-08', 5), ('9 行修复无测试', 5), ('上游 TODO/测试基线不可比', 5)]
+    plans: [('R14', '已推进', '已推进', None)]
+    members: [('吴嘉明', 1)]
+    prev: total=39.0
+  image-search-v2: total=23.25 level=低 delta=0.0 scores={'progress': 25, 'people': 30, 'quality': 30, 'integration': 5, 'convention': 20}
+    topRisk: 初次提交 1921 行无测试；单人维护
+    risks(age): [('初次提交 1921 行无测试（检索服务主体）', 5), ('单人维护（吴嘉明）', 5), ('TODO 16 处（pixi.lock 15——锁定文件计数，口径注记）', 5)]
+    plans: [('R2', '已完成', '已完成', '10-28')]
+    members: [('吴嘉明', 1)]
+    prev: total=23.25
+  image-search-process-v2: total=23.65 level=低 delta=0.0 scores={'progress': 25, 'people': 30, 'quality': 32, 'integration': 5, 'convention': 20}
+    topRisk: 初次提交 6152 行无测试；单人维护
+    risks(age): [('初次提交 6152 行无测试（向量化流水线主体）', 5), ('单人维护（吴嘉明）', 5), ('TODO 29 处（pixi.lock 14——锁定文件计数，口径注记）', 5)]
+    plans: [('R2', '已完成', '已完成', '10-28')]
+    members: [('吴嘉明', 1)]
+    prev: total=23.65
+  饱和Trend team: [('08-01~08-07', 1, 2, 3, '中', '高'), ('08-08~08-14', 1, 2, 3, '中', '高'), ('08-15~08-21', 1, 2, 3, '中', '高'), ('08-22~08-28', 0, 2, 2, '低', '高'), ('08-29~09-04', 1, 2, 3, '中', '高'), ('09-05~09-11', 1, 2, 3, '中', '高'), ('09-12~09-18', 1, 2, 3, '中', '高'), ('09-19~09-25', 1, 2, 3, '中', '高'), ('09-26~10-02', 1, 2, 3, '中', '高'), ('10-03~10-09', 0, 2, 2, '低', '高'), ('10-10~10-16', 1, 1, 2, '中', '中'), ('10-17~10-23', 1, 2, 3, '中', '高'), ('10-24~10-30', 1, 2, 3, '中', '高'), ('10-31~11-04', 1, 2, 3, '中', '高')]
+    郑宜权: [('10-10~10-16', 0), ('10-17~10-23', 1), ('10-24~10-30', 1), ('10-31~11-04', 2)]
+    高鲸凱: [('10-10~10-16', 0), ('10-17~10-23', 0), ('10-24~10-30', 0), ('10-31~11-04', 0)]
+    苏广銮: [('10-10~10-16', 0), ('10-17~10-23', 0), ('10-24~10-30', 0), ('10-31~11-04', 0)]
+    钟承佑: [('10-10~10-16', 0), ('10-17~10-23', 0), ('10-24~10-30', 0), ('10-31~11-04', 0)]
+    钟江华: [('10-10~10-16', 1), ('10-17~10-23', 2), ('10-24~10-30', 0), ('10-31~11-04', 0)]
+    吴嘉明: [('10-10~10-16', 0), ('10-17~10-23', 0), ('10-24~10-30', 0), ('10-31~11-04', 0)]
+  history: [('10-30 P1', [{'total': 51.7}, {'total': 33.75}, {'total': 39.85}, {'total': 35.25}, {'total': 40.65}, {'total': 39.0}, {'total': 23.25}, {'total': 23.65}]), ('10-30 P2', [{'total': 51.7}, {'total': 33.75}, {'total': 39.85}, {'total': 35.25}, {'total': 40.65}, {'total': 39.0}, {'total': 23.25}, {'total': 23.65}]), ('10-31 P3', [{'total': 51.7}, {'total': 33.0}, {'total': 38.35}, {'total': 35.25}, {'total': 40.65}, {'total': 39.0}, {'total': 23.25}, {'total': 23.65}]), ('11-02 P4', [{'total': 51.7}, {'total': 33.0}, {'total': 38.35}, {'total': 31.5}, {'total': 40.65}, {'total': 39.0}, {'total': 23.25}, {'total': 23.65}]), ('11-04 P5', [{'total': 51.7}, {'total': 33.0}, {'total': 38.35}, {'total': 31.5}, {'total': 40.65}, {'total': 39.0}, {'total': 23.25}, {'total': 23.65}])]

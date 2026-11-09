@@ -1,0 +1,491 @@
+COMMIT@1068be695ca89b18857864f01c596249dc1a9d5b
+10	4	src/App.vue
+1	1	src/components/ui/dialog/index.js
+38	5	src/utils/sessionIdle.js
+
+COMMIT@e9ecd5c77220c90bff2dc95411a4245d13563b75
+33	7	src/App.vue
+41	7	src/components/common/SessionIdleDialog.vue
+44	11	src/router/index.js
+2	1	src/utils/request.js
+34	9	src/utils/sessionIdle.js
+
+COMMIT@7eed8b1bb70e292b832e3cbd319524f6c61a58e8
+41	172	src/App.vue
+0	163	src/components/common/Dialogs/IdleWarning.vue
+117	0	src/components/common/SessionIdleDialog.vue
+0	1	src/main.js
+24	2	src/router/index.js
+17	1	src/store/modules/user.js
+0	546	src/utils/idleCountdown.js
+25	23	src/utils/request.js
+395	0	src/utils/sessionIdle.js
+
+COMMIT@2f150406f6d8f77a74ece80712ff6c785686429c
+180	45	src/App.vue
+1	4	src/api/index.js
+163	0	src/components/common/Dialogs/IdleWarning.vue
+2	12	src/components/common/Dialogs/loginIn.vue
+1	0	src/main.js
+19	0	src/store/modules/user.js
+546	0	src/utils/idleCountdown.js
+37	17	src/utils/request.js
+2	2	src/utils/storage.js
+2	2	src/utils/utils.js
+16	24	src/views/Login/Login.vue
+2	13	src/views/Login/Reg.vue
+17	3	src/views/Login/compontents/mixins.js
+2	12	src/views/UserCenter/Password/index.vue
+
+COMMIT@aa1492cea59da39eec5d7b1de1baa34b8a80ee30
+1	1	src/views/PatentSearch/SearchResult/index.vue
+
+COMMIT@4bed736861c464d0a240cfb5fc395507d88a1617
+20	20	src/views/PatentSearch/SearchResult/index.vue
+
+COMMIT@8c097423d5036a289fd562fc0fced3036914f512
+45	6	src/views/PatentSearch/SearchResult/index.vue
+
+COMMIT@668e4f255ccf3f64ba983877ef0bac931ce4ff91
+7	1	src/components/common/PersonSettingModal.vue
+22	4	src/views/PatentSearch/SearchResult/components/MergeStatus.vue
+7	1	src/views/PatentSearch/SearchResult/index.vue
+
+COMMIT@792f80239081e8f93dcd2086a338b1091ac1989a
+1	1	src/views/Help/Version/index.vue
+25	0	src/views/Help/Version/versionList.js
+
+COMMIT@d78d6ee403b86ef8b00241af4f57a3f13fe77ea0
+2	0	src/styles/_search.scss
+
+COMMIT@a6f4155dfc2b598bd8eb6108b8fcb7e674b79e13
+3	2	src/views/PatentSearch/SearchResult/components/ViewFigure.vue
+36	11	src/views/PatentSearch/SearchResult/index.vue
+
+COMMIT@a623156f8cca56f1874d1f2cbf948370ea4339a9
+3	3	src/views/PatentSearch/ImgSearch/components/ImgUpload.vue
+
+COMMIT@ed2eeda81771a396ab639bc9492b8fd85db2a8e8
+4	0	src/components/ui/upload/index.vue
+
+COMMIT@a9fd3b9c283d58d777451d55ff85d08150eae0c0
+1	1	src/components/ui/upload/index.vue
+
+COMMIT@382c32bb60d00c38e8489a3b916965841f5c36fc
+78	77	src/views/PatentSearch/SearchResult/index.vue
+
+COMMIT@0bf67cf3b30f6cdec7eef139d0c740cab1e8f4f0
+-	-	public/VersionDescription.docx
+-	-	public/~$rsionDescription.docx
+3	1	src/main.js
+3	2	src/version.js
+1	1	src/views/Help/Version/docxVersion.vue
+8	4	src/views/Help/Version/versionInfos.js
+2	2	src/views/PatentSearch/QuickSearch/components/DialogRemindHander.vue
+-	-	static/img/version/5.15.0/1.png
+-	-	static/img/version/5.15.0/2.png
+
+COMMIT@34e26bb297fe9b3d24302c47d76bc19480ce828c
+20	49	src/views/PatentSearch/SearchResult/index.vue
+
+COMMIT@855b2b3a0d2393a3086eb57c1d4f043b24973d14
+69	26	src/components/ui/upload/index.vue
+19	0	src/utils/utils.js
+26	7	src/views/PatentSearch/ImgSearch/components/ImgUpload.vue
+2	2	src/views/PatentSearch/SearchResult/index.vue
+
+COMMIT@f1378d20dab62c2b83b22b6aa6ffd4d85ae4e6ad
+163	23	src/views/PatentSearch/SearchResult/index.vue
+2	2	vue.proxy.js
+
+COMMIT@332ba2dbd95fab9a29cd00cb1ba0872b71b5e213
+4	0	src/mixins/searchImg.js
+0	3	src/views/PatentSearch/ImgSearch/index.vue
+
+COMMIT@39a2fa4faa09dc55e18181af1ec837b324315b79
+12	1	src/components/common/Source/index.vue
+
+COMMIT@1c11cec2c0bb92a7c3227d7ddedbb366c5911267
+3	1	src/views/PatentSearch/ImgSearch/components/ImgUpload.vue
+
+COMMIT@770e71d4cfce490b00b3164fad7d63a8087471ae
+2	0	src/api/index.js
+0	6	src/components/common/DetailTabs/components/similarPatentsTable.vue
+2	0	src/components/ui/upload/README.md
+61	19	src/components/ui/upload/index.vue
+11	11	src/directive/viewer/viewer.vue
+12	7	src/mixins/searchImg.js
+198	2	src/styles/_search.scss
+3	0	src/styles/fnPage.scss
+6	0	src/styles/mixins.scss
+341	36	src/views/PatentSearch/ImgSearch/components/ImgUpload.vue
+63	18	src/views/PatentSearch/ImgSearch/index.vue
+119	63	src/views/PatentSearch/SearchResult/index.vue
+2	2	vue.proxy.js
+
+COMMIT@96fa11656dc654b47b1848f95b4811cb4ec174dc
+2	1	src/views/PatentSearch/SearchResult/index.vue
+
+COMMIT@71d05b171a8bc20d7bcabdf104e9b142f5fda967
+1	1	src/views/PatentSearch/HomePage/index.vue
+
+COMMIT@b26465b95cd222cc03c85cc25fe2c185d7fa00f0
+4	4	src/views/CoInnovationSpace/Collect/guidePage/Description/index.js
+4	4	src/views/Help/Description/index.js
+
+COMMIT@386d45f924b348b1783c575b5b9bc998768dad48
+1	1	src/views/Workbench/Report/create.vue
+
+COMMIT@c13236ecb40277f58e404ac1dd12cb7f26607566
+9	3	src/views/Layout/components/Header/headConfig.js
+
+COMMIT@c0220cc3c37514f19e5eca8c2b44443e42c62b58
+15	0	package-lock.json
+3	0	package.json
+-	-	public/VersionDescription.docx
+1	1	src/components/common/agentEntrance.vue
+1	1	src/version.js
+7791	0	src/views/Help/Version/docxVersion.vue
+21	1	src/views/Help/Version/index.vue
+2	1	src/views/PatentSearch/HomePage/index.vue
+9	3	src/views/PatentSearch/QuickSearch/components/DialogRemid.vue
+6	4	src/views/PatentSearch/QuickSearch/components/DialogRemindHander.vue
+-	-	static/img/version/NoVersionNumber/1.png
+-	-	static/img/version/NoVersionNumber/PatentAnalysis.gif
+-	-	static/img/version/NoVersionNumber/PatentSearch.gif
+-	-	static/img/version/NoVersionNumber/qrcode.png
+
+COMMIT@da31691e9d3c3e1934b4b6b4416d942e8bdce4db
+10	2	src/components/ui/dialog/index.js
+
+COMMIT@647521e85c1b2e5df38bdfc25a7b362a0cdcd802
+1	1	src/components/common/agentEntrance.vue
+2	1	src/views/Layout/components/Header/index.vue
+1	0	vue.config.js
+
+COMMIT@b1efe10b05a3f9cef01a2b3d66c0ada417ace4c1
+1	0	src/store/modules/user.js
+1	1	src/views/Layout/components/Header/index.vue
+
+COMMIT@25d89419bc21792196b9f028cc51fb26ffb4ef30
+302	0	src/utils/utils.js
+6	5	src/views/PatentSearch/PatentDetail/components/getDetail.js
+
+COMMIT@083e30a9562bd780b57917a156f80f36e7bc37ea
+1	1	src/components/common/ContentEditTable/index.vue
+
+COMMIT@5f5438e859290155162869f39e00815ceb4cf732
+130	0	src/components/common/agentEntrance.vue
+7	0	src/router/index.js
+5	1	src/utils/toRouter.js
+4	1	src/views/PatentSearch/HomePage/index.vue
+21	7	src/views/PatentSearch/SearchResult/index.vue
+-	-	static/img/agentEntrance.png
+5	1	vue.config.js
+
+COMMIT@954d2b5a1e12067308ba1d8fca942274c7a52284
+2	8	src/components/common/WaterMark/index.vue
+0	1	src/views/PatentSearch/SearchResult/Analysis/components/Charts.vue
+
+COMMIT@d9d4bcf43903408cc6efd4b1203af09176cf1a4b
+7	0	src/components/common/DetailTabs/components/similarPatentsTable.vue
+2	2	vue.proxy.js
+
+COMMIT@2884115e738e75cda2f31d73fe081ff7dc28818c
+14	6	src/components/common/DetailTabs/components/similarPatentsTable.vue
+3	1	src/styles/views/PatentSearch/_search.scss
+26	6	src/views/PatentSearch/SearchResult/index.vue
+
+COMMIT@79bcd0e20579f632e1b927bf8da8a6bd8db258b2
+2	2	src/views/PatentSearch/SearchResult/index.vue
+
+COMMIT@0ef2021da7587c2f3ad4c7414cf3d3f45be2867e
+11	11	src/views/PatentSearch/SearchResult/index.vue
+
+COMMIT@a83d0121c218ececfa291c32c187b4ebb3cefea4
+1	1	src/components/common/DetailTabs/components/similarPatentsTable.vue
+27	19	src/views/PatentSearch/SearchResult/index.vue
+
+COMMIT@9644750cd3d90e2ead354e30e03b2912acc57e1f
+4	4	src/components/common/DetailTabs/components/similarPatentsTable.vue
+1	1	src/views/PatentSearch/SearchResult/index.vue
+
+COMMIT@76986a6116e93b0ff4451d814c8dc1d85e1a5ef7
+1	1	src/utils/toRouter.js
+6	0	src/views/PatentSearch/SearchResult/index.vue
+
+COMMIT@0f09cd7c89296789e879536dfa5dc6bf37e6d1b6
+3	3	src/views/PatentSearch/SearchResult/components/TableField/fields.js
+6	26	src/views/PatentSearch/SearchResult/index.vue
+
+COMMIT@12a8399cdf86c5ba1d9c026b3693736bf8a9154c
+0	1	src/components/common/DetailTabs/components/similarPatentsTable.vue
+3	3	src/views/PatentSearch/SearchResult/components/TableField/fields.js
+26	15	src/views/PatentSearch/SearchResult/index.vue
+
+COMMIT@b2872df6eb4648950bf1ba391b6ba08823080ace
+21	12	src/components/common/DetailTabs/components/similarPatentsTable.vue
+
+COMMIT@af2d821732a145afb8db0dd9891cdc1819224e88
+5	3	src/views/PatentSearch/SearchResult/components/TableField/fields.js
+11	3	src/views/PatentSearch/SearchResult/index.vue
+
+COMMIT@23cb3a0f66e97c7d28b67aa814d5d62a1154bfba
+172	80	src/components/common/DetailTabs/components/similarPatentsTable.vue
+1	4	src/components/common/DetailTabs/index.vue
+3	0	src/styles/views/PatentSearch/_search.scss
+38	21	src/views/PatentSearch/SearchResult/index.vue
+2	2	vue.proxy.js
+
+COMMIT@1877612640ca0bed0fa8dbdca1a1006b71884a2e
+2	1	src/views/PatentSearch/AdvancedSearch/components/dataArr.js
+
+COMMIT@09ade032073892a37cd14f1a85eba4844129ee8b
+2	1	src/views/Layout/components/Header/index.vue
+
+COMMIT@fd658bb807af458226d5fd0eae94ff92a6210ba1
+169	28	src/components/common/WaterMark/index.vue
+
+COMMIT@5edbf5a85528fe62263ba33993806beb93f73e55
+COMMIT@5af0fc6b5d192b8e4cb22bf61672582a616dedc2
+6	6	src/views/PatentSearch/SearchResult/Analysis/components/mixins.js
+
+COMMIT@fa397b9765515f78545952235f42d26178a69154
+11	11	src/views/Layout/components/SideBar/menuConfig.js
+1	1	src/views/Workbench/Report/create.vue
+
+COMMIT@c9010293eb0c6403ae07921345d35eea71206581
+22	3	src/components/common/PatentStatus.vue
+-	-	static/img/DoubleFiveStar.png
+
+COMMIT@bb61242c3b82853dbfae7726287b62b3f9e5c32c
+1	1	src/components/common/ContentEditTable/index.vue
+3	0	src/styles/common/pageSearch.scss
+
+COMMIT@c04cc6db30ac2f095692afa0e603b7850671a3b2
+11	11	src/views/Layout/components/SideBar/menuConfig.js
+
+COMMIT@21b90e342552f861cad14da9416393f359625144
+105	4	src/components/common/DetailTabs/index.vue
+
+COMMIT@3ed20482dfb798539b8ea906297bddab4031737c
+5	1	src/views/PatentSearch/Repeat/components/Search.vue
+
+COMMIT@78a78ef2fd41c5763413f35eb9a95b0c7788c8af
+8	6	src/api/index.js
+17	14	src/views/PatentSearch/Repeat/components/detailEvaluation.vue
+8	6	src/views/PatentSearch/Repeat/components/detailReport.vue
+
+COMMIT@bfc91a6c789e17f6f3af357fd5561749279f1d8a
+106	96	src/views/PatentSearch/SearchResult/Analysis/Pages/Map.vue
+
+COMMIT@51d2e553773f27de0c944b5f83b40d7a60e27979
+201	180	src/components/common/ContentEditTable/index.vue
+1	0	vue.config.js
+
+COMMIT@8beeb6b347bba354ca8dd573f0a211d7d6d18005
+44	23	src/components/common/DetailTabs/index.vue
+2	2	src/types/key.js
+
+COMMIT@905b3c59ec552b853063b8c53846cd8ab9e62ae0
+1	23	src/views/DataNavigation/renderECharts.vue
+78	29	src/views/PatentSearch/SearchResult/Analysis/Pages/Map.vue
+4	3	src/views/PatentSearch/SearchResult/Analysis/components/Charts.vue
+4	22	src/views/Workbench/Report/components/MapWorld.vue
+
+COMMIT@c7a7fd3b73b74a42a53782d5af6b7ffb4a5307f6
+31	8	src/components/common/DetailTabs/components/similarPatentsTable.vue
+1	1	src/utils/toRouter.js
+3	0	src/views/PatentSearch/SearchResult/components/mixins.js
+46	22	src/views/PatentSearch/SearchResult/index.vue
+
+COMMIT@1d11f9d23a4919d7701d69aa0e7097f6ace5bfef
+1	0	src/components/common/ContentEditTable/HighlightError.js
+428	442	src/components/common/ContentEditTable/index.vue
+5	1	src/styles/_search.scss
+
+COMMIT@23a48eed69eec2452df13d821d9d067b2cc59cb6
+0	55	src/views/PatentSearch/AdvancedSearch/components/InstitutionTreeItem.vue
+154	5	src/views/PatentSearch/AdvancedSearch/components/InstitutionTreeTool.vue
+3	2	src/views/PatentSearch/AdvancedSearch/components/KeywordExpansion/AIExpansion.vue
+28	5	src/views/PatentSearch/AdvancedSearch/components/KeywordExpansion/index.vue
+1	1	src/views/PatentSearch/AdvancedSearch/components/SearchBox.vue
+1	1	src/views/PatentSearch/AdvancedSearch/components/SearchFiled.vue
+
+COMMIT@b0a30f3ec8ec92db66ce117c89d5fae2dae247e4
+1	0	src/router/index.js
+3	0	src/store/modules/user.js
+1	0	src/views/Login/compontents/mixins.js
+4	3	vue.config.js
+
+COMMIT@aec1439b14079226d2e865d4b6becd85afece1aa
+2	1	src/components/ui/checkbox/checkbox.vue
+9	7	src/views/PatentSearch/AdvancedSearch/components/KeywordExpansion/AIExpansion.vue
+18	3	src/views/PatentSearch/AdvancedSearch/components/KeywordExpansion/index.vue
+
+COMMIT@69cfd4821bb30a2f36e5322615412a12f77e94b9
+8	0	src/api/index.js
+13	4	src/components/common/DetailTabs/components/Claims.vue
+13	10	src/components/common/DetailTabs/components/Description.vue
+93	0	src/components/common/DetailTabs/components/LanguageSelect.vue
+274	23	src/components/common/DetailTabs/index.vue
+
+COMMIT@dcd316cbc7910e84a96185e883cc861468072352
+2	1	src/views/PatentSearch/SearchResult/Analysis/components/Charts.vue
+1	0	src/views/PatentSearch/SearchResult/Analysis/components/ExportView.vue
+
+COMMIT@9dfafec697dc110bebe629c67913d23a1f661433
+2	2	src/version.js
+76	71	src/views/Help/Version/versionInfos.js
+12	0	src/views/Help/Version/versionList.js
+-	-	static/img/version/5.13.1/1.png
+-	-	static/img/version/5.13.1/2.png
+-	-	static/img/version/5.13.1/3.png
+-	-	static/img/version/5.13.1/4.png
+-	-	static/img/version/5.13.1/5.png
+
+COMMIT@034d8050d9a218b2c447c53d0d4440edc17c4dd7
+37	0	src/api/userCenter.js
+1	2	src/components/ui/checkbox/checkbox.vue
+62	0	src/styles/_search.scss
+10	1	src/styles/views/userCenter/pageGroup.scss
+444	26	src/views/PatentSearch/SearchResult/components/DialogPaeGroup.vue
+6	3	src/views/PatentSearch/SearchResult/components/DialogPaeGroupShare.vue
+1	1	src/views/PatentSearch/SearchResult/components/DialogPaeGroupTreeItem.vue
+1	1	src/views/PatentSearch/SearchResult/components/FilterItem.vue
+2	1	src/views/PatentSearch/SearchResult/components/FilterItemPaeGroup.vue
+1	1	src/views/PatentSearch/SearchResult/index.vue
+52	7	src/views/UserCenter/PaeGroup/index.vue
+
+COMMIT@f6b3d7615bf0af9a0b6225404343b009a8f771e1
+11	0	src/api/index.js
+1	1	src/components/common/ContentEditTable/index.vue
+1	1	src/components/common/Dialogs/addWarning.vue
+1	0	src/components/ui/select/select.vue
+70	58	src/components/ui/tree/index.vue
+29	32	src/components/ui/tree/treeItem.vue
+17	12	src/styles/_search.scss
+10	0	src/styles/fnCompenont.scss
+10	0	src/styles/mixins.scss
+26	0	src/styles/ui/_select.scss
+1	1	src/views/CoInnovationSpace/SearchFile/RightPreview/edit.vue
+1	1	src/views/CoInnovationSpace/SearchFile/SearchFile.vue
+31	0	src/views/Help/Description/index.js
+570	0	src/views/PatentSearch/AdvancedSearch/components/CAGTool.vue
+623	0	src/views/PatentSearch/AdvancedSearch/components/FavoriteSearchTreeSelect.vue
+2	2	src/views/PatentSearch/AdvancedSearch/components/SearchBox.vue
+145	80	src/views/PatentSearch/AdvancedSearch/components/SearchFiled.vue
+53	0	src/views/PatentSearch/AdvancedSearch/components/dataArr.js
+0	1	src/views/PatentSearch/SearchResult/components/DialogPaeGroup.vue
+0	1	src/views/PatentSearch/SearchResult/components/DialogPaeGroupTreeItem.vue
+1	1	src/views/UserCenter/SearchFile/index.vue
+16	4	src/views/Workbench/Collect/components/FileTree/FileItem.vue
+10	1	src/views/Workbench/Collect/components/FileTree/FileTree.vue
+5	0	src/views/Workbench/Collect/components/FileTree/row.vue
+2	2	src/views/Workbench/Report/CreateTab/SimpleReport.vue
+53	6	src/views/Workbench/Report/CreateTab/commonForm.vue
+
+COMMIT@f7cf6fa818a53c4760d24cdd341217327c7f29cc
+3	0	src/styles/common/pageSearch.scss
+3	0	src/styles/views/PatentSearch/_search.scss
+
+COMMIT@526941c2f9ca47c60ec23c09b0614a239ed6a3e1
+6	1	src/styles/views/PatentSearch/_detail.scss
+
+COMMIT@9a66040a2720ca63f24e36d26959e75ce0261ac8
+12	11	src/views/Login/compontents/mixins.js
+
+COMMIT@95f4585dbcbbce01b94190e49a8931f683ef97bf
+6	1	src/components/common/ContentEditTable/index.vue
+152	292	src/components/common/DetailTabs/components/similarPatentsTable.vue
+0	2	src/components/common/DetailTabs/index.vue
+41	4	src/styles/views/PatentSearch/_detail.scss
+40	7	src/styles/views/PatentSearch/_search.scss
+8	3	src/utils/toRouter.js
+9	4	src/views/Layout/SideContainer.vue
+19	6	src/views/PatentSearch/SearchResult/components/PatsList.vue
+2	2	src/views/PatentSearch/SearchResult/components/PatsListPnAndTitle.vue
+1	0	src/views/PatentSearch/SearchResult/components/ViewFigure.vue
+306	136	src/views/PatentSearch/SearchResult/index.vue
+2	2	src/views/PatentSearch/mixins/expression.js
+2	2	vue.proxy.js
+
+COMMIT@e12af508162764d2288cdabbbf4d626b1fe962cd
+COMMIT@c88eeb6b7fd36c412de59e116979e23975d520de
+21	14	src/App.vue
+
+COMMIT@7861500f04e1622cee1835faadf57deee90c03b9
+3	0	src/components/ui/upload/index.vue
+
+COMMIT@5ff94e544223256f85d1b94ac7db5661eeacb5f1
+COMMIT@bc6e701bfa84addf3cff1dcc0d3639a647117669
+61	3	src/components/ui/upload/index.vue
+5	0	src/styles/mixins.scss
+3	0	src/styles/ui/_upload.scss
+2	2	src/views/PatentSearch/ImgSearch/components/ImgUpload.vue
+
+COMMIT@38f109f8408df7f12dcd969c93089924ed54fb9b
+61	3	src/components/ui/upload/index.vue
+5	0	src/styles/mixins.scss
+3	0	src/styles/ui/_upload.scss
+2	2	src/views/PatentSearch/ImgSearch/components/ImgUpload.vue
+
+COMMIT@a954c31c92e7ef33d8129d992114588e7cf4ffa2
+21	14	src/App.vue
+
+COMMIT@9957c59d93cc6b2584039380983063de9d8fca58
+2	1	src/views/Workbench/Report/detail.vue
+
+COMMIT@f86fe26e41247d7cea7559a75071413e70b2dc96
+5	1	src/components/common/DetailTabs/components/similarPatentsTable.vue
+
+COMMIT@289a95a1001dacbfb6936e00c26ff3cd4177017e
+1	1	src/views/PatentSearch/AdvancedSearch/components/KeywordExpansion/Empty.vue
+2	1	src/views/PatentSearch/AdvancedSearch/components/KeywordExpansion/index.vue
+
+COMMIT@b6609039736b2ad07da5efb6aadf2e3af22e1f23
+COMMIT@3aad1f8f829ee458093cc725310bd2fa3c372024
+COMMIT@e04327a502de70f45dde088fc4bcd953061e89dd
+1	1	src/views/PatentSearch/AdvancedSearch/components/InstitutionTreeTool.vue
+
+COMMIT@1425e420231d92b16ec9047101f6384371af06fb
+COMMIT@8ed5f89af017d902de29b2f1037e7cbe2d83d187
+3	11	src/views/PatentSearch/AdvancedSearch/components/InstitutionTreeItem.vue
+0	9	src/views/PatentSearch/AdvancedSearch/components/InstitutionTreeTool.vue
+
+COMMIT@d28fddc5ef131b8b5bab1eb7b17e2ec7f94416b4
+10	2	src/views/PatentSearch/SearchResult/Analysis/Pages/LineBar.vue
+
+COMMIT@e1d54136330abbde0f22c6de93e452a561e2547d
+COMMIT@ffebb79aa28ae87eb3837168ed27f3489626c09b
+2	2	src/views/PatentSearch/SearchResult/components/DialogPaeGroup.vue
+
+COMMIT@d2cfc91510a35533b0735810c21843a739cdceb6
+COMMIT@57cabb23e088531331ed1eb15695804e0c06e2f6
+COMMIT@ff00267e78865cfe486723a37e867644d0d0057a
+54	35	src/views/PatentSearch/AdvancedSearch/components/InstitutionTreeItem.vue
+150	40	src/views/PatentSearch/AdvancedSearch/components/InstitutionTreeTool.vue
+
+COMMIT@e63ca8b7614663f6ec0e2917103acdf8db000ca7
+8	2	src/views/PatentSearch/PatentDetail/index.vue
+
+COMMIT@0fbc8d7611a6e1cfc1ad5c3cec510acba7a88a6d
+COMMIT@d6201b35532311c01e5a42a13b2d7a796d7bef58
+1	0	src/views/PatentSearch/AdvancedSearch/components/KeywordExpansion/Empty.vue
+9	5	src/views/PatentSearch/AdvancedSearch/components/SearchFiled.vue
+
+COMMIT@9a8a263d03754b599266d15e302bac00cf9d99ff
+33	229	src/views/PatentSearch/AdvancedSearch/components/InstitutionTreeItem.vue
+507	431	src/views/PatentSearch/AdvancedSearch/components/InstitutionTreeTool.vue
+
+COMMIT@7c75c48de1684b3aa0d5e3862712ab629010eeb3
+COMMIT@5e546f5e827ed236350212511cdcdb19616413f8
+9	0	src/api/userCenter.js
+244	9	src/views/PatentSearch/AdvancedSearch/components/InstitutionTreeItem.vue
+13	4	src/views/PatentSearch/AdvancedSearch/components/InstitutionTreeTool.vue
+
+COMMIT@87f83bf3af110abaf4b312dfe7b15efc8c4bdf6c
+6	2	src/views/PatentSearch/SearchResult/Analysis/Pages/Map.vue
+
+COMMIT@803a14a381dd20eaafcbf26574d894b8f545d081
+10	2	src/views/PatentSearch/SearchResult/Analysis/Pages/LineBar.vue

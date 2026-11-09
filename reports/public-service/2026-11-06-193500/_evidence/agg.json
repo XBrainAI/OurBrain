@@ -1,0 +1,2911 @@
+{
+ "meta": {
+  "project": "public-service",
+  "runAt": "2026-11-06 19:35",
+  "today": "2026-11-06",
+  "windowStart": "2026-10-30",
+  "windowEnd": "2026-11-06",
+  "statsStart": "2026-09-30",
+  "traversalSince": "2026-08-01 00:00",
+  "aggCaliber": "作者日期(%ad)分桶 + 跨分支完整哈希去重；遍历按提交日期回看 60 天防回填截断（§1.0 防御条款）；分支引用统一 origin/<branch>（有 remote 时）",
+  "aggregatedBy": "reports/_scripts/pulse_tool.py（机械聚合，RUNBOOK §1.0 口径；判定由分析会话作出）"
+ },
+ "repos": [
+  {
+   "name": "wx-public-service-platform",
+   "path": ".projects/public-service\\wx-public-service-platform",
+   "branches": {
+    "master": {
+     "ref": "origin/master",
+     "logFile": "_evidence/raw/wx-public-service-platform__master.log.txt",
+     "numstatFile": "_evidence/raw/wx-public-service-platform__master.numstat.txt",
+     "rawLines": 0
+    },
+    "knowledge_online_dm_jl": {
+     "ref": "origin/knowledge_online_dm_jl",
+     "logFile": "_evidence/raw/wx-public-service-platform__knowledge_online_dm_jl.log.txt",
+     "numstatFile": "_evidence/raw/wx-public-service-platform__knowledge_online_dm_jl.numstat.txt",
+     "rawLines": 248
+    },
+    "nuaa_integrated": {
+     "ref": "origin/nuaa_integrated",
+     "logFile": "_evidence/raw/wx-public-service-platform__nuaa_integrated.log.txt",
+     "numstatFile": "_evidence/raw/wx-public-service-platform__nuaa_integrated.numstat.txt",
+     "rawLines": 7
+    },
+    "gzkfq_service_platform": {
+     "ref": "origin/gzkfq_service_platform",
+     "logFile": "_evidence/raw/wx-public-service-platform__gzkfq_service_platform.log.txt",
+     "numstatFile": "_evidence/raw/wx-public-service-platform__gzkfq_service_platform.numstat.txt",
+     "rawLines": 0
+    }
+   },
+   "errors": [],
+   "hasRemote": true,
+   "window": {
+    "total": 26,
+    "effective": 22,
+    "merge": 4,
+    "ins": 1887,
+    "del": 246,
+    "authors": 3,
+    "big": [],
+    "trivial": [
+     {
+      "h": "5440f4bbd9",
+      "s": "    // 雪花ID超过JS安全整数(2^53-1),以数字输出会被前端截断精度,故序列化为字符串",
+      "lines": 1
+     },
+     {
+      "h": "f1520b2a9c",
+      "s": "产业链图谱过滤掉个人类型企业",
+      "lines": 1
+     }
+    ],
+    "classification": {
+     "feat": 3,
+     "fix": 4,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 15
+    },
+    "shortMsgs": [
+     {
+      "h": "54b8395ed3",
+      "s": "接口转大写"
+     },
+     {
+      "h": "44450d0ab0",
+      "s": "fix:报告"
+     }
+    ],
+    "persons": {
+     "27809633@qq.com": {
+      "names": [
+       "xiaozuozhi"
+      ],
+      "commits": 15,
+      "ins": 258,
+      "del": 151,
+      "activeDays": 4,
+      "lateNight": 0,
+      "weekend": 0,
+      "branches": {
+       "knowledge_online_dm_jl": 15
+      },
+      "modulesTouched": 3,
+      "testCommits": 0,
+      "peakDay": "2026-11-03",
+      "peakN": 6
+     },
+     "huangzhenhao@ourchem.com": {
+      "names": [
+       "huangzhenhao"
+      ],
+      "commits": 5,
+      "ins": 1053,
+      "del": 87,
+      "activeDays": 3,
+      "lateNight": 0,
+      "weekend": 0,
+      "branches": {
+       "knowledge_online_dm_jl": 5
+      },
+      "modulesTouched": 3,
+      "testCommits": 0,
+      "peakDay": "2026-10-30",
+      "peakN": 3
+     },
+     "1594574183@qq.com": {
+      "names": [
+       "Sokach"
+      ],
+      "commits": 2,
+      "ins": 576,
+      "del": 8,
+      "activeDays": 1,
+      "lateNight": 0,
+      "weekend": 0,
+      "branches": {
+       "nuaa_integrated": 2
+      },
+      "modulesTouched": 2,
+      "testCommits": 0,
+      "peakDay": "2026-11-06",
+      "peakN": 2
+     }
+    },
+    "commits": [
+     {
+      "h": "4ea8ac5b74",
+      "an": "xiaozuozhi",
+      "ae": "27809633@qq.com",
+      "ad": "2026-10-30 09:37:04",
+      "s": "开启两个产业链技术节点同步到关键技术管理只有一条数据bug修复",
+      "merge": false,
+      "ins": 2,
+      "del": 2,
+      "branches": [
+       "knowledge_online_dm_jl"
+      ]
+     },
+     {
+      "h": "035db267aa",
+      "an": "xiaozuozhi",
+      "ae": "27809633@qq.com",
+      "ad": "2026-10-30 11:02:07",
+      "s": "创新主体列表排除个人数据",
+      "merge": false,
+      "ins": 3,
+      "del": 2,
+      "branches": [
+       "knowledge_online_dm_jl"
+      ]
+     },
+     {
+      "h": "4c17aad208",
+      "an": "huangzhenhao",
+      "ae": "huangzhenhao@ourchem.com",
+      "ad": "2026-10-30 13:39:36",
+      "s": "fix:图谱 转入转出 许可量",
+      "merge": false,
+      "ins": 400,
+      "del": 51,
+      "branches": [
+       "knowledge_online_dm_jl"
+      ]
+     },
+     {
+      "h": "44450d0ab0",
+      "an": "huangzhenhao",
+      "ae": "huangzhenhao@ourchem.com",
+      "ad": "2026-10-30 13:51:25",
+      "s": "fix:报告",
+      "merge": false,
+      "ins": 3,
+      "del": 2,
+      "branches": [
+       "knowledge_online_dm_jl"
+      ]
+     },
+     {
+      "h": "861094d9f1",
+      "an": "xiaozuozhi",
+      "ae": "27809633@qq.com",
+      "ad": "2026-10-30 15:27:46",
+      "s": "点击分类，数据显示不对",
+      "merge": false,
+      "ins": 29,
+      "del": 68,
+      "branches": [
+       "knowledge_online_dm_jl"
+      ]
+     },
+     {
+      "h": "54df59ff98",
+      "an": "xiaozuozhi",
+      "ae": "27809633@qq.com",
+      "ad": "2026-10-30 17:31:19",
+      "s": "关键技术节点管理：点击导出按钮后报错",
+      "merge": false,
+      "ins": 42,
+      "del": 23,
+      "branches": [
+       "knowledge_online_dm_jl"
+      ]
+     },
+     {
+      "h": "9ea7edf6fc",
+      "an": "huangzhenhao",
+      "ae": "huangzhenhao@ourchem.com",
+      "ad": "2026-10-30 18:00:51",
+      "s": "fix:主体详情数据精准查询",
+      "merge": false,
+      "ins": 24,
+      "del": 8,
+      "branches": [
+       "knowledge_online_dm_jl"
+      ]
+     },
+     {
+      "h": "b594ec2289",
+      "an": "xiaozuozhi",
+      "ae": "27809633@qq.com",
+      "ad": "2026-10-30 18:40:31",
+      "s": "关键技术节点管理：点击导出按钮后报错",
+      "merge": false,
+      "ins": 16,
+      "del": 16,
+      "branches": [
+       "knowledge_online_dm_jl"
+      ]
+     },
+     {
+      "h": "f1520b2a9c",
+      "an": "xiaozuozhi",
+      "ae": "27809633@qq.com",
+      "ad": "2026-10-30 18:53:59",
+      "s": "产业链图谱过滤掉个人类型企业",
+      "merge": false,
+      "ins": 1,
+      "del": 0,
+      "branches": [
+       "knowledge_online_dm_jl"
+      ]
+     },
+     {
+      "h": "8fb5ec51e7",
+      "an": "xiaozuozhi",
+      "ae": "27809633@qq.com",
+      "ad": "2026-11-02 10:18:54",
+      "s": "Merge branch 'knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl",
+      "merge": true,
+      "ins": 0,
+      "del": 0,
+      "branches": [
+       "knowledge_online_dm_jl"
+      ]
+     },
+     {
+      "h": "8853b5b7ef",
+      "an": "xiaozuozhi",
+      "ae": "27809633@qq.com",
+      "ad": "2026-11-02 16:02:17",
+      "s": "退回或者补齐材料不允许审核通过",
+      "merge": false,
+      "ins": 12,
+      "del": 2,
+      "branches": [
+       "knowledge_online_dm_jl"
+      ]
+     },
+     {
+      "h": "ac3c15d348",
+      "an": "huangzhenhao",
+      "ae": "huangzhenhao@ourchem.com",
+      "ad": "2026-11-02 17:26:15",
+      "s": "feat:产业图谱转化、许可图表定时任务缓存预热",
+      "merge": false,
+      "ins": 602,
+      "del": 22,
+      "branches": [
+       "knowledge_online_dm_jl"
+      ]
+     },
+     {
+      "h": "956947ac7b",
+      "an": "huangzhenhao",
+      "ae": "huangzhenhao@ourchem.com",
+      "ad": "2026-11-03 11:02:53",
+      "s": "fix:主体详情数据精准查询",
+      "merge": false,
+      "ins": 24,
+      "del": 4,
+      "branches": [
+       "knowledge_online_dm_jl"
+      ]
+     },
+     {
+      "h": "2b99beaf99",
+      "an": "xiaozuozhi",
+      "ae": "27809633@qq.com",
+      "ad": "2026-11-03 11:10:54",
+      "s": "转出量：受让人城市！=广州；转入量：受让人城市=广州。逻辑备份",
+      "merge": false,
+      "ins": 53,
+      "del": 3,
+      "branches": [
+       "knowledge_online_dm_jl"
+      ]
+     },
+     {
+      "h": "10bfcc09b9",
+      "an": "xiaozuozhi",
+      "ae": "27809633@qq.com",
+      "ad": "2026-11-03 11:12:21",
+      "s": "Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz",
+      "merge": true,
+      "ins": 0,
+      "del": 0,
+      "branches": [
+       "knowledge_online_dm_jl"
+      ]
+     },
+     {
+      "h": "5186b838ee",
+      "an": "xiaozuozhi",
+      "ae": "27809633@qq.com",
+      "ad": "2026-11-03 11:15:23",
+      "s": "转出量：受让人城市！=广州；转入量：受让人城市=广州。逻辑备份",
+      "merge": false,
+      "ins": 0,
+      "del": 5,
+      "branches": [
+       "knowledge_online_dm_jl"
+      ]
+     },
+     {
+      "h": "b12a7a063f",
+      "an": "xiaozuozhi",
+      "ae": "27809633@qq.com",
+      "ad": "2026-11-03 13:35:50",
+      "s": "Merge branch 'knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl",
+      "merge": true,
+      "ins": 0,
+      "del": 0,
+      "branches": [
+       "knowledge_online_dm_jl"
+      ]
+     },
+     {
+      "h": "57a841bdcb",
+      "an": "xiaozuozhi",
+      "ae": "27809633@qq.com",
+      "ad": "2026-11-03 14:56:24",
+      "s": "转出量：受让人城市！=广州；转入量：受让人城市=广州。逻辑备份",
+      "merge": false,
+      "ins": 37,
+      "del": 12,
+      "branches": [
+       "knowledge_online_dm_jl"
+      ]
+     },
+     {
+      "h": "1fafc54590",
+      "an": "xiaozuozhi",
+      "ae": "27809633@qq.com",
+      "ad": "2026-11-03 14:56:24",
+      "s": "转出量：受让人城市！=广州；转入量：受让人城市=广州。逻辑备份",
+      "merge": false,
+      "ins": 37,
+      "del": 12,
+      "branches": [
+       "knowledge_online_dm_jl"
+      ]
+     },
+     {
+      "h": "239c7e0de0",
+      "an": "xiaozuozhi",
+      "ae": "27809633@qq.com",
+      "ad": "2026-11-03 18:47:43",
+      "s": "    // 雪花ID超过JS安全整数(2^53-1),以数字输出会被前端截断精度,故序列化为字符串",
+      "merge": false,
+      "ins": 8,
+      "del": 0,
+      "branches": [
+       "knowledge_online_dm_jl"
+      ]
+     },
+     {
+      "h": "5440f4bbd9",
+      "an": "xiaozuozhi",
+      "ae": "27809633@qq.com",
+      "ad": "2026-11-03 18:47:56",
+      "s": "    // 雪花ID超过JS安全整数(2^53-1),以数字输出会被前端截断精度,故序列化为字符串",
+      "merge": false,
+      "ins": 0,
+      "del": 1,
+      "branches": [
+       "knowledge_online_dm_jl"
+      ]
+     },
+     {
+      "h": "3ebb186a95",
+      "an": "xiaozuozhi",
+      "ae": "27809633@qq.com",
+      "ad": "2026-11-03 18:48:30",
+      "s": "Merge branch 'knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl",
+      "merge": true,
+      "ins": 0,
+      "del": 0,
+      "branches": [
+       "knowledge_online_dm_jl"
+      ]
+     },
+     {
+      "h": "54b8395ed3",
+      "an": "xiaozuozhi",
+      "ae": "27809633@qq.com",
+      "ad": "2026-11-04 15:34:55",
+      "s": "接口转大写",
+      "merge": false,
+      "ins": 14,
+      "del": 1,
+      "branches": [
+       "knowledge_online_dm_jl"
+      ]
+     },
+     {
+      "h": "1ee8b61e9d",
+      "an": "xiaozuozhi",
+      "ae": "27809633@qq.com",
+      "ad": "2026-11-04 17:56:52",
+      "s": "商标表达式bug修复",
+      "merge": false,
+      "ins": 4,
+      "del": 4,
+      "branches": [
+       "knowledge_online_dm_jl"
+      ]
+     },
+     {
+      "h": "1ff03e9765",
+      "an": "Sokach",
+      "ae": "1594574183@qq.com",
+      "ad": "2026-11-06 14:44:34",
+      "s": "feat:软著申请审批通过提示语修改",
+      "merge": false,
+      "ins": 275,
+      "del": 2,
+      "branches": [
+       "nuaa_integrated"
+      ]
+     },
+     {
+      "h": "15dfff5615",
+      "an": "Sokach",
+      "ae": "1594574183@qq.com",
+      "ad": "2026-11-06 16:58:12",
+      "s": "feat:填写申请号规则修改&新增数据标签",
+      "merge": false,
+      "ins": 301,
+      "del": 6,
+      "branches": [
+       "nuaa_integrated"
+      ]
+     }
+    ]
+   },
+   "today": {
+    "total": 2,
+    "effective": 2,
+    "merge": 0,
+    "ins": 576,
+    "del": 8,
+    "authors": 1,
+    "big": [],
+    "trivial": [],
+    "classification": {
+     "feat": 2,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {
+     "1594574183@qq.com": {
+      "names": [
+       "Sokach"
+      ],
+      "commits": 2,
+      "ins": 576,
+      "del": 8,
+      "activeDays": 1,
+      "lateNight": 0,
+      "weekend": 0,
+      "branches": {
+       "nuaa_integrated": 2
+      },
+      "modulesTouched": 2,
+      "testCommits": 0,
+      "peakDay": "2026-11-06",
+      "peakN": 2
+     }
+    },
+    "commits": [
+     {
+      "h": "1ff03e9765",
+      "an": "Sokach",
+      "ad": "2026-11-06 14:44:34",
+      "s": "feat:软著申请审批通过提示语修改"
+     },
+     {
+      "h": "15dfff5615",
+      "an": "Sokach",
+      "ad": "2026-11-06 16:58:12",
+      "s": "feat:填写申请号规则修改&新增数据标签"
+     }
+    ]
+   },
+   "lastCommitDayBeforeToday": "2026-11-04",
+   "daily": {
+    "2026-09-30": 1,
+    "2026-10-08": 2,
+    "2026-10-09": 1,
+    "2026-10-12": 1,
+    "2026-10-14": 3,
+    "2026-10-15": 5,
+    "2026-10-16": 6,
+    "2026-10-19": 13,
+    "2026-10-20": 12,
+    "2026-10-21": 7,
+    "2026-10-22": 6,
+    "2026-10-23": 12,
+    "2026-10-24": 8,
+    "2026-10-26": 10,
+    "2026-10-27": 8,
+    "2026-10-28": 4,
+    "2026-10-29": 10,
+    "2026-10-30": 9,
+    "2026-11-02": 3,
+    "2026-11-03": 10,
+    "2026-11-04": 2,
+    "2026-11-06": 2
+   },
+   "dayDetail": {
+    "2026-09-30": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 332,
+     "del": 1,
+     "authors": [
+      "huangzhenhao@ourchem.com"
+     ]
+    },
+    "2026-10-08": {
+     "commits": 2,
+     "effective": 2,
+     "ins": 375,
+     "del": 5,
+     "authors": [
+      "1594574183@qq.com"
+     ]
+    },
+    "2026-10-09": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 21,
+     "del": 20,
+     "authors": [
+      "27809633@qq.com"
+     ]
+    },
+    "2026-10-12": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 251,
+     "del": 97,
+     "authors": [
+      "27809633@qq.com"
+     ]
+    },
+    "2026-10-14": {
+     "commits": 3,
+     "effective": 3,
+     "ins": 31,
+     "del": 18,
+     "authors": [
+      "1594574183@qq.com",
+      "27809633@qq.com",
+      "huangzhenhao@ourchem.com"
+     ]
+    },
+    "2026-10-15": {
+     "commits": 5,
+     "effective": 4,
+     "ins": 212,
+     "del": 144,
+     "authors": [
+      "27809633@qq.com",
+      "huangzhenhao@ourchem.com"
+     ]
+    },
+    "2026-10-16": {
+     "commits": 6,
+     "effective": 5,
+     "ins": 110,
+     "del": 50,
+     "authors": [
+      "27809633@qq.com"
+     ]
+    },
+    "2026-10-19": {
+     "commits": 13,
+     "effective": 10,
+     "ins": 649,
+     "del": 113,
+     "authors": [
+      "1594574183@qq.com",
+      "27809633@qq.com",
+      "huangzhenhao@ourchem.com"
+     ]
+    },
+    "2026-10-20": {
+     "commits": 12,
+     "effective": 12,
+     "ins": 785,
+     "del": 178,
+     "authors": [
+      "1594574183@qq.com",
+      "27809633@qq.com",
+      "huangzhenhao@ourchem.com"
+     ]
+    },
+    "2026-10-21": {
+     "commits": 7,
+     "effective": 6,
+     "ins": 471,
+     "del": 143,
+     "authors": [
+      "1594574183@qq.com",
+      "27809633@qq.com",
+      "huangzhenhao@ourchem.com"
+     ]
+    },
+    "2026-10-22": {
+     "commits": 6,
+     "effective": 5,
+     "ins": 625,
+     "del": 503,
+     "authors": [
+      "1594574183@qq.com",
+      "27809633@qq.com"
+     ]
+    },
+    "2026-10-23": {
+     "commits": 12,
+     "effective": 9,
+     "ins": 1206,
+     "del": 694,
+     "authors": [
+      "1594574183@qq.com",
+      "27809633@qq.com",
+      "huangzhenhao@ourchem.com"
+     ]
+    },
+    "2026-10-24": {
+     "commits": 8,
+     "effective": 8,
+     "ins": 432,
+     "del": 54,
+     "authors": [
+      "27809633@qq.com",
+      "huangzhenhao@ourchem.com"
+     ]
+    },
+    "2026-10-26": {
+     "commits": 10,
+     "effective": 10,
+     "ins": 484,
+     "del": 136,
+     "authors": [
+      "1594574183@qq.com",
+      "27809633@qq.com",
+      "huangzhenhao@ourchem.com"
+     ]
+    },
+    "2026-10-27": {
+     "commits": 8,
+     "effective": 6,
+     "ins": 343,
+     "del": 269,
+     "authors": [
+      "27809633@qq.com",
+      "huangzhenhao@ourchem.com"
+     ]
+    },
+    "2026-10-28": {
+     "commits": 4,
+     "effective": 4,
+     "ins": 107,
+     "del": 33,
+     "authors": [
+      "27809633@qq.com",
+      "huangzhenhao@ourchem.com"
+     ]
+    },
+    "2026-10-29": {
+     "commits": 10,
+     "effective": 8,
+     "ins": 2657,
+     "del": 241,
+     "authors": [
+      "27809633@qq.com",
+      "huangzhenhao@ourchem.com"
+     ]
+    },
+    "2026-10-30": {
+     "commits": 9,
+     "effective": 9,
+     "ins": 520,
+     "del": 172,
+     "authors": [
+      "27809633@qq.com",
+      "huangzhenhao@ourchem.com"
+     ]
+    },
+    "2026-11-02": {
+     "commits": 3,
+     "effective": 2,
+     "ins": 614,
+     "del": 24,
+     "authors": [
+      "27809633@qq.com",
+      "huangzhenhao@ourchem.com"
+     ]
+    },
+    "2026-11-03": {
+     "commits": 10,
+     "effective": 7,
+     "ins": 159,
+     "del": 37,
+     "authors": [
+      "27809633@qq.com",
+      "huangzhenhao@ourchem.com"
+     ]
+    },
+    "2026-11-04": {
+     "commits": 2,
+     "effective": 2,
+     "ins": 18,
+     "del": 5,
+     "authors": [
+      "27809633@qq.com"
+     ]
+    },
+    "2026-11-06": {
+     "commits": 2,
+     "effective": 2,
+     "ins": 576,
+     "del": 8,
+     "authors": [
+      "1594574183@qq.com"
+     ]
+    }
+   },
+   "saturationWindows": [
+    {
+     "idx": 0,
+     "start": "2026-09-30",
+     "end": "2026-10-06",
+     "workdays": 5,
+     "persons": {
+      "huangzhenhao@ourchem.com": {
+       "names": [
+        "huangzhenhao"
+       ],
+       "effective": 1,
+       "ins": 332,
+       "del": 1,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 1,
+     "start": "2026-10-07",
+     "end": "2026-10-13",
+     "workdays": 5,
+     "persons": {
+      "1594574183@qq.com": {
+       "names": [
+        "Sokach"
+       ],
+       "effective": 2,
+       "ins": 375,
+       "del": 5,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      },
+      "27809633@qq.com": {
+       "names": [
+        "xiaozuozhi"
+       ],
+       "effective": 2,
+       "ins": 272,
+       "del": 117,
+       "activeDays": 2,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 2,
+     "start": "2026-10-14",
+     "end": "2026-10-20",
+     "workdays": 5,
+     "persons": {
+      "1594574183@qq.com": {
+       "names": [
+        "Sokach"
+       ],
+       "effective": 9,
+       "ins": 716,
+       "del": 175,
+       "activeDays": 3,
+       "nonworkCommits": 0
+      },
+      "27809633@qq.com": {
+       "names": [
+        "xiaozuozhi"
+       ],
+       "effective": 18,
+       "ins": 429,
+       "del": 134,
+       "activeDays": 5,
+       "nonworkCommits": 0
+      },
+      "huangzhenhao@ourchem.com": {
+       "names": [
+        "huangzhenhao"
+       ],
+       "effective": 7,
+       "ins": 642,
+       "del": 194,
+       "activeDays": 4,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 3,
+     "start": "2026-10-21",
+     "end": "2026-10-27",
+     "workdays": 5,
+     "persons": {
+      "1594574183@qq.com": {
+       "names": [
+        "Sokach"
+       ],
+       "effective": 7,
+       "ins": 978,
+       "del": 547,
+       "activeDays": 4,
+       "nonworkCommits": 0
+      },
+      "27809633@qq.com": {
+       "names": [
+        "xiaozuozhi"
+       ],
+       "effective": 28,
+       "ins": 1851,
+       "del": 1080,
+       "activeDays": 6,
+       "nonworkCommits": 7
+      },
+      "huangzhenhao@ourchem.com": {
+       "names": [
+        "huangzhenhao"
+       ],
+       "effective": 9,
+       "ins": 732,
+       "del": 172,
+       "activeDays": 5,
+       "nonworkCommits": 1
+      }
+     }
+    },
+    {
+     "idx": 4,
+     "start": "2026-10-28",
+     "end": "2026-11-03",
+     "workdays": 5,
+     "persons": {
+      "27809633@qq.com": {
+       "names": [
+        "xiaozuozhi"
+       ],
+       "effective": 22,
+       "ins": 2873,
+       "del": 348,
+       "activeDays": 5,
+       "nonworkCommits": 0
+      },
+      "huangzhenhao@ourchem.com": {
+       "names": [
+        "huangzhenhao"
+       ],
+       "effective": 8,
+       "ins": 1184,
+       "del": 159,
+       "activeDays": 5,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 5,
+     "start": "2026-11-04",
+     "end": "2026-11-06",
+     "workdays": 3,
+     "persons": {
+      "1594574183@qq.com": {
+       "names": [
+        "Sokach"
+       ],
+       "effective": 2,
+       "ins": 576,
+       "del": 8,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      },
+      "27809633@qq.com": {
+       "names": [
+        "xiaozuozhi"
+       ],
+       "effective": 2,
+       "ins": 18,
+       "del": 5,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    }
+   ],
+   "weekly": [
+    {
+     "label": "2026-09-30",
+     "start": "2026-09-30",
+     "end": "2026-10-06",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "ins": 332,
+     "del": 1
+    },
+    {
+     "label": "2026-10-07",
+     "start": "2026-10-07",
+     "end": "2026-10-13",
+     "commits": 4,
+     "effective": 4,
+     "authors": 2,
+     "ins": 647,
+     "del": 122
+    },
+    {
+     "label": "2026-10-14",
+     "start": "2026-10-14",
+     "end": "2026-10-20",
+     "commits": 39,
+     "effective": 34,
+     "authors": 3,
+     "ins": 1787,
+     "del": 503
+    },
+    {
+     "label": "2026-10-21",
+     "start": "2026-10-21",
+     "end": "2026-10-27",
+     "commits": 51,
+     "effective": 44,
+     "authors": 3,
+     "ins": 3561,
+     "del": 1799
+    },
+    {
+     "label": "2026-10-28",
+     "start": "2026-10-28",
+     "end": "2026-11-03",
+     "commits": 36,
+     "effective": 30,
+     "authors": 2,
+     "ins": 4057,
+     "del": 507
+    },
+    {
+     "label": "2026-11-04",
+     "start": "2026-11-04",
+     "end": "2026-11-06",
+     "commits": 4,
+     "effective": 4,
+     "authors": 2,
+     "ins": 594,
+     "del": 13
+    }
+   ],
+   "statsWorkdays": 28,
+   "mainBranch": {
+    "branch": "master",
+    "ref": "origin/master",
+    "lastActive": "2022-04-01"
+   },
+   "branchPos": [
+    {
+     "name": "knowledge_online_dm_jl",
+     "ref": "origin/knowledge_online_dm_jl",
+     "ahead": 2105,
+     "behind": 0,
+     "forkDate": "2022-04-01",
+     "staleDays": 1680,
+     "lastActive": "2026-11-04"
+    },
+    {
+     "name": "nuaa_integrated",
+     "ref": "origin/nuaa_integrated",
+     "ahead": 2439,
+     "behind": 0,
+     "forkDate": "2022-04-01",
+     "staleDays": 1680,
+     "lastActive": "2026-11-06"
+    },
+    {
+     "name": "gzkfq_service_platform",
+     "ref": "origin/gzkfq_service_platform",
+     "ahead": 669,
+     "behind": 0,
+     "forkDate": "2022-04-01",
+     "staleDays": 1680,
+     "lastActive": "2026-07-03"
+    }
+   ],
+   "checkedOut": "master",
+   "quality": {
+    "mode": "工作副本（当前检出分支口径 §1.6）",
+    "checkedOut": "master",
+    "languages": [
+     {
+      "ext": ".java",
+      "files": 395,
+      "lines": 43563
+     },
+     {
+      "ext": ".vue",
+      "files": 92,
+      "lines": 16826
+     },
+     {
+      "ext": ".xml",
+      "files": 42,
+      "lines": 5036
+     },
+     {
+      "ext": ".js",
+      "files": 64,
+      "lines": 4455
+     },
+     {
+      "ext": ".vm",
+      "files": 11,
+      "lines": 1805
+     },
+     {
+      "ext": ".scss",
+      "files": 9,
+      "lines": 900
+     },
+     {
+      "ext": ".sql",
+      "files": 2,
+      "lines": 800
+     },
+     {
+      "ext": ".yml",
+      "files": 5,
+      "lines": 539
+     },
+     {
+      "ext": ".html",
+      "files": 2,
+      "lines": 233
+     },
+     {
+      "ext": ".svg",
+      "files": 86,
+      "lines": 164
+     },
+     {
+      "ext": ".json",
+      "files": 4,
+      "lines": 160
+     },
+     {
+      "ext": "(无扩展名)",
+      "files": 4,
+      "lines": 86
+     }
+    ],
+    "largeFiles": [],
+    "todoTotal": 11,
+    "todoTop": [
+     {
+      "path": "wx-public-service-common/src/main/java/com/ourchem/common/core/text/Convert.java",
+      "count": 3
+     },
+     {
+      "path": "ui/src/utils/generator/js.js",
+      "count": 2
+     },
+     {
+      "path": "ui/vue.config.js",
+      "count": 2
+     },
+     {
+      "path": "wx-public-service-common/src/main/java/com/ourchem/common/utils/poi/ExcelUtil.java",
+      "count": 2
+     },
+     {
+      "path": "wx-public-service-bus/src/main/java/com/ourchem/bus/upload/ChunkUploadService.java",
+      "count": 1
+     },
+     {
+      "path": "wx-public-service-common/src/main/java/com/ourchem/common/utils/reflect/ReflectUtils.java",
+      "count": 1
+     }
+    ],
+    "stockTestFiles": 3,
+    "trackedFiles": 734
+   },
+   "lifetime": {
+    "first": "2022-01-24",
+    "last": "2026-11-06",
+    "totalCommits": 6334,
+    "authors": 39,
+    "monthly": {
+     "2026-11": 22,
+     "2026-10": 121,
+     "2026-09": 105,
+     "2026-08": 22,
+     "2026-07": 90,
+     "2026-06": 70,
+     "2026-05": 51,
+     "2026-04": 27,
+     "2026-03": 13,
+     "2026-02": 8,
+     "2026-01": 25,
+     "2025-12": 89,
+     "2025-11": 195,
+     "2025-10": 197,
+     "2025-09": 199,
+     "2025-08": 92,
+     "2025-07": 155,
+     "2025-06": 103,
+     "2025-05": 146,
+     "2025-04": 209,
+     "2025-03": 185,
+     "2025-02": 49,
+     "2025-01": 134,
+     "2024-12": 232,
+     "2024-11": 229,
+     "2024-10": 114,
+     "2024-09": 432,
+     "2024-08": 79,
+     "2024-07": 38,
+     "2024-06": 63,
+     "2024-05": 120,
+     "2024-04": 60,
+     "2023-12": 60,
+     "2023-11": 112,
+     "2023-10": 203,
+     "2024-03": 49,
+     "2024-02": 36,
+     "2024-01": 108,
+     "2023-09": 164,
+     "2023-08": 221,
+     "2023-07": 328,
+     "2023-06": 315,
+     "2023-05": 185,
+     "2023-03": 102,
+     "2023-04": 308,
+     "2023-02": 8,
+     "2022-12": 51,
+     "2022-11": 115,
+     "2022-10": 58,
+     "2022-09": 69,
+     "2022-08": 2,
+     "2022-07": 7,
+     "2022-06": 9,
+     "2022-05": 12,
+     "2022-04": 90,
+     "2022-03": 45,
+     "2022-01": 3
+    },
+    "monthlyCount": 57,
+    "topAuthors": [
+     {
+      "key": "zjy@ourchem.com",
+      "commits": 713
+     },
+     {
+      "key": "huangzhenhao@ourchem.com",
+      "commits": 627
+     },
+     {
+      "key": "outens@163.com",
+      "commits": 548
+     },
+     {
+      "key": "2423244747@qq.com",
+      "commits": 490
+     },
+     {
+      "key": "wensicong@ourchem.com",
+      "commits": 468
+     }
+    ]
+   }
+  },
+  {
+   "name": "ip-online",
+   "path": ".projects/public-service\\ip-online",
+   "branches": {
+    "master": {
+     "ref": "origin/master",
+     "logFile": "_evidence/raw/ip-online__master.log.txt",
+     "numstatFile": "_evidence/raw/ip-online__master.numstat.txt",
+     "rawLines": 37
+    }
+   },
+   "errors": [],
+   "hasRemote": true,
+   "window": {
+    "total": 3,
+    "effective": 3,
+    "merge": 0,
+    "ins": 636,
+    "del": 225,
+    "authors": 1,
+    "big": [
+     {
+      "h": "65ab9fa29b",
+      "s": "修改代码",
+      "files": 22,
+      "churn": 279
+     },
+     {
+      "h": "3a46cbe27e",
+      "s": "修改代码",
+      "files": 18,
+      "churn": 371
+     }
+    ],
+    "trivial": [],
+    "classification": {
+     "feat": 0,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 3
+    },
+    "shortMsgs": [
+     {
+      "h": "65ab9fa29b",
+      "s": "修改代码"
+     },
+     {
+      "h": "3a46cbe27e",
+      "s": "修改代码"
+     },
+     {
+      "h": "d7de5a12c1",
+      "s": "修改bug"
+     }
+    ],
+    "persons": {
+     "sunjiankai@ourchem.com": {
+      "names": [
+       "孙健凯"
+      ],
+      "commits": 3,
+      "ins": 636,
+      "del": 225,
+      "activeDays": 3,
+      "lateNight": 0,
+      "weekend": 0,
+      "branches": {
+       "master": 3
+      },
+      "modulesTouched": 3,
+      "testCommits": 0,
+      "peakDay": "2026-11-06",
+      "peakN": 1
+     }
+    },
+    "commits": [
+     {
+      "h": "d7de5a12c1",
+      "an": "孙健凯",
+      "ae": "sunjiankai@ourchem.com",
+      "ad": "2026-10-30 10:55:34",
+      "s": "修改bug",
+      "merge": false,
+      "ins": 158,
+      "del": 53,
+      "branches": [
+       "master"
+      ]
+     },
+     {
+      "h": "3a46cbe27e",
+      "an": "孙健凯",
+      "ae": "sunjiankai@ourchem.com",
+      "ad": "2026-11-02 17:13:25",
+      "s": "修改代码",
+      "merge": false,
+      "ins": 317,
+      "del": 54,
+      "branches": [
+       "master"
+      ]
+     },
+     {
+      "h": "65ab9fa29b",
+      "an": "孙健凯",
+      "ae": "sunjiankai@ourchem.com",
+      "ad": "2026-11-06 11:05:19",
+      "s": "修改代码",
+      "merge": false,
+      "ins": 161,
+      "del": 118,
+      "branches": [
+       "master"
+      ]
+     }
+    ]
+   },
+   "today": {
+    "total": 1,
+    "effective": 1,
+    "merge": 0,
+    "ins": 161,
+    "del": 118,
+    "authors": 1,
+    "big": [
+     {
+      "h": "65ab9fa29b",
+      "s": "修改代码",
+      "files": 22,
+      "churn": 279
+     }
+    ],
+    "trivial": [],
+    "classification": {
+     "feat": 0,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 1
+    },
+    "shortMsgs": [
+     {
+      "h": "65ab9fa29b",
+      "s": "修改代码"
+     }
+    ],
+    "persons": {
+     "sunjiankai@ourchem.com": {
+      "names": [
+       "孙健凯"
+      ],
+      "commits": 1,
+      "ins": 161,
+      "del": 118,
+      "activeDays": 1,
+      "lateNight": 0,
+      "weekend": 0,
+      "branches": {
+       "master": 1
+      },
+      "modulesTouched": 3,
+      "testCommits": 0,
+      "peakDay": "2026-11-06",
+      "peakN": 1
+     }
+    },
+    "commits": [
+     {
+      "h": "65ab9fa29b",
+      "an": "孙健凯",
+      "ad": "2026-11-06 11:05:19",
+      "s": "修改代码"
+     }
+    ]
+   },
+   "lastCommitDayBeforeToday": "2026-11-02",
+   "daily": {
+    "2026-10-10": 1,
+    "2026-10-15": 1,
+    "2026-10-19": 3,
+    "2026-10-20": 1,
+    "2026-10-22": 1,
+    "2026-10-23": 3,
+    "2026-10-26": 3,
+    "2026-10-27": 1,
+    "2026-10-28": 1,
+    "2026-10-30": 1,
+    "2026-11-02": 1,
+    "2026-11-06": 1
+   },
+   "dayDetail": {
+    "2026-10-10": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 634,
+     "del": 122,
+     "authors": [
+      "sunjiankai@ourchem.com"
+     ]
+    },
+    "2026-10-15": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 204,
+     "del": 58,
+     "authors": [
+      "sunjiankai@ourchem.com"
+     ]
+    },
+    "2026-10-19": {
+     "commits": 3,
+     "effective": 3,
+     "ins": 567,
+     "del": 313,
+     "authors": [
+      "sunjiankai@ourchem.com"
+     ]
+    },
+    "2026-10-20": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 27,
+     "del": 9,
+     "authors": [
+      "sunjiankai@ourchem.com"
+     ]
+    },
+    "2026-10-22": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 91,
+     "del": 40,
+     "authors": [
+      "sunjiankai@ourchem.com"
+     ]
+    },
+    "2026-10-23": {
+     "commits": 3,
+     "effective": 3,
+     "ins": 596,
+     "del": 611,
+     "authors": [
+      "1594574183@qq.com",
+      "sunjiankai@ourchem.com"
+     ]
+    },
+    "2026-10-26": {
+     "commits": 3,
+     "effective": 2,
+     "ins": 165,
+     "del": 110,
+     "authors": [
+      "1594574183@qq.com",
+      "sunjiankai@ourchem.com"
+     ]
+    },
+    "2026-10-27": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 3,
+     "del": 6,
+     "authors": [
+      "sunjiankai@ourchem.com"
+     ]
+    },
+    "2026-10-28": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 128,
+     "del": 30,
+     "authors": [
+      "sunjiankai@ourchem.com"
+     ]
+    },
+    "2026-10-30": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 158,
+     "del": 53,
+     "authors": [
+      "sunjiankai@ourchem.com"
+     ]
+    },
+    "2026-11-02": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 317,
+     "del": 54,
+     "authors": [
+      "sunjiankai@ourchem.com"
+     ]
+    },
+    "2026-11-06": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 161,
+     "del": 118,
+     "authors": [
+      "sunjiankai@ourchem.com"
+     ]
+    }
+   },
+   "saturationWindows": [
+    {
+     "idx": 0,
+     "start": "2026-09-30",
+     "end": "2026-10-06",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 1,
+     "start": "2026-10-07",
+     "end": "2026-10-13",
+     "workdays": 5,
+     "persons": {
+      "sunjiankai@ourchem.com": {
+       "names": [
+        "孙健凯"
+       ],
+       "effective": 1,
+       "ins": 634,
+       "del": 122,
+       "activeDays": 1,
+       "nonworkCommits": 1
+      }
+     }
+    },
+    {
+     "idx": 2,
+     "start": "2026-10-14",
+     "end": "2026-10-20",
+     "workdays": 5,
+     "persons": {
+      "sunjiankai@ourchem.com": {
+       "names": [
+        "孙健凯"
+       ],
+       "effective": 5,
+       "ins": 798,
+       "del": 380,
+       "activeDays": 3,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 3,
+     "start": "2026-10-21",
+     "end": "2026-10-27",
+     "workdays": 5,
+     "persons": {
+      "1594574183@qq.com": {
+       "names": [
+        "Sokach"
+       ],
+       "effective": 2,
+       "ins": 316,
+       "del": 277,
+       "activeDays": 2,
+       "nonworkCommits": 0
+      },
+      "sunjiankai@ourchem.com": {
+       "names": [
+        "孙健凯"
+       ],
+       "effective": 5,
+       "ins": 539,
+       "del": 490,
+       "activeDays": 4,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 4,
+     "start": "2026-10-28",
+     "end": "2026-11-03",
+     "workdays": 5,
+     "persons": {
+      "sunjiankai@ourchem.com": {
+       "names": [
+        "孙健凯"
+       ],
+       "effective": 3,
+       "ins": 603,
+       "del": 137,
+       "activeDays": 3,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 5,
+     "start": "2026-11-04",
+     "end": "2026-11-06",
+     "workdays": 3,
+     "persons": {
+      "sunjiankai@ourchem.com": {
+       "names": [
+        "孙健凯"
+       ],
+       "effective": 1,
+       "ins": 161,
+       "del": 118,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    }
+   ],
+   "weekly": [
+    {
+     "label": "2026-09-30",
+     "start": "2026-09-30",
+     "end": "2026-10-06",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-07",
+     "start": "2026-10-07",
+     "end": "2026-10-13",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "ins": 634,
+     "del": 122
+    },
+    {
+     "label": "2026-10-14",
+     "start": "2026-10-14",
+     "end": "2026-10-20",
+     "commits": 5,
+     "effective": 5,
+     "authors": 1,
+     "ins": 798,
+     "del": 380
+    },
+    {
+     "label": "2026-10-21",
+     "start": "2026-10-21",
+     "end": "2026-10-27",
+     "commits": 8,
+     "effective": 7,
+     "authors": 2,
+     "ins": 855,
+     "del": 767
+    },
+    {
+     "label": "2026-10-28",
+     "start": "2026-10-28",
+     "end": "2026-11-03",
+     "commits": 3,
+     "effective": 3,
+     "authors": 1,
+     "ins": 603,
+     "del": 137
+    },
+    {
+     "label": "2026-11-04",
+     "start": "2026-11-04",
+     "end": "2026-11-06",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "ins": 161,
+     "del": 118
+    }
+   ],
+   "statsWorkdays": 28,
+   "mainBranch": {
+    "branch": "master",
+    "ref": "origin/master",
+    "lastActive": "2026-11-06"
+   },
+   "branchPos": [],
+   "checkedOut": "master",
+   "quality": {
+    "mode": "工作副本（当前检出分支口径 §1.6）",
+    "checkedOut": "master",
+    "languages": [
+     {
+      "ext": ".js",
+      "files": 1077,
+      "lines": 265483
+     },
+     {
+      "ext": ".vue",
+      "files": 813,
+      "lines": 134946
+     },
+     {
+      "ext": ".json",
+      "files": 434,
+      "lines": 32342
+     },
+     {
+      "ext": ".scss",
+      "files": 175,
+      "lines": 25592
+     },
+     {
+      "ext": ".html",
+      "files": 7,
+      "lines": 22039
+     },
+     {
+      "ext": ".css",
+      "files": 8,
+      "lines": 6459
+     },
+     {
+      "ext": ".jsx",
+      "files": 46,
+      "lines": 6118
+     },
+     {
+      "ext": ".svg",
+      "files": 14,
+      "lines": 1930
+     },
+     {
+      "ext": ".md",
+      "files": 50,
+      "lines": 1323
+     },
+     {
+      "ext": ".properties",
+      "files": 5,
+      "lines": 616
+     },
+     {
+      "ext": "(无扩展名)",
+      "files": 5,
+      "lines": 65
+     },
+     {
+      "ext": ".bcmap",
+      "files": 3,
+      "lines": 20
+     }
+    ],
+    "largeFiles": [
+     {
+      "path": "static/plugins/pdf/pdf.worker.js",
+      "lines": 41274
+     },
+     {
+      "path": "static/plugins/pdf/build/pdf.worker.js",
+      "lines": 36904
+     },
+     {
+      "path": "src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/enterpriseSmartSearch/config/_city.js",
+      "lines": 17088
+     },
+     {
+      "path": "src/views/BackstageManage/industryChainGraph/industryChainGraphManagement/universityResearchList/config/_cityenterOrUniver.js",
+      "lines": 17088
+     },
+     {
+      "path": "package-lock.json",
+      "lines": 16798
+     }
+    ],
+    "todoTotal": 85,
+    "todoTop": [
+     {
+      "path": "static/plugins/pdf/build/pdf.worker.js",
+      "count": 34
+     },
+     {
+      "path": "static/plugins/pdf/build/pdf.js",
+      "count": 20
+     },
+     {
+      "path": "static/plugins/pdf/web/l10n.js",
+      "count": 5
+     },
+     {
+      "path": "static/plugins/pdf/web/viewer.js",
+      "count": 4
+     },
+     {
+      "path": "static/plugins/pdf/pdf.js",
+      "count": 3
+     },
+     {
+      "path": "src/views/BackstageManage/systemManage/systemMonitoringManage/operationLogManage/Login.vue",
+      "count": 2
+     },
+     {
+      "path": "src/views/BackstageManage/systemManage/systemMonitoringManage/operationLogManage/Operate.vue",
+      "count": 2
+     },
+     {
+      "path": "src/components/proCommon/mixins/getDetail.js",
+      "count": 1
+     },
+     {
+      "path": "src/components/ui/InputNumber/VcInputNumber.jsx",
+      "count": 1
+     },
+     {
+      "path": "src/components/ui/Tabs/Tabs.vue",
+      "count": 1
+     }
+    ],
+    "stockTestFiles": 0,
+    "trackedFiles": 3004
+   },
+   "lifetime": {
+    "first": "2024-06-11",
+    "last": "2026-11-06",
+    "totalCommits": 801,
+    "authors": 10,
+    "monthly": {
+     "2026-11": 2,
+     "2026-10": 16,
+     "2026-09": 14,
+     "2026-08": 5,
+     "2026-07": 31,
+     "2026-06": 71,
+     "2026-05": 46,
+     "2026-04": 6,
+     "2026-03": 4,
+     "2026-02": 5,
+     "2026-01": 8,
+     "2025-12": 8,
+     "2025-10": 39,
+     "2025-09": 55,
+     "2025-08": 21,
+     "2025-07": 79,
+     "2025-06": 11,
+     "2025-05": 7,
+     "2025-04": 3,
+     "2025-03": 7,
+     "2025-02": 12,
+     "2025-01": 19,
+     "2024-12": 29,
+     "2024-11": 37,
+     "2024-10": 37,
+     "2024-09": 24,
+     "2024-08": 68,
+     "2024-07": 101,
+     "2024-06": 36
+    },
+    "monthlyCount": 29,
+    "topAuthors": [
+     {
+      "key": "tangxiefeng@ourchem.com",
+      "commits": 316
+     },
+     {
+      "key": "sunjiankai@ourchem.com",
+      "commits": 191
+     },
+     {
+      "key": "xuzhiqi@ourchem.com",
+      "commits": 113
+     },
+     {
+      "key": "wanglei@ourchem.com",
+      "commits": 60
+     },
+     {
+      "key": "lujitang@liangyizaixian.com",
+      "commits": 34
+     }
+    ]
+   }
+  },
+  {
+   "name": "nuaa-ip-transformation-platform",
+   "path": ".projects/public-service\\nuaa-ip-transformation-platform",
+   "branches": {
+    "master": {
+     "ref": "origin/master",
+     "logFile": "_evidence/raw/nuaa-ip-transformation-platform__master.log.txt",
+     "numstatFile": "_evidence/raw/nuaa-ip-transformation-platform__master.numstat.txt",
+     "rawLines": 7
+    }
+   },
+   "errors": [],
+   "hasRemote": true,
+   "window": {
+    "total": 1,
+    "effective": 1,
+    "merge": 0,
+    "ins": 815,
+    "del": 57,
+    "authors": 1,
+    "big": [
+     {
+      "h": "86aa051a1f",
+      "s": "feat:填写申请号规则修改&新增数据标签",
+      "files": 13,
+      "churn": 872
+     }
+    ],
+    "trivial": [],
+    "classification": {
+     "feat": 1,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {
+     "1594574183@qq.com": {
+      "names": [
+       "Sokach"
+      ],
+      "commits": 1,
+      "ins": 815,
+      "del": 57,
+      "activeDays": 1,
+      "lateNight": 0,
+      "weekend": 0,
+      "branches": {
+       "master": 1
+      },
+      "modulesTouched": 3,
+      "testCommits": 0,
+      "peakDay": "2026-11-06",
+      "peakN": 1
+     }
+    },
+    "commits": [
+     {
+      "h": "86aa051a1f",
+      "an": "Sokach",
+      "ae": "1594574183@qq.com",
+      "ad": "2026-11-06 17:04:12",
+      "s": "feat:填写申请号规则修改&新增数据标签",
+      "merge": false,
+      "ins": 815,
+      "del": 57,
+      "branches": [
+       "master"
+      ]
+     }
+    ]
+   },
+   "today": {
+    "total": 1,
+    "effective": 1,
+    "merge": 0,
+    "ins": 815,
+    "del": 57,
+    "authors": 1,
+    "big": [
+     {
+      "h": "86aa051a1f",
+      "s": "feat:填写申请号规则修改&新增数据标签",
+      "files": 13,
+      "churn": 872
+     }
+    ],
+    "trivial": [],
+    "classification": {
+     "feat": 1,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {
+     "1594574183@qq.com": {
+      "names": [
+       "Sokach"
+      ],
+      "commits": 1,
+      "ins": 815,
+      "del": 57,
+      "activeDays": 1,
+      "lateNight": 0,
+      "weekend": 0,
+      "branches": {
+       "master": 1
+      },
+      "modulesTouched": 3,
+      "testCommits": 0,
+      "peakDay": "2026-11-06",
+      "peakN": 1
+     }
+    },
+    "commits": [
+     {
+      "h": "86aa051a1f",
+      "an": "Sokach",
+      "ad": "2026-11-06 17:04:12",
+      "s": "feat:填写申请号规则修改&新增数据标签"
+     }
+    ]
+   },
+   "lastCommitDayBeforeToday": "2026-10-26",
+   "daily": {
+    "2026-10-08": 2,
+    "2026-10-26": 1,
+    "2026-11-06": 1
+   },
+   "dayDetail": {
+    "2026-10-08": {
+     "commits": 2,
+     "effective": 2,
+     "ins": 138,
+     "del": 22,
+     "authors": [
+      "1594574183@qq.com"
+     ]
+    },
+    "2026-10-26": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 1,
+     "del": 0,
+     "authors": [
+      "1594574183@qq.com"
+     ]
+    },
+    "2026-11-06": {
+     "commits": 1,
+     "effective": 1,
+     "ins": 815,
+     "del": 57,
+     "authors": [
+      "1594574183@qq.com"
+     ]
+    }
+   },
+   "saturationWindows": [
+    {
+     "idx": 0,
+     "start": "2026-09-30",
+     "end": "2026-10-06",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 1,
+     "start": "2026-10-07",
+     "end": "2026-10-13",
+     "workdays": 5,
+     "persons": {
+      "1594574183@qq.com": {
+       "names": [
+        "Sokach"
+       ],
+       "effective": 2,
+       "ins": 138,
+       "del": 22,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 2,
+     "start": "2026-10-14",
+     "end": "2026-10-20",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 3,
+     "start": "2026-10-21",
+     "end": "2026-10-27",
+     "workdays": 5,
+     "persons": {
+      "1594574183@qq.com": {
+       "names": [
+        "Sokach"
+       ],
+       "effective": 1,
+       "ins": 1,
+       "del": 0,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    },
+    {
+     "idx": 4,
+     "start": "2026-10-28",
+     "end": "2026-11-03",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 5,
+     "start": "2026-11-04",
+     "end": "2026-11-06",
+     "workdays": 3,
+     "persons": {
+      "1594574183@qq.com": {
+       "names": [
+        "Sokach"
+       ],
+       "effective": 1,
+       "ins": 815,
+       "del": 57,
+       "activeDays": 1,
+       "nonworkCommits": 0
+      }
+     }
+    }
+   ],
+   "weekly": [
+    {
+     "label": "2026-09-30",
+     "start": "2026-09-30",
+     "end": "2026-10-06",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-07",
+     "start": "2026-10-07",
+     "end": "2026-10-13",
+     "commits": 2,
+     "effective": 2,
+     "authors": 1,
+     "ins": 138,
+     "del": 22
+    },
+    {
+     "label": "2026-10-14",
+     "start": "2026-10-14",
+     "end": "2026-10-20",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-21",
+     "start": "2026-10-21",
+     "end": "2026-10-27",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "ins": 1,
+     "del": 0
+    },
+    {
+     "label": "2026-10-28",
+     "start": "2026-10-28",
+     "end": "2026-11-03",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-11-04",
+     "start": "2026-11-04",
+     "end": "2026-11-06",
+     "commits": 1,
+     "effective": 1,
+     "authors": 1,
+     "ins": 815,
+     "del": 57
+    }
+   ],
+   "statsWorkdays": 28,
+   "mainBranch": {
+    "branch": "master",
+    "ref": "origin/master",
+    "lastActive": "2026-11-06"
+   },
+   "branchPos": [],
+   "checkedOut": "master",
+   "quality": {
+    "mode": "工作副本（当前检出分支口径 §1.6）",
+    "checkedOut": "master",
+    "languages": [
+     {
+      "ext": ".vue",
+      "files": 2265,
+      "lines": 454982
+     },
+     {
+      "ext": ".js",
+      "files": 1255,
+      "lines": 415891
+     },
+     {
+      "ext": ".scss",
+      "files": 273,
+      "lines": 90105
+     },
+     {
+      "ext": ".json",
+      "files": 518,
+      "lines": 49914
+     },
+     {
+      "ext": ".html",
+      "files": 7,
+      "lines": 18332
+     },
+     {
+      "ext": ".yaml",
+      "files": 1,
+      "lines": 10561
+     },
+     {
+      "ext": ".jsx",
+      "files": 48,
+      "lines": 6943
+     },
+     {
+      "ext": ".css",
+      "files": 10,
+      "lines": 6353
+     },
+     {
+      "ext": ".md",
+      "files": 90,
+      "lines": 5209
+     },
+     {
+      "ext": ".svg",
+      "files": 46,
+      "lines": 4590
+     },
+     {
+      "ext": ".properties",
+      "files": 5,
+      "lines": 616
+     },
+     {
+      "ext": "(无扩展名)",
+      "files": 6,
+      "lines": 84
+     }
+    ],
+    "largeFiles": [
+     {
+      "path": "static/plugins/pdf/pdf.worker.js",
+      "lines": 41274
+     },
+     {
+      "path": "static/plugins/pdf/build/pdf.worker.js",
+      "lines": 36904
+     },
+     {
+      "path": "src/ipsunlight/views/Patyee/Report/district.js",
+      "lines": 29122
+     },
+     {
+      "path": "package-lock.json",
+      "lines": 15642
+     },
+     {
+      "path": "static/plugins/pdf/pdf.js",
+      "lines": 13715
+     }
+    ],
+    "todoTotal": 188,
+    "todoTop": [
+     {
+      "path": "static/plugins/pdf/build/pdf.worker.js",
+      "count": 34
+     },
+     {
+      "path": "static/plugins/pdf/build/pdf.js",
+      "count": 20
+     },
+     {
+      "path": "src/views/Platform/index.vue",
+      "count": 6
+     },
+     {
+      "path": "static/plugins/pdf/web/l10n.js",
+      "count": 5
+     },
+     {
+      "path": "static/plugins/pdf/web/viewer.js",
+      "count": 4
+     },
+     {
+      "path": "src/views/PatentProcess/pages/patentApplicationManage/patentApplication/edit.vue",
+      "count": 3
+     },
+     {
+      "path": "src/views/PatentProcess/pages/patentChangeManage/_detail/patentInventor.vue",
+      "count": 3
+     },
+     {
+      "path": "src/views/PatentProcess/pages/patentProposalApplication/index.vue",
+      "count": 3
+     },
+     {
+      "path": "static/plugins/pdf/pdf.js",
+      "count": 3
+     },
+     {
+      "path": "src/apis/resources.js",
+      "count": 2
+     }
+    ],
+    "stockTestFiles": 0,
+    "trackedFiles": 5349
+   },
+   "lifetime": {
+    "first": "2023-03-01",
+    "last": "2026-11-06",
+    "totalCommits": 1741,
+    "authors": 14,
+    "monthly": {
+     "2026-11": 1,
+     "2026-10": 3,
+     "2026-09": 3,
+     "2026-07": 5,
+     "2026-06": 3,
+     "2026-05": 1,
+     "2026-04": 4,
+     "2026-03": 7,
+     "2026-01": 11,
+     "2025-12": 45,
+     "2025-11": 49,
+     "2025-10": 9,
+     "2025-09": 1,
+     "2025-08": 12,
+     "2025-07": 2,
+     "2025-06": 14,
+     "2025-05": 118,
+     "2025-04": 104,
+     "2025-03": 158,
+     "2025-01": 12,
+     "2024-12": 140,
+     "2024-11": 135,
+     "2024-10": 14,
+     "2024-09": 575,
+     "2024-08": 166,
+     "2024-07": 91,
+     "2024-06": 1,
+     "2024-05": 2,
+     "2024-02": 1,
+     "2023-12": 4,
+     "2023-11": 2,
+     "2023-10": 3,
+     "2023-09": 9,
+     "2023-08": 19,
+     "2023-07": 13,
+     "2023-06": 1,
+     "2023-03": 3
+    },
+    "monthlyCount": 37,
+    "topAuthors": [
+     {
+      "key": "yangweifan@ourchem.com",
+      "commits": 403
+     },
+     {
+      "key": "yuyanjie@ourchem.com",
+      "commits": 366
+     },
+     {
+      "key": "huangzesong@ourchem.com",
+      "commits": 337
+     },
+     {
+      "key": "chenweizhi@ourchem.com",
+      "commits": 280
+     },
+     {
+      "key": "suguangluan@ourchem.com",
+      "commits": 116
+     }
+    ]
+   }
+  },
+  {
+   "name": "cms",
+   "path": ".projects/public-service\\cms",
+   "branches": {
+    "master": {
+     "ref": "origin/master",
+     "logFile": "_evidence/raw/cms__master.log.txt",
+     "numstatFile": "_evidence/raw/cms__master.numstat.txt",
+     "rawLines": 0
+    }
+   },
+   "errors": [],
+   "hasRemote": true,
+   "window": {
+    "total": 0,
+    "effective": 0,
+    "merge": 0,
+    "ins": 0,
+    "del": 0,
+    "authors": 0,
+    "big": [],
+    "trivial": [],
+    "classification": {
+     "feat": 0,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {},
+    "commits": []
+   },
+   "today": {
+    "total": 0,
+    "effective": 0,
+    "merge": 0,
+    "ins": 0,
+    "del": 0,
+    "authors": 0,
+    "big": [],
+    "trivial": [],
+    "classification": {
+     "feat": 0,
+     "fix": 0,
+     "refactor": 0,
+     "docs": 0,
+     "test": 0,
+     "chore": 0,
+     "style": 0,
+     "perf": 0,
+     "build": 0,
+     "ci": 0,
+     "revert": 0,
+     "其他": 0
+    },
+    "shortMsgs": [],
+    "persons": {},
+    "commits": []
+   },
+   "lastCommitDayBeforeToday": null,
+   "daily": {},
+   "dayDetail": {},
+   "saturationWindows": [
+    {
+     "idx": 0,
+     "start": "2026-09-30",
+     "end": "2026-10-06",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 1,
+     "start": "2026-10-07",
+     "end": "2026-10-13",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 2,
+     "start": "2026-10-14",
+     "end": "2026-10-20",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 3,
+     "start": "2026-10-21",
+     "end": "2026-10-27",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 4,
+     "start": "2026-10-28",
+     "end": "2026-11-03",
+     "workdays": 5,
+     "persons": {}
+    },
+    {
+     "idx": 5,
+     "start": "2026-11-04",
+     "end": "2026-11-06",
+     "workdays": 3,
+     "persons": {}
+    }
+   ],
+   "weekly": [
+    {
+     "label": "2026-09-30",
+     "start": "2026-09-30",
+     "end": "2026-10-06",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-07",
+     "start": "2026-10-07",
+     "end": "2026-10-13",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-14",
+     "start": "2026-10-14",
+     "end": "2026-10-20",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-21",
+     "start": "2026-10-21",
+     "end": "2026-10-27",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-10-28",
+     "start": "2026-10-28",
+     "end": "2026-11-03",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    },
+    {
+     "label": "2026-11-04",
+     "start": "2026-11-04",
+     "end": "2026-11-06",
+     "commits": 0,
+     "effective": 0,
+     "authors": 0,
+     "ins": 0,
+     "del": 0
+    }
+   ],
+   "statsWorkdays": 28,
+   "mainBranch": {
+    "branch": "master",
+    "ref": "origin/master",
+    "lastActive": "2024-12-19"
+   },
+   "branchPos": [],
+   "checkedOut": "master",
+   "quality": {
+    "mode": "工作副本（当前检出分支口径 §1.6）",
+    "checkedOut": "master",
+    "languages": [
+     {
+      "ext": ".js",
+      "files": 122,
+      "lines": 76422
+     },
+     {
+      "ext": ".css",
+      "files": 37,
+      "lines": 27003
+     },
+     {
+      "ext": ".java",
+      "files": 208,
+      "lines": 10058
+     },
+     {
+      "ext": ".svg",
+      "files": 8,
+      "lines": 9773
+     },
+     {
+      "ext": ".less",
+      "files": 70,
+      "lines": 9079
+     },
+     {
+      "ext": ".html",
+      "files": 34,
+      "lines": 3450
+     },
+     {
+      "ext": ".txt",
+      "files": 5,
+      "lines": 1835
+     },
+     {
+      "ext": ".scss",
+      "files": 14,
+      "lines": 1802
+     },
+     {
+      "ext": ".xml",
+      "files": 4,
+      "lines": 508
+     },
+     {
+      "ext": "(无扩展名)",
+      "files": 2,
+      "lines": 304
+     },
+     {
+      "ext": ".yml",
+      "files": 7,
+      "lines": 224
+     },
+     {
+      "ext": ".cmd",
+      "files": 1,
+      "lines": 147
+     }
+    ],
+    "largeFiles": [
+     {
+      "path": "src/main/resources/static/js/pdf.worker.js",
+      "lines": 41274
+     },
+     {
+      "path": "src/main/resources/static/js/pdf.js",
+      "lines": 13715
+     },
+     {
+      "path": "src/main/resources/static/plugins/kindeditor-4.1.11/kindeditor-all.js",
+      "lines": 9773
+     },
+     {
+      "path": "src/main/resources/static/plugins/bootstrap/css/bootstrap.css",
+      "lines": 6750
+     },
+     {
+      "path": "src/main/resources/static/img/fonts/materialdesignicons.svg",
+      "lines": 6150
+     }
+    ],
+    "todoTotal": 29,
+    "todoTop": [
+     {
+      "path": "src/main/resources/static/plugins/bootstrap/js/bootstrap.js",
+      "count": 17
+     },
+     {
+      "path": "src/main/resources/static/js/pdf.js",
+      "count": 3
+     },
+     {
+      "path": "cms-data-processing/src/main/java/com/ourchem/cmsdataprocessing/processor/TAInfoProcessor.java",
+      "count": 1
+     },
+     {
+      "path": "src/main/java/com/ourchem/cms/component/aspect/AuthRoleAspect.java",
+      "count": 1
+     },
+     {
+      "path": "src/main/java/com/ourchem/cms/config/DataSourceConfig.java",
+      "count": 1
+     },
+     {
+      "path": "src/main/java/com/ourchem/cms/web/AbstractController.java",
+      "count": 1
+     },
+     {
+      "path": "src/main/resources/static/js/pdf.worker.js",
+      "count": 1
+     },
+     {
+      "path": "src/main/resources/static/plugins/bootstrap/css/bootstrap.css.map",
+      "count": 1
+     },
+     {
+      "path": "src/main/resources/static/plugins/bootstrap/css/bootstrap.min.css.map",
+      "count": 1
+     },
+     {
+      "path": "src/main/resources/static/plugins/kindeditor-4.1.11/plugins/map/map.js",
+      "count": 1
+     }
+    ],
+    "stockTestFiles": 13,
+    "trackedFiles": 741
+   },
+   "lifetime": {
+    "first": "2019-12-26",
+    "last": "2024-12-19",
+    "totalCommits": 167,
+    "authors": 5,
+    "monthly": {
+     "2024-12": 3,
+     "2024-11": 2,
+     "2024-05": 1,
+     "2024-01": 1,
+     "2023-08": 2,
+     "2023-07": 2,
+     "2023-05": 1,
+     "2023-04": 1,
+     "2022-12": 2,
+     "2022-07": 1,
+     "2022-06": 1,
+     "2022-04": 2,
+     "2021-05": 1,
+     "2021-04": 5,
+     "2021-03": 1,
+     "2021-02": 2,
+     "2020-05": 1,
+     "2020-04": 4,
+     "2020-03": 9,
+     "2020-02": 7,
+     "2020-01": 104,
+     "2019-12": 14
+    },
+    "monthlyCount": 22,
+    "topAuthors": [
+     {
+      "key": "a6259272",
+      "commits": 92
+     },
+     {
+      "key": "1193390646@qq.com",
+      "commits": 48
+     },
+     {
+      "key": "outens@163.com",
+      "commits": 23
+     },
+     {
+      "key": "19920107pd",
+      "commits": 3
+     },
+     {
+      "key": "chenshenhong@ourchem.com",
+      "commits": 1
+     }
+    ]
+   }
+  }
+ ],
+ "docsMtime": {
+  "project": [
+   {
+    "path": ".projects/public-service/cms/README.md",
+    "mtime": "2026-10-30 10:58",
+    "date": "2026-10-30"
+   },
+   {
+    "path": ".projects/public-service/nuaa-ip-transformation-platform/README.md",
+    "mtime": "2026-10-30 10:56",
+    "date": "2026-10-30"
+   },
+   {
+    "path": ".projects/public-service/ip-online/README.md",
+    "mtime": "2026-10-30 10:55",
+    "date": "2026-10-30"
+   }
+  ],
+  "global": [
+   {
+    "path": "docs/README.md",
+    "mtime": "2026-10-30 16:54",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/原始文件覆盖核对-2026W44.md",
+    "mtime": "2026-10-30 16:54",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/xzf-mall/任务明细-2026W44.md",
+    "mtime": "2026-10-30 16:44",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/public-service-公共服务平台项目集/任务明细-2026W44.md",
+    "mtime": "2026-10-30 16:44",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/ip-integration-知识产权一体化产品/任务明细-2026W44.md",
+    "mtime": "2026-10-30 16:44",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/ai-patent-AI预研产品/任务明细-2026W44.md",
+    "mtime": "2026-10-30 16:44",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/patyee-壹专利/任务明细-2026W44.md",
+    "mtime": "2026-10-30 16:44",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/public-service-公共服务平台项目集/缺陷统计-2026-10-29.md",
+    "mtime": "2026-10-30 16:29",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/ai-patent-AI预研产品/缺陷统计-2026-10-29.md",
+    "mtime": "2026-10-30 16:29",
+    "date": "2026-10-30"
+   },
+   {
+    "path": "docs/patyee-壹专利/缺陷统计-2026-10-29.md",
+    "mtime": "2026-10-30 16:29",
+    "date": "2026-10-30"
+   }
+  ]
+ }
+}

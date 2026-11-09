@@ -1,0 +1,175 @@
+{
+  "period": 4,
+  "planRange": {"start": "2026-10-26", "end": "2026-10-30"},
+  "historyNote": "W45 周计划仍未入库（docs/ 最近 2026-10-30），计划对照沿用 W44；窗口口径 AddDays(-7) 含首尾 8 自然日（TD-003 待裁）",
+  "memberMap": {
+    "suguangluan@ourchem.com": "su（待映射）",
+    "zcy8883680": "zhongchengyou（待映射）",
+    "yuyanjie@ourchem.com": "yuyanjie（待映射）",
+    "wujm@ourchem.com": "吴嘉明"
+  },
+  "dayDiff": {
+    "prevDay": "2026-11-04", "gapDays": 1, "skipped": "",
+    "docsChangedToday": false, "docsSummary": "项目路径与全局 docs/ 今日均无更新（最近 2026-10-30 W44 归档）",
+    "headline": "项目级：ipiapp 11-04/11-05 连续两日提交（2 笔→4 笔，院系选择落地），后端四仓与文档均无变动"
+  },
+  "aheadDelta": {"ipiapp": "+6", "ourchem-integration-platform": "0", "ourchem-data-server": "0"},
+  "dayDiffNote": {"ipiapp": "buaa ahead 117→123（11-04 基线取自 history 留痕）"},
+  "headline": "知识产权一体化：北航前端连续三天活跃（院系选择落地），但后端两仓零提交、5 项任务提测超期未收口，单人集中与零测试连续第 4 期",
+  "keyPoints": [
+    {"level": "中", "type": "positive", "text": "北航前端 ipiapp 恢复态势延续：11-02/04/05 三天 14 笔有效提交，院系选择弹窗（52695b9a13，23 文件 356 行）11-04 落地"},
+    {"level": "中", "text": "5 项任务提测日已过 2~8 个工作日仍无收口确认：answer（行 15）10-27 后零提交、beihang_dev（行 24）63 天无提交、platform 本窗口零提交"},
+    {"level": "中", "text": "窗口提交 93% 仍出自 su 一人（待映射）、功能改动零测试同步——两项均连续第 4 期，建议升级为专项治理（补第二前端 + 核心页面最小回归用例）"},
+    {"level": "低", "text": "行 25「院系字段」前端部分本窗口落地，但后端交付仓 data-server 统计期零提交，文档自述「已完成」仍缺后端证据（维持部分推进）"}
+  ],
+  "repos": {
+    "ipiapp": {
+      "total": 38.0, "scores": {"progress": 40, "people": 45, "quality": 55, "integration": 25, "convention": 15},
+      "topRisk": "窗口期提交单人集中（93%）且功能改动零测试同步（连续 4 期）",
+      "narrative": {
+        "progress": "北航前端连续三天推进，院系选择落地，但对应任务提测均超期未收口",
+        "people": "14 笔有效提交 93% 出自 su 一人，第二人仅 1 笔小修",
+        "quality": "功能改动连续 4 期零测试同步，前端仓测试存量仍为 0",
+        "integration": "buaa 客户分支 98 天未合并、落后 16，属已知形态关注级",
+        "convention": "提交说明规范（feat/fix 前缀 100%），无过短信息",
+        "rhythm": "11-02 晚至 11-05 连续三个工作日有提交，节奏恢复",
+        "modules": "改动集中在页面与公共组件（院系弹窗、链接处理、菜单）",
+        "plans": "行 18/26 前端有推进但提测超期，均未确认收口",
+        "testing": "窗口 14 笔功能提交零测试同步，存量测试 0"
+      },
+      "peopleProfile": [
+        {"name": "su（待映射）", "role": "北航前端定制唯一主力", "intent": "意图：北航门户定制（院系选择弹窗、站外链接统一处理、菜单别名）", "workload": "投入度：窗口 13/14 有效提交，统计期份额约九成", "intensity": "工作强度：11-04/05 连续两日提交，无深夜周末", "engagement": "参与度：仅 ipiapp 前端单仓单分支群", "risk": "潜在风险：连续 4 期单点，无人接手即停摆", "riskLevel": "中"},
+        {"name": "zhongchengyou（待映射）", "role": "后端开发", "intent": "意图：统计期仅 10-28 一笔后端提交", "workload": "投入度：统计期份额极低（后端线主要在监测外分支）", "intensity": "工作强度：无密集提交", "engagement": "参与度：platform 后端单仓", "risk": "潜在风险：与 patyee 映射疑似重合待确认（TD-006 ④）", "riskLevel": null},
+        {"name": "yuyanjie（待映射）", "role": "前端（新出现成员）", "intent": "意图：检索翻译修复 1 笔（11-02，第 3 期首现）", "workload": "投入度：1 笔小修", "intensity": "工作强度：样本小", "engagement": "参与度：ipiapp master 标准线", "risk": "潜在风险：身份待用户交代（TD-006 ④）", "riskLevel": null}
+      ],
+      "testing": {"stockNote": "前端仓无测试框架，存量测试 0（连续 4 期）", "sitTraces": 0, "aiReview": "窗口 14 笔功能提交（feat 9/fix 4/style 1）零测试文件变更，测试同步率 0/14——连续第 4 期；检索页、报告中心等定制页面均无回归用例，建议至少为检索入口与院系选择弹窗补 Playwright/Vue 组件级最小用例"},
+      "plans": [
+        {"id": "T18", "name": "行18 北航·前台+后台「报告管理」调整", "owner": "苏广銮", "start": "10-27", "due": "10-28", "status": "部分推进", "note": "文档自述测试中×进度1；前端 buaa 持续有页面调整类提交，提测日已过 6 个工作日无收口确认", "prevStatus": "部分推进", "done": null},
+        {"id": "T26", "name": "行26 北航·首页登录前后检索框不一致", "owner": "苏广銮", "start": "10-27", "due": "10-27", "status": "部分推进", "note": "11-02 菜单别名类提交或相关；无明确收口证据，提测日已过 7 个工作日", "prevStatus": "部分推进", "done": null}
+      ],
+      "risks": [
+        {"title": "窗口期 14 次有效提交 93% 出自 1 人（su，待映射）", "plain": "北航前端基本靠一个人在做，他不在就停摆——已连续 4 期", "dimension": "people", "level": "中", "evidence": "shortlog：su 13 / yuyanjie 1（ipiapp 窗口去重口径）；上期 92%（age 3→4）", "advice": "升级动作：安排第二名前端接手部分定制线（或结对），降低单点；同时请用户确认 su/zhongchengyou/yuyanjie 身份映射", "agePeriods": 4},
+        {"title": "功能改动零测试同步、前端仓存量测试为 0（连续 4 期）", "plain": "改了四周页面，一行测试都没跟——回归全靠人工", "dimension": "quality", "level": "中", "evidence": "窗口 14 笔有效提交测试同步 0/14；ls-files 测试文件 0", "advice": "升级动作：专项治理——先给检索入口与院系选择弹窗补最小回归用例，再逐步覆盖报告中心", "agePeriods": 4},
+        {"title": "自有 TODO 34 处 + district.js 29122 行超大文件", "plain": "代码里积着 34 处待办，还有一个 2.9 万行的地区数据大文件", "dimension": "quality", "level": "低", "evidence": "TODO 拆分口径：自有 34 / 插件侧 48（总计 82，持平）；district.js 29122 行（第三方数据文件）", "advice": "数据文件改按需加载或拆分；自有 TODO 结合 V3.2.2 收尾清理", "agePeriods": 4},
+        {"title": "buaa 客户分支存活 98 天、落后主干 16 提交（已知形态，关注级）", "plain": "北航定制分支三个月没并回主干，落后 16 次更新", "dimension": "integration", "level": "低", "evidence": "ahead=123/behind=16/stale=98d；双条件（>21 且 >20）未同时成立", "advice": "客户分支形态已知豁免；留意 behind 逼近 20 阈值线", "agePeriods": 2}
+      ],
+      "moduleDesc": {"src/views": "页面（检索/报告/门户）", "src/components": "公共组件", "src/styles": "样式"},
+      "coreModules": ["src/views"],
+      "insights": [
+        "ipiapp@52695b9a13 src/views/.../DialogDeptTool.vue —— 院系选择弹窗组件 +232 行为本体，同 commit 混入版权文案批量更新（23 文件 356 行）；主题相关性可接受但建议文案类改动独立提交，降低回溯成本",
+        "ipiapp@a60e516285 / 8b5ecfa26c —— 站外平台链接统一处理（+288）与登录校验 token 携带（+160）：北航定制页面联动的实质推进，非生成物",
+        "碎提交 3 笔（40d43efc77 检索翻译修复 2 行 / 4fecb8165d 菜单别名 1 行 / 88b74ebc00 两菜单 2 行）均为收尾小改，非刷量形态"
+      ]
+    },
+    "ourchem-integration-platform": {
+      "total": 37.8, "scores": {"progress": 40, "people": 40, "quality": 55, "integration": 30, "convention": 15},
+      "topRisk": "连续两窗零提交：beihang_dev 停滞 63 天、落后触及 20 阈值线",
+      "narrative": {
+        "progress": "后端主仓连续两个窗口零提交，三项任务提测超期无收口",
+        "people": "统计期仅 1 人 1 笔（10-28），后端投入转入监测外分支",
+        "quality": "TODO 61 处与 4 个超大文件维持，零新增改动",
+        "integration": "beihang_dev 落后 20 触线（客户形态已知）；v2.11.15 静止",
+        "convention": "本窗口无提交，无规范信号",
+        "rhythm": "10-28 后无提交，连续 8 天静默",
+        "modules": "本窗口无模块改动",
+        "plans": "行 16 降延期风险、行 24 降停滞——后端证据连续缺失",
+        "testing": "存量 8 个测试文件以脚手架为主，窗口无改动"
+      },
+      "peopleProfile": [],
+      "testing": {"stockNote": "8 个测试文件为框架脚手架自带，非团队自研", "sitTraces": 0, "aiReview": "窗口零提交无新增测试；存量测试抽查为脚手架生成（P1 判定沿用），行 16/17 后端接口无配套用例"},
+      "plans": [
+        {"id": "T16", "name": "行16 北航·本地加「授权日/年」新字段", "owner": "苏广銮, 钟承佑", "start": "10-28", "due": "10-28", "status": "延期风险", "note": "文档自述测试中×进度1；本窗口后端仓零提交，提测日已过 6 个工作日——自部分推进降级（连续无后端证据）", "prevStatus": "部分推进", "done": null},
+        {"id": "T17", "name": "行17 北航·页面相关调整（本地+SaaS）", "owner": "苏广銮, 钟承佑", "start": "10-28", "due": "10-30", "status": "部分推进", "note": "前端 ipiapp/buaa 本窗口 12 笔页面调整类提交持续推进；后端 v2.11.15 零提交，提测超期 4 个工作日未收口", "prevStatus": "部分推进", "done": null},
+        {"id": "T24", "name": "行24 北航·图谱「学院专利词云」院系取一级部门", "owner": "钟承佑", "start": "10-27", "due": "10-29", "status": "停滞", "note": "交付分支 beihang_dev 自 09-03 无提交（63 天）；提测日已过 7 个工作日——自延期风险按零活动证据降级", "prevStatus": "延期风险", "done": null}
+      ],
+      "risks": [
+        {"title": "beihang_dev 停滞 63 天、落后主干 20（触及阈值线）", "plain": "北航后端定制分支两个月没动，落后主干 20 次更新，刚好踩到警戒线", "dimension": "integration", "level": "中", "evidence": "ahead=23/behind=20/stale=98d/last=09-03；落后 20 = branch_behind_warn（未超），已知客户形态", "advice": "已知形态不升级，但 behind 已触线——再落后即成确定异常，建议确认该分支后续（回流或冻结）", "agePeriods": 4},
+        {"title": "窗口期功能改动零测试；存量测试以脚手架为主", "plain": "后端接口改动一直不带测试，现有测试多是框架自带的空架子", "dimension": "quality", "level": "中", "evidence": "stockTestFiles=8（脚手架，P1 抽查判定）；窗口零提交（上期 age 3→4 按主题延续）", "advice": "行 16/17 接口交付时同步补最小接口用例", "agePeriods": 4},
+        {"title": "TODO 61 处 + 4 个超大文件（UserSerivceImpl 2155 行等）", "plain": "后端积着 61 处待办和 4 个两千行级大文件", "dimension": "quality", "level": "低", "evidence": "TODO=61（持平）；largeFiles 4 个（2155/1693/1610/1561 行）", "advice": "UserSerivceImpl（注意拼写遗留）建议借 V3.2.2 收尾拆分", "agePeriods": 4},
+        {"title": "SaaS/标准版线（v6.3-zhu、test 分支）活跃但不在监测范围", "plain": "有一部分后端工作在没被监测的分支上做，报告看不见", "dimension": "progress", "level": "低", "evidence": "P1 起连续观察登记（AI 推断待用户确认，TD-006 ⑤）", "advice": "请用户裁定是否纳入监测（A 类流程）", "agePeriods": 4}
+      ],
+      "moduleDesc": {}, "coreModules": [],
+      "insights": ["本窗口零提交，无深度阅读对象；beihang_dev tip 复核与上期一致（09-03 后无新提交）"]
+    },
+    "ourchem-bpm": {
+      "total": 30.0, "scores": {"progress": 35, "people": 30, "quality": 30, "integration": 30, "convention": 20},
+      "topRisk": "监测分支 2021-12 后无提交（已知形态），部署类交付 git 不可见",
+      "narrative": {
+        "progress": "行 19 已完成复核沿用；部署类交付 git 不可见",
+        "people": "窗口零提交，无可比人员信号",
+        "quality": "TODO 383 处（自有 62/框架 321）维持",
+        "integration": "单分支监测，无集成信号",
+        "convention": "无提交无信号",
+        "rhythm": "统计期延续零提交（形态使然）",
+        "modules": "无改动",
+        "plans": "行 19「已完成」每期复核：W44 文档自述维持，沿用",
+        "testing": "存量 229 测试文件为旧框架期遗产"
+      },
+      "peopleProfile": [],
+      "testing": {"stockNote": "229 个测试文件为历史框架期遗产（自有业务 ipman 无新增）", "sitTraces": 0, "aiReview": "窗口零提交；行 19 为部署类交付（新域名 bpm 套件），git 天然不可见——按已知形态不判停滞，交付口径待文档/运维侧确认"},
+      "plans": [
+        {"id": "T19", "name": "行19 上交大医学院·部署新域名 bpm 系统", "owner": "吴嘉明", "start": "10-26", "due": "10-27", "status": "已完成", "note": "文档自述已完成×进度1（W44 快照未更新，维持）；交付为部署类，git 盲区沿用 P1 判定", "prevStatus": "已完成", "done": "10-27"}
+      ],
+      "risks": [
+        {"title": "监测分支 master 自 2021-12 无提交（已知形态）；部署类交付不可见", "plain": "这个仓本来就是老系统，日常交付是部署运维，代码里看不到", "dimension": "progress", "level": "低", "evidence": "master last=2021-12-03；P1 起形态登记（context B 类）", "advice": "维持形态豁免；如需覆盖部署交付请提供运维侧证据源", "agePeriods": 2},
+        {"title": "TODO 383 处（自有业务 62 / 框架及其余 321）", "plain": "老系统里积了 383 处待办标记，六分之一在自有业务代码", "dimension": "quality", "level": "低", "evidence": "TODO=383（P2 拆分口径：ipman 62/其余 321，持平）", "advice": "老仓按维护态处理，不建议专项清理", "agePeriods": 4}
+      ],
+      "moduleDesc": {}, "coreModules": [],
+      "insights": ["零提交仓库，无深度阅读对象；与上期判定一致"]
+    },
+    "ourchem-data-server": {
+      "total": 37.8, "scores": {"progress": 45, "people": 35, "quality": 45, "integration": 35, "convention": 20},
+      "topRisk": "统计期零提交：行 25「已完成」仍遭后端交付仓零改动反证（前端部分本窗口落地）",
+      "narrative": {
+        "progress": "后端仓统计期零提交；行 25 前端（院系选择）已在 ipiapp 落地",
+        "people": "窗口零提交",
+        "quality": "TODO 182 处维持（含词典大文件形态）",
+        "integration": "local 分支 3 提交 94 天未回流（关注级）",
+        "convention": "无提交无信号",
+        "rhythm": "8-31 后零提交",
+        "modules": "无改动",
+        "plans": "行 25 维持部分推进：前端落地、后端零证据",
+        "testing": "存量 16 测试文件，窗口无改动"
+      },
+      "peopleProfile": [],
+      "testing": {"stockNote": "16 个测试文件（解析器侧）", "sitTraces": 0, "aiReview": "窗口零提交；行 25 检索接口变更的后端验证证据缺失（仓静止），字段检索功能验证状态待文档确认"},
+      "plans": [
+        {"id": "T25", "name": "行25 北航·增加「院系」字段（检索+字段说明）", "owner": "吴嘉明, 苏广銮", "start": "10-27", "due": "10-28", "status": "部分推进", "note": "前端院系选择 11-04 落地（ipiapp@52695b9a13，映射为推断）；后端交付仓自 08-31 零提交，文档自述「已完成」缺后端证据——维持反证仲裁", "prevStatus": "部分推进", "done": null}
+      ],
+      "risks": [
+        {"title": "统计期零提交；行 25「已完成」遭后端交付仓零改动反证", "plain": "周报说这活儿完成了，但后端仓库俩月没动静——要么在别处做的，要么说法不准", "dimension": "progress", "level": "中", "evidence": "lifetime last=2026-08-31；行 25 排期 10-27~10-28；前端部分落 ipiapp（本窗口）", "advice": "与文档维护人核对行 25 后端交付口径（是否在 local/镜像或其他仓完成）", "agePeriods": 4},
+        {"title": "TODO 182 处（自有代码）", "plain": "数据服务代码里积了 182 处待办", "dimension": "quality", "level": "低", "evidence": "TODO=182（持平）；大文件均为分词词典（形态已知）", "advice": "维护态仓库，随迭代顺带清理", "agePeriods": 4},
+        {"title": "local 分支 3 提交未回流（94 天）", "plain": "8 月的 3 次改动一直没并回主线", "dimension": "integration", "level": "低", "evidence": "ahead=3/behind=0/stale=94d（不满双条件，关注级）", "advice": "确认 local 线去留（回流或随下版废弃）", "agePeriods": 2}
+      ],
+      "moduleDesc": {}, "coreModules": [],
+      "insights": ["零提交仓库；行 25 前端证据（ipiapp@52695b9a13）属跨仓映射推断——行 25 文档未列前端地址，按 ipiapp 为北航前端唯一载体推断，已在 plans.note 留痕"]
+    },
+    "answer": {
+      "total": 32.5, "scores": {"progress": 30, "people": 35, "quality": 45, "integration": 20, "convention": 30},
+      "topRisk": "行 15 提测日 11-03 已过 2 个工作日未确认收口；13k 行数据大提交入库遗留",
+      "narrative": {
+        "progress": "10-27 后零提交，行 15 提测超期未收口（第 2 期累计 2 个工作日）",
+        "people": "单人维护（钟承佑），窗口零提交",
+        "quality": "13k 行数据大提交与 .pyc/.bak 跟踪遗留未清",
+        "integration": "单分支，无集成信号",
+        "convention": "无提交无信号",
+        "rhythm": "10-26/27 两笔后静默",
+        "modules": "无改动",
+        "plans": "行 15 维持部分推进（提测动作 git 盲区，待文档确认）",
+        "testing": "存量 1 个测试文件（vector_test.py，Initial 携带）"
+      },
+      "peopleProfile": [],
+      "testing": {"stockNote": "1 个测试文件（vector_test.py，随 Initial 提交携带）", "sitTraces": 0, "aiReview": "窗口零提交；百问百答数据录入类交付以数据/内容为主，代码测试意义有限——按提测收口确认缺失计进度信号而非质量信号"},
+      "plans": [
+        {"id": "T15", "name": "行15 北航·百问百答政策资料数据录入", "owner": "钟承佑", "start": "10-21", "due": "11-03", "status": "部分推进", "note": "文档自述开发中 0.79；提测日 11-03 已过 2 个工作日，仓库 10-27 后零提交且文档未更新——按「提测已过未确认收口」口径维持部分推进（P3 判例）", "prevStatus": "部分推进", "done": null}
+      ],
+      "risks": [
+        {"title": "行 15 提测日 11-03 已过 2 个工作日未确认收口", "plain": "说好 11-03 提测的活儿，到现在既没新提交也没文档确认", "dimension": "progress", "level": "中", "evidence": "master last=2026-10-27；W44 文档无更新（快照 10-29）", "advice": "与钟承佑确认提测状态；若已提测请更新任务文档以解除盲区", "agePeriods": 2},
+        {"title": "13k 行数据大提交入库；.pyc/.bak/源 docx 被跟踪", "plain": "一批数据和临时文件被直接塞进了代码仓库", "dimension": "quality", "level": "中", "evidence": "10-26 Initial +13002 行（P1 发现，未清理）", "advice": "数据文件移出 git（改数据盘/对象存储），补 .gitignore", "agePeriods": 4},
+        {"title": "单人维护 + 测试近零", "plain": "这个仓只有一个人在管，也几乎没有测试", "dimension": "people", "level": "低", "evidence": "lifetime authors=1；测试文件 1", "advice": "数据录入类仓可接受；如转为长期能力建议交接备份", "agePeriods": 4}
+      ],
+      "moduleDesc": {}, "coreModules": [],
+      "insights": ["零提交仓库，与上期判定一致；行 15 为数据录入类任务，代码仓静默不必然等于停滞（提测动作在 TAPD 侧）"]
+    }
+  }
+}

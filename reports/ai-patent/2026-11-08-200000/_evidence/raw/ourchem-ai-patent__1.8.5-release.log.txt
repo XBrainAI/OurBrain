@@ -1,0 +1,374 @@
+4b2ca0b56f6f2743f0aea7d6e5ba3855ec40b5ae5a641123329275e5429c2087923165a5b9adcbe9谢泽恩xiezeen@ourchem.com2026-10-27 13:48:32 +0800feat：代码提交
+5a641123329275e5429c2087923165a5b9adcbe9d35d0f9f5abaaa7fc8cf0b06c0777e655f1e6a4d谢泽恩xiezeen@ourchem.com2026-10-26 18:18:52 +0800feat:代码提交
+d35d0f9f5abaaa7fc8cf0b06c0777e655f1e6a4d855d876aaca87eeed4586d1f643a413e6981a292谢泽恩xiezeen@ourchem.com2026-10-26 18:12:40 +0800feat:代码提交
+855d876aaca87eeed4586d1f643a413e6981a29210074bc9f22c9eac683a9507eed01fa466438bb3谢泽恩xiezeen@ourchem.com2026-10-26 16:24:41 +0800feat:代码提交
+10074bc9f22c9eac683a9507eed01fa466438bb3c0065d8910fe485493617d1ce23bd8247be5c5d8谢泽恩xiezeen@ourchem.com2026-10-23 19:12:41 +0800feat:修复报错
+c0065d8910fe485493617d1ce23bd8247be5c5d8f8a65b1f6db276073301374fae620a35cdbff007谢泽恩xiezeen@ourchem.com2026-10-23 19:01:44 +0800feat:修复报错
+f8a65b1f6db276073301374fae620a35cdbff007bbfab6216e4437c439e8ba08060a13f668a1b6a8谢泽恩xiezeen@ourchem.com2026-10-23 18:52:42 +0800feat:修复报错
+bbfab6216e4437c439e8ba08060a13f668a1b6a8ac1a3bce43e9fe5bba625c053b14efe7033931e5谢泽恩xiezeen@ourchem.com2026-10-23 16:08:28 +0800feat:修复报错
+ac1a3bce43e9fe5bba625c053b14efe7033931e5d93a53aaab92a0d244faf0b2abf9544079670baa谢泽恩xiezeen@ourchem.com2026-10-23 14:24:01 +0800feat:代码提交
+d93a53aaab92a0d244faf0b2abf9544079670baac592dd607f44f28721ea370bc2ddd99fbe4b59c4谢泽恩xiezeen@ourchem.com2026-10-22 16:14:12 +0800feat:代码提交
+c592dd607f44f28721ea370bc2ddd99fbe4b59c47d73435eacce5da661ece113c07263277ea826f3谢泽恩xiezeen@ourchem.com2026-10-22 16:13:57 +0800feat:代码提交
+7d73435eacce5da661ece113c07263277ea826f3c52998b0f8b121970c8ee7e8bffbc05c920a84df 1cbee9d14bfd9a0023d871ee634e6a043f66cd75谢泽恩xiezeen@ourchem.com2026-10-22 14:48:06 +0800Merge branch '1.8.4-release' into 1.8.5-dev
+1cbee9d14bfd9a0023d871ee634e6a043f66cd75183cf9e2e7eb1e1c9bde373c416e779574ea2c4c谢泽恩xiezeen@ourchem.com2026-10-22 14:42:44 +0800feat:修复报错
+c52998b0f8b121970c8ee7e8bffbc05c920a84df65411d31bf83c508c45f39cde626c3ba2cd689e3谢泽恩xiezeen@ourchem.com2026-10-22 11:27:48 +0800feat:代码提交
+65411d31bf83c508c45f39cde626c3ba2cd689e3b10a5fdfd7326c171b878871cdd035e5651c6a19谢泽恩xiezeen@ourchem.com2026-10-21 17:03:34 +0800feat:代码提交
+b10a5fdfd7326c171b878871cdd035e5651c6a191cb1ded82af59bb340f8c2e88dee04e6baa1f552谢泽恩xiezeen@ourchem.com2026-10-21 16:58:59 +0800feat:添加type字段
+1cb1ded82af59bb340f8c2e88dee04e6baa1f552387341aa87b5fb9e20a9498811d47dcd10308247谢泽恩xiezeen@ourchem.com2026-10-21 16:16:59 +0800feat:添加type字段
+387341aa87b5fb9e20a9498811d47dcd1030824797a9d00276337baba105b3659aece4b3fdcc05a0 183cf9e2e7eb1e1c9bde373c416e779574ea2c4c谢泽恩xiezeen@ourchem.com2026-10-21 15:20:00 +0800Merge branch '1.8.4-release' into 1.8.5-dev
+183cf9e2e7eb1e1c9bde373c416e779574ea2c4c71695f64a2de7a497162e2271fe5c382c709293a谢泽恩xiezeen@ourchem.com2026-10-21 15:04:35 +0800feat:修复bug
+71695f64a2de7a497162e2271fe5c382c709293af7cb9fdd5427c62d308dcbde02cd9aa117f3e282谢泽恩xiezeen@ourchem.com2026-10-21 14:00:08 +0800feat:修复bug
+f7cb9fdd5427c62d308dcbde02cd9aa117f3e2829d56affabb9d393b250cb26125bcc62d9622a51a谢泽恩xiezeen@ourchem.com2026-10-21 13:57:39 +0800feat:修复bug
+97a9d00276337baba105b3659aece4b3fdcc05a03e9e6fa4649cef3894e606e19d92ebaf2f04f187谢泽恩xiezeen@ourchem.com2026-10-20 18:18:38 +0800feat:修复没删除的问题
+3e9e6fa4649cef3894e606e19d92ebaf2f04f187d3b725828b4016995cd8c08abf9ec03cbd075846谢泽恩xiezeen@ourchem.com2026-10-20 16:31:09 +0800feat：代码提交
+d3b725828b4016995cd8c08abf9ec03cbd07584694f11504a17e028231076347c58168122f064f9c谢泽恩xiezeen@ourchem.com2026-10-20 15:14:55 +0800feat:代码提交
+94f11504a17e028231076347c58168122f064f9c4d2236b29b395f59266f0a3c75660fe35d490ba0谢泽恩xiezeen@ourchem.com2026-10-20 15:11:57 +0800feat:代码提交
+4d2236b29b395f59266f0a3c75660fe35d490ba09d56affabb9d393b250cb26125bcc62d9622a51a谢泽恩xiezeen@ourchem.com2026-10-20 14:33:48 +0800feat：代码提交
+9d56affabb9d393b250cb26125bcc62d9622a51a696af107566b0984dbfe7fad61c5dd22a2873546liushaocongliushaocong@ourchem.com2026-09-22 20:02:02 +0800``` feat(util): 添加大模型JSON输出结构损坏修复功能
+696af107566b0984dbfe7fad61c5dd22a2873546a6f81241fe921422dadf6f33506df8b756639a74谢泽恩xiezeen@ourchem.com2026-09-21 15:14:44 +0800feat:代码提交
+a6f81241fe921422dadf6f33506df8b756639a74fed5dfd9cd25fea757a5b03ec7af632684f43edf谢泽恩xiezeen@ourchem.com2026-09-16 14:55:44 +0800feat:修复bug
+fed5dfd9cd25fea757a5b03ec7af632684f43edf2c5649ffe2c47d14782924e040f1ee2cc1e69613 57d8c1fbef6b09a5b205d614295aa5f2e128b955liushaocongliushaocong@ourchem.com2026-09-10 19:01:02 +0800Merge branch '1.8.4-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.4-dev
+2c5649ffe2c47d14782924e040f1ee2cc1e69613de83601d77bf876b65d4515412a3110be523ca93liushaocongliushaocong@ourchem.com2026-09-10 19:00:36 +0800feat(markdown): 新增表格表头跨页重复禁用功能
+57d8c1fbef6b09a5b205d614295aa5f2e128b9551189dc4fa7c7bd0a01d27d697349701c6495aa8a谢泽恩xiezeen@ourchem.com2026-09-10 18:49:38 +0800feat:代码提交
+1189dc4fa7c7bd0a01d27d697349701c6495aa8a89c364c84bc6c17cb4753a211f25c2a4931476e6谢泽恩xiezeen@ourchem.com2026-09-10 18:29:05 +0800feat：代码提交
+89c364c84bc6c17cb4753a211f25c2a4931476e6de83601d77bf876b65d4515412a3110be523ca93谢泽恩xiezeen@ourchem.com2026-09-10 18:11:38 +0800feat:代码提交
+de83601d77bf876b65d4515412a3110be523ca9325d93a42b55df953c4bf14fa2bca70f1a55cfeceliushaocongliushaocong@ourchem.com2026-09-10 11:44:28 +0800feat(pandoc): 添加 br.lua 过滤器处理 HTML 换行标签
+25d93a42b55df953c4bf14fa2bca70f1a55cfece0228d8b573be2f4aa835f7b6832812c364be7a80liushaocongliushaocong@ourchem.com2026-09-10 11:39:56 +0800refactor(MarkdownToDocxService): 优化HTML br标签处理逻辑
+0228d8b573be2f4aa835f7b6832812c364be7a80f98d1f5222d04ebade9efe35d685f0d7be841383liushaocongliushaocong@ourchem.com2026-09-10 09:27:34 +0800feat(MarkdownToDocxService): 新增表格表头加粗功能
+f98d1f5222d04ebade9efe35d685f0d7be8413834c11b712328ad9cd693995fbfecb842c51d57411 357fa7db30b8caa4ffcb5bd657f15bd8f9da0784liushaocongliushaocong@ourchem.com2026-09-09 18:40:14 +0800Merge branch '1.8.4-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.4-dev
+4c11b712328ad9cd693995fbfecb842c51d57411c98f06151b64cb6e5f0268bc6ecc63f85d949556liushaocongliushaocong@ourchem.com2026-09-09 18:39:47 +0800fix(export): 解决Markdown转Word时波浪号被误解析为下标的问题
+357fa7db30b8caa4ffcb5bd657f15bd8f9da0784179fec45fddea4ec628c1d2a3df9b50599924058谢泽恩xiezeen@ourchem.com2026-09-09 14:26:14 +0800feat:代码提交
+179fec45fddea4ec628c1d2a3df9b505999240581264996b3e5a05086d3ab14fe65e122b8e8767a0谢泽恩xiezeen@ourchem.com2026-09-09 14:09:29 +0800feat:代码提交
+1264996b3e5a05086d3ab14fe65e122b8e8767a076fc4c3025a985d85a9e5d46775c912a1ddf3f9a谢泽恩xiezeen@ourchem.com2026-09-09 14:08:37 +0800feat:代码提交
+76fc4c3025a985d85a9e5d46775c912a1ddf3f9aaf597557fc58eee421753538cc37a85d14639a63谢泽恩xiezeen@ourchem.com2026-09-09 13:58:36 +0800feat:代码提交
+af597557fc58eee421753538cc37a85d14639a634e521e91c41f540b8cc785f0ad64adea563ffd5d谢泽恩xiezeen@ourchem.com2026-09-09 13:58:01 +0800feat:代码提交
+4e521e91c41f540b8cc785f0ad64adea563ffd5d9d9d0ff0ac182775169305b7c2f254248b3d0455谢泽恩xiezeen@ourchem.com2026-09-09 11:41:22 +0800feat:修正关键词问题
+9d9d0ff0ac182775169305b7c2f254248b3d04559cdf8011865421311fdd8d75ff055bb98d41cbcc谢泽恩xiezeen@ourchem.com2026-09-08 18:36:46 +0800feat:代码提交
+9cdf8011865421311fdd8d75ff055bb98d41cbcc8802e791b4424ed2c2b460d1dc0252a3274d9389谢泽恩xiezeen@ourchem.com2026-09-08 18:34:48 +0800feat:代码提交
+8802e791b4424ed2c2b460d1dc0252a3274d9389c98f06151b64cb6e5f0268bc6ecc63f85d949556谢泽恩xiezeen@ourchem.com2026-09-08 17:55:11 +0800feat:代码提交
+c98f06151b64cb6e5f0268bc6ecc63f85d949556d2ca98a1a13d6d098fcccde5b29891e51b7a4bdb谢泽恩xiezeen@ourchem.com2026-09-08 16:09:07 +0800feat:代码提交
+d2ca98a1a13d6d098fcccde5b29891e51b7a4bdb8724729b42e2a409a37ea3bef6d3e4fcdccde5d7谢泽恩xiezeen@ourchem.com2026-09-08 15:36:43 +0800feat:代码提交
+8724729b42e2a409a37ea3bef6d3e4fcdccde5d7047884087f90a07b3bc786e2a5dfaeef7f83a726谢泽恩xiezeen@ourchem.com2026-09-08 14:32:43 +0800feat:代码提交
+047884087f90a07b3bc786e2a5dfaeef7f83a7266b7c95ee647d3cc9798734e279df87fb19c3705b谢泽恩xiezeen@ourchem.com2026-09-08 14:23:38 +0800feat:代码提交
+6b7c95ee647d3cc9798734e279df87fb19c3705bf4b28aa28fa400cd08411cf8e13ece56a01d0699 d9cfe3d852b88924ba9a2a4db0bf4a3cc094be99谢泽恩xiezeen@ourchem.com2026-09-07 18:44:35 +0800Merge remote-tracking branch 'origin/1.8.4-dev' into 1.8.4-dev
+f4b28aa28fa400cd08411cf8e13ece56a01d0699b226cf1a08aff81fbe7a8ee7e1dc5cdaa76f0d59谢泽恩xiezeen@ourchem.com2026-09-07 18:44:12 +0800feat:代码提交
+d9cfe3d852b88924ba9a2a4db0bf4a3cc094be99df6d52ef90435ccf74b568a8d8959251ebf51276 b226cf1a08aff81fbe7a8ee7e1dc5cdaa76f0d59liushaocongliushaocong@ourchem.com2026-09-07 16:53:00 +0800Merge branch '1.8.4-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.4-dev
+df6d52ef90435ccf74b568a8d8959251ebf5127666aadae3b37a06d36369d3c3921209926627097eliushaocongliushaocong@ourchem.com2026-09-07 16:52:31 +0800feat(dify): 添加交底书和技术方案文档下载功能
+b226cf1a08aff81fbe7a8ee7e1dc5cdaa76f0d59728a23366eb884dacbfcb861fb9f111f0bb1c01a谢泽恩xiezeen@ourchem.com2026-09-04 19:44:13 +0800feat:代码提交
+728a23366eb884dacbfcb861fb9f111f0bb1c01a97a15e78c9b9230bc56725d1d4fe250bf9f4e8b8谢泽恩xiezeen@ourchem.com2026-09-04 19:43:09 +0800feat：代码提交
+97a15e78c9b9230bc56725d1d4fe250bf9f4e8b83ce01247086060fce196b6475a10d8cf5bdd0c11谢泽恩xiezeen@ourchem.com2026-09-04 19:34:56 +0800feat：代码提交
+3ce01247086060fce196b6475a10d8cf5bdd0c1166aadae3b37a06d36369d3c3921209926627097e谢泽恩xiezeen@ourchem.com2026-09-04 18:27:54 +0800feat:代码提交
+66aadae3b37a06d36369d3c3921209926627097e5538c6fb31a6d466c8f677495dab464acc2adab8谢泽恩xiezeen@ourchem.com2026-09-04 18:16:46 +0800feat:代码提交
+5538c6fb31a6d466c8f677495dab464acc2adab873cca44daa45642cb6cd8d483fa72bf11e17a126谢泽恩xiezeen@ourchem.com2026-09-04 17:40:09 +0800feat：代码提交
+73cca44daa45642cb6cd8d483fa72bf11e17a126e5a511aed338d19e8207e03bacc002f1a967921d谢泽恩xiezeen@ourchem.com2026-09-04 17:35:35 +0800feat:代码提交
+e5a511aed338d19e8207e03bacc002f1a967921d85b0ffaa1b2e0eb277550bab29f2f5046537bd3c谢泽恩xiezeen@ourchem.com2026-09-04 17:22:11 +0800feat：代码提交
+85b0ffaa1b2e0eb277550bab29f2f5046537bd3cf3c679c9d53323492a6765db0bf1e5ccb32d6b9d谢泽恩xiezeen@ourchem.com2026-09-04 17:17:09 +0800feat：代码提交
+f3c679c9d53323492a6765db0bf1e5ccb32d6b9df462d02d4f87649ae4a1b793e0cdefbe410c161a谢泽恩xiezeen@ourchem.com2026-09-04 17:12:51 +0800feat:代码提交
+f462d02d4f87649ae4a1b793e0cdefbe410c161a07a51d734a9921dce57bf048c84fe5cce6548768 4ce05c2290e02df50ee4dbaee1581c8cce58f385谢泽恩xiezeen@ourchem.com2026-09-04 17:01:50 +0800Merge remote-tracking branch 'origin/1.8.3-dev' into 1.8.3-dev
+07a51d734a9921dce57bf048c84fe5cce654876847edb1d0852b39cb3db617c8cce145703628e7db谢泽恩xiezeen@ourchem.com2026-09-04 17:01:08 +0800feat：代码提交
+4ce05c2290e02df50ee4dbaee1581c8cce58f3856c568776bba2c1e474da699c4e79b9076ce3fd7e 47edb1d0852b39cb3db617c8cce145703628e7dbliushaocongliushaocong@ourchem.com2026-09-04 16:13:10 +0800Merge branch '1.8.3-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.3-dev
+6c568776bba2c1e474da699c4e79b9076ce3fd7e2db69ea7c33ca99c704477d6fe989fc4faca9c31liushaocongliushaocong@ourchem.com2026-09-04 16:12:33 +0800perf(threadpool): 优化权利要求检查并发性能
+47edb1d0852b39cb3db617c8cce145703628e7dbcafabf3af17640492d0fe1a4633fc8e9a76257ac谢泽恩xiezeen@ourchem.com2026-09-04 15:04:51 +0800feat:代码提交
+cafabf3af17640492d0fe1a4633fc8e9a76257ac2db69ea7c33ca99c704477d6fe989fc4faca9c31谢泽恩xiezeen@ourchem.com2026-09-04 14:16:34 +0800feat:代码提交
+2db69ea7c33ca99c704477d6fe989fc4faca9c317addd9feca6ca1941c20a05fcbc7a96822d9fbc5谢泽恩xiezeen@ourchem.com2026-09-04 11:57:35 +0800feat:代码提交
+7addd9feca6ca1941c20a05fcbc7a96822d9fbc5b04aa1a8b7dff985a86701a3fc0383e6dcdd5288谢泽恩xiezeen@ourchem.com2026-09-04 11:35:15 +0800feat:代码提交
+b04aa1a8b7dff985a86701a3fc0383e6dcdd5288183a2bb3e4c1e3b75885bdd8abe56a2b0bfb11a8谢泽恩xiezeen@ourchem.com2026-09-04 11:17:20 +0800feat：代码提交
+183a2bb3e4c1e3b75885bdd8abe56a2b0bfb11a86f7040ba0cbeb690390c416a574d88e1529efc11谢泽恩xiezeen@ourchem.com2026-09-04 11:05:33 +0800feat:代码提交
+6f7040ba0cbeb690390c416a574d88e1529efc11237906e5d440ad4989689da9f69b05eacb0ae00c谢泽恩xiezeen@ourchem.com2026-09-04 10:38:10 +0800feat:代码提交
+237906e5d440ad4989689da9f69b05eacb0ae00c1f0990c5aec357d5a5821f88bf8e369ad99952d7谢泽恩xiezeen@ourchem.com2026-09-03 18:44:42 +0800feat：代码提交
+1f0990c5aec357d5a5821f88bf8e369ad99952d76f341e0e02030759e71e0ffeb97d598c396b4920谢泽恩xiezeen@ourchem.com2026-09-03 18:40:17 +0800feat:代码提交
+6f341e0e02030759e71e0ffeb97d598c396b492081aa8020e6aa809df52a24d548a8d054317e548f谢泽恩xiezeen@ourchem.com2026-09-03 18:29:57 +0800feat:代码提交
+81aa8020e6aa809df52a24d548a8d054317e548f854dd887cdc8e5f2af1f0e0708d565ecdcbff423谢泽恩xiezeen@ourchem.com2026-09-03 17:59:32 +0800feat:代码提交
+854dd887cdc8e5f2af1f0e0708d565ecdcbff423316cc2010b75a1e03cf6ce4239543a328bcf1230谢泽恩xiezeen@ourchem.com2026-09-03 17:41:59 +0800feat:代码提交
+316cc2010b75a1e03cf6ce4239543a328bcf1230417869258edbcb37a0a6dc14a9bddecf6aa88d7c谢泽恩xiezeen@ourchem.com2026-09-03 17:21:42 +0800feat:代码提交
+417869258edbcb37a0a6dc14a9bddecf6aa88d7c9e0c313c8bdaee1aaffb3025abf7a1260b40e4f1谢泽恩xiezeen@ourchem.com2026-09-03 16:12:28 +0800feat:代码提交
+9e0c313c8bdaee1aaffb3025abf7a1260b40e4f1e307ecfa53bb8edc16e73c9d1f923dc7c73930e2谢泽恩xiezeen@ourchem.com2026-09-03 16:10:45 +0800feat:代码提交
+e307ecfa53bb8edc16e73c9d1f923dc7c73930e2b8bb1796286dac429faf1b78589e294bbaddf072 aa22f614e475b4be36553ff0f0cb5b64f415c437liushaocongliushaocong@ourchem.com2026-09-02 18:56:36 +0800Merge branch '1.8.3-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.3-dev
+b8bb1796286dac429faf1b78589e294bbaddf072121bc1da6e6cba7c690e62e39d36b6e4b562b4f3liushaocongliushaocong@ourchem.com2026-09-02 18:55:57 +0800perf(rule-engine): 添加规则执行耗时统计和数据库操作监控
+aa22f614e475b4be36553ff0f0cb5b64f415c437b870e2960d077e006fff386367b5ef8f565fbeaf谢泽恩xiezeen@ourchem.com2026-09-02 18:54:28 +0800feat:代码提交
+121bc1da6e6cba7c690e62e39d36b6e4b562b4f3004d4593da92b736780f912247f57a8715fb1fba b870e2960d077e006fff386367b5ef8f565fbeafliushaocongliushaocong@ourchem.com2026-09-02 18:51:07 +0800Merge branch '1.8.3-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.3-dev
+b870e2960d077e006fff386367b5ef8f565fbeafec8d9d97bf93e7016ee47b3722865ff196c7d5b0谢泽恩xiezeen@ourchem.com2026-09-02 18:46:38 +0800feat：代码提交
+004d4593da92b736780f912247f57a8715fb1fba8acab83f8231fe1bfa41dd009a08efa901e8f866liushaocongliushaocong@ourchem.com2026-09-02 18:25:26 +0800refactor(claims): 重构权利要求商业术语检查逻辑
+ec8d9d97bf93e7016ee47b3722865ff196c7d5b0b2cf9b29cc3466d155f6acbff79a6fbd543fa170谢泽恩xiezeen@ourchem.com2026-09-02 18:11:31 +0800feat：代码提交
+b2cf9b29cc3466d155f6acbff79a6fbd543fa17033e5352741d75ef896b46b5c73f2eaff2825b7d6谢泽恩xiezeen@ourchem.com2026-09-02 17:28:56 +0800feat:代码提交
+33e5352741d75ef896b46b5c73f2eaff2825b7d6e097df619e964ccfe08e10e36beff5c7e2432fde谢泽恩xiezeen@ourchem.com2026-09-02 17:19:54 +0800feat:代码提交
+e097df619e964ccfe08e10e36beff5c7e2432fdeacd9ae4328623411170364226cb4224819442caf谢泽恩xiezeen@ourchem.com2026-09-02 17:19:31 +0800feat：代码提交
+acd9ae4328623411170364226cb4224819442caf5f456571901c4b4a0f480baf6f203ae68698382b谢泽恩xiezeen@ourchem.com2026-09-02 16:57:08 +0800feat:代码提交
+5f456571901c4b4a0f480baf6f203ae68698382b8acab83f8231fe1bfa41dd009a08efa901e8f866谢泽恩xiezeen@ourchem.com2026-09-02 16:56:57 +0800feat：代码提交
+8acab83f8231fe1bfa41dd009a08efa901e8f866756cdebd06dbe344e6a3221561e4be9e7d03f19d谢泽恩xiezeen@ourchem.com2026-09-02 16:41:27 +0800feat:代码提交
+756cdebd06dbe344e6a3221561e4be9e7d03f19d3cb5260fdac612a20de94c645bc2883f0409acef谢泽恩xiezeen@ourchem.com2026-09-02 16:37:14 +0800feat:代码提交
+3cb5260fdac612a20de94c645bc2883f0409acef40b0fe402dd3fa2bb75fc9f6781160c1e75f7287谢泽恩xiezeen@ourchem.com2026-09-02 16:27:22 +0800feat:代码提交
+40b0fe402dd3fa2bb75fc9f6781160c1e75f7287c25727d681dbc8d894cde393ff7d041b9f0c4f2d谢泽恩xiezeen@ourchem.com2026-09-02 15:52:07 +0800feat:代码提交
+c25727d681dbc8d894cde393ff7d041b9f0c4f2d1cc18fae401d9bfa3b8272eadaf8051fa31936ec谢泽恩xiezeen@ourchem.com2026-09-02 15:38:37 +0800feat:代码提交
+1cc18fae401d9bfa3b8272eadaf8051fa31936ecb7148342815cfd3b765d50b6566777c461f9ea73 6921d665aa4649c246ddbe90d236f75c920ab6cc谢泽恩xiezeen@ourchem.com2026-09-02 15:23:08 +0800Merge remote-tracking branch 'origin/1.8.3-dev' into 1.8.3-dev
+b7148342815cfd3b765d50b6566777c461f9ea7370e5bb9abd106feb4f9ddae12faa49c9d7c1b1ce谢泽恩xiezeen@ourchem.com2026-09-02 15:22:45 +0800feat：代码提交
+6921d665aa4649c246ddbe90d236f75c920ab6cca2e6bb4a8ca8772fb16ea2ea82ec7bf617d2069c 70e5bb9abd106feb4f9ddae12faa49c9d7c1b1celiushaocongliushaocong@ourchem.com2026-09-02 15:09:19 +0800Merge branch '1.8.3-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.3-dev
+a2e6bb4a8ca8772fb16ea2ea82ec7bf617d2069c442586893022d8c1bef164481aaef9b92a2c6b68liushaocongliushaocong@ourchem.com2026-09-02 15:08:44 +0800feat(doceva): 添加权利要求书格式校验功能
+70e5bb9abd106feb4f9ddae12faa49c9d7c1b1ce8a2d460356862568b557f4ed375673513e2ac107谢泽恩xiezeen@ourchem.com2026-09-02 15:06:00 +0800feat:代码提交
+8a2d460356862568b557f4ed375673513e2ac107ac3bc3b6b1509bb43fcd3c2802f3805533a2551e谢泽恩xiezeen@ourchem.com2026-09-02 15:04:03 +0800feat:代码提交
+ac3bc3b6b1509bb43fcd3c2802f3805533a2551e442586893022d8c1bef164481aaef9b92a2c6b68谢泽恩xiezeen@ourchem.com2026-09-02 14:48:50 +0800feat：代码提交
+442586893022d8c1bef164481aaef9b92a2c6b685fba29a303424372dfc35c2755eb2155072aa88a谢泽恩xiezeen@ourchem.com2026-09-02 11:30:32 +0800feat:代码提交
+5fba29a303424372dfc35c2755eb2155072aa88a896b038ba22b717c273b45f301590f99ef8f1aa4谢泽恩xiezeen@ourchem.com2026-09-02 11:19:59 +0800feat：代码提交
+896b038ba22b717c273b45f301590f99ef8f1aa48d222f04923d648b560b070f0c2b5f9a9d90b485谢泽恩xiezeen@ourchem.com2026-09-02 11:01:00 +0800feat：代码提交
+8d222f04923d648b560b070f0c2b5f9a9d90b48520bf7cd3cef4aaa0b729854ac2b0d4eedf01773e谢泽恩xiezeen@ourchem.com2026-09-02 10:39:50 +0800feat:代码提交
+20bf7cd3cef4aaa0b729854ac2b0d4eedf01773ebe0320060744ad20f63303da91409c6edf47318a谢泽恩xiezeen@ourchem.com2026-09-02 10:11:26 +0800feat:代码提交
+be0320060744ad20f63303da91409c6edf47318a79ac3ef83c43762f405e3f9f07d5256699083063谢泽恩xiezeen@ourchem.com2026-09-01 17:45:31 +0800feat:代码提交
+79ac3ef83c43762f405e3f9f07d525669908306318ca35c1a80d81e5d33f15e945050cd259a3c465谢泽恩xiezeen@ourchem.com2026-09-01 17:40:28 +0800feat：代码提交
+18ca35c1a80d81e5d33f15e945050cd259a3c465ced3f6228b73b99a6b6f64f2f0bb1446859e6c24谢泽恩xiezeen@ourchem.com2026-09-01 17:28:39 +0800feat:代码提交
+ced3f6228b73b99a6b6f64f2f0bb1446859e6c24dc1ffea88bd4c848a7b7a98ac2fec9682e45f905 dffc5534cf932fe0220fe91a195eeeb112256b94谢泽恩xiezeen@ourchem.com2026-09-01 15:42:50 +0800Merge remote-tracking branch 'origin/1.8.3-dev' into 1.8.3-dev
+dc1ffea88bd4c848a7b7a98ac2fec9682e45f90586f3fd78beb062aaf1d9b52a5ec9a466354d92bf谢泽恩xiezeen@ourchem.com2026-09-01 15:42:26 +0800feat：代码提交
+dffc5534cf932fe0220fe91a195eeeb112256b94ae34f58e440a3a7f23401d7c6ad23119844a0066 86f3fd78beb062aaf1d9b52a5ec9a466354d92bfliushaocongliushaocong@ourchem.com2026-09-01 15:34:04 +0800Merge branch '1.8.3-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.3-dev
+ae34f58e440a3a7f23401d7c6ad23119844a006613d5bb50b205b21c643d813596dde26efdbb8e58liushaocongliushaocong@ourchem.com2026-09-01 15:33:38 +0800refactor(formalreview): 重构专利权利要求格式检查规则实现
+86f3fd78beb062aaf1d9b52a5ec9a466354d92bfae40c35a481595aaa8c2063bbd41b6868c2dc81e谢泽恩xiezeen@ourchem.com2026-09-01 15:32:59 +0800feat：代码提交
+ae40c35a481595aaa8c2063bbd41b6868c2dc81ebd4f6aa73dcbe503fe34627ff70681dd084faf71谢泽恩xiezeen@ourchem.com2026-09-01 15:24:37 +0800feat：代码提交
+bd4f6aa73dcbe503fe34627ff70681dd084faf7168710263c71a09bd72364fb477249338e34c0b41谢泽恩xiezeen@ourchem.com2026-09-01 15:24:09 +0800feat：代码提交
+68710263c71a09bd72364fb477249338e34c0b4145a141f2d3c72d18ee2d4f1c137217088e5870ec谢泽恩xiezeen@ourchem.com2026-09-01 15:09:55 +0800feat:代码提交
+45a141f2d3c72d18ee2d4f1c137217088e5870ec2a0ee820719788135f461901c6cfd5b0f0c48b24谢泽恩xiezeen@ourchem.com2026-09-01 14:52:25 +0800feat：代码提交
+2a0ee820719788135f461901c6cfd5b0f0c48b2413d5bb50b205b21c643d813596dde26efdbb8e58谢泽恩xiezeen@ourchem.com2026-09-01 14:45:57 +0800feat：代码提交
+13d5bb50b205b21c643d813596dde26efdbb8e589137d217059297b4399547db46d4eccbee128004谢泽恩xiezeen@ourchem.com2026-09-01 14:18:50 +0800feat:代码提交
+9137d217059297b4399547db46d4eccbee12800469e61c0fd9a06f18f0091c56ebb046cb1ec3cae0谢泽恩xiezeen@ourchem.com2026-09-01 11:53:50 +0800feat:代码提交
+69e61c0fd9a06f18f0091c56ebb046cb1ec3cae0f7c7e58f7648fd4bf607b243bc4e423d89a38fa4谢泽恩xiezeen@ourchem.com2026-09-01 11:52:17 +0800feat:代码提交
+f7c7e58f7648fd4bf607b243bc4e423d89a38fa43f0ed5f3add92534d5a264ac8865036dc0329cf0 0c60cde61e2251ed7f9f6840971b4ea531367e2b谢泽恩xiezeen@ourchem.com2026-09-01 10:19:43 +0800Merge remote-tracking branch 'origin/1.8.3-dev' into 1.8.3-dev
+3f0ed5f3add92534d5a264ac8865036dc0329cf0186dfa49a99d8b65d99e38eedb632ac5e9b96c0f谢泽恩xiezeen@ourchem.com2026-09-01 10:19:24 +0800feat:代码提交
+0c60cde61e2251ed7f9f6840971b4ea531367e2ba71618afdb4e4fc312b28e4ced6f1a61788bbdbd 186dfa49a99d8b65d99e38eedb632ac5e9b96c0fliushaocongliushaocong@ourchem.com2026-09-01 10:06:35 +0800Merge branch '1.8.3-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.3-dev
+a71618afdb4e4fc312b28e4ced6f1a61788bbdbd4247f5aeb09360c902048466c6fd0eb05d2645caliushaocongliushaocong@ourchem.com2026-09-01 10:06:13 +0800fix(doceva): 修复摘要技术方案检查中的参数传递错误
+186dfa49a99d8b65d99e38eedb632ac5e9b96c0fafe0b1e0afda878c3204b320d440b048e22017fc谢泽恩xiezeen@ourchem.com2026-09-01 10:00:54 +0800feat:代码提交
+afe0b1e0afda878c3204b320d440b048e22017fc4247f5aeb09360c902048466c6fd0eb05d2645ca谢泽恩xiezeen@ourchem.com2026-08-31 18:22:25 +0800feat:代码提交
+4247f5aeb09360c902048466c6fd0eb05d2645ca3264086c8773416c9492c81f170c2aec3f3c709a谢泽恩xiezeen@ourchem.com2026-08-31 17:54:35 +0800feat:代码提交
+3264086c8773416c9492c81f170c2aec3f3c709ae6d87b2d897181dd450097038cc7935819e3d491谢泽恩xiezeen@ourchem.com2026-08-31 17:46:28 +0800feat：代码提交
+e6d87b2d897181dd450097038cc7935819e3d491e6c60f4a2ee5cc6db5738640379b2642d0da0a05谢泽恩xiezeen@ourchem.com2026-08-31 17:44:32 +0800feat:代码提交
+e6c60f4a2ee5cc6db5738640379b2642d0da0a05b4a8194104082443e7f77b97747668d46f9b8b75谢泽恩xiezeen@ourchem.com2026-08-31 17:18:20 +0800feat:代码提交
+b4a8194104082443e7f77b97747668d46f9b8b755fef0a6529cbb37923bb8b723bd62478eae53394谢泽恩xiezeen@ourchem.com2026-08-31 16:31:45 +0800feat：代码提交
+5fef0a6529cbb37923bb8b723bd62478eae53394625f2294ffcdbbb6b234d50469ec2bb2d0138f99谢泽恩xiezeen@ourchem.com2026-08-31 16:10:58 +0800feat:代码提交
+625f2294ffcdbbb6b234d50469ec2bb2d0138f99c58af208a0063f0f13df4b9ff12daf3c61ac1d1b谢泽恩xiezeen@ourchem.com2026-08-31 16:03:25 +0800feat:代码提交
+c58af208a0063f0f13df4b9ff12daf3c61ac1d1bd44b5f485bb505958714324f2455a94fddbab4bc fb41b9437df5f9251424af1febb0ca3249d507b3谢泽恩xiezeen@ourchem.com2026-08-31 16:00:46 +0800Merge remote-tracking branch 'origin/1.8.3-dev' into 1.8.3-dev
+d44b5f485bb505958714324f2455a94fddbab4bcccfc51b4748f5ba91dbefefae931ce8b57d91fec谢泽恩xiezeen@ourchem.com2026-08-31 16:00:27 +0800feat：代码提交
+fb41b9437df5f9251424af1febb0ca3249d507b337bed73124e8e686155afbd53ad0caebe5bc9ae5 ccfc51b4748f5ba91dbefefae931ce8b57d91fecliushaocongliushaocong@ourchem.com2026-08-31 15:52:28 +0800Merge branch '1.8.3-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.3-dev
+37bed73124e8e686155afbd53ad0caebe5bc9ae5fb79bc310de854061dc8340088b89d8d3fd41cc5liushaocongliushaocong@ourchem.com2026-08-31 15:52:01 +0800feat(config): pro基准版本
+ccfc51b4748f5ba91dbefefae931ce8b57d91fec412264ba0c6519f2dd6776047705f10ae461a088谢泽恩xiezeen@ourchem.com2026-08-31 15:09:43 +0800feat:代码提交
+412264ba0c6519f2dd6776047705f10ae461a0881addf57e0b7bfbe467f0a37931de31056a65ce61谢泽恩xiezeen@ourchem.com2026-08-31 15:04:49 +0800feat:代码提交
+1addf57e0b7bfbe467f0a37931de31056a65ce613d25ff20181c1f65bb6dd921879d041c0d5352f2谢泽恩xiezeen@ourchem.com2026-08-31 15:01:06 +0800feat:代码提交
+3d25ff20181c1f65bb6dd921879d041c0d5352f26d9170bab5469e658681539acde3239efc83faa6谢泽恩xiezeen@ourchem.com2026-08-31 13:50:30 +0800feat:代码提交
+6d9170bab5469e658681539acde3239efc83faa6720f42b13c7365180a470333380b9da4fc4059d4谢泽恩xiezeen@ourchem.com2026-08-31 10:59:48 +0800feat:代码提交
+720f42b13c7365180a470333380b9da4fc4059d4a16793cc96ed19d091f6fc1c22bf3e5f78fe9590谢泽恩xiezeen@ourchem.com2026-08-31 10:28:51 +0800feat:代码提交
+a16793cc96ed19d091f6fc1c22bf3e5f78fe9590d4dd3d93dba9fa21f5c1653ab8b8f95cb672ef33 fb79bc310de854061dc8340088b89d8d3fd41cc5谢泽恩xiezeen@ourchem.com2026-08-31 10:08:01 +0800Merge remote-tracking branch 'origin/1.8.3-dev' into 1.8.3-dev
+d4dd3d93dba9fa21f5c1653ab8b8f95cb672ef337ef50bd7ce30721bf16bb6cab46bbe8bd67953af谢泽恩xiezeen@ourchem.com2026-08-31 10:07:48 +0800feat:代码提交
+fb79bc310de854061dc8340088b89d8d3fd41cc57ef50bd7ce30721bf16bb6cab46bbe8bd67953afliushaocongliushaocong@ourchem.com2026-08-31 09:39:08 +0800feat(formalreview): 修改摘要内容查询逻辑以支持列表数据
+7ef50bd7ce30721bf16bb6cab46bbe8bd67953afb87fb86a711408a4c46a330a52269885dee78319谢泽恩xiezeen@ourchem.com2026-08-28 18:06:34 +0800feat:代码提交
+b87fb86a711408a4c46a330a52269885dee78319feb2854e8faf488065ac39c5a60c0716f830d5f9谢泽恩xiezeen@ourchem.com2026-08-28 17:26:13 +0800feat:代码提交
+feb2854e8faf488065ac39c5a60c0716f830d5f93075cbde0667558cd738ef79f0861173ab4ccabd谢泽恩xiezeen@ourchem.com2026-08-28 17:09:21 +0800feat:代码提交
+3075cbde0667558cd738ef79f0861173ab4ccabd497197c96a87cbc3525e51c8f6503fc46635ab31谢泽恩xiezeen@ourchem.com2026-08-28 16:55:13 +0800feat:排序
+497197c96a87cbc3525e51c8f6503fc46635ab31a124b4ab3c12f6f89b2867ba4c83767d3701f64a谢泽恩xiezeen@ourchem.com2026-08-28 16:44:08 +0800feat：代码提交
+a124b4ab3c12f6f89b2867ba4c83767d3701f64afece4ad9fa2d54dcbee029ebda884c779871b351 bd5778de2fd5b1c2c86bb0f0ded73c086c743594谢泽恩xiezeen@ourchem.com2026-08-28 16:28:26 +0800Merge remote-tracking branch 'origin/1.8.3-dev' into 1.8.3-dev
+fece4ad9fa2d54dcbee029ebda884c779871b351f3f70809d9d46054cc0eb59e2da9525a6b376b4a谢泽恩xiezeen@ourchem.com2026-08-28 16:28:08 +0800feat:代码提交
+bd5778de2fd5b1c2c86bb0f0ded73c086c743594012592ba13ce8086d5f3114c2aa30097e6296b4bliushaocongliushaocong@ourchem.com2026-08-28 15:51:51 +0800feat(config): 更新评估配置添加格式检查和异常判断功能
+012592ba13ce8086d5f3114c2aa30097e6296b4b0a4d157cd788d5135a4f8d99eefedd0d49448fa3 f3f70809d9d46054cc0eb59e2da9525a6b376b4aliushaocongliushaocong@ourchem.com2026-08-28 15:49:48 +0800Merge branch '1.8.3-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.3-dev
+0a4d157cd788d5135a4f8d99eefedd0d49448fa3628f3e720fa76bdd7be1a6a323ff1caf71ea45a0liushaocongliushaocong@ourchem.com2026-08-28 15:47:38 +0800refactor(rule): 重构专利质量评估规则的数据传输格式
+f3f70809d9d46054cc0eb59e2da9525a6b376b4a236d3815184dd4327a22b14b13bee350fdc74e8a谢泽恩xiezeen@ourchem.com2026-08-28 11:12:47 +0800feat：代码提交
+628f3e720fa76bdd7be1a6a323ff1caf71ea45a0974e7559c03bb0b736251d425300b503720a39a5liushaocongliushaocong@ourchem.com2026-08-28 09:24:21 +0800feat(doceva): 添加 Dify 规则工作流统一调用服务
+236d3815184dd4327a22b14b13bee350fdc74e8ad6cd767fc9d783e0b90ecad2c97d64dd359d4051谢泽恩xiezeen@ourchem.com2026-08-27 18:28:35 +0800feat：代码提交
+974e7559c03bb0b736251d425300b503720a39a51735093f7d9560f614cf82525497c45295076824liushaocongliushaocong@ourchem.com2026-08-27 18:28:16 +0800refactor(formalreview): 将AI模型调用方式从直连模式迁移到Dify工作流
+d6cd767fc9d783e0b90ecad2c97d64dd359d4051bc8676acf1dcea622dfcedeb1733a9d157f9335a谢泽恩xiezeen@ourchem.com2026-08-27 18:03:28 +0800feat：代码提交
+bc8676acf1dcea622dfcedeb1733a9d157f9335a0d5b250d9e565344e27f214a3e7a3987065b541a谢泽恩xiezeen@ourchem.com2026-08-27 18:00:58 +0800feat:代码提交
+0d5b250d9e565344e27f214a3e7a3987065b541a2c8dda23a64dc23fd057a7081dbd3da2ab9cd5dc谢泽恩xiezeen@ourchem.com2026-08-27 17:24:46 +0800feat：代码提交
+2c8dda23a64dc23fd057a7081dbd3da2ab9cd5dcaf29f2ecaf0ccdceb0999e2fc7bd51600d151f3f谢泽恩xiezeen@ourchem.com2026-08-27 16:51:40 +0800feat：代码提交
+af29f2ecaf0ccdceb0999e2fc7bd51600d151f3f04c00bd3ee3c7c9a452fdb2175799ac93488999f谢泽恩xiezeen@ourchem.com2026-08-27 13:57:56 +0800feat:代码提交
+04c00bd3ee3c7c9a452fdb2175799ac93488999f52020337de6256d42cdeedb7f5cdd5c2ad5723dd谢泽恩xiezeen@ourchem.com2026-08-27 11:12:11 +0800feat:代码提交
+52020337de6256d42cdeedb7f5cdd5c2ad5723dd1735093f7d9560f614cf82525497c45295076824谢泽恩xiezeen@ourchem.com2026-08-27 10:17:53 +0800feat:代码提交
+1735093f7d9560f614cf82525497c45295076824518f2585d3c276ccb18d3216edd2cf16aa3cd94e谢泽恩xiezeen@ourchem.com2026-08-27 09:46:05 +0800feat:代码提交
+518f2585d3c276ccb18d3216edd2cf16aa3cd94e3ca01474e72ba88ea86fd032ac004fd04e231d00 1c71e72f5d9699258d5dac0664ebe16b9d1c2e3a谢泽恩xiezeen@ourchem.com2026-08-27 09:34:56 +0800Merge branch '1.8.2-release' into 1.8.3-dev
+3ca01474e72ba88ea86fd032ac004fd04e231d006a5ebd306116b8208b4df66233e5024fdca1bf38 a1b0fd3f0144d96e4fce775ae5adffc490f7a0e9谢泽恩xiezeen@ourchem.com2026-08-27 09:34:03 +0800Merge remote-tracking branch 'origin/1.8.2-release' into 1.8.3-dev
+6a5ebd306116b8208b4df66233e5024fdca1bf3824c396c75281afa0b9607ed6b51862c5dacf2e00谢泽恩xiezeen@ourchem.com2026-08-27 09:32:05 +0800feat:代码提交
+1c71e72f5d9699258d5dac0664ebe16b9d1c2e3aa1b0fd3f0144d96e4fce775ae5adffc490f7a0e9 84312e992d5236ebfd18cbd200daaaa93b52dbeb谢泽恩xiezeen@ourchem.com2026-08-26 18:28:56 +0800Merge branch '1.8.2-dev' into 1.8.2-release
+24c396c75281afa0b9607ed6b51862c5dacf2e001326503d44c3c6c0ce2f1f05d3bae5dd8d74ab11谢泽恩xiezeen@ourchem.com2026-08-26 17:29:58 +0800feat:代码提交
+84312e992d5236ebfd18cbd200daaaa93b52dbeb1e333c5712bda6d6f68c09dfa8b7ef64d23aee30谢泽恩xiezeen@ourchem.com2026-08-26 11:15:36 +0800feat:代码提交
+1326503d44c3c6c0ce2f1f05d3bae5dd8d74ab11cf347d7a67a6b9a1428d57f2af9d877ff5dd1bbc谢泽恩xiezeen@ourchem.com2026-08-25 16:43:29 +0800feat:代码提交
+cf347d7a67a6b9a1428d57f2af9d877ff5dd1bbc587588095e8fbcaee4ed0676f1772ae43eb9064fliushaocongliushaocong@ourchem.com2026-08-25 16:09:51 +0800feat(config): 添加句子清晰度检查配置项
+587588095e8fbcaee4ed0676f1772ae43eb9064f89aa980c0d95115eadeaeb41326eafc48f4eff5bliushaocongliushaocong@ourchem.com2026-08-25 16:06:41 +0800chore(config): 添加评估配置项到本地应用配置
+1e333c5712bda6d6f68c09dfa8b7ef64d23aee30bce506f4a0bd9e53a7191a06e3fdbf78d2c69c6b谢泽恩xiezeen@ourchem.com2026-08-25 14:05:55 +0800feat:代码提交
+bce506f4a0bd9e53a7191a06e3fdbf78d2c69c6b05c6ddcc968b7fc65d2cb6b846b7f26552ce6fd0谢泽恩xiezeen@ourchem.com2026-08-25 13:49:12 +0800feat:代码提交
+05c6ddcc968b7fc65d2cb6b846b7f26552ce6fd07a79da1b14a77f5c307d24249dcd5b2453351fb4谢泽恩xiezeen@ourchem.com2026-08-25 11:52:11 +0800feat:代码提交
+7a79da1b14a77f5c307d24249dcd5b2453351fb409a7907768c47a6a57d49f24caaf1b6ec68a745c c97ca5e39b1e418c24621693db9cddd189212eeeliushaocongliushaocong@ourchem.com2026-08-25 11:28:31 +0800Merge branch '1.8.2-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.2-dev
+09a7907768c47a6a57d49f24caaf1b6ec68a745c0b94e8af56a2175c5fd22fc477a9b19552a7139fliushaocongliushaocong@ourchem.com2026-08-25 11:26:25 +0800``` fix(dify): 修复内容长度限制问题
+a1b0fd3f0144d96e4fce775ae5adffc490f7a0e99b5b135ed554e983561c45d4ac8c49e263e85e3bliushaocongliushaocong@ourchem.com2026-08-25 11:26:25 +0800``` fix(dify): 修复内容长度限制问题
+c97ca5e39b1e418c24621693db9cddd189212eee0b94e8af56a2175c5fd22fc477a9b19552a7139f谢泽恩xiezeen@ourchem.com2026-08-25 11:22:33 +0800feat：代码提交
+9b5b135ed554e983561c45d4ac8c49e263e85e3bdcb8a904f56b2158a7d85949860263978dac40f7liushaocongliushaocong@ourchem.com2026-08-25 10:51:56 +0800refactor(dify): 将构建比较文件方法改为公共方法
+0b94e8af56a2175c5fd22fc477a9b19552a7139fca7d38625cc7b2e1ba394e6f397246e526dd23a1 cdcd69d1ea8ea1d872bc89cad0a636ce34bb4c45liushaocongliushaocong@ourchem.com2026-08-25 10:52:15 +0800Merge branch '1.8.2-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.2-dev
+ca7d38625cc7b2e1ba394e6f397246e526dd23a11ee5a179e94fecef52dffc165faf614b8899dd50liushaocongliushaocong@ourchem.com2026-08-25 10:51:56 +0800refactor(dify): 将构建比较文件方法改为公共方法
+cdcd69d1ea8ea1d872bc89cad0a636ce34bb4c451ee5a179e94fecef52dffc165faf614b8899dd50谢泽恩xiezeen@ourchem.com2026-08-25 10:15:47 +0800feat:代码提交
+1ee5a179e94fecef52dffc165faf614b8899dd50be4b13715f821519c38e970d1be396263ab74a7d 6b58ca079fc7758988e1e72da00a50839fc7555e谢泽恩xiezeen@ourchem.com2026-08-25 09:47:37 +0800Merge remote-tracking branch 'origin/1.8.2-dev' into 1.8.2-dev
+be4b13715f821519c38e970d1be396263ab74a7d58fd059b4dca4947987dd273be6c7c0283a66bd1谢泽恩xiezeen@ourchem.com2026-08-25 09:47:14 +0800feat：代码提交
+6b58ca079fc7758988e1e72da00a50839fc7555e83419ff040939b94427d5868cc1860ec0ed89c5cliushaocongliushaocong@ourchem.com2026-08-24 20:46:01 +0800refactor(dify): 优化专利申请文档生成逻辑
+dcb8a904f56b2158a7d85949860263978dac40f783419ff040939b94427d5868cc1860ec0ed89c5cliushaocongliushaocong@ourchem.com2026-08-24 20:46:01 +0800refactor(dify): 优化专利申请文档生成逻辑
+83419ff040939b94427d5868cc1860ec0ed89c5c05e3cb7784865ced54ac1c0a815db5de1a49dccd 58fd059b4dca4947987dd273be6c7c0283a66bd1liushaocongliushaocong@ourchem.com2026-08-24 20:38:04 +0800Merge branch '1.8.2-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.2-dev
+05e3cb7784865ced54ac1c0a815db5de1a49dccd1bf002b8a32f1708ce1ac2e8a4a7570f1285e209liushaocongliushaocong@ourchem.com2026-08-24 20:37:48 +0800refactor(dify): 优化披露文档上传查询逻辑
+58fd059b4dca4947987dd273be6c7c0283a66bd11bf002b8a32f1708ce1ac2e8a4a7570f1285e209 d586eaf39e62c128754b75814c86e5c3bb4c9c40谢泽恩xiezeen@ourchem.com2026-08-24 20:35:29 +0800Merge branch '1.8.2-release' into 1.8.2-dev
+d586eaf39e62c128754b75814c86e5c3bb4c9c40c8625bd9ed7a24560d5f9e0c654bc0c7127ad082谢泽恩xiezeen@ourchem.com2026-08-24 20:29:32 +0800feat：代码提交
+1bf002b8a32f1708ce1ac2e8a4a7570f1285e20998a59eb616c732d6b49991edfa4767c729ddabbaliushaocongliushaocong@ourchem.com2026-08-24 20:28:09 +0800refactor(dify): 优化申请文件生成逻辑并添加异常处理
+c8625bd9ed7a24560d5f9e0c654bc0c7127ad082f96d2314e205ac4c2b7331ba9d07b46b9a4ed637谢泽恩xiezeen@ourchem.com2026-08-24 20:20:39 +0800feat:代码提交
+f96d2314e205ac4c2b7331ba9d07b46b9a4ed63798a59eb616c732d6b49991edfa4767c729ddabba谢泽恩xiezeen@ourchem.com2026-08-24 18:49:03 +0800代码提交
+98a59eb616c732d6b49991edfa4767c729ddabbabe424b8aa2980eb781774f0db8b43ddc209001d5 078f1be7752c9977e2795a5331b227ebdf4414baliushaocongliushaocong@ourchem.com2026-08-24 17:54:56 +0800Merge branch '1.8.2-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.2-dev
+be424b8aa2980eb781774f0db8b43ddc209001d5d44bd7ced0b4354b054271a8d58377d8d7d18f8bliushaocongliushaocong@ourchem.com2026-08-24 17:54:26 +0800feat(dify): 添加大模型策略分析结果容错解析功能
+078f1be7752c9977e2795a5331b227ebdf4414baca05fd849645a6a64847250b0c1e288331be5d3a谢泽恩xiezeen@ourchem.com2026-08-24 17:27:44 +0800feat:代码提交
+ca05fd849645a6a64847250b0c1e288331be5d3ad44bd7ced0b4354b054271a8d58377d8d7d18f8b谢泽恩xiezeen@ourchem.com2026-08-24 17:02:35 +0800feat：代码提交
+d44bd7ced0b4354b054271a8d58377d8d7d18f8bd3d475d247eefb991fb05d4302d55bbb23b28ee2liushaocongliushaocong@ourchem.com2026-08-24 16:57:59 +0800rename(config): 回退解析
+d3d475d247eefb991fb05d4302d55bbb23b28ee28f7444f78c3bb87e1d298a30d984af1e64a2a989谢泽恩xiezeen@ourchem.com2026-08-24 16:28:13 +0800feat：代码提交
+8f7444f78c3bb87e1d298a30d984af1e64a2a989d387e3104e93b3d29b324ab5e99bfe4ba6404fe0谢泽恩xiezeen@ourchem.com2026-08-24 16:17:02 +0800feat：代码提交
+d387e3104e93b3d29b324ab5e99bfe4ba6404fe018b736e29ba8cb5745b1148da3a0b09749c771cd谢泽恩xiezeen@ourchem.com2026-08-24 16:06:22 +0800feat：代码提交
+18b736e29ba8cb5745b1148da3a0b09749c771cdbe7b881ed38358261f82acda3314e401fb50fd3d谢泽恩xiezeen@ourchem.com2026-08-24 15:43:54 +0800feat：代码提交
+89aa980c0d95115eadeaeb41326eafc48f4eff5b529587129505c6b8e1e00a3d62fbb09c8ba26077谢泽恩xiezeen@ourchem.com2026-08-24 13:38:14 +0800feat：代码提交
+be7b881ed38358261f82acda3314e401fb50fd3dc8b5de35d531b6f037aec4e4a2a7e4b529236fddliushaocongliushaocong@ourchem.com2026-08-21 19:03:14 +0800rename(config): 重命名审查目标密钥配置为审查策略密钥
+c8b5de35d531b6f037aec4e4a2a7e4b529236fdddf8d03cc3a1af2d1bf709e73328b99acf3269a2d谢泽恩xiezeen@ourchem.com2026-08-21 19:00:10 +0800feat：代码提交
+df8d03cc3a1af2d1bf709e73328b99acf3269a2d7bb3b967097005004b0ad49d4c6be8f92f02f8a6谢泽恩xiezeen@ourchem.com2026-08-21 18:47:40 +0800feat:代码提交
+7bb3b967097005004b0ad49d4c6be8f92f02f8a6ec2d8dc9cf3f1eb598823d6e2ac3f218e89998f3谢泽恩xiezeen@ourchem.com2026-08-21 18:07:49 +0800feat:修复bug
+ec2d8dc9cf3f1eb598823d6e2ac3f218e89998f3bbca1c7aa3783e925b90896365a682da2a1ddac5liushaocongliushaocong@ourchem.com2026-08-21 16:50:34 +0800refactor(dify): 优化审查意见通知书文本提取和空白字符处理
+bbca1c7aa3783e925b90896365a682da2a1ddac5a418c00ba73e8b959ccb1d2a4128aa6e8c3b6900liushaocongliushaocong@ourchem.com2026-08-21 10:14:36 +0800fix(service): 优化OA答审文件条目不存在时的错误提示
+a418c00ba73e8b959ccb1d2a4128aa6e8c3b6900c1c59c97f85f9396dce2b05fc7d22df28e9f95ealiushaocongliushaocong@ourchem.com2026-08-20 17:32:38 +0800feat(mapper): 添加披露文档审查实例的共享和查看状态字段
+529587129505c6b8e1e00a3d62fbb09c8ba260778189ae820deeb5060f8eca080d16d97cb8a08883谢泽恩xiezeen@ourchem.com2026-08-20 16:57:45 +0800feat:代码提交
+c1c59c97f85f9396dce2b05fc7d22df28e9f95ead5aa0c6ac02b741a471565bc064f4f9f3ef602d0liushaocongliushaocong@ourchem.com2026-08-19 18:03:11 +0800fix(dify): 修复专利标题缓存和查询返回逻辑
+d5aa0c6ac02b741a471565bc064f4f9f3ef602d0858cc34af8338e2351f5c2abfb8c0d358f326101 8189ae820deeb5060f8eca080d16d97cb8a08883liushaocongliushaocong@ourchem.com2026-08-19 17:51:51 +0800Merge branch '1.8.2-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.2-dev
+858cc34af8338e2351f5c2abfb8c0d358f326101125922cbfa9b35722444ab239f5b634028cf0c38liushaocongliushaocong@ourchem.com2026-08-19 17:51:23 +0800fix(dify): 修正专利标题缓存和应用名称格式
+8189ae820deeb5060f8eca080d16d97cb8a08883125922cbfa9b35722444ab239f5b634028cf0c38谢泽恩xiezeen@ourchem.com2026-08-19 14:35:28 +0800feat:代码提交
+125922cbfa9b35722444ab239f5b634028cf0c38f525a245d6df307deb744919fc2bed1de165b406谢泽恩xiezeen@ourchem.com2026-08-19 09:06:53 +0800feat:代码提交
+f525a245d6df307deb744919fc2bed1de165b40677dfd4957c8bb2f9e6405d4c635b6ca2eeaaec01谢泽恩xiezeen@ourchem.com2026-08-18 18:38:14 +0800feat:代码提交
+77dfd4957c8bb2f9e6405d4c635b6ca2eeaaec01876a10cc3fe1501162ba748ec6e241f379132542谢泽恩xiezeen@ourchem.com2026-08-18 18:06:41 +0800feat:代码提交
+876a10cc3fe1501162ba748ec6e241f379132542c7c6fe0f421d1dadbeb0f8ee2dceac14eb470111 446674eed8877b8f68a158c33fbbb2f451946dceliushaocongliushaocong@ourchem.com2026-08-18 17:11:52 +0800Merge branch '1.8.2-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.2-dev
+c7c6fe0f421d1dadbeb0f8ee2dceac14eb470111c86f501d196c2b282e35ac9647c7631dd7cdb912liushaocongliushaocong@ourchem.com2026-08-18 17:10:49 +0800feat(chat): 优化专利申请文档获取逻辑
+c86f501d196c2b282e35ac9647c7631dd7cdb9124b9a943934fe43f0ef730bda8828fec3cde293c9liushaocongliushaocong@ourchem.com2026-08-18 17:09:11 +0800feat(chat): 优化专利申请文档获取逻辑
+446674eed8877b8f68a158c33fbbb2f451946dce4b9a943934fe43f0ef730bda8828fec3cde293c9谢泽恩xiezeen@ourchem.com2026-08-18 16:52:08 +0800feat:代码提交
+4b9a943934fe43f0ef730bda8828fec3cde293c9502ff5d36a79c01dd4c4078cd2040ce88503a516liushaocongliushaocong@ourchem.com2026-08-18 16:22:19 +0800fix(dify): 优化专利披露文档扩展历史服务的文本获取逻辑
+502ff5d36a79c01dd4c4078cd2040ce88503a51645527b68195daf6a76a4a64b262cffd205d440b1liushaocongliushaocong@ourchem.com2026-08-18 15:55:18 +0800refactor(service): 移除OaAnswerReviewFileItemVo类
+45527b68195daf6a76a4a64b262cffd205d440b10d84a96c649d0c6b68bb2cbf3e9f6ea1f8daf1ccliushaocongliushaocong@ourchem.com2026-08-18 14:02:09 +0800fix(dify): 修复专利文献文件ID设置问题
+0d84a96c649d0c6b68bb2cbf3e9f6ea1f8daf1cceabe47882720cfbecaaecbe35ae6f5eb269ffc16liushaocongliushaocong@ourchem.com2026-08-18 13:50:55 +0800refactor(doceva): 优化表格识别和段落分割逻辑
+eabe47882720cfbecaaecbe35ae6f5eb269ffc163d65350c4a60aae0653308e913fedf235db881e4liushaocongliushaocong@ourchem.com2026-08-18 11:51:30 +0800fix(doceva): 修复文档解析中的换行符处理逻辑
+3d65350c4a60aae0653308e913fedf235db881e4147deaa805fbc624e1380e2824bc1363279c3076liushaocongliushaocong@ourchem.com2026-08-18 02:16:57 +0800refactor(entity): 修改序号字段类型为包装类型
+147deaa805fbc624e1380e2824bc1363279c3076d0a15aef5690025253608b7218e9f284fbb4c04a 37a0af0f1fa8ffb4c46a5e37d09c86438edbe503liushaocongliushaocong@ourchem.com2026-08-17 18:47:51 +0800Merge branch '1.8.2-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.2-dev
+d0a15aef5690025253608b7218e9f284fbb4c04a4d5aa2774d0c8615a6b757103fc303157012352dliushaocongliushaocong@ourchem.com2026-08-17 18:44:20 +0800fix(util): 修复JSON字符串中未转义双引号和换行符问题
+37a0af0f1fa8ffb4c46a5e37d09c86438edbe5033f469e0db10141ed5147a14bdcf2380afdc9f56f谢泽恩xiezeen@ourchem.com2026-08-17 18:25:06 +0800feat:代码提交
+4d5aa2774d0c8615a6b757103fc303157012352da399fd545740376f7369d9b04950c2045f8ca192 3f469e0db10141ed5147a14bdcf2380afdc9f56fliushaocongliushaocong@ourchem.com2026-08-17 18:04:42 +0800Merge branch '1.8.2-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.2-dev
+a399fd545740376f7369d9b04950c2045f8ca192e3899364f28bccedd78d01efb119d8ce6ad44d56liushaocongliushaocong@ourchem.com2026-08-17 18:02:59 +0800fix(util): 修复JSON字符串中未转义双引号和换行符问题
+3f469e0db10141ed5147a14bdcf2380afdc9f56f4a99e3caf4ae3d4991d2e24fd494149ed9c7d3ca谢泽恩xiezeen@ourchem.com2026-08-17 17:58:22 +0800feat:代码提交
+e3899364f28bccedd78d01efb119d8ce6ad44d562f5fccceb3b751ee71d4243dac6648df16d6a40eliushaocongliushaocong@ourchem.com2026-08-17 17:47:23 +0800fix(dify): 优化大模型JSON解析和文件项构建逻辑
+4a99e3caf4ae3d4991d2e24fd494149ed9c7d3ca2f5fccceb3b751ee71d4243dac6648df16d6a40e谢泽恩xiezeen@ourchem.com2026-08-17 17:42:06 +0800feat:代码提交
+2f5fccceb3b751ee71d4243dac6648df16d6a40ebc37958e64b0fca1b2b3ac9039f04237c55395adliushaocongliushaocong@ourchem.com2026-08-17 15:58:52 +0800refactor(dify): 优化OA答审文件处理逻辑并改进专利信息查询
+bc37958e64b0fca1b2b3ac9039f04237c55395adadebb8e4bc33602ea7eabfec2e0bedafca18b7baliushaocongliushaocong@ourchem.com2026-08-17 15:07:55 +0800refactor(dify): 优化披露OA答案提取结果查询逻辑
+adebb8e4bc33602ea7eabfec2e0bedafca18b7ba9e0bf7c900cbb0324edc40acb2c3bf86b01f5564 e5993359ff5421d821a5fac3346e03a86d899af0liushaocongliushaocong@ourchem.com2026-08-17 14:41:25 +0800Merge branch '1.8.2-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.2-dev
+9e0bf7c900cbb0324edc40acb2c3bf86b01f55647d6de331c4179cee5c0b262ca030b89508012198liushaocongliushaocong@ourchem.com2026-08-17 14:40:49 +0800feat(disclosure): 添加序号字段并实现排序功能
+e5993359ff5421d821a5fac3346e03a86d899af02a6927691f98abf164a4bad5d6936bb6bc4a77cb 7d6de331c4179cee5c0b262ca030b89508012198谢泽恩xiezeen@ourchem.com2026-08-17 10:23:28 +0800Merge remote-tracking branch 'origin/1.8.2-dev' into 1.8.2-dev
+2a6927691f98abf164a4bad5d6936bb6bc4a77cb694f8e4cb98a02a57219fb8199a774467ba882cf谢泽恩xiezeen@ourchem.com2026-08-17 10:23:11 +0800feat:代码提交
+7d6de331c4179cee5c0b262ca030b89508012198f2edcc2ef9b3f01b8fbed2da69e4eaf5e40d2cf5liushaocongliushaocong@ourchem.com2026-08-14 18:55:16 +0800fix(dify): 优化HTML标签处理逻辑避免误删内容
+f2edcc2ef9b3f01b8fbed2da69e4eaf5e40d2cf52dce780476167c2c907e9a5ffc8e8d9bbcc70151 694f8e4cb98a02a57219fb8199a774467ba882cfliushaocongliushaocong@ourchem.com2026-08-14 18:53:43 +0800Merge branch '1.8.2-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.2-dev
+2dce780476167c2c907e9a5ffc8e8d9bbcc70151e9f8ec9d751fe461b1a08c4202dbc77d66dab68dliushaocongliushaocong@ourchem.com2026-08-14 18:52:39 +0800feat(dify): 优化大模型输入文本清理功能
+694f8e4cb98a02a57219fb8199a774467ba882cfe9f8ec9d751fe461b1a08c4202dbc77d66dab68d谢泽恩xiezeen@ourchem.com2026-08-14 18:35:34 +0800feat:代码提交
+e9f8ec9d751fe461b1a08c4202dbc77d66dab68d663ae70532048cac15f20fa4ab408f42bf0c5ea2谢泽恩xiezeen@ourchem.com2026-08-14 17:49:24 +0800feat:代码提交
+663ae70532048cac15f20fa4ab408f42bf0c5ea229c5b5e387293cdf7487a393edfb1dce18fdee07liushaocongliushaocong@ourchem.com2026-08-14 17:22:28 +0800feat(mapper): 添加版本字段到披露文档答案审查实例映射
+29c5b5e387293cdf7487a393edfb1dce18fdee07984dd07f89bc497d13d6e8863817d4848da54c4d bbf293b775f87b51ba29227c80db54d9ef42524fliushaocongliushaocong@ourchem.com2026-08-14 17:09:27 +0800Merge branch '1.8.2-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.2-dev
+984dd07f89bc497d13d6e8863817d4848da54c4d31a57e3c67ed40334f341a8e06de882f9f19a67cliushaocongliushaocong@ourchem.com2026-08-14 17:09:00 +0800feat(mapper): 添加历史数据标识字段到披露文档审查实例映射
+bbf293b775f87b51ba29227c80db54d9ef42524f7196863094d4308330510682936056cb5266da1a谢泽恩xiezeen@ourchem.com2026-08-14 16:56:18 +0800feat:代码提交
+7196863094d4308330510682936056cb5266da1ac3c91553160be49cd4c2e1e796a879c3d512b93d谢泽恩xiezeen@ourchem.com2026-08-14 16:55:50 +0800feat：代码提交
+c3c91553160be49cd4c2e1e796a879c3d512b93d59e041025fd1c08c7f6842aea2766ca4ad4edd8d谢泽恩xiezeen@ourchem.com2026-08-14 16:54:26 +0800feat:代码提交
+59e041025fd1c08c7f6842aea2766ca4ad4edd8d31a57e3c67ed40334f341a8e06de882f9f19a67c谢泽恩xiezeen@ourchem.com2026-08-14 16:33:07 +0800feat:代码提交
+31a57e3c67ed40334f341a8e06de882f9f19a67c42382f8a55a3847fa0036984c6e41142ca2e76a2 5097e7b44adc21a2bfaca1d0727b244e94adfbb4liushaocongliushaocong@ourchem.com2026-08-14 16:22:09 +0800Merge branch '1.8.2-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.2-dev
+42382f8a55a3847fa0036984c6e41142ca2e76a249d7dde23b70c71ab554149c72b1f62d1608203dliushaocongliushaocong@ourchem.com2026-08-14 16:21:33 +0800feat(dify): 添加 Dify 输入参数字符限制处理
+5097e7b44adc21a2bfaca1d0727b244e94adfbb43a0dedaa07fb9609c5a19e6af4fb074bf30f7cbc谢泽恩xiezeen@ourchem.com2026-08-14 16:07:44 +0800feat:代码提交
+3a0dedaa07fb9609c5a19e6af4fb074bf30f7cbcd9d57cb0d7c6e1afb66d25e3d3368414e67e4271谢泽恩xiezeen@ourchem.com2026-08-14 16:06:47 +0800feat:代码提交
+d9d57cb0d7c6e1afb66d25e3d3368414e67e4271b12dfd842af03717fda19aa804e40ebd9df38aa4 49d7dde23b70c71ab554149c72b1f62d1608203d谢泽恩xiezeen@ourchem.com2026-08-14 15:47:45 +0800Merge remote-tracking branch 'origin/1.8.2-dev' into 1.8.2-dev
+b12dfd842af03717fda19aa804e40ebd9df38aa486114341dd7ba88bd5591d45f034db1407ef7e86谢泽恩xiezeen@ourchem.com2026-08-14 15:47:25 +0800feat：代码提交
+49d7dde23b70c71ab554149c72b1f62d1608203dd3b0da2761a15a53cbc4339d7d506ece548cbe48liushaocongliushaocong@ourchem.com2026-08-14 15:29:41 +0800feat(dify): 添加策略序号字段并优化策略匹配逻辑
+d3b0da2761a15a53cbc4339d7d506ece548cbe481d0b900384ab38f1a434d625dee9ce72f3b0b9c6liushaocongliushaocong@ourchem.com2026-08-14 14:13:17 +0800refactor(dify): 重构申请文件文本填入逻辑
+1d0b900384ab38f1a434d625dee9ce72f3b0b9c62842f34541e75a3f058be22337b25a8d5b326fc2liushaocongliushaocong@ourchem.com2026-08-14 14:00:57 +0800feat(dify): 添加 Dify 工作流调用重试机制
+2842f34541e75a3f058be22337b25a8d5b326fc2560c625e8c0db8db04937537d24988d7b7f6d97aliushaocongliushaocong@ourchem.com2026-08-14 10:26:09 +0800fix(dify): 修复专利文档解析中的标签处理逻辑
+560c625e8c0db8db04937537d24988d7b7f6d97a587c7fbd7aab97542abfbced6c58c1ec455e5bebliushaocongliushaocong@ourchem.com2026-08-14 10:19:05 +0800refactor(dify): 优化披露OA答复审查服务的文件处理逻辑
+587c7fbd7aab97542abfbced6c58c1ec455e5bebf14c2f856224418f126bad73014744bcbb5957ec 86114341dd7ba88bd5591d45f034db1407ef7e86liushaocongliushaocong@ourchem.com2026-08-14 09:34:29 +0800Merge branch '1.8.2-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.2-dev
+f14c2f856224418f126bad73014744bcbb5957ec63f36b72e03e71401edfdfad1da92fbca69665b2liushaocongliushaocong@ourchem.com2026-08-14 09:34:04 +0800refactor(dify): 优化专利标题查询逻辑并添加缓存机制
+86114341dd7ba88bd5591d45f034db1407ef7e8663f36b72e03e71401edfdfad1da92fbca69665b2谢泽恩xiezeen@ourchem.com2026-08-13 18:37:51 +0800feat：代码提交
+63f36b72e03e71401edfdfad1da92fbca69665b295c2641eb028b3d969e6a5a03ad4d15790b4b149liushaocongliushaocong@ourchem.com2026-08-13 18:07:15 +0800feat(dify): 更新专利披露OA审核服务数据提取逻辑
+95c2641eb028b3d969e6a5a03ad4d15790b4b14989255ef1a22634218bd63c284a54759f79bbcdebliushaocongliushaocong@ourchem.com2026-08-13 17:18:35 +0800feat(entity): 添加策略关系字段并实现相关数据处理功能
+89255ef1a22634218bd63c284a54759f79bbcdebfd8fccdcd6d16ffae9d1b95578fff08d032217b4 ac51b6ddadee769552d55b74355474edd69470d0liushaocongliushaocong@ourchem.com2026-08-13 16:21:49 +0800Merge branch '1.8.2-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.2-dev
+fd8fccdcd6d16ffae9d1b95578fff08d032217b48d5a3ae606734b04acef1a95bf214cf00242dab2liushaocongliushaocong@ourchem.com2026-08-13 16:21:24 +0800fix(dify): 修复披露OA答案审查服务中的文件ID设置问题
+ac51b6ddadee769552d55b74355474edd69470d08d5a3ae606734b04acef1a95bf214cf00242dab2谢泽恩xiezeen@ourchem.com2026-08-13 15:59:10 +0800feat:代码提交
+8d5a3ae606734b04acef1a95bf214cf00242dab253949f09512c23b89f42b8de97f45c76c17e4605liushaocongliushaocong@ourchem.com2026-08-13 15:46:20 +0800fix(dify): 解决 issue_list 参数序列化问题
+53949f09512c23b89f42b8de97f45c76c17e46056cef16d0bacf67c3cffa8a9cb6db9a0f99f51c6aliushaocongliushaocong@ourchem.com2026-08-13 15:34:25 +0800feat(dify): 优化审查意见通知书标签提取功能
+6cef16d0bacf67c3cffa8a9cb6db9a0f99f51c6aebb6a5119c646db6e235f02a36581fc242493309 8798ef014ce6c09e423ac194e326ea7a6df7b002liushaocongliushaocong@ourchem.com2026-08-13 15:24:04 +0800Merge branch '1.8.2-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.2-dev
+ebb6a5119c646db6e235f02a36581fc24249330935e3358b0f18897ef0764c3f1d1a06011705ea6fliushaocongliushaocong@ourchem.com2026-08-13 15:23:41 +0800refactor(dify): 临时注释策略原因构建逻辑
+8798ef014ce6c09e423ac194e326ea7a6df7b00235e3358b0f18897ef0764c3f1d1a06011705ea6f谢泽恩xiezeen@ourchem.com2026-08-13 15:18:32 +0800feat:代码提交
+35e3358b0f18897ef0764c3f1d1a06011705ea6fef00971e12a03ae65163c67a8a85cdba517e9963 84c9e8cc865fbfc053866f80db88813cf3abeb83liushaocongliushaocong@ourchem.com2026-08-13 15:16:58 +0800Merge branch '1.8.2-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.2-dev
+ef00971e12a03ae65163c67a8a85cdba517e9963cd5befbf019a665b5dcd2610fef7dc7ff28a4373liushaocongliushaocong@ourchem.com2026-08-13 15:16:05 +0800refactor(oa): 优化OA评审服务返回结果结构
+84c9e8cc865fbfc053866f80db88813cf3abeb8312d39f28e564f7d055b846e8d261ff18d2906967谢泽恩xiezeen@ourchem.com2026-08-13 15:10:39 +0800feat：代码提交
+12d39f28e564f7d055b846e8d261ff18d290696746e801ccee4284b43041c44076711a4406701b6c谢泽恩xiezeen@ourchem.com2026-08-13 15:08:51 +0800feat:代码提交 f#
+46e801ccee4284b43041c44076711a4406701b6cac25acd2b837f0f069e93b798319d755ed462800 cd5befbf019a665b5dcd2610fef7dc7ff28a4373谢泽恩xiezeen@ourchem.com2026-08-13 15:07:57 +0800Merge remote-tracking branch 'origin/1.8.2-dev' into 1.8.2-dev
+ac25acd2b837f0f069e93b798319d755ed462800b0fb654a688867ad577d00c5e448bb80b93f9cd9谢泽恩xiezeen@ourchem.com2026-08-13 15:07:40 +0800feat:代码提交
+cd5befbf019a665b5dcd2610fef7dc7ff28a4373b0fb654a688867ad577d00c5e448bb80b93f9cd9liushaocongliushaocong@ourchem.com2026-08-13 15:05:53 +0800feat(OaAnswerReviewFileItemService): 添加按OA答审实例ID清理历史文件条目功能
+b0fb654a688867ad577d00c5e448bb80b93f9cd90e7059daeec411a1258b9b5334a16cf9c13fb9bcliushaocongliushaocong@ourchem.com2026-08-13 15:03:09 +0800feat(util): 添加大模型JSON文本清洗功能
+0e7059daeec411a1258b9b5334a16cf9c13fb9bc7b2acb59dc8b4d9d147178a008ffaa5cb4626c53liushaocongliushaocong@ourchem.com2026-08-13 14:40:55 +0800refactor(dify): 优化Dify工作流响应处理逻辑
+7b2acb59dc8b4d9d147178a008ffaa5cb4626c53a4a1a2dafd70445e626883d03b8e7628e15921a2liushaocongliushaocong@ourchem.com2026-08-13 14:34:14 +0800feat(oa): 实现OA答审策略生成与数据持久化功能
+a4a1a2dafd70445e626883d03b8e7628e15921a2d353fa2b0867b024ac3d3ac5adcc8500c71580celiushaocongliushaocong@ourchem.com2026-08-13 11:33:51 +0800refactor(oa): 优化OA答审文件条目处理逻辑
+d353fa2b0867b024ac3d3ac5adcc8500c71580ce8176d5dd8663664bf9144197e434230ca2bc6e69 3f05cc813b0ab33b701fd0d99fe421f79808de89liushaocongliushaocong@ourchem.com2026-08-13 09:32:57 +0800Merge branch '1.8.2-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.2-dev
+8176d5dd8663664bf9144197e434230ca2bc6e6918b516b7b45f79604e01e3bf0ea4d8325351c69bliushaocongliushaocong@ourchem.com2026-08-13 09:27:34 +0800feat(oa): 新增OA答审策略生成功能
+3f05cc813b0ab33b701fd0d99fe421f79808de89cd02abfeab993256c55998001df1eb1f7f74f7dc e354ece384dcb8d6620b90fc1b2bebc99b064723谢泽恩xiezeen@ourchem.com2026-08-13 09:11:43 +0800Merge branch '1.8.1-release' into 1.8.2-dev
+18b516b7b45f79604e01e3bf0ea4d8325351c69bc1f254edc331d8c9bb13e4df1eed930ca3a67a4bliushaocongliushaocong@ourchem.com2026-08-12 18:37:12 +0800feat(oa): 添加OA答审功能接口和策略管理
+e354ece384dcb8d6620b90fc1b2bebc99b06472349f462070c8bcc641afa2c40b9e5a0fb113c960f谢泽恩xiezeen@ourchem.com2026-08-12 18:25:11 +0800feat:代码提交
+49f462070c8bcc641afa2c40b9e5a0fb113c960f220a7aba223387a7dd69b808b8a9a784720a94ed谢泽恩xiezeen@ourchem.com2026-08-12 18:03:31 +0800feat：代码提交
+cd02abfeab993256c55998001df1eb1f7f74f7dcc1f254edc331d8c9bb13e4df1eed930ca3a67a4b谢泽恩xiezeen@ourchem.com2026-08-12 17:21:53 +0800feat:带代码提交
+c1f254edc331d8c9bb13e4df1eed930ca3a67a4bf60e23556da67ca462664f7c12cce9cef50ce1fdliushaocongliushaocong@ourchem.com2026-08-12 17:12:58 +0800refactor(oa): 修改OA评审服务返回类型为字符串ID
+f60e23556da67ca462664f7c12cce9cef50ce1fddcc6c76db90b7ffe660c7efc639f8044b6cc1d0fliushaocongliushaocong@ourchem.com2026-08-12 16:29:24 +0800fix(controller): 修复OA答审功能中的参数验证和文件列表查询问题
+dcc6c76db90b7ffe660c7efc639f8044b6cc1d0f50a23f523ea4eb307784c1954db3a929fb7e546fliushaocongliushaocong@ourchem.com2026-08-12 14:03:33 +0800feat(oa): 添加OA答审策略字段并优化文件列表查询服务
+50a23f523ea4eb307784c1954db3a929fb7e546f0a9c7004db80e12b0c4fd3f83b83125ac4c0b761liushaocongliushaocong@ourchem.com2026-08-12 11:34:01 +0800feat(oa): 集成Dify工作流实现OA答审功能
+0a9c7004db80e12b0c4fd3f83b83125ac4c0b7610369d13eb89f711ff8002fe1f486fc81921d9ce2谢泽恩xiezeen@ourchem.com2026-08-11 15:24:57 +0800feat：代码提交
+0369d13eb89f711ff8002fe1f486fc81921d9ce2fc8632ba6f0ef0102f23d86ea412d064fb6527b0liushaocongliushaocong@ourchem.com2026-08-11 15:10:59 +0800refactor(config): 重构OA答案相关配置项结构
+fc8632ba6f0ef0102f23d86ea412d064fb6527b05c8ee35629d732e78d135881b0ef49fcf41ef56f 7ecd9c3d30d51dd8363b8bf3fde14bde7d31c187liushaocongliushaocong@ourchem.com2026-08-11 15:06:07 +0800Merge branch '1.8.2-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.2-dev
+5c8ee35629d732e78d135881b0ef49fcf41ef56f2d8fc97197b58ae999d58618affd20cdbf103248liushaocongliushaocong@ourchem.com2026-08-11 15:05:50 +0800feat(oa): 新增OA评审功能并优化现有流程
+2d8fc97197b58ae999d58618affd20cdbf103248ee4a2852455805f7a5d85c4b40ee76737f2c8215liushaocongliushaocong@ourchem.com2026-08-11 15:04:37 +0800config(api): 添加OA问答相关配置项
+ee4a2852455805f7a5d85c4b40ee76737f2c8215c6748d950d9857a9640ef989074fe6241a2fa17bliushaocongliushaocong@ourchem.com2026-08-11 15:02:33 +0800feat(entity): 添加OA答审文件条目实体类
+c6748d950d9857a9640ef989074fe6241a2fa17bf25c7d6efcda92a1e06070009168c9a065a8aae6liushaocongliushaocong@ourchem.com2026-08-11 15:01:49 +0800chore(config): 更新本地开发环境配置
+7ecd9c3d30d51dd8363b8bf3fde14bde7d31c18786e3fd93b93d45e9807445b4aedf258c8d6ca9c9谢泽恩xiezeen@ourchem.com2026-08-11 14:35:57 +0800feat：代码提交
+86e3fd93b93d45e9807445b4aedf258c8d6ca9c9ef267c386a7e14452435536df1be3999af78b858谢泽恩xiezeen@ourchem.com2026-08-11 14:01:20 +0800feat:代码提交
+ef267c386a7e14452435536df1be3999af78b858f25c7d6efcda92a1e06070009168c9a065a8aae6谢泽恩xiezeen@ourchem.com2026-08-11 11:03:46 +0800feat:代码提交
+f25c7d6efcda92a1e06070009168c9a065a8aae6220a7aba223387a7dd69b808b8a9a784720a94ed谢泽恩xiezeen@ourchem.com2026-08-10 14:24:54 +0800feat:代码提交
+220a7aba223387a7dd69b808b8a9a784720a94ed4d05b37d20fe0a2ba987cbebd837fee72e1bdbfb谢泽恩xiezeen@ourchem.com2026-08-07 18:36:24 +0800feat:代码提交
+4d05b37d20fe0a2ba987cbebd837fee72e1bdbfb5cfc53ede7d33d42a878c2ae3cc12da8d463e51eliushaocongliushaocong@ourchem.com2026-08-07 18:09:19 +0800feat(util): 添加 Markdown 表格竖线转义功能
+5cfc53ede7d33d42a878c2ae3cc12da8d463e51e0a5469f66c100181d7cb1583ee722bde5bad30bb e70e794868e45086f3116351ea2702d61586f4dbliushaocongliushaocong@ourchem.com2026-08-07 17:44:58 +0800Merge branch '1.8.1-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.1-dev
+0a5469f66c100181d7cb1583ee722bde5bad30bb1e61e774027ba4c2de3d9b04a6e1a4c6431d7969liushaocongliushaocong@ourchem.com2026-08-07 17:44:10 +0800feat(service): 优化docx转PDF转换质量
+e70e794868e45086f3116351ea2702d61586f4db46b8b373c6936240094fa11389baacfa735ff165谢泽恩xiezeen@ourchem.com2026-08-07 17:42:59 +0800feat：代码提交
+46b8b373c6936240094fa11389baacfa735ff1651e61e774027ba4c2de3d9b04a6e1a4c6431d7969谢泽恩xiezeen@ourchem.com2026-08-07 17:27:09 +0800feat:代码提交
+1e61e774027ba4c2de3d9b04a6e1a4c6431d7969f726795d3c8ae8fe471515fcc56d5b2efc7ae3bbliushaocongliushaocong@ourchem.com2026-08-07 15:30:45 +0800feat(document): 添加PDF文本提取和清理功能
+f726795d3c8ae8fe471515fcc56d5b2efc7ae3bbdba75b608d1f5bee507edb8118124266e15a3073liushaocongliushaocong@ourchem.com2026-08-07 13:50:53 +0800refactor(document): 优化文档上传服务中的LibreOffice配置
+dba75b608d1f5bee507edb8118124266e15a307390a8bf431d73caad38f445274f67ff8b0ddd6cc6liushaocongliushaocong@ourchem.com2026-08-07 13:46:55 +0800feat(document): 添加文档转PDF功能并优化文件上传服务
+90a8bf431d73caad38f445274f67ff8b0ddd6cc630487fffb9bcf52b4569116b987840ef1a493b05liushaocongliushaocong@ourchem.com2026-08-07 10:46:12 +0800feat(doc): 实现图片DPI读取和物理尺寸换算功能
+30487fffb9bcf52b4569116b987840ef1a493b05860b0d7fc36a9a4aeb98b89c24552f4e137d810b 17f17c053f112dbf0760ff99b5436d321c2bbf62liushaocongliushaocong@ourchem.com2026-08-07 09:56:51 +0800Merge branch '1.8.1-dev' of https://192.168.0.14/xiezeen/ourchem-ai-patent into 1.8.1-dev
+860b0d7fc36a9a4aeb98b89c24552f4e137d810ba8a7b56b56a9656a567a2a37c9a78865208766f3liushaocongliushaocong@ourchem.com2026-08-07 09:56:15 +0800feat(DisclosureDocCheckReportService): 添加发明名称字段到检查报告
+a8a7b56b56a9656a567a2a37c9a78865208766f365a1452e707c1249dbe75664f76cbe53e564996bliushaocongliushaocong@ourchem.com2026-08-06 09:40:32 +0800refactor(patent): 移除文件ID获取异常的日志记录
+17f17c053f112dbf0760ff99b5436d321c2bbf6265a1452e707c1249dbe75664f76cbe53e564996b谢泽恩xiezeen@ourchem.com2026-08-05 17:27:15 +0800feat：代码提交
+65a1452e707c1249dbe75664f76cbe53e564996beaec87f170bcf6d784c4b529b79ad52fab812812liushaocongliushaocong@ourchem.com2026-08-05 16:56:11 +0800refactor(disclosure): 优化文档文本提取逻辑
+eaec87f170bcf6d784c4b529b79ad52fab812812adb53e5b3619d1d72b11a124015ccf2cb26b7784 de4e8cfc7f0ce8107b6d38e86b5dba6d0ba17ae3liushaocongliushaocong@ourchem.com2026-08-05 15:31:19 +0800Merge branch '1.8.0-release' into 1.8.1-dev
+de4e8cfc7f0ce8107b6d38e86b5dba6d0ba17ae3ba999b2910ddcdb75930188de13d2bb83e528273liushaocongliushaocong@ourchem.com2026-08-05 15:28:54 +0800refactor(patent): 优化专利质量报告标题生成逻辑
+adb53e5b3619d1d72b11a124015ccf2cb26b778404d563d03997d7681ba235e3801bfd7e507b2e2b谢泽恩xiezeen@ourchem.com2026-08-05 14:16:53 +0800feat:代码提交
+ba999b2910ddcdb75930188de13d2bb83e52827300a5db28a84cf66095d8af74937c1dcd345311cdliushaocongliushaocong@ourchem.com2026-08-05 11:40:03 +0800refactor(patent): 优化专利说明书内容解析逻辑
+04d563d03997d7681ba235e3801bfd7e507b2e2ba9038cc99a004f3953f98eb308ae01d53ad9727e谢泽恩xiezeen@ourchem.com2026-08-05 09:56:02 +0800feat:代码提交
+a9038cc99a004f3953f98eb308ae01d53ad9727e84e68e4823d09db9d578c04c6d57aa7b9303c306谢泽恩xiezeen@ourchem.com2026-08-04 17:19:50 +0800feat:添加专利信息比对接口
+00a5db28a84cf66095d8af74937c1dcd345311cdf7d57e2cc0226ad07227d33a6c16f9f57a9ff857 adf2056b154bf9c939fde863c8eff5e013ed6607谢泽恩xiezeen@ourchem.com2026-08-04 15:22:29 +0800Merge remote-tracking branch 'origin/1.8.0-release' into 1.8.0-release
+f7d57e2cc0226ad07227d33a6c16f9f57a9ff857c028b27b1c37bfce8f800880bbfca12b9fb2f172谢泽恩xiezeen@ourchem.com2026-08-04 15:22:13 +0800feat：代码提交
+c028b27b1c37bfce8f800880bbfca12b9fb2f17262b216e811d3ec335a9d19359d37fd8b0c38df1f谢泽恩xiezeen@ourchem.com2026-08-04 15:21:48 +0800feat：代码提交
+adf2056b154bf9c939fde863c8eff5e013ed66070b5e7949e219075eed0ab459787f0ce57284887aliushaocongliushaocong@ourchem.com2026-08-04 14:54:15 +0800fix(docx): 解决文档转换中图片异常处理问题
+0b5e7949e219075eed0ab459787f0ce57284887a02ebbe685d39af5e8f267b6e40b8d935fe81ad77liushaocongliushaocong@ourchem.com2026-08-04 14:29:05 +0800``` refactor(docx): 优化DOCX文档解析和图片处理逻辑
+02ebbe685d39af5e8f267b6e40b8d935fe81ad7762b216e811d3ec335a9d19359d37fd8b0c38df1fliushaocongliushaocong@ourchem.com2026-08-04 13:47:34 +0800refactor(DocxSectionSplitter): 重构图片归属修复逻辑
+62b216e811d3ec335a9d19359d37fd8b0c38df1fa2f043ad717ab3d76032b9082d92913e0e77ee0dliushaocongliushaocong@ourchem.com2026-08-04 10:23:38 +0800refactor(dify): 优化图片处理逻辑
+a2f043ad717ab3d76032b9082d92913e0e77ee0da4046b28dc75e1c8d92300c88022f417f96cb72eliushaocongliushaocong@ourchem.com2026-08-04 09:55:06 +0800feat(patent): 实现专利发明名称优先从说明书内容获取功能
+a4046b28dc75e1c8d92300c88022f417f96cb72ec49e5f73aed07161bcab98a3b605d8badcacd012liushaocongliushaocong@ourchem.com2026-08-03 19:01:26 +0800fix(doceva): 修复文档提取服务中的文件类型判断逻辑
+c49e5f73aed07161bcab98a3b605d8badcacd01284e68e4823d09db9d578c04c6d57aa7b9303c306liushaocongliushaocong@ourchem.com2026-08-03 17:49:01 +0800refactor(docx): 优化文档解析功能并移除pandoc依赖
+84e68e4823d09db9d578c04c6d57aa7b9303c30635a27d59fe7cb0a2a1d9949aa19ba28aed01c7ed谢泽恩xiezeen@ourchem.com2026-08-03 14:32:02 +0800feat:代码提交
+35a27d59fe7cb0a2a1d9949aa19ba28aed01c7ed9f8629db2753636364b47529226e104e04e5302e谢泽恩xiezeen@ourchem.com2026-08-03 14:29:55 +0800feat:代码提交
+9f8629db2753636364b47529226e104e04e5302e55f5809fdc322ad1673b2ad8eedbc811968fb6ae谢泽恩xiezeen@ourchem.com2026-08-03 14:01:21 +0800feat：代码提交
+55f5809fdc322ad1673b2ad8eedbc811968fb6ae8ead25490361908b47f1ab9a54e37bc96a5399de谢泽恩xiezeen@ourchem.com2026-08-03 13:59:36 +0800feat:代码提交
+8ead25490361908b47f1ab9a54e37bc96a5399ded27bd868f66bec7d32287852dd57955a5d72ce1e谢泽恩xiezeen@ourchem.com2026-08-03 13:46:49 +0800feat:代码提交
+d27bd868f66bec7d32287852dd57955a5d72ce1edee2913ab7c3a8320e46e061054b8c81445305d3谢泽恩xiezeen@ourchem.com2026-08-03 12:06:08 +0800feat:代码提交
+dee2913ab7c3a8320e46e061054b8c81445305d30ba28715af297ae0f84f59ce0134ff3841a0a1e8谢泽恩xiezeen@ourchem.com2026-08-03 11:58:27 +0800feat:代码提交
+0ba28715af297ae0f84f59ce0134ff3841a0a1e8eb30ca507c67e6efe9aae108229b8ea2e6f53527谢泽恩xiezeen@ourchem.com2026-08-03 11:57:10 +0800feat:代码提交
+eb30ca507c67e6efe9aae108229b8ea2e6f5352783292c529fe616dd111a31dc8909f6c263441684谢泽恩xiezeen@ourchem.com2026-08-03 11:38:27 +0800feat:代码提交
+83292c529fe616dd111a31dc8909f6c263441684ae11e35b01795ff22da14531377dc50136fdd85a谢泽恩xiezeen@ourchem.com2026-08-03 10:43:54 +0800feat:代码提交
+ae11e35b01795ff22da14531377dc50136fdd85a3df43b8ad426b4dfb0d2c774c4e99589e9ad616e谢泽恩xiezeen@ourchem.com2026-08-03 10:27:39 +0800feat:代码提交
+3df43b8ad426b4dfb0d2c774c4e99589e9ad616e10c21dcc9899b083ea211dffa9e9ef41b09b0a96谢泽恩xiezeen@ourchem.com2026-08-03 10:21:12 +0800feat:代码提交
+10c21dcc9899b083ea211dffa9e9ef41b09b0a96f3cc40fbe8297273441adfd0ab2dbc8f536bf47f谢泽恩xiezeen@ourchem.com2026-08-03 10:15:46 +0800feat:代码提交
+f3cc40fbe8297273441adfd0ab2dbc8f536bf47f54e8837411bf1f8d209a3a325919945702fa328c谢泽恩xiezeen@ourchem.com2026-08-03 10:12:34 +0800feat:代码提交
+54e8837411bf1f8d209a3a325919945702fa328c5ebf213737e69166e1c19101e4e6cb722275028a谢泽恩xiezeen@ourchem.com2026-08-03 09:50:54 +0800feat:代码提交
+5ebf213737e69166e1c19101e4e6cb722275028a6cbebde1531320b8cad8b1bf4cad8413340e4539谢泽恩xiezeen@ourchem.com2026-08-03 09:38:00 +0800feat：代码提交

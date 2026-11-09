@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>研发项目进度与风险监测报告</title>
+<!-- 图表库：默认工作区本地资源（离线可用）；本地缺失时按 RUNBOOK §5.4.2 降级为 CDN，并在 footer 保留留痕行 -->
+<script src="../../../../assets/echarts.min.js"></script>
+<style>
+  :root {
+    --level-low: #52c41a;      /* 低 = 绿 */
+    --level-mid: #faad14;      /* 中 = 黄 */
+    --level-high: #fa8c16;     /* 高 = 橙 */
+    --level-severe: #f5222d;   /* 严重 = 红 */
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 24px 16px 40px;
+    background: #f5f7fa;
+    color: #303133;
+    font-family: -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .page { max-width: 1200px; margin: 0 auto; }
+  .card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+  h1 { font-size: 24px; margin: 0 0 8px; }
+  h2 { font-size: 17px; margin: 0 0 14px; padding-left: 10px; border-left: 4px solid #5470c6; }
+  h2.board {
+    font-size: 19px;
+    padding: 6px 12px;
+    background: #ecf2fb;
+    border-left: none;
+    border-radius: 6px;
+    margin: 28px 0 14px;
+  }
+  h2.board:first-of-type { margin-top: 0; }
+  h2.board small { color: #909399; font-weight: 400; font-size: 12px; margin-left: 10px; }
+  .meta-line { color: #606266; font-size: 13px; }
+  /* ── 执行摘要（v5）── */
+  .exec-headline {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.7;
+    background: #fdf6ec;
+    border: 1px solid #faecd8;
+    border-left: 6px solid var(--level-high);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 14px;
+  }
+  .exec-points { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 10px; }
+  .keypoint {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    border: 1px solid #ebeef5;
+    border-radius: 8px;
+    padding: 10px 12px;
+    background: #fafafa;
+    cursor: default;
+  }
+  .keypoint .kp-dot { flex: 0 0 auto; width: 12px; height: 12px; border-radius: 50%; margin-top: 6px; }
+  .keypoint .kp-text { flex: 1; min-width: 0; }
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+  }
+  .repo-card { border: 1px solid #ebeef5; border-radius: 8px; padding: 14px 16px; }
+  .repo-name { font-weight: 600; font-size: 15px; margin-right: 8px; }
+  .repo-total { font-size: 30px; font-weight: 700; line-height: 1.2; margin: 4px 0 2px; }
+  .repo-delta { font-size: 13px; font-weight: 600; margin-left: 8px; }
+  .repo-top { color: #606266; margin: 4px 0 10px; }
+  .repo-card a { color: #5470c6; text-decoration: none; font-size: 13px; }
+  .badge {
+    display: inline-block;
+    padding: 1px 10px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+  /* ── 异常信号墙 ── */
+  .alert-wall { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+  .alert-block { border-radius: 8px; color: #fff; padding: 12px 14px; cursor: default; }
+  .alert-block .alert-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .alert-block .alert-repo { background: rgba(255,255,255,0.25); border-radius: 4px; padding: 0 8px; font-size: 12px; }
+  .alert-block .alert-age { background: rgba(255,255,255,0.9); color: #303133; border-radius: 4px; padding: 0 8px; font-size: 12px; font-weight: 600; }
+  .alert-block .alert-title { font-weight: 600; line-height: 1.5; }
+  .alert-ok { grid-column: 1 / -1; background: #f0f9eb; border: 1px dashed var(--level-low); color: var(--level-low); border-radius: 8px; padding: 14px; text-align: center; font-weight: 600; }
+  .chart { width: 100%; }
+  .chart-radar { height: 420px; }
+  .chart-line { height: 360px; }
+  .chart-bar { height: 360px; }
+  .chart-heat { height: 300px; }
+  .empty { color: #909399; padding: 24px 0; text-align: center; }
+  /* ── 模块结论行（narrative，v5：说人话的主文案）── */
+  .narrative {
+    font-size: 13.5px;
+    background: #f0f6ff;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin: -6px 0 12px;
+  }
+  .narrative .n-tag { color: #5470c6; font-weight: 700; margin-right: 6px; }
+  .module-note { color: #b0b4bb; font-size: 12px; margin: -6px 0 10px; cursor: help; }
+  /* ── 模块环比行（v6：着色恢复，审计 P0 修复）── */
+  .module-compare {
+    font-size: 12.5px;
+    color: #606266;
+    background: #f5f7fa;
+    border-radius: 6px;
+    padding: 6px 10px;
+    margin: -4px 0 12px;
+  }
+  .module-compare:empty { display: none; }
+  .cmp-worse { color: var(--level-severe); font-weight: 600; }
+  .cmp-better { color: var(--level-low); font-weight: 600; }
+  .cmp-flat { color: #909399; }
+  .cmp-act-up { color: #5470c6; font-weight: 600; }
+  .cmp-act-down { color: #fa8c16; font-weight: 600; }
+  /* ── 仓库全景指标卡（v6）── */
+  .metric-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+  .metric-card { border: 1px solid #ebeef5; border-radius: 8px; padding: 12px 14px; background: #fafafa; }
+  .metric-card .metric-value { font-size: 22px; font-weight: 700; color: #303133; }
+  .metric-card .metric-label { color: #909399; font-size: 12px; margin-top: 2px; }
+  .kp-positive { color: var(--level-low); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { border: 1px solid #ebeef5; padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #f5f7fa; font-weight: 600; white-space: nowrap; }
+  tbody tr:nth-child(even) { background: #fafafa; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { border: 1px solid #dcdfe6; border-radius: 6px; padding: 4px 10px; background: #fafafa; white-space: nowrap; }
+  .chip.ok { border-color: var(--level-low); color: var(--level-low); background: #f0f9eb; }
+  .chip.alert { border-color: var(--level-severe); color: var(--level-severe); background: #fef0f0; font-weight: 600; }
+  .q-title { font-weight: 600; margin-bottom: 8px; }
+  .quality-group { margin-bottom: 16px; }
+  .quality-group:last-child { margin-bottom: 0; }
+  /* ── 需求 / 里程碑时间条看板（v6：绝对计划区间）── */
+  .plan-group { margin-bottom: 16px; }
+  .plan-group:last-child { margin-bottom: 0; }
+  .plan-repo-tag { color: #909399; font-size: 12px; margin-bottom: 6px; font-weight: 600; }
+  .plan-row {
+    display: flex; align-items: center; gap: 10px;
+    border: 1px solid #ebeef5; border-left-width: 6px; border-radius: 6px;
+    padding: 8px 12px; margin-bottom: 8px; background: #fafafa;
+  }
+  .plan-row .plan-id { font-weight: 700; white-space: nowrap; }
+  .plan-row .plan-name { font-weight: 600; flex: 0 0 30%; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .plan-row .plan-track { flex: 1 1 auto; height: 10px; background: #eef1f6; border-radius: 5px; position: relative; min-width: 80px; }
+  .plan-row .plan-today { position: absolute; top: -4px; bottom: -4px; width: 2px; background: #606266; }
+  .plan-row .plan-window { position: absolute; top: 0; bottom: 0; background: #e8f1fb; border-radius: 5px; }
+  .plan-row .plan-due-dot { position: absolute; top: 50%; width: 14px; height: 14px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.3); transform: translate(-50%, -50%); }
+  .plan-row .plan-elapsed { position: absolute; left: 0; top: 0; bottom: 0; background: #dce4f2; border-radius: 5px 0 0 5px; }
+  .plan-row .plan-meta { color: #606266; font-size: 12px; white-space: nowrap; }
+  .plan-row .plan-status { font-weight: 700; white-space: nowrap; }
+  .plan-row .plan-due-over { color: var(--level-severe); font-weight: 700; }
+  /* ── 增量提交分析（v6）── */
+  .trivial-list { border: 1px dashed #faecd8; background: #fdf6ec; border-radius: 6px; padding: 8px 12px; font-size: 12.5px; color: #8c6a1d; }
+  .trivial-list ul { margin: 4px 0 0; padding-left: 18px; }
+  /* ── 附录折叠 ── */
+  details.appendix { border: 1px solid #ebeef5; border-radius: 8px; padding: 10px 16px; }
+  details.appendix + details.appendix { margin-top: 12px; }
+  details.appendix summary { cursor: pointer; font-weight: 600; color: #5470c6; padding: 6px 0; }
+  /* ── 打印（v6）── */
+  @media print {
+    body { padding: 0; background: #fff; }
+    .card { box-shadow: none; border: 1px solid #ebeef5; page-break-inside: avoid; }
+    h2.board { page-break-after: avoid; }
+  }
+  .report-footer { color: #909399; font-size: 12px; text-align: center; line-height: 1.8; margin-top: 20px; }
+  .cdn-note { color: #e6a23c; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="card">
+    <h1>研发项目进度与风险监测报告</h1>
+    <div class="meta-line" id="metaLine"></div>
+  </header>
+
+  <!-- ═══ 板块〇：执行摘要（说人话，30 秒读懂）═══ -->
+  <section class="card">
+    <h2>本期怎么看（一句话）</h2>
+    <div class="exec-headline" id="execHeadline"></div>
+    <div class="exec-points" id="execPoints"></div>
+  </section>
+
+  <!-- ═══ 板块 A：进度与交付 ═══ -->
+  <h2 class="board">进度与交付 <small>—— 我们在按计划走吗？（对应五维中的「进度」）</small></h2>
+
+  <section class="card">
+    <h2>需求 / 里程碑进度条</h2>
+    <div class="module-note">每行一条需求或里程碑：圆点 = 交付截止日在计划区间里的位置，深色竖线 = 今天；圆点越靠近「今天」越紧急，越靠右表示已超出本次统计窗口。</div>
+    <div id="planTimeline"></div>
+  </section>
+
+  <section class="card">
+    <h2>提交节奏（逐日）</h2>
+    <div class="module-note">窗口期每天提交了多少次：长期 0 的日子 = 停滞；截止日（图中竖线）前突然变高 = 突击。tooltip 里能看到与前一日的比较。</div>
+    <div class="module-compare" id="cmpRhythm"></div>
+    <div class="chart chart-bar" id="chartRhythm"></div>
+  </section>
+
+  <section class="card">
+    <h2>增量提交分析（本期提交做了什么）</h2>
+    <div class="module-note">左 = 本期提交按类型分布（新功能 / 修缺陷 / 杂项）；右 = 有效提交占比（合并提交不计入工作量）；下方列出碎片化小提交，供研判是否存在"刷提交量"式工作。</div>
+    <div class="chart" id="chartCommitMix" style="height: 300px;"></div>
+    <div class="module-compare" id="cmpCommitMix"></div>
+    <div id="trivialList"></div>
+  </section>
+
+  <!-- ═══ 板块 B：风险全景 ═══ -->
+  <h2 class="board">风险全景 <small>—— 哪里可能出问题？（对应五维：进度 / 人员 / 质量 / 集成 / 规范）</small></h2>
+
+  <section class="card">
+    <h2>异常信号墙（高 / 严重）</h2>
+    <div class="module-note">需要管理层立刻知道的事：色块颜色 = 等级（红比橙急），「已连续 N 期提醒」= 这个问题连续多期都没解决。</div>
+    <div class="alert-wall" id="alertWall"></div>
+  </section>
+
+  <section class="card">
+    <h2>风险总览</h2>
+    <div class="module-note">风险分 0~100，越高越危险：0~25 低 / 25~50 中 / 50~75 高 / 75~100 严重；箭头 = 与上期环比（↑ 恶化 / ↓ 好转）。</div>
+    <div class="module-compare" id="cmpOverview"></div>
+    <div class="overview-grid" id="overviewGrid"></div>
+  </section>
+
+  <section class="card">
+    <h2>五个维度的风险形状</h2>
+    <div class="module-note">进度=做得跟计划一样快吗 · 人员=活是否压在少数人身上 · 质量=欠的技术债多吗 · 集成=代码合并顺畅吗 · 规范=记录可追溯吗。越外圈 / 越红 = 该维度越危险。</div>
+    <div class="module-compare" id="cmpRadar"></div>
+    <div class="chart chart-radar" id="chartRadar"></div>
+  </section>
+
+  <section class="card">
+    <h2>五维得分热力（仓库 × 维度）</h2>
+    <div class="module-note">每格 = 某仓库某维度的危险程度（0 健康 → 100 危险），用于快速定位"哪个项目、哪个方面"最需要介入。</div>
+    <div class="module-compare" id="cmpHeat"></div>
+    <div class="chart chart-heat" id="chartHeatmap"></div>
+  </section>
+
+  <section class="card">
+    <h2>跨期趋势</h2>
+    <div class="module-note">每期健康分按运行日期走势：持续上升 = 问题在累积，关注拐点与分层。仅一期时显示基线说明。</div>
+    <div class="module-compare" id="cmpTrend"></div>
+    <div class="chart chart-line" id="chartTrend"></div>
+  </section>
+
+  <!-- ═══ 板块 C：团队与人效 ═══ -->
+  <h2 class="board">团队与人效 <small>—— 活是谁干的？投入健康吗？（对应五维中的「人员」，并关联「质量 / 集成 / 规范」）</small></h2>
+
+  <section class="card">
+    <h2>谁在哪个分支干活（孤岛 = 单一颜色）</h2>
+    <div class="module-note">每行 = 项目里的一个人，彩条 = 他在各个分支上的有效提交数：只有一种颜色说明他只在一个分支干活（知识孤岛——他请假就没人接手）；条明显比别人短 = 投入骤降。</div>
+    <div class="module-compare" id="cmpMemberBranch"></div>
+    <div class="chart" id="chartMemberBranch"></div>
+  </section>
+
+  <section class="card">
+    <h2>提交都花在哪了（核心 vs 其他）</h2>
+    <div class="module-note">每行 = 一个代码目录的变更量：蓝色 = 计划内的核心模块，灰色 = 其他；灰色很长、蓝色很短 = 看起来很忙但计划的事没做。</div>
+    <div class="module-compare" id="cmpModule"></div>
+    <div class="chart" id="chartModule"></div>
+  </section>
+
+  <section class="card">
+    <h2>分支合并状况</h2>
+    <div class="module-note">两张小图分开看：上 = 已完成还没合并回去的工作量；下 = 落后主干（未同步）的提交数——两边的量级差异本身也是信号。</div>
+    <div class="module-compare" id="cmpBranch"></div>
+    <div class="chart" id="chartBranch"></div>
+  </section>
+
+  <section class="card">
+    <h2>质量信号</h2>
+    <div class="module-note">四项体检指标对照预警线：红色 = 超标，需要安排处理。</div>
+    <div class="module-compare" id="cmpQuality"></div>
+    <div id="qualityCards"></div>
+  </section>
+
+  <!-- ═══ 板块 D：仓库全景（自开始至今）═══ -->
+  <h2 class="board">仓库全景（自开始至今） <small>—— 立项以来这个仓库经历了什么？（对应 §1.15 全生命周期统计）</small></h2>
+
+  <section class="card">
+    <h2>全生命周期指标</h2>
+    <div class="module-note">仓库从第一次提交到今天的整体规模：看总量与人数，判断项目体量与团队规模。</div>
+    <div class="metric-cards" id="lifetimeCards"></div>
+  </section>
+
+  <section class="card">
+    <h2>逐月提交趋势（自开始至今）</h2>
+    <div class="module-note">仓库诞生以来每个月的提交量：高峰 = 集中开发期，低谷 = 停滞期；对照里程碑看节奏是否合理。</div>
+    <div class="chart chart-bar" id="chartLifetime"></div>
+  </section>
+
+  <section class="card">
+    <h2>全期贡献者 Top 5</h2>
+    <div class="module-note">仓库诞生以来提交数前 5 的成员：看关键人依赖与知识分布。</div>
+    <div id="topAuthors"></div>
+  </section>
+
+  <!-- ═══ 附录（技术细节，默认折叠）═══ -->
+  <h2 class="board">附录 <small>—— 完整明细与证据（默认折叠，供技术负责人溯源）</small></h2>
+
+  <section class="card">
+    <details class="appendix" id="riskDetails">
+      <summary>风险点明细清单</summary>
+      <div id="riskTableWrap" style="margin-top: 10px;"></div>
+    </details>
+    <details class="appendix" id="insightDetails">
+      <summary>深度评估要点（含代码证据）</summary>
+      <div id="insightsWrap" style="margin-top: 10px;"></div>
+    </details>
+  </section>
+
+  <footer class="report-footer">
+    <div id="footerMeta"></div>
+    <div>数据来源：git 仓库采集（RUNBOOK 第 1 章）+ state/history 历史记录 · 图表库本地化（assets/echarts.min.js），支持离线查看 · 报告模板 v6（RUNBOOK §5.4）</div>
+    <!-- 仅当按 §5.4.2 降级为 CDN 时，取消下一行注释保留留痕；本地资源正常时保持注释状态 -->
+    <!-- <div class="cdn-note">使用 CDN 渲染（本地资源缺失）</div> -->
+  </footer>
+
+</div>
+
+<script>
+/* ============================================================
+ * 数据区 —— AI 替换此处（唯一允许改动的部分，字段结构见 RUNBOOK §5.4.4）
+ * 以下为示意数据，每期生成时整体替换为本期真实结果
+ * ============================================================ */
+window.REPORT_DATA = {
+  meta: { project: "pulse-demo", date: "2026-09-05", period: 5, window: "2026-08-29 ~ 2026-09-05", runAt: "2026-09-05 14:13", repoCount: 2, template: 6,
+          planRange: { start: "2026-08-19", end: "2026-09-17" },
+          prev: { date: "2026-09-04", period: 4, label: "09-04 P4" } },
+  headline: "总体判断：本期为静默期，两个仓库的全部指标与上期持平——但支付模块今日（09-05）到期未交付、延期已成事实，7 项风险已连续 4 期未解决，处于积压待治理状态；前端低风险稳定，仅剩合并收尾。",
+  keyPoints: [
+    { level: "严重", text: "支付模块今天到期但真实网关还没接上——延期已经发生（这个问题已连续 4 期被提醒）" },
+    { level: "高", text: "后端 95% 的提交压在张伟一人身上（连续 4 期），第二责任人仍未落实" },
+    { level: "高", text: "18 张报表里还有 16 张是假数据，距交付仅剩 3 天" },
+    { level: "高", text: "支付代码放在一条 31 天没合并的分支上，落后主干 26 次提交，越拖越难合" },
+    { level: "低", text: "前端 UI 四项改版已全部完成，只剩合并这一步，低风险稳定" }
+  ],
+  repos: [
+    {
+      name: "repo-backend",
+      total: 51.7, level: "高", delta: 0,
+      scores: { progress: 64, people: 56, quality: 45, integration: 52, convention: 30 },
+      topRisk: "M1 截止日（09-05）已到：延期成事实，联调未开始（_request 仍 mock、回调未接订单服务）",
+      narrative: {
+        progress: "支付模块今天到期但真实网关还没接上——延期已经发生；18 张报表完成 2 张（剩 3 天）；其余需求正常。",
+        people: "95% 的后端提交来自张伟一人（连续 4 期）；李娜截止前夜才回来提交了 1 次，能不能持续交付未知。",
+        quality: "代码里积了 28 处待办标记（一直没清）；新写的验签代码没有任何测试。",
+        integration: "支付代码放在一条 31 天没合并的分支上，落后主干 26 次提交，越拖越难合。",
+        convention: "有 4 次提交说明写得含糊（wip/fix/upd），出问题难以追溯。",
+        rhythm: "提交集中在工作日、日均 2.8 次；09-04 截止前夜冲到 6 次（突击信号），今日 0 提交。",
+        modules: "报表模板批量生成占新增行的大头（1369 行），核心支付模块只有 26 行——典型的「看起来很忙，正事没动」。",
+        plans: "M1 今日到期未交付；M3 还剩 3 天只完成 11%；M4 / R1 / R6 按节奏正常。"
+      },
+      lifetime: {
+        first: "2026-08-05", last: "2026-09-04", totalCommits: 39, authors: 3,
+        monthly: { "2026-08": 24, "2026-09": 15 },
+        topAuthors: [ { who: "张伟", commits: 28 }, { who: "李娜", commits: 9 }, { who: "王强", commits: 2 } ]
+      },
+      windowAnalysis: { classification: { "其他": 22 }, merges: 0, effectiveCommits: 22,
+        trivial: [ { h: "c7a0f21", msg: "导出分页参数默认值调整为100", lines: 2 }, { h: "008beab", msg: "wip", lines: 1 } ] },
+      members: [
+        { name: "张伟", commits: 21, insertions: 1634, deletions: 152, branches: { "main": 14, "develop": 7 } },
+        { name: "李娜", commits: 1, insertions: 26, deletions: 7, branches: { "feature-payment": 1 } }
+      ],
+      branches: [
+        { name: "develop", ahead: 8, behind: 18, staleDays: 15, lastActive: "09-04" },
+        { name: "feature-payment", ahead: 4, behind: 26, staleDays: 30, lastActive: "09-04" }
+      ],
+      quality: { todo: 28, todoThreshold: 20, bigCommits: 1, reworkRatio: 0.10, reworkThreshold: 0.5, largeFiles: 0 },
+      rhythm: [
+        { date: "08-29", commits: 3 }, { date: "08-30", commits: 2 }, { date: "08-31", commits: 2 },
+        { date: "09-01", commits: 3 }, { date: "09-02", commits: 3 }, { date: "09-03", commits: 3 },
+        { date: "09-04", commits: 6 }, { date: "09-05", commits: 0 }
+      ],
+      moduleActivity: [
+        { module: "src/modules", insertions: 1369, deletions: 136, commits: 6, core: true },
+        { module: "src/api", insertions: 157, deletions: 12, commits: 10, core: true },
+        { module: "src/middleware", insertions: 42, deletions: 0, commits: 1, core: false },
+        { module: "src/payments", insertions: 26, deletions: 7, commits: 1, core: true },
+        { module: "tests/test_users.py", insertions: 49, deletions: 0, commits: 1, core: false },
+        { module: "src/db", insertions: 14, deletions: 2, commits: 1, core: true },
+        { module: "src/config.py", insertions: 3, deletions: 2, commits: 2, core: false }
+      ],
+      plans: [
+        { id: "M1", name: "支付模块开发与联调", owner: "李娜", due: "09-05", status: "延期风险", note: "今日（09-05）为 M1 截止日：联调未开始（_request 仍 mock、沙箱未开通），延期已成事实；验签/网关配置化已落地（代码项待验收）", prevStatus: "延期风险" },
+        { id: "M3", name: "后端报表模块", owner: "张伟", due: "09-08", status: "部分推进", note: "真实数据源 2/18（report_1、report_2），ReportBase 公共基类就绪，剩余 16 文件待批量迁移，剩 3 天", prevStatus: "部分推进" },
+        { id: "M4", name: "订单接口性能优化", owner: "张伟", due: "09-12", status: "已推进", note: "连接池调优/分页修复/导出参数调整按节奏推进", prevStatus: "已推进" },
+        { id: "R1", name: "订单查询与导出", owner: "张伟", due: "", status: "已推进", note: "查询/筛选/导出落地并修复编码缺陷", prevStatus: "已推进" },
+        { id: "R6", name: "用户中心", owner: "张伟", due: "", status: "已推进", note: "注册/查询/资料维护，含参数校验单测", prevStatus: "已推进" }
+      ],
+      risks: [
+        { title: "M1 截止日（09-05）已到，延期成事实：联调未开始（_request 仍 mock、回调未接订单服务）", plain: "支付模块今天到期，但真实支付网关还没接上——延期已经发生。", dimension: "progress", level: "严重", evidence: "_request 返回 {mock: True}；callbacks.py 注明订单服务未就绪；M1 定义=开发与联调；今日已到期", advice: "延期既成事实应正式化：周会宣布新交付日期，代码项（验签/配置化）先行验收，联调项以沙箱开通为前置重排", agePeriods: 4 },
+        { title: "M1 仍由李娜单人负责，回归仅 1 次提交（截止前夜），交付连续性未证实", plain: "支付模块只有李娜一个人在做，她昨晚才回来提交了 1 次，后面能不能持续交付未知。", dimension: "people", level: "高", evidence: "shortlog 李娜 1 次 vs 张伟 21 次；此前连续两期零提交；回归后无后续提交", advice: "指定支付第二责任人；回归后连续 3 日进度同步", agePeriods: 4 },
+        { title: "feature-payment 长期未合并（落后 26、存活 31 天，已跨 30 天僵尸观察线）", plain: "支付代码放在一条 31 天没合并的分支上，和主干差了 26 次提交，越拖越难合。", dimension: "integration", level: "高", evidence: "rev-list feature-payment..main=26 > 20；merge-base 2026-08-05 → 存活 31 > 21，双阈值命中且跨僵尸线", advice: "main→feature-payment 反向同步消化偏差；验签代码尽早合入主干评审", agePeriods: 4 },
+        { title: "M3 报表真实数据源 2/18，剩 16 文件假数据，距 09-08 剩 3 天", plain: "18 张报表里还有 16 张是写死的假数据，3 天后就要交付。", dimension: "quality", level: "高", evidence: "report_3~18 load_rows 硬编码假数据；ReportBase 就绪待迁移", advice: "按基类每日 ≥5 文件迁移（09-05~09-07），09-08 只做合并", agePeriods: 4 },
+        { title: "热点文件 orders.py 双分支 125 行差异 + 同一金额缺陷重复修复", plain: "同一个文件在两条分支上各改了一版，合并时会冲突。", dimension: "integration", level: "高", evidence: "git diff main..develop -- orders.py = 125 行差异；11114f2 与 d820c8e 重复实现", advice: "develop←main 反向同步先行；建立主干修复同步约定", agePeriods: 4 },
+        { title: "TODO 28 超标持平；验签零测试", plain: "代码里积了 28 处待办标记一直没清；新写的验签代码没有任何测试。", dimension: "quality", level: "中", evidence: "28 > 20（payments_old.py 25 处）；verify_callback 无任何测试", advice: "补签名缺失/伪造/篡改/重放四类用例；legacy 清理入 M1 收尾", agePeriods: 4 },
+        { title: "无意义 message 4 条存量（wip×2/upd/fix），wip 占位代码留主干", plain: "有 4 次提交说明写得含糊（wip/fix），出问题难以追溯。", dimension: "convention", level: "中", evidence: "23dc50a/008beab/fba5ad4/d820c8e；过短占比 22.7% < 30%", advice: "message 统一类型(模块): 动机；wip 限个人分支；占位函数补实现或移除", agePeriods: 4 }
+      ],
+      insights: [
+        "本期为静默期：上期运行（09-04 22:22）后无新增提交，全部量化指标与第 4 期一致——环比持平本身即结论：风险未恶化也未缓解，处于积压待治理状态",
+        "M1 截止日（09-05）已到：延期由「不可避免」转为「既成事实」——代码项（验签 HMAC-SHA256、网关配置化，156ac8d）已落地待验收，联调项（_request mock、沙箱未开通）零进展",
+        "feature-payment 存活天数随运行日重算 30→31，跨过 30 天僵尸观察线；落后 26 持平未扩大——合并 / 归档决策不宜再拖",
+        "模块活跃分布延续「表面活跃」结构：src/modules（M3 批量模板）+1369 行 vs 核心支付 src/payments 仅 +26 行；全部 7 项风险点持续期数达 4 期，建议本周会逐项定责任人与时限"
+      ]
+    },
+    {
+      name: "repo-frontend",
+      total: 11.4, level: "低", delta: 0,
+      scores: { progress: 8, people: 20, quality: 10, integration: 10, convention: 10 },
+      topRisk: "M2 仅剩 feature-ui 合并收尾（领先 5/落后 7），距 09-10 截止 5 天窗口充分",
+      narrative: {
+        progress: "UI 改版四项全部完成，只剩合并这一步（5 天窗口），整体低风险。",
+        people: "前端由王强一人负责（既定分工），本期提交 12 次持平。",
+        quality: "无大问题；缺自动化测试是长期短板。",
+        integration: "待合并 5 次提交、落后 7 次，合并窗口充足。",
+        convention: "提交说明清晰，无含糊提交。",
+        rhythm: "节奏平稳、日均 1.5 次，今日 0 提交。",
+        modules: "改动集中在组件与样式，与改版计划一致。",
+        plans: "M2 剩 5 天，只需完成合并。"
+      },
+      lifetime: {
+        first: "2026-08-10", last: "2026-09-04", totalCommits: 18, authors: 2,
+        monthly: { "2026-08": 10, "2026-09": 8 },
+        topAuthors: [ { who: "王强", commits: 17 }, { who: "张伟", commits: 1 } ]
+      },
+      windowAnalysis: { classification: { "其他": 12 }, merges: 0, effectiveCommits: 12, trivial: [] },
+      members: [
+        { name: "王强", commits: 12, insertions: 340, deletions: 27, branches: { "main": 7, "feature-ui": 5 } }
+      ],
+      branches: [
+        { name: "feature-ui", ahead: 5, behind: 7, staleDays: 10, lastActive: "09-04" }
+      ],
+      quality: { todo: 3, todoThreshold: 20, bigCommits: 0, reworkRatio: 0.08, reworkThreshold: 0.5, largeFiles: 0 },
+      rhythm: [
+        { date: "08-29", commits: 2 }, { date: "08-30", commits: 1 }, { date: "08-31", commits: 1 },
+        { date: "09-01", commits: 1 }, { date: "09-02", commits: 2 }, { date: "09-03", commits: 2 },
+        { date: "09-04", commits: 3 }, { date: "09-05", commits: 0 }
+      ],
+      moduleActivity: [
+        { module: "src/components", insertions: 228, deletions: 26, commits: 9, core: true },
+        { module: "src/styles", insertions: 100, deletions: 0, commits: 3, core: true },
+        { module: "src/App.jsx", insertions: 12, deletions: 1, commits: 1, core: false }
+      ],
+      plans: [
+        { id: "M2", name: "前端 UI 改版", owner: "王强", due: "09-10", status: "已推进", note: "R3 四子项全部落地（含暗色细化），仅剩 feature-ui→main 合并收尾（领先 5/落后 7）", prevStatus: "已推进" },
+        { id: "R1", name: "订单查询与导出（前端侧）", owner: "王强", due: "", status: "已推进", note: "列表/筛选/详情链路完整，含无障碍与性能打磨" }
+      ],
+      risks: [
+        { title: "M2 剩 5 天，feature-ui 领先 5 未合并、落后 main 7，合并收尾未启动", plain: "改版已完成，但还没合并进主干——9 月 8 日前合并即可。", dimension: "progress", level: "低", evidence: "rev-list main..feature-ui=5、feature-ui..main=7；最后活跃 09-04 21:30（7cf728a）", advice: "09-08 前完成 main→feature-ui 同步与合并，预留验证窗口", agePeriods: 3 },
+        { title: "前端无测试基建，12 次功能改动零测试覆盖", plain: "前端没有任何自动化测试，改坏了只能靠人肉发现。", dimension: "quality", level: "低", evidence: "numstat 无测试文件；ls-files 无测试目录（持续）", advice: "M2 合并后引入最小测试（空态 / 筛选逻辑优先）", agePeriods: 4 },
+        { title: "前端单人负责（既定分工），存在 bus factor", plain: "前端只有王强一个人会，他不在时无人接手。", dimension: "people", level: "低", evidence: "计划文档王强独担前端；shortlog 12/12", advice: "M2 验收输出组件结构说明并走读留档", agePeriods: 4 }
+      ],
+      insights: [
+        "上期运行（09-04 22:22）后无新增提交，全部指标与第 4 期一致——低风险稳定状态，仅剩 feature-ui→main 合并收尾（09-08 前完成可预留验证窗口）",
+        "3 个 TODO 均为跨仓库依赖标注（服务端分页待后端 M4 09-12、导出联调依赖收敛中），与后端节奏匹配，无依赖倒挂"
+      ]
+    }
+  ],
+  history: [
+    { label: "08-28 P1", repos: { "repo-backend": { total: 36.5 }, "repo-frontend": { total: 20.8 } } },
+    { label: "09-04 P2", repos: { "repo-backend": { total: 56.8 }, "repo-frontend": { total: 12.0 } } },
+    { label: "09-04 P3", repos: { "repo-backend": { total: 58.2 }, "repo-frontend": { total: 11.4 } } },
+    { label: "09-04 P4", repos: { "repo-backend": { total: 51.7 }, "repo-frontend": { total: 11.4 } } },
+    { label: "09-05 P5", repos: { "repo-backend": { total: 51.7 }, "repo-frontend": { total: 11.4 } } }
+  ]
+};
+</script>
+
+<script>
+/* ============================================================
+ * 渲染区 —— 严禁改动：以下逻辑全部由 REPORT_DATA 驱动，不得硬编码数据
+ * ============================================================ */
+(function () {
+  'use strict';
+  var DATA = window.REPORT_DATA || { meta: {}, repos: [], history: [] };
+  var PALETTE = ['#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#9a60b4', '#fc8452'];
+  var LEVEL_COLOR = { '低': '#52c41a', '中': '#faad14', '高': '#fa8c16', '严重': '#f5222d' };
+  var LEVEL_ORDER = { '严重': 0, '高': 1, '中': 2, '低': 3 };
+  var charts = [];
+
+  function el(id) { return document.getElementById(id); }
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function levelColor(level) { return LEVEL_COLOR[level] || '#909399'; }
+  function emptyBox(text) { return '<div class="empty">' + esc(text) + '</div>'; }
+  function chartUnavailable() { return emptyBox('ECharts 未加载，图表不可用（其余模块不受影响）'); }
+  function statusColor(s) {
+    if (!s) return '#909399';
+    if (s.indexOf('延期') > -1) return '#f5222d';
+    if (s.indexOf('停滞') > -1) return '#fa8c16';
+    if (s.indexOf('部分推进') > -1) return '#faad14';
+    if (s.indexOf('推进') > -1 || s.indexOf('按计划') > -1 || s.indexOf('完成') > -1) return '#52c41a';
+    return '#909399';
+  }
+  function statusRank(s) {
+    if (s && s.indexOf('延期') > -1) return 0;
+    if (s && s.indexOf('停滞') > -1) return 1;
+    if (s && s.indexOf('部分推进') > -1) return 2;
+    return 3;
+  }
+  /* narrative 结论行：每个模块插入 AI 生成的自然语言结论 */
+  function putNarr(afterId, key) {
+    var parts = [];
+    (DATA.repos || []).forEach(function (r) {
+      var t = r.narrative && r.narrative[key];
+      if (t) parts.push('<div><span class="n-tag">' + esc(r.name) + '</span>' + esc(t) + '</div>');
+    });
+    if (!parts.length) return;
+    var host = document.getElementById(afterId);
+    if (!host) return;
+    var div = document.createElement('div');
+    div.className = 'narrative';
+    div.innerHTML = '<span class="n-tag">结论：</span>' + (parts.length === 1 ? parts[0].replace(/<span class="n-tag">[^<]*<\/span>/, '') : parts.join('<br>'));
+    host.insertAdjacentElement('afterend', div);
+  }
+
+  /* 模块 1：header meta 行 */
+  (function () {
+    var m = DATA.meta || {};
+    var parts = [];
+    if (m.project) parts.push('项目：' + m.project);
+    if (m.period != null) parts.push('第 ' + m.period + ' 期');
+    if (m.date) parts.push(m.date);
+    if (m.window) parts.push('窗口期 ' + m.window);
+    if (m.repoCount != null) parts.push('仓库数 ' + m.repoCount);
+    el('metaLine').textContent = parts.join(' · ');
+  })();
+
+  /* 模块 2：执行摘要（headline + keyPoints，说人话） */
+  (function () {
+    var headline = el('execHeadline');
+    if (DATA.headline) headline.innerHTML = esc(DATA.headline);
+    else headline.innerHTML = '<span style="color:#909399">（本期未提供总体判断）</span>';
+    var box = el('execPoints');
+    var kps = DATA.keyPoints || [];
+    if (!kps.length) { box.innerHTML = '<div class="keypoint"><span class="kp-dot" style="background:var(--level-low)"></span><span class="kp-text">本期无高等级风险要点。</span></div>'; return; }
+    kps.sort(function (a, b) {
+      var la = LEVEL_ORDER[a.level] != null ? LEVEL_ORDER[a.level] : 9;
+      var lb = LEVEL_ORDER[b.level] != null ? LEVEL_ORDER[b.level] : 9;
+      return la - lb;
+    });
+    box.innerHTML = kps.map(function (k) {
+      var isPositive = k.type === 'positive';
+      var dotColor = isPositive ? 'var(--level-low)' : levelColor(k.level);
+      var dotIcon = isPositive ? '✓' : '';
+      return '<div class="keypoint" title="' + esc(k.text) + '">'
+        + '<span class="kp-dot" style="background:' + dotColor + ';color:#fff;text-align:center;line-height:12px;font-size:9px">' + dotIcon + '</span>'
+        + '<span class="kp-text">' + esc(k.text) + '</span>'
+        + '</div>';
+    }).join('');
+  })();
+
+  /* 模块 3：需求 / 里程碑时间条看板（绝对计划区间 + 今日线 + 倒计时） */
+  (function () {
+    var box = el('planTimeline');
+    var repos = (DATA.repos || []).filter(function (r) { return (r.plans || []).length; });
+    if (!repos.length) { box.innerHTML = emptyBox('无项目文档 / 里程碑数据'); return; }
+    var m = DATA.meta || {};
+    var range = m.planRange || {};
+    var ws = range.start || (m.window ? m.window.split('~')[0].trim() : null);
+    var we = range.end || (m.window ? m.window.split('~')[1].trim() : null);
+    var today = m.date || null;
+    function t(s) { return s ? new Date(s.replace(/-/g, '/') + ' 00:00:00').getTime() : null; }
+    var w0 = t(ws), w1t = t(we), t0 = t(today);
+    var wSpan = (w0 != null && w1t != null) ? (w1t - w0) : null;
+    function pct(ts) {
+      if (wSpan == null || ts == null) return null;
+      var v = Math.round((ts - w0) / wSpan * 100);
+      return Math.max(0, Math.min(100, v));
+    }
+    var todayPct = pct(t0);
+    box.innerHTML = repos.map(function (r) {
+      var plans = (r.plans || []).slice().sort(function (a, b) {
+        return statusRank(a.status) - statusRank(b.status);
+      });
+      var rows = plans.map(function (p) {
+        var color = statusColor(p.status);
+        var dueTs = p.due && ws ? t(today.substring(0, 4) + '-' + p.due) : null;
+        if (dueTs == null && p.due && ws) dueTs = t(p.due);
+        var dp = pct(dueTs);
+        var dueHtml = esc(p.due || '—');
+        if (dueTs != null && t0 != null) {
+          var diff = Math.round((dueTs - t0) / 86400000);
+          if (diff < 0) dueHtml += ' <span class="plan-due-over">已过 ' + (-diff) + ' 天</span>';
+          else if (diff <= 3) dueHtml += ' <span class="plan-due-over">剩 ' + diff + ' 天</span>';
+          else dueHtml += ' <span class="plan-meta">剩 ' + diff + ' 天</span>';
+        }
+        var track = '';
+        if (dp != null) {
+          var elapsed = (todayPct != null) ? Math.min(todayPct, dp) : 0;
+          track = '<span class="plan-track">'
+            + '<span class="plan-elapsed" style="width:' + elapsed + '%"></span>'
+            + '<span class="plan-due-dot" style="left:' + dp + '%;background:' + color + '"></span>'
+            + (todayPct != null ? '<span class="plan-today" style="left:' + todayPct + '%"></span>' : '')
+            + '</span>';
+        } else {
+          track = '<span class="plan-track"></span>';
+        }
+        return '<div class="plan-row" style="border-left-color:' + color + '" title="' + esc(p.note || '') + '">'
+          + '<span class="plan-id" style="color:' + color + '">' + esc(p.id) + '</span>'
+          + '<span class="plan-name">' + esc(p.name) + '</span>'
+          + track
+          + '<span class="plan-meta">' + esc(p.owner || '—') + '</span>'
+          + '<span class="plan-meta">截止 ' + dueHtml + '</span>'
+          + '<span class="plan-status" style="color:' + color + '">' + esc(p.status) + '</span>'
+          + planCmp(p.status, p.prevStatus)
+          + '</div>';
+      }).join('');
+      return '<div class="plan-group"><div class="plan-repo-tag">' + esc(r.name) + '</div>' + rows + '</div>';
+    }).join('');
+  })();
+
+  /* 模块 4：异常信号墙 */
+  (function () {
+    var box = el('alertWall');
+    var wall = [];
+    (DATA.repos || []).forEach(function (r) {
+      (r.risks || []).forEach(function (k) {
+        if (k.level === '高' || k.level === '严重') wall.push({ repo: r.name, risk: k });
+      });
+    });
+    wall.sort(function (a, b) {
+      var la = LEVEL_ORDER[a.risk.level] != null ? LEVEL_ORDER[a.risk.level] : 9;
+      var lb = LEVEL_ORDER[b.risk.level] != null ? LEVEL_ORDER[b.risk.level] : 9;
+      return la - lb;
+    });
+    if (!wall.length) { box.innerHTML = '<div class="alert-ok">本期无高 / 严重等级风险</div>'; return; }
+    box.innerHTML = wall.map(function (item) {
+      var k = item.risk;
+      var main = k.plain || k.title;
+      var age = (k.agePeriods != null && k.agePeriods >= 2)
+        ? '<span class="alert-age">已连续 ' + esc(k.agePeriods) + ' 期提醒</span>' : '';
+      return '<div class="alert-block" style="background:' + levelColor(k.level) + '" title="' + esc(k.evidence || '') + '">'
+        + '<div class="alert-head">'
+        + '<span class="alert-repo">' + esc(item.repo) + '</span>'
+        + '<span class="badge" style="background:rgba(255,255,255,0.3)">' + esc(k.level) + '</span>'
+        + age
+        + '</div>'
+        + '<div class="alert-title">' + esc(main) + '</div>'
+        + '</div>';
+    }).join('');
+  })();
+
+  /* 模块 5：风险总览卡片 */
+  (function () {
+    var box = el('overviewGrid');
+    var repos = DATA.repos || [];
+    if (!repos.length) { box.innerHTML = emptyBox('无仓库数据'); return; }
+    box.innerHTML = repos.map(function (r) {
+      var deltaHtml;
+      if (r.delta == null) deltaHtml = '<span class="repo-delta" style="color:#909399">首期基线</span>';
+      else if (r.delta > 0) deltaHtml = '<span class="repo-delta" style="color:var(--level-severe)">↑ 比上期差 ' + r.delta + ' 分</span>';
+      else if (r.delta < 0) deltaHtml = '<span class="repo-delta" style="color:var(--level-low)">↓ 比上期好 ' + Math.abs(r.delta) + ' 分</span>';
+      else deltaHtml = '<span class="repo-delta" style="color:#909399">→ 与上期持平</span>';
+      return '<div class="repo-card">'
+        + '<div><span class="repo-name">' + esc(r.name) + '</span>'
+        + '<span class="badge" style="background:' + levelColor(r.level) + '">' + esc(r.level) + '风险</span></div>'
+        + '<div><span class="repo-total" style="color:' + levelColor(r.level) + '">' + esc(r.total) + '</span>' + deltaHtml + '</div>'
+        + '<div class="repo-top">' + esc(r.topRisk || '—') + '</div>'
+        + '<a href="' + esc(r.name) + '/report.md">查看详情</a>'
+        + '</div>';
+    }).join('');
+  })();
+
+  /* 模块 6：五维雷达 */
+  (function () {
+    var box = el('chartRadar');
+    var repos = DATA.repos || [];
+    if (!repos.length) { box.innerHTML = emptyBox('无仓库数据'); return; }
+    if (window.echarts) {
+      var chart = echarts.init(box);
+      chart.setOption({
+        color: PALETTE,
+        tooltip: {},
+        legend: { bottom: 0, type: 'scroll' },
+        radar: {
+          indicator: [
+            { name: '进度', max: 100 }, { name: '人员', max: 100 }, { name: '质量', max: 100 },
+            { name: '集成', max: 100 }, { name: '规范', max: 100 }
+          ],
+          radius: '62%'
+        },
+        series: [{
+          type: 'radar', symbolSize: 4,
+          data: repos.map(function (r) {
+            var s = r.scores || {};
+            return { name: r.name, value: [s.progress, s.people, s.quality, s.integration, s.convention] };
+          })
+        }]
+      });
+      charts.push(chart);
+    } else { box.innerHTML = chartUnavailable(); }
+  })();
+
+  /* 模块 7：五维热力 */
+  (function () {
+    var box = el('chartHeatmap');
+    var repos = DATA.repos || [];
+    if (!repos.length) { box.innerHTML = emptyBox('无仓库数据'); return; }
+    if (window.echarts) {
+      var dims = ['进度', '人员', '质量', '集成', '规范'];
+      var keys = ['progress', 'people', 'quality', 'integration', 'convention'];
+      var data = [];
+      repos.forEach(function (r, ri) {
+        keys.forEach(function (key, di) {
+          data.push([di, ri, (r.scores || {})[key] != null ? (r.scores || {})[key] : 0]);
+        });
+      });
+      var chart = echarts.init(box);
+      chart.setOption({
+        tooltip: { position: 'top', formatter: function (p) { return esc(repos[p.value[1]].name) + ' · ' + dims[p.value[0]] + '：' + p.value[2]; } },
+        grid: { left: 16, right: 24, top: 16, bottom: 48, containLabel: true },
+        xAxis: { type: 'category', data: dims, splitArea: { show: true } },
+        yAxis: { type: 'category', data: repos.map(function (r) { return r.name; }), splitArea: { show: true } },
+        visualMap: { min: 0, max: 100, calculable: false, orient: 'horizontal', left: 'center', bottom: 0, itemWidth: 12, inRange: { color: ['#52c41a', '#faad14', '#fa8c16', '#f5222d'] } },
+        series: [{ type: 'heatmap', data: data, label: { show: true }, itemStyle: { borderColor: '#fff', borderWidth: 2 } }]
+      });
+      charts.push(chart);
+    } else { box.innerHTML = chartUnavailable(); }
+  })();
+
+  /* 模块 8：跨期趋势 */
+  (function () {
+    var box = el('chartTrend');
+    var history = DATA.history || [];
+    var repos = DATA.repos || [];
+    if (!history.length || !repos.length) { box.innerHTML = emptyBox('无历史数据'); return; }
+    if (history.length < 2) {
+      box.innerHTML = emptyBox('首期基线：趋势自第 2 期起呈现');
+      return;
+    }
+    var labels = history.map(function (h) { return h.label; });
+    if (window.echarts) {
+      var chart = echarts.init(box);
+      chart.setOption({
+        tooltip: { trigger: 'axis' },
+        legend: { bottom: 0, type: 'scroll' },
+        grid: { left: 16, right: 24, top: 24, bottom: 56, containLabel: true },
+        xAxis: { type: 'category', boundaryGap: false, data: labels },
+        yAxis: { type: 'value', min: 0, max: 100 },
+        series: repos.map(function (r) {
+          var values = history.map(function (h) {
+            var rec = h.repos && h.repos[r.name];
+            return rec ? rec.total : null;
+          });
+          var lastIndex = -1;
+          for (var i = values.length - 1; i >= 0; i--) { if (values[i] != null) { lastIndex = i; break; } }
+          return {
+            name: r.name, type: 'line', connectNulls: true,
+            itemStyle: { color: levelColor(r.level) },
+            lineStyle: { color: levelColor(r.level), width: 2 },
+            data: values,
+            markPoint: lastIndex > -1 ? { symbolSize: 42, label: { show: false }, data: [{ coord: [labels[lastIndex], values[lastIndex]] }] } : undefined
+          };
+        })
+      });
+      charts.push(chart);
+    } else { box.innerHTML = chartUnavailable(); }
+  })();
+
+  /* 模块 9：成员 × 分支（堆叠横条，孤岛 = 单色） */
+  (function () {
+    var box = el('chartMemberBranch');
+    var repos = DATA.repos || [];
+    var rows = []; var branchSet = []; var memberLookup = {};
+    repos.forEach(function (r) {
+      (r.members || []).forEach(function (m) {
+        rows.push({ key: r.name + ' / ' + m.name, repo: r.name, member: m });
+        memberLookup[r.name + ' / ' + m.name] = m;
+        Object.keys(m.branches || {}).forEach(function (b) { if (branchSet.indexOf(b) < 0) branchSet.push(b); });
+      });
+    });
+    if (!rows.length) { box.innerHTML = emptyBox('无成员提交数据'); return; }
+    box.style.height = Math.max(240, rows.length * 44) + 'px';
+    if (window.echarts) {
+      var chart = echarts.init(box);
+      chart.setOption({
+        tooltip: {
+          trigger: 'axis', axisPointer: { type: 'shadow' },
+          formatter: function (params) {
+            var m = memberLookup[params[0].name];
+            var out = [esc(params[0].name)];
+            params.forEach(function (p) { if (p.value) out.push(p.marker + ' ' + esc(p.seriesName) + '：' + p.value + ' 次'); });
+            if (m) out.push('合计 ' + m.commits + ' 次（+' + m.insertions + ' / -' + m.deletions + ' 行）');
+            return out.join('<br>');
+          }
+        },
+        legend: { bottom: 0, type: 'scroll' },
+        grid: { left: 16, right: 24, top: 16, bottom: 56, containLabel: true },
+        xAxis: { type: 'value', minInterval: 1, name: '提交数' },
+        yAxis: { type: 'category', inverse: true, data: rows.map(function (row) { return row.key; }) },
+        series: branchSet.map(function (b, i) {
+          return {
+            name: b, type: 'bar', stack: 'member', barWidth: 18,
+            itemStyle: { color: PALETTE[i % PALETTE.length] },
+            data: rows.map(function (row) { return (row.member.branches || {})[b] || 0; })
+          };
+        })
+      });
+      charts.push(chart);
+    } else { box.innerHTML = chartUnavailable(); }
+  })();
+
+  /* 模块 10：模块活跃分布（核心蓝 / 其他灰） */
+  (function () {
+    var box = el('chartModule');
+    var repos = DATA.repos || [];
+    var rows = [];
+    repos.forEach(function (r) {
+      (r.moduleActivity || []).forEach(function (m) {
+        rows.push({ key: r.name + ' / ' + m.module, mod: m });
+      });
+    });
+    if (!rows.length) { box.innerHTML = emptyBox('无模块分布数据'); return; }
+    rows.sort(function (a, b) { return (b.mod.insertions + b.mod.deletions) - (a.mod.insertions + a.mod.deletions); });
+    box.style.height = Math.max(240, rows.length * 36) + 'px';
+    if (window.echarts) {
+      var lookup = {};
+      rows.forEach(function (row) { lookup[row.key] = row.mod; });
+      var chart = echarts.init(box);
+      chart.setOption({
+        tooltip: {
+          trigger: 'axis', axisPointer: { type: 'shadow' },
+          formatter: function (params) {
+            var m = lookup[params[0].name];
+            if (!m) return '';
+            return esc(params[0].name) + '<br>新增 +' + m.insertions + ' / 删除 -' + m.deletions
+              + '<br>提交 ' + m.commits + ' 次 · ' + (m.core ? '核心模块' : '其他模块');
+          }
+        },
+        legend: { bottom: 0 },
+        grid: { left: 16, right: 24, top: 16, bottom: 56, containLabel: true },
+        xAxis: { type: 'value', name: '变更行数（增 + 删）' },
+        yAxis: { type: 'category', inverse: true, data: rows.map(function (row) { return row.key; }) },
+        series: [
+          { name: '核心模块（计划内）', type: 'bar', stack: 'module', barWidth: 14, itemStyle: { color: '#5470c6' },
+            data: rows.map(function (row) { return row.mod.core ? (row.mod.insertions + row.mod.deletions) : 0; }) },
+          { name: '其他模块', type: 'bar', stack: 'module', barWidth: 14, itemStyle: { color: '#c0c4cc' },
+            data: rows.map(function (row) { return row.mod.core ? 0 : (row.mod.insertions + row.mod.deletions); }) }
+        ]
+      });
+      charts.push(chart);
+    } else { box.innerHTML = chartUnavailable(); }
+  })();
+
+  /* 模块 11：分支合并状况（diverging） */
+  (function () {
+    var box = el('chartBranch');
+    var repos = DATA.repos || [];
+    var rowKeys = []; var branchMap = {};
+    repos.forEach(function (r) {
+      (r.branches || []).forEach(function (b) {
+        var key = r.name + '/' + b.name;
+        branchMap[key] = b; rowKeys.push(key);
+      });
+    });
+    if (!rowKeys.length) { box.innerHTML = emptyBox('无分支数据'); return; }
+    box.style.height = Math.max(240, rowKeys.length * 40) + 'px';
+    if (window.echarts) {
+      var chart = echarts.init(box);
+      chart.setOption({
+        tooltip: {
+          trigger: 'axis', axisPointer: { type: 'shadow' },
+          formatter: function (params) {
+            var key = params[0].name;
+            var b = branchMap[key] || {};
+            var ahead = 0, behind = 0;
+            params.forEach(function (p) {
+              if (p.seriesName === '领先主干') ahead = p.value || 0;
+              if (p.seriesName === '落后主干') behind = Math.abs(p.value || 0);
+            });
+            return esc(key) + '<br>领先 +' + ahead + ' / 落后 -' + behind
+              + '<br>存活 ' + (b.staleDays != null ? b.staleDays + ' 天' : '—')
+              + ' · 最后活跃 ' + (b.lastActive || '—');
+          }
+        },
+        legend: { bottom: 0 },
+        grid: { left: 16, right: 24, top: 24, bottom: 56, containLabel: true },
+        xAxis: { type: 'value', axisLabel: { formatter: function (v) { return Math.abs(v); } } },
+        yAxis: { type: 'category', data: rowKeys },
+        series: [
+          { name: '领先主干', type: 'bar', stack: 'branch', barWidth: 14, itemStyle: { color: '#5470c6' },
+            data: rowKeys.map(function (k) { return branchMap[k].ahead || 0; }) },
+          { name: '落后主干', type: 'bar', stack: 'branch', barWidth: 14, itemStyle: { color: '#ee6666' },
+            data: rowKeys.map(function (k) { return -(branchMap[k].behind || 0); }) }
+        ]
+      });
+      charts.push(chart);
+    } else { box.innerHTML = chartUnavailable(); }
+  })();
+
+  /* 模块 12：提交节奏（逐日柱状 + 逐日环比） */
+  (function () {
+    var box = el('chartRhythm');
+    var repos = DATA.repos || [];
+    var dateSet = [];
+    repos.forEach(function (r) {
+      (r.rhythm || []).forEach(function (d) { if (dateSet.indexOf(d.date) < 0) dateSet.push(d.date); });
+    });
+    dateSet.sort();
+    if (!dateSet.length) { box.innerHTML = emptyBox('无提交节奏数据'); return; }
+    if (window.echarts) {
+      var rhythmSeries = [];
+      var chart = echarts.init(box);
+      chart.setOption({
+        tooltip: {
+          trigger: 'axis', axisPointer: { type: 'shadow' },
+          formatter: function (params) {
+            var out = [esc(params[0].axisValue)];
+            params.forEach(function (p) {
+              var line = p.marker + ' ' + esc(p.seriesName) + '：' + p.value + ' 次';
+              var arr = rhythmSeries[p.seriesIndex];
+              if (arr && p.dataIndex > 0 && arr[p.dataIndex - 1] != null) {
+                var diff = p.value - arr[p.dataIndex - 1];
+                line += '（较前日 ' + (diff > 0 ? '+' : '') + diff + '）';
+              }
+              out.push(line);
+            });
+            return out.join('<br>');
+          }
+        },
+        legend: { bottom: 0, type: 'scroll' },
+        grid: { left: 16, right: 24, top: 24, bottom: 56, containLabel: true },
+        xAxis: { type: 'category', data: dateSet },
+        yAxis: { type: 'value', minInterval: 1, name: '提交数' },
+        series: repos.map(function (r) {
+          var map = {};
+          (r.rhythm || []).forEach(function (d) { map[d.date] = d.commits; });
+          var arr = dateSet.map(function (d) { return map[d] || 0; });
+          rhythmSeries.push(arr);
+          return { name: r.name, type: 'bar', barMaxWidth: 26, data: arr };
+        })
+      });
+      charts.push(chart);
+    } else { box.innerHTML = chartUnavailable(); }
+  })();
+
+  /* 模块 13：质量信号卡 */
+  (function () {
+    var box = el('qualityCards');
+    var repos = DATA.repos || [];
+    if (!repos.length) { box.innerHTML = emptyBox('无仓库数据'); return; }
+    box.innerHTML = repos.map(function (r) {
+      var q = r.quality || {};
+      var todoOver = q.todo != null && q.todoThreshold != null && q.todo > q.todoThreshold;
+      var reworkOver = q.reworkRatio != null && q.reworkThreshold != null && q.reworkRatio > q.reworkThreshold;
+      var bigOver = (q.bigCommits || 0) > 0;
+      var largeOver = (q.largeFiles || 0) > 0;
+      return '<div class="quality-group">'
+        + '<div class="q-title">' + esc(r.name) + '</div>'
+        + '<div class="chips">'
+        + '<span class="chip ' + (todoOver ? 'alert' : 'ok') + '">待办标记：' + esc(q.todo) + ' 处 / 预警线 ' + esc(q.todoThreshold) + '</span>'
+        + '<span class="chip' + (bigOver ? ' alert' : '') + '">大提交：' + esc(q.bigCommits) + ' 个</span>'
+        + '<span class="chip ' + (reworkOver ? 'alert' : 'ok') + '">重做比例：' + esc(q.reworkRatio) + ' / 预警线 ' + esc(q.reworkThreshold) + '</span>'
+        + '<span class="chip' + (largeOver ? ' alert' : '') + '">超大文件：' + esc(q.largeFiles) + ' 个</span>'
+        + '</div></div>';
+    }).join('');
+  })();
+
+  /* 模块 14（附录）：风险点明细（人话列 + 证据悬停） */
+  (function () {
+    var box = el('riskTableWrap');
+    var all = [];
+    (DATA.repos || []).forEach(function (r) {
+      (r.risks || []).forEach(function (k) { all.push({ repo: r.name, risk: k }); });
+    });
+    if (!all.length) { box.innerHTML = emptyBox('无风险点'); return; }
+    all.sort(function (a, b) {
+      var la = LEVEL_ORDER[a.risk.level] != null ? LEVEL_ORDER[a.risk.level] : 9;
+      var lb = LEVEL_ORDER[b.risk.level] != null ? LEVEL_ORDER[b.risk.level] : 9;
+      if (la !== lb) return la - lb;
+      return (b.risk.agePeriods || 0) - (a.risk.agePeriods || 0);
+    });
+    var rows = all.map(function (item) {
+      var k = item.risk;
+      var age = k.agePeriods != null ? k.agePeriods + ' 期' : '—';
+      var human = k.plain || k.title;
+      return '<tr>'
+        + '<td title="' + esc(k.title || '') + '">' + esc(human) + '</td>'
+        + '<td>' + esc(item.repo) + '</td>'
+        + '<td>' + esc(k.dimension) + '</td>'
+        + '<td><span class="badge" style="background:' + levelColor(k.level) + '">' + esc(k.level) + '</span></td>'
+        + '<td>' + esc(age) + '</td>'
+        + '<td title="' + esc(k.evidence || '') + '">' + esc(k.advice || '') + '</td>'
+        + '</tr>';
+    }).join('');
+    box.innerHTML = '<table><thead><tr><th>问题（大白话，悬停看技术细节）</th><th>仓库</th><th>维度</th><th>等级</th><th>已提醒</th><th>建议</th></tr></thead><tbody>' + rows + '</tbody></table>';
+    var sum = el('riskDetails').querySelector('summary');
+    if (sum) sum.textContent = '风险点明细清单（' + all.length + ' 条，大白话 + 技术细节悬停）';
+  })();
+
+  /* 模块 15（附录）：深度评估要点 */
+  (function () {
+    var box = el('insightsWrap');
+    var repos = DATA.repos || [];
+    var hasAny = repos.some(function (r) { return r.insights && r.insights.length; });
+    if (!hasAny) { box.innerHTML = emptyBox('无深度评估要点'); return; }
+    box.innerHTML = repos.map(function (r) {
+      if (!r.insights || !r.insights.length) return '';
+      return '<div class="plan-group"><div class="plan-repo-tag">' + esc(r.name) + '</div><ul>'
+        + r.insights.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('')
+        + '</ul></div>';
+    }).join('');
+  })();
+
+  /* 模块 16：footer */
+  (function () {
+    var m = DATA.meta || {};
+    el('footerMeta').textContent = '生成时间：' + (m.runAt || m.date || '—');
+  })();
+
+  /* 模块 17：narrative 结论行注入（各模块，v5） */
+  (function () {
+    putNarr('planTimeline', 'plans');
+    putNarr('chartRhythm', 'rhythm');
+    putNarr('chartHeatmap', 'progress');
+    putNarr('chartHeatmap', 'integration');
+    putNarr('chartHeatmap', 'convention');
+    putNarr('chartMemberBranch', 'people');
+    putNarr('chartModule', 'modules');
+    putNarr('qualityCards', 'quality');
+  })();
+
+  /* 模块环比行（沿用 v3：overview / heat+radar / trend / member / branch / rhythm / module / quality） */
+  var prevMeta = (DATA.meta || {}).prev || null;
+  function setCompare(id, html) { var n = el(id); if (n) n.innerHTML = html; }
+  function cmpPrefix() {
+    return prevMeta ? ('环比上期（' + esc(prevMeta.label) + '）→ 本期：') : '基线（首期）：';
+  }
+  function span(cls, text) { return '<b class="' + cls + '">' + esc(text) + '</b>'; }
+  function riskDir(cur, prev) {
+    if (cur == null || prev == null) return '';
+    if (cur > prev) return span('cmp-worse', '↑ 恶化');
+    if (cur < prev) return span('cmp-better', '↓ 好转');
+    return span('cmp-flat', '→ 持平');
+  }
+  function actDir(cur, prev) {
+    if (cur == null || prev == null) return '';
+    if (cur > prev) return span('cmp-act-up', '↑');
+    if (cur < prev) return span('cmp-act-down', '↓');
+    return span('cmp-flat', '→');
+  }
+  function planCmp(cur, prev) {
+    if (prev == null) return '';
+    var rc = statusRank(cur), rp = statusRank(prev);
+    if (rc === rp) return ' <span class="cmp-flat">（较上期：持平）</span>';
+    if (rc < rp) return ' <span class="cmp-worse">（较上期：恶化）</span>';
+    return ' <span class="cmp-better">（较上期：好转）</span>';
+  }
+  (function () {
+    var parts = [];
+    (DATA.repos || []).forEach(function (r) {
+      var p = r.prev && r.prev.total;
+      if (p == null) { parts.push(esc(r.name) + ' 上期无数据'); return; }
+      var d = Math.round((r.total - p) * 10) / 10;
+      var dir = d > 0 ? span('cmp-worse', '↑ +' + d) : (d < 0 ? span('cmp-better', '↓ ' + d) : span('cmp-flat', '→ 持平'));
+      parts.push(esc(r.name) + ' ' + esc(p) + '→' + esc(r.total) + ' ' + dir);
+    });
+    setCompare('cmpOverview', cmpPrefix() + parts.join('；'));
+  })();
+  (function () {
+    var keys = [['progress', '进度'], ['people', '人员'], ['quality', '质量'], ['integration', '集成'], ['convention', '规范']];
+    var parts = [];
+    (DATA.repos || []).forEach(function (r) {
+      var ps = r.prev && r.prev.scores;
+      if (!ps) { parts.push(esc(r.name) + ' 上期无数据'); return; }
+      var seg = keys.map(function (k) {
+        var cur = (r.scores || {})[k[0]]; var pv = ps[k[0]];
+        return k[1] + ' ' + esc(pv) + '→' + esc(cur) + ' ' + riskDir(cur, pv);
+      });
+      parts.push(esc(r.name) + '：' + seg.join(' / '));
+    });
+    setCompare('cmpHeat', cmpPrefix() + parts.join('；'));
+    setCompare('cmpRadar', cmpPrefix() + parts.join('；'));
+  })();
+  (function () {
+    var box = el('cmpTrend'); if (!box) return;
+    var h = DATA.history || [];
+    if (!prevMeta) { box.innerHTML = cmpPrefix() + '自下期起呈现各模块环比'; return; }
+    setCompare('cmpTrend', cmpPrefix() + '趋势窗口 ' + esc(h.length ? h[0].label : '—') + ' → ' + esc(h.length ? h[h.length - 1].label : '—') + '（共 ' + h.length + ' 期，按运行日期排列）');
+  })();
+  (function () {
+    if (!el('cmpMemberBranch')) return;
+    if (!prevMeta) { setCompare('cmpMemberBranch', cmpPrefix() + '首期成员基线'); return; }
+    var parts = [];
+    (DATA.repos || []).forEach(function (r) {
+      var pm = {};
+      ((r.prev || {}).members || []).forEach(function (m) { pm[m.name] = m.commits; });
+      (r.members || []).forEach(function (m) {
+        var p = pm[m.name];
+        if (p == null) parts.push(esc(r.name) + '：' + esc(m.name) + ' ' + span('cmp-act-up', '新进') + '（' + esc(m.commits) + ' 次）');
+        else parts.push(esc(r.name) + '：' + esc(m.name) + ' ' + esc(p) + '→' + esc(m.commits) + ' 次 ' + actDir(m.commits, p));
+        delete pm[m.name];
+      });
+      Object.keys(pm).forEach(function (n) {
+        parts.push(esc(r.name) + '：' + esc(n) + ' ' + span('cmp-act-down', '退出') + '（上期 ' + esc(pm[n]) + ' 次）');
+      });
+    });
+    setCompare('cmpMemberBranch', cmpPrefix() + (parts.join('；') || '无成员数据'));
+  })();
+  (function () {
+    if (!el('cmpBranch')) return;
+    if (!prevMeta) { setCompare('cmpBranch', cmpPrefix() + '首期分支基线'); return; }
+    var parts = [];
+    (DATA.repos || []).forEach(function (r) {
+      var pb = {};
+      ((r.prev || {}).branches || []).forEach(function (b) { pb[b.name] = b.behind; });
+      (r.branches || []).forEach(function (b) {
+        var p = pb[b.name];
+        if (p == null) { parts.push(esc(r.name) + '/' + esc(b.name) + ' 上期无数据'); return; }
+        parts.push(esc(r.name) + '/' + esc(b.name) + ' 落后 ' + esc(p) + '→' + esc(b.behind) + ' ' + riskDir(b.behind, p));
+      });
+    });
+    setCompare('cmpBranch', cmpPrefix() + parts.join('；'));
+  })();
+  (function () {
+    if (!el('cmpRhythm')) return;
+    var parts = [];
+    (DATA.repos || []).forEach(function (r) {
+      var days = (r.rhythm || []).length;
+      var cur = days ? Math.round(r.rhythm.reduce(function (s, d) { return s + d.commits; }, 0) / days * 10) / 10 : null;
+      var p = (r.prev || {}).dailyAvg;
+      if (cur == null) return;
+      if (p == null) { parts.push(esc(r.name) + ' 日均 ' + esc(cur) + ' 次/日（上期无数据）'); return; }
+      parts.push(esc(r.name) + ' 日均 ' + esc(p) + '→' + esc(cur) + ' 次/日 ' + actDir(cur, p));
+    });
+    setCompare('cmpRhythm', cmpPrefix() + (parts.join('；') || '无节奏数据'));
+  })();
+  (function () {
+    if (!el('cmpModule')) return;
+    var has = (DATA.repos || []).some(function (r) { return (r.moduleActivity || []).length; });
+    if (!has) { setCompare('cmpModule', ''); return; }
+    setCompare('cmpModule', cmpPrefix() + '上期无数据（模块维度自本期起纳入环比）');
+  })();
+  (function () {
+    if (!el('cmpQuality')) return;
+    if (!prevMeta) { setCompare('cmpQuality', cmpPrefix() + '首期质量基线'); return; }
+    var parts = [];
+    (DATA.repos || []).forEach(function (r) {
+      var pq = (r.prev || {}).quality, q = r.quality || {};
+      if (!pq) { parts.push(esc(r.name) + ' 上期无数据'); return; }
+      parts.push(esc(r.name) + '：TODO ' + esc(pq.todo) + '→' + esc(q.todo) + ' ' + riskDir(q.todo, pq.todo)
+        + ' / 大提交 ' + esc(pq.bigCommits) + '→' + esc(q.bigCommits)
+        + ' / 返工比 ' + esc(pq.reworkRatio) + '→' + esc(q.reworkRatio) + ' ' + riskDir(q.reworkRatio, pq.reworkRatio));
+    });
+    setCompare('cmpQuality', cmpPrefix() + parts.join('；'));
+  })();
+
+  /* 模块 15b：仓库全景（lifetime，v6） */
+  (function () {
+    var repos = (DATA.repos || []).filter(function (r) { return r.lifetime; });
+    var box = el('lifetimeCards');
+    if (!repos.length) { box.innerHTML = emptyBox('无全生命周期数据'); return; }
+    box.innerHTML = repos.map(function (r) {
+      var lt = r.lifetime;
+      return '<div class="quality-group">'
+        + '<div class="q-title">' + esc(r.name) + '</div>'
+        + '<div class="metric-cards">'
+        + '<div class="metric-card"><div class="metric-value">' + esc(lt.first) + '</div><div class="metric-label">首次提交</div></div>'
+        + '<div class="metric-card"><div class="metric-value">' + esc(lt.totalCommits) + '</div><div class="metric-label">总提交（全分支去重）</div></div>'
+        + '<div class="metric-card"><div class="metric-value">' + esc(lt.authors) + '</div><div class="metric-label">历史作者数</div></div>'
+        + '</div></div>';
+    }).join('');
+  })();
+  (function () {
+    var box = el('chartLifetime');
+    var repos = (DATA.repos || []).filter(function (r) { return r.lifetime && r.lifetime.monthly; });
+    if (!repos.length) { box.innerHTML = emptyBox('无逐月数据'); return; }
+    var monthSet = [];
+    repos.forEach(function (r) {
+      Object.keys(r.lifetime.monthly).forEach(function (m) { if (monthSet.indexOf(m) < 0) monthSet.push(m); });
+    });
+    monthSet.sort();
+    if (window.echarts) {
+      var chart = echarts.init(box);
+      chart.setOption({
+        tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }, valueFormatter: function (v) { return v + ' 次'; } },
+        legend: { bottom: 0, type: 'scroll' },
+        grid: { left: 16, right: 24, top: 24, bottom: 56, containLabel: true },
+        xAxis: { type: 'category', data: monthSet },
+        yAxis: { type: 'value', name: '提交数' },
+        series: repos.map(function (r) {
+          return {
+            name: r.name, type: 'bar', barMaxWidth: 26,
+            data: monthSet.map(function (m) { return r.lifetime.monthly[m] || 0; })
+          };
+        })
+      });
+      charts.push(chart);
+    } else { box.innerHTML = chartUnavailable(); }
+  })();
+  (function () {
+    var box = el('topAuthors');
+    var repos = (DATA.repos || []).filter(function (r) { return r.lifetime && r.lifetime.topAuthors; });
+    if (!repos.length) { box.innerHTML = emptyBox('无贡献者数据'); return; }
+    box.innerHTML = repos.map(function (r) {
+      var items = (r.lifetime.topAuthors || []).map(function (t) {
+        return '<li>' + esc(t.who) + '：' + esc(t.commits) + ' 次</li>';
+      }).join('');
+      return '<div class="plan-group"><div class="plan-repo-tag">' + esc(r.name) + '</div><ul>' + items + '</ul></div>';
+    }).join('');
+  })();
+
+  /* 模块 15c：增量提交分析（classification + effective + trivial，v6） */
+  (function () {
+    var box = el('chartCommitMix');
+    var repos = (DATA.repos || []).filter(function (r) { return r.windowAnalysis; });
+    if (!repos.length) { box.innerHTML = emptyBox('无增量提交分析数据'); return; }
+    var catSet = [];
+    repos.forEach(function (r) {
+      Object.keys(r.windowAnalysis.classification || {}).forEach(function (c) { if (catSet.indexOf(c) < 0) catSet.push(c); });
+    });
+    var rowKeys = repos.map(function (r) { return r.name; });
+    if (window.echarts) {
+      var catColors = { feat: '#5470c6', fix: '#ee6666', refactor: '#fac858', docs: '#91cc75', test: '#73c0de', chore: '#c0c4cc', perf: '#fc8452', build: '#9a60b4', ci: '#d3d6d8', revert: '#f5222d', '其他': '#d3d6d8' };
+      var chart = echarts.init(box);
+      chart.setOption({
+        tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }, valueFormatter: function (v) { return v + ' 次'; } },
+        legend: { bottom: 0 },
+        grid: { left: 16, right: 24, top: 16, bottom: 40, containLabel: true },
+        xAxis: { type: 'value', minInterval: 1, name: '提交数' },
+        yAxis: { type: 'category', inverse: true, data: rowKeys },
+        series: catSet.map(function (c, i) {
+          return {
+            name: c, type: 'bar', stack: 'mix', barWidth: 20,
+            itemStyle: { color: catColors[c] || PALETTE[i % PALETTE.length] },
+            data: repos.map(function (r) {
+              var cl = (r.windowAnalysis || {}).classification || {};
+              return cl[c] || 0;
+            })
+          };
+        })
+      });
+      charts.push(chart);
+    } else { box.innerHTML = chartUnavailable(); }
+  })();
+  (function () {
+    var box = el('cmpCommitMix');
+    var repos = (DATA.repos || []).filter(function (r) { return r.windowAnalysis; });
+    if (!repos.length) { box.innerHTML = emptyBox('无增量提交分析数据'); return; }
+    var parts = repos.map(function (r) {
+      var w = r.windowAnalysis;
+      var total = 0; Object.keys(w.classification || {}).forEach(function (c) { total += w.classification[c]; });
+      var eff = w.effectiveCommits != null ? w.effectiveCommits : total;
+      var pct = total ? Math.round(eff / total * 100) : 100;
+      return esc(r.name) + '：有效提交 ' + eff + '/' + total + '（' + pct + '%，合并不计入工作量）';
+    });
+    setCompare('cmpCommitMix', '口径：有效提交 = 非合并且含代码变更。' + parts.join('；'));
+  })();
+  (function () {
+    var box = el('trivialList');
+    var items = [];
+    (DATA.repos || []).forEach(function (r) {
+      var w = r.windowAnalysis || {};
+      (w.trivial || []).forEach(function (t) {
+        items.push('<li>' + esc(r.name) + ' @' + esc(t.h) + '：' + esc(t.msg) + '（仅 ' + esc(t.lines) + ' 行变更）</li>');
+      });
+    });
+    if (!items.length) { box.innerHTML = ''; return; }
+    box.innerHTML = '<div class="trivial-list"><b>碎片化小提交（≤3 行变更）——请结合内容研判是否为有效产出：</b><ul>' + items.join('') + '</ul></div>';
+  })();
+
+  window.addEventListener('resize', function () {
+    charts.forEach(function (c) { c.resize(); });
+  });
+})();
+</script>
+</body>
+</html>

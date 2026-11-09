@@ -1,0 +1,248 @@
+1ee8b61e9d4e6435f89f2e3a7a01a6bdc15c29c454b8395ed325f0d161c10878fbe00119aaa1d482xiaozuozhi27809633@qq.com2026-11-04 17:56:52 +0800商标表达式bug修复
+54b8395ed325f0d161c10878fbe00119aaa1d4823ebb186a95f766a17b7b151e801ead73da8dbcc1xiaozuozhi27809633@qq.com2026-11-04 15:34:55 +0800接口转大写
+3ebb186a95f766a17b7b151e801ead73da8dbcc11fafc54590b4ea92998f6e4cb5ae6ca551a75797 5440f4bbd99ecc50c696429cb55dbbddf5fbe56dxiaozuozhi27809633@qq.com2026-11-03 18:48:30 +0800Merge branch 'knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl
+5440f4bbd99ecc50c696429cb55dbbddf5fbe56d239c7e0de0f578aaaae1e9aac8a18ff92fef41afxiaozuozhi27809633@qq.com2026-11-03 18:47:56 +0800    // 雪花ID超过JS安全整数(2^53-1),以数字输出会被前端截断精度,故序列化为字符串
+239c7e0de0f578aaaae1e9aac8a18ff92fef41af57a841bdcbc867c09c79b04e8bbd6e1adecb787cxiaozuozhi27809633@qq.com2026-11-03 18:47:43 +0800    // 雪花ID超过JS安全整数(2^53-1),以数字输出会被前端截断精度,故序列化为字符串
+57a841bdcbc867c09c79b04e8bbd6e1adecb787c5186b838eecb6786b9b74803275cbc6b1009cf54xiaozuozhi27809633@qq.com2026-11-03 14:56:24 +0800转出量：受让人城市！=广州；转入量：受让人城市=广州。逻辑备份
+1fafc54590b4ea92998f6e4cb5ae6ca551a75797b12a7a063f11ffb2934506cd192f93c3f1d2be91xiaozuozhi27809633@qq.com2026-11-03 14:56:24 +0800转出量：受让人城市！=广州；转入量：受让人城市=广州。逻辑备份
+b12a7a063f11ffb2934506cd192f93c3f1d2be918fb5ec51e71d5ce4ff84007e89aabe3c0db17822 5186b838eecb6786b9b74803275cbc6b1009cf54xiaozuozhi27809633@qq.com2026-11-03 13:35:50 +0800Merge branch 'knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl
+5186b838eecb6786b9b74803275cbc6b1009cf5410bfcc09b9dffcc8d9ac649d02a4c28f23cd7437xiaozuozhi27809633@qq.com2026-11-03 11:15:23 +0800转出量：受让人城市！=广州；转入量：受让人城市=广州。逻辑备份
+10bfcc09b9dffcc8d9ac649d02a4c28f23cd74372b99beaf99e367f2e20f46dce2b2e007a55640ef 956947ac7b2d2db1b0160a453040ba94f3ebae7cxiaozuozhi27809633@qq.com2026-11-03 11:12:21 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+2b99beaf99e367f2e20f46dce2b2e007a55640efac3c15d348ea11bb7996035437061240069c92fbxiaozuozhi27809633@qq.com2026-11-03 11:10:54 +0800转出量：受让人城市！=广州；转入量：受让人城市=广州。逻辑备份
+956947ac7b2d2db1b0160a453040ba94f3ebae7cac3c15d348ea11bb7996035437061240069c92fbhuangzhenhaohuangzhenhao@ourchem.com2026-11-03 11:02:53 +0800fix:主体详情数据精准查询
+ac3c15d348ea11bb7996035437061240069c92fb8853b5b7ef4bbe6f4e73e0e4f35a66cf58941b2ahuangzhenhaohuangzhenhao@ourchem.com2026-11-02 17:26:15 +0800feat:产业图谱转化、许可图表定时任务缓存预热
+8853b5b7ef4bbe6f4e73e0e4f35a66cf58941b2af1520b2a9cfea4cca84a80b717877040b618550bxiaozuozhi27809633@qq.com2026-11-02 16:02:17 +0800退回或者补齐材料不允许审核通过
+8fb5ec51e71d5ce4ff84007e89aabe3c0db178223892e1e8460b39c5edfa3ab2cb06a9c0ff839ecc f1520b2a9cfea4cca84a80b717877040b618550bxiaozuozhi27809633@qq.com2026-11-02 10:18:54 +0800Merge branch 'knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl
+f1520b2a9cfea4cca84a80b717877040b618550bb594ec228946dab3dbae84d16925ff656c3bcb49xiaozuozhi27809633@qq.com2026-10-30 18:53:59 +0800产业链图谱过滤掉个人类型企业
+b594ec228946dab3dbae84d16925ff656c3bcb499ea7edf6fc209e7984646a1695a7bc8590b4debbxiaozuozhi27809633@qq.com2026-10-30 18:40:31 +0800关键技术节点管理：点击导出按钮后报错
+9ea7edf6fc209e7984646a1695a7bc8590b4debb54df59ff983a3eb041f0569c2e72b05a04e8da67huangzhenhaohuangzhenhao@ourchem.com2026-10-30 18:00:51 +0800fix:主体详情数据精准查询
+54df59ff983a3eb041f0569c2e72b05a04e8da67861094d9f11fd25f950589a098efe128627a978bxiaozuozhi27809633@qq.com2026-10-30 17:31:19 +0800关键技术节点管理：点击导出按钮后报错
+861094d9f11fd25f950589a098efe128627a978b44450d0ab0b9b2eb32b518242216a657a29797c1xiaozuozhi27809633@qq.com2026-10-30 15:27:46 +0800点击分类，数据显示不对
+44450d0ab0b9b2eb32b518242216a657a29797c14c17aad2085a242b68ac8701520c25ea42822f6ahuangzhenhaohuangzhenhao@ourchem.com2026-10-30 13:51:25 +0800fix:报告
+4c17aad2085a242b68ac8701520c25ea42822f6a035db267aa7b05023e99db72cdbd95ccc26a7645huangzhenhaohuangzhenhao@ourchem.com2026-10-30 13:39:36 +0800fix:图谱 转入转出 许可量
+035db267aa7b05023e99db72cdbd95ccc26a76454ea8ac5b74d9349e29c7282c70953c660034b4d3xiaozuozhi27809633@qq.com2026-10-30 11:02:07 +0800创新主体列表排除个人数据
+4ea8ac5b74d9349e29c7282c70953c660034b4d37f5dccdfe161db18a42b15b0d936398ab376a54axiaozuozhi27809633@qq.com2026-10-30 09:37:04 +0800开启两个产业链技术节点同步到关键技术管理只有一条数据bug修复
+7f5dccdfe161db18a42b15b0d936398ab376a54a3e72515d08ba78a278e93be3145d89d806e0e8e6 388161d787ca98af2e49149a9db9343bc3b5e4b3xiaozuozhi27809633@qq.com2026-10-29 19:17:53 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+3e72515d08ba78a278e93be3145d89d806e0e8e6f92d3e9506ad1864ae28669478d9966f06199a4axiaozuozhi27809633@qq.com2026-10-29 19:17:36 +0800新增search_analy_tl_index索引
+388161d787ca98af2e49149a9db9343bc3b5e4b3f92d3e9506ad1864ae28669478d9966f06199a4ahuangzhenhaohuangzhenhao@ourchem.com2026-10-29 19:14:40 +0800fix:报告质押数据逻辑
+f92d3e9506ad1864ae28669478d9966f06199a4ab7f0bb3efa8135c9dc2939858bcfd3bb5df91f2c 28c5a58bc6b018ad7f6e22a9364bd91d0181d84exiaozuozhi27809633@qq.com2026-10-29 17:14:53 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+b7f0bb3efa8135c9dc2939858bcfd3bb5df91f2c7feccdf14ab710e02596064fa5f012764b6ecf58xiaozuozhi27809633@qq.com2026-10-29 17:14:35 +0800产业链创新主体：专利数据对不上bug修复
+28c5a58bc6b018ad7f6e22a9364bd91d0181d84e7feccdf14ab710e02596064fa5f012764b6ecf58huangzhenhaohuangzhenhao@ourchem.com2026-10-29 16:46:31 +0800fix:图谱数据
+7feccdf14ab710e02596064fa5f012764b6ecf589a57716cc58dbd53875345b753eddf94624f7e54xiaozuozhi27809633@qq.com2026-10-29 11:48:37 +0800产业链创新主体：专利数据对不上bug修复
+9a57716cc58dbd53875345b753eddf94624f7e54818d94bd771cbde153114ff276e6db7340732194xiaozuozhi27809633@qq.com2026-10-29 10:35:56 +0800电子档案对接生产地址修复
+818d94bd771cbde153114ff276e6db7340732194bf884ee98a156ca9ca017cda8a29b5fbbef18482xiaozuozhi27809633@qq.com2026-10-29 09:34:35 +0800新增、导入或编辑操作，相关专利量仍为0 bug修复
+3892e1e8460b39c5edfa3ab2cb06a9c0ff839ecc144d11fdb5d3bf17f3f050af1cea6b6f8da2ebcfxiaozuozhi27809633@qq.com2026-10-29 09:34:35 +0800新增、导入或编辑操作，相关专利量仍为0 bug修复
+bf884ee98a156ca9ca017cda8a29b5fbbef18482f828f323cb7887bb10e3cf6a67543fe22721a094xiaozuozhi27809633@qq.com2026-10-28 17:26:00 +0800项目申报状态不同步bug修复
+f828f323cb7887bb10e3cf6a67543fe22721a094fc1f83090dc567d77633a5adb0a3d77092eaa7fbhuangzhenhaohuangzhenhao@ourchem.com2026-10-28 17:48:50 +0800fix:图谱数据
+144d11fdb5d3bf17f3f050af1cea6b6f8da2ebcf4087f26b26fe5c26ddeb429c405a1fc686e48f1fxiaozuozhi27809633@qq.com2026-10-28 17:26:00 +0800项目申报状态不同步bug修复
+4087f26b26fe5c26ddeb429c405a1fc686e48f1f92d6df56ce31a7b3b6129407c9d8c98984d26310xiaozuozhi27809633@qq.com2026-10-28 14:21:03 +0800生产配置提交
+fc1f83090dc567d77633a5adb0a3d77092eaa7fb61e8dd5f279eea6fce556a612a484bc546dc1e65huangzhenhaohuangzhenhao@ourchem.com2026-10-27 18:12:26 +0800fix:报告、主体数据
+92d6df56ce31a7b3b6129407c9d8c98984d263103aae3713c504fb63119b5eb187edf39e4f09ab7c 61e8dd5f279eea6fce556a612a484bc546dc1e65xiaozuozhi27809633@qq.com2026-10-27 16:20:28 +0800Merge branch 'knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl
+61e8dd5f279eea6fce556a612a484bc546dc1e65cc9e857ce0521b8039424b10650545eeaa83d9eexiaozuozhi27809633@qq.com2026-10-27 16:17:55 +0800配置还原
+cc9e857ce0521b8039424b10650545eeaa83d9ee62bb2670a031e3f2112c99be3243604d2c01bb28xiaozuozhi27809633@qq.com2026-10-27 15:23:44 +0800配置还原
+62bb2670a031e3f2112c99be3243604d2c01bb28564900161b64f8822d0e6cca1fbfc2f55a60a76axiaozuozhi27809633@qq.com2026-10-27 15:20:40 +0800产业链技术节点管理/关键技术节点管理：导入同一个产业链名称模型数据，提示有关联 bug修复
+564900161b64f8822d0e6cca1fbfc2f55a60a76a343a6a1eb0ae4ee32bb1ddc1bfbd5223567ae081 da199e656e1086042e1aebb2b5a22097394f925axiaozuozhi27809633@qq.com2026-10-27 14:11:24 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+343a6a1eb0ae4ee32bb1ddc1bfbd5223567ae0813d0612f6cbb14e1b58f4a094cbe20d7a2163f869xiaozuozhi27809633@qq.com2026-10-27 14:11:03 +0800【知产二期】产业链技术节点管理/关键技术节点管理：新增、导入或编辑操作，相关专利量仍为0 bug修复
+da199e656e1086042e1aebb2b5a22097394f925a3d0612f6cbb14e1b58f4a094cbe20d7a2163f869huangzhenhaohuangzhenhao@ourchem.com2026-10-27 11:40:50 +0800fix:修复主体列表 成立时间为空的问题
+3d0612f6cbb14e1b58f4a094cbe20d7a2163f869078175e9c4f53b85b8d5ac09a949831cc5ef5b9cxiaozuozhi27809633@qq.com2026-10-26 20:49:34 +0800模型更新创新主体数据 bug修复
+078175e9c4f53b85b8d5ac09a949831cc5ef5b9c0d72e37e3daa18ca879ccc3845866c45d9866755xiaozuozhi27809633@qq.com2026-10-26 20:49:29 +0800模型更新创新主体数据 bug修复
+0d72e37e3daa18ca879ccc3845866c45d98667554beadb9aea40519ddfa83c7ac06ed66c05674696huangzhenhaohuangzhenhao@ourchem.com2026-10-26 19:10:33 +0800fix:修复报告逻辑
+4beadb9aea40519ddfa83c7ac06ed66c056746968d33dd44d9c4bb8b8b488bab02b786cf4be4d1b7huangzhenhaohuangzhenhao@ourchem.com2026-10-26 18:24:10 +0800fix:报告bug
+8d33dd44d9c4bb8b8b488bab02b786cf4be4d1b7ce2bfc01c2367f0f86fa656c59916ef266817196xiaozuozhi27809633@qq.com2026-10-26 13:48:32 +0800项目申报附件回调 bug修复
+ce2bfc01c2367f0f86fa656c59916ef2668171962455ab85b30786764bb33dc939ee1dafc232cf3fxiaozuozhi27809633@qq.com2026-10-26 17:55:56 +0800商标统一恢复为原来的数据 bug修复
+2455ab85b30786764bb33dc939ee1dafc232cf3ff6e0911df4653897ee8b33e9d2d37860839fcd4aSokach1594574183@qq.com2026-10-26 16:07:27 +0800feat:更新application-devDmLocal.yml
+3aae3713c504fb63119b5eb187edf39e4f09ab7c41cb66bafd48c42e72470cf2e9a897067c70313dxiaozuozhi27809633@qq.com2026-10-26 13:48:32 +0800项目申报附件回调 bug修复
+f6e0911df4653897ee8b33e9d2d37860839fcd4af8e4c5f2f1ee4040472506ceeb30feb000c86853huangzhenhaohuangzhenhao@ourchem.com2026-10-26 12:36:19 +0800fix:报告bug
+f8e4c5f2f1ee4040472506ceeb30feb000c868533fad98257dd7b03c3a5abe2e7306b0add3200f58huangzhenhaohuangzhenhao@ourchem.com2026-10-26 09:38:26 +0800fix:生成的报告封面年月日异常
+3fad98257dd7b03c3a5abe2e7306b0add3200f581a53f689bda8bea21fc02b56dca9da49e3141bd7huangzhenhaohuangzhenhao@ourchem.com2026-10-24 20:05:07 +0800修复高校主体 图谱分析的bug
+41cb66bafd48c42e72470cf2e9a897067c70313d5e09a2a599878b4fad0f3349bd29464b72524d14xiaozuozhi27809633@qq.com2026-10-24 19:11:04 +0800创新主体searchCount bug修复
+5e09a2a599878b4fad0f3349bd29464b72524d149fe83bf57237c14f6d3da15fb2d8ad7532dd93cfxiaozuozhi27809633@qq.com2026-10-24 19:09:49 +0800创新主体searchCount bug修复
+1a53f689bda8bea21fc02b56dca9da49e3141bd7658651311c1f5390920561d2fd216e5130af8693xiaozuozhi27809633@qq.com2026-10-24 19:11:04 +0800创新主体searchCount bug修复
+658651311c1f5390920561d2fd216e5130af869355dea33ff33b8217746cf31112510b5421b5357axiaozuozhi27809633@qq.com2026-10-24 19:09:49 +0800创新主体searchCount bug修复
+55dea33ff33b8217746cf31112510b5421b5357ab1755805904ed826f7ec55d0845d04d912f8109bxiaozuozhi27809633@qq.com2026-10-24 16:46:20 +0800创新主体searchCount bug修复
+b1755805904ed826f7ec55d0845d04d912f8109ba69102f8e10ba8d13823b922125df58446d40df5xiaozuozhi27809633@qq.com2026-10-24 16:46:00 +0800创新主体searchCount bug修复
+a69102f8e10ba8d13823b922125df58446d40df57957fd18af410f1ff753917413f3279ab004ad52xiaozuozhi27809633@qq.com2026-10-24 11:07:19 +0800工商数据没有省、市、区bug修复
+7957fd18af410f1ff753917413f3279ab004ad528b1fe70fbf84336c3a230ddc42b0bac06218a880xiaozuozhi27809633@qq.com2026-10-23 19:56:53 +0800创新主体详情页优化提升
+8b1fe70fbf84336c3a230ddc42b0bac06218a8809e1aaf88cc5d8e6ccb3f0c165fd2acae5ce3fcbchuangzhenhaohuangzhenhao@ourchem.com2026-10-23 18:45:17 +0800feat：主体详情-高校专利影响度
+9e1aaf88cc5d8e6ccb3f0c165fd2acae5ce3fcbc0c791a662bf32f37549c8174a11a150273463395 d897435ead518945eb1e7d1ca65c67fc3629e897xiaozuozhi27809633@qq.com2026-10-23 18:30:53 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+0c791a662bf32f37549c8174a11a150273463395b1948ebf5855c6eeaa77df7c2651c2b2067452e9xiaozuozhi27809633@qq.com2026-10-23 18:30:36 +0800创新主体详情页优化提升
+b1948ebf5855c6eeaa77df7c2651c2b2067452e9a052fc314e287095e0260efffe924ebf2d133d83xiaozuozhi27809633@qq.com2026-10-23 18:30:29 +0800创新主体详情页优化提升
+d897435ead518945eb1e7d1ca65c67fc3629e897f5245b27c162d0e834a65534fbcf0e3c88af927d a052fc314e287095e0260efffe924ebf2d133d83Sokach1594574183@qq.com2026-10-23 18:21:54 +0800Merge branch 'knowledge_online_dm_jl_xiaozz' of https://192.168.0.14/integrated-management-platform/wx-public-service-platform into knowledge_online_dm_jl_xiaozz
+f5245b27c162d0e834a65534fbcf0e3c88af927dd2c42b19c1adc5401503ac58c78e2bab93c91200Sokach1594574183@qq.com2026-10-23 18:21:48 +0800feat:专利量数据是拿里面检索式查es优化
+a052fc314e287095e0260efffe924ebf2d133d83d2c42b19c1adc5401503ac58c78e2bab93c91200xiaozuozhi27809633@qq.com2026-10-23 17:55:56 +0800归档数据包根目录修改
+d2c42b19c1adc5401503ac58c78e2bab93c91200c806dd865decb7e17b77abbb05273a97d8c526a9Sokach1594574183@qq.com2026-10-23 14:16:33 +0800feat:去重优化
+c806dd865decb7e17b77abbb05273a97d8c526a960757cb2cf1425061548bf669c66a3829f3a2747 0fd5fafc44fb720f99172f7cdd7094f5f9974d00xiaozuozhi27809633@qq.com2026-10-23 11:18:45 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+60757cb2cf1425061548bf669c66a3829f3a27472046f1c21815429c7a3eaac659ba9229e3a743bfxiaozuozhi27809633@qq.com2026-10-23 11:12:48 +0800归档数据包根目录修改
+0fd5fafc44fb720f99172f7cdd7094f5f9974d002046f1c21815429c7a3eaac659ba9229e3a743bfSokach1594574183@qq.com2026-10-23 10:37:08 +0800feat:专利量数据是拿里面检索式查es
+2046f1c21815429c7a3eaac659ba9229e3a743bf6afc563b801839fc9e794dad8aa7a778d987cab6xiaozuozhi27809633@qq.com2026-10-22 17:26:10 +0800产业链技术节点excel bug修复
+6afc563b801839fc9e794dad8aa7a778d987cab60369adf7241f785fab9ca697926306c6971f0a8dxiaozuozhi27809633@qq.com2026-10-22 15:23:57 +0800创新主体获取数据表达式带括号bug修复
+0369adf7241f785fab9ca697926306c6971f0a8d367bd552980787b8d1ea8de969599ec180a1be09 9a36dccb7087db5fb2f5230b93204943c5faa8dcxiaozuozhi27809633@qq.com2026-10-22 14:58:00 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+367bd552980787b8d1ea8de969599ec180a1be09672b22c8c4e172bdace781b5c478f88956ba27b7xiaozuozhi27809633@qq.com2026-10-22 14:57:45 +0800创新主体获取数据表达式带括号bug修复
+9a36dccb7087db5fb2f5230b93204943c5faa8dc672b22c8c4e172bdace781b5c478f88956ba27b7Sokach1594574183@qq.com2026-10-22 14:47:41 +0800feat:专利量数据是拿里面检索式查es
+672b22c8c4e172bdace781b5c478f88956ba27b76b306c69ab48afa909eb2527e9f133c01bbfed17xiaozuozhi27809633@qq.com2026-10-22 12:06:19 +0800创新主体获取数据表达式带括号bug修复
+6b306c69ab48afa909eb2527e9f133c01bbfed17987f1717c77468769b5140e57284f91e9f2473f8huangzhenhaohuangzhenhao@ourchem.com2026-10-21 17:44:51 +0800fix:企业分析报告
+987f1717c77468769b5140e57284f91e9f2473f84396045e76585826d2f0973402baced6ad662a85Sokach1594574183@qq.com2026-10-21 13:40:25 +0800feat:技术生命周期
+4396045e76585826d2f0973402baced6ad662a85b5d4f7ee1b21700aabbafc95491e18aa7f9775a2xiaozuozhi27809633@qq.com2026-10-21 12:03:33 +0800专利权人(精确)搜索bug修复
+b5d4f7ee1b21700aabbafc95491e18aa7f9775a2596312c381bb8990aa4dff54ad4fa6c161877d40xiaozuozhi27809633@qq.com2026-10-21 11:49:55 +0800加上公开号
+596312c381bb8990aa4dff54ad4fa6c161877d40ba761ae93edd82e39266f5911ce3c93f11bc3236 58e5377e485a83292ee97c22f18cdd0c627c5b3dxiaozuozhi27809633@qq.com2026-10-21 10:39:28 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+ba761ae93edd82e39266f5911ce3c93f11bc32369d29574dfc093e2a2648bdc6eeb53daadd00415exiaozuozhi27809633@qq.com2026-10-21 10:39:09 +0800优化创新主体详情页慢
+58e5377e485a83292ee97c22f18cdd0c627c5b3d9d29574dfc093e2a2648bdc6eeb53daadd00415eSokach1594574183@qq.com2026-10-21 10:37:29 +0800feat:申请趋势分析(申请年)
+9d29574dfc093e2a2648bdc6eeb53daadd00415e1145c7e2483587faeb934edd9e81742e079edefahuangzhenhaohuangzhenhao@ourchem.com2026-10-20 21:12:10 +0800fix:企业分析报告
+1145c7e2483587faeb934edd9e81742e079edefade99b04e5a5322cb643cf99daaf7b9b601bc8dfdSokach1594574183@qq.com2026-10-20 18:04:55 +0800feat:许可/被许可分析
+de99b04e5a5322cb643cf99daaf7b9b601bc8dfd74d6fd6f2aaeb4eae56dd769fb31c114213db5b6huangzhenhaohuangzhenhao@ourchem.com2026-10-20 17:46:13 +0800fix:产业链主体高校详情图表
+74d6fd6f2aaeb4eae56dd769fb31c114213db5b6c389d18b41ee0203b741e5bdfaae97aaab33f668Sokach1594574183@qq.com2026-10-20 17:14:07 +0800feat:成果转化分析
+c389d18b41ee0203b741e5bdfaae97aaab33f668c3accead0042ec5b8b420828df15cdac51d4e338Sokach1594574183@qq.com2026-10-20 16:03:30 +0800feat:专利权人TOP10核对确认
+c3accead0042ec5b8b420828df15cdac51d4e338bb4fc4b59d828b995da1a7446a345734123c5f70xiaozuozhi27809633@qq.com2026-10-20 15:34:37 +0800产业链下拉列表过滤pathname数据bug修复
+bb4fc4b59d828b995da1a7446a345734123c5f708de2b3fdfcf699d34e830cfef8a7972a4bc0bf24xiaozuozhi27809633@qq.com2026-10-20 15:02:18 +0800创新主体建立日期筛选bug修复
+8de2b3fdfcf699d34e830cfef8a7972a4bc0bf24fed4be7421e3a84ac38fec1c6a9478089dce0c7exiaozuozhi27809633@qq.com2026-10-20 14:36:27 +0800创新主体建立日期筛选bug修复
+fed4be7421e3a84ac38fec1c6a9478089dce0c7e525a85498de531b41ee39b1440e8af7cfa63a0f4Sokach1594574183@qq.com2026-10-20 14:14:44 +0800feat:广州市专利授权量检索式确认
+525a85498de531b41ee39b1440e8af7cfa63a0f434e99e8bc8e159756449caf840402e61b9541805xiaozuozhi27809633@qq.com2026-10-20 14:07:57 +0800产业链技术节点信息导出报错bug修复
+34e99e8bc8e159756449caf840402e61b95418055723fd813a6c596e9e6ccf3fb93e8c1d32f1f323xiaozuozhi27809633@qq.com2026-10-20 11:23:28 +0800产业链分类管理：关联产业链技术节点信息数据有误bug修复
+5723fd813a6c596e9e6ccf3fb93e8c1d32f1f32339f3d14324b889ae1e826e848461ab5ab273878bxiaozuozhi27809633@qq.com2026-10-20 10:02:25 +0800产业链分类管理：关联产业链技术节点信息数据有误bug修复
+39f3d14324b889ae1e826e848461ab5ab273878b3d4b522cd08b6cfba94dd3c9190c47b0ec1395a3Sokach1594574183@qq.com2026-10-19 19:21:14 +0800feat:专利类型占比（三种专利类型）发明授权，实用新型，外观设计
+3d4b522cd08b6cfba94dd3c9190c47b0ec1395a3bfcf4bc158e06fde3ddbce4c02cdac2b6d2c07a4Sokach1594574183@qq.com2026-10-19 18:50:26 +0800feat:各区有效专利数量分析，统计申请人辖区，专利状态=有效的专利数量
+bfcf4bc158e06fde3ddbce4c02cdac2b6d2c07a43c0ceff9db784343ac1879900bdc988cdf9089fbxiaozuozhi27809633@qq.com2026-10-19 18:35:02 +0800产业链分类管理：关联产业链技术节点信息数据有误bug修复
+3c0ceff9db784343ac1879900bdc988cdf9089fb1987a043ce07c9efbee1cd7a9b5936061822ab0d ecd1e2869977d6acee83f3ba2c13a4c3d31b8167xiaozuozhi27809633@qq.com2026-10-19 17:54:59 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+1987a043ce07c9efbee1cd7a9b5936061822ab0d743e49173fa2bdbc87b774418b58d6c1a99438abxiaozuozhi27809633@qq.com2026-10-19 17:54:46 +0800产业链技术节点管理/关键技术节点管理 下拉列表联动bug修复
+ecd1e2869977d6acee83f3ba2c13a4c3d31b81673555d28fd6380316da8c4bc9426658c37adae1f6 bec1605f0f4c4dcd1d313f1770320c1f17e48a5aSokach1594574183@qq.com2026-10-19 17:38:04 +0800Merge branch 'knowledge_online_dm_jl_xiaozz' of https://192.168.0.14/integrated-management-platform/wx-public-service-platform into knowledge_online_dm_jl_xiaozz
+3555d28fd6380316da8c4bc9426658c37adae1f6743e49173fa2bdbc87b774418b58d6c1a99438abSokach1594574183@qq.com2026-10-19 17:37:47 +0800feat:专利量通过公开号去重 ；企业通过主体名；商标通过申请号
+bec1605f0f4c4dcd1d313f1770320c1f17e48a5a743e49173fa2bdbc87b774418b58d6c1a99438abhuangzhenhaohuangzhenhao@ourchem.com2026-10-19 17:37:29 +0800fix:产业链主体图表
+743e49173fa2bdbc87b774418b58d6c1a99438ab135427553e43bbf00783b0a51d4b34ebc3eae0f4xiaozuozhi27809633@qq.com2026-10-19 16:34:38 +0800产业链技术节点管理/关键技术节点管理 下拉列表联动bug修复
+135427553e43bbf00783b0a51d4b34ebc3eae0f49d86aa3e7a3af66b754f23916a701d74d36afb55 cde8a9ecbf6c12a874e219d9552b2c0b185f99e2xiaozuozhi27809633@qq.com2026-10-19 15:48:53 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+9d86aa3e7a3af66b754f23916a701d74d36afb554c1c8244f8b81a70b792cdf2abfc671303f3553bxiaozuozhi27809633@qq.com2026-10-19 15:48:39 +0800产业链技术节点管理/关键技术节点管理 下拉列表联动bug修复
+cde8a9ecbf6c12a874e219d9552b2c0b185f99e24c1c8244f8b81a70b792cdf2abfc671303f3553bhuangzhenhaohuangzhenhao@ourchem.com2026-10-19 14:31:54 +0800fix:修复feign调用异常的bug
+4c1c8244f8b81a70b792cdf2abfc671303f3553b6e172fb688cabd83a32c778fa7bfbd5f15f9e188xiaozuozhi27809633@qq.com2026-10-16 18:01:49 +0800产业链技术节点管理/关键技术节点管理：导出的列表数据与模型数据不匹配bug修复
+6e172fb688cabd83a32c778fa7bfbd5f15f9e188be75c00ec0019c9e334a5d3bc58895eefb3a5141xiaozuozhi27809633@qq.com2026-10-16 15:32:15 +0800获取热点词汇bug修复
+be75c00ec0019c9e334a5d3bc58895eefb3a5141dfc6a227c087bfc602ecc14de94a2c6e869a9979xiaozuozhi27809633@qq.com2026-10-16 14:33:17 +0800产业链只能关联一次bug修复
+dfc6a227c087bfc602ecc14de94a2c6e869a9979b82f9b67091618b7579d47cc7aebad3ec2a83187xiaozuozhi27809633@qq.com2026-10-16 14:27:43 +0800产业链只能关联一次bug修复
+b82f9b67091618b7579d47cc7aebad3ec2a83187ab69589b8f928d08e5f27f704bb110f843142926 0ea6c43b04455b3626eb2b01369b9000164e6a86xiaozuozhi27809633@qq.com2026-10-16 10:42:34 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+ab69589b8f928d08e5f27f704bb110f84314292610c853d15cfe9cb69dc20d7a0b8144938a7efb8axiaozuozhi27809633@qq.com2026-10-16 10:42:14 +0800产业链只能关联一次bug修复
+0ea6c43b04455b3626eb2b01369b9000164e6a8610c853d15cfe9cb69dc20d7a0b8144938a7efb8ahuangzhenhaohuangzhenhao@ourchem.com2026-10-15 18:25:54 +0800fix:修复企业分析报告类型转化异常 模板填充数据失败
+10c853d15cfe9cb69dc20d7a0b8144938a7efb8ac8e7cf6305bff1865e31b4c7c2ece492c4fe4b78xiaozuozhi27809633@qq.com2026-10-15 17:51:37 +0800创新主体数字显示bug修复
+c8e7cf6305bff1865e31b4c7c2ece492c4fe4b789773a6564898d7a6b7bbfd950f27985e571a9dd1 06417a21f62f77345d66ba90e558035b1b6a56a2xiaozuozhi27809633@qq.com2026-10-15 11:57:25 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+9773a6564898d7a6b7bbfd950f27985e571a9dd18ca883917d5d392bb99465f7432cd6141008f5aexiaozuozhi27809633@qq.com2026-10-15 11:57:08 +0800创新主体数字显示bug修复
+06417a21f62f77345d66ba90e558035b1b6a56a22d0a738d58698a2e54a5a1ad9f4fe92acb487092huangzhenhaohuangzhenhao@ourchem.com2026-10-15 11:37:59 +0800fix:企业分析报告调用本地数据
+2d0a738d58698a2e54a5a1ad9f4fe92acb4870928ca883917d5d392bb99465f7432cd6141008f5aehuangzhenhaohuangzhenhao@ourchem.com2026-10-14 18:30:19 +0800fix:企业ipc图表
+8ca883917d5d392bb99465f7432cd6141008f5ae6bfd2e6d5257b0f21a87d979d5a847353df05a18xiaozuozhi27809633@qq.com2026-10-14 14:41:48 +0800创新主体数字显示bug修复
+6bfd2e6d5257b0f21a87d979d5a847353df05a185ba93351c207fcebe2d82915ad815e7c89384daexiaozuozhi27809633@qq.com2026-10-12 19:01:28 +0800高校详情报错bug修复
+5ba93351c207fcebe2d82915ad815e7c89384daea803f3a783cd9dcddcd7a4454b1a4c6da1960b63xiaozuozhi27809633@qq.com2026-10-09 18:19:22 +0800添加关键技术节点bug修复
+a803f3a783cd9dcddcd7a4454b1a4c6da1960b63e1e2065aa027f41a86dd1fa4f262cf7d8ec1d701huangzhenhaohuangzhenhao@ourchem.com2026-09-30 18:54:57 +0800feat:申报立项
+e1e2065aa027f41a86dd1fa4f262cf7d8ec1d701f2f055166d2d40240078bbc1dc8c81701cee17c8huangzhenhaohuangzhenhao@ourchem.com2026-09-29 18:37:05 +0800feat:新产业图谱 更换专利类型字段
+9fe83bf57237c14f6d3da15fb2d8ad7532dd93cf63761959bd31955724422d95ed4dc009155545cfxiaozuozhi27809633@qq.com2026-09-28 14:29:49 +0800项目附件批量下载bug修复
+f2f055166d2d40240078bbc1dc8c81701cee17c8f9e0e989042e011c4719c87c96c439e661de7722xiaozuozhi27809633@qq.com2026-09-28 14:29:49 +0800项目附件批量下载bug修复
+f9e0e989042e011c4719c87c96c439e661de77228d4d9ce9c4542e208a6f0213e2853203ceb69921huangzhenhaohuangzhenhao@ourchem.com2026-09-24 11:39:46 +0800fix:专利管理 专利类型条件查询
+63761959bd31955724422d95ed4dc009155545cf8dc5fcc4443f1dc9c4f5b8b6f4ff7f1240390cd8xiaozuozhi27809633@qq.com2026-09-20 11:08:57 +0800开启获取用户定时器
+8dc5fcc4443f1dc9c4f5b8b6f4ff7f1240390cd82d452cfe54e6fdca8bdb14cbf937a14cc1cf4471xiaozuozhi27809633@qq.com2026-09-21 14:06:55 +0800项目附件接口回调
+8d4d9ce9c4542e208a6f0213e2853203ceb69921786a4e3924155e592f1e9691d75ad9f0be5c93afxiaozuozhi27809633@qq.com2026-09-21 14:06:55 +0800项目附件接口回调
+2d452cfe54e6fdca8bdb14cbf937a14cc1cf4471e0a1efa823fa4e39c3dbb52e9dba623ff50f1243xiaozuozhi27809633@qq.com2026-09-21 10:45:10 +0800项目附件接口回调
+786a4e3924155e592f1e9691d75ad9f0be5c93afd855ae35bb4ed1d865dc99db7b72f48bc9b71b56xiaozuozhi27809633@qq.com2026-09-21 10:45:10 +0800项目附件接口回调
+d855ae35bb4ed1d865dc99db7b72f48bc9b71b56fa5f549857e37290d94dd0a2b6860616d5beea65huangzhenhaohuangzhenhao@ourchem.com2026-09-20 18:03:39 +0800feat:企业分析报告优化
+fa5f549857e37290d94dd0a2b6860616d5beea65f200efd1c508f8c0394907e9e1ba89ce018669dfhuangzhenhaohuangzhenhao@ourchem.com2026-09-20 15:41:48 +0800feat:企业详情图表
+f200efd1c508f8c0394907e9e1ba89ce018669dfb7e7beb0ebb9dafa41f4e9f90738e195ca8d1b4dxiaozuozhi27809633@qq.com2026-09-20 13:46:56 +0800开发Hbase工商、商标数据导入
+b7e7beb0ebb9dafa41f4e9f90738e195ca8d1b4d41a6a0c70eb147e0693edd9772bcdb3c4ff6d2a2xiaozuozhi27809633@qq.com2026-09-20 11:08:57 +0800开启获取用户定时器
+41a6a0c70eb147e0693edd9772bcdb3c4ff6d2a21b8b50ddc823513e211606f69d5155446ff28a2bxiaozuozhi27809633@qq.com2026-09-20 10:43:58 +0800开发Hbase工商、商标数据导入
+1b8b50ddc823513e211606f69d5155446ff28a2b09b069bb8357e749bb144983b272e186777ae6d0xiaozuozhi27809633@qq.com2026-09-20 09:12:32 +0800电子档案对接代码提交
+09b069bb8357e749bb144983b272e186777ae6d0c9226a919924d689bd2c70f8e828d4e0f0e562a5xiaozuozhi27809633@qq.com2026-09-18 15:43:05 +0800电子档案对接代码提交
+c9226a919924d689bd2c70f8e828d4e0f0e562a548b813a45d2a4edb5e5eb5aef8c698df832df634 15df69f74bfeeb530b009487e14737c26dcb4dbcxiaozuozhi27809633@qq.com2026-09-18 15:39:02 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+48b813a45d2a4edb5e5eb5aef8c698df832df63431af3d3c8bc3d30c86c2752675726a26465c8dddxiaozuozhi27809633@qq.com2026-09-18 15:38:41 +0800电子档案对接代码提交
+15df69f74bfeeb530b009487e14737c26dcb4dbc31af3d3c8bc3d30c86c2752675726a26465c8dddhuangzhenhaohuangzhenhao@ourchem.com2026-09-18 14:59:10 +0800feat:企业详情图表
+31af3d3c8bc3d30c86c2752675726a26465c8dddd897fa1cdf0fbefde2852f520ab6956feac6d210xiaozuozhi27809633@qq.com2026-09-17 18:28:26 +0800开发Hbase工商、商标数据导入
+d897fa1cdf0fbefde2852f520ab6956feac6d2100cb2912b6cbdb8fbc672c56af604a89d4f918be6Sokach1594574183@qq.com2026-09-17 14:13:53 +0800feat:电子档案推送接口调试
+0cb2912b6cbdb8fbc672c56af604a89d4f918be6a6b963ce43ae6092bf1fc96419e9ce44eec85e9bxiaozuozhi27809633@qq.com2026-09-17 11:33:49 +0800创新主体详情改用本地接口获取数据
+a6b963ce43ae6092bf1fc96419e9ce44eec85e9bb8c0e008fffb64bd5555a3cbaec2ff35de523396xiaozuozhi27809633@qq.com2026-09-17 11:01:45 +0800创新主体详情改用本地接口获取数据
+b8c0e008fffb64bd5555a3cbaec2ff35de5233962b88ff2b622ebe00ff13a7b6c3b439289b2ddfa7 a52d306ecc47f20a5664bf2518f77a11b35baeeexiaozuozhi27809633@qq.com2026-09-17 09:38:47 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+2b88ff2b622ebe00ff13a7b6c3b439289b2ddfa706683c29e18ca76e38574d255920bedac04912f9xiaozuozhi27809633@qq.com2026-09-17 09:36:59 +0800创新主体详情改用本地接口获取数据
+a52d306ecc47f20a5664bf2518f77a11b35baeee06683c29e18ca76e38574d255920bedac04912f9huangzhenhaohuangzhenhao@ourchem.com2026-09-17 09:16:09 +0800feat:新产业链图谱 图表
+06683c29e18ca76e38574d255920bedac04912f999395bb70d3e0800175547e55e167779919b3c92huangzhenhaohuangzhenhao@ourchem.com2026-09-16 15:26:58 +0800feat:新产业链图谱 图表
+99395bb70d3e0800175547e55e167779919b3c926ed89103e7ba03df404fc6c25986afdaf0ceae2fxiaozuozhi27809633@qq.com2026-09-15 17:03:09 +0800产业链节点下拉列表
+6ed89103e7ba03df404fc6c25986afdaf0ceae2f686d54adb3dcf258faed1f5e21b58c3cdbb4223exiaozuozhi27809633@qq.com2026-09-15 16:42:50 +0800电子档案更新登录接口地址/zt-front/ztda-server/
+686d54adb3dcf258faed1f5e21b58c3cdbb4223e93308f654ede968d61271449dd5e7c30ccd16f3axiaozuozhi27809633@qq.com2026-09-15 14:25:11 +0800产业链节点下拉列表
+93308f654ede968d61271449dd5e7c30ccd16f3ae3828b8f51c85111aca8488a2508066c0fe4ea91xiaozuozhi27809633@qq.com2026-09-14 17:51:20 +0800产业链节点下拉列表
+e3828b8f51c85111aca8488a2508066c0fe4ea916e8ae0cd357c160658da49ea7e8aeffd39a01754xiaozuozhi27809633@qq.com2026-09-14 10:07:57 +0800产业链节点下拉列表
+6e8ae0cd357c160658da49ea7e8aeffd39a017540e363ebfe9bc6ad003cbfafac0bbd1a29dee010dxiaozuozhi27809633@qq.com2026-09-11 17:53:24 +0800产业链树形结构代码提交
+0e363ebfe9bc6ad003cbfafac0bbd1a29dee010da6f4ba9313716bdd8946f42245affd499567c4cexiaozuozhi27809633@qq.com2026-09-11 10:45:40 +0800产业链树形结构代码提交
+a6f4ba9313716bdd8946f42245affd499567c4ce80658734c6d5e258cc8c9495cdaa0505e5f41d10 a61a6ea91476f6971a49e90c5da9738da7ea1b9exiaozuozhi27809633@qq.com2026-09-10 16:49:49 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+80658734c6d5e258cc8c9495cdaa0505e5f41d106dca8adffb772afac70a2b216f974a880224de20xiaozuozhi27809633@qq.com2026-09-10 16:48:26 +0800产业链树形结构代码提交
+a61a6ea91476f6971a49e90c5da9738da7ea1b9e6dca8adffb772afac70a2b216f974a880224de20huangzhenhaohuangzhenhao@ourchem.com2026-09-10 14:11:51 +0800feat:产业链图谱树结构 叶子节点增加关键技术节点
+6dca8adffb772afac70a2b216f974a880224de200aa1ed716b0d63db23ada364aea13d03684d4544xiaozuozhi27809633@qq.com2026-09-09 20:15:48 +0800产业链树形结构代码提交
+0aa1ed716b0d63db23ada364aea13d03684d454486c0a3d0982a7564f4d2f4b8b7e8d3722658841fxiaozuozhi27809633@qq.com2026-09-09 19:59:10 +0800产业链树形结构代码提交
+86c0a3d0982a7564f4d2f4b8b7e8d3722658841ff23cdebb09dd04dc0592e9aab96059c7340951b4 180539ae8d4b959df0ad276e163b29873b621a43xiaozuozhi27809633@qq.com2026-09-09 19:40:01 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+f23cdebb09dd04dc0592e9aab96059c7340951b4dc4fbac92238da34942b3c3c1e979c8959ad6d92xiaozuozhi27809633@qq.com2026-09-09 19:39:30 +0800产业链树形结构代码提交
+180539ae8d4b959df0ad276e163b29873b621a43dc4fbac92238da34942b3c3c1e979c8959ad6d92huangzhenhaohuangzhenhao@ourchem.com2026-09-09 19:09:30 +0800feat:产业链图谱树结构 叶子节点增加关键技术节点
+dc4fbac92238da34942b3c3c1e979c8959ad6d92a8060e81671b918a69a367558d95b5bd8d2a9c93 786dbfe18fcfa946cda30d83b07be090a987b2ccxiaozuozhi27809633@qq.com2026-09-09 18:23:54 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+a8060e81671b918a69a367558d95b5bd8d2a9c93003c7c5179eb2894cdabb7a307441100c2a03f30xiaozuozhi27809633@qq.com2026-09-09 18:23:26 +0800产业链树形结构代码提交
+786dbfe18fcfa946cda30d83b07be090a987b2cc003c7c5179eb2894cdabb7a307441100c2a03f30huangzhenhaohuangzhenhao@ourchem.com2026-09-09 17:35:04 +0800feat:根据产业分类查询模型、主体
+003c7c5179eb2894cdabb7a307441100c2a03f304cafee05c52639bc46cb881d24d7b9cb3a8d7843 a7b613b93c22bd60ca269076873956ea07c12487xiaozuozhi27809633@qq.com2026-09-09 11:19:58 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+4cafee05c52639bc46cb881d24d7b9cb3a8d784341de04c337dd39388ced65f4203ab9012028a22bxiaozuozhi27809633@qq.com2026-09-09 11:19:37 +0800产业链树形结构代码提交
+a7b613b93c22bd60ca269076873956ea07c1248741de04c337dd39388ced65f4203ab9012028a22bhuangzhenhaohuangzhenhao@ourchem.com2026-09-09 10:55:16 +0800feat:产业链技术分析 图表年份排序
+41de04c337dd39388ced65f4203ab9012028a22b86180bd788744a2573fac42e036e2568d7eb76f3 ca7b2cc2c62d7722f5d475e9e44710fa7f18e475xiaozuozhi27809633@qq.com2026-09-09 10:20:45 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+86180bd788744a2573fac42e036e2568d7eb76f361b48c4bcb9dd49415611822219c047729e92376xiaozuozhi27809633@qq.com2026-09-09 10:20:10 +0800产业链树形结构代码提交
+ca7b2cc2c62d7722f5d475e9e44710fa7f18e4754a738409b9141e97ecb8052eaaf374f85fb57d8ehuangzhenhaohuangzhenhao@ourchem.com2026-09-09 09:23:49 +0800feat:产业链技术分析 图表
+4a738409b9141e97ecb8052eaaf374f85fb57d8e994b17a01cfce9872b5a810fc3ec3abd555c2702huangzhenhaohuangzhenhao@ourchem.com2026-09-08 18:19:53 +0800feat:产业链分类树 允许查询产业链节点
+994b17a01cfce9872b5a810fc3ec3abd555c27020c18b01a486df4a40c3bf5f18fddb1f10f1f7c79huangzhenhaohuangzhenhao@ourchem.com2026-09-08 16:05:27 +0800feat:专利转化 许可
+0c18b01a486df4a40c3bf5f18fddb1f10f1f7c79c8d5267a5c54f12d60712f2917d52432bc871f40huangzhenhaohuangzhenhao@ourchem.com2026-09-07 15:43:47 +0800feat:产业链和关键技术图谱 获取专利总量、商标总量、企业总量
+c8d5267a5c54f12d60712f2917d52432bc871f4086e9bf7f253eb3f439d4bc3eefd98c44dfab0104Sokach1594574183@qq.com2026-09-07 15:36:48 +0800feat;增加模型的商标申请分类信息返回
+86e9bf7f253eb3f439d4bc3eefd98c44dfab01047ea0c371984993ef3919db96c200b469e340fee5huangzhenhaohuangzhenhao@ourchem.com2026-09-07 15:07:43 +0800feat:产业链和关键技术图谱 获取专利总量、商标总量、企业总量
+7ea0c371984993ef3919db96c200b469e340fee56f7be4a8305ce01dda269096256d94a369c1c95ehuangzhenhaohuangzhenhao@ourchem.com2026-09-06 20:29:28 +0800feat:产业链关键技术分析
+6f7be4a8305ce01dda269096256d94a369c1c95e61b48c4bcb9dd49415611822219c047729e92376Sokach1594574183@qq.com2026-09-06 19:43:17 +0800feat:sql优化
+61b48c4bcb9dd49415611822219c047729e92376d254ba10a75fd899ec7814e58a43dc369fd0833a cc9431811f5c9fe382144b749ac704965644a079Sokach1594574183@qq.com2026-09-06 18:12:54 +0800Merge branch 'knowledge_online_dm_jl_xiaozz' of https://192.168.0.14/integrated-management-platform/wx-public-service-platform into knowledge_online_dm_jl_xiaozz
+d254ba10a75fd899ec7814e58a43dc369fd0833a9b88ba12b4dcc51ec3786d63575b945b93980890Sokach1594574183@qq.com2026-09-06 18:12:45 +0800feat:增加产业链节点模型检索式
+cc9431811f5c9fe382144b749ac704965644a0799b88ba12b4dcc51ec3786d63575b945b93980890xiaozuozhi27809633@qq.com2026-09-06 18:04:18 +0800热点词云代码提交
+9b88ba12b4dcc51ec3786d63575b945b9398089091342f51f58fee4e7029eaae10dcca11cdfd10c7xiaozuozhi27809633@qq.com2026-09-06 17:10:01 +0800热点词云代码提交
+91342f51f58fee4e7029eaae10dcca11cdfd10c7f68f56cb05effb563a841d2e9b772055a20d9f10 716cceaecaed4d1971fec41803025aef420bd1e7xiaozuozhi27809633@qq.com2026-09-06 16:47:37 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+f68f56cb05effb563a841d2e9b772055a20d9f10f1be396ebbc1ae60513cf49985059c72a2a01ec5xiaozuozhi27809633@qq.com2026-09-06 16:47:17 +0800热点词云代码提交
+716cceaecaed4d1971fec41803025aef420bd1e7024a3f6a38eb1c28362f037c3a13a7474ce5d0d9 f1be396ebbc1ae60513cf49985059c72a2a01ec5Sokach1594574183@qq.com2026-09-06 16:38:35 +0800Merge branch 'knowledge_online_dm_jl_xiaozz' of https://192.168.0.14/integrated-management-platform/wx-public-service-platform into knowledge_online_dm_jl_xiaozz
+024a3f6a38eb1c28362f037c3a13a7474ce5d0d92a3189361cd533be5ff11551a9d5a92d4efd21fbSokach1594574183@qq.com2026-09-06 16:22:48 +0800feat:增加树接口
+f1be396ebbc1ae60513cf49985059c72a2a01ec58d4418a82c7c6658ca05cbc1bb576a920277ee35xiaozuozhi27809633@qq.com2026-09-06 13:58:52 +0800热点词云代码提交
+8d4418a82c7c6658ca05cbc1bb576a920277ee355f3eab2439157aa0bf6f52694f9c84c5db360cee a562faf4c407dc0d48a67e3253d497d4bd19c629xiaozuozhi27809633@qq.com2026-09-06 10:54:00 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+5f3eab2439157aa0bf6f52694f9c84c5db360cee2a3189361cd533be5ff11551a9d5a92d4efd21fbxiaozuozhi27809633@qq.com2026-09-06 10:53:38 +0800热点词云代码提交
+a562faf4c407dc0d48a67e3253d497d4bd19c629ac619f8408eb6d8fc1ffe164b6e759e4788fbb4chuangzhenhaohuangzhenhao@ourchem.com2026-09-05 19:56:44 +0800fix:修复转让许可报错
+ac619f8408eb6d8fc1ffe164b6e759e4788fbb4c2a3189361cd533be5ff11551a9d5a92d4efd21fbhuangzhenhaohuangzhenhao@ourchem.com2026-09-05 17:13:29 +0800feat:报告数据问题
+2a3189361cd533be5ff11551a9d5a92d4efd21fb821958274f22ccd48f2bf0c05cbd08f0e48a0f4axiaozuozhi27809633@qq.com2026-09-04 18:17:38 +0800导入创新主体数据
+821958274f22ccd48f2bf0c05cbd08f0e48a0f4af63263b15aca7bf530b3d4a128bb21d9e2a26f22xiaozuozhi27809633@qq.com2026-09-04 18:17:20 +0800导入创新主体数据
+f63263b15aca7bf530b3d4a128bb21d9e2a26f223a5d0678ded0b06438f6f151666e49378165bf37Sokach1594574183@qq.com2026-09-04 15:27:19 +0800feat:新增产业链技术节点增加字段leafNodesByCategoryId
+3a5d0678ded0b06438f6f151666e49378165bf37c1853f5831c68ab5eb5a46cb8a4de1e0c6ab1b11xiaozuozhi27809633@qq.com2026-09-04 14:46:13 +0800导入创新主体数据
+c1853f5831c68ab5eb5a46cb8a4de1e0c6ab1b11d5c0dbbfb11806eda4a0cc769d3439c60e74f48dSokach1594574183@qq.com2026-09-04 11:08:47 +0800feat:本地开发配置
+d5c0dbbfb11806eda4a0cc769d3439c60e74f48d7b162961f4f17c4575fddc0729b5cb5fc17cff86Sokach1594574183@qq.com2026-09-04 11:04:19 +0800feat:配置修改
+7b162961f4f17c4575fddc0729b5cb5fc17cff86d3d685d06d52067046e08033e1448308a5f7bd1e 4378c7f79b6216d098ec603461223be50e6555f8xiaozuozhi27809633@qq.com2026-09-04 09:21:21 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+d3d685d06d52067046e08033e1448308a5f7bd1eb48072baf3c7f37b446e1eea816d5231a2f63e40xiaozuozhi27809633@qq.com2026-09-04 09:21:02 +0800导入创新主体数据
+4378c7f79b6216d098ec603461223be50e6555f87884a040655132427bbf5c5a9e241cf88013caf9Sokach1594574183@qq.com2026-09-03 23:58:06 +0800feat:相关专利数量使用es实时查询
+7884a040655132427bbf5c5a9e241cf88013caf99837ae636c10b1f21f6cddd56d888d4dd000c373 f634d3a731c919848f3baac01ee3e798b396afdaSokach1594574183@qq.com2026-09-03 23:16:13 +0800Merge branch 'knowledge_online_dm_jl_sokach_20260902' into knowledge_online_dm_jl_xiaozz
+f634d3a731c919848f3baac01ee3e798b396afdae0a1efa823fa4e39c3dbb52e9dba623ff50f1243Sokach1594574183@qq.com2026-09-03 23:15:09 +0800feat:相关专利数量使用es实时查询
+9837ae636c10b1f21f6cddd56d888d4dd000c37301b1bfe17111f7a72493807acee36ded32f94c64huangzhenhaohuangzhenhao@ourchem.com2026-09-03 20:39:28 +0800feat:报告生成根据不同环境选择不同版本libreoffice
+01b1bfe17111f7a72493807acee36ded32f94c64b48072baf3c7f37b446e1eea816d5231a2f63e40huangzhenhaohuangzhenhao@ourchem.com2026-09-03 20:36:35 +0800feat:解决imageio-core版本冲突
+b48072baf3c7f37b446e1eea816d5231a2f63e40e3740b8abc769ef5ad3b527748014ed4301cadf5 d3faa1cfc5d59197b5a38ae4902c0f01ed48f626Sokach1594574183@qq.com2026-09-03 19:33:14 +0800Merge branch 'knowledge_online_dm_jl_xiaozz_sokach_20260903' into knowledge_online_dm_jl_xiaozz
+d3faa1cfc5d59197b5a38ae4902c0f01ed48f6268da3ff20c6b2458f35e222d8ef972f90f4d3f4c1Sokach1594574183@qq.com2026-09-03 19:30:29 +0800feat:接口优化
+e3740b8abc769ef5ad3b527748014ed4301cadf5646d95fbfdb8ba3077883d9f957a3de0e3c28e51huangzhenhaohuangzhenhao@ourchem.com2026-09-03 18:29:52 +0800feat:分析报告生成
+646d95fbfdb8ba3077883d9f957a3de0e3c28e514f5168c7f4efdad71f87cc939f5234f1a6be9cbbxiaozuozhi27809633@qq.com2026-09-03 16:19:12 +0800开发Hbase工商、商标数据导入DB、ES
+4f5168c7f4efdad71f87cc939f5234f1a6be9cbb512968ca19231093e0571bfc87dcefca4acee716xiaozuozhi27809633@qq.com2026-09-02 20:22:40 +0800开发Hbase工商、商标数据导入DB、ES
+512968ca19231093e0571bfc87dcefca4acee716e515e84386a1baff19f92c8394550acbd1a01a7f e515080f2823b8344ac133bd18aea1818c432746xiaozuozhi27809633@qq.com2026-09-02 20:03:01 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+e515e84386a1baff19f92c8394550acbd1a01a7f385a6abe2df2ba9a41f52a402c262be4540f026dxiaozuozhi27809633@qq.com2026-09-02 20:01:18 +0800开发Hbase工商、商标数据导入DB、ES
+e515080f2823b8344ac133bd18aea1818c432746385a6abe2df2ba9a41f52a402c262be4540f026dhuangzhenhaohuangzhenhao@ourchem.com2026-09-02 19:05:57 +0800feat:报告检索逻辑
+385a6abe2df2ba9a41f52a402c262be4540f026d02c397c3d9360bc0a64a165514a17a9c1a239019 92d9c1195f36c0ae87cb8d9680de609c002f519bxiaozuozhi27809633@qq.com2026-09-02 11:05:28 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+02c397c3d9360bc0a64a165514a17a9c1a239019ae8ff1a468ac6c810095656899a3fd6d3a6135f5xiaozuozhi27809633@qq.com2026-09-02 11:04:41 +0800开发Hbase工商、商标数据导入DB、ES
+ae8ff1a468ac6c810095656899a3fd6d3a6135f5ad1300e42ab5d05c893a76f2c164ab273b5e4b94xiaozuozhi27809633@qq.com2026-09-02 10:06:56 +0800开发Hbase工商、商标数据导入DB、ES
+92d9c1195f36c0ae87cb8d9680de609c002f519bad1300e42ab5d05c893a76f2c164ab273b5e4b94huangzhenhaohuangzhenhao@ourchem.com2026-09-01 17:46:15 +0800feat:迁移壹专利体检报告逻辑；产业链图谱改为调本地service
+ad1300e42ab5d05c893a76f2c164ab273b5e4b94cbf3b7ca2c78f72c1e16b65b65a19ab4621e058bxiaozuozhi27809633@qq.com2026-09-01 16:59:16 +0800开发Hbase工商、商标数据导入DB、ES
+cbf3b7ca2c78f72c1e16b65b65a19ab4621e058bbe05d6c052a8b28de3cf7a5a5d60f3fb69e6a08dhuangzhenhaohuangzhenhao@ourchem.com2026-08-31 15:29:37 +0800feat:专利许可检索
+be05d6c052a8b28de3cf7a5a5d60f3fb69e6a08d0fa0d9c4666b4842c9515031444d02c6e05bf45ehuangzhenhaohuangzhenhao@ourchem.com2026-08-31 14:35:23 +0800feat:图谱链路跳转、中国专利奖、高价值拥有量
+0fa0d9c4666b4842c9515031444d02c6e05bf45e78a623f0ad6a41dff8e27794a116e1768b3d2297huangzhenhaohuangzhenhao@ourchem.com2026-08-30 17:24:35 +0800feat:专利管理、重点产业
+78a623f0ad6a41dff8e27794a116e1768b3d2297f5c371b907757b91752a448298f714733c2268ebxiaozuozhi27809633@qq.com2026-08-30 17:04:23 +0800开发Hbase工商、商标数据导入DB、ES
+f5c371b907757b91752a448298f714733c2268ebf8ee1c85ba791465387b726e0aade0f631fa0350xiaozuozhi27809633@qq.com2026-08-30 17:03:27 +0800开发Hbase工商、商标数据导入DB、ES
+f8ee1c85ba791465387b726e0aade0f631fa035029a257f7634db3ededcd91ad806bef57954dc471 d6202e5beab57d98775f6d3f31f418c5a03a581exiaozuozhi27809633@qq.com2026-08-28 20:23:35 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+29a257f7634db3ededcd91ad806bef57954dc471683c5e24dd09548c691f6e3b0edbfb7530159d4axiaozuozhi27809633@qq.com2026-08-28 20:23:10 +0800开发Hbase专利数据导入DB、ES
+d6202e5beab57d98775f6d3f31f418c5a03a581e683c5e24dd09548c691f6e3b0edbfb7530159d4ahuangzhenhaohuangzhenhao@ourchem.com2026-08-28 18:40:57 +0800feat:专利转让检索
+683c5e24dd09548c691f6e3b0edbfb7530159d4aaa5eeb7f5244af2ab4b1a8c96f7e3dda5885fec1 8d0b98ef9770e3642178dea4f7883fb220f29cdbxiaozuozhi27809633@qq.com2026-08-28 16:47:08 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+8d0b98ef9770e3642178dea4f7883fb220f29cdb8da3ff20c6b2458f35e222d8ef972f90f4d3f4c1huangzhenhaohuangzhenhao@ourchem.com2026-08-28 16:39:26 +0800add:本地检索接口
+aa5eeb7f5244af2ab4b1a8c96f7e3dda5885fec1c7d28ba4749155bba2968fb202efd11475f72d9cxiaozuozhi27809633@qq.com2026-08-28 16:15:07 +0800开发Hbase专利数据导入DB、ES
+c7d28ba4749155bba2968fb202efd11475f72d9c71eed88ca3306033642bd1286872a8af30b92829 8da3ff20c6b2458f35e222d8ef972f90f4d3f4c1xiaozuozhi27809633@qq.com2026-08-28 15:44:15 +0800Merge remote-tracking branch 'origin/knowledge_online_dm_jl_xiaozz' into knowledge_online_dm_jl_xiaozz
+71eed88ca3306033642bd1286872a8af30b92829b02734307fbc6e957cf83799bda2ee29952062dfxiaozuozhi27809633@qq.com2026-08-28 15:43:24 +0800开发Hbase专利数据导入DB、ES
+8da3ff20c6b2458f35e222d8ef972f90f4d3f4c1b02734307fbc6e957cf83799bda2ee29952062df e0a1efa823fa4e39c3dbb52e9dba623ff50f1243huangzhenhaohuangzhenhao@ourchem.com2026-08-27 19:25:24 +0800Merge remote-tracking branch 'refs/remotes/origin/knowledge_online_dm_jl' into knowledge_online_dm_jl_xiaozz
+b02734307fbc6e957cf83799bda2ee29952062dfcb72e90f4847f9090df4074f0e7b937f25220f31xiaozuozhi27809633@qq.com2026-08-27 19:03:21 +0800修改admin搜索模块代码配置
+cb72e90f4847f9090df4074f0e7b937f25220f3140ae00ce7ce9b56f40b4ca22a51b687087aa075axiaozuozhi27809633@qq.com2026-08-25 13:43:36 +0800增加搜索模块代码
+e0a1efa823fa4e39c3dbb52e9dba623ff50f1243378bc9ba68b2d79108cc223489d75962f6a6ee06huangzhenhaohuangzhenhao@ourchem.com2026-08-27 18:59:40 +0800feat:专利管理增加字段
+378bc9ba68b2d79108cc223489d75962f6a6ee061af6d571c3bb23869e9feed9a41d16c8a54042a9huangzhenhaohuangzhenhao@ourchem.com2026-08-27 15:39:14 +0800add:调用data-server服务处理
+1af6d571c3bb23869e9feed9a41d16c8a54042a998707486a0aeaac949e106db2f5af21961282ad8xiaozuozhi27809633@qq.com2026-08-25 13:43:36 +0800dev 增加es配置
+98707486a0aeaac949e106db2f5af21961282ad8d9524d39733a2387e53d043087177380d8af1343xiaozuozhi27809633@qq.com2026-08-25 13:20:54 +0800dev 增加es配置
+d9524d39733a2387e53d043087177380d8af1343c287770d892f11256e6aca07df2a05ed78f5112bxiaozuozhi27809633@qq.com2026-08-21 17:11:49 +0800高价值专利导入，BUG修复
+40ae00ce7ce9b56f40b4ca22a51b687087aa075ae7afcfab7c2002b5cd6d3aefb72517ad45695769xiaozuozhi27809633@qq.com2026-08-21 17:11:49 +0800高价值专利导入，BUG修复

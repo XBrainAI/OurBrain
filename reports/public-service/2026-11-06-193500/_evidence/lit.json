@@ -1,0 +1,576 @@
+{
+  "period": 5,
+  "planRange": {
+    "start": "2026-10-26",
+    "end": "2026-11-06"
+  },
+  "historyNote": "在线二期修复持续（wx 22 有效，肖作志 68% 改善自 75%）；生产库口令明文第 4 期未处置（tip 19 处仍在，专项治理建议维持）；R22 延期 8 个工作日（南航后端有活动但非本条主题）、R23 运维盲区第 5 期；四仓测试同步连续第 5 期为零；ip-online message 100% 无信息第 5 期；Sokach 待映射第 5 期（今日南航双仓 3 笔活跃）",
+  "aliases": [
+    {
+      "email_contains": "27809633",
+      "canon": "肖作志"
+    },
+    {
+      "name_in": "xiaozuozhi",
+      "canon": "肖作志"
+    },
+    {
+      "name_in": "肖作志",
+      "canon": "肖作志"
+    },
+    {
+      "email_contains": "huangzhenhao",
+      "canon": "黄振豪"
+    },
+    {
+      "name_in": "黄振豪",
+      "canon": "黄振豪"
+    },
+    {
+      "email_contains": "sunjiankai",
+      "canon": "孙健凯"
+    },
+    {
+      "name_in": "孙健凯",
+      "canon": "孙健凯"
+    },
+    {
+      "email_contains": "1594574183",
+      "canon": "Sokach（待映射）"
+    },
+    {
+      "name_in": "Sokach",
+      "canon": "Sokach（待映射）"
+    }
+  ],
+  "memberMap": {},
+  "dayDiff": {
+    "prevDay": "2026-11-04",
+    "gapDays": 2,
+    "skipped": "11-05 全项目无提交与文档更新",
+    "docsChangedToday": false,
+    "docsSummary": "项目路径与全局 docs/ 今日无更新（最近 10-30）；W45 仍未入库",
+    "headline": "项目级：11-06 四仓中三仓有提交（Sokach 南航双仓 3 笔 + 孙健凯 ip-online 1 笔）——修复线由南航后端接棒；截至 19:35（非整日）"
+  },
+  "aheadDelta": {
+    "wx-public-service-platform": "0",
+    "ip-online": "0",
+    "nuaa-ip-transformation-platform": "0",
+    "cms": "0"
+  },
+  "dayDiffNote": {
+    "wx-public-service-platform": "dm_jl 2105→2105；nuaa_integrated 2437→2439（今日 +2）",
+    "nuaa-ip-transformation-platform": "master 直推（无分支偏差）",
+    "ip-online": "master 直推"
+  },
+  "headline": "公共服务平台：在线二期修复持续（单人集中改善至 68%），生产口令明文第 4 期未处置，R22/R23 延期加深，Sokach 今日南航双仓活跃",
+  "keyPoints": [
+    {
+      "level": "高",
+      "text": "〔安全·优先〕wx 生产库口令明文第 4 期未处置：tip 逐文件复核 19 处计数仍在（devDmPro 12 + bootstrap 5 + generatorConfig 2），4087f26b2 后无处置提交——专项治理建议维持：轮换→密管→清历史→评估泄露面（TD-006 ①）"
+    },
+    {
+      "level": "中",
+      "text": "R22「维护人变更」功能异常延期 8 个工作日：文档「未开始」；南航后端今日有实质活动（Sokach 国防专利字段/软著提示 +872 行）但非本条主题——本条仍零证据"
+    },
+    {
+      "level": "中",
+      "text": "R23 服务器补丁与漏洞修复连续第 5 期零 git 证据（运维盲区）——文档「开发中」与 git 零证据并存，需线下确认进展"
+    },
+    {
+      "level": "中",
+      "text": "ip-online message 100% 无信息量第 5 期（「修改代码×2/修改bug」，含 18 文件大提交）；四仓功能改动测试同步连续第 5 期为零"
+    },
+    {
+      "level": "低",
+      "text": "正面：在线二期单人集中 75%→68% 改善（肖作志 15/黄振豪 5）；Sokach 待映射第 5 期列报（今日南航双仓 3 笔——TD-006 ④）；W45 未入库沿用 W44；缺陷基线 2026-10-29（存量 59/未关闭 18/返工阻塞 12，四产品线最重）"
+    }
+  ],
+  "repos": {
+    "wx-public-service-platform": {
+      "total": 44.5,
+      "scores": {
+        "progress": 38,
+        "people": 45,
+        "quality": 62,
+        "integration": 50,
+        "convention": 28
+      },
+      "topRisk": "生产库口令明文第 4 期未处置（tip 19 处仍在）+ 在线二期单人集中 68%",
+      "narrative": {
+        "progress": "在线二期修复持续（22 有效：肖作志 15 + 黄振豪 5，产业链示谱过滤/电子档案对接）；R22 本条零证据",
+        "people": "肖作志 68%（改善自 75%）+ 黄振豪 23% + Sokach 南航线 2",
+        "quality": "口令明文第 4 期；修复零测试同步第 5 期；TODO 11（低）",
+        "integration": "master 死亡 4 年半已知形态；dm_jl/nuaa_integrated 双活跃客户分支",
+        "convention": "15/22 message 无前缀（68%）——「接口转宽写/fix:报告」类短标题",
+        "rhythm": "11-03 峰值 10 笔 → 11-04 2 笔 → 11-06 2 笔（南航线）",
+        "modules": "在线二期修复 + 南航国防专利字段",
+        "plans": "R20 已推进 / R21 已完成 / R22 延期风险（8 个工作日）/ R27 已完成",
+        "testing": "修复零测试同步第 5 期；存量 3 测试文件"
+      },
+      "peopleProfile": [
+        {
+          "name": "肖作志",
+          "role": "在线二期前端修复主力（dm_jl 线）",
+          "intent": "意图：在线二期问题修复（15 笔，含雪碧图 JS 整数越界、产业链示谱过滤）",
+          "workload": "投入度：窗口 15/22（68%，改善自 75%）",
+          "intensity": "工作强度：峰值 11-03×6",
+          "engagement": "参与度：dm_jl 单分支",
+          "risk": "潜在风险：单人承载修复线（改善中）",
+          "riskLevel": "中"
+        },
+        {
+          "name": "黄振豪",
+          "role": "在线二期修复第二人（产业链/报告）",
+          "intent": "意图：产业链示谱一人类型过滤、报告类修复（5 笔）",
+          "workload": "投入度：窗口 5/22（23%）",
+          "intensity": "工作强度：峰值 10-30×3",
+          "engagement": "参与度：dm_jl 单分支",
+          "risk": "潜在风险：无",
+          "riskLevel": null
+        },
+        {
+          "name": "Sokach（待映射）",
+          "role": "南航线后端（跨 wx/nuaa 双仓）",
+          "intent": "意图：国防专利字段新增（+SQL 迁移）、软著审批提示语修改（nuaa_integrated，11-06）",
+          "workload": "投入度：本仓 2 + nuaa 1",
+          "intensity": "工作强度：单日 3 笔（南航双仓）",
+          "engagement": "参与度：跨仓（wx 南航分支 + nuaa 主干）",
+          "risk": "潜在风险：身份待映射第 5 期（TD-006 ④）；南航线单人",
+          "riskLevel": "中"
+        }
+      ],
+      "testing": {
+        "stockNote": "存量 3 测试文件",
+        "sitTraces": 0,
+        "aiReview": "窗口 22 笔有效修复零测试同步（第 5 期）；产业链示谱过滤/申请号规则类改动建议补判定用例"
+      },
+      "plans": [
+        {
+          "id": "R20",
+          "name": "行20 在线二期问题修复",
+          "owner": "肖作志/黄振豪",
+          "start": "10-26",
+          "due": null,
+          "status": "已推进",
+          "note": "dm_jl 线 20 笔持续修复（无截止日，TAPD 迭代跟踪）",
+          "prevStatus": "已推进"
+        },
+        {
+          "id": "R21",
+          "name": "行21 专利提案认领补充提示",
+          "owner": "肖作志",
+          "start": "10-26",
+          "due": "10-27",
+          "status": "已完成",
+          "note": "文档「已完成」维持（每期复核无回退）",
+          "prevStatus": "已完成",
+          "done": "10-26"
+        },
+        {
+          "id": "R22",
+          "name": "行22 「维护人变更」功能异常",
+          "owner": "（文档未指明）",
+          "start": "10-28",
+          "due": "10-29",
+          "status": "延期风险",
+          "note": "文档「未开始」；逾期 8 个工作日；南航后端今日有活动（国防专利字段）但非本条主题——本条仍零证据",
+          "prevStatus": "延期风险"
+        },
+        {
+          "id": "R27",
+          "name": "行27 客户现场信创方案",
+          "owner": "许志奇",
+          "start": "10-26",
+          "due": "10-28",
+          "status": "已完成",
+          "note": "文档自述维持（现场类交付 git 盲区）",
+          "prevStatus": "已完成",
+          "done": "10-28"
+        }
+      ],
+      "risks": [
+        {
+          "title": "生产库口令明文写入版本库（第 4 期未处置，tip 仍在）",
+          "plain": "生产库密码还在代码里，四周没人处理（第 4 期）",
+          "dimension": "quality",
+          "level": "高",
+          "evidence": "tip 逐文件复核：devDmPro 12 + conf/bootstrap 5 + generatorConfig 2 = 19 处计数仍在；4087f26b2 后无处置提交",
+          "advice": "专项治理维持：①立即轮换口令 ②迁移密管 ③清理 git 历史 ④评估泄露面（TD-006 ①）",
+          "agePeriods": 4
+        },
+        {
+          "title": "在线二期后端单人集中 68%（改善自 75%，仍超 60% 阈值）",
+          "plain": "在线二期修复主要还是一个人（第 5 期，占比在降）",
+          "dimension": "people",
+          "level": "中",
+          "evidence": "shortlog 肖作志 15/22",
+          "advice": "黄振豪参与度上升（23%）是正面方向；保持分工扩散",
+          "agePeriods": 5
+        },
+        {
+          "title": "窗口修复零测试同步（连续 5 期）",
+          "plain": "修了一个月的 bug，一行测试没补（第 5 期）",
+          "dimension": "quality",
+          "level": "中",
+          "evidence": "numstat 测试命中 0",
+          "advice": "升级动作：TAPD 高频回归 bug 补回归用例",
+          "agePeriods": 5
+        },
+        {
+          "title": "R22「维护人变更」异常延期 8 个工作日、零证据",
+          "plain": "这个功能异常过了期限还没人动（第 5 期）",
+          "dimension": "progress",
+          "level": "中",
+          "evidence": "文档「未开始」；窗口无对应提交",
+          "advice": "升级动作：与负责人确认排期或调整状态文档",
+          "agePeriods": 5
+        },
+        {
+          "title": "master 死亡 4 年半 + 3 客户分支长期并存（形态已知）",
+          "plain": "主干四年半没动，三条客户分支各走各的（形态已知）",
+          "dimension": "integration",
+          "level": "低",
+          "evidence": "master last=2022-04-01；dm_jl 2105 / nuaa 2439 / gzkfq 669",
+          "advice": "已知形态豁免维持；回流策略缺失既知表述",
+          "agePeriods": 5
+        },
+        {
+          "title": "message 无前缀占比 68%（15/22，其他类）",
+          "plain": "三分之二的提交标题看不出类型",
+          "dimension": "convention",
+          "level": "低",
+          "evidence": "分类统计：其他 15 / feat 3 / fix 4",
+          "advice": "行内约定前缀（feat/fix）",
+          "agePeriods": 1
+        },
+        {
+          "title": "Sokach 身份待映射（第 5 期列报）",
+          "plain": "跨三仓活跃的这个人还不知道是谁（第 5 期）",
+          "dimension": "people",
+          "level": "低",
+          "evidence": "1594574183@qq.com 统计期跨 wx/ip/nuaa；今日南航双仓 3 笔",
+          "advice": "请用户交代身份（TD-006 ④）",
+          "agePeriods": 5
+        }
+      ],
+      "moduleDesc": {
+        "knowledge-online-bus/knowledge-online-biz": "在线二期业务层（dm_jl）",
+        "sql/migration": "数据库迁移脚本",
+        "nuaa-integrated-bus/nuaa-integrated-biz": "南航集成业务层",
+        "knowledge-online-admin/src": "管理端配置（口令所在）"
+      },
+      "coreModules": [
+        "knowledge-online-bus/knowledge-online-biz"
+      ],
+      "insights": [
+        "wx@15dfff561 —— 南航线国防专利字段新增（PatentNationalDefense + SQL 迁移 20261106，+301 行）：Sokach 实质功能提交（非修复类）",
+        "wx@1ff03e976 —— 软著审批提示语修改 + 20231596TH 回滚/迁移 SQL（+275 行）：南航运维性修复带完整 SQL 记录",
+        "wx 口令复核 —— tip 19 处明文计数与 P4 完全一致（devDmPro 12 + bootstrap 5 + generatorConfig 2），无任何处置提交：第 4 期延续（TD-006 ①）"
+      ]
+    },
+    "ip-online": {
+      "total": 44.4,
+      "scores": {
+        "progress": 32,
+        "people": 48,
+        "quality": 53,
+        "integration": 25,
+        "convention": 72
+      },
+      "topRisk": "message 100% 无信息量第 5 期（含 18 文件大提交）+ 前端单人化 100%",
+      "narrative": {
+        "progress": "孙健凯 3 笔持续改动（+636/−225，含 2 个大提交「修改代码」）",
+        "people": "3/3 孙健凯（100% 单人，第 5 期）",
+        "quality": "TODO 85 + 5 大文件；零测试第 5 期",
+        "integration": "master 直推形态（无分支）",
+        "convention": "message 100% 无信息（「修改代码×2/修改bug」）——第 5 期",
+        "rhythm": "10-28/30、11-02、11-06 各 1 笔（单人间隔式提交）",
+        "modules": "企业智能检索配置",
+        "plans": "R20 已推进（在线二期 ip-online 侧）",
+        "testing": "存量 0 测试文件"
+      },
+      "peopleProfile": [
+        {
+          "name": "孙健凯",
+          "role": "ip-online 独立维护者（100% 单人第 5 期）",
+          "intent": "意图：企业智能检索相关改动（22/18 文件两笔大提交——message 未披露主题）",
+          "workload": "投入度：窗口 3/3",
+          "intensity": "工作强度：间隔 2~4 天单笔提交",
+          "engagement": "参与度：master 单线",
+          "risk": "潜在风险：message 零信息使改动不可追溯（18 文件大提交「修改代码」）；单人仓",
+          "riskLevel": "中"
+        }
+      ],
+      "testing": {
+        "stockNote": "存量 0 测试文件",
+        "sitTraces": 0,
+        "aiReview": "3 笔全零测试同步（第 5 期）；大提交内容不可考（message 失真）——建议 message 补主题"
+      },
+      "plans": [
+        {
+          "id": "R20",
+          "name": "行20 在线二期问题修复（ip-online 侧）",
+          "owner": "孙健凯",
+          "start": "10-26",
+          "due": null,
+          "status": "已推进",
+          "note": "3 笔持续改动（无截止日）",
+          "prevStatus": "已推进"
+        }
+      ],
+      "risks": [
+        {
+          "title": "message 100% 无信息量（连续 5 期）",
+          "plain": "所有提交都叫「修改代码」，看不出改了什么（第 5 期）",
+          "dimension": "convention",
+          "level": "高",
+          "evidence": "shortMsgs：65ab9fa29b/3a46cbe27e「修改代码」、d7de5a12c1「修改bug」",
+          "advice": "升级动作：CR 拦截无主题 message；至少写改动模块",
+          "agePeriods": 5
+        },
+        {
+          "title": "前端单人化 100%（孙健凯，连续 5 期）",
+          "plain": "这个仓只有一个人在动（第 5 期）",
+          "dimension": "people",
+          "level": "中",
+          "evidence": "shortlog 3/3",
+          "advice": "bus factor 风险；建议备份人",
+          "agePeriods": 5
+        },
+        {
+          "title": "大提交 message 失真（18 文件 371 行「修改代码」）",
+          "plain": "大改动配了个没内容的标题（第 3 期）",
+          "dimension": "convention",
+          "level": "中",
+          "evidence": "3a46cbe27e 18f/371 行",
+          "advice": "大提交必须写改动清单",
+          "agePeriods": 3
+        },
+        {
+          "title": "TODO 85 处 + 5 个超大文件存量",
+          "plain": "待办与大文件存量（第 5 期）",
+          "dimension": "quality",
+          "level": "低",
+          "evidence": "grep/ls-files",
+          "advice": "随迭代清理",
+          "agePeriods": 5
+        },
+        {
+          "title": "零测试：存量 0 测试文件（连续 5 期）",
+          "plain": "没有一行测试（第 5 期）",
+          "dimension": "quality",
+          "level": "低",
+          "evidence": "ls-files 0",
+          "advice": "检索配置类改动可先补配置校验脚本",
+          "agePeriods": 5
+        }
+      ],
+      "moduleDesc": {
+        "src/views": "页面",
+        "src/utils": "工具函数",
+        "src/components": "组件"
+      },
+      "coreModules": [],
+      "insights": [
+        "ip-online@65ab9fa29b/3a46cbe27e —— 两笔大提交（22f/279 行、18f/371 行）均名「修改代码」：改动主题完全不可考——规范风险主体（第 5 期）",
+        "ip-online 今日 1 笔（+161/−118）：孙健凯间隔式单人提交形态不变"
+      ]
+    },
+    "nuaa-ip-transformation-platform": {
+      "total": 40.4,
+      "scores": {
+        "progress": 42,
+        "people": 40,
+        "quality": 50,
+        "integration": 30,
+        "convention": 35
+      },
+      "topRisk": "R22 前端面逾期 8 个工作日零推进；Sokach 单人维护南航双仓（待映射第 5 期）",
+      "narrative": {
+        "progress": "Sokach 11-06 一笔实质功能提交（申请号规则修改&新增数据标注 +815 行）——南航线有推进，但 R22 本条仍零证据",
+        "people": "Sokach 单人（南航双仓）",
+        "quality": "TODO 188 + 29 万行 zip 构建产物入库",
+        "integration": "master 直推形态",
+        "convention": "feat 前缀规范（本窗口）",
+        "rhythm": "10-08/26、11-06 零星单笔（低频单人）",
+        "modules": "申请号规则与数据标注",
+        "plans": "R21/R27 已完成维持；R22 延期风险（前端面零）",
+        "testing": "存量 0 测试文件"
+      },
+      "peopleProfile": [
+        {
+          "name": "Sokach（待映射）",
+          "role": "南航平台唯一活跃维护者（跨双仓）",
+          "intent": "意图：申请号规则修改 + 新增数据标注（86aa051a 13 文件 +872 行，含 SQL/配置）",
+          "workload": "投入度：本仓 1 + wx 南航线 2",
+          "intensity": "工作强度：低频单笔（间隔 2~4 周）",
+          "engagement": "参与度：nuaa master + wx nuaa_integrated 跨仓",
+          "risk": "潜在风险：南航线单人 + 身份待映射（第 5 期，TD-006 ④）",
+          "riskLevel": "中"
+        }
+      ],
+      "testing": {
+        "stockNote": "存量 0 测试文件",
+        "sitTraces": 0,
+        "aiReview": "申请号规则/数据标注类改动零测试（延续形态）；本窗口单笔大提交带 SQL——建议规则类改动补正反例"
+      },
+      "plans": [
+        {
+          "id": "R21",
+          "name": "行21 专利提案认领补充提示（nuaa 侧）",
+          "owner": "肖作志",
+          "start": "10-26",
+          "due": "10-27",
+          "status": "已完成",
+          "note": "文档维持（done 10-26）",
+          "prevStatus": "已完成",
+          "done": "10-26"
+        },
+        {
+          "id": "R22",
+          "name": "行22 「维护人变更」功能异常（前端面）",
+          "owner": "（文档未指明）",
+          "start": "10-28",
+          "due": "10-29",
+          "status": "延期风险",
+          "note": "前端面逾期 8 个工作日零推进；后端面今日有活动（非本条主题）",
+          "prevStatus": "延期风险"
+        },
+        {
+          "id": "R27",
+          "name": "行27 客户现场信创方案",
+          "owner": "许志奇",
+          "start": "10-26",
+          "due": "10-28",
+          "status": "已完成",
+          "note": "文档自述维持（现场类 git 盲区）",
+          "prevStatus": "已完成",
+          "done": "10-28"
+        }
+      ],
+      "risks": [
+        {
+          "title": "R22 前端面逾期 8 个工作日零推进（第 5 期）",
+          "plain": "「维护人变更」异常前端侧一直没人修（第 5 期）",
+          "dimension": "progress",
+          "level": "中",
+          "evidence": "文档「未开始」；窗口无对应提交",
+          "advice": "升级动作：确认负责人与排期（文档更新或线下反馈）",
+          "agePeriods": 5
+        },
+        {
+          "title": "Sokach 单人维护南航双仓、历史主力全部淡出",
+          "plain": "南航两条线只剩一个人（且身份未确认，第 5 期）",
+          "dimension": "people",
+          "level": "中",
+          "evidence": "统计期仅 Sokach 活跃（历史 Top：yangweifan/yuyanjie/huangzesong 均淡出）",
+          "advice": "身份确认（TD-006 ④）+ 交接备份安排",
+          "agePeriods": 5
+        },
+        {
+          "title": "TODO 188 处 + 29 万行 zip 构建产物入库",
+          "plain": "待办与构建产物堆在库里（第 5 期）",
+          "dimension": "quality",
+          "level": "低",
+          "evidence": "grep/ls-files",
+          "advice": "构建产物移出仓库",
+          "agePeriods": 5
+        },
+        {
+          "title": "Sokach 身份待映射（第 5 期列报）",
+          "plain": "跨三仓活跃成员身份待交代（第 5 期）",
+          "dimension": "people",
+          "level": "低",
+          "evidence": "1594574183@qq.com",
+          "advice": "请用户交代（TD-006 ④）",
+          "agePeriods": 5
+        }
+      ],
+      "moduleDesc": {
+        "src/views": "页面（申请号规则）",
+        "src/utils": "工具函数",
+        "static/files": "静态资源"
+      },
+      "coreModules": [],
+      "insights": [
+        "nuaa@86aa051a1f —— 申请号规则修改 & 新增数据标注（13 文件 +872 行，含 SQL）：南航线实质功能推进（今日）",
+        "nuaa@同日 wx 南航分支 15dfff561 —— 国防专利字段新增：Sokach 单日跨双仓三笔——南航线当前唯一执行者"
+      ]
+    },
+    "cms": {
+      "total": 38.4,
+      "scores": {
+        "progress": 48,
+        "people": 35,
+        "quality": 40,
+        "integration": 40,
+        "convention": 20
+      },
+      "topRisk": "R23 运维任务零 git 证据（第 5 期）+ 休眠 689 天",
+      "narrative": {
+        "progress": "零提交（last=2024-12-19）；R23 服务器补丁与漏洞修复零 git 证据（运维盲区）",
+        "people": "无",
+        "quality": "TODO 29 + 超大文件存量（休眠仓）",
+        "integration": "无分支",
+        "convention": "无窗口数据",
+        "rhythm": "连续 5 期零",
+        "modules": "无",
+        "plans": "R23 延期风险（运维盲区，需线下确认）",
+        "testing": "存量 13 测试文件（框架自带）"
+      },
+      "peopleProfile": [],
+      "testing": {
+        "stockNote": "存量 13 测试文件（框架/脚手架自带口径）",
+        "sitTraces": 0,
+        "aiReview": "不适用（零活动）"
+      },
+      "plans": [
+        {
+          "id": "R23",
+          "name": "行23 服务器系统补丁安装及漏洞修复（北化院）",
+          "owner": "（文档未指明）",
+          "start": "10-28",
+          "due": "10-31",
+          "status": "延期风险",
+          "note": "运维类交付 git 不可见（第 5 期）；文档「开发中」与 git 零证据并存——需线下确认进展",
+          "prevStatus": "延期风险"
+        }
+      ],
+      "risks": [
+        {
+          "title": "R23 运维任务逾期、零 git 证据（第 5 期）",
+          "plain": "服务器补丁任务过了期限，git 里看不到任何进展（第 5 期）",
+          "dimension": "progress",
+          "level": "中",
+          "evidence": "文档「开发中」；窗口 0 笔",
+          "advice": "升级动作：线下确认（运维动作在服务器侧，git 盲区）或更新文档状态",
+          "agePeriods": 5
+        },
+        {
+          "title": "仓库休眠 689 天（最后提交 2024-12-19）",
+          "plain": "北化院仓快两年没动（第 5 期）",
+          "dimension": "progress",
+          "level": "低",
+          "evidence": "last=2024-12-19",
+          "advice": "如运维线已转其他载体可考虑移出监测",
+          "agePeriods": 5
+        },
+        {
+          "title": "TODO 29 处 + 超大文件存量（休眠仓）",
+          "plain": "存量待办与静态大文件（第 5 期）",
+          "dimension": "quality",
+          "level": "低",
+          "evidence": "grep/ls-files",
+          "advice": "观察项维持",
+          "agePeriods": 5
+        }
+      ],
+      "moduleDesc": {},
+      "coreModules": [],
+      "insights": [
+        "零活动仓（北化院）；R23 属运维盲区——建议用户线下确认后登记口径豁免"
+      ]
+    }
+  }
+}

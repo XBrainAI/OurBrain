@@ -1,0 +1,97 @@
+8b5ecfa26c8d258938d340518dc1631823c490dc1163a9024ee3f808f29bc7d3b386feadcd927b7fsusuguangluan@ourchem.com2026-10-29 18:03:26 +0800feat: 为平台链接添加登录校验和token携带逻辑
+1163a9024ee3f808f29bc7d3b386feadcd927b7f0e6e64d3b06a2f426c0e5515eacd9e145dff7134susuguangluan@ourchem.com2026-10-29 16:47:30 +0800feat: 新增专利详情页附件配置与操作手册
+0e6e64d3b06a2f426c0e5515eacd9e145dff713488b74ebc00bbec15ce1c7a91866e675d6c88560dsusuguangluan@ourchem.com2026-10-29 14:25:17 +0800feat(center-service): 中心服务与导航栏「服务内容」菜单保持同步
+88b74ebc00bbec15ce1c7a91866e675d6c88560da60e516285d66878a0c96409ee2f4ac630dcb229susuguangluan@ourchem.com2026-10-29 11:40:25 +0800feat(Header): add two new menu aliases for buaa portal
+a60e516285d66878a0c96409ee2f4ac630dcb2299c98af1b402f3ee69af9353f47d41985c126c776susuguangluan@ourchem.com2026-10-29 11:01:16 +0800feat: 实现正文站外平台链接的统一处理逻辑
+9c98af1b402f3ee69af9353f47d41985c126c776ded9b12ba88b6a5430b34e84819d1d07ba2a490fsusuguangluan@ourchem.com2026-10-28 17:30:27 +0800docs: 替换版权归属为北京航空航天大学图书馆并更新相关文本
+ded9b12ba88b6a5430b34e84819d1d07ba2a490f38cf510be074af670f61f921c6a1605dc52025absusuguangluan@ourchem.com2026-10-28 14:24:44 +0800feat(home): 新增可拖动的AI咨询组件并替换原有固定按钮
+38cf510be074af670f61f921c6a1605dc52025ab708220f4f7fff47090e289e77f725177ce25f034susuguangluan@ourchem.com2026-10-28 14:07:33 +0800fix: 修正菜单别名并调整布局样式，移除冗余时间显示
+708220f4f7fff47090e289e77f725177ce25f034c6966bddc4f70cb58f368ff172effe25baed73e0susuguangluan@ourchem.com2026-10-28 13:40:05 +0800feat: 新增授权日筛选字段并优化字段显示逻辑
+c6966bddc4f70cb58f368ff172effe25baed73e070a1f0f792b52e27b58b6a5b3bd1f80de4353b4bsusuguangluan@ourchem.com2026-10-28 09:35:43 +0800feat: 添加报告封面图片并更新机构简报默认图路径
+70a1f0f792b52e27b58b6a5b3bd1f80de4353b4b76ba722f66384ccb56ae16cb4ec126322c51f874susuguangluan@ourchem.com2026-10-27 17:36:44 +0800feat: 在高级搜索中新增院系检索字段及说明
+76ba722f66384ccb56ae16cb4ec126322c51f8743bde93993378f27945ba358833d9820711f09352susuguangluan@ourchem.com2026-10-27 14:22:27 +0800docs: 简化页面标题中的冗余文字
+3bde93993378f27945ba358833d9820711f09352049c6147e6544dad81e261d8bae9789f96ec6e31susuguangluan@ourchem.com2026-10-27 14:09:40 +0800feat(Header): 三级菜单跳转逻辑与对应父项保持一致
+049c6147e6544dad81e261d8bae9789f96ec6e314bc9f6d6df7ec23e71f9b5e087756b2117c0a91csusuguangluan@ourchem.com2026-10-27 13:32:17 +0800fix: 修复建设中提示弹窗的按钮显示和游客登录跳转逻辑
+4bc9f6d6df7ec23e71f9b5e087756b2117c0a91ca15451f1d11176895fed3294545dd3ca123c07efsusuguangluan@ourchem.com2026-10-27 11:00:38 +0800feat: 新增服务内容三级菜单及检索模块调整
+a15451f1d11176895fed3294545dd3ca123c07ef45ac0754c1db2f86f9bc166861d0606d5773cdc8susuguangluan@ourchem.com2026-10-26 10:02:37 +0800refactor(patyeeSearch): 调整检索框tab列表，移除无数据的软著和布图
+45ac0754c1db2f86f9bc166861d0606d5773cdc85aa45d66bdd395e4afe8048f045b8bc7cbccbc83susuguangluan@ourchem.com2026-10-22 18:34:13 +0800feat: 新增本校机构树固定检索范围并优化学科跳转逻辑
+5aa45d66bdd395e4afe8048f045b8bc7cbccbc83163f99fd52ac7da2e78a7275fd63eed51a15fea2susuguangluan@ourchem.com2026-10-22 11:30:01 +0800feat: 新增学科分类统计接口及对应图表展示
+163f99fd52ac7da2e78a7275fd63eed51a15fea280e32b3d37e8374f8ea0212d1118b47202428753susuguangluan@ourchem.com2026-10-15 18:27:47 +0800feat: 新增北航电子端口操作指南附件下载功能
+80e32b3d37e8374f8ea0212d1118b472024287533e036e4900bc946ffdac2d69f7d0eaa64bb8914cZzhangying1@ourchem.com2026-09-18 19:36:55 +0800fix:申请人（原始）检索参数修改
+3e036e4900bc946ffdac2d69f7d0eaa64bb8914c3edbcfe970ca21a0116b3abb49520e51e0464743Zzhangying1@ourchem.com2026-09-18 19:09:13 +0800fix： 个人设置 - “第三方登录”需要在非saas隐藏
+3edbcfe970ca21a0116b3abb49520e51e04647430bde7c2bd9872420213af32b844e0aaa55d76049Zzhangying1@ourchem.com2026-09-18 18:20:47 +0800fix：北航机构库筛选字段 加 申请人(原始)
+0bde7c2bd9872420213af32b844e0aaa55d76049433292de1127082db42c3d47ef0d22c3874a5f56Zzhangying1@ourchem.com2026-09-18 18:19:53 +0800fix：高价值与运营转化成果展示数据条数修改
+433292de1127082db42c3d47ef0d22c3874a5f56e57eaf4099527709c7c069f3d2472881df3baf4bZzhangying1@ourchem.com2026-09-18 18:18:05 +0800fix：底部版权信息暂用
+e57eaf4099527709c7c069f3d2472881df3baf4b781aa90020134481aba82dc278e490d903a5d2d1Zzhangying1@ourchem.com2026-09-18 18:17:14 +0800fix(buaa)：本地游客登录不取ip端
+781aa90020134481aba82dc278e490d903a5d2d16ba58393774404b1e3b0d89604c511b8ed0f62ebZzhangying1@ourchem.com2026-09-18 15:13:07 +0800fix：更换自定义机构简报的下载方法
+6ba58393774404b1e3b0d89604c511b8ed0f62ebd8feb3179d672d624fd3ba1e0b60fde904032176Zzhangying1@ourchem.com2026-09-18 10:01:01 +0800fix：资质图片更换
+d8feb3179d672d624fd3ba1e0b60fde9040321768214da798f193b8a3644fd35343e26ecf0f5f7e2Zzhangying1@ourchem.com2026-09-17 15:47:23 +0800options：北航本地部署打包命令
+8214da798f193b8a3644fd35343e26ecf0f5f7e256c37be831fe5ff1f490d026eb0b38f9fef8b8dbZzhangying1@ourchem.com2026-09-15 14:27:48 +0800style(buaa)：修复头部导航栏切换风格时，浅色下搜索框内文本和图标看不清的样式问题
+56c37be831fe5ff1f490d026eb0b38f9fef8b8db15cc0891233742545cc4921f13864f2e3dc58722Zzhangying1@ourchem.com2026-09-15 13:52:50 +0800feat(buaa)：帮助中心-数据范围 在北航本地部署隐藏表格
+15cc0891233742545cc4921f13864f2e3dc58722388cae4e6e2c67cc48b5dbf075233f975e4f5516Zzhangying1@ourchem.com2026-09-15 12:04:35 +0800style：主题色适配
+388cae4e6e2c67cc48b5dbf075233f975e4f55163dbd84ddf97c6fc92e15ccf890f3a2e397d81eaeZzhangying1@ourchem.com2026-09-15 10:52:04 +0800style：首页在浏览器窗口缩放比例150%下 学科/产业专题库 和 教育培训课程模块重叠了
+3dbd84ddf97c6fc92e15ccf890f3a2e397d81eaefdfb757285848558e0ce3a48cdc9c463ab96379eZzhangying1@ourchem.com2026-09-14 17:34:24 +0800fix：修复 机构库北航排序字段缺少申请日
+fdfb757285848558e0ce3a48cdc9c463ab96379ebbf873068ade4f711417b7536b70a0506a75789cZzhangying1@ourchem.com2026-09-14 16:48:48 +0800fix：中心服务 查看更多 跳到 服务内容 的二级页面
+bbf873068ade4f711417b7536b70a0506a75789c626e1b135b3b9dd5c2587f79330b8bbbff417280Zzhangying1@ourchem.com2026-09-14 10:14:46 +0800fix(buaa)：北航本地部署 无全附图视图
+626e1b135b3b9dd5c2587f79330b8bbbff417280d7b0b71829ad7c78352481887b2e03728a878930Zzhangying1@ourchem.com2026-09-14 10:05:22 +0800fix：暂时隐藏底部版本信息
+d7b0b71829ad7c78352481887b2e03728a878930199d61abe38205b90286a30d2e0faaadded4fe12Zzhangying1@ourchem.com2026-09-11 18:41:33 +0800fix：数字图谱外部来源传入的 isMerge 参数判断优化
+199d61abe38205b90286a30d2e0faaadded4fe12c5a1ab4b9097685e525cfd00692ad046ae6ec642Zzhangying1@ourchem.com2026-09-11 16:17:37 +0800fix(buaa)：隐藏关于平台，数据范围的表格二
+c5a1ab4b9097685e525cfd00692ad046ae6ec642138fc387328498c46f64ae95fef77da5739483ceZzhangying1@ourchem.com2026-09-11 16:01:50 +0800fix(buaa)：禁用基本信息穿透链接及其样式
+138fc387328498c46f64ae95fef77da5739483ce2133738618da736673bc4338de747c951e990d5eZzhangying1@ourchem.com2026-09-11 14:31:23 +0800fix(buaa)：专利详情 站外访问
+2133738618da736673bc4338de747c951e990d5e7d50df08f9933db41ab2676b24adc1a8036da35aZzhangying1@ourchem.com2026-09-11 13:56:52 +0800fix(buaa)：专利详情页隐藏部分字段、功能 定制，仅在本地部署生效，saas不变
+7d50df08f9933db41ab2676b24adc1a8036da35a1c8725b1b70c8d4f0d999e05273b1eff527b74bcZzhangying1@ourchem.com2026-09-10 18:36:00 +0800feat(buaa)：北航不显示合并选项
+1c8725b1b70c8d4f0d999e05273b1eff527b74bc3fba155c3887783ddf62ce31f4022e5eee0aa881Zzhangying1@ourchem.com2026-09-10 17:48:50 +0800fix：隐藏涉及到“壹专利”相关问号说明
+3fba155c3887783ddf62ce31f4022e5eee0aa881678e36ded37fba0c6dcd4a18d39e52546a08c424Zzhangying1@ourchem.com2026-09-10 17:28:14 +0800fix: buaa 不展示历史记录，常用字段推荐区铺满整个弹层宽度
+678e36ded37fba0c6dcd4a18d39e52546a08c42440cb5f26c6c0c3e73edd836a1285fee2481ab88fZzhangying1@ourchem.com2026-09-10 17:09:19 +0800fix：专利以外的给提示
+40cb5f26c6c0c3e73edd836a1285fee2481ab88f37b9aca942de8dde33da0552d2cdcfb03613d5bbZzhangying1@ourchem.com2026-09-10 17:02:25 +0800fix：首页的新闻公告和政策法规tab下点进去的详情页面包屑直接是首页>详情
+37b9aca942de8dde33da0552d2cdcfb03613d5bbadccb72b9546223d55b0c80db67886c189903538Zzhangying1@ourchem.com2026-09-10 16:41:34 +0800feat(buaa) 高级检索在本地部署、sass 均隐藏关键词扩展、智能翻译
+adccb72b9546223d55b0c80db67886c1899035388e37843918b64462496242085690f52b7f523283Zzhangying1@ourchem.com2026-09-10 16:17:03 +0800feat(buaa) 本地部署、sass 均不做任何校验，直接跳转
+8e37843918b64462496242085690f52b7f523283960dbdc6b482c1389d1ff94080373f0e0ca80608Zzhangying1@ourchem.com2026-09-10 16:02:55 +0800fix：查看档案库 直接去到档案库页面
+960dbdc6b482c1389d1ff94080373f0e0ca80608f161b323242b71f3353a9142a7f22b122ad12cd7Zzhangying1@ourchem.com2026-09-10 14:34:12 +0800fix：首页「中心服务」模块的卡片与导航栏跳转一致
+f161b323242b71f3353a9142a7f22b122ad12cd7b62b9afda62986cb369c5786970af7d8873ca36fZzhangying1@ourchem.com2026-09-10 14:33:28 +0800fix：视频课程接口参数修改
+b62b9afda62986cb369c5786970af7d8873ca36fa9c3873f7bf6cfa19a8cac5c0065e47e608c3e8dZzhangying1@ourchem.com2026-09-10 12:26:11 +0800test：专题库列表-标记
+a9c3873f7bf6cfa19a8cac5c0065e47e608c3e8dcca71f9ad585dca1b3246a3a39a2a79495793740Zzhangying1@ourchem.com2026-09-10 11:12:27 +0800fix(buaa)：日志清理
+cca71f9ad585dca1b3246a3a39a2a79495793740a4301cb005bdeddaa64b6471b19760ef468e1086Zzhangying1@ourchem.com2026-09-10 10:20:27 +0800fix(buaa)：机构库站外分析不经过首页
+a4301cb005bdeddaa64b6471b19760ef468e1086a715f27884bf85722ece29b5ad2b2f8f18820a9a 46b1b85156cbfcc271244e71fc4c4e96ba2885a8Zzhangying1@ourchem.com2026-09-10 09:54:22 +0800Merge branch 'buaa-test-branch' into buaa
+a715f27884bf85722ece29b5ad2b2f8f18820a9a405e2610ef3053faf46ce6ca23ff880de7c1035bZzhangying1@ourchem.com2026-09-10 09:39:03 +0800fix：专利简报下载直接用后端真实文件名
+405e2610ef3053faf46ce6ca23ff880de7c1035b089d643c865859f9e76e20d35b3df615bc76aed0Zzhangying1@ourchem.com2026-09-09 17:26:09 +0800feat(buaa)：中心服务成果展示接接口数据
+089d643c865859f9e76e20d35b3df615bc76aed0583c0f3b11eed141394db4e38530201b92803034Zzhangying1@ourchem.com2026-09-09 17:25:12 +0800fix(buaa)：专题库和机构库页面样式区分
+583c0f3b11eed141394db4e38530201b92803034e5ed3f6a1b8d2ee4b0572ac19f6ae602a0031d3fZzhangying1@ourchem.com2026-09-08 15:42:41 +0800style：若干样式问题修复
+e5ed3f6a1b8d2ee4b0572ac19f6ae602a0031d3f9adb1ccab5cc48c8a1396152c10961d179930cc2Zzhangying1@ourchem.com2026-09-08 15:29:22 +0800fix(buaa)：AI专利申请前评估跳转钽宝AI
+9adb1ccab5cc48c8a1396152c10961d179930cc2c07eefad38897173ae8177fe02ffce12e0ddfbabZzhangying1@ourchem.com2026-09-08 10:23:18 +0800fix：saas搜索框关键词回显
+c07eefad38897173ae8177fe02ffce12e0ddfbab96ca3954f133845ba39adeb6bedb3f067a6bdb40Zzhangying1@ourchem.com2026-09-08 09:40:02 +0800fix(buaa)：北航专利站外分析（日志清理）
+96ca3954f133845ba39adeb6bedb3f067a6bdb40c8d8987a331dcd917ea510b41f1339d2853fef47Zzhangying1@ourchem.com2026-09-07 18:21:13 +0800feat(buaa)：北航专利站外分析-2（自定义分析）
+c8d8987a331dcd917ea510b41f1339d2853fef47e4e710c39fe1fc54731e4605f18375489de50305Zzhangying1@ourchem.com2026-09-07 15:58:06 +0800feat(buaa)：北航专利站外分析-1
+e4e710c39fe1fc54731e4605f18375489de503058a0f76c8fc06fd0a86aae929fdf39fed5fc4672bZzhangying1@ourchem.com2026-09-07 15:56:39 +0800style(buaa):分析页右侧面板高度调整
+8a0f76c8fc06fd0a86aae929fdf39fed5fc4672b9fd358c73129acc16bcdb177258be412fe762ab2Zzhangying1@ourchem.com2026-09-04 16:23:04 +0800fix(buaa)：服务内容详情页左侧tab跳saas补充
+9fd358c73129acc16bcdb177258be412fe762ab20bf5236da609b82201ba8115086a30428a051af1Zzhangying1@ourchem.com2026-09-04 16:09:24 +0800feat(buaa)：北航租户（buaa/buaapre）：导航栏菜单不按角色展示全部菜单，仅保留已有菜单中的固定以下菜单
+46b1b85156cbfcc271244e71fc4c4e96ba2885a8f225ae046018c93753638fd82710567b0e32722aZzhangying1@ourchem.com2026-09-04 10:21:41 +0800 test：跳转saas专题库不经过首页（专题库列表页）
+f225ae046018c93753638fd82710567b0e32722abc745812bcbb5e1c436c4fbc235e403c0051ebf7Zzhangying1@ourchem.com2026-09-03 17:37:33 +0800test：跳转saas专题库不经过首页
+bc745812bcbb5e1c436c4fbc235e403c0051ebf7d0f2431d22669d9bf507719ebdc498060b855b7fZzhangying1@ourchem.com2026-09-03 16:24:39 +0800test
+d0f2431d22669d9bf507719ebdc498060b855b7fcac1d6886648f70c0ab2f166c4121fe417f50acdZzhangying1@ourchem.com2026-09-03 16:13:47 +0800test
+cac1d6886648f70c0ab2f166c4121fe417f50acdd2e33a07aa1f4df557c366ab7bfc71723433ab90Zzhangying1@ourchem.com2026-09-03 15:30:01 +0800test
+d2e33a07aa1f4df557c366ab7bfc71723433ab900bf5236da609b82201ba8115086a30428a051af1Zzhangying1@ourchem.com2026-09-03 14:44:56 +0800test：saas sso优化测试
+0bf5236da609b82201ba8115086a30428a051af1cbf1eb6f4abcef1da085714fb9ee6ba1d9f9a0c5Zzhangying1@ourchem.com2026-09-03 10:42:20 +0800fix：学科/产业专题数据库 跳转saas
+cbf1eb6f4abcef1da085714fb9ee6ba1d9f9a0c524b54e9dba7177f1083abcbda7200367b5e6956cZzhangying1@ourchem.com2026-09-02 13:49:12 +0800fix：弹窗登录跳转地址修改
+24b54e9dba7177f1083abcbda7200367b5e6956cea5319a8b869fb7718e162ebee166b329711d9c1Zzhangying1@ourchem.com2026-09-01 10:23:08 +0800fix(buaa)：学科/产业专题库 跳转定向saas的特殊处理
+ea5319a8b869fb7718e162ebee166b329711d9c152b14c8cb82f57ac328370079e1e23cf5bd4bc24Zzhangying1@ourchem.com2026-08-31 17:36:49 +0800test
+52b14c8cb82f57ac328370079e1e23cf5bd4bc241d343b278f339954b6a6b896c110527e9a32c08aZzhangying1@ourchem.com2026-08-31 17:22:47 +0800test
+1d343b278f339954b6a6b896c110527e9a32c08ad2780645fc1c735dca6737d22f8cd697b9a5d8b0Zzhangying1@ourchem.com2026-08-31 14:53:55 +0800test
+d2780645fc1c735dca6737d22f8cd697b9a5d8b0d23b8cc494ff5a082d797529120ab279a5fcf533Zzhangying1@ourchem.com2026-08-31 14:44:14 +0800feat(buaa)：学科/产业专题库的登录校验与saas跳转
+d23b8cc494ff5a082d797529120ab279a5fcf533d744efe5e3297a1b5f5538988d42dcf2a90f4fc2Zzhangying1@ourchem.com2026-08-31 14:03:38 +0800fix(buaa)：首页的数字大屏需要登录校验
+d744efe5e3297a1b5f5538988d42dcf2a90f4fc2a61aa082886afd4bc236d7ece79925edf99fefe6Zzhangying1@ourchem.com2026-08-31 12:05:09 +0800fix(buaa)：saas的几个模块需要登录校验
+a61aa082886afd4bc236d7ece79925edf99fefe6e76ce7c30a096e189d80268982ea29d68172dc12Zzhangying1@ourchem.com2026-08-31 11:26:35 +0800fix(buaa)：数字大屏仅本地部署端展示，SaaS端隐藏
+e76ce7c30a096e189d80268982ea29d68172dc12e0ddf52445f0a2b7d78ad58bacf6f5e407d5fb7cZzhangying1@ourchem.com2026-08-28 18:35:09 +0800fix:数字大屏：与导航栏"北航知识产权数字图谱"点击逻辑一致
+e0ddf52445f0a2b7d78ad58bacf6f5e407d5fb7c2d091ed2db33966c7126208e74107e94b102a3dcZzhangying1@ourchem.com2026-08-28 17:06:38 +0800test
+2d091ed2db33966c7126208e74107e94b102a3dc27f295207e316d5f2e2de546add2576db8b0bed1Zzhangying1@ourchem.com2026-08-28 16:59:56 +0800test
+27f295207e316d5f2e2de546add2576db8b0bed1da6839a7450fac821e062382cfa38285f833a7d3Zzhangying1@ourchem.com2026-08-28 16:52:17 +0800fix：修复北航sso登录跳转前获取token接口在未失效时也调用
+da6839a7450fac821e062382cfa38285f833a7d31d7c52cf9670b1e67d26e0f6cadb58b8b463838c吴嘉明wujm@ourchem.com2026-08-28 11:10:12 +0800feat: 添加本地部署打包指令
+1d7c52cf9670b1e67d26e0f6cadb58b8b463838c7cc2e2b311658c3a9847788e17de818b5f6890eaZzhangying1@ourchem.com2026-08-27 17:53:54 +0800fix：北航sso登录修复测试
+7cc2e2b311658c3a9847788e17de818b5f6890ea5c7f7e0335cf7f9fb494640587e57ce5719756fdZzhangying1@ourchem.com2026-08-27 17:29:56 +0800fix：北航SaaS平台地址修改
+5c7f7e0335cf7f9fb494640587e57ce5719756fd76a22e3804f6e696ccec6b759c73361f62bc9cdcZzhangying1@ourchem.com2026-08-27 16:48:18 +0800feat(buaa)：跳转北航Saas的sso登录及重定向
+76a22e3804f6e696ccec6b759c73361f62bc9cdccacaa6c5d8c1e8c1eb1b755bc2468662d6bb09b3Zzhangying1@ourchem.com2026-08-26 17:46:22 +0800feat(buaa):修复了若干问题集合
+cacaa6c5d8c1e8c1eb1b755bc2468662d6bb09b34b61bfc2fb7b30e0ddff13d320a6eabcd5d254b0Zzhangying1@ourchem.com2026-08-07 17:49:35 +0800feat(buaa)：封装侧边导航tab组件、解决点击一级导航栏会跳转的BUG
+4b61bfc2fb7b30e0ddff13d320a6eabcd5d254b0d2eb7e73fe8862f8b7bda030efa8278020a88974Zzhangying1@ourchem.com2026-08-07 16:49:55 +0800feat(buaa)：在「服务内容」自定义导航栏下追加 4 个静态子菜单；在「服务内容 / 资源导航」两个父菜单下展示侧边栏
+d2eb7e73fe8862f8b7bda030efa8278020a8897490edb26f10be2f846b8b111bf3aa64cf69c304edZzhangying1@ourchem.com2026-08-07 14:39:55 +0800feat(buaa)：导航栏搜索框及对应二级页面、新闻公告二级页面左侧导航栏切换tab
+90edb26f10be2f846b8b111bf3aa64cf69c304edd22818edc8cf1894c650fcca3417b61eaa08226bsusususuguangluan@ourchem.com2026-08-03 10:40:21 +0800feat(buaa): 机构库专利详情字段调整
+d22818edc8cf1894c650fcca3417b61eaa08226b3c0d18d77b46f301648f637dc87f2792f5b6bdd7susususuguangluan@ourchem.com2026-08-03 09:55:29 +0800feat(buaa): 机构库高级检索字段调整

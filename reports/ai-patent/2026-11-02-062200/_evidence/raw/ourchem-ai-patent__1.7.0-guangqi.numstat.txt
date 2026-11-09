@@ -1,0 +1,1095 @@
+COMMIT@c74922474c38dd1826b88a20a3f0c4eb512684a7
+89	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/config/OaAnswerThreadPoolConfig.java
+4	4	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+11	10	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/PdfOcrUtil.java
+
+COMMIT@ed4bb8aa505d1856c8f7f983c9a23b902efa67d6
+35	4	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@9ca7379fe0289f7030936932c7686f240eca8177
+4	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@044e802a1f3d76c7881b5149f5ac07b2fe074529
+118	7	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@12375614363e79a6e016ec7d3d3079d8c17de204
+4	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewChatHisService.java
+29	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognitionService.java
+2	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewOpinionHisService.java
+15	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@cc8400c2b14491019e58468c624c2a379db99a9f
+0	2	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewCompareFileController.java
+
+COMMIT@c4b2768630ee9434ccb03759e79f771a534b2db7
+COMMIT@2f8611488f5bd10f53bd1af1bf481149f8ed96f7
+3	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+2	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/ParseReviewIssuesResultVO.java
+
+COMMIT@05a3c7ec975161536efb2abf1b029679975a9f6c
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/DisclosureDocumentUploadService.java
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/PdfOcrUtil.java
+
+COMMIT@a6d886fb32201679760b6316cfc8649889cde656
+COMMIT@d87a53b5c6bb780c81dd3922136fcdf1e03fe8a1
+10	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/DisclosureDocumentUploadService.java
+4	4	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/PdfOcrUtil.java
+
+COMMIT@912ac7f7810dc54ddcc33b017e54171836a4f0eb
+35	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/ModelResponseUtil.java
+
+COMMIT@2871ffcca2f72ad531f592b1b668a08fce12552e
+COMMIT@bce9f5d89dc5b316692fafba3b7a1d935a2f026e
+4	17	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+3	9	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewResponseStrategyHisService.java
+
+COMMIT@84db58b45eecdded9674f81d0e0734557a8db5a7
+COMMIT@c2d01a8bfe9ce27d9d13705b0673fe22c4af1102
+1	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/PdfOcrUtil.java
+
+COMMIT@97f11ba23dae3411f7919c33192c282813f0110b
+COMMIT@3326c9dcd1042230bf2493ee8cc04055886a0fb7
+7	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@f879261418b58ec624a92e60c7ee84a5a485105b
+17	7	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/DisclosureDocumentUploadService.java
+3	57	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+4	4	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/MarkdownFileUtil.java
+6	3	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/PdfOcrUtil.java
+
+COMMIT@f58df9a15b6472a605ae0b0637c9d335638dc459
+5	4	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+22	4	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/MarkdownFileUtil.java
+
+COMMIT@aae58ee205a83c890d622a3af4171f65da61e845
+83	5	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+2	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/documentupload/DisclosureDocumentUploadCreateService.java
+97	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/MarkdownFileUtil.java
+2	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/PdfOcrUtil.java
+3	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewUploadResultVO.java
+
+COMMIT@50c9082c7e932502f17922d5631b92a5b3a54894
+265	63	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+51	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/MarkdownFileUtil.java
+
+COMMIT@8e577c4520bcf520cff236d51bc85f8e7fa69357
+COMMIT@1cf930c4f57ce154e1de34387c0fafd0f116fe44
+26	1	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewController.java
+1	1	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pre.yaml
+1	1	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pro.yaml
+1	1	ourchem-ai-patent-business-api/src/main/resources/application-local.yaml
+258	46	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+65	5	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/MarkdownFileUtil.java
+7	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/PatentOaReviewInstanceVO.java
+
+COMMIT@09d27758ad40816f057df53fcecdb75c567b2619
+COMMIT@c74ad277f09612e9efae9835378927a3e5825667
+COMMIT@4d749a2dfd970d45a9b01177c0d0e0e52c512d4f
+14	8	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewChatHisService.java
+
+COMMIT@ce472fd53e7a9b3fc8ac6ddbb917bc30f3791dd6
+9	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/DocxUtil.java
+
+COMMIT@718f5315896fa9ed8747e47d1b5466aa22362c8a
+COMMIT@d6f37c6eaaaa8e614f47487cab05b4d804c6f1e4
+7	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/DisclosureDocumentUploadService.java
+4	4	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/DocxUtil.java
+
+COMMIT@7c8d7156edebeba1eae4fe11738aff5f4c544189
+5	7	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+12	6	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewResponseStrategyHisService.java
+
+COMMIT@a095c535cfa4626856a809e41077d32dcbaf29da
+COMMIT@7b06dc7e2afb0039741d417f06ea9bed2ede0b8e
+74	7	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/DisclosureDocumentUploadService.java
+
+COMMIT@02d6b9993aa116f190221bd03e178e392ea425a7
+3	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@333492a4dcfd9cc331ac03810d9b2d0115f24e90
+1	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@d6db55d0e563b29a06fbab9413c5e00e92fc7ef9
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@369e072df256d7e805758c28740bd1761a5a8c5f
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@735fe506bb2992a97859c4c6907be17123b1b509
+2	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/config/onepatent/service/OurchemService.java
+
+COMMIT@ee432d5f3ae04d5a16e1197ca9af5424baf1e97e
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@6068b449dcbb3083a0283198c0132eea5b055037
+8	5	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@8e3a9cc23a7acf643dcecad897cff5225a9c942d
+3	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@9555bb864ea47cf602d897c645da8d83924d7c90
+2	6	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewController.java
+
+COMMIT@beba6136f6d5584ca4dfb8cd5ad594aa36ca7696
+74	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/PatentApplicationNoExtractUtil.java
+0	246	ourchem-ai-patent-business-common/src/test/java/com/ourchem/ai/patent/util/PatentDateExtractUtilTest.java
+
+COMMIT@49f89f25648c066d804da62148f4c5ad31f1e887
+15	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+5	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewFileTreeVO.java
+
+COMMIT@9591e39f99d827b424dc13a57703f2efe3dff484
+COMMIT@3ae4bb8e6f993281838a19e1ea14131386dc6a31
+13	9	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@75a79ebe39df8ad8ee1bec86eed50d0428618d50
+4	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@530b795370c8c4d254d525016a9cdbbde1ace49b
+0	47	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@5e7fa16eb58c78d9acafbd5806b698a5dc9524ea
+69	3	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/config/onepatent/service/OurchemService.java
+57	5	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+224	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/PatentDateExtractUtil.java
+246	0	ourchem-ai-patent-business-common/src/test/java/com/ourchem/ai/patent/util/PatentDateExtractUtilTest.java
+
+COMMIT@4d0a80676b3a02f4aebc1b1f6c8cad88f6c30ce9
+COMMIT@f7150f5a9942a46ad2ad0d818b24bd4e3596f748
+8	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/dao/DocConvertPdfRecordDao.java
+65	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/DocConvertPdfRecord.java
+189	46	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/DisclosureDocumentUploadService.java
+
+COMMIT@16a88bc456c1f7d6b263b05f20273a0c7505451b
+COMMIT@294166195abe1b3cc7af72d4e5dea38c115ac938
+14	134	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+2	673	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@5d30b97a3a7b3ce8c8f37964b457689e048fc35b
+14	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+2	673	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@5f7321015c0fccb2361f3b072af080871dd27815
+9	5	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@e64826be9bc6d44338be144d423bf16482c79450
+49	3	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@712916d8f9472e0bda5c4fcdd755e756fd2b7ab4
+30	3	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewResponseStrategyHisService.java
+
+COMMIT@baf1287ed2604fe47de2151ae9efa67d85a030bf
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewResponseStrategyHisService.java
+
+COMMIT@9ee7a7a7a545e17304e389e7c7b732db9b773d9d
+121	14	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@93fa4dff8341a0848b33386efa42587b9c7d953b
+29	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@d58bc411d9dda8a8c524ac9512e35141db6955f0
+382	90	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@170d939f0fcd4f232c47e3d75fdd9b091110fe73
+48	340	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+0	20	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/PdfUtil.java
+
+COMMIT@c129a0aa05736dc0e0259b4822beab70a82ae2ce
+56	9	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@5632ac882db86f137fc152d3c3d4231305e7e9fe
+30	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@09a433533c7ca8a58942a97a89d77d2d1478acc5
+269	41	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@3e86ffb01aafa61f76cec1360e0d8fab0f8f8577
+22	4	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+76	6	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/DocxFormatter.java
+
+COMMIT@0b60b935476bc14d51bfbd585a61ff87f560e9ea
+33	4	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@7f15423d83f42d466dae06ed9d9bd8ebb9b958f8
+21	5	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@93fa7874a016edf8b9e5d0e3fc40bb2883873827
+6	4	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+4	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/PatentTextCleanUtil.java
+
+COMMIT@ae595090fd510388a31eb122c1a1ffa3ebd9b5a2
+10	3	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/DocUtil.java
+
+COMMIT@a5bda67bc0100009ef1d2801ec343a6c3090576d
+5	0	ourchem-ai-patent-business-api/src/main/resources/application-local.yaml
+5	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+266	235	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+62	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/DocUtil.java
+85	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/DocxUtil.java
+16	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/FileUtil.java
+8	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/MarkdownFileUtil.java
+133	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/PdfUtil.java
+
+COMMIT@49b8009a69d4e18cc154ebac106f2c98c0f1acc3
+13	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@9b55cee8c8cf7e9f3ccccbeaf51bc48d3ac201bb
+2	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@6ebdf3be60491999851faf66cafce2ede7a928a0
+53	14	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@6a862c3726823fdc34b4ac2ecda2dfc9bb6e6a64
+4	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+807	682	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+38	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/PatentTextCleanUtil.java
+
+COMMIT@a4d70c235fe727da6b0478e183d376b85144d88c
+13	7	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewOpinionHisService.java
+14	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+172	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/DocxFormatter.java
+
+COMMIT@5057b73d7070ab0338f5b379829b47f4dbe1d30a
+294	4	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@138c6d5e6a273c408192bd29955831af83ff6d77
+65	7	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@03ce9efd7d461afe638515b10296b2b4b90f98b8
+6	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@748c07352b730b61c3db0345cddd4ef56f5e5cf1
+33	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@4773f2d2a1733fcf0a5b902974d1d1a540533f24
+62	27	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@9bab38f201168fdd7053fa3f7e2e32d4506bf5a7
+189	34	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@369631787881e9ebcd283498a3cba846852be925
+58	22	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@66016acd4e0650ce43eb0208c8e04efc31ff31b7
+6	4	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@575811ef4cdcf8d568d0d2d6a44c18aaa042a8c0
+113	11	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@c236de99c9481e7fa6d594674b32a79ad869bbc1
+9	6	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@89b8c71e01d5df3155253fd191dae5e7fceab04d
+17	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@531b62a35f6083bf6d81bb2fa03b24430aa7799c
+1	1	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pre.yaml
+1	1	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pro.yaml
+1	1	ourchem-ai-patent-business-api/src/main/resources/application-local.yaml
+2	16	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/DisclosureDocumentUploadService.java
+5	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/MarkdownFileUtil.java
+
+COMMIT@fe78d8566c4e404acd90d07f79870a730e734fed
+38	9	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@f55531943dd4efae13e81cfe649c9ca999a49a7e
+93	20	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+5	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/DocxFormatter.java
+
+COMMIT@f6506a6e8843f58bc816269a79dba4935e7f7059
+2	28	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@c5877766bb7a190b348365df76da4e39f9cb3b0f
+26	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@3391a5a84fa75aa54527466ed52c1ef3077635cd
+20	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@8a81c0f49363a5135f043e6a20504ae5c00c2dde
+5	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognitionService.java
+14	4	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@492a4cb86de74600c0f528dc400ea66703bb4fd6
+9	5	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@63b6975b9bdb35a670e1de034c018788b13f08ce
+88	15	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@3f0f71d4a6145278ee9ce86d959a347104261444
+COMMIT@3f82394258866658287a1516b4cf17a1a547eca5
+4	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/PandocUtil.java
+
+COMMIT@d608deecd18e6a5c543f19c249c8a533be9abd36
+7	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/DocxFormatter.java
+
+COMMIT@d4198e4bcb1f8ee7c4466f657beb42add99b764d
+13	0	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pre.yaml
+13	0	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pro.yaml
+13	0	ourchem-ai-patent-business-api/src/main/resources/application-local.yaml
+11	0	ourchem-ai-patent-business-common/pom.xml
+14	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/DisclosureDocumentUploadService.java
+16	9	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewOpinionHisService.java
+20	9	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+89	7	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/DocxFormatter.java
+226	17	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/MarkdownFileUtil.java
+353	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/PdfOcrUtil.java
+
+COMMIT@c0a17cf8dcd1927a5db320dc717c0e8fdb7b01dd
+4	4	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@dfea6b92d7f08ae61d5ab9f8cde34c05df537ffc
+4	0	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pre.yaml
+4	0	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pro.yaml
+4	0	ourchem-ai-patent-business-api/src/main/resources/application-local.yaml
+200	3	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@aa97be3a7166a4db42a9dbc2d03dffcc92ff0392
+COMMIT@8597a284e555e629445868ced43d989cacdbec6e
+43	12	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@1b5b7272049208821604e43b2eff00b3a265853b
+COMMIT@7d1b0bd6916aa03c325dc4f4fc4d7cd00ce244e0
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewResponseStrategyHisService.java
+
+COMMIT@3c256ed20fce7cde73b6da38c94ad3b3b9dd6020
+COMMIT@0fc92daa0b6dbd5edfe18b8cbeba33d76d8a1eb8
+2	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewResponseStrategyHisService.java
+
+COMMIT@bb01e8113dfb324d6de6a192f0a5a2acc6322730
+78	5	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@4ae5e7fe9f28702b44c667c3873f4548082a2224
+9	3	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewOpinionHisService.java
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+69	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/DocxFormatter.java
+
+COMMIT@37976e55530c1510f2a28fb11d60f6d9e6b614ab
+13	5	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@12ad6ff229de16f71f2041a5f689f7767b1389d8
+6	0	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pre.yaml
+6	0	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pro.yaml
+8	0	ourchem-ai-patent-business-api/src/main/resources/application-local.yaml
+17	6	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewOpinionHisService.java
+183	8	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@3b464577f3dafe4499d3831ebaa3a7300fdab26b
+0	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewChatHisService.java
+
+COMMIT@6ba96c9daefaad911758dc4832198f3e1e6a3d2d
+2	2	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewController.java
+
+COMMIT@0baaf14f6dac922ab53fa20d708df0b9c0f9272d
+13	10	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewChatHisService.java
+10	4	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewOpinionHisService.java
+8	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@47960050e43efe361ca9dbe7ab2d20a2a48db029
+22	14	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewController.java
+1	1	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pre.yaml
+1	1	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pro.yaml
+1	1	ourchem-ai-patent-business-api/src/main/resources/application-local.yaml
+2	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewChatHisService.java
+24	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+14	5	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewOpinionHisService.java
+135	17	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+35	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/DocxFormatter.java
+1	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/PatentOaReviewInstanceVO.java
+
+COMMIT@545c0aabd1d01b4f18259a462c90a0f686a878f2
+COMMIT@529bf510d095db33be25578aa899f804ea998eab
+0	18	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewController.java
+0	274	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewChatHisNewService.java
+61	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewChatHisService.java
+53	13	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewOpinionHisService.java
+60	21	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@98f7b8f66e806c96d6db4a9f5cd50332a998a2ef
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewChatHisService.java
+2	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewResponseStrategyHisService.java
+
+COMMIT@7ecac7aad7020b0a64517ddc8b7eca798a8f718b
+COMMIT@5e513fecbc56f965314fc5c14d97a3d59efc9bc9
+11	6	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewOpinionHisService.java
+11	6	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+
+COMMIT@3bb4f2d04edc9c23da29daa4fb7da1e3e12fad8d
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewResponseStrategyHisService.java
+
+COMMIT@911dadda3b4a5aab3c3bd65d98825fe5babe176c
+152	39	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewResponseStrategyHisService.java
+
+COMMIT@96105ab6c16cf00a4cd06ef856833594fa87b908
+14	3	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewResponseStrategyHisService.java
+
+COMMIT@165ca7a3faf50c688b1d8f3231b3bb0e662820e2
+319	125	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/dify/oareview/util/MarkdownTableParser.java
+
+COMMIT@727c01c9231ee7c7a4b846f3e243c55b8d9854ea
+16	16	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewResponseStrategyHisService.java
+
+COMMIT@06c8ee138689fbd8627dff854c929dbeb3374f4c
+1	1	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pre.yaml
+1	1	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pro.yaml
+1	1	ourchem-ai-patent-business-api/src/main/resources/application-local.yaml
+8	3	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewChatHisService.java
+
+COMMIT@26fd70b99c145598ed6407527aefd20fdbcc8868
+COMMIT@53a57aac369ff91c8c36f63e9113fa114f59129d
+12	12	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewChatHisService.java
+
+COMMIT@aa4c8afa36db245e565125ec98d817085070091d
+COMMIT@8aeaaa372c71482540f9f004578de92b52ec4f6c
+90	0	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewController.java
+4	0	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pre.yaml
+4	1	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pro.yaml
+4	0	ourchem-ai-patent-business-api/src/main/resources/application-local.yaml
+7	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/dao/PatentOaReviewOpinionHisDao.java
+7	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/dao/PatentOaReviewReviseHisDao.java
+42	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewOpinionHis.java
+42	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewReviseHis.java
+274	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewChatHisNewService.java
+19	3	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewInstanceService.java
+279	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewOpinionHisService.java
+245	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewReviseHisService.java
+7	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewProblemAnalysisHisVO.java
+
+COMMIT@8a6226f0d782aac6026783ab4c6dd210cc9e6787
+1	1	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pre.yaml
+1	1	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pro.yaml
+1	1	ourchem-ai-patent-business-api/src/main/resources/application-local.yaml
+3	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewResponseStrategyHisService.java
+
+COMMIT@875b6ec14ae7db9af7e5d9f59c9fe614c6ba3739
+22	14	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewResponseStrategyHisService.java
+
+COMMIT@1efb8129df5456c7502180ea594fd91123715b83
+1	1	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewChatHisController.java
+2	1	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pre.yaml
+2	1	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pro.yaml
+2	1	ourchem-ai-patent-business-api/src/main/resources/application-local.yaml
+55	22	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewChatHisService.java
+
+COMMIT@53529739fd4e4eb33613a8d33f1b1946fb3df689
+48	6	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewResponseStrategyHisService.java
+
+COMMIT@6380c94cec9654785b56c96e72ac881663a3c60a
+3	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/JsonUtils.java
+
+COMMIT@60c80dbbac654b57d61022c67173e26e3a921ed9
+19	17	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewResponseStrategyHisService.java
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/dify/oareview/GuanQiOaReviewService.java
+
+COMMIT@99d3294747d82b2acfef63020a3f8a5072f6127c
+COMMIT@e0953514f90cdf00c454516e582f736fcd0b6193
+2	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewResponseStrategyHisService.java
+
+COMMIT@535f428d11a8ba70850435ee4a0b1f55e2206a78
+133	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewResponseStrategyHisService.java
+3	7	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/dify/oareview/GuanQiOaReviewService.java
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/dify/oareview/util/MarkdownTableParser.java
+
+COMMIT@52ad768bf084f339e11ad538bae51a7b121a16dd
+1	1	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewResponseStrategyHisController.java
+
+COMMIT@d804a6f211a9e1ec4bf9dfc12778c20f67cb6380
+2	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewInstanceService.java
+18	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisQueryService.java
+16	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewResponseStrategyHisQueryService.java
+
+COMMIT@31d025a47f316a1f2342b3b7daad4c3dba91777a
+4	2	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewProblemAnalysisHisController.java
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+20	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewInstanceService.java
+3	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewProblemAnalysisHisVO.java
+
+COMMIT@f2a154c63e854ba6e524521fbafe62478cf08920
+COMMIT@464087dd0f68e36991b9612ec6e98673f82364e6
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewInstance.java
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewSaveFilesVO.java
+
+COMMIT@c1cd57c8b9a4ab473609fb5ca11418d73e856206
+4	4	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewResponseStrategyHisService.java
+
+COMMIT@2560a82b8c9e1b2898aa86969c58591c79cbb6f7
+23	3	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewResponseStrategyHisController.java
+0	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewResponseStrategyHis.java
+11	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+21	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewResponseStrategyHisService.java
+8	4	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/dify/oareview/util/MarkdownTableParser.java
+
+COMMIT@10ec8797052871602b3853886d13518d1c56d4e6
+2	0	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pre.yaml
+2	0	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pro.yaml
+
+COMMIT@8d887c366e7b0d0b9258efafb1095baa74d90c79
+21	0	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewResponseStrategyHisController.java
+2	0	ourchem-ai-patent-business-api/src/main/resources/application-local.yaml
+8	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/dao/PatentOaReviewResponseStrategyHisDao.java
+84	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewResponseStrategyHis.java
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+341	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewResponseStrategyHisService.java
+90	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/dify/oareview/GuanQiOaReviewService.java
+278	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/dify/oareview/util/MarkdownTableParser.java
+
+COMMIT@0ad35779257abed5f40d8c733addbe71f9ae54f6
+1	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/config/dify/sse/SseEmitterExecutor.java
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewChatHisService.java
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+6	5	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/chat/PatentApplyChatService.java
+5	5	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/dify/oareview/GuanQiOaReviewService.java
+
+COMMIT@3cae01887a43fdf4c7f56056be0be6fc8ff4f783
+3	8	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/config/file/service/SysUploadService.java
+
+COMMIT@6f96ef6896390c8fef270c9686d452a9955cc283
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/DocUtil.java
+
+COMMIT@bb9e3e87f35096677f094365e2830c3fda025bc5
+COMMIT@6ee3444d87804bda0085dbfb3c6979a9e90d4622
+1	1	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pre.yaml
+1	1	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pro.yaml
+
+COMMIT@d6db6237061ea5c47628eba711cdbdba0af25e7c
+0	85	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/ocr/controller/OcrTestController.java
+0	335	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/PdfOcrUtil.java
+0	226	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/RapidOcrUtil.java
+
+COMMIT@293d7e57063d1a1c5ea738e55245ec163901ed67
+335	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/PdfOcrUtil.java
+
+COMMIT@62eae1f7b15d8bd92368e26b391353b90a793b11
+85	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/ocr/controller/OcrTestController.java
+226	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/RapidOcrUtil.java
+
+COMMIT@7da59fe0ab340e0749211b37b65c1eb4cb6e838e
+1	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/DocxMarkdownUtil.java
+11	5	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/MarkdownFileUtil.java
+69	24	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/PdfMarkdownUtil.java
+
+COMMIT@c5873f05f88768639bccdabf1a2a4aa46fd0dcd7
+COMMIT@006f258cb827318f2f7daed83ad23f71b013a961
+17	7	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+12	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/MarkdownFileUtil.java
+
+COMMIT@022bce3ae5fb8e478f05b666851940f7bd2e60a4
+6	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@1718f3b6809ecb0bc60c676d0f01a489d86b9406
+2	0	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewCompareFileController.java
+
+COMMIT@fc1ac8e39ab4b4b10422c92648558c355f07aee0
+COMMIT@718e70b78c8dc35d340e832378375d432b0fac47
+2	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewCompareFile.java
+87	25	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@702eea2ca16f397d9ffa32315ce2d30d9ca5bb9a
+196	26	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/DocxMarkdownUtil.java
+24	3	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/PdfMarkdownUtil.java
+
+COMMIT@e40c6eb182959d39aa49927d3419efb0d77f553f
+COMMIT@be48d8e927b7d33d198741a34891bcfbdec243f3
+2	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewFileRecognition.java
+12	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+346	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/DocxMarkdownUtil.java
+80	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/MarkdownFileUtil.java
+61	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/PdfMarkdownUtil.java
+
+COMMIT@d80a8da47597aad86ee464ecc8b772cb335ccbd9
+COMMIT@cba5d4ade82f768f8fffec5457cf7431de413120
+3	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@73ef8f1782e322e314570558762b26f0ceba9e90
+93	33	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@50a7ab7ff4737e7c892f059098896aba9ebd415b
+COMMIT@48a9830db80ca22ebe235a4c447769ab4c34345e
+24	5	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@8d6ab44484873ef4b24df79931a2d0539f9baaea
+2	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@abc830141ab2e559fa6e1521d28b640c8ff3bb97
+2	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@1362c5eaed85bc53f0fbdc8bbd1dd7532384b48f
+COMMIT@e46899715a12732705f7ce6a90e16ed23cab8150
+3	3	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@1500d1946f968db209ee5164ddce1c2f5dc4d9ca
+COMMIT@8a6a29aa2dde1f252bd40656789d1f36e314c6cf
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@8680d58004161c4cb0920e8979ba6ae800e2ad11
+16	14	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@ae23a13db115b988f46097ea81a9f065ca10a135
+11	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@b966382666e24ffc90cba24a18831b153cd662b5
+COMMIT@ed6bdea44920277b08ce3541961a26b660ede047
+13	5	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@c13c1f9c1a6b084f3df1707bf20798363f1cab9c
+COMMIT@fc0872746cdc6e7474b7b97fc372fd5f4e00b531
+8	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@df417922a4468cda9ee2ca9c0255b0f72b9b58a7
+6	13	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+3	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewFileListResultVO.java
+
+COMMIT@a647056f416fcc0417ebeae9f4209272cae6b002
+2	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewCompareFile.java
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewCompareFileService.java
+3	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@b244cabf37a75e870a7817aa9437e6b91c7186a2
+COMMIT@f7690022ff0d4d03ba27c74051d6b32eca0571a0
+2	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewCompareFile.java
+5	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+2	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/ParseReviewIssuesResultVO.java
+
+COMMIT@84dc010537907fca8933e5ac4430944fa75cb5c6
+COMMIT@c417025ef38807405dbb54a0972fd66fec7e464a
+3	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewFileRecognition.java
+21	10	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@c08ece7d9bd994caaf432167c9150151db8dbbe7
+3	5	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@10230ec54e105723e496fc4572a58bca6a90d431
+7	6	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@1031f253cfb237c408db9e13b04dabbf591a6577
+COMMIT@81766fa093c33d6b12102056fdd5895c88b9bfa6
+1	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@58760adab24b00a7233434ddd21edfcf749c6ebd
+COMMIT@382487752407bcf6144f7a956354d985fef8f0a7
+13	17	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@cb0828a4d32e310308d0d61a8b49ab9dec25e6dd
+2	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/documentupload/DisclosureDocumentUploadCreateService.java
+
+COMMIT@8ee944a126c2b9e9aca304c94d5af3afdf386f81
+73	49	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@420a00569f569285cb04e8e6731215fe583aa0d5
+5	5	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@2fdccab28d68c2f22a47397b288d0533ca8d9cd2
+1	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+2	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewFileTreeVO.java
+
+COMMIT@3f404e1de7a4d31cb4becd44fb8ff01b1c8c841f
+4	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+1	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewFileTreeVO.java
+
+COMMIT@b6dd48959f87e8ed76faa81a32d36e06c7869ad8
+4	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@2ca416bd74d1c0f0b691f141468338fe49c5bc59
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@2e7818db47b79e55229fcd19d52f4b6c62511f1e
+COMMIT@cbf27ff589b6352a62ef7364c71ee26d0223e6ce
+3	4	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@227c39e94e389e80d0a419ff5a4325fa5fcfddd7
+COMMIT@5ffcb3067830290f6c370067183c05970536806a
+28	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@943754097acf83c4b2d879a57d8c3e7144e1adb4
+1	0	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pro.yaml
+
+COMMIT@fb12892ec11eb877c319b0faf3f452609119b327
+30	30	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@dcdcfd3fd51ee472a891ee7aee8e4b0c7a3d8cc1
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@ecc0530bdf2f9edc3b97d8a84a8d8b0c48535a6d
+10	1	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pro.yaml
+
+COMMIT@92f8c8728826a237733b2022e2d7322a189e2268
+37	34	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@27cd4af1a07e73e19b763c45fa408b4f923a8d03
+2	2	ourchem-ai-dify-sdk-client/src/main/java/com/ourchem/ai/dify/client/util/HttpClientUtils.java
+
+COMMIT@821e683f10d8e3dd770a0a84ac52669c2b7c2ddf
+4	20	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@aa25242ae691dce04ec276727ac022114a5abcf5
+COMMIT@465a1e076e94b0062517e373cc37f0356f591a2b
+7	7	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@fb36df89a4f9e9adba64ae1b74763cba4738957e
+COMMIT@9c83664938864561f0690eebf1c51c2470a80934
+3	8	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@aa5363078fe9c83d34988966429d7e87a68880c4
+3	3	ourchem-ai-dify-sdk-client/src/main/java/com/ourchem/ai/dify/client/entity/DifyConfig.java
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/config/okhttp/config/OkHttpConfig.java
+
+COMMIT@4afbdd090bd71ec12acca7b0465e8dece5a45ed4
+0	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@f86727262a0f15d6e4ece848b38716a28f7d546f
+5	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@663b58810c459789a39654e3079e901f73a2478d
+8	4	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@6a949465ca77cbeb35b3413936508c23770134b4
+257	385	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@127bc575f6d1bdf961e6f75ed441b76e074c05b0
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@13ac363017d0dab9c07de703ce5e118cdbab6f92
+COMMIT@2e4db1418e25a5c14760ba372c0c2eb8a1800aa1
+7	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@58b3c7a7c9e8f2325e5f895a02d9a0c6e2b9a4ed
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@8308b80e241644c4e6096b6fead311ef4f01b5c5
+COMMIT@35b63721f4115daa2567047e65603602251baf7e
+14	16	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+16	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/FileUtil.java
+46	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/PdfUtil.java
+
+COMMIT@b0f1e7ed4c7ad0ee962eacc9328c2e998b864a13
+COMMIT@6fdc7e6b1cd102b27a996e966241430c43268edd
+43	17	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@fa2a668b4d5b961dc2687585924684ab01c655dc
+COMMIT@2425d49e12e45070e355a13f53fdd9caa5a898c3
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@228f754f9239ab0c91df58a1789c545c9bf6173b
+7	4	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@67ac5b018dde9a411a6bf7ed70b6b37a96007c04
+5	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@5833cd57a0e644c4d652b28450065c3a81bc914a
+COMMIT@522ea59bc975679fe41d555d33893b8b419cbc2d
+15	17	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@08e589352ab09d2d789dac8c1fa7604576d3fb1d
+17	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/documentupload/DisclosureDocumentUploadCreateService.java
+
+COMMIT@65e2c1091152e673c0c81c1a700b954ed911f12d
+2	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/DisclosureDocumentUploadService.java
+
+COMMIT@6f8be0fadc5e2057de7f0dd45235bcfab7637519
+4	3	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewController.java
+2	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/DisclosureDocumentUploadService.java
+4	4	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@625759f5b0f0bbe30d6a27a8421bb54fe9479804
+COMMIT@ce01a73335cc8137f31244fdae550bd086c6b870
+1	4	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewController.java
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/DisclosureDocumentUploadService.java
+73	103	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+0	19	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewFileUpdateVO.java
+6	6	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewSaveFilesVO.java
+1	4	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewUploadResultVO.java
+
+COMMIT@ba7e990782896591b2dd405ed51eca41baf21c0c
+20	34	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@3662a7ca8d579f2a7d6d3460b501bb452dc68102
+1	1	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewChatHisController.java
+36	25	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewChatHisService.java
+
+COMMIT@9ce145fce2b2c8d887c2784ae304d0189cbc693a
+COMMIT@6ca7a2984769324d6f8e515a5c6cbceeaa55c2a8
+167	59	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@3f34d7103162be1317de01d8d6383727d6a84d45
+6	18	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@f1e491be594678a3a0b49a8348afc6fc45b6cb83
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@96bf5fd27e56cebe176244698ff437200c0c13d3
+31	30	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@1dd4905ebe60c20675a1264737a8e54b7289c311
+12	12	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@97c4012b63c4fee0dc171b9b5c0d3cfdeed29008
+COMMIT@af000deb9ff8f7c23082ad18ecbae4f3fda709d4
+62	8	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+114	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/ReviewOpinionConclusionVO.java
+78	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/UpdateHistoricalOpinionResultVO.java
+
+COMMIT@8759124ea18025af87c52104ee3ffde8960df2d0
+COMMIT@aaed58872acd55f3c352d5d1873e715c6ff76675
+18	5	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@e3adaaf2e8d538b24c24ca805e6a17429611b29a
+COMMIT@6c27fb85b4d4d7fa3a877fc9a56b51cf8d1558c8
+24	23	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@9a0bf8d845260f74e4f2e18b5cdbd66525ed7326
+167	7	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@0ffe18c243213441deb72e7cb2e6f8838246391d
+COMMIT@fb71eb30e548cb882babd9491462581cacbc5070
+71	97	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@1ad0ec8059103e9e57c5fb4d03d12b96dbaab485
+38	0	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewChatHisController.java
+1	0	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pre.yaml
+1	0	ourchem-ai-patent-business-api/src/main/resources/application-local.yaml
+7	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/dao/PatentOaReviewChatHisDao.java
+256	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewChatHisService.java
+
+COMMIT@9f54afeb7fa044c2204e643f7d395c480d37e555
+8	4	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewProblemAnalysisHisController.java
+
+COMMIT@896d5d4152a5e5cb3a5ed804f0273e85f8d10195
+1	3	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewCompareFileController.java
+
+COMMIT@c5ea0e1d95f064a825dd9bd52c915579e463df12
+COMMIT@2e89d5919af4a1c3cd5faaaab8357d095af08707
+7	6	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@923ec7a127ba7e1d3861ae3ad6dc6924fda9feae
+4	4	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewController.java
+2	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/PatentOaReviewInstanceVO.java
+
+COMMIT@1199d40eae3273206ef5d3744c7fd1e403ee2de4
+COMMIT@cea8046568ffb78eab4fda8c073905b170d05889
+5	2	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewController.java
+36	9	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+5	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewSaveFilesVO.java
+4	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewUploadResultVO.java
+
+COMMIT@6f760cc8df683897da12af4ce8759c9983ebf84f
+19	4	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognitionService.java
+3	3	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewFileTreeVO.java
+
+COMMIT@f3577acb25f534bba7f6b503b9a140405dfec46a
+COMMIT@7d020faded5bf7dc01c94a73c9e131ec161f08fe
+2	1	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewFileRecognitionController.java
+28	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewChatHis.java
+88	8	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+20	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewFileTreeVO.java
+
+COMMIT@04a130021efc8c1c0fa62d97df4c0cfcfff5a0a5
+7	0	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/deprecated/DisclosureDocumentUploadController.java
+633	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/DisclosureDocumentUploadService.java
+30	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/PdfUtil.java
+
+COMMIT@28efe193b64aac9ad5cae8972019a39dec909d38
+30	0	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewInstanceController.java
+14	0	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewProblemAnalysisHisController.java
+2	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewInstance.java
+20	28	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+2	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewInstanceService.java
+24	3	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+12	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewProblemAnalysisHisVO.java
+
+COMMIT@13a41b0a9de3149d5a1411267cf7d6871e956965
+33	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@c340ac4da4ff95dd69f24ee0e48a6eace62c5dc4
+COMMIT@e4b2a8e370e80c720d6f6428b4592f962f6ec38f
+31	0	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewCompareFileController.java
+9	3	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewFileRecognitionController.java
+2	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewFileRecognition.java
+40	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+20	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/UpdateOaReviewDateVO.java
+
+COMMIT@77809305af1a636a16d0aff45e92852098b42069
+7	6	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@4adbe20ef07dd1a52c72e9d428b70fc9ec4c04ce
+COMMIT@dc0b99e3c2dfc3063c59e640054eecc87004b8d0
+30	0	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewFileRecognitionController.java
+2	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewCompareFileService.java
+25	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognitionService.java
+41	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/JsonUtil.java
+14	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewFileNodeVO.java
+
+COMMIT@6756884839c8b08d2cc91c34d3f63c05b60d58b1
+COMMIT@c211ee3e41887f0b18afe0bb58ee9ece31e5a799
+41	12	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewFileItemVO.java
+2	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewFileListResultVO.java
+
+COMMIT@520a503a28aaffc516622ed58debb36eb1c65af7
+6	0	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewProblemAnalysisHisController.java
+68	43	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+
+COMMIT@d4b9ef5481fd6ae8197d926abc0668258ff9abc4
+COMMIT@b884a5c0a415010f5922e376d69f153219b0883f
+32	0	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewProblemAnalysisHisController.java
+5	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/config/onepatent/service/OurchemService.java
+14	15	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/ParseReviewIssuesResultVO.java
+
+COMMIT@11fad8fe39a7987539173c8d0d0b5b6aa936d6f2
+3	0	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pre.yaml
+
+COMMIT@c58634b4d2ddef20b6f2d45cf716bdd6ecbb46a7
+5	1	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pre.yaml
+5	1	ourchem-ai-patent-business-api/src/main/resources/application-local.yaml
+8	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/dao/PatentOaReviewProblemAnalysisHisDao.java
+5	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewCompareFile.java
+2	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewFileRecognition.java
+65	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewProblemAnalysisHis.java
+9	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewCompareFileService.java
+27	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognitionService.java
+1	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+619	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewProblemAnalysisHisService.java
+224	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/dify/oareview/GuanQiOaReviewService.java
+1	16	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/DocUtil.java
+2	31	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/DocxUtil.java
+1	16	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/util/PdfUtil.java
+184	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/ParseReviewIssuesResultVO.java
+
+COMMIT@0ab0ef3448ebcd9fb92c432bc96f76abb84a3a49
+3	3	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewController.java
+
+COMMIT@7224c86f6ea757b863e80ad2ac89dd086afa857c
+4	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewFileRecognition.java
+15	3	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@287d04ab9033e43d2ebdc6170d95069ec835f366
+5	5	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewController.java
+62	8	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+20	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewSaveFilesVO.java
+
+COMMIT@c4063dd31505b630f56810eec19cbd64b52fdc5e
+10	5	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewController.java
+16	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+22	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewInstanceService.java
+12	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/PatentOaReviewInstanceVO.java
+
+COMMIT@12f5363e696eda9ed4691b4adcb5c11d1d4c1eae
+6	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewFileRecognition.java
+
+COMMIT@2a17f1b667eb6eb6c83b2e2d6f82bc735934175f
+9	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewCompareFile.java
+5	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/DisclosureDocumentUploadService.java
+
+COMMIT@f977bd5f1a3f5114cf6a32bf47e9339772654f01
+6	0	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/deprecated/DisclosureDocumentUploadController.java
+10	8	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewController.java
+5	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewFileRecognition.java
+43	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/DisclosureDocumentUploadService.java
+62	13	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@116e9fa7a0b4d42f27fb9fd4bad4b3fb542ecb1f
+COMMIT@8622e1111500f0cda7382f9ffda9424c6b391ee6
+19	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewUploadResultVO.java
+
+COMMIT@b2dac1491b332f929b33b033cee0d9088e3390fd
+19	5	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewController.java
+2	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewRecognitionStatus.java
+175	103	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+
+COMMIT@7e7eeb9b1ebe05acaa3456b15b3038fb6d5f538f
+1	0	ourchem-ai-patent-business-api/src/main/resources/application-guangqi-pre.yaml
+
+COMMIT@1167b42833eaca7c26b332b137e079bc066f8b2a
+COMMIT@134f7263084c8eda77117be33a0ae363cc0d5b8d
+54	14	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewController.java
+2	4	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewRecognitionStatus.java
+152	128	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+19	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewFileUpdateVO.java
+
+COMMIT@478005515a2350fc01755c82ce716cc6fdaf15b9
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/config/file/service/SysUploadService.java
+769	49	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/documentupload/DisclosureDocumentUploadCreateService.java
+
+COMMIT@11c8dc1b87a022801be685defb29661772d993ec
+COMMIT@0820e02e7b4aa65aa8e766b327c2014876829336
+20	4	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewController.java
+0	1	ourchem-ai-patent-business-api/src/main/resources/application-local.yaml
+42	19	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+0	20	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewUploadResultVO.java
+
+COMMIT@995e7e43992dcd3dcc020ff34f86f27f4b92f5b3
+2	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+125	29	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/dify/PatentApplyWritingInstanceService.java
+
+COMMIT@6ea19e8ddea7d2e5f39e98d9bc00c1606c01b6d7
+27	7	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewController.java
+3	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewInstance.java
+176	22	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+25	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewFileItemVO.java
+30	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewFileListResultVO.java
+25	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewSwitchFileTypeVO.java
+
+COMMIT@fc0b292e8c4338fcdc952b1af47ad635fd786962
+97	0	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/oa/PatentOaReviewController.java
+4	0	ourchem-ai-patent-business-api/src/main/resources/application-local.yaml
+9	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewCompareFile.java
+5	2	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewRecognitionStatus.java
+1228	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognizeService.java
+35	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewInstanceService.java
+20	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/vo/OaReviewUploadResultVO.java
+
+COMMIT@5af539f6cfe42f32b7c21b318a9b30cfff0bcb46
+9	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/dao/PatentOaReviewCompareFileDao.java
+42	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewCompareFile.java
+1	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewFileRecognition.java
+50	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/enums/PatentFileType.java
+10	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewCompareFileService.java
+
+COMMIT@1b5d691f7d838ecf42c6499f289ae6d650df986a
+0	8	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/dao/GQDisclosureOaAnswerReviewUploadFileListDao.java
+
+COMMIT@74737e4e653d7b4c6c7374e4285103bc6d141013
+0	8	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/dao/GQDisclosureOaAnswerReviewInstanceDao.java
+
+COMMIT@fd13ea5a47be5791c5ffd149755bc44605613a70
+0	41	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/guangqi/GQDisclosureOaAnswerReviewUploadController.java
+0	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/dao/GQDisclosureOaAnswerReviewInstanceDao.java
+0	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/dao/GQDisclosureOaAnswerReviewUploadFileListDao.java
+0	47	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/GQDisclosureOaAnswerReviewInstance.java
+0	50	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/GQDisclosureOaAnswerReviewUploadFileList.java
+0	52	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/enums/OaAnswerFileTypeEnum.java
+0	140	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/GQDisclosureOaAnswerReviewInstanceService.java
+0	10	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/GQDisclosureOaAnswerReviewUploadFileListService.java
+0	664	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/guangqi/OaAnswerFileTypeRecognizeService.java
+0	41	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/guangqi/vo/GQOaAnswerUploadVO.java
+
+COMMIT@1f5b1a4761e2be019a2ba31bbc4695db3a7f483a
+COMMIT@847e8b692d19310c44d60ddf0fb305fd846f6f02
+9	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/dao/PatentOaReviewFileRecognitionDao.java
+9	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/dao/PatentOaReviewInstanceDao.java
+9	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/dao/PatentOaReviewRecognitionStatusDao.java
+57	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewFileRecognition.java
+36	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewInstance.java
+42	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/PatentOaReviewRecognitionStatus.java
+10	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewFileRecognitionService.java
+10	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewInstanceService.java
+10	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/PatentOaReviewRecognitionStatusService.java
+
+COMMIT@142517b24bd7a90d576db35dfdce97701e2ee94d
+41	0	ourchem-ai-patent-business-api/src/main/java/com/ourchem/ai/patent/controller/guangqi/GQDisclosureOaAnswerReviewUploadController.java
+9	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/dao/GQDisclosureOaAnswerReviewInstanceDao.java
+9	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/dao/GQDisclosureOaAnswerReviewUploadFileListDao.java
+47	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/GQDisclosureOaAnswerReviewInstance.java
+50	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/entity/GQDisclosureOaAnswerReviewUploadFileList.java
+52	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/enums/OaAnswerFileTypeEnum.java
+140	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/GQDisclosureOaAnswerReviewInstanceService.java
+10	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/GQDisclosureOaAnswerReviewUploadFileListService.java
+664	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/guangqi/OaAnswerFileTypeRecognizeService.java
+41	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/guangqi/vo/GQOaAnswerUploadVO.java
+
+COMMIT@7c4a8980ae214ab5b6a455e682c87c153bff8c53
+7	2	ourchem-ai-patent-business-api/src/main/resources/application-local.yaml
+
+COMMIT@e42eb31733afd3d26beaf70d8128f9fe5885925c
+9	1	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/config/file/service/SysUploadService.java
+111	0	ourchem-ai-patent-business-common/src/main/java/com/ourchem/ai/patent/service/documentupload/DisclosureDocumentUploadCreateService.java

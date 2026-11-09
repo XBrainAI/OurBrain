@@ -1,0 +1,92 @@
+35cf1df1fa4aaa4ea32f7c78d1ef116ad079cc625e9527d1e9ca4a40b174fc0477807b8cdb3622a8gaojingkaigaojingkai@ourchem.com2026-11-03 17:21:10 +0800refactor(search): 1017569 协同创新存在同名文件夹时返回所有
+5e9527d1e9ca4a40b174fc0477807b8cdb3622a87096193f781878fae680c2c0b0a2efe2533dc0f9zhongjianghuazhongjianghua@ourchem.com2026-11-02 15:58:05 +0800fix(share): 1017557-【专利收藏：分享专利，提示“不存在该邮箱”（实际存在）】             https://www.tapd.cn/tapd_fe/61451497/bug/detail/1161451497001017557
+7096193f781878fae680c2c0b0a2efe2533dc0f9cae7640060aea3a60576d8d77802183b5a4852a8gaojingkaigaojingkai@ourchem.com2026-10-26 11:20:39 +0800refactor(search): 1016010 收藏夹检索路径规则处理
+cae7640060aea3a60576d8d77802183b5a4852a875de136294b8f00e2c209336b9b4135c1582c19agaojingkaigaojingkai@ourchem.com2026-10-21 17:56:58 +0800refactor(search): 收藏夹检索支持不同路径的同名文件夹
+75de136294b8f00e2c209336b9b4135c1582c19abc126f7d4b83739d6e637f2378626535defe34a3 f309c6f93c4f1a59b779f9bd97196803df80496dgaojingkaigaojingkai@ourchem.com2026-10-21 17:54:55 +0800Merge remote-tracking branch 'origin/feat-1016010-收藏夹支持检索' into feat-1016010-收藏夹支持检索
+bc126f7d4b83739d6e637f2378626535defe34a3ffadc0d38b6c46a2f8b300e2d55b8ae9bdc2cdabgaojingkaigaojingkai@ourchem.com2026-10-21 17:09:53 +0800fix(search): 修复解析检索式收藏夹名取到括号的问题
+ffadc0d38b6c46a2f8b300e2d55b8ae9bdc2cdabf960f9b6b0a72e2ad963989f0a686ce0c0235044gaojingkaigaojingkai@ourchem.com2026-10-21 16:21:52 +0800fix(search): 修复解析检索式收藏夹名取到括号的问题
+f309c6f93c4f1a59b779f9bd97196803df80496d59c9adbc002c154a9a3371821007872c2f1a9718gaojingkaigaojingkai@ourchem.com2026-10-21 17:09:53 +0800fix(applicant): 修复解析检索式收藏夹名取到括号的问题
+59c9adbc002c154a9a3371821007872c2f1a9718f960f9b6b0a72e2ad963989f0a686ce0c0235044gaojingkaigaojingkai@ourchem.com2026-10-21 16:21:52 +0800fix(applicant): 修复解析检索式收藏夹名取到括号的问题
+f960f9b6b0a72e2ad963989f0a686ce0c0235044db9e917c8be51ba1c921132a079014134fe6a50agaojingkaigaojingkai@ourchem.com2026-10-16 17:05:39 +0800fix(search): 修复修复预检索接口与检索出来的结果不一致的问题
+db9e917c8be51ba1c921132a079014134fe6a50afb9dd6f8f98c7733da10ede69010d6478ffb7c40gaojingkaigaojingkai@ourchem.com2026-10-16 15:15:38 +0800feat(search): 新增专利收藏、协同创新检索字段
+fb9dd6f8f98c7733da10ede69010d6478ffb7c40b9eee461f1e37e0bfa0ac118cdc3a51fd305a61d 69bb826b498aa08bf1f6adb088775dec93fa777dzhongjianghuazhongjianghua@ourchem.com2026-10-14 15:59:20 +0800Merge branch 'fix-数据地图导航定时任务bug' into v5.13.7
+b9eee461f1e37e0bfa0ac118cdc3a51fd305a61d91986fe498e12f72d824b53bd19ca908325bcafazhongjianghuazhongjianghua@ourchem.com2026-10-13 16:30:39 +0800fix(config): 修正 dashscope 模型名称和添加刷新范围支持
+91986fe498e12f72d824b53bd19ca908325bcafa2cb231b6dc786e4a54b26a644fa0e346a7d5e1abgaojingkaigaojingkai@ourchem.com2026-10-09 17:14:23 +0800fix:修复用户无法使用分析功能的问题
+2cb231b6dc786e4a54b26a644fa0e346a7d5e1ab62479817f8b2a6d04291a54d0e0ce0e010b1a9b9gaojingkaigaojingkai@ourchem.com2026-10-08 18:26:59 +0800fix:修复用户无法使用分析功能的问题
+62479817f8b2a6d04291a54d0e0ce0e010b1a9b97bffd37db37ccbdb2aa14318983d43e5fba30d37zhongjianghuazhongjianghua@ourchem.com2026-09-28 18:09:08 +0800fix(collection): 收藏夹专利数量和索引统计逻辑
+69bb826b498aa08bf1f6adb088775dec93fa777d7bffd37db37ccbdb2aa14318983d43e5fba30d37zhongjianghuazhongjianghua@ourchem.com2026-09-23 11:53:42 +0800fix(core): 修复数据地图导航bug 优化专利数据统计及调度线程池配置
+7bffd37db37ccbdb2aa14318983d43e5fba30d373e8403814c3c47aca8954cdc847d4dbf1fc2956bsusuguangluan@ourchem.com2026-09-21 19:16:33 +0800fix(agent feedback): 修复内容长度校验不一致问题
+3e8403814c3c47aca8954cdc847d4dbf1fc2956b1e539a17f8058b7cfa21a67d601a85d436a3fb53susuguangluan@ourchem.com2026-09-20 11:36:24 +0800feat: 新增用户意见反馈功能模块
+1e539a17f8058b7cfa21a67d601a85d436a3fb534f7197e75f0607b07295f43ca4cb5ef3b6921612zhongjianghuazhongjianghua@ourchem.com2026-09-04 17:13:39 +0800style：删除无用测试数据提交
+4f7197e75f0607b07295f43ca4cb5ef3b692161296931bf6f8ae233847c16e1dd42c8b97540e9387gaojingkaigaojingkai@ourchem.com2026-08-06 09:25:59 +0800fix(search): 1016964 修复智能翻译不稳定的问题
+96931bf6f8ae233847c16e1dd42c8b97540e9387ca37557f10446d0d417aa17e766a9d759a9848d3gaojingkaigaojingkai@ourchem.com2026-08-13 16:37:22 +0800feat(search): 1016105 专利库覆盖国家和地区调整
+ca37557f10446d0d417aa17e766a9d759a9848d3583acfd84bb9c96890fc54df73d92a4787e835a2gaojingkaigaojingkai@ourchem.com2026-08-03 16:21:52 +0800fix(repeat): 1016927 修复相似片段文本中包含标签的问题
+583acfd84bb9c96890fc54df73d92a4787e835a296cd21570587b2110b602bb6c39b0ea5fb4430d5gaojingkaigaojingkai@ourchem.com2026-08-03 14:32:27 +0800fix(repeat): 1016923 修复专利查重的综合评估返回专利太多导致页面无法展示的问题（query接口字符长度超过35000）
+96cd21570587b2110b602bb6c39b0ea5fb4430d55d925fa8d2007ca04441b7bdb18ad518aa94f04dgaojingkaigaojingkai@ourchem.com2026-08-03 14:20:46 +0800fix(repeat): 1016923 修复专利查重相关接口参数错误的问题
+5d925fa8d2007ca04441b7bdb18ad518aa94f04d5d97af1ad3fe80094b328bf8e592eda4f42d2b70gaojingkaigaojingkai@ourchem.com2026-07-20 16:04:58 +0800fix(repeat): 1016927 修复相似片段文本中包含标签的问题
+5d97af1ad3fe80094b328bf8e592eda4f42d2b703d6517e9f805efb38d6e18fa4c12c34b9f47fdddgaojingkaigaojingkai@ourchem.com2026-07-31 18:10:20 +0800fix(repeat): 1016924 修复专利查重时间格式错误的问题
+3d6517e9f805efb38d6e18fa4c12c34b9f47fddd429a07d603eb9886957de983bd1467eb481df49fgaojingkaigaojingkai@ourchem.com2026-07-31 17:06:13 +0800fix(repeat): 1016924 修复专利查重时间格式错误的问题
+429a07d603eb9886957de983bd1467eb481df49ff9a70cb6cf08488be35cc58a709b3f660d26ba17gaojingkaigaojingkai@ourchem.com2026-07-31 16:20:09 +0800fix(repeat): 1016923 修复查重提示存在越权操作的问题
+f9a70cb6cf08488be35cc58a709b3f660d26ba17f821033810cb3c52f89c9980043462cdd1b23f3fgaojingkaigaojingkai@ourchem.com2026-07-31 16:15:17 +0800fix(repeat): 1016923 修复查重提示存在越权操作的问题
+f821033810cb3c52f89c9980043462cdd1b23f3f45dc9b358d0e10a8b7d413be64217bb0596462c6gaojingkaigaojingkai@ourchem.com2026-07-31 11:40:44 +0800fix(repeat): 1016908 修复专利查重全文重复率计算错误的问题
+45dc9b358d0e10a8b7d413be64217bb0596462c64d41c3213dff46f7ebf29efedf18e235b954d6edgaojingkaigaojingkai@ourchem.com2026-07-30 18:34:08 +0800fix(repeat): 1016907 修复查重报告申请人字段与页面上对不上的问题
+4d41c3213dff46f7ebf29efedf18e235b954d6ed406998d8e5eb81192c4735d97b491a850466024bgaojingkaigaojingkai@ourchem.com2026-07-30 18:11:34 +0800fix(repeat): 1016907 修复查重报告申请人字段与页面上对不上的问题
+406998d8e5eb81192c4735d97b491a850466024bc96782c13928bcb14b6a99f65d689cf917eae9aagaojingkaigaojingkai@ourchem.com2026-07-30 15:38:24 +0800fix(repeat): 1016907 修复查重报告申请人字段与页面上对不上的问题
+c96782c13928bcb14b6a99f65d689cf917eae9aaa40dba0a77c9d5a733fc5371fbca1dd82fb83726gaojingkaigaojingkai@ourchem.com2026-07-30 14:18:22 +0800fix(repeat): 1016907 修复查重报告中未包含查重率等于5%的综合评估数据的问题
+a40dba0a77c9d5a733fc5371fbca1dd82fb83726cc8ad0e413d2b6f90c379d4b0f48121b07ccff44gaojingkaigaojingkai@ourchem.com2026-07-30 14:15:34 +0800refactor(repeat): 1016734 专利查重避免重复编译正则表达式
+cc8ad0e413d2b6f90c379d4b0f48121b07ccff4415eb91fcc2fd9d8407de7c69e863118812d929fcgaojingkaigaojingkai@ourchem.com2026-07-20 16:04:58 +0800fix(repeat): 1016734 修复专利查重报告页码错误的问题
+15eb91fcc2fd9d8407de7c69e863118812d929fcfcba1a5db6eee49659d12337b7b3be759830f9a3gaojingkaigaojingkai@ourchem.com2026-07-22 11:09:23 +0800refactor(translation): 1016049 翻译预警日期改为昨日
+fcba1a5db6eee49659d12337b7b3be759830f9a3de0688ac0ff1edafa194ddd12716e184ee6953f2gaojingkaigaojingkai@ourchem.com2026-07-22 10:03:26 +0800refactor(translation): 1016049 补充翻译用量之后清除对应阈值的翻译预警推送标记
+de0688ac0ff1edafa194ddd12716e184ee6953f289a14c234a36c17aa48fcb6e2f6f1bd3fd2a5c82gaojingkaigaojingkai@ourchem.com2026-07-20 18:21:11 +0800fix(translation): 1016049 修复高并发翻译预警发送多条的问题
+89a14c234a36c17aa48fcb6e2f6f1bd3fd2a5c8285675c8eee9aebd7d96886f63a7be5984f4e7eafgaojingkaigaojingkai@ourchem.com2026-07-20 18:06:40 +0800fix(translation): 1016049 修复翻译预警数量有误的问题
+85675c8eee9aebd7d96886f63a7be5984f4e7eaf64451a9ecb86252481631249dca45d46e27143fcgaojingkaigaojingkai@ourchem.com2026-07-20 10:30:48 +0800fix(translation): 1016049 修复翻译预警当日缓存不生效的问题
+64451a9ecb86252481631249dca45d46e27143fcd5778cb41b72e58f98f421c6888dc4e7f42a8b06gaojingkaigaojingkai@ourchem.com2026-07-20 09:43:16 +0800refactor(translation): 1016049 修改当月翻译预警用量的key
+d5778cb41b72e58f98f421c6888dc4e7f42a8b0647c3208fbaa09f99521cd0ea4a0402dd1b6b2817gaojingkaigaojingkai@ourchem.com2026-07-20 09:20:42 +0800refactor(translation): 1016049 修改当月翻译预警用量的key
+47c3208fbaa09f99521cd0ea4a0402dd1b6b28177a668a97c8da0eaa5984d3880865ad8476500f14gaojingkaigaojingkai@ourchem.com2026-07-16 11:56:08 +0800refactor(translation): 1016049 定时任务加锁、翻译预警万为单位、翻译总量不动态更新
+7a668a97c8da0eaa5984d3880865ad8476500f1490c2b2a94b0319a328cd433483d0ba6f68969ff9gaojingkaigaojingkai@ourchem.com2026-07-16 11:25:07 +0800fix(translation): 1016049 新增翻译用量预警机制
+90c2b2a94b0319a328cd433483d0ba6f68969ff9f5b74354a373ba1cc34b69a70c27a2a04839983fgaojingkaigaojingkai@ourchem.com2026-07-16 10:53:08 +0800fix(translation): 1016049 新增翻译用量预警机制
+f5b74354a373ba1cc34b69a70c27a2a04839983fd621ccc5846d6da0774810bcba9032e328ee0f86gaojingkaigaojingkai@ourchem.com2026-07-09 10:15:58 +0800refactor(applicant): 1016038 智能翻译在英文文本上添加引号
+d621ccc5846d6da0774810bcba9032e328ee0f86fe598a8452e93e9cf851df3021ac4c417d7a40f6gaojingkaigaojingkai@ourchem.com2026-07-07 17:10:03 +0800refactor(applicant): 申请人分组不能分享给自己、被分享人不能有重名分组
+fe598a8452e93e9cf851df3021ac4c417d7a40f6c479dd9642f0ad0e61ee8d879e0ddd8cf7ccab72gaojingkaigaojingkai@ourchem.com2026-07-07 16:53:25 +0800refactor(applicant): 申请人分组不能分享给自己、被分享人不能有重名分组
+c479dd9642f0ad0e61ee8d879e0ddd8cf7ccab72ffc81aad957cfc72b716d2799c0e7f4d941c81c1gaojingkaigaojingkai@ourchem.com2026-07-07 16:11:16 +0800refactor(applicant): 申请人分组不能分享给自己、被分享人不能有重名分组
+ffc81aad957cfc72b716d2799c0e7f4d941c81c19fb5537a677e14bd5313d976fd01a0523ab4fe7dgaojingkaigaojingkai@ourchem.com2026-06-24 11:17:59 +0800refactor: 1015919 企业知识产权体检报告脚注调整
+9fb5537a677e14bd5313d976fd01a0523ab4fe7d5ae5cda604c86762a0a692bb1df3d52e2373d0afgaojingkaigaojingkai@ourchem.com2026-07-06 09:52:31 +0800refactor(applicant): 1016688 过滤申请人列表改为大小写不敏感
+5ae5cda604c86762a0a692bb1df3d52e2373d0afc1199ec5da653ca79782673926be730aa2e42cd8gaojingkaigaojingkai@ourchem.com2026-07-02 17:23:36 +0800refactor(applicant): 1016495 修改申请人关键词的返回条数为301
+c1199ec5da653ca79782673926be730aa2e42cd8e494341010fcd71751c2ec854199a60005d62a7cgaojingkaigaojingkai@ourchem.com2026-07-02 15:48:11 +0800fix(applicant): 1016653 修复申请人关键字结果列表出现跟检索内容不相关的的问题
+e494341010fcd71751c2ec854199a60005d62a7c5191f95ecc299db73b4000a83546858131f2e189gaojingkaigaojingkai@ourchem.com2026-07-02 15:17:01 +0800fix: 1016640 修复自定义申请人组字段不可用的问题
+5191f95ecc299db73b4000a83546858131f2e189ca0b18a8451a61148b3d28c70e26a114e580ab7agaojingkaigaojingkai@ourchem.com2026-07-02 11:52:37 +0800refactor(applicant): 1016495 修改申请人关键词的返回条数为101
+ca0b18a8451a61148b3d28c70e26a114e580ab7afe391b757672d11eeb4fce9f9488e08d4b2ceb65gaojingkaigaojingkai@ourchem.com2026-07-02 09:39:57 +0800fix: 1016640 修复自定义申请人组字段不可用的问题
+fe391b757672d11eeb4fce9f9488e08d4b2ceb6535dd086bf26e8c277967a242c4c65ae19fefd7fegaojingkaigaojingkai@ourchem.com2026-07-01 17:46:30 +0800feat: 1015916 检索字段新增CAG、CACG
+35dd086bf26e8c277967a242c4c65ae19fefd7fe7202dd1ed1c5143f49dbb83120508a6598e736degaojingkaigaojingkai@ourchem.com2026-06-30 17:08:32 +0800refactor: 1015870 申请人扩展增加检索式输出日志
+7202dd1ed1c5143f49dbb83120508a6598e736dea88c31eab018ac8e3673811f87b35faab8eb9711gaojingkaigaojingkai@ourchem.com2026-06-30 15:39:12 +0800refactor(applicant): 1016613 申请人扩展联想返回结果进行过滤
+a88c31eab018ac8e3673811f87b35faab8eb9711d6e451082e8a39b56219a57bae1e9d167561a0f3gaojingkaigaojingkai@ourchem.com2026-06-30 15:20:01 +0800fix(applicant): 1016495 修改申请人关键词的返回
+d6e451082e8a39b56219a57bae1e9d167561a0f31f6662c17fea42ad2e4b43bd0117dad9c9fb5320gaojingkaigaojingkai@ourchem.com2026-06-30 15:12:18 +0800fix(applicant): 1016613 修改申请人扩展联想的返回
+1f6662c17fea42ad2e4b43bd0117dad9c9fb5320213ed216baac8853e7d0a9951a0d9dce4c54dee1gaojingkaigaojingkai@ourchem.com2026-06-30 15:05:54 +0800fix(applicant): 1016613 改为从es拿联想申请人列表
+213ed216baac8853e7d0a9951a0d9dce4c54dee1e66022ff29942b8c3c35db52fa8bef54b7f7c02egaojingkaigaojingkai@ourchem.com2026-06-30 14:06:25 +0800refactor(applicant): 1016609 申请人分组数量限制改为200
+e66022ff29942b8c3c35db52fa8bef54b7f7c02e8372caf19f1d9de4f9c5ca3a369990466c3a27e1gaojingkaigaojingkai@ourchem.com2026-06-30 11:59:14 +0800fix(applicant): 1016495 修改申请人关键词的返回
+8372caf19f1d9de4f9c5ca3a369990466c3a27e1247abc5fc1298a93c500da2fd37b2a77974e1af3gaojingkaigaojingkai@ourchem.com2026-06-25 15:46:11 +0800refactor(applicant): 1016504 修改申请人扩展返回
+247abc5fc1298a93c500da2fd37b2a77974e1af3450ed0b57332e99a109b40113ee3ef6f8df028b7gaojingkaigaojingkai@ourchem.com2026-06-25 14:25:25 +0800refactor(applicant): 1016504 申请人扩展联想功能分页改为固定返回20条
+450ed0b57332e99a109b40113ee3ef6f8df028b77b2139814ed5f94d82faef2855336c90b1245f9dgaojingkaigaojingkai@ourchem.com2026-06-24 15:45:04 +0800refactor(semantics): 1016541 添加语义检索结果处理日志
+7b2139814ed5f94d82faef2855336c90b1245f9df9bc5f89f01b81c257968c0e90bbed8af787dc34gaojingkaigaojingkai@ourchem.com2026-06-24 15:05:39 +0800refactor(semantics): 1016541 添加语义检索结果缓存key日志
+f9bc5f89f01b81c257968c0e90bbed8af787dc34d580b93db4066811b0a6f0f9de6c4bc3abe5ea2cgaojingkaigaojingkai@ourchem.com2026-06-24 14:54:19 +0800refactor(semantics): 1016541 添加语义检索结果处理日志
+d580b93db4066811b0a6f0f9de6c4bc3abe5ea2cb65895a695efa08c2a0f9da390eb51e9257bcab8gaojingkaigaojingkai@ourchem.com2026-06-23 16:37:48 +0800feat(applicant): 1016504 新增申请人扩展联想功能
+b65895a695efa08c2a0f9da390eb51e9257bcab89fdd139d1127c9e023678d99581ff1233e7b60e6gaojingkaigaojingkai@ourchem.com2026-06-22 17:55:35 +0800Revert "feat: 1015916 检索字段新增CAG、PF、CI"
+9fdd139d1127c9e023678d99581ff1233e7b60e6d90e20062381c61f4daeea99c25f72faa0c6ee88gaojingkaigaojingkai@ourchem.com2026-06-22 15:34:34 +0800feat: 1015916 检索字段新增CAG、PF、CI
+d90e20062381c61f4daeea99c25f72faa0c6ee88967a3502d01d50b28d757b1f54448ec0e5a1036agaojingkaigaojingkai@ourchem.com2026-06-22 11:36:35 +0800refactor(applicant): 1016501 申请人扩展未返回的结果专利数置为0
+967a3502d01d50b28d757b1f54448ec0e5a1036adb5b9831cf4c1b4960e3abdd30a47154db2abcb9gaojingkaigaojingkai@ourchem.com2026-06-18 18:16:59 +0800fix(applicant): 1016501 修复申请人扩展返回结果不完整
+db5b9831cf4c1b4960e3abdd30a47154db2abcb913d85c33cf76b04ebf870eb037cf17ecc2d24eb9gaojingkaigaojingkai@ourchem.com2026-06-17 11:54:01 +0800refactor(applicant): 1015870 修改申请人扩展的统计字段
+13d85c33cf76b04ebf870eb037cf17ecc2d24eb974e8fd51160afc8fcafb1fcea6acb4aee45c4318gaojingkaigaojingkai@ourchem.com2026-06-17 09:19:31 +0800refactor(applicant): 1015870 过滤申请人分组的扩展接口的返回结果
+74e8fd51160afc8fcafb1fcea6acb4aee45c4318f7f0ec7581f325452831c93904f5055f17ec32aegaojingkaigaojingkai@ourchem.com2026-06-16 18:21:03 +0800refactor(search): 1015873 高级检索AI智能扩展缓存改为配置项
+f7f0ec7581f325452831c93904f5055f17ec32aead81a2d623a3d1a338e9d67f5f6c3335384488c1gaojingkaigaojingkai@ourchem.com2026-06-16 18:08:51 +0800refactor(search): 1015873 高级检索AI智能扩展缓存改为配置项
+ad81a2d623a3d1a338e9d67f5f6c3335384488c1bef8a4782fda373770da3431a55808c4e41be388gaojingkaigaojingkai@ourchem.com2026-06-16 18:02:36 +0800refactor(search): 1015873 高级检索AI智能扩展缓存改为配置项
+bef8a4782fda373770da3431a55808c4e41be38875970224ed70481e1a3cd013547d39af834d5460gaojingkaigaojingkai@ourchem.com2026-06-16 11:41:46 +0800fix(applicant): 1015870 修复申请人分组导出接口的文件名乱码的问题
+75970224ed70481e1a3cd013547d39af834d54608c1244620970693d496ff0fd0b348f521e1a40afgaojingkaigaojingkai@ourchem.com2026-06-16 09:22:56 +0800refactor(applicant): 1015870 优化申请人分组导出接口的请求和响应方式
+8c1244620970693d496ff0fd0b348f521e1a40af7581227c3ecb9624e76ce7292d5fef1817a7591dgaojingkaigaojingkai@ourchem.com2026-06-15 16:15:44 +0800refactor(applicant): 1015870 优化申请人分组的导出接口的入参
+7581227c3ecb9624e76ce7292d5fef1817a7591ddca517952003b0c59425c69928700071b9082fe2gaojingkaigaojingkai@ourchem.com2026-06-15 15:46:17 +0800feat(applicant): 1015870 申请人分组的扩展接口新增已存在的分组名字段
+dca517952003b0c59425c69928700071b9082fe2da2f60d4220b839119018d77ecc99e5895532fd3gaojingkaigaojingkai@ourchem.com2026-06-15 09:42:31 +0800feat(applicant): 1015870 新增申请人分组的导出接口
+da2f60d4220b839119018d77ecc99e5895532fd3f2e488274af2059703acdf3479e86d0ad1777935gaojingkaigaojingkai@ourchem.com2026-06-12 17:47:48 +0800feat(applicant): 1015870 新增申请人分组的扩展接口
+f2e488274af2059703acdf3479e86d0ad17779354e091e70f9867e22b1d1605f619684e19d7d4cfczhongjianghuazhongjianghua@ourchem.com2026-06-15 14:21:21 +0800fix(export): 1016433 修复专利统计报告导出中的图片处理问题
+4e091e70f9867e22b1d1605f619684e19d7d4cfcab102cd6047f38ae185b7098686e7e3af99e055dzhongjianghuazhongjianghua@ourchem.com2026-06-10 11:06:02 +0800refactor(ApplicantGroupService): 移除申请人搜索过滤功能
+ab102cd6047f38ae185b7098686e7e3af99e055d2290bb0d40164f7d790471cf176b7c2c8de5bcc3zhongjianghuazhongjianghua@ourchem.com2026-06-05 18:15:39 +0800feat(applicant): 1015913 添加申请人曾用名查询功能
+2290bb0d40164f7d790471cf176b7c2c8de5bcc3f4d8ca4c7dc5221086c3fee1d4f40ef5a84c0c2asusususuguangluan@ourchem.com2026-06-04 14:40:50 +0800feat(core):  /sortFields实现每次返回“最近一次导出字段”在首位
+f4d8ca4c7dc5221086c3fee1d4f40ef5a84c0c2ade562d79242d8e3d239948705ed1955604bc9913susususuguangluan@ourchem.com2026-06-02 16:27:48 +0800feat(core): 1015895-导出字段模板根据产品隔离 - 增加下载模板 productType 产品维度 - 查询模板时返回 common 模板和当前产品私有模板 - 新增模板按当前产品保存 - 最近一次导出字段保存后转为当前产品私有 - common 模板保持四端共享且允许删除

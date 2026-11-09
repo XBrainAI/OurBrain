@@ -1,0 +1,87 @@
+COMMIT@cc3602012ab30b95d19a72cb4b5e75ed254db52b
+4	4	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/config/Globals.java
+
+COMMIT@c7ae0893e0697a25b8336ce807897e83a371dd37
+13	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/config/Globals.java
+2	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/enums/OrderTokenType.java
+71	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/handler/StieiHandler.java
+1	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/provider/ThirdPartyAuthenticationProvider.java
+2	1	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/service/UserDetailsServiceImpl.java
+6	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/service/impl/OrderServiceImpl.java
+
+COMMIT@4ad84f994905ff5f161df788fed91fe7943438c9
+3	3	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/service/UserDetailsServiceImpl.java
+
+COMMIT@9d08e30ce0593796cf8f1d8cd1507b880dee1ae1
+9	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/config/Globals.java
+2	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/enums/OrderTokenType.java
+53	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/handler/FahsysuHandler.java
+1	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/provider/ThirdPartyAuthenticationProvider.java
+6	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/service/impl/OrderServiceImpl.java
+
+COMMIT@fb8b6876a2c8d68ef984934d3957be775cc0271e
+COMMIT@9b982f7c7ac5a0090621cc8d804e1a56c73bf68f
+COMMIT@7d81a83eba87d84daa0ef7f008de36c2e57d77a8
+42	19	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/config/AuthorizationServerConfig.java
+11	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/config/OurchemTokenServices.java
+
+COMMIT@962874cada84e38f9306602a5abed00f21dda30d
+12	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/config/Globals.java
+2	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/enums/OrderTokenType.java
+65	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/handler/BuaaHandler.java
+1	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/provider/ThirdPartyAuthenticationProvider.java
+6	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/service/impl/OrderServiceImpl.java
+
+COMMIT@fc31ba2f3005f3d3301631999a87155214551424
+13	0	ourchem-oauth-api/src/main/java/com/ourchem/oauth/api/user/patyee/OtherProductsUserInfo.java
+13	0	ourchem-oauth-api/src/main/java/com/ourchem/oauth/api/user/patyee/PatyeeUserInfo.java
+14	1	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/entity/PatyeeUserExtends.java
+14	1	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/entity/PatyeeUserTemplate.java
+13	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/entity/UcTemplateLimit.java
+5	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/provider/OurchemProviderBase.java
+1	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/service/PatyeeLimitManage.java
+1	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/service/UserDetailsServiceImpl.java
+9	2	ourchem-oauth-server/src/main/resources/mybatis/mapper/PatyeeUserExtendsMapper.xml
+16	5	ourchem-oauth-server/src/main/resources/mybatis/mapper/PatyeeUserTemplateMapper.xml
+2	1	ourchem-oauth-server/src/main/resources/mybatis/mapper/UcTemplateLimitMapper.xml
+
+COMMIT@576c64f4f8e94b58d0e86c6af45de2aa879389b2
+1	1	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/entity/ThirdPartyUser.java
+
+COMMIT@c69c5427eeee64ef65c6f50f38d71e3d6da18cb5
+2	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/provider/ThirdPartyAuthenticationProvider.java
+
+COMMIT@67975174ebe1934c4cd81ba50f1f4ab67b8d34e3
+5	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/entity/ThirdPartyUser.java
+36	2	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/handler/XzfHandler.java
+3	15	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/provider/ThirdPartyAuthenticationProvider.java
+
+COMMIT@8f34458496d234ee21b9388f69ec7d39cebd21f7
+10	1	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/service/UserDetailsServiceImpl.java
+
+COMMIT@f545d5d7e3741284d866e42523069dd243aade40
+4	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/config/Globals.java
+2	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/entity/ThirdPartyUser.java
+1	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/handler/InstsgLibraryHandler.java
+4	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/service/UserDetailsServiceImpl.java
+
+COMMIT@d9f59ee201a71c8db358405ad0665e46eea9c294
+COMMIT@6f558e77ec2caa7d2461846481c6136363a3a2ad
+9	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/config/Globals.java
+2	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/enums/OrderTokenType.java
+86	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/handler/InstsgLibraryHandler.java
+1	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/provider/ThirdPartyAuthenticationProvider.java
+6	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/service/impl/OrderServiceImpl.java
+
+COMMIT@4477be62e6ddb397d36cd225c3e0f2043f51dba3
+5	31	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/handler/SamlAuthenticationFailureHandler.java
+2	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/service/impl/UserSessionServiceImpl.java
+
+COMMIT@c6bbb16ed77d76bcbbe3ff585bae8684d015eb07
+1	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/provider/ThirdPartyAuthenticationProvider.java
+
+COMMIT@1deb2e860c1435427c75171d9932a32b688a55f8
+9	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/config/Globals.java
+2	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/enums/OrderTokenType.java
+80	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/handler/GzLangChaoHandler.java
+6	0	ourchem-oauth-server/src/main/java/com/ourchem/server/oauth/service/impl/OrderServiceImpl.java
